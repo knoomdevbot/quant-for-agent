@@ -1,0 +1,66 @@
+from __future__ import annotations
+
+import time
+from dataclasses import dataclass
+
+from .alpha import AlphaContext, load_alpha_function, normalize_weights
+from .alpaca_client import AlpacaGateway
+from .storage import Store
+
+
+@dataclass(frozen=True)
+class DaemonConfig:
+    interval_seconds: int = 300
+    dry_run: bool = True
+    once: bool = False
+    lookback_days: int = 90
+
+
+class TradingDaemon:
+    def __init__(self, store: Store, alpaca: AlpacaGateway, config: DaemonConfig):
+        self.store = store
+        self.alpaca = alpaca
+        self.config = config
+
+    def run(self) -> None:
+        while True:
+            self.tick()
+            if self.config.once:
+                return
+            time.sleep(self.config.interval_seconds)
+
+    def tick(self) -> list[dict]:
+        import pandas as pd
+
+        models = self.store.list_models(active_only=True)
+        events: list[dict] = []
+        if not models:
+            return events
+        now = pd.Timestamp.utcnow()
+        start = now - pd.Timedelta(days=self.config.lookback_days)
+        equity = self.alpaca.account_equity()
+        for model in models:
+            prices = self.alpaca.get_bars(model["symbols"], start=start.to_pydatetime(), end=now.to_pydatetime())
+            context = AlphaContext(symbols=model["symbols"], prices=prices, as_of=now)
+            raw = load_alpha_function(model["model_path"])(context) or {}
+            weights = normalize_weights(raw, model["symbols"])
+            sleeve_notional = equity * float(model["allocation"])
+            for symbol, weight in weights.items():
+                notional = abs(sleeve_notional * weight)
+                if notional < 1.0:
+                    continue
+                side = "buy" if weight >= 0 else "sell"
+                response = {"dry_run": True, "symbol": symbol, "side": side, "notional": notional}
+                if not self.config.dry_run:
+                    response = self.alpaca.submit_notional_order(symbol, side, notional)
+                event = {
+                    "model_name": model["name"],
+                    "symbol": symbol,
+                    "side": side,
+                    "notional": notional,
+                    "dry_run": self.config.dry_run,
+                    "response": response,
+                }
+                self.store.save_trade_event(event)
+                events.append(event)
+        return events
