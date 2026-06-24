@@ -28,15 +28,24 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 ```
 
-## Quickstart
+## Quickstart from a checkout
+
+The example alpha model and fixture CSV live in the repository, so clone the repo for the smoke test:
 
 ```bash
+git clone https://github.com/knoomdevbot/quant-for-agent.git
+cd quant-for-agent
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
 qfa --help
 qfa backtest run examples/momentum_alpha.py --symbols AAPL,MSFT --start 2024-01-01 --end 2024-03-01 --data-csv tests/fixtures/prices.csv
 qfa backtest list
 qfa models add examples/momentum_alpha.py --name momentum --allocation 0.25 --symbols AAPL,MSFT
 qfa daemon run --dry-run --once
 ```
+
+After direct `pip install "git+https://github.com/knoomdevbot/quant-for-agent.git"`, use `qfa` with your own alpha model file and data CSV paths.
 
 ## Alpha model contract
 
