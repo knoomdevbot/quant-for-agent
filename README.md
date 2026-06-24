@@ -7,13 +7,30 @@ CLI-first quant system for AI agents. MVP scope:
 - Register alpha models against portfolio allocations.
 - Run a simple Alpaca-backed trading daemon, paper-first, with explicit `--live` required for order placement.
 
-## Quickstart
+## Installation
+
+Install directly from GitHub:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev]"
+pip install "git+https://github.com/knoomdevbot/quant-for-agent.git"
+qfa --help
+```
 
+For development from a local checkout:
+
+```bash
+git clone https://github.com/knoomdevbot/quant-for-agent.git
+cd quant-for-agent
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+```
+
+## Quickstart
+
+```bash
 qfa --help
 qfa backtest run examples/momentum_alpha.py --symbols AAPL,MSFT --start 2024-01-01 --end 2024-03-01 --data-csv tests/fixtures/prices.csv
 qfa backtest list
