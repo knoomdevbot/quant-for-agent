@@ -1,0 +1,42 @@
+issue_id: AR-064
+model_name: etf-crash-recovery-dispersion-allocator-v1
+family: dispersion_recovery
+parent_alpha: AR-050
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLV
+  - XLU
+  - XLP
+  - XLE
+  - TLT
+  - IEF
+  - GLD
+data_source: Alpaca real market data via qfa
+forbidden_data_paths:
+  use_data_csv: false
+  use_csv_backed_data: false
+safety:
+  no_daemon: true
+  no_orders: true
+  alpaca_paper: true
+parameters:
+  vol_lookback: 20
+  vol_z_window: 126
+  shock_threshold_z: 1.0
+  dispersion_lookback: 20
+  dispersion_z_window: 63
+  compression_threshold_z: -0.20
+  recovery_lookback: 20
+  reversal_lookback: 5
+  holding_days: 10
+  rebalance_policy: stateless daily qfa weights; signal remains active for 10 sessions after qualifying shock/compression event
+  top_n: 3
+  single_name_cap: 0.35
+  max_gross: 1.0
+  drawdown_exclude: -0.28
+  min_history: 170
+costs:
+  primary_one_way_turnover_bps: 10
+  stress_one_way_turnover_bps: 20

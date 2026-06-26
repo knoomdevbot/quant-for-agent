@@ -1,5 +1,6 @@
 created_at: '2026-06-26T01:19:53Z'
-objective: Seed evolutionary alpha research queue; prioritize robust random-period Sharpe and low redundancy to accepted alphas.
+objective: Seed evolutionary alpha research queue; prioritize robust random-period
+  Sharpe and low redundancy to accepted alphas.
 issues:
 - id: AR-001
   title: Cross-sectional intermediate momentum on liquid mega-cap equities
@@ -72,7 +73,8 @@ issues:
   family: defensive_factor
   issue_path: alpha_research/issues/AR-010.md
 - id: AR-013
-  title: 'Refine AR-001: invert/cost-aware mega-cap momentum after negative real-data run'
+  title: 'Refine AR-001: invert/cost-aware mega-cap momentum after negative real-data
+    run'
   model_name: crosssec-antimom-or-filtered-megacap-daily-v1
   status: cancelled_bad_parent
   priority: pruned_bad_parent
@@ -104,7 +106,7 @@ issues:
   issue_path: alpha_research/issues/AR-016.md
   parent: AR-003
 - id: AR-011
-  title: "AR-002 refinement \u2014 cost-aware regime-filtered ETF mean reversion"
+  title: AR-002 refinement — cost-aware regime-filtered ETF mean reversion
   model_name: meanrev-zscore-liquid-etf-regime-cost-v1
   status: rejected
   priority: completed_realdata
@@ -112,7 +114,7 @@ issues:
   issue_path: alpha_research/issues/AR-011.md
   parent: AR-002
 - id: AR-012
-  title: "AR-002 divergent \u2014 liquid ETF overnight gap reversal"
+  title: AR-002 divergent — liquid ETF overnight gap reversal
   model_name: overnight-gap-reversal-liquid-etf-v1
   status: rejected
   priority: completed_realdata
@@ -232,7 +234,8 @@ issues:
   issue_path: alpha_research/issues/AR-030.md
   parent: AR-010
 - id: AR-032
-  title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after macro shock days'
+  title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after
+    macro shock days'
   model_name: etf-dispersion-convergence-macroshock-v1
   status: rejected
   priority: completed_realdata
@@ -312,7 +315,8 @@ issues:
   issue_path: alpha_research/issues/AR-043.md
   parent: AR-026
 - id: AR-044
-  title: 'Divergent from AR-025: cross-asset credit/equity stress dispersion mean reversion'
+  title: 'Divergent from AR-025: cross-asset credit/equity stress dispersion mean
+    reversion'
   model_name: credit-equity-stress-dispersion-reversion-v1
   status: rejected
   priority: completed_realdata
@@ -376,7 +380,8 @@ issues:
   issue_path: alpha_research/issues/AR-053.md
   parent: AR-042
 - id: AR-054
-  title: 'Refine AR-043: beta-reduced ETF stress liquidity allocation with drawdown brake'
+  title: 'Refine AR-043: beta-reduced ETF stress liquidity allocation with drawdown
+    brake'
   model_name: etf-stress-liquidity-beta-reduced-v1
   status: rejected
   priority: completed_realdata
@@ -458,24 +463,25 @@ issues:
 - id: AR-064
   title: 'Divergent from AR-050: ETF crash-recovery dispersion allocator'
   model_name: etf-crash-recovery-dispersion-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: dispersion_recovery
   issue_path: alpha_research/issues/AR-064.md
   parent: AR-050
 - id: AR-065
   title: 'Divergent from AR-052: ETF realized-volatility term-state breadth allocator'
   model_name: etf-realized-vol-term-breadth-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_breadth_regime
   issue_path: alpha_research/issues/AR-065.md
   parent: AR-052
 - id: AR-066
-  title: 'Divergent from AR-053: ETF realized-volatility carry rotation after macro-stress regimes'
+  title: 'Divergent from AR-053: ETF realized-volatility carry rotation after macro-stress
+    regimes'
   model_name: etf-realized-vol-carry-macrostress-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_carry_rotation
   issue_path: alpha_research/issues/AR-066.md
   parent: AR-053
@@ -535,14 +541,22 @@ issues:
   family: cross_sectional_reversal
   issue_path: alpha_research/issues/AR-073.md
   parent: AR-063
+- id: AR-074
+  title: 'Divergent from AR-064: macro-event liquidity gap ETF recovery allocator'
+  model_name: macro-event-liquidity-gap-etf-recovery-v1
+  status: queued
+  priority: child
+  family: event_liquidity_recovery
+  issue_path: alpha_research/issues/AR-074.md
+  parent: AR-064
 active_batch:
+- AR-067
+- AR-068
+- AR-069
+last_realdata_batch:
 - AR-064
 - AR-065
 - AR-066
-last_realdata_batch:
-- AR-061
-- AR-062
-- AR-063
-updated_at: '2026-06-26T12:00:43Z'
+updated_at: '2026-06-26T12:15:33Z'
 target_tried_ideas: 100
-tried_ideas_count: 54
+tried_ideas_count: 57

@@ -1,0 +1,20 @@
+issue_id: AR-064
+title: "Divergent from AR-050: ETF crash-recovery dispersion allocator"
+model_name: etf-crash-recovery-dispersion-allocator-v1
+status: researched
+family: dispersion_recovery
+type: divergent
+parent_alpha: AR-050
+hypothesis: "After broad volatility shocks, cross-sectional ETF dispersion compression may create a crash-recovery allocation signal distinct from convexity/VIXY stress-premium exposure."
+falsifier: "Median random-period Sharpe <= 0 after costs, unacceptable drawdown, high redundancy with AR-050/AR-043, or dependence on VIXY/convexity sleeves."
+data_source: "Alpaca real market data through qfa AlpacaGateway only"
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+vixy_dependency: false
+artifacts:
+  model: model.py
+  config: config.yaml
+  evaluation_latest_json: evaluations/latest.json
+  evaluation_latest_md: evaluations/latest.md

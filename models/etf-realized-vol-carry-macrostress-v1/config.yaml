@@ -1,0 +1,37 @@
+issue_id: AR-066
+model_name: etf-realized-vol-carry-macrostress-v1
+family: volatility_carry_rotation
+version: 1
+data_source: Alpaca/qfa real daily OHLCV
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+  - SHY
+timeframe: 1Day
+parameters:
+  vol_windows: [20, 60]
+  return_windows: [20, 60]
+  stress_breadth_thresholds_considered: [0.4, 0.6]
+  max_single_weight: 0.35
+  rebalance_weekday: Wednesday
+risk_controls:
+  long_only: true
+  max_gross_exposure: 1.0
+  max_single_etf_weight: 0.35
+  turnover_brake: weekly rebalance anchor
+  no_macro_calendar_terms: true
+evaluation:
+  costs_one_way_bps: [5, 10]
+  qfa_native_costs_applied: false
+  random_windows: 10
+  random_window_trading_days: 378
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
