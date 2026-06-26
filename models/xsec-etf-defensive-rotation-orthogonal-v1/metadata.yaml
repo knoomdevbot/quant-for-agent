@@ -1,0 +1,28 @@
+issue_id: AR-051
+model_name: xsec-etf-defensive-rotation-orthogonal-v1
+title: Refine AR-039 orthogonality-constrained ETF defensive rotation
+type: refinement
+parent: AR-039
+family: regime_allocation
+created_by: Hermes scheduled qfa research subagent
+created_at_utc: '2026-06-26T03:23:00Z'
+status: researched
+hypothesis: >-
+  A defensive ETF rotation can preserve AR-039 lower-turnover benefits while
+  explicitly penalizing correlation to existing TSMOM/carry-defensive watchlist alphas.
+falsifier: >-
+  Median random-period Sharpe <= 0 after costs, severe lower-tail drawdowns,
+  or high redundancy without improvement.
+implementation:
+  qfa_contract: generate_signals(context)
+  research_only: true
+  no_live_trading: true
+  no_daemon: true
+  no_data_csv: true
+  data_source: Alpaca real OHLCV via qfa
+artifacts:
+  model: model.py
+  config: config.yaml
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  immutable_runs_dir: evaluations/runs

@@ -338,24 +338,24 @@ issues:
 - id: AR-049
   title: 'Refine AR-037: orthogonality-constrained carry/defensive ETF allocation'
   model_name: etf-carry-defensive-orthogonal-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: cross_asset_carry_defensive
   issue_path: alpha_research/issues/AR-049.md
   parent: AR-037
 - id: AR-050
   title: 'Divergent from AR-037: ETF convexity stress-premium allocator'
   model_name: etf-convexity-stress-premium-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_regime_rotation
   issue_path: alpha_research/issues/AR-050.md
   parent: AR-037
 - id: AR-051
   title: 'Refine AR-039: orthogonality-constrained ETF defensive rotation'
   model_name: xsec-etf-defensive-rotation-orthogonal-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: regime_allocation
   issue_path: alpha_research/issues/AR-051.md
   parent: AR-039
@@ -423,14 +423,54 @@ issues:
   family: cross_asset_rotation
   issue_path: alpha_research/issues/AR-059.md
   parent: AR-046
+- id: AR-060
+  title: 'Refine AR-049: lower-turnover orthogonal ETF carry/defensive allocation'
+  model_name: etf-carry-defensive-turnover-brake-v1
+  status: queued
+  priority: child
+  family: cross_asset_carry_defensive
+  issue_path: alpha_research/issues/AR-060.md
+  parent: AR-049
+- id: AR-061
+  title: 'Divergent from AR-049: yield-curve ETF carry and duration allocator'
+  model_name: yield-curve-duration-carry-etf-v1
+  status: queued
+  priority: child
+  family: macro_carry_duration
+  issue_path: alpha_research/issues/AR-061.md
+  parent: AR-049
+- id: AR-062
+  title: 'Refine AR-051: held-out correlation-target ETF defensive rotation'
+  model_name: xsec-etf-defensive-rotation-heldout-corr-v1
+  status: queued
+  priority: child
+  family: regime_allocation
+  issue_path: alpha_research/issues/AR-062.md
+  parent: AR-051
+- id: AR-063
+  title: 'Divergent from AR-051: macro-surprise drawdown-state ETF allocator'
+  model_name: macro-surprise-drawdown-etf-allocator-v1
+  status: queued
+  priority: child
+  family: macro_regime_allocation
+  issue_path: alpha_research/issues/AR-063.md
+  parent: AR-051
+- id: AR-064
+  title: 'Divergent from AR-050: ETF crash-recovery dispersion allocator'
+  model_name: etf-crash-recovery-dispersion-allocator-v1
+  status: queued
+  priority: child
+  family: dispersion_recovery
+  issue_path: alpha_research/issues/AR-064.md
+  parent: AR-050
 active_batch:
+- AR-052
+- AR-053
+- AR-054
+last_realdata_batch:
 - AR-049
 - AR-050
 - AR-051
-last_realdata_batch:
-- AR-044
-- AR-045
-- AR-046
-updated_at: '2026-06-26T10:03:41Z'
+updated_at: '2026-06-26T10:31:13Z'
 target_tried_ideas: 100
-tried_ideas_count: 39
+tried_ideas_count: 42
