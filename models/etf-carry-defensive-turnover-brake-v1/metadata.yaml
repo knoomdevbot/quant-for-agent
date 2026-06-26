@@ -1,0 +1,19 @@
+issue_id: AR-060
+model_name: etf-carry-defensive-turnover-brake-v1
+status: researched
+parent_alpha: AR-049
+family: cross_asset_carry_defensive
+created_at_utc: '2026-06-26T00:00:00Z'
+qfa_compatible: true
+generate_signals: model.py:generate_signals
+data_policy:
+  source: Alpaca real OHLCV through qfa
+  no_csv_used: true
+  no_data_csv_argument_used: true
+execution_policy:
+  no_daemon: true
+  no_orders: true
+  temporary_db_only: true
+artifacts:
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md

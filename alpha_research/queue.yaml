@@ -410,24 +410,24 @@ issues:
 - id: AR-058
   title: 'Refinement from AR-046: regime-gated liquidity exhaustion recovery'
   model_name: liquidity-exhaustion-recovery-regimegated-megacap-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-058.md
   parent: AR-046
 - id: AR-059
   title: 'Divergent from AR-046: ETF defensive momentum carry rotation'
   model_name: etf-defensive-momentum-carry-rotation-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: cross_asset_rotation
   issue_path: alpha_research/issues/AR-059.md
   parent: AR-046
 - id: AR-060
   title: 'Refine AR-049: lower-turnover orthogonal ETF carry/defensive allocation'
   model_name: etf-carry-defensive-turnover-brake-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: cross_asset_carry_defensive
   issue_path: alpha_research/issues/AR-060.md
   parent: AR-049
@@ -504,13 +504,13 @@ issues:
   issue_path: alpha_research/issues/AR-069.md
   parent: AR-056
 active_batch:
+- AR-061
+- AR-062
+- AR-063
+last_realdata_batch:
 - AR-058
 - AR-059
 - AR-060
-last_realdata_batch:
-- AR-055
-- AR-056
-- AR-057
-updated_at: '2026-06-26T11:18:45Z'
+updated_at: '2026-06-26T11:31:33Z'
 target_tried_ideas: 100
-tried_ideas_count: 48
+tried_ideas_count: 51

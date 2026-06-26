@@ -1,0 +1,13 @@
+issue_id: AR-058
+model_name: liquidity-exhaustion-recovery-regimegated-megacap-v1
+status: evaluated
+created_at: '2026-06-26'
+parent_alpha: AR-046
+family: liquidity_reversal
+hypothesis: Regime gating and sparse/decayed basket recovery can make broad mega-cap liquidity exhaustion mean-reversion more robust than AR-046.
+universe: [AAPL, MSFT, NVDA, AMZN, META, GOOGL, AVGO, TSLA, JPM, LLY]
+data_source: Alpaca real daily OHLCV through qfa only; no CSV; no --data-csv.
+safety:
+  no_daemon: true
+  no_orders: true
+  temporary_db_only: true

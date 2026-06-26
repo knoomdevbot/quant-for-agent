@@ -1,0 +1,33 @@
+name: liquidity-exhaustion-recovery-regimegated-megacap-v1
+issue_id: AR-058
+family: liquidity_reversal
+parent_alpha: AR-046
+model_path: models/liquidity-exhaustion-recovery-regimegated-megacap-v1/model.py
+symbols:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - AVGO
+  - TSLA
+  - JPM
+  - LLY
+timeframe: 1Day
+research_only: true
+no_daemon: true
+no_orders: true
+data_source: Alpaca/qfa real market data only; no CSV and no --data-csv
+risk:
+  gross_exposure: 0.80
+  max_abs_weight: 0.16
+  basket_floor_fraction: 0.70
+parameters:
+  breadth_threshold: 0.40
+  volume_z_min: 1.10
+  range_z_min: 0.75
+  market_trend_lookback: 80
+  realized_vol_percentile_gate: [0.35, 0.82]
+  signal_decay_days: 3
+  cooldown_days: 3

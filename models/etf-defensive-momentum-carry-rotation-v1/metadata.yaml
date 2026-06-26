@@ -1,0 +1,14 @@
+issue_id: AR-059
+model_name: etf-defensive-momentum-carry-rotation-v1
+status: researched
+parent_alpha: AR-046
+type: divergent
+family: cross_asset_rotation
+created_at: '2026-06-26'
+hypothesis: >-
+  A slower ETF rotation combining defensive momentum and OHLCV carry proxies can
+  produce lower-turnover, different-driver returns from mega-cap liquidity exhaustion recovery.
+falsifier: >-
+  Non-positive median random-period Sharpe after 5 bps turnover haircut, high
+  correlation with ETF rotation/carry watchlist alphas, or unacceptable drawdown.
+implementation: qfa-compatible generate_signals(context) returning symbol weights

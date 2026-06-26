@@ -1,0 +1,26 @@
+issue_id: AR-060
+model_name: etf-carry-defensive-turnover-brake-v1
+parent_alpha: AR-049
+family: cross_asset_carry_defensive
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - IEF
+  - GLD
+  - USO
+  - FXE
+  - FXY
+  - UUP
+parameters:
+  rebalance_cadence: weekly_wednesday_anchor
+  turnover_brake: stable weights between weekly anchors via truncated signal history
+  lookback_windows: [63, 126, 189]
+  volatility_window: 126
+  max_single_weight: 0.30
+  equity_budget_max: 0.055
+  correlation_penalty_proxy: trend_beta_penalty_0_85_equity_0_70_carry
+costs_slippage:
+  external_one_way_bps_tested: [5, 10]
+  qfa_native_costs: unavailable

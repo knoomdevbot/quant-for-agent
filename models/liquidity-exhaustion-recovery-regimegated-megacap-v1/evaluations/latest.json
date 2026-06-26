@@ -1,0 +1,169 @@
+{
+  "artifacts": {
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-regimegated-megacap-v1/evaluations/runs/ar058_qfa_alpaca_real_20260626T112811Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-regimegated-megacap-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-regimegated-megacap-v1/evaluations/latest.md"
+  },
+  "bad_result_policy": "If rejected, no refinement/direct inversion/extension is suggested; only one divergent child mechanism is documented.",
+  "costs_slippage": {
+    "assumption_one_way_bps": 5.0,
+    "external_cost_postprocess_applied": true,
+    "method": "cost_return = gross_return - sum(abs(delta_weight))*0.0005",
+    "qfa_native_costs_available": false
+  },
+  "created_at": "2026-06-26T11:28:11Z",
+  "data_source": "Alpaca real daily market data via qfa CLI/direct engine and AlpacaGateway; no CSV fixtures; no --data-csv",
+  "date_range": {
+    "data_fetch": {
+      "end": "2025-12-31",
+      "start": "2019-01-01"
+    },
+    "primary": {
+      "end": "2025-12-31",
+      "start": "2024-01-01"
+    },
+    "timeframe": "1Day"
+  },
+  "db_artifact_retained": false,
+  "decision_reason": "Falsifier tripped: median random-window Sharpe <= 0 after 5 bps turnover haircut or positive windows <= 50%.",
+  "divergent_child_if_rejected": {
+    "mechanism": "Event-calendar earnings drift/dispersion unrelated to liquidity-exhaustion reversal; requires explicit earnings-date data before research.",
+    "title": "Mega-cap earnings-date post-gap drift dispersion"
+  },
+  "evaluation_status": "completed_real_data_backtest",
+  "issue_id": "AR-058",
+  "metrics": {
+    "drawdown": {
+      "primary": -0.01622572,
+      "worst_random": -0.00070939
+    },
+    "median_random_sharpe": 0.0,
+    "p25_random_sharpe": 0.0,
+    "parent_ar046_primary_cost_adjusted_5bps": {
+      "annualized_return": 0.08682701,
+      "annualized_volatility": 0.11017782,
+      "final_equity": 117963.2889,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.04908474,
+      "periods": 500,
+      "sharpe": 0.80678607,
+      "total_return": 0.17963289,
+      "win_rate": 0.012
+    },
+    "parent_ar046_turnover_proxy": {
+      "active_fraction": 0.02,
+      "active_periods": 10,
+      "annualized_one_way": 10.08,
+      "mean_daily": 0.04,
+      "total": 20.0
+    },
+    "positive_window_rate": 0.125,
+    "primary_cost_adjusted_5bps": {
+      "annualized_return": 0.00023439,
+      "annualized_volatility": 0.01447979,
+      "final_equity": 100046.5115,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.01622572,
+      "periods": 500,
+      "sharpe": 0.0234459,
+      "total_return": 0.00046511,
+      "win_rate": 0.004
+    },
+    "primary_pre_cost_qfa": {
+      "annualized_return": 0.00073655,
+      "annualized_volatility": 0.0146242,
+      "final_equity": 100146.1948,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.01622572,
+      "periods": 500,
+      "sharpe": 0.05767781,
+      "total_return": 0.00146195,
+      "win_rate": 0.004
+    },
+    "primary_turnover_proxy": {
+      "active_fraction": 0.006,
+      "active_periods": 3,
+      "annualized_one_way": 1.008,
+      "mean_daily": 0.004,
+      "total": 2.0
+    },
+    "random_windows": {
+      "count": 8,
+      "median_annualized_turnover": 0.0,
+      "median_sharpe": 0.0,
+      "p25_sharpe": 0.0,
+      "positive_window_rate": 0.125,
+      "worst_max_drawdown": -0.00070939,
+      "worst_sharpe": 0.0
+    },
+    "turnover_proxy": {
+      "primary_annualized_one_way": 1.008,
+      "random_median_annualized_one_way": 0.0
+    },
+    "worst_random_sharpe": 0.0
+  },
+  "model_name": "liquidity-exhaustion-recovery-regimegated-megacap-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality_status": {
+    "comparisons": [
+      {
+        "daily_cost_adjusted_return_correlation": 0.02446036,
+        "model": "AR-046 parent",
+        "overlap_periods": 500
+      },
+      {
+        "daily_cost_adjusted_return_correlation": 0.04928242,
+        "model": "AR-028 closing-volume-reversal-megacap-v1",
+        "overlap_periods": 500
+      },
+      {
+        "daily_cost_adjusted_return_correlation": 0.10554391,
+        "model": "AR-045 closing-volume-reversal-costaware-megacap-v1",
+        "overlap_periods": 500
+      },
+      {
+        "daily_return_correlation": 0.05197736,
+        "model": "SPY proxy",
+        "overlap_periods": 500
+      },
+      {
+        "daily_return_correlation": 0.05771137,
+        "model": "mega-cap equal-weight proxy",
+        "overlap_periods": 500
+      }
+    ],
+    "note": "AR-046/AR-028/AR-045 rerun on same Alpaca bars where model files were available; SPY and equal-weight proxies computed from same fetch.",
+    "status": "computed"
+  },
+  "qfa_run_ids": {
+    "primary_cli": 1,
+    "primary_direct_stored_temp_db": 2,
+    "random_windows_direct_stored_temp_db": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "sanitized_command_prose": "Credentials sourced from profile secret file (redacted); qfa backtest run model.py with configured symbols, requested date window, timeframe 1Day, initial cash 100000, and a temporary SQLite DB.",
+  "suggested_decision": "rejected",
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "AVGO",
+    "TSLA",
+    "JPM",
+    "LLY"
+  ]
+}
