@@ -512,24 +512,24 @@ issues:
 - id: AR-070
   title: 'Divergent from AR-061: FOMC/CPI bond ETF curve-shock reversal'
   model_name: event-curve-shock-reversal-bond-etf-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: event_macro_reversal
   issue_path: alpha_research/issues/AR-070.md
   parent: AR-061
 - id: AR-071
   title: 'Divergent from AR-062: ETF realized skew crash-rebound breadth allocator'
   model_name: etf-realized-skew-crash-rebound-breadth-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_breadth_reversal
   issue_path: alpha_research/issues/AR-071.md
   parent: AR-062
 - id: AR-072
   title: 'Refine AR-063: beta and redundancy constrained macro drawdown allocator'
   model_name: macro-drawdown-beta-redundancy-constrained-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: macro_regime_allocation
   issue_path: alpha_research/issues/AR-072.md
   parent: AR-063
@@ -573,14 +573,38 @@ issues:
   family: trend_breadth_regime
   issue_path: alpha_research/issues/AR-077.md
   parent: AR-069
+- id: AR-078
+  title: 'Divergent from AR-070: intraday post-announcement Treasury ETF mean reversion'
+  model_name: intraday-treasury-announcement-reversion-v1
+  status: queued
+  priority: child
+  family: event_intraday_reversal
+  issue_path: alpha_research/issues/AR-078.md
+  parent: AR-070
+- id: AR-079
+  title: 'Divergent from AR-071: intraday range-expansion close-location reversal breadth'
+  model_name: intraday-range-expansion-close-location-reversal-breadth-v1
+  status: queued
+  priority: child
+  family: intraday_liquidity_reversal
+  issue_path: alpha_research/issues/AR-079.md
+  parent: AR-071
+- id: AR-080
+  title: 'Divergent from AR-072: cross-asset realized-correlation breakdown allocator'
+  model_name: crossasset-realized-correlation-breakdown-allocator-v1
+  status: queued
+  priority: child
+  family: correlation_regime_allocation
+  issue_path: alpha_research/issues/AR-080.md
+  parent: AR-072
 active_batch:
+- AR-073
+- AR-074
+- AR-075
+last_realdata_batch:
 - AR-070
 - AR-071
 - AR-072
-last_realdata_batch:
-- AR-067
-- AR-068
-- AR-069
-updated_at: '2026-06-26T12:44:35Z'
+updated_at: '2026-06-26T13:01:07Z'
 target_tried_ideas: 100
-tried_ideas_count: 60
+tried_ideas_count: 63

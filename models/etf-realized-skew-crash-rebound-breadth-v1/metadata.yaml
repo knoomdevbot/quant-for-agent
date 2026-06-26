@@ -1,0 +1,21 @@
+issue_id: AR-071
+model_name: etf-realized-skew-crash-rebound-breadth-v1
+family: volatility_breadth_reversal
+parent: AR-062
+type: divergent
+status: researched
+hypothesis: Cross-sectional realized-skew and crash-rebound breadth across ETFs can identify relief-rally/reversal opportunities distinct from defensive rotation.
+qfa_contract:
+  entrypoint: generate_signals(context)
+  model_path: models/etf-realized-skew-crash-rebound-breadth-v1/model.py
+  real_data_only: true
+  alpaca_only: true
+  no_csv: true
+  no_daemon: true
+  no_orders: true
+artifact_policy:
+  durable_artifacts_under_model_folder_only: true
+  sqlite_db_retained: false
+  raw_daily_paths_retained: false
+  raw_equity_curve_retained: false
+  raw_weights_retained: false
