@@ -1,0 +1,12 @@
+model_name: tsmom-voltarget-liquid-etf-randomcost-v1
+issue_id: AR-015
+status: evaluated_watchlist
+created_at_utc: '2026-06-26T06:00:00Z'
+evaluated_at_utc: '2026-06-26T07:25:47Z'
+family: time_series_momentum
+parent_alpha: AR-003
+hypothesis: Validate AR-003 ETF time-series momentum robustness across Alpaca real-data random windows and turnover cost haircuts.
+qfa_contract: generate_signals(context) -> dict[str, float]
+data_policy: Alpaca/qfa real market data only; never use --data-csv.
+trading_policy: Research-only; no daemon and no trades.
+suggested_decision: watchlist

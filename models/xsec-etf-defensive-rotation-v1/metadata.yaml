@@ -1,0 +1,10 @@
+model_name: xsec-etf-defensive-rotation-v1
+issue_id: AR-016
+status: evaluating
+created_at_utc: '2026-06-26T00:00:00Z'
+family: regime_allocation
+parent_alpha: AR-003
+hypothesis: Cross-sectional relative strength and defensive ETF rotation can capture cross-asset regime allocation distinct from single-asset time-series momentum.
+qfa_contract: generate_signals(context) -> dict[str, float]
+data_policy: Alpaca/qfa real market data only; never use --data-csv.
+trading_policy: Research-only; no daemon and no trades.

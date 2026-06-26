@@ -84,24 +84,24 @@ issues:
 - id: AR-014
   title: 'Divergent from AR-001: mega-cap post-earnings drift signal'
   model_name: event-earnings-drift-megacap-20d-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: event_drift
   issue_path: alpha_research/issues/AR-014.md
   parent: AR-001
 - id: AR-015
   title: 'Refine AR-003: random-window and cost-haircut validation for ETF TSMOM'
   model_name: tsmom-voltarget-liquid-etf-randomcost-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: time_series_momentum
   issue_path: alpha_research/issues/AR-015.md
   parent: AR-003
 - id: AR-016
   title: 'Divergent from AR-003: cross-sectional ETF defensive rotation'
   model_name: xsec-etf-defensive-rotation-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: regime_allocation
   issue_path: alpha_research/issues/AR-016.md
   parent: AR-003
@@ -249,14 +249,54 @@ issues:
   family: volatility_regime_rotation
   issue_path: alpha_research/issues/AR-035.md
   parent: AR-012
+- id: AR-036
+  title: 'Refine AR-015: regime brake and turnover constraint for ETF TSMOM'
+  model_name: tsmom-voltarget-liquid-etf-regimebrake-v1
+  status: queued
+  priority: child
+  family: time_series_momentum
+  issue_path: alpha_research/issues/AR-036.md
+  parent: AR-015
+- id: AR-037
+  title: 'Divergent from AR-015: liquid ETF carry/defensive allocation'
+  model_name: etf-carry-defensive-allocation-v1
+  status: queued
+  priority: child
+  family: cross_asset_carry_defensive
+  issue_path: alpha_research/issues/AR-037.md
+  parent: AR-015
+- id: AR-038
+  title: 'Divergent from AR-014: liquidity-seasonality balance-sheet-window alpha'
+  model_name: liquidity-seasonality-balance-window-v1
+  status: queued
+  priority: child
+  family: liquidity_seasonality
+  issue_path: alpha_research/issues/AR-038.md
+  parent: AR-014
+- id: AR-039
+  title: 'Refine AR-016: cost-aware monthly ETF defensive rotation'
+  model_name: xsec-etf-defensive-rotation-costmonthly-v1
+  status: queued
+  priority: child
+  family: regime_allocation
+  issue_path: alpha_research/issues/AR-039.md
+  parent: AR-016
+- id: AR-040
+  title: 'Divergent from AR-016: yield-curve and credit-stress ETF allocation'
+  model_name: yield-credit-stress-etf-allocation-v1
+  status: queued
+  priority: child
+  family: macro_regime_allocation
+  issue_path: alpha_research/issues/AR-040.md
+  parent: AR-016
 active_batch:
+- AR-018
+- AR-019
+- AR-020
+last_realdata_batch:
 - AR-014
 - AR-015
 - AR-016
-last_realdata_batch:
-- AR-010
-- AR-011
-- AR-012
-updated_at: '2026-06-26T06:44:59Z'
+updated_at: '2026-06-26T07:30:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 12
+tried_ideas_count: 15
