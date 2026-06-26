@@ -219,25 +219,25 @@ issues:
   parent: AR-009
 - id: AR-029
   title: 'Refine AR-010: parameter-stable cost-aware low-vol quality proxy'
-  model_name: low-vol-quality-cost-stable-megacap-v1
-  status: queued
-  priority: child
+  model_name: low-vol-quality-coststable-megacap-v1
+  status: rejected
+  priority: completed_realdata
   family: defensive_factor
   issue_path: alpha_research/issues/AR-029.md
   parent: AR-010
 - id: AR-030
   title: 'Divergent from AR-010: defensive earnings-quality drift in mega-caps'
-  model_name: defensive-earnings-quality-drift-megacap-v1
-  status: queued
-  priority: child
+  model_name: earnings-quality-drift-megacap-v1
+  status: rejected
+  priority: completed_realdata
   family: event_quality
   issue_path: alpha_research/issues/AR-030.md
   parent: AR-010
 - id: AR-032
   title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after macro shock days'
   model_name: etf-dispersion-convergence-macroshock-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: dispersion_convergence
   issue_path: alpha_research/issues/AR-032.md
   parent: AR-011
@@ -338,13 +338,13 @@ issues:
   issue_path: alpha_research/issues/AR-046.md
   parent: AR-028
 active_batch:
+- AR-035
+- AR-036
+- AR-037
+last_realdata_batch:
 - AR-029
 - AR-030
 - AR-032
-last_realdata_batch:
-- AR-025
-- AR-026
-- AR-028
-updated_at: '2026-06-26T08:50:00Z'
+updated_at: '2026-06-26T08:30:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 24
+tried_ideas_count: 27

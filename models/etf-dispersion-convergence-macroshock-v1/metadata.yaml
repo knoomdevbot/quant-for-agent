@@ -1,0 +1,22 @@
+issue_id: AR-032
+status: completed_real_data_backtest_rejected
+created_at: '2026-06-26T06:43:51Z'
+model_name: etf-dispersion-convergence-macroshock-v1
+parent_alpha: AR-011
+relationship: divergent
+mechanism: cross-sectional ETF dispersion convergence after macro shock days
+not_a_direct_extension_of_parent: true
+data_policy:
+  alpaca_qfa_real_data_only: true
+  no_csv: true
+  no_data_csv: true
+  no_daemon: true
+  no_trades: true
+artifacts_expected:
+  - model.py
+  - config.yaml
+  - metadata.yaml
+  - README.md
+  - evaluations/latest.json
+  - evaluations/latest.md
+  - evaluations/runs/<immutable>.json

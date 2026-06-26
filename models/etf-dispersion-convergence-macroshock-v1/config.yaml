@@ -1,0 +1,27 @@
+issue_id: AR-032
+model_name: etf-dispersion-convergence-macroshock-v1
+family: dispersion_convergence
+data_source: Alpaca real market data via qfa; no CSV and no --data-csv
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - SLV
+  - XLF
+  - XLK
+  - XLE
+  - XLV
+parameters:
+  dispersion_window: 60
+  shock_z: 1.75
+  macro_disagreement_z: 1.0
+  vol_window: 20
+  max_abs_weight: 0.20
+  gross_exposure_when_active: 1.0
+risk_controls:
+  no_live_trading: true
+  daemon_used: false
+  cost_assumption_one_way_bps: 5.0
+  qfa_native_costs_available: false
