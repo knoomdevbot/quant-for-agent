@@ -1,6 +1,5 @@
 created_at: '2026-06-26T01:19:53Z'
-objective: Seed evolutionary alpha research queue; prioritize robust random-period
-  Sharpe and low redundancy to accepted alphas.
+objective: Seed evolutionary alpha research queue; prioritize robust random-period Sharpe and low redundancy to accepted alphas.
 issues:
 - id: AR-001
   title: Cross-sectional intermediate momentum on liquid mega-cap equities
@@ -73,8 +72,7 @@ issues:
   family: defensive_factor
   issue_path: alpha_research/issues/AR-010.md
 - id: AR-013
-  title: 'Refine AR-001: invert/cost-aware mega-cap momentum after negative real-data
-    run'
+  title: 'Refine AR-001: invert/cost-aware mega-cap momentum after negative real-data run'
   model_name: crosssec-antimom-or-filtered-megacap-daily-v1
   status: cancelled_bad_parent
   priority: pruned_bad_parent
@@ -106,7 +104,7 @@ issues:
   issue_path: alpha_research/issues/AR-016.md
   parent: AR-003
 - id: AR-011
-  title: AR-002 refinement — cost-aware regime-filtered ETF mean reversion
+  title: "AR-002 refinement \u2014 cost-aware regime-filtered ETF mean reversion"
   model_name: meanrev-zscore-liquid-etf-regime-cost-v1
   status: rejected
   priority: completed_realdata
@@ -114,7 +112,7 @@ issues:
   issue_path: alpha_research/issues/AR-011.md
   parent: AR-002
 - id: AR-012
-  title: AR-002 divergent — liquid ETF overnight gap reversal
+  title: "AR-002 divergent \u2014 liquid ETF overnight gap reversal"
   model_name: overnight-gap-reversal-liquid-etf-v1
   status: rejected
   priority: completed_realdata
@@ -268,24 +266,24 @@ issues:
 - id: AR-038
   title: 'Divergent from AR-014: liquidity-seasonality balance-sheet-window alpha'
   model_name: liquidity-seasonality-balance-window-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: liquidity_seasonality
   issue_path: alpha_research/issues/AR-038.md
   parent: AR-014
 - id: AR-039
   title: 'Refine AR-016: cost-aware monthly ETF defensive rotation'
   model_name: xsec-etf-defensive-rotation-costmonthly-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: regime_allocation
   issue_path: alpha_research/issues/AR-039.md
   parent: AR-016
 - id: AR-040
   title: 'Divergent from AR-016: yield-curve and credit-stress ETF allocation'
   model_name: yield-credit-stress-etf-allocation-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: macro_regime_allocation
   issue_path: alpha_research/issues/AR-040.md
   parent: AR-016
@@ -353,14 +351,30 @@ issues:
   family: volatility_regime_rotation
   issue_path: alpha_research/issues/AR-050.md
   parent: AR-037
+- id: AR-051
+  title: 'Refine AR-039: orthogonality-constrained ETF defensive rotation'
+  model_name: xsec-etf-defensive-rotation-orthogonal-v1
+  status: queued
+  priority: child
+  family: regime_allocation
+  issue_path: alpha_research/issues/AR-051.md
+  parent: AR-039
+- id: AR-052
+  title: 'Divergent from AR-039: VIXY/TLT stress-carry ETF allocation'
+  model_name: vixy-tlt-stress-carry-etf-v1
+  status: queued
+  priority: child
+  family: volatility_stress_carry
+  issue_path: alpha_research/issues/AR-052.md
+  parent: AR-039
 active_batch:
+- AR-041
+- AR-042
+- AR-043
+last_realdata_batch:
 - AR-038
 - AR-039
 - AR-040
-last_realdata_batch:
-- AR-035
-- AR-036
-- AR-037
-updated_at: '2026-06-26T09:00:11Z'
+updated_at: '2026-06-26T09:14:48Z'
 target_tried_ideas: 100
-tried_ideas_count: 30
+tried_ideas_count: 33

@@ -1,0 +1,16 @@
+issue_id: AR-040
+model_name: yield-credit-stress-etf-allocation-v1
+family: macro_regime_allocation
+created_at_utc: 2026-06-26T09:10:43Z
+hypothesis: Bond duration, gold, and defensive/cyclical ETF spread proxies can capture macro stress regimes with a different return driver than cross-sectional ETF momentum.
+falsifier: Median random-period Sharpe <= 0 after documented/applied costs, severe lower-tail drawdowns, or high redundancy.
+data_source: Alpaca real market data via qfa AlpacaGateway
+no_csv_used: true
+daemon_used: false
+live_trades: false
+db_artifact_retained: false
+suggested_decision: rejected
+primary_post_cost_proxy_sharpe: 0.10597314
+random_window_median_post_cost_sharpe: 0.41137246
+random_window_worst_post_cost_max_drawdown: -0.23753864
+orthogonality_status: low_to_moderate_redundancy

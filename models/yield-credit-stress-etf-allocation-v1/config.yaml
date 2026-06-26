@@ -1,0 +1,27 @@
+name: yield-credit-stress-etf-allocation-v1
+issue_id: AR-040
+family: macro_regime_allocation
+model_path: models/yield-credit-stress-etf-allocation-v1/model.py
+symbols: [SPY, QQQ, IWM, TLT, IEF, GLD, HYG, LQD, XLP, XLU, XLV, XLY, XLI, XLK, XLF]
+timeframe: 1Day
+initial_cash: 100000
+parameters:
+  stress_window: 60
+  slow_window: 126
+  short_window: 20
+  vol_window: 60
+  max_single_weight: 0.28
+  min_gross_exposure: 0.72
+  stress_inputs:
+    - TLT_IEF_duration_strength
+    - GLD_strength
+    - defensive_sector_vs_cyclical_sector_spread
+    - LQD_vs_HYG_credit_stress
+    - equity_breadth
+    - SPY_realized_volatility
+data_source: Alpaca real market data via qfa; no CSV; do not use --data-csv
+trading: research_backtest_only_no_daemon_no_live_trades
+costs:
+  one_way_turnover_bps: 5.0
+  qfa_native_costs_applied: false
+  handling: ex_post_turnover_proxy_haircut

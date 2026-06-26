@@ -1,0 +1,41 @@
+model_name: xsec-etf-defensive-rotation-costmonthly-v1
+issue_id: AR-039
+family: regime_allocation
+parent_alpha: AR-016
+research_only: true
+data_source: Alpaca real market data via qfa AlpacaGateway; no CSV
+symbols:
+  - SPY
+  - QQQ
+  - IWM
+  - XLV
+  - XLY
+  - XLE
+  - XLU
+  - XLP
+  - TLT
+  - IEF
+  - GLD
+timeframe: 1Day
+evaluation_window:
+  start: '2023-01-01'
+  end: '2025-12-31'
+parameters:
+  momentum_lookback: 126
+  secondary_lookback: 63
+  vol_window: 63
+  min_periods: 127
+  top_n: 3
+  target_vol: 0.10
+  max_abs_weight: 0.50
+  rebalance: monthly_calendar_proxy
+risk_controls:
+  long_only: true
+  gross_exposure_target: 1.0
+  max_abs_weight: 0.50
+  no_live_trading: true
+  no_daemon: true
+costs_slippage:
+  one_way_cost_bps: 10
+  application: external turnover haircut on daily qfa returns
+  qfa_native_cost_support: false
