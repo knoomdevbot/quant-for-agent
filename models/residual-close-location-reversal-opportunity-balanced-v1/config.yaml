@@ -1,0 +1,23 @@
+model_name: residual-close-location-reversal-opportunity-balanced-v1
+issue_id: AR-068
+family: liquidity_reversal
+universe: [AAPL, MSFT, NVDA, AMZN, META, GOOGL, AVGO, TSLA, JPM, LLY]
+timeframe: 1Day
+data_source: Alpaca real market data via qfa; no CSV
+parameters:
+  residual_rank_quantile: 0.72
+  volume_z_min: 1.25
+  close_location_edge: 0.84
+  beta_lookback: 60
+  volatility_lookback: 20
+  soft_regime_lookback: 20
+risk:
+  dollar_neutral_projection: true
+  beta_neutral_projection: true
+  max_abs_name_raw: 0.28
+  external_cost_haircut_bps: 5
+research_constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

@@ -1,0 +1,445 @@
+{
+  "artifacts": {
+    "README_path": "/Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/README.md",
+    "config_path": "/Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/config.yaml",
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/evaluations/runs/ar067_qfa_alpaca_real_20260626T124025Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/evaluations/latest.md",
+    "metadata_path": "/Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/metadata.yaml",
+    "model_path": "/Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py"
+  },
+  "commands_sanitized": {
+    "artifact_generation": "/Users/moonk/quant-for-agent/.venv/bin/python /tmp/evaluate_ar067.py with credentials redacted and db=<temporary-sqlite-db>",
+    "primary_qfa_cli": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2021-01-04 --end 2025-12-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "smoke_qfa_cli": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2024-01-01 --end 2024-06-30 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>"
+  },
+  "costs_slippage": {
+    "external_turnover_cost_proxy": "5 bps one-way multiplied by daily target-weight turnover",
+    "qfa_native_costs_applied": false,
+    "tested_one_way_bps": [
+      5.0
+    ]
+  },
+  "created_at_utc": "2026-06-26T12:41:14Z",
+  "data_source": "Alpaca real daily OHLCV via qfa AlpacaGateway/qfa CLI; no CSV and no --data-csv",
+  "date_range": {
+    "data_end": "2025-12-31",
+    "data_start": "2020-01-01",
+    "primary_end": "2025-12-15",
+    "primary_start": "2021-01-04",
+    "timeframe": "1Day"
+  },
+  "db_artifact_retained": false,
+  "decision_rationale": "Rejected: random-window p25 Sharpe after 5 bps costs was not positive and/or max available retained-curve correlation breached 0.60.",
+  "issue_id": "AR-067",
+  "metrics": {
+    "annualized_return": -0.02179576,
+    "annualized_volatility": 0.12343065,
+    "max_drawdown": -0.23706118,
+    "median_sharpe": 0.38330564,
+    "p25_sharpe": -0.0879759,
+    "positive_window_rate": 0.66666667,
+    "primary_qfa_pre_cost_sharpe": -0.0468343,
+    "primary_sharpe_5bps": -0.11339291,
+    "turnover": 16.4333637,
+    "worst_period_sharpe": -1.0376568
+  },
+  "model_name": "etf-defensive-carry-surprise-allocator-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "correlations": [
+      {
+        "correlation": 0.94162767,
+        "model_name": "AR-054_etf-stress-liquidity-beta-reduced-v1",
+        "overlap_periods": 1241,
+        "path": "/Users/moonk/quant-for-agent/models/etf-stress-liquidity-beta-reduced-v1/evaluations/latest.json",
+        "status": "computed"
+      },
+      {
+        "correlation": 0.8108939,
+        "model_name": "AR-043_etf-stress-liquidity-volume-v1",
+        "overlap_periods": 1241,
+        "path": "/Users/moonk/quant-for-agent/models/etf-stress-liquidity-volume-v1/evaluations/latest.json",
+        "status": "computed"
+      },
+      {
+        "correlation": 0.47615416,
+        "model_name": "AR-051_xsec-etf-defensive-rotation-orthogonal-v1",
+        "overlap_periods": 500,
+        "path": "/Users/moonk/quant-for-agent/models/xsec-etf-defensive-rotation-orthogonal-v1/evaluations/latest.json",
+        "status": "computed"
+      },
+      {
+        "correlation": 0.58727452,
+        "model_name": "AR-037_etf-carry-defensive-allocation-v1",
+        "overlap_periods": 989,
+        "path": "/Users/moonk/quant-for-agent/models/etf-carry-defensive-allocation-v1/evaluations/latest.json",
+        "status": "computed"
+      },
+      {
+        "correlation": 0.47702954,
+        "model_name": "AR-049_etf-carry-defensive-orthogonal-v1",
+        "overlap_periods": 989,
+        "path": "/Users/moonk/quant-for-agent/models/etf-carry-defensive-orthogonal-v1/evaluations/latest.json",
+        "status": "computed"
+      },
+      {
+        "model_name": "watchlist_AR-059_etf-defensive-momentum-carry-rotation-v1",
+        "overlap_periods": 0,
+        "path": "/Users/moonk/quant-for-agent/models/etf-defensive-momentum-carry-rotation-v1/evaluations/latest.json",
+        "status": "unavailable_no_retained_curve"
+      },
+      {
+        "correlation": 0.43267759,
+        "model_name": "watchlist_AR-060_etf-carry-defensive-turnover-brake-v1",
+        "overlap_periods": 989,
+        "path": "/Users/moonk/quant-for-agent/models/etf-carry-defensive-turnover-brake-v1/evaluations/latest.json",
+        "status": "computed"
+      }
+    ],
+    "max_abs_correlation": 0.94162767,
+    "method": "Pearson correlation of qfa daily equity returns versus retained latest.json curves; unavailable explicitly marked",
+    "passes_threshold_0_60": false,
+    "status": "computed_where_retained_curves_available"
+  },
+  "orthogonality_status": "computed_where_retained_curves_available",
+  "primary_result": {
+    "command_sanitized": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2021-01-04 --end 2025-12-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "end": "2025-12-15",
+    "label": "primary",
+    "metrics_cost_adjusted_5bps": {
+      "annualized_return": -0.02179576,
+      "annualized_volatility": 0.12343065,
+      "final_equity": 89708.02644685,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.23706118,
+      "periods": 1242,
+      "sharpe": -0.11339291,
+      "total_return": -0.10291974,
+      "win_rate": 0.47101449
+    },
+    "metrics_pre_cost": {
+      "annualized_return": -0.01372103,
+      "annualized_volatility": 0.12340269,
+      "final_equity": 93417.331,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.22924799,
+      "periods": 1242,
+      "sharpe": -0.0468343,
+      "total_return": -0.06582669,
+      "win_rate": 0.4742351
+    },
+    "qfa_run_id": 2,
+    "start": "2021-01-04",
+    "turnover_proxy": {
+      "annualized_turnover_proxy": 16.4333637,
+      "avg_daily_turnover": 0.06521176,
+      "avg_gross_exposure": 0.89371981,
+      "estimated_cost_drag_annual_5bps": 0.00821668,
+      "max_daily_turnover": 1.07216663,
+      "median_daily_turnover": 0.0,
+      "median_gross_exposure": 1.0
+    }
+  },
+  "qfa_run_ids": {
+    "primary": 2,
+    "random": {
+      "random_1": 3,
+      "random_2": 4,
+      "random_3": 5,
+      "random_4": 6,
+      "random_5": 7,
+      "random_6": 8
+    },
+    "smoke": 1
+  },
+  "random_window_protocol": {
+    "completed_windows": 6,
+    "method": "six deterministic pseudo-random 18-month windows spanning 2020-2025 due scheduled runtime constraints",
+    "target_windows": 6,
+    "window_trading_days_approx": 378
+  },
+  "random_windows": [
+    {
+      "command_sanitized": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2020-03-02 --end 2021-08-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "end": "2021-08-31",
+      "label": "random_1",
+      "metrics_cost_adjusted_5bps": {
+        "annualized_return": 0.09111121,
+        "annualized_volatility": 0.08248485,
+        "final_equity": 113973.4058945,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.06850318,
+        "periods": 378,
+        "sharpe": 1.09852788,
+        "total_return": 0.13973406,
+        "win_rate": 0.38888889
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.09733632,
+        "annualized_volatility": 0.08249567,
+        "final_equity": 114950.1738,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.0675992,
+        "periods": 378,
+        "sharpe": 1.16737796,
+        "total_return": 0.14950174,
+        "win_rate": 0.38888889
+      },
+      "qfa_run_id": 3,
+      "start": "2020-03-02",
+      "turnover_proxy": {
+        "annualized_turnover_proxy": 11.38344922,
+        "avg_daily_turnover": 0.04517242,
+        "avg_gross_exposure": 0.65873016,
+        "estimated_cost_drag_annual_5bps": 0.00569172,
+        "max_daily_turnover": 1.0,
+        "median_daily_turnover": 0.0,
+        "median_gross_exposure": 1.0
+      }
+    },
+    {
+      "command_sanitized": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2020-10-01 --end 2022-03-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "end": "2022-03-31",
+      "label": "random_2",
+      "metrics_cost_adjusted_5bps": {
+        "annualized_return": 0.03050503,
+        "annualized_volatility": 0.06535387,
+        "final_equity": 104585.53058919,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.07794868,
+        "periods": 376,
+        "sharpe": 0.49244696,
+        "total_return": 0.04585531,
+        "win_rate": 0.35106383
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.03650436,
+        "annualized_volatility": 0.06539669,
+        "final_equity": 105495.3022,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.07346579,
+        "periods": 376,
+        "sharpe": 0.58094102,
+        "total_return": 0.05495302,
+        "win_rate": 0.35106383
+      },
+      "qfa_run_id": 4,
+      "start": "2020-10-01",
+      "turnover_proxy": {
+        "annualized_turnover_proxy": 11.61660599,
+        "avg_daily_turnover": 0.04609764,
+        "avg_gross_exposure": 0.6462766,
+        "estimated_cost_drag_annual_5bps": 0.0058083,
+        "max_daily_turnover": 1.07216663,
+        "median_daily_turnover": 0.0,
+        "median_gross_exposure": 1.0
+      }
+    },
+    {
+      "command_sanitized": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2021-05-03 --end 2022-12-30 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "end": "2022-12-30",
+      "label": "random_3",
+      "metrics_cost_adjusted_5bps": {
+        "annualized_return": -0.10979797,
+        "annualized_volatility": 0.10659378,
+        "final_equity": 82416.60861437,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.23161933,
+        "periods": 419,
+        "sharpe": -1.0376568,
+        "total_return": -0.17583391,
+        "win_rate": 0.33890215
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.10386459,
+        "annualized_volatility": 0.10652243,
+        "final_equity": 83331.9847,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.2254582,
+        "periods": 419,
+        "sharpe": -0.97609026,
+        "total_return": -0.16668015,
+        "win_rate": 0.33890215
+      },
+      "qfa_run_id": 5,
+      "start": "2021-05-03",
+      "turnover_proxy": {
+        "annualized_turnover_proxy": 13.26451573,
+        "avg_daily_turnover": 0.05263697,
+        "avg_gross_exposure": 0.69212411,
+        "estimated_cost_drag_annual_5bps": 0.00663226,
+        "max_daily_turnover": 1.0,
+        "median_daily_turnover": 0.0,
+        "median_gross_exposure": 1.0
+      }
+    },
+    {
+      "command_sanitized": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2022-01-03 --end 2023-06-30 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "end": "2023-06-30",
+      "label": "random_4",
+      "metrics_cost_adjusted_5bps": {
+        "annualized_return": -0.02522452,
+        "annualized_volatility": 0.09902446,
+        "final_equity": 96289.08102332,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.16804948,
+        "periods": 373,
+        "sharpe": -0.20868931,
+        "total_return": -0.03710919,
+        "win_rate": 0.33243968
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.01855126,
+        "annualized_volatility": 0.09898379,
+        "final_equity": 97266.3876,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.16628313,
+        "periods": 373,
+        "sharpe": -0.13989851,
+        "total_return": -0.02733612,
+        "win_rate": 0.33243968
+      },
+      "qfa_run_id": 6,
+      "start": "2022-01-03",
+      "turnover_proxy": {
+        "annualized_turnover_proxy": 13.63532241,
+        "avg_daily_turnover": 0.05410842,
+        "avg_gross_exposure": 0.64879357,
+        "estimated_cost_drag_annual_5bps": 0.00681766,
+        "max_daily_turnover": 1.0,
+        "median_daily_turnover": 0.0,
+        "median_gross_exposure": 1.0
+      }
+    },
+    {
+      "command_sanitized": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2022-10-03 --end 2024-03-29 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "end": "2024-03-29",
+      "label": "random_5",
+      "metrics_cost_adjusted_5bps": {
+        "annualized_return": 0.01541209,
+        "annualized_volatility": 0.06300348,
+        "final_equity": 102289.65297317,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.09176097,
+        "periods": 373,
+        "sharpe": 0.27416433,
+        "total_return": 0.02289653,
+        "win_rate": 0.31903485
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.02195252,
+        "annualized_volatility": 0.06310236,
+        "final_equity": 103266.3816,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.08940401,
+        "periods": 373,
+        "sharpe": 0.37558582,
+        "total_return": 0.03266382,
+        "win_rate": 0.32171582
+      },
+      "qfa_run_id": 7,
+      "start": "2022-10-03",
+      "turnover_proxy": {
+        "annualized_turnover_proxy": 12.85409105,
+        "avg_daily_turnover": 0.0510083,
+        "avg_gross_exposure": 0.64879357,
+        "estimated_cost_drag_annual_5bps": 0.00642705,
+        "max_daily_turnover": 1.0,
+        "median_daily_turnover": 0.0,
+        "median_gross_exposure": 1.0
+      }
+    },
+    {
+      "command_sanitized": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2023-10-02 --end 2025-03-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "end": "2025-03-31",
+      "label": "random_6",
+      "metrics_cost_adjusted_5bps": {
+        "annualized_return": 0.03738607,
+        "annualized_volatility": 0.06999798,
+        "final_equity": 105583.08332393,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.05934793,
+        "periods": 373,
+        "sharpe": 0.55938393,
+        "total_return": 0.05583083,
+        "win_rate": 0.34852547
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.04403843,
+        "annualized_volatility": 0.06995692,
+        "final_equity": 106586.7865,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.05869259,
+        "periods": 373,
+        "sharpe": 0.65105621,
+        "total_return": 0.06586786,
+        "win_rate": 0.35656836
+      },
+      "qfa_run_id": 8,
+      "start": "2023-10-02",
+      "turnover_proxy": {
+        "annualized_turnover_proxy": 12.78028382,
+        "avg_daily_turnover": 0.05071541,
+        "avg_gross_exposure": 0.64879357,
+        "estimated_cost_drag_annual_5bps": 0.00639014,
+        "max_daily_turnover": 1.0,
+        "median_daily_turnover": 0.0,
+        "median_gross_exposure": 1.0
+      }
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "smoke_result": {
+    "command_sanitized": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/etf-defensive-carry-surprise-allocator-v1/model.py --symbols SPY,QQQ,IWM,TLT,IEF,SHY,GLD,XLU,XLE --start 2024-01-01 --end 2024-06-30 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "end": "2024-06-30",
+    "label": "smoke",
+    "metrics_cost_adjusted_5bps": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "final_equity": 100000.0,
+      "initial_cash": 100000.0,
+      "max_drawdown": 0.0,
+      "periods": 123,
+      "sharpe": 0.0,
+      "total_return": 0.0,
+      "win_rate": 0.0
+    },
+    "metrics_pre_cost": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "final_equity": 100000.0,
+      "initial_cash": 100000.0,
+      "max_drawdown": 0.0,
+      "periods": 123,
+      "sharpe": 0.0,
+      "total_return": 0.0,
+      "win_rate": 0.0
+    },
+    "qfa_run_id": 1,
+    "start": "2024-01-01",
+    "turnover_proxy": {
+      "annualized_turnover_proxy": 0.0,
+      "avg_daily_turnover": 0.0,
+      "avg_gross_exposure": 0.0,
+      "estimated_cost_drag_annual_5bps": 0.0,
+      "max_daily_turnover": 0.0,
+      "median_daily_turnover": 0.0,
+      "median_gross_exposure": 0.0
+    }
+  },
+  "suggested_children": [
+    {
+      "idea": "Use intraday-free but non-carry ETF dispersion mean-reversion around sector/size dislocations, explicitly excluding duration/defensive carry and liquidity-stress breadth terms.",
+      "type": "divergent"
+    }
+  ],
+  "suggested_decision": "rejected",
+  "warnings": [
+    "QFA has no native cost/slippage model; 5 bps one-way turnover haircut applied ex-post via reconstructed qfa/Alpaca signals.",
+    "Durable artifacts intentionally omit raw daily equity curves and daily weights."
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "artifacts": {
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/post-gap-residual-continuation-megacap-v1/evaluations/runs/ar069_qfa_alpaca_real_20260626T124127Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/post-gap-residual-continuation-megacap-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/post-gap-residual-continuation-megacap-v1/evaluations/latest.md"
+  },
+  "costs_slippage": {
+    "assumption_one_way_bps": 5.0,
+    "external_cost_postprocess_applied": true,
+    "method": "cost_return = gross_return - sum(abs(delta_weight))*0.0005",
+    "qfa_native_costs_available": false
+  },
+  "created_at": "2026-06-26T12:41:27Z",
+  "data_source": "Alpaca real daily OHLCV via qfa CLI/direct engine and AlpacaGateway; no CSV fixtures; no --data-csv",
+  "date_range": {
+    "data_fetch": {
+      "end": "2025-12-31",
+      "start": "2019-01-01"
+    },
+    "primary": {
+      "end": "2025-12-31",
+      "start": "2024-01-01"
+    }
+  },
+  "db_artifact_retained": false,
+  "decision_reason": "Falsifier tripped: median random-window Sharpe <= 0, primary Sharpe <= 0, or peer correlation > 0.50 after cost adjustment.",
+  "evaluation_status": "completed_real_data_backtest",
+  "issue_id": "AR-069",
+  "metrics": {
+    "annualized_return": -0.11150302,
+    "annualized_volatility": 0.14549055,
+    "max_drawdown": -0.28235795,
+    "median_sharpe": -0.276384,
+    "p25_sharpe": -1.02040891,
+    "positive_window_rate": 0.375,
+    "primary_cost_adjusted_5bps": {
+      "annualized_return": -0.11150302,
+      "annualized_volatility": 0.14549055,
+      "final_equity": 79090.9689,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.28235795,
+      "periods": 500,
+      "sharpe": -0.74000176,
+      "total_return": -0.20909031,
+      "win_rate": 0.334
+    },
+    "primary_pre_cost_qfa": {
+      "annualized_return": -0.07037744,
+      "annualized_volatility": 0.14559625,
+      "final_equity": 86519.9734,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.25728015,
+      "periods": 500,
+      "sharpe": -0.4287212,
+      "total_return": -0.13480027,
+      "win_rate": 0.346
+    },
+    "primary_turnover": {
+      "active_fraction": 0.744,
+      "active_periods": 372,
+      "annualized_one_way": 90.48612144,
+      "mean_daily": 0.35907191,
+      "mean_gross_exposure": 0.744,
+      "total": 179.53595523
+    },
+    "random_windows": {
+      "count": 8,
+      "median_annualized_return": -0.05031249,
+      "median_annualized_volatility": 0.13733303,
+      "median_sharpe": -0.276384,
+      "median_turnover": 82.23465643,
+      "p25_sharpe": -1.02040891,
+      "positive_window_rate": 0.375,
+      "worst_max_drawdown": -0.30632123,
+      "worst_period_sharpe": -1.83149207
+    },
+    "turnover": 90.48612144,
+    "worst_period_sharpe": -1.83149207
+  },
+  "model_name": "post-gap-residual-continuation-megacap-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality_status": {
+    "comparisons": [
+      {
+        "daily_cost_adjusted_return_correlation": 0.02547882,
+        "model": "AR-056 closing-volume-reversal-orthogonalized-megacap-v1",
+        "overlap_periods": 500,
+        "status": "computed_same_alpaca_bars"
+      },
+      {
+        "daily_cost_adjusted_return_correlation": 0.05883407,
+        "model": "AR-045 closing-volume-reversal-costaware-megacap-v1",
+        "overlap_periods": 500,
+        "status": "computed_same_alpaca_bars"
+      },
+      {
+        "daily_cost_adjusted_return_correlation": -0.03539139,
+        "model": "AR-028 closing-volume-reversal-megacap-v1",
+        "overlap_periods": 500,
+        "status": "computed_same_alpaca_bars"
+      },
+      {
+        "daily_return_correlation": -0.08581583,
+        "model": "SPY proxy",
+        "overlap_periods": 500,
+        "status": "computed_same_alpaca_bars"
+      },
+      {
+        "daily_return_correlation": -0.0476674,
+        "model": "mega-cap equal-weight proxy",
+        "overlap_periods": 500,
+        "status": "computed_same_alpaca_bars"
+      }
+    ],
+    "max_peer_abs_correlation": 0.05883407,
+    "status": "computed_where_available",
+    "unavailable": []
+  },
+  "qfa_run_ids": {
+    "primary_cli": 1,
+    "primary_direct_stored_temp_db": 1,
+    "random_windows_direct_stored_temp_db": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "random_window_protocol": {
+    "count": 8,
+    "seed": "deterministic precommitted AR-069 calendar/stress windows",
+    "windows": [
+      {
+        "end": "2019-12-31",
+        "label": "random_2019_calendar",
+        "start": "2019-01-02"
+      },
+      {
+        "end": "2020-12-31",
+        "label": "stress_2020_crash_recovery",
+        "start": "2020-02-03"
+      },
+      {
+        "end": "2021-08-31",
+        "label": "random_2020_09_12m",
+        "start": "2020-09-01"
+      },
+      {
+        "end": "2022-10-31",
+        "label": "random_2021_05_18m",
+        "start": "2021-05-03"
+      },
+      {
+        "end": "2022-12-30",
+        "label": "stress_2022_bear",
+        "start": "2022-01-03"
+      },
+      {
+        "end": "2023-06-30",
+        "label": "random_2022_07_12m",
+        "start": "2022-07-01"
+      },
+      {
+        "end": "2024-02-29",
+        "label": "random_2023_03_12m",
+        "start": "2023-03-01"
+      },
+      {
+        "end": "2025-12-15",
+        "label": "random_2024_02_22m",
+        "start": "2024-02-01"
+      }
+    ]
+  },
+  "raw_daily_paths_retained": false,
+  "sanitized_command_prose": "Credentials sourced from configured profile secret file (redacted); qfa backtest run model.py with configured symbols, requested daily window, initial cash 100000, and a temporary SQLite DB; no CSV, daemon, or orders.",
+  "suggested_children": [
+    {
+      "mechanism": "Use explicit same-day open-to-close reversal around abnormal gap/volume events; different horizon and contrarian mechanism, requiring intraday/open execution validation.",
+      "title": "intraday-open-gap-reversal-with-news-volume-v1",
+      "type": "genuinely_divergent"
+    }
+  ],
+  "suggested_decision": "rejected",
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "AVGO",
+    "TSLA",
+    "JPM",
+    "LLY"
+  ],
+  "timeframe": "1Day"
+}

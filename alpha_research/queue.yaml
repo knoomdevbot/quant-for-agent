@@ -488,24 +488,24 @@ issues:
 - id: AR-067
   title: 'Divergent from AR-054: ETF defensive carry surprise allocator'
   model_name: etf-defensive-carry-surprise-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: defensive_carry_surprise
   issue_path: alpha_research/issues/AR-067.md
   parent: AR-054
 - id: AR-068
   title: 'Refinement from AR-056: opportunity-balanced residual close-location reversal'
   model_name: residual-close-location-reversal-opportunity-balanced-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-068.md
   parent: AR-056
 - id: AR-069
   title: 'Divergent from AR-056: post-gap residual continuation basket'
   model_name: post-gap-residual-continuation-megacap-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: residual_momentum
   issue_path: alpha_research/issues/AR-069.md
   parent: AR-056
@@ -549,14 +549,38 @@ issues:
   family: event_liquidity_recovery
   issue_path: alpha_research/issues/AR-074.md
   parent: AR-064
+- id: AR-075
+  title: 'Divergent from AR-067: sector ETF dispersion dislocation mean reversion'
+  model_name: sector-etf-dispersion-dislocation-meanreversion-v1
+  status: queued
+  priority: child
+  family: sector_dispersion_mean_reversion
+  issue_path: alpha_research/issues/AR-075.md
+  parent: AR-067
+- id: AR-076
+  title: 'Divergent from AR-068: mega-cap volatility contraction breakout continuation'
+  model_name: megacap-vol-contraction-breakout-continuation-v1
+  status: queued
+  priority: child
+  family: volatility_breakout
+  issue_path: alpha_research/issues/AR-076.md
+  parent: AR-068
+- id: AR-077
+  title: 'Divergent from AR-069: ETF trend-breadth regime allocator'
+  model_name: etf-trend-breadth-regime-allocator-v1
+  status: queued
+  priority: child
+  family: trend_breadth_regime
+  issue_path: alpha_research/issues/AR-077.md
+  parent: AR-069
 active_batch:
+- AR-070
+- AR-071
+- AR-072
+last_realdata_batch:
 - AR-067
 - AR-068
 - AR-069
-last_realdata_batch:
-- AR-064
-- AR-065
-- AR-066
-updated_at: '2026-06-26T12:15:33Z'
+updated_at: '2026-06-26T12:44:35Z'
 target_tried_ideas: 100
-tried_ideas_count: 57
+tried_ideas_count: 60

@@ -1,0 +1,16 @@
+issue_id: AR-068
+model_name: residual-close-location-reversal-opportunity-balanced-v1
+status: researched
+decision: rejected
+created_at_utc: 2026-06-26T12:41:22+00:00
+primary_metric: cost_adjusted_5bps_sharpe
+primary_cost_adjusted_5bps_sharpe: -1.63324245
+median_sharpe: -0.96208304
+p25_sharpe: -1.8731705475
+worst_period_sharpe: -3.2054358
+positive_window_rate: 0.0
+raw_daily_paths_retained: false
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true

@@ -1,0 +1,18 @@
+issue_id: AR-067
+model_name: etf-defensive-carry-surprise-allocator-v1
+family: defensive_carry_surprise
+status: research_artifacts_created
+created_at_utc: '2026-06-26T00:00:00Z'
+qfa_contract: generate_signals(context)
+data:
+  provider: Alpaca via qfa AlpacaGateway
+  no_csv_used: true
+  no_data_csv_argument_used: true
+safety:
+  no_daemon: true
+  no_orders: true
+artifacts:
+  model: models/etf-defensive-carry-surprise-allocator-v1/model.py
+  config: models/etf-defensive-carry-surprise-allocator-v1/config.yaml
+  latest_json: models/etf-defensive-carry-surprise-allocator-v1/evaluations/latest.json
+  latest_md: models/etf-defensive-carry-surprise-allocator-v1/evaluations/latest.md
