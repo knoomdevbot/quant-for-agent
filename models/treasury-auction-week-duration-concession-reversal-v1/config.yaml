@@ -1,0 +1,33 @@
+model:
+  name: treasury-auction-week-duration-concession-reversal-v1
+  issue_id: AR-108
+  family: event_calendar_fixed_income_reversal
+  universe:
+    candidate_pool: [TLT, IEF, SHY, TIP, LQD, HYG, SPY, GLD, UUP]
+    selected_symbols: [TLT, IEF, SHY, TIP, LQD, HYG, SPY, GLD, UUP]
+    selection_rule: fixed ex ante by clean Alpaca daily coverage and economic exposure; no return-ranked selection
+  signal:
+    calendar: deterministic monthly coupon auction/reopening weeks plus quarterly refunding months
+    concession_lookback_days: 5
+    min_duration_vs_shy_concession: -0.006
+    min_tlt_vs_shy_concession: -0.008
+    stabilization:
+      min_tlt_close_location: 0.42
+      min_tlt_daily_return: -0.0025
+      max_tlt_volume_z: 2.75
+    risk_off_skip:
+      max_spy_5d_loss: -0.045
+      max_hyg_5d_loss: -0.035
+  sizing:
+    gross_exposure_cap: 1.0
+    weights:
+      TLT: 0.55
+      IEF: 0.30
+      TIP: 0.15
+  evaluation:
+    data_source: qfa/Alpaca real daily bars only
+    no_csv: true
+    no_data_csv_argument: true
+    no_daemon: true
+    no_orders: true
+    costs_bps: [5, 10, 20]

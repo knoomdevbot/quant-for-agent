@@ -1,0 +1,19 @@
+id: AR-108
+name: treasury-auction-week-duration-concession-reversal-v1
+status: researched
+suggested_decision: rejected
+created_from_issue: /Users/moonk/quant-for-agent/alpha_research/issues/AR-108.md
+hypothesis: Scheduled Treasury auction/refunding supply weeks may create temporary duration ETF pressure that reverses after concession and stabilization confirmation.
+universe:
+  candidate_pool: [TLT, IEF, SHY, TIP, LQD, HYG, SPY, GLD, UUP]
+  selected_symbols: [TLT, IEF, SHY, TIP, LQD, HYG, SPY, GLD, UUP]
+constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+limitations:
+  - Uses deterministic approximation of Treasury auction and quarterly refunding windows rather than a stored official auction calendar.
+  - Daily ETF bars cannot observe auction order books, dealer inventory, or intraday concession mechanics.
+  - Watchlist alpha return-stream correlations may be unavailable in compact artifacts; proxy correlations are reported instead.

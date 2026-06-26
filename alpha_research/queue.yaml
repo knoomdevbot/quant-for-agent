@@ -808,15 +808,21 @@ issues:
 - id: AR-108
   title: 'Treasury auction-week duration concession reversal ETF allocator'
   model_name: treasury-auction-week-duration-concession-reversal-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: event_calendar_fixed_income_reversal
   issue_path: alpha_research/issues/AR-108.md
+- id: AR-109
+  title: 'Cross-asset real-rate shock fade gold-duration-equity ETF allocator'
+  model_name: crossasset-real-rate-shock-fade-etf-allocator-v1
+  status: queued
+  priority: preflight_queue
+  family: cross_asset_real_rate_shock_reversal
+  issue_path: alpha_research/issues/AR-109.md
 active_batch:
-- AR-108
+- AR-109
 last_realdata_batch:
-- AR-106
-- AR-107
-updated_at: '2026-06-26T17:52:35Z'
+- AR-108
+updated_at: '2026-06-26T18:45:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 98
+tried_ideas_count: 99
