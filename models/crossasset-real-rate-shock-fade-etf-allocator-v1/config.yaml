@@ -1,0 +1,31 @@
+model_name: crossasset-real-rate-shock-fade-etf-allocator-v1
+issue_id: AR-109
+family: cross_asset_real_rate_shock_reversal
+universe:
+  candidate: [TLT, IEF, SHY, TIP, GLD, UUP, LQD, HYG, SPY, XLU]
+  selected: [TLT, IEF, SHY, TIP, GLD, UUP, LQD, HYG, SPY, XLU]
+selection_fixed_before_performance_review: true
+data:
+  source: qfa/Alpaca real daily OHLCV
+  timeframe: 1Day
+  csv_allowed: false
+  data_csv_argument_allowed: false
+execution_safety:
+  no_daemon: true
+  no_orders: true
+  gross_exposure_cap: 1.0
+parameters:
+  shock_lookback: 5
+  stabilization_window: 2
+  min_history: 90
+  shock_threshold: -0.010
+  tlt_threshold: -0.014
+  gld_tip_threshold: -0.020
+  uup_confirmation: 0.004
+  max_risk_stress: -0.040
+  clv_min: 0.43
+  rebound_min: -0.002
+  vol_z_max: 2.85
+costs:
+  primary_one_way_turnover_bps: 10
+  sensitivity_one_way_turnover_bps: [5, 20]

@@ -815,14 +815,13 @@ issues:
 - id: AR-109
   title: 'Cross-asset real-rate shock fade gold-duration-equity ETF allocator'
   model_name: crossasset-real-rate-shock-fade-etf-allocator-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: cross_asset_real_rate_shock_reversal
   issue_path: alpha_research/issues/AR-109.md
-active_batch:
-- AR-109
+active_batch: []
 last_realdata_batch:
-- AR-108
-updated_at: '2026-06-26T18:45:00Z'
+- AR-109
+updated_at: '2026-06-26T19:30:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 99
+tried_ideas_count: 100
