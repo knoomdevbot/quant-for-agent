@@ -1,0 +1,405 @@
+{
+  "costs_slippage": {
+    "applied_in_turnover_replay": true,
+    "assumption_bps_per_unit_turnover": 5,
+    "primary_active_periods": 55,
+    "primary_cost_adjusted_metrics": {
+      "annualized_return": -0.08622593,
+      "annualized_volatility": 0.18384416,
+      "final_equity": 83617.9022,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.36234972,
+      "periods": 500,
+      "sharpe": -0.39119607,
+      "total_return": -0.16382098,
+      "win_rate": 0.056
+    },
+    "primary_mean_daily_turnover": 0.07333333,
+    "primary_total_turnover": 36.666667,
+    "qfa_native_costs_available": false
+  },
+  "created_at": "2026-06-26T11:11:05Z",
+  "data_source": "Alpaca real market data via qfa CLI plus AlpacaGateway replay for turnover costs; no CSV; no --data-csv",
+  "date_range": {
+    "end": "2025-12-31",
+    "periods": 500,
+    "start": "2024-01-01",
+    "timeframe": "1Day"
+  },
+  "db_artifact_retained": false,
+  "decision": {
+    "rationale": "Positive primary and random-window median cost-adjusted Sharpe required; reject if not met. Also inspect beta/reversal redundancy.",
+    "suggested": "reject"
+  },
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "alpaca_qfa_real_market_data_backtest_with_random_windows_and_5bps_turnover_haircut",
+  "issue_id": "AR-057",
+  "metrics_pre_cost": {
+    "annualized_return": -0.07770181,
+    "annualized_volatility": 0.18363988,
+    "final_equity": 85172.6794,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.35605955,
+    "periods": 500,
+    "sharpe": -0.34131536,
+    "total_return": -0.14827321,
+    "win_rate": 0.06
+  },
+  "model_name": "range-compression-breakout-megacap-v1",
+  "model_parameters": {
+    "breakout_lookback": 40,
+    "compression_lookback": 15,
+    "compression_quantile_max": 0.35,
+    "compression_rank_window": 90,
+    "market_trend_window": 50,
+    "max_abs_weight": 0.2,
+    "recent_breakout_days": 3,
+    "vol_window": 20,
+    "volume_z_min": 0.75,
+    "volume_z_window": 60
+  },
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "comparisons": [
+      {
+        "daily_return_correlation": -0.089996,
+        "model": "AR-045 closing-volume-reversal-costaware-megacap-v1",
+        "overlap_periods": 500
+      },
+      {
+        "daily_return_correlation": -0.433346,
+        "model": "AR-028 closing-volume-reversal-megacap-v1",
+        "overlap_periods": 500
+      },
+      {
+        "daily_return_correlation": -0.192483,
+        "model": "mega-cap equal-weight proxy",
+        "overlap_periods": 500
+      },
+      {
+        "daily_return_correlation": -0.263962,
+        "model": "SPY market proxy",
+        "overlap_periods": 500
+      },
+      {
+        "daily_return_correlation": -0.056282,
+        "model": "tsmom-voltarget-liquid-etf-randomcost-v1 watchlist",
+        "overlap_periods": 499
+      }
+    ],
+    "note": "AR-045/AR-028 and equal-weight correlations use same primary Alpaca bars and qfa signal replay. Watchlist comparison only possible where retained equity curves exist.",
+    "status": "computed_where_model_paths_or_retained_streams_available"
+  },
+  "qfa": {
+    "command": "credentials sourced from profile secret file (redacted); .venv/bin/qfa backtest run <model.py> --symbols AAPL,...,LLY --start <start> --end <end> --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>; no --data-csv",
+    "db_retention_note": "Temporary SQLite DBs were created under /tmp and removed after immutable run JSON artifacts were retained.",
+    "primary_run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2024-01-01_2025-12-31_primary.json",
+    "run_ids": {
+      "primary": 1,
+      "random_windows": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "random_windows": {
+    "count": 8,
+    "median_cost_adjusted_sharpe": 0.27437433,
+    "positive_sharpe_fraction": 0.625,
+    "results": [
+      {
+        "active_periods": 19,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.00646824,
+          "annualized_volatility": 0.13545852,
+          "final_equity": 100513.011,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.12198626,
+          "periods": 200,
+          "sharpe": 0.11523153,
+          "total_return": 0.00513011,
+          "win_rate": 0.055
+        },
+        "db_artifact_retained": false,
+        "end": "2020-12-15",
+        "mean_daily_turnover": 0.06916667,
+        "metrics_pre_cost": {
+          "annualized_return": 0.01526351,
+          "annualized_volatility": 0.13558818,
+          "final_equity": 101209.4936,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.12079497,
+          "periods": 200,
+          "sharpe": 0.17939684,
+          "total_return": 0.01209494,
+          "win_rate": 0.06
+        },
+        "qfa_run_id": 1,
+        "qfa_temp_db_path_removed": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar057_random1_pydsvo9q.sqlite3",
+        "run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2020-03-01_2020-12-15_random1.json",
+        "start": "2020-03-01",
+        "total_turnover": 13.833333,
+        "window_id": "random1"
+      },
+      {
+        "active_periods": 29,
+        "cost_adjusted_metrics": {
+          "annualized_return": -0.01441367,
+          "annualized_volatility": 0.08965153,
+          "final_equity": 98683.6346,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0964105,
+          "periods": 230,
+          "sharpe": -0.11712021,
+          "total_return": -0.01316365,
+          "win_rate": 0.06521739
+        },
+        "db_artifact_retained": false,
+        "end": "2021-08-15",
+        "mean_daily_turnover": 0.08695652,
+        "metrics_pre_cost": {
+          "annualized_return": -0.00351638,
+          "annualized_volatility": 0.08922993,
+          "final_equity": 99679.0111,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09412471,
+          "periods": 230,
+          "sharpe": 0.00511618,
+          "total_return": -0.00320989,
+          "win_rate": 0.06521739
+        },
+        "qfa_run_id": 1,
+        "qfa_temp_db_path_removed": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar057_random2_3803rv7s.sqlite3",
+        "run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2020-09-15_2021-08-15_random2.json",
+        "start": "2020-09-15",
+        "total_turnover": 20.0,
+        "window_id": "random2"
+      },
+      {
+        "active_periods": 38,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.06087021,
+          "annualized_volatility": 0.16422719,
+          "final_equity": 105541.1685,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.15374281,
+          "periods": 230,
+          "sharpe": 0.43763723,
+          "total_return": 0.05541168,
+          "win_rate": 0.07391304
+        },
+        "db_artifact_retained": false,
+        "end": "2021-12-15",
+        "mean_daily_turnover": 0.12028986,
+        "metrics_pre_cost": {
+          "annualized_return": 0.07710233,
+          "annualized_volatility": 0.16404127,
+          "final_equity": 107014.0697,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.14563245,
+          "periods": 230,
+          "sharpe": 0.53052781,
+          "total_return": 0.0701407,
+          "win_rate": 0.07391304
+        },
+        "qfa_run_id": 1,
+        "qfa_temp_db_path_removed": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar057_random3_f94p3ah9.sqlite3",
+        "run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2021-01-15_2021-12-15_random3.json",
+        "start": "2021-01-15",
+        "total_turnover": 27.666667,
+        "window_id": "random3"
+      },
+      {
+        "active_periods": 30,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.24379828,
+          "annualized_volatility": 0.11618341,
+          "final_equity": 124164.6496,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0416015,
+          "periods": 250,
+          "sharpe": 1.93571607,
+          "total_return": 0.2416465,
+          "win_rate": 0.076
+        },
+        "db_artifact_retained": false,
+        "end": "2022-10-31",
+        "mean_daily_turnover": 0.07866667,
+        "metrics_pre_cost": {
+          "annualized_return": 0.25608456,
+          "annualized_volatility": 0.11684091,
+          "final_equity": 125381.3707,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.04112206,
+          "periods": 250,
+          "sharpe": 2.00965652,
+          "total_return": 0.25381371,
+          "win_rate": 0.076
+        },
+        "qfa_run_id": 1,
+        "qfa_temp_db_path_removed": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar057_random4_ug2z7tu0.sqlite3",
+        "run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2021-11-01_2022-10-31_random4.json",
+        "start": "2021-11-01",
+        "total_turnover": 19.666667,
+        "window_id": "random4"
+      },
+      {
+        "active_periods": 48,
+        "cost_adjusted_metrics": {
+          "annualized_return": -0.06830444,
+          "annualized_volatility": 0.14527235,
+          "final_equity": 93248.0615,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.20522664,
+          "periods": 249,
+          "sharpe": -0.41579374,
+          "total_return": -0.06751939,
+          "win_rate": 0.06024096
+        },
+        "db_artifact_retained": false,
+        "end": "2023-05-31",
+        "mean_daily_turnover": 0.13319946,
+        "metrics_pre_cost": {
+          "annualized_return": -0.05257371,
+          "annualized_volatility": 0.14561514,
+          "final_equity": 94803.5616,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.19720405,
+          "periods": 249,
+          "sharpe": -0.29955814,
+          "total_return": -0.05196438,
+          "win_rate": 0.06425703
+        },
+        "qfa_run_id": 1,
+        "qfa_temp_db_path_removed": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar057_random5_jczeak4z.sqlite3",
+        "run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2022-06-01_2023-05-31_random5.json",
+        "start": "2022-06-01",
+        "total_turnover": 33.166667,
+        "window_id": "random5"
+      },
+      {
+        "active_periods": 37,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.02531209,
+          "annualized_volatility": 0.0620761,
+          "final_equity": 102500.7019,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.05159093,
+          "periods": 249,
+          "sharpe": 0.43351713,
+          "total_return": 0.02500702,
+          "win_rate": 0.07630522
+        },
+        "db_artifact_retained": false,
+        "end": "2023-12-31",
+        "mean_daily_turnover": 0.11378849,
+        "metrics_pre_cost": {
+          "annualized_return": 0.04011113,
+          "annualized_volatility": 0.06217436,
+          "final_equity": 103962.4276,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.04523354,
+          "periods": 249,
+          "sharpe": 0.66343102,
+          "total_return": 0.03962428,
+          "win_rate": 0.07630522
+        },
+        "qfa_run_id": 1,
+        "qfa_temp_db_path_removed": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar057_random6_rgin1pt_.sqlite3",
+        "run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2023-01-01_2023-12-31_random6.json",
+        "start": "2023-01-01",
+        "total_turnover": 28.333333,
+        "window_id": "random6"
+      },
+      {
+        "active_periods": 20,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.22627401,
+          "annualized_volatility": 0.11753698,
+          "final_equity": 122329.9819,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.04569403,
+          "periods": 249,
+          "sharpe": 1.79333347,
+          "total_return": 0.22329982,
+          "win_rate": 0.05220884
+        },
+        "db_artifact_retained": false,
+        "end": "2024-06-30",
+        "mean_daily_turnover": 0.04819277,
+        "metrics_pre_cost": {
+          "annualized_return": 0.23368616,
+          "annualized_volatility": 0.11790484,
+          "final_equity": 123060.5704,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.04521663,
+          "periods": 249,
+          "sharpe": 1.83923992,
+          "total_return": 0.2306057,
+          "win_rate": 0.05220884
+        },
+        "qfa_run_id": 1,
+        "qfa_temp_db_path_removed": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar057_random7_90n3522w.sqlite3",
+        "run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2023-07-01_2024-06-30_random7.json",
+        "start": "2023-07-01",
+        "total_turnover": 12.0,
+        "window_id": "random7"
+      },
+      {
+        "active_periods": 17,
+        "cost_adjusted_metrics": {
+          "annualized_return": -0.27294407,
+          "annualized_volatility": 0.21595245,
+          "final_equity": 73074.3826,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.29915173,
+          "periods": 248,
+          "sharpe": -1.35494031,
+          "total_return": -0.26925617,
+          "win_rate": 0.03225806
+        },
+        "db_artifact_retained": false,
+        "end": "2025-06-30",
+        "mean_daily_turnover": 0.05241935,
+        "metrics_pre_cost": {
+          "annualized_return": -0.26807847,
+          "annualized_volatility": 0.21570488,
+          "final_equity": 73555.6235,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.29629275,
+          "periods": 248,
+          "sharpe": -1.32587559,
+          "total_return": -0.26444377,
+          "win_rate": 0.03225806
+        },
+        "qfa_run_id": 1,
+        "qfa_temp_db_path_removed": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar057_random8_2g1jrfuo.sqlite3",
+        "run_json_path": "/Users/moonk/quant-for-agent/models/range-compression-breakout-megacap-v1/evaluations/runs/qfa_realdata_2024-07-01_2025-06-30_random8.json",
+        "start": "2024-07-01",
+        "total_turnover": 13.0,
+        "window_id": "random8"
+      }
+    ]
+  },
+  "rejected_child_policy": {
+    "direct_extensions_pruned": true,
+    "suggested_divergent_child": {
+      "rationale": "Diverges from single-name mega-cap range compression by testing index-level overnight information assimilation rather than extending AR-057 breakout mechanics.",
+      "title": "ETF index gap-follow-through after overnight futures shock"
+    }
+  },
+  "warnings": [
+    "Daily Alpaca bars cannot observe intraday breakout timing; qfa applies next close-to-close returns after signal generation.",
+    "Turnover haircut is external because qfa CLI has no native cost parameter.",
+    "Breakout model may have sparse active days and can be market-beta sensitive despite trend gate."
+  ]
+}

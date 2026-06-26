@@ -1,0 +1,48 @@
+model_name: closing-volume-reversal-orthogonalized-megacap-v1
+issue_id: AR-056
+parent_alpha: AR-045
+family: liquidity_reversal
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - AVGO
+  - TSLA
+  - JPM
+  - LLY
+timeframe: 1Day
+data_source: Alpaca/qfa real market data only; no CSV and no --data-csv.
+initial_cash: 100000
+costs:
+  turnover_haircut_bps_one_way: 5
+  applied_externally_because_qfa_native_cost_flag_unavailable: true
+parameters:
+  volume_z_window: 60
+  volume_z_min: 1.75
+  dollar_volume_z_min: 1.75
+  close_location_extreme: 0.86
+  range_z_window: 60
+  range_z_min: 0.10
+  realized_vol_window: 20
+  residual_beta_window: 60
+  residual_z_window: 60
+  residual_z_min: 0.40
+  max_market_realized_vol: 0.32
+  max_abs_market_move: 0.018
+  min_expected_edge_score: 0.13
+  strong_fresh_score: 0.30
+  flip_dampen: 0.25
+  persistence_blend: 0.55
+  beta_neutral_strength: 0.80
+  max_abs_raw_weight: 0.22
+risk_controls:
+  no_daemon: true
+  no_trades: true
+  temporary_db_only: true
+artifacts:
+  model: models/closing-volume-reversal-orthogonalized-megacap-v1/model.py
+  latest_json: models/closing-volume-reversal-orthogonalized-megacap-v1/evaluations/latest.json
+  latest_md: models/closing-volume-reversal-orthogonalized-megacap-v1/evaluations/latest.md

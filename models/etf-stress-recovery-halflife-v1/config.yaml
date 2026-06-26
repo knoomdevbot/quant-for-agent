@@ -1,0 +1,36 @@
+model_name: etf-stress-recovery-halflife-v1
+issue_id: AR-055
+parent_alpha: AR-043
+family: stress_recovery_decay
+status: evaluated_rejected
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+data_source: Alpaca real daily OHLCV via qfa; --data-csv not used
+trading_mode: research_only_no_daemon_no_orders
+parameters:
+  min_history: 140
+  baseline_window: 90
+  halflife_windows: [2, 5, 10]
+  trend_window: 50
+  vol_window: 40
+  max_single_weight: 0.36
+  min_gross: 0.78
+risk_constraints:
+  long_only: true
+  max_single_weight: 0.36
+  gross_exposure_range: [0.78, 1.0]
+costs:
+  qfa_native_costs_applied: false
+  post_cost_proxy: 5 bps times one-way daily target turnover
+evaluation:
+  latest_json: models/etf-stress-recovery-halflife-v1/evaluations/latest.json
+  latest_md: models/etf-stress-recovery-halflife-v1/evaluations/latest.md
+  random_windows: 9
+  suggested_decision: reject
+  rationale: p25 random-window post-cost Sharpe was negative and correlation to AR-043 was far above the 0.60 falsifier.

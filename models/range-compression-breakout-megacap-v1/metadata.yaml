@@ -1,0 +1,8 @@
+model_name: range-compression-breakout-megacap-v1
+issue_id: AR-057
+status: rejected_after_real_data_evaluation
+created_at: '2026-06-26T04:06:00-06:00'
+family: volatility_breakout
+hypothesis: Mega-cap equities that break out after multi-day range compression and rising volume exhibit short-horizon continuation.
+implementation: qfa generate_signals(context), Alpaca daily OHLCV only, no CSV, no daemon, no orders.
+parent: AR-045

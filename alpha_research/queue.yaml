@@ -386,24 +386,24 @@ issues:
 - id: AR-055
   title: 'Divergent from AR-043: ETF stress recovery half-life allocator'
   model_name: etf-stress-recovery-halflife-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: stress_recovery_decay
   issue_path: alpha_research/issues/AR-055.md
   parent: AR-043
 - id: AR-056
   title: 'Refinement from AR-045: orthogonality-constrained close-location reversal'
   model_name: closing-volume-reversal-orthogonalized-megacap-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-056.md
   parent: AR-045
 - id: AR-057
   title: 'Divergent from AR-045: mega-cap range-compression breakout continuation'
   model_name: range-compression-breakout-megacap-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_breakout
   issue_path: alpha_research/issues/AR-057.md
   parent: AR-045
@@ -487,14 +487,30 @@ issues:
   family: defensive_carry_surprise
   issue_path: alpha_research/issues/AR-067.md
   parent: AR-054
+- id: AR-068
+  title: 'Refinement from AR-056: opportunity-balanced residual close-location reversal'
+  model_name: residual-close-location-reversal-opportunity-balanced-v1
+  status: queued
+  priority: child
+  family: liquidity_reversal
+  issue_path: alpha_research/issues/AR-068.md
+  parent: AR-056
+- id: AR-069
+  title: 'Divergent from AR-056: post-gap residual continuation basket'
+  model_name: post-gap-residual-continuation-megacap-v1
+  status: queued
+  priority: child
+  family: residual_momentum
+  issue_path: alpha_research/issues/AR-069.md
+  parent: AR-056
 active_batch:
+- AR-058
+- AR-059
+- AR-060
+last_realdata_batch:
 - AR-055
 - AR-056
 - AR-057
-last_realdata_batch:
-- AR-052
-- AR-053
-- AR-054
-updated_at: '2026-06-26T10:47:52Z'
+updated_at: '2026-06-26T11:18:45Z'
 target_tried_ideas: 100
-tried_ideas_count: 45
+tried_ideas_count: 48
