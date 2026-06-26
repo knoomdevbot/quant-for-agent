@@ -1,0 +1,40 @@
+alpha_id: AR-043
+model_name: etf-stress-liquidity-volume-v1
+model_family: liquidity_stress
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+timeframe: 1Day
+holding_period: 1d
+rebalance: daily
+position_sizing: long_only_dynamic_risk_on_defensive_allocation
+parameters:
+  min_history: 130
+  fast_window: 20
+  baseline_window: 90
+  trend_window: 40
+  vol_window: 40
+  max_single_weight: 0.36
+  min_gross: 0.80
+costs:
+  native_qfa_costs_applied: false
+  one_way_bps_assumption: 5.0
+  method: ex_post_turnover_haircut
+backtest:
+  data_source: Alpaca real OHLCV via qfa/AlpacaGateway
+  csv_used: false
+  primary_start: '2021-01-04'
+  primary_end: '2025-12-15'
+  random_windows: 9
+  temporary_db_pattern: /tmp/qfa_ar043_*.sqlite3
+risk_controls:
+  no_daemon: true
+  no_trades: true
+acceptance_threshold:
+  median_random_sharpe_after_costs: '> 0'
+  redundancy: not_highly_redundant_to_watchlist_or_accepted_alphas

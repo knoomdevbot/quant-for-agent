@@ -1,0 +1,37 @@
+name: macro-liquidity-flow-etf-v1
+issue_id: AR-042
+family: macro_flow
+model_path: models/macro-liquidity-flow-etf-v1/model.py
+symbols: [SPY, QQQ, IWM, TLT, GLD, XLU, XLE]
+timeframe: 1Day
+initial_cash: 100000
+parameters:
+  min_history: 126
+  short_window: 5
+  medium_window: 21
+  slow_window: 63
+  vol_window: 21
+  volume_window: 21
+  gross_event: 1.0
+  gross_non_event: 0.35
+  max_weight: 0.35
+  scheduled_proxies:
+    - first_friday_payroll_proxy_plus_minus_1_bday
+    - cpi_midmonth_10_to_14_tue_wed_thu
+    - fomc_third_wednesday_meeting_months_plus_minus_1_bday
+    - midquarter_liquidity_proxy_months_2_5_8_11_days_14_to_18
+data_source: Alpaca real market data via qfa AlpacaGateway; no CSV; do not use --data-csv
+trading: research_backtest_only_no_daemon_no_live_trades
+costs:
+  one_way_turnover_bps: 5.0
+  qfa_native_costs_applied: false
+  handling: ex_post_turnover_proxy_haircut
+risk:
+  max_symbol_weight: 0.35
+  no_shorting: true
+  concentration_cap: true
+evaluation:
+  random_windows: 10
+  random_window_lengths_business_days: [252, 378, 504]
+  seed: 42042
+  main_period: 2021-01-01_to_2025-12-31

@@ -290,24 +290,24 @@ issues:
 - id: AR-041
   title: 'Refine AR-021: volatility-gated turn-of-month ETF seasonality'
   model_name: turn-month-vol-gated-etf-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: seasonality
   issue_path: alpha_research/issues/AR-041.md
   parent: AR-021
 - id: AR-042
   title: 'Divergent from AR-021: scheduled macro/liquidity ETF flow pressure'
   model_name: macro-liquidity-flow-etf-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: macro_flow
   issue_path: alpha_research/issues/AR-042.md
   parent: AR-021
 - id: AR-043
   title: 'Divergent from AR-026: ETF stress liquidity-volume dislocation detector'
   model_name: etf-stress-liquidity-volume-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: liquidity_stress
   issue_path: alpha_research/issues/AR-043.md
   parent: AR-026
@@ -367,14 +367,38 @@ issues:
   family: volatility_stress_carry
   issue_path: alpha_research/issues/AR-052.md
   parent: AR-039
+- id: AR-053
+  title: 'Divergent from AR-042: intraday post-macro ETF liquidity-vacuum reversal'
+  model_name: post-macro-liquidity-vacuum-reversal-v1
+  status: queued
+  priority: child
+  family: intraday_or_next_day_liquidity_reversal
+  issue_path: alpha_research/issues/AR-053.md
+  parent: AR-042
+- id: AR-054
+  title: 'Refine AR-043: beta-reduced ETF stress liquidity allocation with drawdown brake'
+  model_name: etf-stress-liquidity-beta-reduced-v1
+  status: queued
+  priority: child
+  family: liquidity_stress
+  issue_path: alpha_research/issues/AR-054.md
+  parent: AR-043
+- id: AR-055
+  title: 'Divergent from AR-043: ETF stress recovery half-life allocator'
+  model_name: etf-stress-recovery-halflife-v1
+  status: queued
+  priority: child
+  family: stress_recovery_decay
+  issue_path: alpha_research/issues/AR-055.md
+  parent: AR-043
 active_batch:
+- AR-044
+- AR-045
+- AR-046
+last_realdata_batch:
 - AR-041
 - AR-042
 - AR-043
-last_realdata_batch:
-- AR-038
-- AR-039
-- AR-040
-updated_at: '2026-06-26T09:14:48Z'
+updated_at: '2026-06-26T09:55:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 33
+tried_ideas_count: 36

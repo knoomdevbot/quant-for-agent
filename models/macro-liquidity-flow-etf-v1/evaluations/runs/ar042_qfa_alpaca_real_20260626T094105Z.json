@@ -1,0 +1,2167 @@
+{
+  "cache_artifacts_retained": false,
+  "costs_slippage": {
+    "applied": "ex-post turnover haircut",
+    "formula": "net_return=gross_next_day_close_to_close_return - sum(abs(delta_weight))*0.0005",
+    "native_qfa_costs": "not supported by repo backtester",
+    "one_way_bps": 5.0
+  },
+  "created_at_utc": "2026-06-26T09:41:05Z",
+  "data_source": "Alpaca real daily OHLCV via qfa AlpacaGateway; no CSV; no --data-csv",
+  "date_range": {
+    "alpaca_rows": 12313,
+    "fetch_end": "2025-12-31",
+    "fetch_start": "2019-01-01",
+    "main_end": "2025-12-31",
+    "main_start": "2021-01-01",
+    "timeframe": "1Day"
+  },
+  "db_artifact_retained": false,
+  "decision": "reject_or_park_do_not_refine",
+  "decision_rationale": "Rejected/parked by high redundancy falsifier: same-date return correlation with turn-month-calendar-window-etf-v1 was 0.969061; main-period Sharpe was only 0.28685493 after costs despite positive median random Sharpe 0.73544359.",
+  "divergent_child_idea": "Intraday post-macro ETF liquidity vacuum reversal: after large same-day range expansion in SPY/TLT/GLD on scheduled-proxy days, fade the lagging asset next session with volatility-scaled gross and no month-boundary terms.",
+  "issue_id": "AR-042",
+  "key_metrics": {
+    "main_ann_return": 0.02975948,
+    "main_ann_volatility": 0.13452332,
+    "main_avg_daily_turnover": 0.14361997,
+    "main_max_drawdown": -0.19272499,
+    "main_sharpe": 0.28685493,
+    "median_random_sharpe": 0.73544359,
+    "p25_random_sharpe": 0.03605889,
+    "positive_window_rate": 0.7,
+    "random_sharpes": [
+      1.00586758,
+      1.00169521,
+      0.84417666,
+      4.68999737,
+      -0.0071549,
+      0.62671052,
+      -0.28350081,
+      1.02670799,
+      -0.68603458,
+      0.16570027
+    ],
+    "worst_random_max_drawdown": -0.18545267,
+    "worst_random_sharpe": -0.68603458
+  },
+  "main": {
+    "activity_sample": [
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-04T05:00:00+00:00",
+        "turnover": 1.0,
+        "weights": {
+          "GLD": 0.2009,
+          "IWM": 0.1156,
+          "QQQ": 0.1031,
+          "SPY": 0.1068,
+          "TLT": 0.1941,
+          "XLE": 0.1023,
+          "XLU": 0.1772
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-05T05:00:00+00:00",
+        "turnover": 0.058081,
+        "weights": {
+          "GLD": 0.2225,
+          "IWM": 0.1017,
+          "QQQ": 0.0951,
+          "SPY": 0.1019,
+          "TLT": 0.2003,
+          "XLE": 0.1036,
+          "XLU": 0.1749
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-06T05:00:00+00:00",
+        "turnover": 0.369527,
+        "weights": {
+          "GLD": 0.1536,
+          "IWM": 0.1545,
+          "QQQ": 0.1324,
+          "SPY": 0.1415,
+          "TLT": 0.1468,
+          "XLE": 0.1587,
+          "XLU": 0.1126
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-07T05:00:00+00:00",
+        "turnover": 0.237279,
+        "weights": {
+          "GLD": 0.1072,
+          "IWM": 0.1847,
+          "QQQ": 0.1657,
+          "SPY": 0.176,
+          "TLT": 0.1077,
+          "XLE": 0.1793,
+          "XLU": 0.0795
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-08T05:00:00+00:00",
+        "turnover": 0.050454,
+        "weights": {
+          "GLD": 0.1177,
+          "IWM": 0.175,
+          "QQQ": 0.1666,
+          "SPY": 0.1604,
+          "TLT": 0.1101,
+          "XLE": 0.1835,
+          "XLU": 0.0867
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-11T05:00:00+00:00",
+        "turnover": 0.0813,
+        "weights": {
+          "GLD": 0.1023,
+          "IWM": 0.1873,
+          "QQQ": 0.1741,
+          "SPY": 0.1575,
+          "TLT": 0.0952,
+          "XLE": 0.2044,
+          "XLU": 0.0792
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-12T05:00:00+00:00",
+        "turnover": 0.017615,
+        "weights": {
+          "GLD": 0.0961,
+          "IWM": 0.1894,
+          "QQQ": 0.1742,
+          "SPY": 0.1548,
+          "TLT": 0.097,
+          "XLE": 0.205,
+          "XLU": 0.0834
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-13T05:00:00+00:00",
+        "turnover": 0.049531,
+        "weights": {
+          "GLD": 0.098,
+          "IWM": 0.1737,
+          "QQQ": 0.1811,
+          "SPY": 0.1696,
+          "TLT": 0.0903,
+          "XLE": 0.2026,
+          "XLU": 0.0847
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-14T05:00:00+00:00",
+        "turnover": 0.358752,
+        "weights": {
+          "GLD": 0.1696,
+          "IWM": 0.1321,
+          "QQQ": 0.1212,
+          "SPY": 0.1212,
+          "TLT": 0.1367,
+          "XLE": 0.173,
+          "XLU": 0.1461
+        }
+      },
+      {
+        "active_count": 7,
+        "gross": 1.0,
+        "timestamp": "2021-01-15T05:00:00+00:00",
+        "turnover": 0.104713,
+        "weights": {
+          "GLD": 0.1757,
+          "IWM": 0.1223,
+          "QQQ": 0.1097,
+          "SPY": 0.1097,
+          "TLT": 0.1608,
+          "XLE": 0.1535,
+          "XLU": 0.1683
+        }
+      }
+    ],
+    "end": "2025-12-31",
+    "gross_metrics_no_cost": {
+      "active_day_fraction": 1.0,
+      "annualized_return": 0.04855216,
+      "annualized_volatility": 0.13458872,
+      "avg_active_count": 7.0,
+      "avg_daily_turnover": 0.0,
+      "cost_drag_total": 0.0,
+      "final_equity": 126583.8338,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.17922501,
+      "periods": 1253,
+      "sharpe": 0.42117045,
+      "total_return": 0.26583834,
+      "total_turnover": 0.0,
+      "win_rate": 0.53152434
+    },
+    "label": "main_2021_2025",
+    "metrics": {
+      "active_day_fraction": 1.0,
+      "annualized_return": 0.02975948,
+      "annualized_volatility": 0.13452332,
+      "avg_active_count": 7.0,
+      "avg_daily_turnover": 0.14361997,
+      "cost_drag_total": 0.08997791,
+      "final_equity": 115697.8298,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.19272499,
+      "periods": 1253,
+      "sharpe": 0.28685493,
+      "total_return": 0.1569783,
+      "total_turnover": 179.95582334,
+      "win_rate": 0.52753392
+    },
+    "start": "2021-01-01"
+  },
+  "model_name": "macro-liquidity-flow-etf-v1",
+  "orthogonality": {
+    "liquidity-seasonality-balance-window-v1": {
+      "note": "Same AR-042 symbols/prices; only feasible if other model accepts this universe.",
+      "other_sharpe_costed": 0.0,
+      "return_correlation_same_dates": null
+    },
+    "turn-month-calendar-window-etf-v1": {
+      "note": "Same AR-042 symbols/prices; only feasible if other model accepts this universe.",
+      "other_sharpe_costed": 0.53003317,
+      "return_correlation_same_dates": 0.969061
+    },
+    "yield-credit-stress-etf-allocation-v1": {
+      "note": "Same AR-042 symbols/prices; only feasible if other model accepts this universe.",
+      "other_sharpe_costed": 0.0,
+      "return_correlation_same_dates": null
+    }
+  },
+  "random_period_protocol": {
+    "lengths_business_days": "random choice among 252/378/504",
+    "seed": 42042,
+    "window_count": 10,
+    "windows": [
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-06-23T04:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.1937,
+              "IWM": 0.1145,
+              "QQQ": 0.1104,
+              "SPY": 0.1115,
+              "TLT": 0.1806,
+              "XLE": 0.1104,
+              "XLU": 0.1789
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-06-26T04:00:00+00:00",
+            "turnover": 0.02934,
+            "weights": {
+              "GLD": 0.1848,
+              "IWM": 0.1103,
+              "QQQ": 0.1103,
+              "SPY": 0.1103,
+              "TLT": 0.1893,
+              "XLE": 0.1103,
+              "XLU": 0.1848
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-06-27T04:00:00+00:00",
+            "turnover": 0.009214,
+            "weights": {
+              "GLD": 0.1861,
+              "IWM": 0.1098,
+              "QQQ": 0.1098,
+              "SPY": 0.1098,
+              "TLT": 0.1861,
+              "XLE": 0.1122,
+              "XLU": 0.1861
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-06-28T04:00:00+00:00",
+            "turnover": 0.342592,
+            "weights": {
+              "GLD": 0.129,
+              "IWM": 0.1509,
+              "QQQ": 0.1542,
+              "SPY": 0.1524,
+              "TLT": 0.1292,
+              "XLE": 0.1552,
+              "XLU": 0.129
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-06-29T04:00:00+00:00",
+            "turnover": 0.049364,
+            "weights": {
+              "GLD": 0.1339,
+              "IWM": 0.1485,
+              "QQQ": 0.1414,
+              "SPY": 0.143,
+              "TLT": 0.1429,
+              "XLE": 0.1563,
+              "XLU": 0.1339
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-06-30T04:00:00+00:00",
+            "turnover": 0.20436,
+            "weights": {
+              "GLD": 0.0982,
+              "IWM": 0.1752,
+              "QQQ": 0.1666,
+              "SPY": 0.1686,
+              "TLT": 0.1105,
+              "XLE": 0.1809,
+              "XLU": 0.0999
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-07-03T04:00:00+00:00",
+            "turnover": 0.023101,
+            "weights": {
+              "GLD": 0.0973,
+              "IWM": 0.1747,
+              "QQQ": 0.1733,
+              "SPY": 0.1702,
+              "TLT": 0.1138,
+              "XLE": 0.1723,
+              "XLU": 0.0984
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-07-05T04:00:00+00:00",
+            "turnover": 0.042092,
+            "weights": {
+              "GLD": 0.0987,
+              "IWM": 0.1651,
+              "QQQ": 0.1672,
+              "SPY": 0.1664,
+              "TLT": 0.1221,
+              "XLE": 0.1707,
+              "XLU": 0.1097
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-07-06T04:00:00+00:00",
+            "turnover": 0.173317,
+            "weights": {
+              "GLD": 0.1213,
+              "IWM": 0.144,
+              "QQQ": 0.1475,
+              "SPY": 0.1473,
+              "TLT": 0.159,
+              "XLE": 0.144,
+              "XLU": 0.1369
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-07-07T04:00:00+00:00",
+            "turnover": 0.025044,
+            "weights": {
+              "GLD": 0.1314,
+              "IWM": 0.1439,
+              "QQQ": 0.1468,
+              "SPY": 0.1444,
+              "TLT": 0.1502,
+              "XLE": 0.1447,
+              "XLU": 0.1386
+            }
+          }
+        ],
+        "end": "2024-01-02",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.12749582,
+          "annualized_volatility": 0.11087881,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 106436.7236,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09795828,
+          "periods": 131,
+          "sharpe": 1.13740811,
+          "total_return": 0.06436724,
+          "total_turnover": 0.0,
+          "win_rate": 0.55725191
+        },
+        "label": "random_01_252bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.11105365,
+          "annualized_volatility": 0.11075448,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.11674696,
+          "cost_drag_total": 0.00764693,
+          "final_equity": 105627.0029,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.10025712,
+          "periods": 131,
+          "sharpe": 1.00586758,
+          "total_return": 0.05627003,
+          "total_turnover": 15.29385153,
+          "win_rate": 0.55725191
+        },
+        "start": "2023-06-23"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-13T04:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.2734,
+              "IWM": 0.0828,
+              "QQQ": 0.0641,
+              "SPY": 0.0679,
+              "TLT": 0.242,
+              "XLE": 0.0651,
+              "XLU": 0.2048
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-14T04:00:00+00:00",
+            "turnover": 0.221648,
+            "weights": {
+              "GLD": 0.2265,
+              "IWM": 0.1159,
+              "QQQ": 0.0876,
+              "SPY": 0.0937,
+              "TLT": 0.1997,
+              "XLE": 0.0935,
+              "XLU": 0.1832
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-15T04:00:00+00:00",
+            "turnover": 0.046386,
+            "weights": {
+              "GLD": 0.2356,
+              "IWM": 0.1065,
+              "QQQ": 0.08,
+              "SPY": 0.0886,
+              "TLT": 0.2116,
+              "XLE": 0.0923,
+              "XLU": 0.1853
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-16T04:00:00+00:00",
+            "turnover": 0.250493,
+            "weights": {
+              "GLD": 0.1908,
+              "IWM": 0.1368,
+              "QQQ": 0.1154,
+              "SPY": 0.1162,
+              "TLT": 0.1713,
+              "XLE": 0.1243,
+              "XLU": 0.1453
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-17T04:00:00+00:00",
+            "turnover": 0.124662,
+            "weights": {
+              "GLD": 0.2298,
+              "IWM": 0.1168,
+              "QQQ": 0.1036,
+              "SPY": 0.0972,
+              "TLT": 0.1785,
+              "XLE": 0.1127,
+              "XLU": 0.1614
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-20T04:00:00+00:00",
+            "turnover": 0.24875,
+            "weights": {
+              "GLD": 0.1787,
+              "IWM": 0.1464,
+              "QQQ": 0.1348,
+              "SPY": 0.1297,
+              "TLT": 0.142,
+              "XLE": 0.1438,
+              "XLU": 0.1245
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-21T04:00:00+00:00",
+            "turnover": 0.052973,
+            "weights": {
+              "GLD": 0.1689,
+              "IWM": 0.1521,
+              "QQQ": 0.1404,
+              "SPY": 0.1319,
+              "TLT": 0.1293,
+              "XLE": 0.1569,
+              "XLU": 0.1205
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-22T04:00:00+00:00",
+            "turnover": 0.213053,
+            "weights": {
+              "GLD": 0.2195,
+              "IWM": 0.1329,
+              "QQQ": 0.1166,
+              "SPY": 0.1039,
+              "TLT": 0.1554,
+              "XLE": 0.1213,
+              "XLU": 0.1504
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-23T04:00:00+00:00",
+            "turnover": 0.182237,
+            "weights": {
+              "GLD": 0.2653,
+              "IWM": 0.1128,
+              "QQQ": 0.0923,
+              "SPY": 0.088,
+              "TLT": 0.1698,
+              "XLE": 0.0904,
+              "XLU": 0.1813
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-24T04:00:00+00:00",
+            "turnover": 0.372045,
+            "weights": {
+              "GLD": 0.1532,
+              "IWM": 0.1529,
+              "QQQ": 0.1402,
+              "SPY": 0.1388,
+              "TLT": 0.1334,
+              "XLE": 0.1377,
+              "XLU": 0.1439
+            }
+          }
+        ],
+        "end": "2024-01-02",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.12098074,
+          "annualized_volatility": 0.10186961,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 109586.5482,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09795828,
+          "periods": 202,
+          "sharpe": 1.17192529,
+          "total_return": 0.09586548,
+          "total_turnover": 0.0,
+          "win_rate": 0.52970297
+        },
+        "label": "random_02_252bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.10159521,
+          "annualized_volatility": 0.10174708,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.13860321,
+          "cost_drag_total": 0.01399892,
+          "final_equity": 108064.8194,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.10025712,
+          "periods": 202,
+          "sharpe": 1.00169521,
+          "total_return": 0.08064819,
+          "total_turnover": 27.99784791,
+          "win_rate": 0.52475248
+        },
+        "start": "2023-03-13"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-04T04:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.1739,
+              "IWM": 0.0848,
+              "QQQ": 0.1186,
+              "SPY": 0.1125,
+              "TLT": 0.2219,
+              "XLE": 0.0862,
+              "XLU": 0.2021
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-08T04:00:00+00:00",
+            "turnover": 0.082831,
+            "weights": {
+              "GLD": 0.1815,
+              "IWM": 0.0746,
+              "QQQ": 0.1074,
+              "SPY": 0.0973,
+              "TLT": 0.2365,
+              "XLE": 0.0814,
+              "XLU": 0.2212
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-09T04:00:00+00:00",
+            "turnover": 0.035394,
+            "weights": {
+              "GLD": 0.179,
+              "IWM": 0.0758,
+              "QQQ": 0.1079,
+              "SPY": 0.0979,
+              "TLT": 0.2214,
+              "XLE": 0.0832,
+              "XLU": 0.2348
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-10T04:00:00+00:00",
+            "turnover": 0.036306,
+            "weights": {
+              "GLD": 0.1901,
+              "IWM": 0.0754,
+              "QQQ": 0.1005,
+              "SPY": 0.0922,
+              "TLT": 0.2188,
+              "XLE": 0.0813,
+              "XLU": 0.2418
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-11T04:00:00+00:00",
+            "turnover": 0.086032,
+            "weights": {
+              "GLD": 0.2196,
+              "IWM": 0.0685,
+              "QQQ": 0.0877,
+              "SPY": 0.0792,
+              "TLT": 0.215,
+              "XLE": 0.0747,
+              "XLU": 0.2553
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-14T04:00:00+00:00",
+            "turnover": 0.326117,
+            "weights": {
+              "GLD": 0.1712,
+              "IWM": 0.112,
+              "QQQ": 0.1228,
+              "SPY": 0.1184,
+              "TLT": 0.1703,
+              "XLE": 0.1199,
+              "XLU": 0.1854
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-15T04:00:00+00:00",
+            "turnover": 0.369641,
+            "weights": {
+              "GLD": 0.1126,
+              "IWM": 0.1655,
+              "QQQ": 0.1714,
+              "SPY": 0.1661,
+              "TLT": 0.1094,
+              "XLE": 0.1549,
+              "XLU": 0.1201
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-16T04:00:00+00:00",
+            "turnover": 0.480382,
+            "weights": {
+              "GLD": 0.1949,
+              "IWM": 0.1105,
+              "QQQ": 0.0972,
+              "SPY": 0.1001,
+              "TLT": 0.193,
+              "XLE": 0.11,
+              "XLU": 0.1943
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-17T04:00:00+00:00",
+            "turnover": 0.171322,
+            "weights": {
+              "GLD": 0.1643,
+              "IWM": 0.1313,
+              "QQQ": 0.1181,
+              "SPY": 0.12,
+              "TLT": 0.1629,
+              "XLE": 0.134,
+              "XLU": 0.1694
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-09-18T04:00:00+00:00",
+            "turnover": 0.227705,
+            "weights": {
+              "GLD": 0.2052,
+              "IWM": 0.1105,
+              "QQQ": 0.0894,
+              "SPY": 0.092,
+              "TLT": 0.2026,
+              "XLE": 0.0977,
+              "XLU": 0.2026
+            }
+          }
+        ],
+        "end": "2022-02-16",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.11119901,
+          "annualized_volatility": 0.11100026,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 116451.1481,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06120683,
+          "periods": 364,
+          "sharpe": 1.0055226,
+          "total_return": 0.16451148,
+          "total_turnover": 0.0,
+          "win_rate": 0.56318681
+        },
+        "label": "random_03_378bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.09150066,
+          "annualized_volatility": 0.1110234,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.14198341,
+          "cost_drag_total": 0.02584098,
+          "final_equity": 113481.1058,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06501019,
+          "periods": 364,
+          "sharpe": 0.84417666,
+          "total_return": 0.13481106,
+          "total_turnover": 51.68195949,
+          "win_rate": 0.55494505
+        },
+        "start": "2020-09-04"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-16T05:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.0903,
+              "IWM": 0.2058,
+              "QQQ": 0.1774,
+              "SPY": 0.175,
+              "TLT": 0.0935,
+              "XLE": 0.1598,
+              "XLU": 0.0982
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-17T05:00:00+00:00",
+            "turnover": 0.038534,
+            "weights": {
+              "GLD": 0.0907,
+              "IWM": 0.2178,
+              "QQQ": 0.169,
+              "SPY": 0.1704,
+              "TLT": 0.0907,
+              "XLE": 0.1666,
+              "XLU": 0.0948
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-20T05:00:00+00:00",
+            "turnover": 0.038508,
+            "weights": {
+              "GLD": 0.0938,
+              "IWM": 0.2147,
+              "QQQ": 0.1692,
+              "SPY": 0.1655,
+              "TLT": 0.0986,
+              "XLE": 0.1554,
+              "XLU": 0.1029
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-21T05:00:00+00:00",
+            "turnover": 0.116489,
+            "weights": {
+              "GLD": 0.119,
+              "IWM": 0.1633,
+              "QQQ": 0.1635,
+              "SPY": 0.1644,
+              "TLT": 0.1159,
+              "XLE": 0.1596,
+              "XLU": 0.1144
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-22T05:00:00+00:00",
+            "turnover": 0.015292,
+            "weights": {
+              "GLD": 0.115,
+              "IWM": 0.1604,
+              "QQQ": 0.166,
+              "SPY": 0.1662,
+              "TLT": 0.1184,
+              "XLE": 0.1604,
+              "XLU": 0.1136
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-24T05:00:00+00:00",
+            "turnover": 0.204593,
+            "weights": {
+              "GLD": 0.0823,
+              "IWM": 0.1908,
+              "QQQ": 0.1852,
+              "SPY": 0.1863,
+              "TLT": 0.0804,
+              "XLE": 0.1931,
+              "XLU": 0.0821
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-27T05:00:00+00:00",
+            "turnover": 0.02642,
+            "weights": {
+              "GLD": 0.0804,
+              "IWM": 0.1891,
+              "QQQ": 0.1923,
+              "SPY": 0.1923,
+              "TLT": 0.0797,
+              "XLE": 0.1877,
+              "XLU": 0.0784
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-28T05:00:00+00:00",
+            "turnover": 0.360954,
+            "weights": {
+              "GLD": 0.145,
+              "IWM": 0.1451,
+              "QQQ": 0.1451,
+              "SPY": 0.1457,
+              "TLT": 0.1361,
+              "XLE": 0.1451,
+              "XLU": 0.1379
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-29T05:00:00+00:00",
+            "turnover": 0.321088,
+            "weights": {
+              "GLD": 0.0876,
+              "IWM": 0.1891,
+              "QQQ": 0.1849,
+              "SPY": 0.1846,
+              "TLT": 0.0877,
+              "XLE": 0.183,
+              "XLU": 0.0831
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-11-30T05:00:00+00:00",
+            "turnover": 0.183248,
+            "weights": {
+              "GLD": 0.1252,
+              "IWM": 0.1652,
+              "QQQ": 0.1611,
+              "SPY": 0.1626,
+              "TLT": 0.1131,
+              "XLE": 0.1611,
+              "XLU": 0.1118
+            }
+          }
+        ],
+        "end": "2024-01-02",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.6535052,
+          "annualized_volatility": 0.10476583,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 105958.0541,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.01340544,
+          "periods": 29,
+          "sharpe": 4.85535829,
+          "total_return": 0.05958054,
+          "total_turnover": 0.0,
+          "win_rate": 0.65517241
+        },
+        "label": "random_04_252bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.62332801,
+          "annualized_volatility": 0.1045194,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.1466661,
+          "cost_drag_total": 0.00212666,
+          "final_equity": 105733.6979,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0134201,
+          "periods": 29,
+          "sharpe": 4.68999737,
+          "total_return": 0.05733698,
+          "total_turnover": 4.25331701,
+          "win_rate": 0.65517241
+        },
+        "start": "2023-11-16"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-01-21T05:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.2636,
+              "IWM": 0.0712,
+              "QQQ": 0.0714,
+              "SPY": 0.071,
+              "TLT": 0.228,
+              "XLE": 0.0687,
+              "XLU": 0.2261
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-01-24T05:00:00+00:00",
+            "turnover": 0.034574,
+            "weights": {
+              "GLD": 0.2739,
+              "IWM": 0.0716,
+              "QQQ": 0.0736,
+              "SPY": 0.0738,
+              "TLT": 0.2115,
+              "XLE": 0.068,
+              "XLU": 0.2277
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-01-25T05:00:00+00:00",
+            "turnover": 0.050413,
+            "weights": {
+              "GLD": 0.2933,
+              "IWM": 0.065,
+              "QQQ": 0.0685,
+              "SPY": 0.0688,
+              "TLT": 0.2065,
+              "XLE": 0.0643,
+              "XLU": 0.2335
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-01-26T05:00:00+00:00",
+            "turnover": 0.029722,
+            "weights": {
+              "GLD": 0.2813,
+              "IWM": 0.064,
+              "QQQ": 0.0678,
+              "SPY": 0.0682,
+              "TLT": 0.2061,
+              "XLE": 0.0666,
+              "XLU": 0.246
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-01-27T05:00:00+00:00",
+            "turnover": 0.020715,
+            "weights": {
+              "GLD": 0.2826,
+              "IWM": 0.061,
+              "QQQ": 0.0637,
+              "SPY": 0.0648,
+              "TLT": 0.2145,
+              "XLE": 0.0669,
+              "XLU": 0.2465
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-01-28T05:00:00+00:00",
+            "turnover": 0.389065,
+            "weights": {
+              "GLD": 0.2172,
+              "IWM": 0.104,
+              "QQQ": 0.1097,
+              "SPY": 0.1145,
+              "TLT": 0.1441,
+              "XLE": 0.1227,
+              "XLU": 0.1877
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-01-31T05:00:00+00:00",
+            "turnover": 0.050774,
+            "weights": {
+              "GLD": 0.193,
+              "IWM": 0.1095,
+              "QQQ": 0.1141,
+              "SPY": 0.1221,
+              "TLT": 0.1446,
+              "XLE": 0.1302,
+              "XLU": 0.1866
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-02-01T05:00:00+00:00",
+            "turnover": 0.203723,
+            "weights": {
+              "GLD": 0.1461,
+              "IWM": 0.1358,
+              "QQQ": 0.1411,
+              "SPY": 0.1503,
+              "TLT": 0.1246,
+              "XLE": 0.1505,
+              "XLU": 0.1516
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-02-02T05:00:00+00:00",
+            "turnover": 0.069541,
+            "weights": {
+              "GLD": 0.1346,
+              "IWM": 0.1291,
+              "QQQ": 0.1389,
+              "SPY": 0.1466,
+              "TLT": 0.1387,
+              "XLE": 0.1399,
+              "XLU": 0.1722
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2022-02-03T05:00:00+00:00",
+            "turnover": 0.045315,
+            "weights": {
+              "GLD": 0.1476,
+              "IWM": 0.1313,
+              "QQQ": 0.1331,
+              "SPY": 0.1391,
+              "TLT": 0.145,
+              "XLE": 0.1305,
+              "XLU": 0.1735
+            }
+          }
+        ],
+        "end": "2023-12-28",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.00763984,
+          "annualized_volatility": 0.13929099,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 101475.5589,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.1777748,
+          "periods": 485,
+          "sharpe": 0.12412333,
+          "total_return": 0.01475559,
+          "total_turnover": 0.0,
+          "win_rate": 0.50515464
+        },
+        "label": "random_05_504bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": -0.01059389,
+          "annualized_volatility": 0.13911766,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.14511614,
+          "cost_drag_total": 0.03519066,
+          "final_equity": 97971.0848,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.18545267,
+          "periods": 485,
+          "sharpe": -0.0071549,
+          "total_return": -0.02028915,
+          "total_turnover": 70.38132704,
+          "win_rate": 0.49896907
+        },
+        "start": "2022-01-21"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-03-31T04:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.1185,
+              "IWM": 0.1569,
+              "QQQ": 0.1543,
+              "SPY": 0.1552,
+              "TLT": 0.1185,
+              "XLE": 0.1674,
+              "XLU": 0.1293
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-03T04:00:00+00:00",
+            "turnover": 0.028027,
+            "weights": {
+              "GLD": 0.1199,
+              "IWM": 0.1505,
+              "QQQ": 0.1544,
+              "SPY": 0.1542,
+              "TLT": 0.1225,
+              "XLE": 0.1759,
+              "XLU": 0.1227
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-04T04:00:00+00:00",
+            "turnover": 0.043837,
+            "weights": {
+              "GLD": 0.1286,
+              "IWM": 0.144,
+              "QQQ": 0.1557,
+              "SPY": 0.1533,
+              "TLT": 0.1286,
+              "XLE": 0.1613,
+              "XLU": 0.1285
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-05T04:00:00+00:00",
+            "turnover": 0.180799,
+            "weights": {
+              "GLD": 0.1564,
+              "IWM": 0.1236,
+              "QQQ": 0.1274,
+              "SPY": 0.1294,
+              "TLT": 0.1602,
+              "XLE": 0.1435,
+              "XLU": 0.1595
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-06T04:00:00+00:00",
+            "turnover": 0.020618,
+            "weights": {
+              "GLD": 0.1503,
+              "IWM": 0.1268,
+              "QQQ": 0.1297,
+              "SPY": 0.132,
+              "TLT": 0.1603,
+              "XLE": 0.1394,
+              "XLU": 0.1617
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-10T04:00:00+00:00",
+            "turnover": 0.111564,
+            "weights": {
+              "GLD": 0.1739,
+              "IWM": 0.115,
+              "QQQ": 0.115,
+              "SPY": 0.1152,
+              "TLT": 0.1706,
+              "XLE": 0.1268,
+              "XLU": 0.1835
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-11T04:00:00+00:00",
+            "turnover": 0.032284,
+            "weights": {
+              "GLD": 0.1776,
+              "IWM": 0.114,
+              "QQQ": 0.114,
+              "SPY": 0.114,
+              "TLT": 0.1746,
+              "XLE": 0.114,
+              "XLU": 0.1919
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-12T04:00:00+00:00",
+            "turnover": 0.188926,
+            "weights": {
+              "GLD": 0.1454,
+              "IWM": 0.1366,
+              "QQQ": 0.1355,
+              "SPY": 0.1355,
+              "TLT": 0.1454,
+              "XLE": 0.1427,
+              "XLU": 0.1589
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-13T04:00:00+00:00",
+            "turnover": 0.330111,
+            "weights": {
+              "GLD": 0.0963,
+              "IWM": 0.1846,
+              "QQQ": 0.1764,
+              "SPY": 0.1786,
+              "TLT": 0.0935,
+              "XLE": 0.1758,
+              "XLU": 0.0949
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-04-14T04:00:00+00:00",
+            "turnover": 0.045349,
+            "weights": {
+              "GLD": 0.1005,
+              "IWM": 0.1757,
+              "QQQ": 0.169,
+              "SPY": 0.1722,
+              "TLT": 0.1005,
+              "XLE": 0.1815,
+              "XLU": 0.1005
+            }
+          }
+        ],
+        "end": "2024-01-02",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.07896441,
+          "annualized_volatility": 0.10331672,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 105833.7926,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09795828,
+          "periods": 188,
+          "sharpe": 0.78701317,
+          "total_return": 0.05833793,
+          "total_turnover": 0.0,
+          "win_rate": 0.5106383
+        },
+        "label": "random_06_252bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.06116745,
+          "annualized_volatility": 0.10317523,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.13214775,
+          "cost_drag_total": 0.01242189,
+          "final_equity": 104528.7175,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.10025712,
+          "periods": 188,
+          "sharpe": 0.62671052,
+          "total_return": 0.04528718,
+          "total_turnover": 24.8437764,
+          "win_rate": 0.50531915
+        },
+        "start": "2023-03-31"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-08T04:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.1137,
+              "IWM": 0.1598,
+              "QQQ": 0.1798,
+              "SPY": 0.1708,
+              "TLT": 0.1107,
+              "XLE": 0.1563,
+              "XLU": 0.1089
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-09T04:00:00+00:00",
+            "turnover": 0.164005,
+            "weights": {
+              "GLD": 0.1388,
+              "IWM": 0.1393,
+              "QQQ": 0.1554,
+              "SPY": 0.1506,
+              "TLT": 0.1356,
+              "XLE": 0.1393,
+              "XLU": 0.1409
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-12T04:00:00+00:00",
+            "turnover": 0.031641,
+            "weights": {
+              "GLD": 0.1434,
+              "IWM": 0.1391,
+              "QQQ": 0.1462,
+              "SPY": 0.1445,
+              "TLT": 0.1441,
+              "XLE": 0.1391,
+              "XLU": 0.1437
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-13T04:00:00+00:00",
+            "turnover": 0.061128,
+            "weights": {
+              "GLD": 0.132,
+              "IWM": 0.1448,
+              "QQQ": 0.1577,
+              "SPY": 0.152,
+              "TLT": 0.1333,
+              "XLE": 0.1448,
+              "XLU": 0.1353
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-14T04:00:00+00:00",
+            "turnover": 0.175297,
+            "weights": {
+              "GLD": 0.1019,
+              "IWM": 0.1728,
+              "QQQ": 0.1742,
+              "SPY": 0.1728,
+              "TLT": 0.1045,
+              "XLE": 0.1672,
+              "XLU": 0.1066
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-15T04:00:00+00:00",
+            "turnover": 0.009026,
+            "weights": {
+              "GLD": 0.1022,
+              "IWM": 0.1683,
+              "QQQ": 0.1741,
+              "SPY": 0.1734,
+              "TLT": 0.1057,
+              "XLE": 0.1674,
+              "XLU": 0.1089
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-16T04:00:00+00:00",
+            "turnover": 0.012653,
+            "weights": {
+              "GLD": 0.1064,
+              "IWM": 0.1698,
+              "QQQ": 0.1724,
+              "SPY": 0.1722,
+              "TLT": 0.1023,
+              "XLE": 0.1674,
+              "XLU": 0.1094
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-19T04:00:00+00:00",
+            "turnover": 0.018675,
+            "weights": {
+              "GLD": 0.1059,
+              "IWM": 0.1693,
+              "QQQ": 0.1726,
+              "SPY": 0.1737,
+              "TLT": 0.1018,
+              "XLE": 0.175,
+              "XLU": 0.1017
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-20T04:00:00+00:00",
+            "turnover": 0.55525,
+            "weights": {
+              "GLD": 0.1977,
+              "IWM": 0.1033,
+              "QQQ": 0.1033,
+              "SPY": 0.1033,
+              "TLT": 0.1913,
+              "XLE": 0.1033,
+              "XLU": 0.198
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-04-21T04:00:00+00:00",
+            "turnover": 0.364103,
+            "weights": {
+              "GLD": 0.1371,
+              "IWM": 0.1466,
+              "QQQ": 0.1503,
+              "SPY": 0.1516,
+              "TLT": 0.1369,
+              "XLE": 0.1466,
+              "XLU": 0.131
+            }
+          }
+        ],
+        "end": "2022-09-20",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": -0.02366931,
+          "annualized_volatility": 0.12184324,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 96589.9806,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.14913623,
+          "periods": 365,
+          "sharpe": -0.1356208,
+          "total_return": -0.03410019,
+          "total_turnover": 0.0,
+          "win_rate": 0.53150685
+        },
+        "label": "random_07_378bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": -0.0410398,
+          "annualized_volatility": 0.12167214,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.14261645,
+          "cost_drag_total": 0.0260275,
+          "final_equity": 94110.8574,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16006924,
+          "periods": 365,
+          "sharpe": -0.28350081,
+          "total_return": -0.05889143,
+          "total_turnover": 52.05500526,
+          "win_rate": 0.52328767
+        },
+        "start": "2021-04-08"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-18T04:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.1102,
+              "IWM": 0.163,
+              "QQQ": 0.1677,
+              "SPY": 0.16,
+              "TLT": 0.1102,
+              "XLE": 0.1558,
+              "XLU": 0.133
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-19T04:00:00+00:00",
+            "turnover": 0.02089,
+            "weights": {
+              "GLD": 0.1065,
+              "IWM": 0.1648,
+              "QQQ": 0.1681,
+              "SPY": 0.1618,
+              "TLT": 0.1139,
+              "XLE": 0.1585,
+              "XLU": 0.1263
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-22T04:00:00+00:00",
+            "turnover": 0.041284,
+            "weights": {
+              "GLD": 0.1042,
+              "IWM": 0.171,
+              "QQQ": 0.1779,
+              "SPY": 0.1665,
+              "TLT": 0.1083,
+              "XLE": 0.1564,
+              "XLU": 0.1157
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-23T04:00:00+00:00",
+            "turnover": 0.055522,
+            "weights": {
+              "GLD": 0.1155,
+              "IWM": 0.1666,
+              "QQQ": 0.1617,
+              "SPY": 0.1594,
+              "TLT": 0.1155,
+              "XLE": 0.1591,
+              "XLU": 0.1222
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-24T04:00:00+00:00",
+            "turnover": 0.274972,
+            "weights": {
+              "GLD": 0.1636,
+              "IWM": 0.1199,
+              "QQQ": 0.1336,
+              "SPY": 0.1295,
+              "TLT": 0.1636,
+              "XLE": 0.1263,
+              "XLU": 0.1636
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-25T04:00:00+00:00",
+            "turnover": 0.028166,
+            "weights": {
+              "GLD": 0.1605,
+              "IWM": 0.1268,
+              "QQQ": 0.1396,
+              "SPY": 0.1307,
+              "TLT": 0.1605,
+              "XLE": 0.1213,
+              "XLU": 0.1605
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-26T04:00:00+00:00",
+            "turnover": 0.336198,
+            "weights": {
+              "GLD": 0.1044,
+              "IWM": 0.1619,
+              "QQQ": 0.1981,
+              "SPY": 0.1683,
+              "TLT": 0.1044,
+              "XLE": 0.1582,
+              "XLU": 0.1048
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-30T04:00:00+00:00",
+            "turnover": 0.191476,
+            "weights": {
+              "GLD": 0.1311,
+              "IWM": 0.1335,
+              "QQQ": 0.1797,
+              "SPY": 0.1456,
+              "TLT": 0.1364,
+              "XLE": 0.1319,
+              "XLU": 0.1418
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-05-31T04:00:00+00:00",
+            "turnover": 0.086428,
+            "weights": {
+              "GLD": 0.1419,
+              "IWM": 0.1204,
+              "QQQ": 0.1703,
+              "SPY": 0.1375,
+              "TLT": 0.1501,
+              "XLE": 0.1193,
+              "XLU": 0.1605
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2023-06-01T04:00:00+00:00",
+            "turnover": 0.285832,
+            "weights": {
+              "GLD": 0.0963,
+              "IWM": 0.1505,
+              "QQQ": 0.2126,
+              "SPY": 0.1789,
+              "TLT": 0.1007,
+              "XLE": 0.1484,
+              "XLU": 0.1126
+            }
+          }
+        ],
+        "end": "2024-01-02",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.12740467,
+          "annualized_volatility": 0.10759574,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 107654.758,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09795828,
+          "periods": 155,
+          "sharpe": 1.16812543,
+          "total_return": 0.07654758,
+          "total_turnover": 0.0,
+          "win_rate": 0.54193548
+        },
+        "label": "random_08_378bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.11029719,
+          "annualized_volatility": 0.10750764,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.12147905,
+          "cost_drag_total": 0.00941463,
+          "final_equity": 106647.0237,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.10025712,
+          "periods": 155,
+          "sharpe": 1.02670799,
+          "total_return": 0.06647024,
+          "total_turnover": 18.82925235,
+          "win_rate": 0.53548387
+        },
+        "start": "2023-05-18"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-06T04:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.1254,
+              "IWM": 0.1664,
+              "QQQ": 0.1659,
+              "SPY": 0.1656,
+              "TLT": 0.1041,
+              "XLE": 0.1624,
+              "XLU": 0.1102
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-09T04:00:00+00:00",
+            "turnover": 0.011523,
+            "weights": {
+              "GLD": 0.129,
+              "IWM": 0.1646,
+              "QQQ": 0.1653,
+              "SPY": 0.1648,
+              "TLT": 0.106,
+              "XLE": 0.1598,
+              "XLU": 0.1105
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-10T04:00:00+00:00",
+            "turnover": 0.013511,
+            "weights": {
+              "GLD": 0.1332,
+              "IWM": 0.1654,
+              "QQQ": 0.1616,
+              "SPY": 0.1633,
+              "TLT": 0.1059,
+              "XLE": 0.1616,
+              "XLU": 0.1089
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-11T04:00:00+00:00",
+            "turnover": 0.104337,
+            "weights": {
+              "GLD": 0.1463,
+              "IWM": 0.1536,
+              "QQQ": 0.1426,
+              "SPY": 0.1473,
+              "TLT": 0.1231,
+              "XLE": 0.1563,
+              "XLU": 0.1307
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-12T04:00:00+00:00",
+            "turnover": 0.054857,
+            "weights": {
+              "GLD": 0.1544,
+              "IWM": 0.1419,
+              "QQQ": 0.1397,
+              "SPY": 0.1429,
+              "TLT": 0.1345,
+              "XLE": 0.1479,
+              "XLU": 0.1387
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-13T04:00:00+00:00",
+            "turnover": 0.074064,
+            "weights": {
+              "GLD": 0.1299,
+              "IWM": 0.1512,
+              "QQQ": 0.1522,
+              "SPY": 0.1548,
+              "TLT": 0.1279,
+              "XLE": 0.1512,
+              "XLU": 0.1328
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-16T04:00:00+00:00",
+            "turnover": 0.010951,
+            "weights": {
+              "GLD": 0.1343,
+              "IWM": 0.1508,
+              "QQQ": 0.1512,
+              "SPY": 0.1558,
+              "TLT": 0.126,
+              "XLE": 0.1508,
+              "XLU": 0.131
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-17T04:00:00+00:00",
+            "turnover": 0.233209,
+            "weights": {
+              "GLD": 0.171,
+              "IWM": 0.1215,
+              "QQQ": 0.1215,
+              "SPY": 0.1277,
+              "TLT": 0.1695,
+              "XLE": 0.1215,
+              "XLU": 0.1674
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-18T04:00:00+00:00",
+            "turnover": 0.276134,
+            "weights": {
+              "GLD": 0.2107,
+              "IWM": 0.0842,
+              "QQQ": 0.0841,
+              "SPY": 0.1016,
+              "TLT": 0.2179,
+              "XLE": 0.0841,
+              "XLU": 0.2175
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2021-08-19T04:00:00+00:00",
+            "turnover": 0.022458,
+            "weights": {
+              "GLD": 0.2004,
+              "IWM": 0.0833,
+              "QQQ": 0.0845,
+              "SPY": 0.1051,
+              "TLT": 0.2202,
+              "XLE": 0.0848,
+              "XLU": 0.2217
+            }
+          }
+        ],
+        "end": "2022-07-26",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": -0.07212614,
+          "annualized_volatility": 0.12448213,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 93063.4314,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.14913623,
+          "periods": 242,
+          "sharpe": -0.53904613,
+          "total_return": -0.06936569,
+          "total_turnover": 0.0,
+          "win_rate": 0.52892562
+        },
+        "label": "random_09_252bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": -0.08880812,
+          "annualized_volatility": 0.12428242,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.14413037,
+          "cost_drag_total": 0.01743977,
+          "final_equity": 91456.0891,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16006924,
+          "periods": 242,
+          "sharpe": -0.68603458,
+          "total_return": -0.08543911,
+          "total_turnover": 34.87954834,
+          "win_rate": 0.52479339
+        },
+        "start": "2021-08-06"
+      },
+      {
+        "activity_sample": [
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-11-27T05:00:00+00:00",
+            "turnover": 1.0,
+            "weights": {
+              "GLD": 0.1002,
+              "IWM": 0.1801,
+              "QQQ": 0.1717,
+              "SPY": 0.1685,
+              "TLT": 0.0895,
+              "XLE": 0.1997,
+              "XLU": 0.0903
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-11-30T05:00:00+00:00",
+            "turnover": 0.097417,
+            "weights": {
+              "GLD": 0.0905,
+              "IWM": 0.1883,
+              "QQQ": 0.1937,
+              "SPY": 0.187,
+              "TLT": 0.0747,
+              "XLE": 0.191,
+              "XLU": 0.0747
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-12-01T05:00:00+00:00",
+            "turnover": 0.08,
+            "weights": {
+              "GLD": 0.1021,
+              "IWM": 0.175,
+              "QQQ": 0.193,
+              "SPY": 0.1819,
+              "TLT": 0.089,
+              "XLE": 0.17,
+              "XLU": 0.089
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-12-02T05:00:00+00:00",
+            "turnover": 0.110656,
+            "weights": {
+              "GLD": 0.1143,
+              "IWM": 0.1611,
+              "QQQ": 0.1765,
+              "SPY": 0.166,
+              "TLT": 0.1105,
+              "XLE": 0.1611,
+              "XLU": 0.1105
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-12-03T05:00:00+00:00",
+            "turnover": 0.110656,
+            "weights": {
+              "GLD": 0.0969,
+              "IWM": 0.176,
+              "QQQ": 0.1887,
+              "SPY": 0.1806,
+              "TLT": 0.0916,
+              "XLE": 0.1746,
+              "XLU": 0.0916
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-12-04T05:00:00+00:00",
+            "turnover": 0.046853,
+            "weights": {
+              "GLD": 0.0947,
+              "IWM": 0.1768,
+              "QQQ": 0.1773,
+              "SPY": 0.1748,
+              "TLT": 0.0978,
+              "XLE": 0.1911,
+              "XLU": 0.0876
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-12-07T05:00:00+00:00",
+            "turnover": 0.029937,
+            "weights": {
+              "GLD": 0.1016,
+              "IWM": 0.1781,
+              "QQQ": 0.1715,
+              "SPY": 0.1685,
+              "TLT": 0.0949,
+              "XLE": 0.1969,
+              "XLU": 0.0885
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-12-08T05:00:00+00:00",
+            "turnover": 0.022683,
+            "weights": {
+              "GLD": 0.1013,
+              "IWM": 0.1802,
+              "QQQ": 0.1665,
+              "SPY": 0.1646,
+              "TLT": 0.0927,
+              "XLE": 0.2019,
+              "XLU": 0.0927
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-12-09T05:00:00+00:00",
+            "turnover": 0.35091,
+            "weights": {
+              "GLD": 0.1551,
+              "IWM": 0.1373,
+              "QQQ": 0.1243,
+              "SPY": 0.1243,
+              "TLT": 0.1544,
+              "XLE": 0.1518,
+              "XLU": 0.1527
+            }
+          },
+          {
+            "active_count": 7,
+            "gross": 1.0,
+            "timestamp": "2020-12-10T05:00:00+00:00",
+            "turnover": 0.184123,
+            "weights": {
+              "GLD": 0.1228,
+              "IWM": 0.1562,
+              "QQQ": 0.1462,
+              "SPY": 0.1397,
+              "TLT": 0.1245,
+              "XLE": 0.1878,
+              "XLU": 0.1228
+            }
+          }
+        ],
+        "end": "2022-05-10",
+        "gross_metrics_no_cost": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.03060297,
+          "annualized_volatility": 0.10998855,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.0,
+          "cost_drag_total": 0.0,
+          "final_equity": 104437.8284,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.10180056,
+          "periods": 363,
+          "sharpe": 0.32904405,
+          "total_return": 0.04437828,
+          "total_turnover": 0.0,
+          "win_rate": 0.55371901
+        },
+        "label": "random_10_378bd",
+        "metrics": {
+          "active_day_fraction": 1.0,
+          "annualized_return": 0.01225256,
+          "annualized_volatility": 0.10997217,
+          "avg_active_count": 7.0,
+          "avg_daily_turnover": 0.14260841,
+          "cost_drag_total": 0.02588343,
+          "final_equity": 101769.7038,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.11023971,
+          "periods": 363,
+          "sharpe": 0.16570027,
+          "total_return": 0.01769704,
+          "total_turnover": 51.76685256,
+          "win_rate": 0.54545455
+        },
+        "start": "2020-11-26"
+      }
+    ]
+  },
+  "suggested_next_action": "Do not refine AR-042 as implemented; only revisit if a true external event calendar is allowed or a materially orthogonal execution feature is introduced.",
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "TLT",
+    "GLD",
+    "XLU",
+    "XLE"
+  ],
+  "warnings": [
+    "Calendar features are deterministic proxies only; no external event calendar was used.",
+    "Backtest uses qfa-compatible next-day close-to-close execution and ex-post 5 bps one-way turnover costs.",
+    "High redundancy vs AR-021-style turn-month-calendar-window-etf-v1 (corr 0.969061) means this is not a sufficiently divergent child alpha in current form."
+  ]
+}

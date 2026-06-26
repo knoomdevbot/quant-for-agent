@@ -1,0 +1,45 @@
+model_name: macro-liquidity-flow-etf-v1
+issue_id: AR-042
+status: researched_rejected_high_redundancy
+family: macro_flow
+created_at_utc: '2026-06-26T09:41:05Z'
+research_branch: research/seed-alpha-ideas
+hypothesis: ETF flow pressure may be captured around scheduled macro/liquidity proxies and cross-asset breadth shifts rather than calendar month boundaries.
+falsifier: Median random-period Sharpe <= 0 after costs, severe drawdowns, or high redundancy.
+universe:
+  core: [SPY, QQQ, IWM, TLT, GLD]
+  optional_justified: [XLU, XLE]
+  optional_justification: XLU and XLE are liquid defensive/energy sector ETFs used only as OHLCV-derived cross-asset pressure sleeves.
+data:
+  source: qfa AlpacaGateway real daily OHLCV
+  csv_used: false
+  fetch_start: '2019-01-01'
+  fetch_end: '2025-12-31'
+  alpaca_rows: 12313
+costs_slippage:
+  one_way_bps: 5.0
+  method: ex_post_turnover_haircut
+key_metrics_after_costs:
+  main_sharpe: 0.28685493
+  main_annualized_return: 0.02975948
+  main_annualized_volatility: 0.13452332
+  main_max_drawdown: -0.19272499
+  main_avg_daily_turnover: 0.14361997
+  median_random_sharpe: 0.73544359
+  p25_random_sharpe: 0.03605889
+  worst_random_sharpe: -0.68603458
+  positive_window_rate: 0.7
+  worst_random_max_drawdown: -0.18545267
+orthogonality:
+  turn_month_calendar_window_etf_v1_corr: 0.969061
+  note: High same-date return correlation with AR-021-style turn-month calendar model triggers redundancy concern despite positive random-window median Sharpe.
+decision:
+  suggested: reject_or_park_do_not_refine
+  rationale: Positive robustness metrics are not enough because correlation to turn-month-calendar-window-etf-v1 was 0.969061 and main-period Sharpe was only 0.28685493 after costs.
+artifacts:
+  model: models/macro-liquidity-flow-etf-v1/model.py
+  config: models/macro-liquidity-flow-etf-v1/config.yaml
+  readme: models/macro-liquidity-flow-etf-v1/README.md
+  latest_json: models/macro-liquidity-flow-etf-v1/evaluations/latest.json
+  latest_md: models/macro-liquidity-flow-etf-v1/evaluations/latest.md
+  immutable_run: models/macro-liquidity-flow-etf-v1/evaluations/runs/ar042_qfa_alpaca_real_20260626T094105Z.json
