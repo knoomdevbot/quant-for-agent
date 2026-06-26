@@ -1,0 +1,21 @@
+id: AR-019
+name: pairs-residual-adaptive-coint-megacap-tech-v1
+status: evaluated_rejected
+parent: AR-005
+parent_status: watchlist
+created_at: '2026-06-26T06:30:00Z'
+evaluated_at: '2026-06-26T07:46:21Z'
+family: stat_arb
+mechanism: adaptive mega-cap tech residual pair mean reversion with correlation and cointegration-like stability filters
+data_source: Alpaca real OHLCV only through qfa/AlpacaGateway; no CSV fixtures
+research_constraints:
+  no_csv: true
+  no_data_csv: true
+  no_daemon: true
+  no_trades: true
+decision: rejected
+artifacts:
+  model: models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py
+  config: models/pairs-residual-adaptive-coint-megacap-tech-v1/config.yaml
+  evaluation_latest_json: models/pairs-residual-adaptive-coint-megacap-tech-v1/evaluations/latest.json
+  evaluation_latest_md: models/pairs-residual-adaptive-coint-megacap-tech-v1/evaluations/latest.md

@@ -132,24 +132,24 @@ issues:
 - id: AR-018
   title: 'Divergent from AR-004: mega-cap overnight gap reversal'
   model_name: overnight-gap-reversal-event-megacap-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: mean_reversion
   issue_path: alpha_research/issues/AR-018.md
   parent: AR-004
 - id: AR-019
   title: 'Refine AR-005: adaptive pair selection with cointegration filters'
   model_name: pairs-residual-adaptive-coint-megacap-tech-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: stat_arb
   issue_path: alpha_research/issues/AR-019.md
   parent: AR-005
 - id: AR-020
   title: 'Divergent from AR-005: mega-cap tech overnight residual reversal'
   model_name: overnight-residual-reversal-megacap-tech-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: overnight_reversal
   issue_path: alpha_research/issues/AR-020.md
   parent: AR-005
@@ -290,13 +290,13 @@ issues:
   issue_path: alpha_research/issues/AR-040.md
   parent: AR-016
 active_batch:
+- AR-021
+- AR-022
+- AR-024
+last_realdata_batch:
 - AR-018
 - AR-019
 - AR-020
-last_realdata_batch:
-- AR-014
-- AR-015
-- AR-016
-updated_at: '2026-06-26T07:30:00Z'
+updated_at: '2026-06-26T07:55:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 15
+tried_ideas_count: 18

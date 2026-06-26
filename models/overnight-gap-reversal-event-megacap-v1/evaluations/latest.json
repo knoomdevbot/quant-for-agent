@@ -1,0 +1,265 @@
+{
+  "artifacts": {
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/overnight-gap-reversal-event-megacap-v1/evaluations/runs/qfa_alpaca_real_ar018_20260626T073809Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/overnight-gap-reversal-event-megacap-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/overnight-gap-reversal-event-megacap-v1/evaluations/latest.md"
+  },
+  "bad_result_policy": {
+    "child_ideas_created": [],
+    "note": "Because result is rejected, no refinement/direct inversion/extension is proposed.",
+    "rejected_policy_followed": true
+  },
+  "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/overnight-gap-reversal-event-megacap-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL,TSLA --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+  "commands": {
+    "artifact_generation": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/python /tmp/evaluate_ar018.py",
+    "qfa_primary_cli": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/overnight-gap-reversal-event-megacap-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL,TSLA --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>"
+  },
+  "costs_slippage": {
+    "direct_harness_applied": true,
+    "handling": "qfa CLI exposes no cost/slippage parameter; qfa proxy metrics are pre-cost. Direct open-to-close harness subtracts turnover * 5 bps from daily returns.",
+    "one_way_bps": 5.0,
+    "primary_turnover": {
+      "active_day_fraction": 0.38522954,
+      "active_days": 193,
+      "annualized_turnover_proxy": 183.13898879,
+      "event_counts_by_symbol": {
+        "AAPL": 50,
+        "AMZN": 50,
+        "GOOGL": 43,
+        "META": 45,
+        "MSFT": 54,
+        "NVDA": 61,
+        "TSLA": 58
+      },
+      "mean_daily_turnover": 0.72674202,
+      "mean_gross_exposure": 0.38522954,
+      "median_daily_turnover": 1.0
+    },
+    "qfa_applied": false
+  },
+  "created_at": "2026-06-26T07:38:09Z",
+  "daemon_used": false,
+  "data_source": "Alpaca real market data via qfa CLI and AlpacaGateway direct OHLC harness; no --data-csv; no CSV fixtures",
+  "date_ranges": {
+    "full_data": {
+      "end": "2025-12-31",
+      "start": "2021-01-01"
+    },
+    "primary": {
+      "end": "2025-12-31",
+      "start": "2024-01-01"
+    }
+  },
+  "decision_rationale": "Rejected: primary qfa proxy Sharpe is negative and intended open-to-close random-window median cost-adjusted Sharpe is non-positive after 5 bps one-way turnover cost.",
+  "evaluation_status": "completed_real_data_backtest",
+  "issue_id": "AR-018",
+  "metrics": {
+    "max_drawdown": -0.17053299,
+    "periods": 501,
+    "primary_direct_open_to_close_cost_adjusted": {
+      "annualized_return": 0.27020264,
+      "annualized_volatility": 0.22963229,
+      "final_equity": 160882.7345,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.17053299,
+      "periods": 501,
+      "sharpe": 1.15561986,
+      "total_return": 0.60882734,
+      "win_rate": 0.20558882
+    },
+    "primary_direct_open_to_close_pre_cost": {
+      "annualized_return": 0.39171578,
+      "annualized_volatility": 0.23019872,
+      "final_equity": 192926.6264,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.16422968,
+      "periods": 501,
+      "sharpe": 1.55056085,
+      "total_return": 0.92926626,
+      "win_rate": 0.20558882
+    },
+    "primary_qfa_proxy_pre_cost": {
+      "annualized_return": -0.11359256,
+      "annualized_volatility": 0.24613203,
+      "final_equity": 78722.3405,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.32068938,
+      "periods": 500,
+      "sharpe": -0.36424762,
+      "total_return": -0.2127766,
+      "win_rate": 0.166
+    },
+    "return": 0.60882734,
+    "sharpe": 1.15561986,
+    "win_rate": 0.20558882
+  },
+  "model_name": "overnight-gap-reversal-event-megacap-v1",
+  "no_csv_used": true,
+  "orthogonality": {
+    "computed": false,
+    "correlations": [],
+    "status": "unavailable_no_comparable_retained_open_to_close_event_return_streams"
+  },
+  "qfa_db": {
+    "db_artifact_retained": false,
+    "path_used_during_run": "/tmp/qfa_ar018_20260626T003612_295.sqlite3"
+  },
+  "qfa_execution_limitation": "qfa daily bars cannot exactly enter at event-day open and exit same close; model.py is lagged close-to-close proxy, while direct Alpaca OHLC harness evaluates intended open-to-close approximation.",
+  "qfa_run_ids": {
+    "cli_primary": 1,
+    "direct_engine_primary": "direct_python_qfa_engine_no_store"
+  },
+  "random_window_results": {
+    "metrics_cost_adjusted": {
+      "annualized_return": {
+        "count": 30,
+        "max": 0.74706066,
+        "mean": -0.0582425,
+        "median": -0.15349145,
+        "min": -0.44999168,
+        "p25": -0.30308763,
+        "p75": 0.00770255
+      },
+      "annualized_volatility": {
+        "count": 30,
+        "max": 0.32824481,
+        "mean": 0.25299032,
+        "median": 0.2592302,
+        "min": 0.16738036,
+        "p25": 0.21087372,
+        "p75": 0.28275847
+      },
+      "max_drawdown": {
+        "count": 30,
+        "max": -0.1090492,
+        "mean": -0.27637261,
+        "median": -0.20683642,
+        "min": -0.47909091,
+        "p25": -0.37632738,
+        "p75": -0.17053299
+      },
+      "periods": {
+        "count": 30,
+        "max": 252,
+        "mean": 252.0,
+        "median": 252.0,
+        "min": 252,
+        "p25": 252.0,
+        "p75": 252.0
+      },
+      "sharpe": {
+        "count": 30,
+        "max": 2.21451667,
+        "mean": -0.24257985,
+        "median": -0.50714055,
+        "min": -1.70137706,
+        "p25": -1.17384975,
+        "p75": 0.14898247
+      },
+      "total_return": {
+        "count": 30,
+        "max": 0.74706066,
+        "mean": -0.0582425,
+        "median": -0.15349145,
+        "min": -0.44999168,
+        "p25": -0.30308763,
+        "p75": 0.00770255
+      },
+      "win_rate": {
+        "count": 30,
+        "max": 0.23809524,
+        "mean": 0.17275132,
+        "median": 0.16468254,
+        "min": 0.13095238,
+        "p25": 0.1547619,
+        "p75": 0.1875
+      }
+    },
+    "metrics_pre_cost": {
+      "annualized_return": {
+        "count": 30,
+        "max": 0.92893724,
+        "mean": 0.02748058,
+        "median": -0.08113601,
+        "min": -0.3915942,
+        "p25": -0.23796006,
+        "p75": 0.09228928
+      },
+      "annualized_volatility": {
+        "count": 30,
+        "max": 0.32758777,
+        "mean": 0.2528875,
+        "median": 0.2595431,
+        "min": 0.16748892,
+        "p25": 0.21055668,
+        "p75": 0.28262099
+      },
+      "max_drawdown": {
+        "count": 30,
+        "max": -0.09416989,
+        "mean": -0.24657895,
+        "median": -0.18361412,
+        "min": -0.42540992,
+        "p25": -0.34008691,
+        "p75": -0.16422968
+      },
+      "periods": {
+        "count": 30,
+        "max": 252,
+        "mean": 252.0,
+        "median": 252.0,
+        "min": 252,
+        "p25": 252.0,
+        "p75": 252.0
+      },
+      "sharpe": {
+        "count": 30,
+        "max": 2.57732125,
+        "mean": 0.10830429,
+        "median": -0.19407587,
+        "min": -1.39165728,
+        "p25": -0.85065245,
+        "p75": 0.55874775
+      },
+      "total_return": {
+        "count": 30,
+        "max": 0.92893724,
+        "mean": 0.02748058,
+        "median": -0.08113601,
+        "min": -0.3915942,
+        "p25": -0.23796006,
+        "p75": 0.09228928
+      },
+      "win_rate": {
+        "count": 30,
+        "max": 0.23809524,
+        "mean": 0.17539682,
+        "median": 0.17063492,
+        "min": 0.13492063,
+        "p25": 0.15972222,
+        "p75": 0.18849206
+      }
+    },
+    "positive_sharpe_fraction_cost_adjusted": 0.36666667,
+    "turnover": {
+      "median_active_day_fraction": 0.36309524,
+      "median_mean_daily_turnover": 0.68372782
+    }
+  },
+  "suggested_decision": "rejected",
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA"
+  ],
+  "trades_placed": false,
+  "warnings": [
+    "No trades placed; qfa daemon was not run.",
+    "No --data-csv or CSV fixtures used.",
+    "qfa proxy cannot exactly simulate event-day open-to-close execution."
+  ]
+}

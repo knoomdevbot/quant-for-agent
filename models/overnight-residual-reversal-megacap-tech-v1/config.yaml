@@ -1,0 +1,29 @@
+model_name: overnight-residual-reversal-megacap-tech-v1
+issue_id: AR-020
+family: overnight_reversal
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+data_source: Alpaca real market data via qfa/AlpacaGateway; no CSV
+execution_intent: same-day open-to-close residual overnight reversal
+qfa_proxy: lagged daily close-to-close approximation because qfa daily engine cannot enter current open and exit same close
+parameters:
+  beta_window: 90
+  residual_z_window: 60
+  entry_z: 0.75
+  max_abs_weight: 0.25
+  min_symbols: 5
+risk:
+  gross_exposure_target: 1.0
+  dollar_neutralize_active_scores: true
+  max_abs_single_name_weight: 0.25
+  live_trading: false
+costs_slippage:
+  qfa_native_costs: unavailable
+  direct_open_to_close_haircut_bps_per_side: 5
+  note: direct harness subtracts round-trip event-day cost; qfa proxy is gross/pre-cost

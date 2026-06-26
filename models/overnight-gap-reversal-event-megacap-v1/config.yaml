@@ -1,0 +1,35 @@
+model_name: overnight-gap-reversal-event-megacap-v1
+issue_id: AR-018
+family: mean_reversion
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+data_source: Alpaca real market data via qfa/AlpacaGateway only; no CSV and no --data-csv
+execution:
+  research_only: true
+  daemon_used: false
+  trades_placed: false
+  qfa_timeframe: 1Day
+  intended_trade: same-day open-to-close fade of event-like overnight gaps
+  qfa_limitation: qfa daily backtest applies generated weights to next close-to-close return, so model.py is a lagged qfa-compatible proxy
+parameters:
+  gap_z_window: 60
+  volume_z_window: 60
+  atr_window: 20
+  entry_gap_z: 1.25
+  event_volume_z: 0.75
+  event_range_atr: 0.80
+  max_abs_weight: 0.25
+  min_symbols: 3
+risk:
+  gross_normalized: true
+  max_abs_single_name_weight: 0.25
+costs:
+  one_way_bps_assumption: 5
+  qfa_costs_applied: false
+  direct_harness_costs_applied: true
