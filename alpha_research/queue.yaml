@@ -667,6 +667,34 @@ issues:
   family: overnight_gap_absorption
   issue_path: alpha_research/issues/AR-089.md
   parent: AR-081
+- id: AR-090
+  title: 'Google Trends consumer-attention discretionary ETF rotation'
+  model_name: google-trends-consumer-attention-etf-rotation-v1
+  status: queued
+  priority: external_signal
+  family: external_attention_rotation
+  issue_path: alpha_research/issues/AR-090.md
+- id: AR-091
+  title: 'Prediction-market macro probability shock ETF allocator'
+  model_name: polymarket-macro-probability-shock-etf-allocator-v1
+  status: queued
+  priority: external_signal
+  family: prediction_market_macro_regime
+  issue_path: alpha_research/issues/AR-091.md
+- id: AR-092
+  title: 'Crypto risk-appetite spillover Nasdaq and ETF rotation'
+  model_name: crypto-risk-appetite-spillover-etf-rotation-v1
+  status: queued
+  priority: external_signal
+  family: crypto_crossasset_risk_appetite
+  issue_path: alpha_research/issues/AR-092.md
+- id: AR-093
+  title: 'Crypto stress-to-quality flight defensive ETF allocator'
+  model_name: crypto-stress-quality-flight-defensive-etf-allocator-v1
+  status: queued
+  priority: external_signal
+  family: crypto_stress_defensive_allocator
+  issue_path: alpha_research/issues/AR-093.md
 active_batch:
 - AR-082
 - AR-083
@@ -675,6 +703,6 @@ last_realdata_batch:
 - AR-079
 - AR-080
 - AR-081
-updated_at: '2026-06-26T14:25:46Z'
+updated_at: '2026-06-26T14:39:33Z'
 target_tried_ideas: 100
 tried_ideas_count: 72
