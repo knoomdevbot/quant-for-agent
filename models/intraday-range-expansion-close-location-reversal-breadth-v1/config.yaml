@@ -1,0 +1,41 @@
+model_name: intraday-range-expansion-close-location-reversal-breadth-v1
+issue_id: AR-079
+family: intraday_liquidity_reversal
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLV
+  - XLY
+  - XLE
+  - XLU
+  - XLP
+  - TLT
+  - IEF
+  - GLD
+  - HYG
+  - LQD
+  - SHY
+data:
+  source: Alpaca real market data through qfa AlpacaGateway
+  timeframe: 1Min
+  csv_allowed: false
+parameters:
+  range_window_bars: 20
+  breadth_window_bars: 10
+  close_location_tail: 0.25
+  range_expansion_multiple: 1.35
+  breadth_trigger: 0.35
+  min_net_breadth: 0.20
+  hold_bars: 3
+  max_gross: 1.0
+  max_single_symbol_weight: 0.18
+costs:
+  primary_one_way_bps: 10
+  stress_one_way_bps: 20
+  method: external turnover-cost proxy; qfa has no native slippage flag
+risk_controls:
+  regular_session_only: true
+  late_session_flat_utc: "20:45"
+  no_leverage: true
+  no_live_trading: true

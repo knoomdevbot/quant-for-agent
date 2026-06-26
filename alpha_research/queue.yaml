@@ -581,24 +581,24 @@ issues:
 - id: AR-079
   title: 'Divergent from AR-071: intraday range-expansion close-location reversal breadth'
   model_name: intraday-range-expansion-close-location-reversal-breadth-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: intraday_liquidity_reversal
   issue_path: alpha_research/issues/AR-079.md
   parent: AR-071
 - id: AR-080
   title: 'Divergent from AR-072: cross-asset realized-correlation breakdown allocator'
   model_name: crossasset-realized-correlation-breakdown-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: correlation_regime_allocation
   issue_path: alpha_research/issues/AR-080.md
   parent: AR-072
 - id: AR-081
   title: 'Divergent from AR-073: cross-asset ETF volume-divergence risk-transfer allocator'
   model_name: crossasset-volume-divergence-risk-transfer-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: cross_asset_flow_regime
   issue_path: alpha_research/issues/AR-081.md
   parent: AR-073
@@ -643,14 +643,38 @@ issues:
   family: fixed_income_carry_regime
   issue_path: alpha_research/issues/AR-086.md
   parent: AR-078
+- id: AR-087
+  title: 'Divergent from AR-079: ETF intraday opening-auction imbalance continuation'
+  model_name: etf-opening-auction-imbalance-continuation-v1
+  status: queued
+  priority: child
+  family: intraday_flow_continuation
+  issue_path: alpha_research/issues/AR-087.md
+  parent: AR-079
+- id: AR-088
+  title: 'Divergent from AR-080: ETF realized-volatility asymmetry defensive allocator'
+  model_name: etf-realized-vol-asymmetry-defensive-allocator-v1
+  status: queued
+  priority: child
+  family: volatility_asymmetry_regime
+  issue_path: alpha_research/issues/AR-088.md
+  parent: AR-080
+- id: AR-089
+  title: 'Divergent from AR-081: cross-asset ETF overnight gap absorption allocator'
+  model_name: crossasset-overnight-gap-absorption-allocator-v1
+  status: queued
+  priority: child
+  family: overnight_gap_absorption
+  issue_path: alpha_research/issues/AR-089.md
+  parent: AR-081
 active_batch:
+- AR-082
+- AR-083
+- AR-084
+last_realdata_batch:
 - AR-079
 - AR-080
 - AR-081
-last_realdata_batch:
-- AR-076
-- AR-077
-- AR-078
-updated_at: '2026-06-26T13:49:11Z'
+updated_at: '2026-06-26T14:25:46Z'
 target_tried_ideas: 100
-tried_ideas_count: 69
+tried_ideas_count: 72
