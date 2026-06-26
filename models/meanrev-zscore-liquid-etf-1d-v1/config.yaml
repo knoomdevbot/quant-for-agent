@@ -1,0 +1,41 @@
+model:
+  name: meanrev-zscore-liquid-etf-1d-v1
+  issue_id: AR-002
+  family: mean_reversion
+  contract: qfa_generate_signals
+hypothesis: >
+  Highly liquid ETFs that move unusually far over a short 3-day horizon tend to
+  partially revert over the next day as liquidity provision absorbs temporary
+  order-flow pressure.
+universe:
+  target: [SPY, QQQ, IWM, TLT, GLD, SLV, XLF, XLK, XLE, XLV]
+data:
+  target_source: Alpaca daily OHLCV via qfa AlpacaGateway
+  latest_evaluation_uses_data_csv: false
+  latest_real_data_window:
+    start: 2024-01-01
+    end: 2025-12-31
+signal:
+  return_lookback_days: 3
+  z_window: 20
+  search_space:
+    z_window: [20, 60]
+    entry_z: [1.0, 1.5, 2.0]
+  entry_z: 1.0
+  exit_horizon: 1d
+  min_history: 24
+risk:
+  gross_exposure_target: 1.0
+  max_abs_weight_pre_normalization: 0.25
+  live_trading: false
+evaluation:
+  latest_protocol: qfa real-data contiguous ETF backtest
+  latest_qfa_db: models/meanrev-zscore-liquid-etf-1d-v1/evaluations/qfa_realdata.sqlite3
+  latest_json: models/meanrev-zscore-liquid-etf-1d-v1/evaluations/latest.json
+  latest_run_json: models/meanrev-zscore-liquid-etf-1d-v1/evaluations/runs/qfa_realdata_20260626T054638Z.json
+  requested_random_window_protocol: 30 random windows when sufficient ETF data exists
+  random_window_protocol_completed: false
+  cost_assumption_bps: 5
+  cost_in_engine: unavailable
+  costs_applied_in_latest: false
+  stale_csv_note: models/meanrev-zscore-liquid-etf-1d-v1/evaluations/STALE_CSV_RESULTS.md

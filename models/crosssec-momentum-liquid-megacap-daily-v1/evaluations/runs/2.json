@@ -1,0 +1,64 @@
+{
+  "costs": {
+    "assumption_bps": 5,
+    "status": "documented_not_applied_current_qfa_cli_has_no_cost_parameter"
+  },
+  "divergent_child_idea": "AR-001-D1 short-horizon overnight reversal/earnings-drift signal using close-to-open returns instead of intermediate momentum.",
+  "evaluation_status": "completed_contract_smoke_only",
+  "evaluation_type": "fixture_smoke_backtest",
+  "issue_id": "AR-001",
+  "model_name": "crosssec-momentum-liquid-megacap-daily-v1",
+  "orthogonality": {
+    "status": "unavailable_no_accepted_alpha_return_library_found_in_repo"
+  },
+  "qfa_result": {
+    "end": "2024-01-04",
+    "equity_curve": [
+      {
+        "equity": 100000.0,
+        "timestamp": "2024-01-02T00:00:00+00:00"
+      },
+      {
+        "equity": 100000.0,
+        "timestamp": "2024-01-03T00:00:00+00:00"
+      },
+      {
+        "equity": 100000.0,
+        "timestamp": "2024-01-04T00:00:00+00:00"
+      }
+    ],
+    "id": 2,
+    "initial_cash": 100000.0,
+    "metrics": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "final_equity": 100000.0,
+      "initial_cash": 100000.0,
+      "max_drawdown": 0.0,
+      "periods": 3,
+      "sharpe": 0.0,
+      "total_return": 0.0,
+      "win_rate": 0.0
+    },
+    "model_path": "/Users/moonk/quant-for-agent/models/crosssec-momentum-liquid-megacap-daily-v1/model.py",
+    "start": "2024-01-01",
+    "symbols": [
+      "AAPL",
+      "MSFT"
+    ],
+    "timeframe": "1Day"
+  },
+  "random_period_evaluation": {
+    "reason": "tests/fixtures/prices.csv contains only AAPL/MSFT and 4 timestamps; model requires at least 3 universe symbols and 69 rows for 63-day lookback plus 5-day skip.",
+    "requested_windows": 30,
+    "status": "unavailable_insufficient_data"
+  },
+  "refinement_child_idea": "AR-001-R1 parameter stability and cost-aware robustness sweep for lookback/skip/vol-normalization once full OHLCV history is available.",
+  "suggested_decision": "do_not_accept_for_trading_or_alpha_library_until_full_data_random_window_evaluation_after_costs",
+  "warnings": [
+    "Smoke metrics are zero because model correctly stays flat with insufficient fixture data.",
+    "Synthetic in-memory signal sanity check showed gross=1.0 and max_abs=0.25 when sufficient history/symbols exist; this is not a performance test.",
+    "Do not use this result as evidence of positive alpha.",
+    "No trades were placed; qfa backtest only."
+  ]
+}

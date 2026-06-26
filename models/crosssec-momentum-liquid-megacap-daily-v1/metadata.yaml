@@ -1,0 +1,55 @@
+model_name: crosssec-momentum-liquid-megacap-daily-v1
+issue_id: AR-001
+created_at: 2026-06-26T01:23:30Z
+updated_at: 2026-06-26T05:45:54Z
+created_by: hermes_subagent
+repository: /Users/moonk/quant-for-agent
+model_path: models/crosssec-momentum-liquid-megacap-daily-v1/model.py
+config_path: models/crosssec-momentum-liquid-megacap-daily-v1/config.yaml
+research_stage: real_data_evaluated
+hypothesis: >-
+  Liquid mega-cap equities with stronger 3-6 month returns, skipping the most recent
+  week, may continue outperforming over a short holding period due to slow information
+  diffusion and institutional flow persistence.
+implementation_notes:
+  - QFA-compatible generate_signals(context) only; no trade placement.
+  - Uses 63-day lookback, 5-day skip, 20-day volatility normalization, demeaned cross-sectional scores.
+  - Returns zero weights until enough data and at least three configured universe symbols are present.
+model_review:
+  status: verified_no_code_change_required
+  reviewed_at: 2026-06-26T05:45:54Z
+latest_evaluation:
+  status: completed_real_data_backtest
+  data_source: alpaca_market_data_no_data_csv
+  period_start: 2024-01-01
+  period_end: 2025-12-31
+  qfa_run_id: 1
+  qfa_db_path: models/crosssec-momentum-liquid-megacap-daily-v1/evaluations/qfa_realdata.sqlite
+  run_json_path: models/crosssec-momentum-liquid-megacap-daily-v1/evaluations/runs/qfa_realdata_20240101_20251231_run1.json
+  latest_json_path: models/crosssec-momentum-liquid-megacap-daily-v1/evaluations/latest.json
+  latest_markdown_path: models/crosssec-momentum-liquid-megacap-daily-v1/evaluations/latest.md
+  metrics_pre_cost:
+    final_equity: 69287.4594
+    total_return: -0.30712541
+    annualized_return: -0.16882985
+    annualized_volatility: 0.17069684
+    sharpe: -0.99519064
+    max_drawdown: -0.36715277
+    win_rate: 0.41
+    periods: 500
+costs:
+  intended_assumption_bps: 5
+  status: documented_not_applied_current_qfa_backtest_cli_has_no_cost_parameter
+stale_results:
+  - Previous fixture/CSV smoke evaluation is stale and was overwritten in latest.json/latest.md.
+warnings:
+  - Real-data result is negative before costs.
+  - Current qfa backtest CLI does not expose transaction cost/slippage controls.
+  - No trades were placed; qfa backtest only; daemon was not run.
+acceptance_recommendation: reject_for_alpha_library_or_trading
+refinement_child_idea: >-
+  AR-001-R1 invert/test anti-momentum variant or add regime/cost/turnover filters and parameter stability sweep
+  over lookback_days=[63,126], skip_days=[5,10], volatility_normalize=[true,false] on Alpaca data.
+divergent_child_idea: >-
+  AR-001-D1 mega-cap post-earnings announcement drift / analyst-revision event signal over 1-20 day horizon,
+  independent of pure price momentum.

@@ -1,0 +1,52 @@
+model_name: crosssec-momentum-liquid-megacap-daily-v1
+issue_id: AR-001
+family: cross_sectional_momentum
+status: real_data_evaluated_rejected
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+timeframe: 1Day
+signal:
+  lookback_days: 63
+  skip_days: 5
+  rebalance: daily
+  volatility_normalize: true
+  volatility_window: 20
+position_sizing:
+  gross_exposure: 1.0
+  long_short: true
+  score_transform: demeaned_cross_sectional_momentum
+  max_abs_weight: 0.25
+  min_symbols: 3
+risk:
+  live_trading: prohibited
+  order_placement: none
+  concentration_cap_abs_weight: 0.25
+evaluation:
+  latest_status: completed_real_data_backtest
+  latest_data_source: alpaca_market_data_no_data_csv
+  latest_period_start: 2024-01-01
+  latest_period_end: 2025-12-31
+  latest_run_json: evaluations/runs/qfa_realdata_20240101_20251231_run1.json
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  qfa_db_path: evaluations/qfa_realdata.sqlite
+  qfa_run_id: 1
+  metrics_pre_cost:
+    final_equity: 69287.4594
+    total_return: -0.30712541
+    annualized_return: -0.16882985
+    annualized_volatility: 0.17069684
+    sharpe: -0.99519064
+    max_drawdown: -0.36715277
+    win_rate: 0.41
+    periods: 500
+  cost_assumption_bps: 5
+  cost_assumption_status: documented_not_applied_current_qfa_backtest_cli_has_no_cost_parameter
+  previous_fixture_csv_results_status: stale_overwritten
+suggested_decision: reject_for_alpha_library_or_trading

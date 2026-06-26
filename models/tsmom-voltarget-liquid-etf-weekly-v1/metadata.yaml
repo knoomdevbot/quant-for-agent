@@ -1,0 +1,33 @@
+model_name: tsmom-voltarget-liquid-etf-weekly-v1
+issue_id: AR-003
+status: real_data_backtested_watchlist
+created_at_utc: '2026-06-26T01:23:01Z'
+updated_at_utc: '2026-06-26T05:50:00Z'
+created_by: hermes-subagent
+hypothesis: Assets with positive medium-term trend continue trending when scaled by realized volatility.
+model_contract: qfa generate_signals(context) returning symbol weights
+intended_universe: [SPY, QQQ, IWM, TLT, GLD, SLV, USO, FXE, FXY]
+latest_evaluation:
+  type: real_data_qfa_alpaca_backtest
+  data_csv_used: false
+  db_path: models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/qfa-real.sqlite3
+  run_id: 1
+  run_json_path: models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/runs/qfa_real_alpaca_20260626T055000Z.json
+  latest_json_path: models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/latest.json
+  latest_md_path: models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/latest.md
+  metrics:
+    annualized_return: 0.15528762
+    annualized_volatility: 0.12518939
+    sharpe: 1.21599641
+    max_drawdown: -0.09362303
+    total_return: 0.33163486
+    periods: 500
+trading_performed: false
+daemon_run: false
+secrets_stored: false
+raw_data_stored: false
+warnings:
+  - Metrics are pre-cost; qfa evaluator does not model costs/slippage or turnover in this repository version.
+  - qfa backtester evaluates daily; weekly rebalance cadence is not enforceable without engine changes.
+  - CSV fixture smoke results are stale and superseded by latest Alpaca-backed evaluation.
+  - Random-period protocol and orthogonality checks remain to be done.

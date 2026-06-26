@@ -1,0 +1,132 @@
+created_at: '2026-06-26T01:19:53Z'
+objective: Seed evolutionary alpha research queue; prioritize robust random-period
+  Sharpe and low redundancy to accepted alphas.
+issues:
+- id: AR-001
+  title: Cross-sectional intermediate momentum on liquid mega-cap equities
+  model_name: crosssec-momentum-liquid-megacap-daily-v1
+  status: rejected
+  priority: completed_realdata
+  family: cross_sectional_momentum
+  issue_path: alpha_research/issues/AR-001.md
+- id: AR-002
+  title: Short-term ETF mean reversion after stretched 3-day moves
+  model_name: meanrev-zscore-liquid-etf-1d-v1
+  status: rejected
+  priority: completed_realdata
+  family: mean_reversion
+  issue_path: alpha_research/issues/AR-002.md
+- id: AR-003
+  title: Volatility-targeted time-series momentum on liquid ETFs
+  model_name: tsmom-voltarget-liquid-etf-weekly-v1
+  status: watchlist
+  priority: completed_realdata
+  family: time_series_momentum
+  issue_path: alpha_research/issues/AR-003.md
+- id: AR-004
+  title: Volatility breakout continuation on mega-cap equities
+  model_name: vol-breakout-megacap-daily-v1
+  status: queued
+  priority: seed
+  family: volatility_breakout
+  issue_path: alpha_research/issues/AR-004.md
+- id: AR-005
+  title: Residual mean reversion among mega-cap tech pairs
+  model_name: pairs-residual-megacap-tech-5d-v1
+  status: queued
+  priority: seed
+  family: stat_arb
+  issue_path: alpha_research/issues/AR-005.md
+- id: AR-006
+  title: Turn-of-month seasonality in broad liquid ETFs
+  model_name: turn-month-liquid-etf-seasonality-v1
+  status: queued
+  priority: seed
+  family: seasonality
+  issue_path: alpha_research/issues/AR-006.md
+- id: AR-007
+  title: Overnight gap reversal in mega-cap equities
+  model_name: overnight-gap-reversal-megacap-v1
+  status: queued
+  priority: seed
+  family: mean_reversion
+  issue_path: alpha_research/issues/AR-007.md
+- id: AR-008
+  title: Cross-asset risk-off regime switch
+  model_name: risk-off-crossasset-switch-v1
+  status: queued
+  priority: seed
+  family: regime_allocation
+  issue_path: alpha_research/issues/AR-008.md
+- id: AR-009
+  title: Volume-confirmed price pressure continuation
+  model_name: volume-price-pressure-megacap-v1
+  status: queued
+  priority: seed
+  family: flow_momentum
+  issue_path: alpha_research/issues/AR-009.md
+- id: AR-010
+  title: Low-volatility quality proxy within mega-cap equities
+  model_name: low-vol-quality-proxy-megacap-v1
+  status: queued
+  priority: seed
+  family: defensive_factor
+  issue_path: alpha_research/issues/AR-010.md
+- id: AR-013
+  title: 'Refine AR-001: invert/cost-aware mega-cap momentum after negative real-data
+    run'
+  model_name: crosssec-antimom-or-filtered-megacap-daily-v1
+  status: queued
+  priority: child
+  family: cross_sectional_momentum
+  issue_path: alpha_research/issues/AR-013.md
+  parent: AR-001
+- id: AR-014
+  title: 'Divergent from AR-001: mega-cap post-earnings drift signal'
+  model_name: event-earnings-drift-megacap-20d-v1
+  status: queued
+  priority: child
+  family: event_drift
+  issue_path: alpha_research/issues/AR-014.md
+  parent: AR-001
+- id: AR-015
+  title: 'Refine AR-003: random-window and cost-haircut validation for ETF TSMOM'
+  model_name: tsmom-voltarget-liquid-etf-randomcost-v1
+  status: queued
+  priority: child
+  family: time_series_momentum
+  issue_path: alpha_research/issues/AR-015.md
+  parent: AR-003
+- id: AR-016
+  title: 'Divergent from AR-003: cross-sectional ETF defensive rotation'
+  model_name: xsec-etf-defensive-rotation-v1
+  status: queued
+  priority: child
+  family: regime_allocation
+  issue_path: alpha_research/issues/AR-016.md
+  parent: AR-003
+- id: AR-011
+  title: AR-011 child from AR-002
+  model_name: null
+  status: queued
+  priority: child
+  family: null
+  issue_path: alpha_research/issues/AR-011.md
+  parent: AR-002
+- id: AR-012
+  title: AR-012 child from AR-002
+  model_name: null
+  status: queued
+  priority: child
+  family: null
+  issue_path: alpha_research/issues/AR-012.md
+  parent: AR-002
+active_batch:
+- AR-004
+- AR-005
+- AR-006
+last_realdata_batch:
+- AR-001
+- AR-002
+- AR-003
+updated_at: '2026-06-26T06:00:00Z'

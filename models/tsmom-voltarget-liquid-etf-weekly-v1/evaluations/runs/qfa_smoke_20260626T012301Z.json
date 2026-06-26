@@ -1,0 +1,37 @@
+{
+  "end": "2024-01-04",
+  "equity_curve": [
+    {
+      "equity": 100000.0,
+      "timestamp": "2024-01-02T00:00:00+00:00"
+    },
+    {
+      "equity": 101980.19801980199,
+      "timestamp": "2024-01-03T00:00:00+00:00"
+    },
+    {
+      "equity": 102970.29702970298,
+      "timestamp": "2024-01-04T00:00:00+00:00"
+    }
+  ],
+  "id": 1,
+  "initial_cash": 100000.0,
+  "metrics": {
+    "annualized_return": 10.68974677,
+    "annualized_volatility": 0.15718322,
+    "final_equity": 102970.297,
+    "initial_cash": 100000.0,
+    "max_drawdown": 0.0,
+    "periods": 3,
+    "sharpe": 15.77076924,
+    "total_return": 0.02970297,
+    "win_rate": 0.66666667
+  },
+  "model_path": "/Users/moonk/quant-for-agent/models/tsmom-voltarget-liquid-etf-weekly-v1/model.py",
+  "start": "2024-01-01",
+  "symbols": [
+    "AAPL",
+    "MSFT"
+  ],
+  "timeframe": "1Day"
+}

@@ -1,0 +1,41 @@
+model_name: tsmom-voltarget-liquid-etf-weekly-v1
+issue_id: AR-003
+family: time_series_momentum
+universe:
+  intended: [SPY, QQQ, IWM, TLT, GLD, SLV, USO, FXE, FXY]
+data:
+  intended_source: Alpaca market data through qfa AlpacaGateway
+  latest_real_data_backtest:
+    symbols: [SPY, QQQ, IWM, TLT, GLD, SLV, USO, FXE, FXY]
+    start: '2024-01-01'
+    end: '2025-12-31'
+    timeframe: 1Day
+    data_csv_used: false
+  stale_csv_fixture_artifacts:
+    - models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/runs/qfa_smoke_20260626T012301Z.json
+    - prior evaluations/latest.json and evaluations/latest.md CSV fixture summaries overwritten by latest real-data evaluation
+parameters:
+  selected:
+    lookback_days: 126
+    vol_window: 20
+    target_vol: 0.10
+    max_abs_weight: 0.35
+    min_periods: 127
+  search_space:
+    lookback_days: [63, 126, 252]
+    vol_window: [20, 60]
+    target_vol: [0.10, 0.15]
+risk_constraints:
+  normalize_gross_exposure: 1.0
+  max_abs_weight_pre_engine: 0.35
+  live_trading: false
+evaluation:
+  latest:
+    type: real_data_qfa_alpaca_backtest
+    json: models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/latest.json
+    markdown: models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/latest.md
+    db: models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/qfa-real.sqlite3
+    run_json: models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/runs/qfa_real_alpaca_20260626T055000Z.json
+    run_id: 1
+    costs_applied: false
+    cost_note: qfa backtester has no explicit transaction-cost/slippage support in this repo version.
