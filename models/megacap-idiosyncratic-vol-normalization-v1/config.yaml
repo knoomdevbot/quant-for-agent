@@ -1,0 +1,50 @@
+model_name: megacap-idiosyncratic-vol-normalization-v1
+alpha_id: AR-113
+family: single_name_idiosyncratic_volatility_reversal
+status: research_completed
+suggested_decision: rejected
+qfa_contract: generate_signals(context)
+data_source: qfa_alpaca_real_daily_ohlcv_only
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+candidate_pool:
+  equities: [AAPL, MSFT, NVDA, AMZN, META, GOOGL, AVGO, TSLA, JPM, LLY, XOM, UNH, HD, COST, PG, MA, V, JNJ, ABBV, NFLX, AMD, CRM, ORCL, KO, PEP]
+  sector_context_etfs: [XLK, XLY, XLC, XLF, XLV, XLE, XLP, XLI, XLU]
+  market_proxy: SPY
+selected_universe: [AAPL, MSFT, NVDA, AMZN, META, GOOGL, AVGO, TSLA, JPM, LLY, XOM, UNH, COST, MA, V, JNJ, NFLX, AMD, CRM, ORCL, KO, SPY, XLK, XLY, XLC, XLF, XLV, XLE, XLP, XLI, XLU]
+excluded_candidates:
+  HD: trailing_252d_median_dollar_volume_below_50m_threshold
+  PG: trailing_252d_median_dollar_volume_below_50m_threshold
+  ABBV: trailing_252d_median_dollar_volume_below_50m_threshold
+  PEP: trailing_252d_median_dollar_volume_below_50m_threshold
+selection_filters:
+  min_daily_bars: 1000
+  min_trailing_252d_median_dollar_volume: 50000000
+  require_mapped_sector_context_etf: true
+parameters:
+  min_history: 160
+  beta_lookback: 126
+  range_lookback: 40
+  resid_z_lookback: 126
+  volume_lookback: 60
+  range_z_threshold: 1.10
+  resid_abs_z_threshold: 1.00
+  min_abs_resid_return: 0.006
+  failed_followthrough_clv: 0.62
+  volume_z_min: -0.25
+  max_names: 6
+  single_name_cap: 0.20
+  sector_cap: 0.40
+  gross_equity_target: 0.90
+  hedge_fraction: 0.35
+evaluation:
+  timeframe: 1Day
+  data_start_requested: '2018-01-01'
+  realized_common_start: '2020-07-27'
+  data_end: '2026-06-25'
+  primary_cost_one_way_bps: 10.0
+  cost_sensitivity_bps: [5.0, 10.0, 20.0]
+  random_and_stress_windows: 9

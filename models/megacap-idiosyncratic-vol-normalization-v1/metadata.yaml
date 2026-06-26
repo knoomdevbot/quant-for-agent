@@ -1,0 +1,40 @@
+alpha_id: AR-113
+model_name: megacap-idiosyncratic-vol-normalization-v1
+family: single_name_idiosyncratic_volatility_reversal
+created_at_utc: '2026-06-26T22:06:14Z'
+research_status: completed_real_data_backtest
+suggested_decision: rejected
+hypothesis: Mega-cap stocks with unusual idiosyncratic range/volatility expansion without same-day follow-through normalize over the next 3-10 trading days after market and sector context removal.
+implementation: Interpretable daily-OHLCV residual stress reversal model using range expansion z-score, residual return/absolute-vol stress against SPY plus mapped sector ETF, failed close-location follow-through, abnormal dollar-volume check, 5-day decayed holdings, and partial SPY/sector hedge approximation.
+data_source: qfa/Alpaca real daily OHLCV
+credential_provenance: Configured paper-data access was used with credential values redacted; evaluation used real market data, no CSV, no daemon, and no orders.
+constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+artifacts:
+  model: model.py
+  config: config.yaml
+  readme: README.md
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md
+  immutable_run: evaluations/runs/ar113_qfa_alpaca_real_20260626T2206Z.json
+primary_result_10bps:
+  sharpe: -1.0107
+  annualized_return: -0.021333
+  annualized_volatility: 0.021114
+  max_drawdown: -0.125028
+  mean_daily_turnover: 0.047242
+  activation_days: 208
+  opportunity_count: 282
+native_qfa_smoke_test:
+  run_id: 1
+  db_path: /tmp/ar113_qfa_smoke.sqlite3
+  start: '2023-01-03'
+  end: '2024-04-30'
+  sharpe_before_external_cost_overlay: 0.92011796
+orthogonality:
+  exact_prior_streams_available: false
+  proxy_max_abs_correlation: 0.1746

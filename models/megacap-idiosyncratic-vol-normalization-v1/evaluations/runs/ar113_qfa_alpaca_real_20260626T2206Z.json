@@ -1,0 +1,629 @@
+{
+  "alpha_id": "AR-113",
+  "cost_sensitivity": {
+    "10bps": {
+      "activation_days": 208,
+      "annualized_return": -0.021333,
+      "annualized_volatility": 0.021114,
+      "cumulative_return": -0.119403,
+      "end": "2026-06-25",
+      "max_drawdown": -0.125028,
+      "mean_active_names": 0.1898,
+      "mean_daily_turnover": 0.047242,
+      "mean_top_abs_weight": 0.031164,
+      "opportunity_count": 282,
+      "positive_days_rate": 0.197847,
+      "sharpe": -1.0107,
+      "start": "2020-07-27",
+      "trading_days": 1486
+    },
+    "20bps": {
+      "activation_days": 208,
+      "annualized_return": -0.032919,
+      "annualized_volatility": 0.021259,
+      "cumulative_return": -0.179124,
+      "end": "2026-06-25",
+      "max_drawdown": -0.18208,
+      "mean_active_names": 0.1898,
+      "mean_daily_turnover": 0.047242,
+      "mean_top_abs_weight": 0.031164,
+      "opportunity_count": 282,
+      "positive_days_rate": 0.186406,
+      "sharpe": -1.5638,
+      "start": "2020-07-27",
+      "trading_days": 1486
+    },
+    "5bps": {
+      "activation_days": 208,
+      "annualized_return": -0.015488,
+      "annualized_volatility": 0.021073,
+      "cumulative_return": -0.087937,
+      "end": "2026-06-25",
+      "max_drawdown": -0.096114,
+      "mean_active_names": 0.1898,
+      "mean_daily_turnover": 0.047242,
+      "mean_top_abs_weight": 0.031164,
+      "opportunity_count": 282,
+      "positive_days_rate": 0.206595,
+      "sharpe": -0.7302,
+      "start": "2020-07-27",
+      "trading_days": 1486
+    }
+  },
+  "created_at_utc": "2026-06-26T22:06:14+00:00",
+  "credential_provenance": "Configured paper-data access was used with credential values redacted; evaluation used real market data, no CSV, no daemon, and no orders.",
+  "data": {
+    "availability_filters": [
+      ">=1000 daily bars",
+      "median trailing 252-day dollar volume >= 50,000,000",
+      "mapped sector ETF available"
+    ],
+    "availability_summary": {
+      "AAPL": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 335983723.51
+      },
+      "ABBV": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 44781348.61
+      },
+      "AMD": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 193509514.51
+      },
+      "AMZN": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 349640529.3
+      },
+      "AVGO": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 202466995.25
+      },
+      "COST": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 55023815.73
+      },
+      "CRM": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 74521111.88
+      },
+      "GOOGL": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 281579135.01
+      },
+      "HD": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 45371263.3
+      },
+      "JNJ": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 55419465.14
+      },
+      "JPM": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 63478102.66
+      },
+      "KO": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 59722457.74
+      },
+      "LLY": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 104782608.91
+      },
+      "MA": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 66488017.59
+      },
+      "META": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 236212602.12
+      },
+      "MSFT": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 296760064.19
+      },
+      "NFLX": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 157989278.36
+      },
+      "NVDA": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 695508358.35
+      },
+      "ORCL": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 120822555.32
+      },
+      "PEP": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 34057371.72
+      },
+      "PG": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 44822338.88
+      },
+      "SPY": {
+        "bars": 1487,
+        "first": "2018-11-01",
+        "median_dollar_volume": 912504820.46
+      },
+      "TSLA": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 323605049.62
+      },
+      "UNH": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 75697120.56
+      },
+      "V": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 78048434.93
+      },
+      "XLC": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 32308264.25
+      },
+      "XLE": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 90337327.74
+      },
+      "XLF": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 123131415.26
+      },
+      "XLI": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 74658442.19
+      },
+      "XLK": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 68650350.1
+      },
+      "XLP": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 68352855.19
+      },
+      "XLU": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 53318797.94
+      },
+      "XLV": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 98426661.2
+      },
+      "XLY": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 42333224.05
+      },
+      "XOM": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "median_dollar_volume": 83047022.59
+      }
+    },
+    "candidate_pool": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "META",
+      "GOOGL",
+      "AVGO",
+      "TSLA",
+      "JPM",
+      "LLY",
+      "XOM",
+      "UNH",
+      "HD",
+      "COST",
+      "PG",
+      "MA",
+      "V",
+      "JNJ",
+      "ABBV",
+      "NFLX",
+      "AMD",
+      "CRM",
+      "ORCL",
+      "KO",
+      "PEP"
+    ],
+    "end": "2026-06-26",
+    "selected_universe": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "META",
+      "GOOGL",
+      "AVGO",
+      "TSLA",
+      "JPM",
+      "LLY",
+      "XOM",
+      "UNH",
+      "COST",
+      "MA",
+      "V",
+      "JNJ",
+      "NFLX",
+      "AMD",
+      "CRM",
+      "ORCL",
+      "KO",
+      "SPY",
+      "XLK",
+      "XLY",
+      "XLC",
+      "XLF",
+      "XLV",
+      "XLE",
+      "XLP",
+      "XLI",
+      "XLU"
+    ],
+    "source": "qfa_alpaca_gateway_real_daily_ohlcv",
+    "start": "2018-01-01",
+    "symbols_requested": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "META",
+      "GOOGL",
+      "AVGO",
+      "TSLA",
+      "JPM",
+      "LLY",
+      "XOM",
+      "UNH",
+      "HD",
+      "COST",
+      "PG",
+      "MA",
+      "V",
+      "JNJ",
+      "ABBV",
+      "NFLX",
+      "AMD",
+      "CRM",
+      "ORCL",
+      "KO",
+      "PEP",
+      "SPY",
+      "XLK",
+      "XLY",
+      "XLC",
+      "XLF",
+      "XLV",
+      "XLE",
+      "XLP",
+      "XLI",
+      "XLU"
+    ]
+  },
+  "diagnostics": {
+    "average_gross_exposure": 0.108616,
+    "max_single_name_weight": 0.208882,
+    "sector_context_etfs": [
+      "XLK",
+      "XLY",
+      "XLC",
+      "XLF",
+      "XLV",
+      "XLE",
+      "XLP",
+      "XLI",
+      "XLU"
+    ],
+    "selected_equities": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "META",
+      "GOOGL",
+      "AVGO",
+      "TSLA",
+      "JPM",
+      "LLY",
+      "XOM",
+      "UNH",
+      "COST",
+      "MA",
+      "V",
+      "JNJ",
+      "NFLX",
+      "AMD",
+      "CRM",
+      "ORCL",
+      "KO"
+    ]
+  },
+  "divergent_child_ideas": [],
+  "evaluation_type": "compact_real_data_alpaca_ohlcv_transient_evaluator",
+  "model_name": "megacap-idiosyncratic-vol-normalization-v1",
+  "native_qfa_smoke_test": {
+    "data_source": "qfa_alpaca_real_daily_ohlcv_no_csv",
+    "db_path": "/tmp/ar113_qfa_smoke.sqlite3",
+    "end": "2024-04-30",
+    "metrics": {
+      "annualized_return": 0.02891267,
+      "annualized_volatility": 0.03151717,
+      "max_drawdown": -0.03645071,
+      "periods": 331,
+      "sharpe": 0.92011796,
+      "total_return": 0.03814754,
+      "win_rate": 0.081571
+    },
+    "native_qfa_backtest_smoke_ran": true,
+    "orders_placed": false,
+    "run_id": 1,
+    "start": "2023-01-03"
+  },
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "correlations_to_primary_10bps": {
+      "AR004_breakout_momentum_proxy": 0.0971,
+      "AR028_close_location_reversal_proxy": -0.083,
+      "AR045_gap_liquidity_reversal_proxy": -0.0711,
+      "AR056_abnormal_volume_reversal_proxy": -0.0214,
+      "AR057_drawdown_rebound_proxy": -0.0432,
+      "AR068_realized_vol_stress_proxy": -0.0971,
+      "AR076_range_expansion_breakout_proxy": 0.0858,
+      "AR094_volatility_crush_proxy": 0.0769,
+      "AR095_sector_exhaustion_proxy": -0.1746,
+      "SPY": -0.0458,
+      "equal_weight_mega_cap": -0.0631,
+      "mapped_sector_basket": -0.0308
+    },
+    "max_abs_correlation": 0.1746,
+    "method": "Exact prior alpha return streams were not available in compact form; proxy streams were generated transiently from same real OHLCV and only correlations are retained."
+  },
+  "parameters": {
+    "beta_lookback": 126,
+    "failed_followthrough_clv": 0.62,
+    "gross_equity_target": 0.9,
+    "hedge_fraction": 0.35,
+    "max_names": 6,
+    "min_abs_resid_return": 0.006,
+    "min_history": 160,
+    "range_lookback": 40,
+    "range_z_threshold": 1.1,
+    "resid_abs_z_threshold": 1.0,
+    "resid_z_lookback": 126,
+    "sector_cap": 0.4,
+    "single_name_cap": 0.2,
+    "volume_lookback": 60,
+    "volume_z_min": -0.25
+  },
+  "primary_10bps": {
+    "activation_days": 208,
+    "annualized_return": -0.021333,
+    "annualized_volatility": 0.021114,
+    "cumulative_return": -0.119403,
+    "end": "2026-06-25",
+    "max_drawdown": -0.125028,
+    "mean_active_names": 0.1898,
+    "mean_daily_turnover": 0.047242,
+    "mean_top_abs_weight": 0.031164,
+    "opportunity_count": 282,
+    "positive_days_rate": 0.197847,
+    "sharpe": -1.0107,
+    "start": "2020-07-27",
+    "trading_days": 1486
+  },
+  "raw_daily_paths_retained": false,
+  "refinement_if_watchlist": "If advanced, test residual signal variants with stricter same-day failed close-location, lower turnover event queues, and explicit ex-ante beta/sector neutrality under a longer OOS holdout.",
+  "run_id": "ar113_qfa_alpaca_real_20260626T2206Z",
+  "smoke_test": {
+    "latest_nonzero_signal_count": 0,
+    "latest_nonzero_signals": {},
+    "qfa_contract_generate_signals_called": true
+  },
+  "suggested_decision": "rejected",
+  "warnings": [
+    "Primary 10 bps Sharpe is negative.",
+    "Random/stress p25 Sharpe is negative.",
+    "20 bps cost sensitivity is negative."
+  ],
+  "window_summary_10bps": {
+    "count": 9,
+    "median_sharpe": -1.1664,
+    "p25_sharpe": -1.4272,
+    "positive_window_rate": 0.0,
+    "worst_sharpe": -1.5534
+  },
+  "windows_10bps": [
+    {
+      "activation_days": 45,
+      "annualized_return": -0.032291,
+      "annualized_volatility": 0.02662,
+      "cumulative_return": -0.032039,
+      "end": "2022-12-29",
+      "max_drawdown": -0.039177,
+      "mean_active_names": 0.248,
+      "mean_daily_turnover": 0.058218,
+      "mean_top_abs_weight": 0.036235,
+      "name": "rate_shock_2022",
+      "opportunity_count": 62,
+      "positive_days_rate": 0.224,
+      "sharpe": -1.2197,
+      "start": "2022-01-03",
+      "trading_days": 250
+    },
+    {
+      "activation_days": 37,
+      "annualized_return": -0.008323,
+      "annualized_volatility": 0.01439,
+      "cumulative_return": -0.008224,
+      "end": "2023-12-28",
+      "max_drawdown": -0.020404,
+      "mean_active_names": 0.1767,
+      "mean_daily_turnover": 0.051178,
+      "mean_top_abs_weight": 0.036214,
+      "name": "ai_momentum_2023",
+      "opportunity_count": 44,
+      "positive_days_rate": 0.24498,
+      "sharpe": -0.5736,
+      "start": "2023-01-03",
+      "trading_days": 249
+    },
+    {
+      "activation_days": 64,
+      "annualized_return": -0.0416,
+      "annualized_volatility": 0.027116,
+      "cumulative_return": -0.041439,
+      "end": "2024-12-30",
+      "max_drawdown": -0.043229,
+      "mean_active_names": 0.3267,
+      "mean_daily_turnover": 0.084533,
+      "mean_top_abs_weight": 0.056964,
+      "name": "mega_cap_chop_2024",
+      "opportunity_count": 82,
+      "positive_days_rate": 0.330677,
+      "sharpe": -1.5534,
+      "start": "2024-01-02",
+      "trading_days": 251
+    },
+    {
+      "activation_days": 0,
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "cumulative_return": 0.0,
+      "end": "2021-10-20",
+      "max_drawdown": 0.0,
+      "mean_active_names": 0.0,
+      "mean_daily_turnover": 0.0,
+      "mean_top_abs_weight": 0.0,
+      "name": "random_1",
+      "opportunity_count": 0,
+      "positive_days_rate": 0.0,
+      "sharpe": 0.0,
+      "start": "2020-10-22",
+      "trading_days": 251
+    },
+    {
+      "activation_days": 37,
+      "annualized_return": -0.018952,
+      "annualized_volatility": 0.016291,
+      "cumulative_return": -0.018877,
+      "end": "2023-10-17",
+      "max_drawdown": -0.023749,
+      "mean_active_names": 0.1753,
+      "mean_daily_turnover": 0.049608,
+      "mean_top_abs_weight": 0.036081,
+      "name": "random_2",
+      "opportunity_count": 44,
+      "positive_days_rate": 0.227092,
+      "sharpe": -1.1664,
+      "start": "2022-10-18",
+      "trading_days": 251
+    },
+    {
+      "activation_days": 0,
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "cumulative_return": 0.0,
+      "end": "2021-09-14",
+      "max_drawdown": 0.0,
+      "mean_active_names": 0.0,
+      "mean_daily_turnover": 0.0,
+      "mean_top_abs_weight": 0.0,
+      "name": "random_3",
+      "opportunity_count": 0,
+      "positive_days_rate": 0.0,
+      "sharpe": 0.0,
+      "start": "2020-09-16",
+      "trading_days": 251
+    },
+    {
+      "activation_days": 46,
+      "annualized_return": -0.034519,
+      "annualized_volatility": 0.024404,
+      "cumulative_return": -0.034384,
+      "end": "2025-06-17",
+      "max_drawdown": -0.048945,
+      "mean_active_names": 0.2988,
+      "mean_daily_turnover": 0.062804,
+      "mean_top_abs_weight": 0.044666,
+      "name": "random_4",
+      "opportunity_count": 75,
+      "positive_days_rate": 0.266932,
+      "sharpe": -1.4272,
+      "start": "2024-06-17",
+      "trading_days": 251
+    },
+    {
+      "activation_days": 40,
+      "annualized_return": -0.044221,
+      "annualized_volatility": 0.029207,
+      "cumulative_return": -0.04405,
+      "end": "2026-01-16",
+      "max_drawdown": -0.054344,
+      "mean_active_names": 0.2629,
+      "mean_daily_turnover": 0.056427,
+      "mean_top_abs_weight": 0.035324,
+      "name": "random_5",
+      "opportunity_count": 66,
+      "positive_days_rate": 0.219124,
+      "sharpe": -1.5339,
+      "start": "2025-01-17",
+      "trading_days": 251
+    },
+    {
+      "activation_days": 62,
+      "annualized_return": -0.011227,
+      "annualized_volatility": 0.024072,
+      "cumulative_return": -0.011183,
+      "end": "2024-05-22",
+      "max_drawdown": -0.017878,
+      "mean_active_names": 0.2988,
+      "mean_daily_turnover": 0.083185,
+      "mean_top_abs_weight": 0.05179,
+      "name": "random_6",
+      "opportunity_count": 75,
+      "positive_days_rate": 0.334661,
+      "sharpe": -0.457,
+      "start": "2023-05-24",
+      "trading_days": 251
+    }
+  ]
+}

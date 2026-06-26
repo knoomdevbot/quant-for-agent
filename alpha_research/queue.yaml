@@ -840,9 +840,16 @@ issues:
   priority: completed_realdata
   family: international_country_rotation
   issue_path: alpha_research/issues/AR-112.md
+- id: AR-113
+  title: 'Single-name mega-cap idiosyncratic volatility normalization after failed range expansion'
+  model_name: megacap-idiosyncratic-vol-normalization-v1
+  status: rejected
+  priority: completed_realdata
+  family: single_name_idiosyncratic_volatility_reversal
+  issue_path: alpha_research/issues/AR-113.md
 active_batch: []
 last_realdata_batch:
-- AR-112
-updated_at: '2026-06-26T20:55:00Z'
+- AR-113
+updated_at: '2026-06-26T22:12:07Z'
 target_tried_ideas: 100
-tried_ideas_count: 103
+tried_ideas_count: 104
