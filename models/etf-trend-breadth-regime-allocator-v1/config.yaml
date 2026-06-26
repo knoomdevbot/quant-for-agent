@@ -1,0 +1,41 @@
+name: etf-trend-breadth-regime-allocator-v1
+issue_id: AR-077
+family: trend_breadth_regime
+model_path: models/etf-trend-breadth-regime-allocator-v1/model.py
+data_source: Alpaca/qfa real market data
+universe: [SPY, QQQ, IWM, TLT, IEF, SHY, GLD, XLU, XLE, XLV]
+timeframe: 1Day
+rebalance: daily_proxy
+positioning:
+  long_only: true
+  max_weight: 0.35
+  cash_proxy: SHY
+parameters:
+  fast_trend: 20
+  mid_trend: 60
+  slow_trend: 120
+  vol_lookback: 20
+  downside_lookback: 20
+  drawdown_window: 126
+  risk_on_breadth: 0.60
+  risk_off_breadth: 0.40
+  defensive_floor: 0.15
+features:
+  - cross_asset_20_60_120_day_trend_breadth
+  - equity_risk_asset_breadth
+  - downside_participation_on_negative_SPY_days
+  - SPY_drawdown_state
+  - inverse_volatility_position_sizing
+costs:
+  qfa_native_costs_applied: false
+  ex_post_one_way_turnover_bps: 5.0
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  alpaca_paper: true
+acceptance:
+  random_windows: 8
+  falsifier: median random-period Sharpe <= 0 after 5 bps turnover haircut, materially negative p25 Sharpe, unacceptable max drawdown, or max correlation > 0.60 to ETF regime allocators
+latest_evaluation: evaluations/latest.json

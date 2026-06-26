@@ -1,0 +1,35 @@
+model_name: megacap-vol-contraction-breakout-continuation-v1
+issue_id: AR-076
+created_at: '2026-06-26T13:43:44Z'
+research_status: completed_real_data_backtest
+suggested_decision: rejected
+summary: >-
+  Mega-cap volatility/range contraction breakout continuation using Alpaca daily OHLCV.
+  Fails falsifier: median random-window Sharpe <= 0 after 5 bps turnover haircut, p25 materially negative, high drawdown, or max available correlation > 0.60.
+metrics:
+  primary_sharpe_cost_adjusted: -1.08725717
+  median_random_sharpe_cost_adjusted: -0.48885616
+  p25_random_sharpe_cost_adjusted: -0.65363044
+  worst_period_sharpe_cost_adjusted: -1.35077196
+  annualized_return_cost_adjusted: -0.04080928
+  annualized_volatility_cost_adjusted: 0.03766586
+  max_drawdown_cost_adjusted: -0.07934448
+  annualized_turnover_proxy: 9.52885333
+  positive_window_rate: 0.25
+orthogonality:
+  status: pass_available_max_corr_le_0p60
+  max_peer_abs_correlation: 0.13316654
+data_controls:
+  data_source: Alpaca real daily OHLCV
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+  db_artifact_retained: false
+artifacts:
+  model: models/megacap-vol-contraction-breakout-continuation-v1/model.py
+  config: models/megacap-vol-contraction-breakout-continuation-v1/config.yaml
+  latest_json: models/megacap-vol-contraction-breakout-continuation-v1/evaluations/latest.json
+  latest_md: models/megacap-vol-contraction-breakout-continuation-v1/evaluations/latest.md
+  immutable_run_json: models/megacap-vol-contraction-breakout-continuation-v1/evaluations/runs/ar076_qfa_alpaca_real_20260626T134344Z.json

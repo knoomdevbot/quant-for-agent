@@ -1,6 +1,6 @@
 created_at: '2026-06-26T01:19:53Z'
-objective: Seed evolutionary alpha research queue; prioritize robust random-period
-  Sharpe and low redundancy to accepted alphas.
+objective: Seed evolutionary alpha research queue; prioritize robust random-period Sharpe
+  and low redundancy to accepted alphas.
 issues:
 - id: AR-001
   title: Cross-sectional intermediate momentum on liquid mega-cap equities
@@ -73,8 +73,7 @@ issues:
   family: defensive_factor
   issue_path: alpha_research/issues/AR-010.md
 - id: AR-013
-  title: 'Refine AR-001: invert/cost-aware mega-cap momentum after negative real-data
-    run'
+  title: 'Refine AR-001: invert/cost-aware mega-cap momentum after negative real-data run'
   model_name: crosssec-antimom-or-filtered-megacap-daily-v1
   status: cancelled_bad_parent
   priority: pruned_bad_parent
@@ -106,7 +105,7 @@ issues:
   issue_path: alpha_research/issues/AR-016.md
   parent: AR-003
 - id: AR-011
-  title: AR-002 refinement — cost-aware regime-filtered ETF mean reversion
+  title: "AR-002 refinement \u2014 cost-aware regime-filtered ETF mean reversion"
   model_name: meanrev-zscore-liquid-etf-regime-cost-v1
   status: rejected
   priority: completed_realdata
@@ -114,7 +113,7 @@ issues:
   issue_path: alpha_research/issues/AR-011.md
   parent: AR-002
 - id: AR-012
-  title: AR-002 divergent — liquid ETF overnight gap reversal
+  title: "AR-002 divergent \u2014 liquid ETF overnight gap reversal"
   model_name: overnight-gap-reversal-liquid-etf-v1
   status: rejected
   priority: completed_realdata
@@ -234,8 +233,8 @@ issues:
   issue_path: alpha_research/issues/AR-030.md
   parent: AR-010
 - id: AR-032
-  title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after
-    macro shock days'
+  title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after macro shock
+    days'
   model_name: etf-dispersion-convergence-macroshock-v1
   status: rejected
   priority: completed_realdata
@@ -315,8 +314,7 @@ issues:
   issue_path: alpha_research/issues/AR-043.md
   parent: AR-026
 - id: AR-044
-  title: 'Divergent from AR-025: cross-asset credit/equity stress dispersion mean
-    reversion'
+  title: 'Divergent from AR-025: cross-asset credit/equity stress dispersion mean reversion'
   model_name: credit-equity-stress-dispersion-reversion-v1
   status: rejected
   priority: completed_realdata
@@ -380,8 +378,7 @@ issues:
   issue_path: alpha_research/issues/AR-053.md
   parent: AR-042
 - id: AR-054
-  title: 'Refine AR-043: beta-reduced ETF stress liquidity allocation with drawdown
-    brake'
+  title: 'Refine AR-043: beta-reduced ETF stress liquidity allocation with drawdown brake'
   model_name: etf-stress-liquidity-beta-reduced-v1
   status: rejected
   priority: completed_realdata
@@ -560,24 +557,24 @@ issues:
 - id: AR-076
   title: 'Divergent from AR-068: mega-cap volatility contraction breakout continuation'
   model_name: megacap-vol-contraction-breakout-continuation-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_breakout
   issue_path: alpha_research/issues/AR-076.md
   parent: AR-068
 - id: AR-077
   title: 'Divergent from AR-069: ETF trend-breadth regime allocator'
   model_name: etf-trend-breadth-regime-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: trend_breadth_regime
   issue_path: alpha_research/issues/AR-077.md
   parent: AR-069
 - id: AR-078
   title: 'Divergent from AR-070: intraday post-announcement Treasury ETF mean reversion'
   model_name: intraday-treasury-announcement-reversion-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: event_intraday_reversal
   issue_path: alpha_research/issues/AR-078.md
   parent: AR-070
@@ -621,14 +618,39 @@ issues:
   family: sector_breadth_trend
   issue_path: alpha_research/issues/AR-083.md
   parent: AR-075
+- id: AR-084
+  title: 'Divergent from AR-076: mega-cap post-earnings volume-vacuum reversal allocator'
+  model_name: megacap-earnings-volume-vacuum-reversal-v1
+  status: queued
+  priority: child
+  family: event_liquidity_reversal
+  issue_path: alpha_research/issues/AR-084.md
+  parent: AR-076
+- id: AR-085
+  title: 'Divergent from AR-077: ETF opening-range liquidity reversal after index futures
+    shock'
+  model_name: etf-opening-range-liquidity-reversal-v1
+  status: queued
+  priority: child
+  family: intraday_liquidity_reversal
+  issue_path: alpha_research/issues/AR-085.md
+  parent: AR-077
+- id: AR-086
+  title: 'Divergent from AR-078: bond ETF term-structure carry and volatility regime allocator'
+  model_name: bond-etf-carry-vol-regime-allocator-v1
+  status: queued
+  priority: child
+  family: fixed_income_carry_regime
+  issue_path: alpha_research/issues/AR-086.md
+  parent: AR-078
 active_batch:
+- AR-079
+- AR-080
+- AR-081
+last_realdata_batch:
 - AR-076
 - AR-077
 - AR-078
-last_realdata_batch:
-- AR-073
-- AR-074
-- AR-075
-updated_at: '2026-06-26T13:27:29Z'
+updated_at: '2026-06-26T13:49:11Z'
 target_tried_ideas: 100
-tried_ideas_count: 66
+tried_ideas_count: 69

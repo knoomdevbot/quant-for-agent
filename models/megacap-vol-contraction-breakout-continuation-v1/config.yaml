@@ -1,0 +1,51 @@
+model_name: megacap-vol-contraction-breakout-continuation-v1
+issue_id: AR-076
+family: volatility_breakout
+status: research_completed
+qfa_contract: generate_signals(context)
+universe: [AAPL, MSFT, NVDA, AMZN, META, GOOGL, AVGO, TSLA, JPM, LLY]
+data:
+  source: Alpaca real daily OHLCV via qfa/AlpacaGateway
+  timeframe: 1Day
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  raw_daily_paths_retained: false
+safety:
+  no_daemon: true
+  no_orders: true
+  temporary_sqlite_db_under_tmp: true
+signal:
+  hypothesis: volatility/range contraction breakouts with abnormal volume and idiosyncratic residual strength continue for several sessions
+  features:
+    - 15_day_high_low_range_contraction_percentile
+    - 20_day_prior_high_low_breakout_or_breakdown
+    - abnormal_log_volume_zscore
+    - residual_return_zscore_vs_equal_weight_mega_cap_basket
+    - four_session_hold_decay
+    - inverse_volatility_scaling
+    - high_basket_volatility_brake
+parameters:
+  contraction_window: 15
+  contraction_rank_window: 90
+  contraction_percentile: 0.35
+  breakout_lookback: 20
+  min_breakout_pct: 0.0025
+  volume_z_window: 60
+  volume_z_entry: 0.75
+  residual_z_window: 60
+  residual_z_entry: 0.45
+  hold_decay: [1.00, 0.75, 0.50, 0.30]
+  max_abs_weight: 0.22
+costs_slippage:
+  external_cost_postprocess_applied: true
+  assumption_one_way_bps: 5.0
+  method: cost_return = gross_return - sum(abs(delta_weight))*0.0005
+evaluation:
+  primary_start: '2024-01-01'
+  primary_end: '2025-12-31'
+  random_window_count: 8
+  qfa_run_ids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+artifacts:
+  model: models/megacap-vol-contraction-breakout-continuation-v1/model.py
+  latest_json: models/megacap-vol-contraction-breakout-continuation-v1/evaluations/latest.json
+  latest_md: models/megacap-vol-contraction-breakout-continuation-v1/evaluations/latest.md

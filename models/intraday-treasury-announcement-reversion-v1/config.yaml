@@ -1,0 +1,27 @@
+model_name: intraday-treasury-announcement-reversion-v1
+alpha_id: AR-078
+family: event_intraday_reversal
+universe: [SHY, IEF, TLT, TIP, LQD, HYG, GLD, SPY]
+data_source: Alpaca real market data via qfa/AlpacaGateway
+no_csv_used: true
+no_data_csv_argument_used: true
+timeframe: 1Min
+event_types: [FOMC, CPI]
+event_timestamp_policy:
+  FOMC: "14:00 America/New_York scheduled statement timestamp, converted to UTC"
+  CPI: "08:30 America/New_York scheduled BLS release timestamp, converted to UTC"
+parameters:
+  shock_minutes: 60
+  hold_minutes: 60
+  min_abs_duration_shock: 0.00045
+  max_gross: 1.0
+  max_single: 0.45
+costs_slippage:
+  one_way_bps_tested: [5, 10, 20]
+  primary_one_way_bps: 10
+  round_trip_cost_model: "2 * one_way_bps * gross exposure"
+safety:
+  no_daemon: true
+  no_orders: true
+  requires_event_metadata: true
+  default_without_event_metadata: zero_weights
