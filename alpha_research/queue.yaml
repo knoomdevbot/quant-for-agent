@@ -630,24 +630,24 @@ issues:
   title: 'Divergent from AR-077: ETF opening-range liquidity reversal after index futures
     shock'
   model_name: etf-opening-range-liquidity-reversal-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: intraday_liquidity_reversal
   issue_path: alpha_research/issues/AR-085.md
   parent: AR-077
 - id: AR-086
   title: 'Divergent from AR-078: bond ETF term-structure carry and volatility regime allocator'
   model_name: bond-etf-carry-vol-regime-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: fixed_income_carry_regime
   issue_path: alpha_research/issues/AR-086.md
   parent: AR-078
 - id: AR-087
   title: 'Divergent from AR-079: ETF intraday opening-auction imbalance continuation'
   model_name: etf-opening-auction-imbalance-continuation-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: intraday_flow_continuation
   issue_path: alpha_research/issues/AR-087.md
   parent: AR-079
@@ -719,14 +719,38 @@ issues:
   family: analyst_revision_drift
   issue_path: alpha_research/issues/AR-096.md
   parent: AR-084
+- id: AR-097
+  title: 'Divergent from AR-085: commodity and inflation-shock ETF rotation'
+  model_name: commodity-inflation-shock-etf-rotation-v1
+  status: queued
+  priority: child
+  family: commodity_macro_rotation
+  issue_path: alpha_research/issues/AR-097.md
+  parent: AR-085
+- id: AR-098
+  title: 'Divergent from AR-086: sector ETF earnings-season dispersion reversal'
+  model_name: sector-etf-earnings-season-dispersion-reversal-v1
+  status: queued
+  priority: child
+  family: sector_dispersion_reversal
+  issue_path: alpha_research/issues/AR-098.md
+  parent: AR-086
+- id: AR-099
+  title: 'Divergent from AR-087: cross-asset commodity inflation impulse allocator'
+  model_name: crossasset-commodity-inflation-impulse-allocator-v1
+  status: queued
+  priority: child
+  family: commodity_inflation_macro
+  issue_path: alpha_research/issues/AR-099.md
+  parent: AR-087
 active_batch:
+- AR-088
+- AR-089
+- AR-090
+last_realdata_batch:
 - AR-085
 - AR-086
 - AR-087
-last_realdata_batch:
-- AR-082
-- AR-083
-- AR-084
-updated_at: '2026-06-26T14:42:15Z'
+updated_at: '2026-06-26T15:18:36Z'
 target_tried_ideas: 100
-tried_ideas_count: 75
+tried_ideas_count: 78

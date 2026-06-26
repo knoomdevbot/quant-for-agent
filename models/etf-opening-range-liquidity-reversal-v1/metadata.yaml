@@ -1,0 +1,16 @@
+issue_id: AR-085
+model_name: etf-opening-range-liquidity-reversal-v1
+created_at_utc: "2026-06-26T13:49:11Z"
+research_status: rejected
+hypothesis: Broad ETFs that gap hard at the open after index-futures-style shocks and fail to extend the opening range may reverse intraday or by the next close.
+provenance: Alpaca credentials were sourced from the configured local research profile by the evaluation shell; secret values were not printed or stored.
+contract:
+  exposes_generate_signals: true
+  data_csv_used: false
+  daemon_used: false
+  orders_placed: false
+evaluation:
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md
+  decision: reject
+  reason: Bounded real Alpaca/qfa 1Min evaluation had negative median and p25 10 bps Sharpe; no promotion or child refinement created.
