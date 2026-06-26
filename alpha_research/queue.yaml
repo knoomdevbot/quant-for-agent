@@ -188,16 +188,16 @@ issues:
 - id: AR-025
   title: 'Refine AR-008: costed random-window risk-off switch validation'
   model_name: risk-off-crossasset-randomcost-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: regime_allocation
   issue_path: alpha_research/issues/AR-025.md
   parent: AR-008
 - id: AR-026
   title: 'Divergent from AR-008: stress-day gap reversal risk-off detector'
   model_name: stress-gap-reversal-etf-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: stress_reversal
   issue_path: alpha_research/issues/AR-026.md
   parent: AR-008
@@ -212,8 +212,8 @@ issues:
 - id: AR-028
   title: 'Divergent from AR-009: abnormal closing-volume reversal'
   model_name: closing-volume-reversal-megacap-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-028.md
   parent: AR-009
@@ -305,14 +305,46 @@ issues:
   family: macro_flow
   issue_path: alpha_research/issues/AR-042.md
   parent: AR-021
+- id: AR-043
+  title: 'Divergent from AR-026: ETF stress liquidity-volume dislocation detector'
+  model_name: etf-stress-liquidity-volume-v1
+  status: queued
+  priority: child
+  family: liquidity_stress
+  issue_path: alpha_research/issues/AR-043.md
+  parent: AR-026
+- id: AR-044
+  title: 'Divergent from AR-025: cross-asset credit/equity stress dispersion mean reversion'
+  model_name: credit-equity-stress-dispersion-reversion-v1
+  status: queued
+  priority: child
+  family: dispersion_convergence
+  issue_path: alpha_research/issues/AR-044.md
+  parent: AR-025
+- id: AR-045
+  title: 'Refinement from AR-028: cost-aware abnormal close-location reversal'
+  model_name: closing-volume-reversal-costaware-megacap-v1
+  status: queued
+  priority: child
+  family: liquidity_reversal
+  issue_path: alpha_research/issues/AR-045.md
+  parent: AR-028
+- id: AR-046
+  title: 'Divergent from AR-028: cross-sectional liquidity exhaustion recovery'
+  model_name: liquidity-exhaustion-recovery-megacap-v1
+  status: queued
+  priority: child
+  family: liquidity_reversal
+  issue_path: alpha_research/issues/AR-046.md
+  parent: AR-028
 active_batch:
+- AR-029
+- AR-030
+- AR-032
+last_realdata_batch:
 - AR-025
 - AR-026
 - AR-028
-last_realdata_batch:
-- AR-021
-- AR-022
-- AR-024
-updated_at: '2026-06-26T08:08:00Z'
+updated_at: '2026-06-26T08:50:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 21
+tried_ideas_count: 24

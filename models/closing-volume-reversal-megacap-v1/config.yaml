@@ -1,0 +1,45 @@
+model_name: closing-volume-reversal-megacap-v1
+issue_id: AR-028
+family: liquidity_reversal
+status: real_data_evaluated_watchlist
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+timeframe: 1Day
+signal:
+  description: abnormal daily close-location/volume liquidity-reversal proxy for unavailable closing-auction imbalance data
+  volume_z_window: 60
+  volume_z_min: 1.25
+  dollar_volume_z_min: 1.25
+  close_location_extreme: 0.8
+  range_z_window: 60
+  range_z_min: -0.25
+  rebalance: daily
+position_sizing:
+  gross_exposure: 1.0
+  long_short: true
+  score_transform: contrarian_close_location_excess_times_abnormal_volume
+  max_abs_weight: 0.25
+  min_symbols: 3
+risk:
+  live_trading: prohibited
+  order_placement: none
+  concentration_cap_abs_weight: 0.25
+evaluation:
+  latest_status: completed_real_data_backtest
+  latest_data_source: alpaca_market_data_no_data_csv
+  latest_period_start: 2024-01-01
+  latest_period_end: 2025-12-31
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  primary_run_json: evaluations/runs/qfa_realdata_20240101_20251231_primary.json
+  immutable_summary_json: evaluations/runs/qfa_realdata_20240101_20251231_primary_summary_with_random_windows.json
+  qfa_primary_run_id: 1
+  db_artifact_retained: false
+  cost_assumption_bps: 5
+suggested_decision: research_watchlist_not_trade

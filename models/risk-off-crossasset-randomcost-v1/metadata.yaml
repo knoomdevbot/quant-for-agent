@@ -1,0 +1,17 @@
+id: AR-025
+model_name: risk-off-crossasset-randomcost-v1
+parent: AR-008
+status: rejected
+evaluated_at: '2026-06-26T08:10:16Z'
+hypothesis: AR-008 showed positive pre-cost Sharpe; validate across random windows, cost haircuts, and parameter stability before acceptance.
+falsifier: non-positive random-period median Sharpe after costs or unacceptable drawdown/redundancy.
+falsifier_triggered: true
+suggested_decision: rejected
+primary_rationale: Primary qfa Sharpe, approximate cost-haircut Sharpe, and median random-window qfa Sharpe were all non-positive.
+artifacts:
+  model: /Users/moonk/quant-for-agent/models/risk-off-crossasset-randomcost-v1/model.py
+  config: /Users/moonk/quant-for-agent/models/risk-off-crossasset-randomcost-v1/config.yaml
+  readme: /Users/moonk/quant-for-agent/models/risk-off-crossasset-randomcost-v1/README.md
+  latest_json: /Users/moonk/quant-for-agent/models/risk-off-crossasset-randomcost-v1/evaluations/latest.json
+  latest_md: /Users/moonk/quant-for-agent/models/risk-off-crossasset-randomcost-v1/evaluations/latest.md
+  immutable_run: /Users/moonk/quant-for-agent/models/risk-off-crossasset-randomcost-v1/evaluations/runs/ar025_qfa_alpaca_real_20260626T081003Z.json

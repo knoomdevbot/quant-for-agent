@@ -1,0 +1,333 @@
+{
+  "bad_result_policy": "Rejected result: no refinement, direct inversion, or extension of this failed stress-gap reversal hypothesis created; one genuinely divergent child issue AR-043 was created with a different liquidity/volume mechanism.",
+  "child_ideas": {
+    "divergent_only": {
+      "hypothesis": "Use abnormal volume/range/spread-proxy liquidity stress and defensive/risk response rather than overnight gap reversal; different mechanism from failed AR-026.",
+      "id": "AR-043",
+      "model_name": "etf-stress-liquidity-volume-v1",
+      "title": "ETF stress liquidity-volume dislocation detector"
+    }
+  },
+  "commands": {
+    "credentials": "source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env with set -a; map ALPACA_KEY_ID to ALPACA_API_KEY; secrets not printed",
+    "direct_research_harness": "PYTHONPATH=/Users/moonk/quant-for-agent/src /Users/moonk/quant-for-agent/.venv/bin/python /tmp/evaluate_ar026.py",
+    "qfa_primary": "PYTHONPATH=/Users/moonk/quant-for-agent/src /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run models/stress-gap-reversal-etf-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2021-01-01 --end 2026-06-24 --timeframe 1Day --initial-cash 100000 --db /tmp/ar026-qfa-<timestamp>.sqlite3"
+  },
+  "costs_slippage": {
+    "caveat": "qfa CLI has no explicit transaction cost/slippage parameter; open auction and ETF spread impacts may exceed simple 5 bps per-side assumption.",
+    "cost_model": "subtract 2 * per_side_cost_bps * gross exposure / 10000 on each stress event day; inactive days have zero return/cost",
+    "qfa_cli_costs_applied": false,
+    "research_harness_costs_applied": true,
+    "round_trip_bps": 10,
+    "selected_per_side_bps": 5
+  },
+  "created_at": "2026-06-26T08:09:19Z",
+  "data_source": {
+    "access": "qfa CLI and quant_for_agent.alpaca_client.AlpacaGateway.get_bars; --data-csv not used",
+    "bar_counts": {
+      "GLD": 1373,
+      "IWM": 1373,
+      "QQQ": 1373,
+      "SPY": 1373,
+      "TLT": 1373,
+      "XLE": 1373,
+      "XLU": 1373
+    },
+    "csv_used": false,
+    "end": "2026-06-24",
+    "provider": "Alpaca real market data",
+    "start": "2021-01-01",
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "TLT",
+      "GLD",
+      "XLU",
+      "XLE"
+    ],
+    "timeframe": "1Day",
+    "trades_placed": false
+  },
+  "db_used_during_run": {
+    "db_artifact_retained": false,
+    "db_path_used_during_run": "/tmp/ar026-qfa-20260626T080753Z-5364.sqlite3",
+    "db_retention_note": "Temporary qfa SQLite DB used for run-id persistence only; not retained as durable artifact."
+  },
+  "decision": {
+    "rationale": "Primary intended open-to-close after-cost Sharpe -0.202, total return -8.36%, max drawdown -15.98%; random-window median Sharpe -0.575. Fails AR-026 falsifier.",
+    "status": "rejected",
+    "suggested_decision": "Do not promote; archive as failed stress-gap reversal research reference."
+  },
+  "evaluator_limitation": {
+    "impact": "qfa metrics are integration/proxy evidence only and should not override intended-horizon harness metrics.",
+    "qfa_compatible_approximation": "model.py detects completed stress-gap days and applies long risk-ETF weights to the next qfa close-to-close period; direct Alpaca OHLC harness measures intended same-day open-to-close and 1/3-day variants.",
+    "status": "qfa_daily_engine_cannot_exactly_enter_at_current_open_and_exit_later"
+  },
+  "issue_id": "AR-026",
+  "metrics": {
+    "hold_1d_cost_adjusted_5bps": {
+      "annualized_return": -0.014169891161526116,
+      "annualized_volatility": 0.10003626769468289,
+      "event_days": 188,
+      "final_equity": 92519.0497,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.2925576132545603,
+      "periods": 1373,
+      "sharpe": -0.09212439907873939,
+      "total_return": -0.07480950265093034,
+      "win_rate": 0.07356154406409322
+    },
+    "hold_3d_cost_adjusted_5bps": {
+      "annualized_return": 0.016158868579994712,
+      "annualized_volatility": 0.15728265268275554,
+      "event_days": 188,
+      "final_equity": 109126.3764,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.3154231432123228,
+      "periods": 1373,
+      "sharpe": 0.18159265847028896,
+      "total_return": 0.09126376371629741,
+      "win_rate": 0.0764748725418791
+    },
+    "open_to_close_gross_0bps": {
+      "annualized_return": 0.018848127067222498,
+      "annualized_volatility": 0.06796682349451065,
+      "event_days": 189,
+      "final_equity": 110709.181,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.1469691926886667,
+      "periods": 1373,
+      "sharpe": 0.30864204077399987,
+      "total_return": 0.10709181048920491,
+      "win_rate": 0.07720320466132556
+    },
+    "primary_open_to_close_cost_adjusted_5bps": {
+      "annualized_return": -0.01588967637915295,
+      "annualized_volatility": 0.06792068072455915,
+      "avg_daily_turnover": 1.0,
+      "event_days": 189,
+      "final_equity": 91643.0817,
+      "initial_cash": 100000.0,
+      "instrument_events": 756,
+      "max_drawdown": -0.15981153406545978,
+      "periods": 1373,
+      "sharpe": -0.20187640834062562,
+      "total_return": -0.0835691834679031,
+      "win_rate": 0.06846321922796796
+    },
+    "qfa_close_to_close_proxy_gross": {
+      "annualized_return": 0.00178465,
+      "annualized_volatility": 0.07724979,
+      "final_equity": 100975.5016,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.21796939,
+      "periods": 1372,
+      "sharpe": 0.06220046,
+      "total_return": 0.00975502,
+      "win_rate": 0.07798834
+    },
+    "random_windows_open_to_close_5bps": {
+      "annualized_return_mean": -0.04761571390926032,
+      "annualized_return_median": -0.034302252296095626,
+      "event_days_mean": 17.4,
+      "event_days_median": 15.5,
+      "max_drawdown_mean": -0.045632390541627134,
+      "max_drawdown_median": -0.029784899255948627,
+      "seed": 26026,
+      "sharpe_mean": -0.6877059117751009,
+      "sharpe_median": -0.5746989134938384,
+      "total_return_mean": -0.024489384736641216,
+      "total_return_median": -0.01730737123325532,
+      "win_rate_mean": 0.05952380952380952,
+      "win_rate_median": 0.051587301587301584,
+      "window_trading_days": 126,
+      "windows": 10
+    }
+  },
+  "model_name": "stress-gap-reversal-etf-v1",
+  "orthogonality": {
+    "reason": "No durable parent AR-008 daily return stream was found in repo artifacts for correlation; mechanism is intended to be intraday/open-stress reversal rather than close-to-close regime allocation.",
+    "status": "unavailable"
+  },
+  "random_window_results": [
+    {
+      "annualized_return": -0.011852501912842373,
+      "annualized_volatility": 0.030984271427030165,
+      "end": "2021-07-26",
+      "event_days": 9,
+      "final_equity": 99405.6084,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.015090221031586304,
+      "periods": 126,
+      "sharpe": -0.36940474980546734,
+      "start": "2021-01-26",
+      "total_return": -0.005943916025278995,
+      "trading_days": 126,
+      "win_rate": 0.031746031746031744,
+      "window_id": 1
+    },
+    {
+      "annualized_return": -0.020938833378626787,
+      "annualized_volatility": 0.04168730370675222,
+      "end": "2021-10-21",
+      "event_days": 16,
+      "final_equity": 98947.5198,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.024314937993969554,
+      "periods": 126,
+      "sharpe": -0.48684878453469543,
+      "start": "2021-04-26",
+      "total_return": -0.010524802422327895,
+      "trading_days": 126,
+      "win_rate": 0.05555555555555555,
+      "window_id": 2
+    },
+    {
+      "annualized_return": -0.023088757182060937,
+      "annualized_volatility": 0.03474021891976036,
+      "end": "2021-11-23",
+      "event_days": 13,
+      "final_equity": 98838.8205,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.01956102297729967,
+      "periods": 126,
+      "sharpe": -0.6550709322464752,
+      "start": "2021-05-27",
+      "total_return": -0.011611795488261079,
+      "trading_days": 126,
+      "win_rate": 0.047619047619047616,
+      "window_id": 3
+    },
+    {
+      "annualized_return": -0.1899384723428399,
+      "annualized_volatility": 0.12798815004222383,
+      "end": "2022-06-17",
+      "event_days": 29,
+      "final_equity": 90003.4181,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.15981153406545978,
+      "periods": 126,
+      "sharpe": -1.581243854215594,
+      "start": "2021-12-17",
+      "total_return": -0.09996581861733711,
+      "trading_days": 126,
+      "win_rate": 0.10317460317460317,
+      "window_id": 4
+    },
+    {
+      "annualized_return": 0.011032224590165063,
+      "annualized_volatility": 0.04603164550316323,
+      "end": "2024-01-03",
+      "event_days": 18,
+      "final_equity": 100550.0982,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.027557556703892372,
+      "periods": 126,
+      "sharpe": 0.26115607618163333,
+      "start": "2023-07-06",
+      "total_return": 0.005500981894182466,
+      "trading_days": 126,
+      "win_rate": 0.06349206349206349,
+      "window_id": 5
+    },
+    {
+      "annualized_return": -0.04319533293250877,
+      "annualized_volatility": 0.04546907203196029,
+      "end": "2024-03-12",
+      "event_days": 15,
+      "final_equity": 97816.3926,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.03201224180800488,
+      "periods": 126,
+      "sharpe": -0.9484703005724912,
+      "start": "2023-09-12",
+      "total_return": -0.021836073519631793,
+      "trading_days": 126,
+      "win_rate": 0.047619047619047616,
+      "window_id": 6
+    },
+    {
+      "annualized_return": -0.07475576767547909,
+      "annualized_volatility": 0.0494245579659765,
+      "end": "2025-01-08",
+      "event_days": 12,
+      "final_equity": 96189.6165,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.05055492250176785,
+      "periods": 126,
+      "sharpe": -1.5472024749306144,
+      "start": "2024-07-11",
+      "total_return": -0.03810383495695291,
+      "trading_days": 126,
+      "win_rate": 0.023809523809523808,
+      "window_id": 7
+    },
+    {
+      "annualized_return": -0.027230941603177516,
+      "annualized_volatility": 0.044199611066910754,
+      "end": "2025-03-10",
+      "event_days": 15,
+      "final_equity": 98629.0555,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.02145103636811463,
+      "periods": 126,
+      "sharpe": -0.6026619893406734,
+      "start": "2024-09-06",
+      "total_return": -0.01370944524606621,
+      "trading_days": 126,
+      "win_rate": 0.047619047619047616,
+      "window_id": 8
+    },
+    {
+      "annualized_return": -0.041373562989013735,
+      "annualized_volatility": 0.09440112350361035,
+      "end": "2025-04-14",
+      "event_days": 23,
+      "final_equity": 97909.4703,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.05298521598308814,
+      "periods": 126,
+      "sharpe": -0.4005762706396277,
+      "start": "2024-10-11",
+      "total_return": -0.02090529722044443,
+      "trading_days": 126,
+      "win_rate": 0.0873015873015873,
+      "window_id": 9
+    },
+    {
+      "annualized_return": -0.05481519366621912,
+      "annualized_volatility": 0.0949016095256148,
+      "end": "2025-04-23",
+      "event_days": 24,
+      "final_equity": 97220.6154,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.05298521598308814,
+      "periods": 126,
+      "sharpe": -0.5467358376470034,
+      "start": "2024-10-21",
+      "total_return": -0.027793845764294223,
+      "trading_days": 126,
+      "win_rate": 0.0873015873015873,
+      "window_id": 10
+    }
+  ],
+  "run_ids": {
+    "direct_research_harness": "alpaca_stress_gap_reversal_20260626T080919Z",
+    "immutable_artifact": "evaluations/runs/ar026_alpaca_qfa_stress_gap_reversal_20260626T080919Z.json",
+    "qfa_primary": 1
+  },
+  "selected_parameters": {
+    "confirm_count": 2,
+    "gap_z_window": 60,
+    "max_abs_weight": 0.35,
+    "min_periods": 63,
+    "stress_gap_bps": -50.0,
+    "stress_z": -1.0
+  },
+  "warnings": [
+    "No --data-csv was used; all bars requested from Alpaca/qfa.",
+    "qfa cannot exactly enter at current open; intended-horizon metrics use direct Alpaca OHLC harness.",
+    "Temporary SQLite DB is not retained."
+  ]
+}

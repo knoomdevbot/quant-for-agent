@@ -1,0 +1,38 @@
+issue_id: AR-025
+model_name: risk-off-crossasset-randomcost-v1
+family: regime_allocation
+parent_alpha: AR-008
+data_source: Alpaca real market data via qfa AlpacaGateway only; no CSV
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+timeframe: 1Day
+parameters:
+  equity_lookback: 100
+  stress_lookback: 40
+  vol_window: 20
+  min_periods: 101
+  target_vol: 0.10
+  high_vol_threshold: 0.20
+  defensive_stress_threshold: 0.03
+  min_equity_breadth: 0.60
+  max_abs_weight: 0.35
+costs:
+  qfa_native_costs: false
+  one_way_bps_assumption: 5.0
+  handling: ex-post turnover haircut documented in evaluation
+risk_constraints:
+  live_trading: false
+  daemon: false
+  gross_normalized_by_qfa: true
+evaluation:
+  primary_start: '2021-01-04'
+  primary_end: '2025-12-15'
+  random_windows: 8
+  qfa_backtests_only: true
+  db_artifact_retained: false

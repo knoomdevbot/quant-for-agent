@@ -1,0 +1,255 @@
+{
+  "issue_id": "AR-028",
+  "model_name": "closing-volume-reversal-megacap-v1",
+  "created_at": "2026-06-26T08:45:00Z",
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "alpaca_qfa_real_market_data_backtest_with_random_windows",
+  "data_source": "Alpaca real market data via qfa backtest (no --data-csv; no CSV fixtures)",
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA"
+  ],
+  "date_range": {
+    "start": "2024-01-01",
+    "end": "2025-12-31",
+    "timeframe": "1Day",
+    "periods": 500
+  },
+  "model_parameters": {
+    "volume_z_window": 60,
+    "volume_z_min": 1.25,
+    "dollar_volume_z_min": 1.25,
+    "close_location_extreme": 0.8,
+    "range_z_window": 60,
+    "range_z_min": -0.25,
+    "gross_exposure": 1.0,
+    "max_abs_weight": 0.25,
+    "min_symbols": 3
+  },
+  "mechanism": "Abnormal daily close-location and volume liquidity-reversal proxy; genuinely divergent from AR-009 continuation and not a direct multi-day return inversion.",
+  "implementation_limitation": "Alpaca/qfa daily bars do not provide closing-auction imbalance or auction-only volume. This model uses close-location value within the daily range plus abnormal share/dollar volume as a documented closing-auction-like proxy; qfa applies weights to next close-to-close return.",
+  "qfa": {
+    "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; .venv/bin/qfa backtest run models/closing-volume-reversal-megacap-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL,TSLA --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db /tmp/qfa_ar028_<timestamp>_primary.sqlite3 > models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_20240101_20251231_primary.json",
+    "db_path_used_during_run": "/tmp/qfa_ar028_1782461377_primary.sqlite3",
+    "db_artifact_retained": false,
+    "db_retention_note": "Temporary SQLite DBs were created in /tmp and removed after JSON artifacts were retained.",
+    "run_ids": {
+      "primary": 1,
+      "random_windows": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "primary_run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_20240101_20251231_primary.json"
+  },
+  "metrics_pre_cost": {
+    "annualized_return": 0.21553775,
+    "annualized_volatility": 0.26525511,
+    "final_equity": 147296.1424,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.18727644,
+    "periods": 500,
+    "sharpe": 0.86494464,
+    "total_return": 0.47296142,
+    "win_rate": 0.126
+  },
+  "random_windows": {
+    "seed": 28028,
+    "count": 8,
+    "summary": {
+      "median_sharpe": 1.5511248,
+      "mean_sharpe": 1.62597036,
+      "positive_sharpe_count": 8,
+      "median_total_return": 0.27549945,
+      "worst_max_drawdown": -0.21813708
+    },
+    "results": [
+      {
+        "window_id": 1,
+        "start": "2020-10-01",
+        "end": "2021-07-17",
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_2020-10-01_2021-07-17_random1.json",
+        "metrics": {
+          "annualized_return": 0.65563075,
+          "annualized_volatility": 0.20529701,
+          "final_equity": 148608.1875,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06083004,
+          "periods": 198,
+          "sharpe": 2.55705515,
+          "total_return": 0.48608188,
+          "win_rate": 0.12626263
+        },
+        "db_artifact_retained": false
+      },
+      {
+        "window_id": 2,
+        "start": "2024-02-07",
+        "end": "2024-11-04",
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_2024-02-07_2024-11-04_random2.json",
+        "metrics": {
+          "annualized_return": 0.19431097,
+          "annualized_volatility": 0.24146652,
+          "final_equity": 114003.977,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09622036,
+          "periods": 186,
+          "sharpe": 0.85167257,
+          "total_return": 0.14003977,
+          "win_rate": 0.09139785
+        },
+        "db_artifact_retained": false
+      },
+      {
+        "window_id": 3,
+        "start": "2020-06-21",
+        "end": "2021-05-14",
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_2020-06-21_2021-05-14_random3.json",
+        "metrics": {
+          "annualized_return": 0.87575652,
+          "annualized_volatility": 0.21502611,
+          "final_equity": 175350.722,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06415975,
+          "periods": 225,
+          "sharpe": 3.03253722,
+          "total_return": 0.75350722,
+          "win_rate": 0.13333333
+        },
+        "db_artifact_retained": false
+      },
+      {
+        "window_id": 4,
+        "start": "2021-05-03",
+        "end": "2022-04-30",
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_2021-05-03_2022-04-30_random4.json",
+        "metrics": {
+          "annualized_return": 0.10357108,
+          "annualized_volatility": 0.19387878,
+          "final_equity": 110313.9585,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.12269327,
+          "periods": 251,
+          "sharpe": 0.60614291,
+          "total_return": 0.10313958,
+          "win_rate": 0.12350598
+        },
+        "db_artifact_retained": false
+      },
+      {
+        "window_id": 5,
+        "start": "2020-11-12",
+        "end": "2021-09-01",
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_2020-11-12_2021-09-01_random5.json",
+        "metrics": {
+          "annualized_return": 0.38782402,
+          "annualized_volatility": 0.18639318,
+          "final_equity": 129707.1181,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06954464,
+          "periods": 200,
+          "sharpe": 1.84977814,
+          "total_return": 0.29707118,
+          "win_rate": 0.11
+        },
+        "db_artifact_retained": false
+      },
+      {
+        "window_id": 6,
+        "start": "2021-12-19",
+        "end": "2022-11-04",
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_2021-12-19_2022-11-04_random6.json",
+        "metrics": {
+          "annualized_return": 0.11159016,
+          "annualized_volatility": 0.27477745,
+          "final_equity": 109675.7077,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.21813708,
+          "periods": 220,
+          "sharpe": 0.52035101,
+          "total_return": 0.09675708,
+          "win_rate": 0.15454545
+        },
+        "db_artifact_retained": false
+      },
+      {
+        "window_id": 7,
+        "start": "2020-07-20",
+        "end": "2021-06-30",
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_2020-07-20_2021-06-30_random7.json",
+        "metrics": {
+          "annualized_return": 0.58724869,
+          "annualized_volatility": 0.20660527,
+          "final_equity": 154702.7499,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06415975,
+          "periods": 238,
+          "sharpe": 2.33775441,
+          "total_return": 0.5470275,
+          "win_rate": 0.11764706
+        },
+        "db_artifact_retained": false
+      },
+      {
+        "window_id": 8,
+        "start": "2022-03-19",
+        "end": "2022-12-17",
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-megacap-v1/evaluations/runs/qfa_realdata_2022-03-19_2022-12-17_random8.json",
+        "metrics": {
+          "annualized_return": 0.35433771,
+          "annualized_volatility": 0.27092049,
+          "final_equity": 125392.7716,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.07757582,
+          "periods": 188,
+          "sharpe": 1.25247146,
+          "total_return": 0.25392772,
+          "win_rate": 0.15425532
+        },
+        "db_artifact_retained": false
+      }
+    ]
+  },
+  "costs_slippage": {
+    "assumption_bps": 5,
+    "applied": false,
+    "status": "documented_not_applied_current_qfa_backtest_cli_has_no_cost_or_slippage_parameter",
+    "handling": "No native qfa cost parameter was used; reported qfa metrics are pre-cost and should be haircut before promotion."
+  },
+  "orthogonality": {
+    "status": "computed_against_rejected_parent_only",
+    "note": "No complete accepted-alpha return stream registry was used in this pass; computed daily equity-return correlation versus rejected AR-009 parent for divergence context.",
+    "comparison": "AR-009 volume-price-pressure-megacap-v1",
+    "overlap_periods": 499,
+    "daily_return_correlation": -0.4985744
+  },
+  "suggested_decision": "research_watchlist_not_trade; positive primary and random-window pre-cost results, but costs/slippage are not applied and the closing-auction signal is only a daily-bar proxy.",
+  "child_issues_created": {
+    "refinement": "AR-045",
+    "divergent": "AR-046"
+  },
+  "warnings": [
+    "No daemon was run and no trades were placed.",
+    "Never used --data-csv; all runs fetched Alpaca real market data through qfa.",
+    "Closing-auction imbalance data unavailable in qfa/Alpaca daily bars; proxy limitation is material."
+  ]
+}

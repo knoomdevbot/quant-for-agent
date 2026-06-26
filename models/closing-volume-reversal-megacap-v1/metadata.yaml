@@ -1,0 +1,9 @@
+model_name: closing-volume-reversal-megacap-v1
+issue_id: AR-028
+family: liquidity_reversal
+status: real_data_evaluated_watchlist
+created_at: 2026-06-26T08:45:00Z
+parent_alpha: AR-009
+data_source: Alpaca real market data via qfa/no CSV
+primary_evaluation: evaluations/latest.json
+suggested_decision: research_watchlist_not_trade
