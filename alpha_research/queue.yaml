@@ -698,24 +698,24 @@ issues:
 - id: AR-094
   title: 'Divergent from AR-082: ETF option-implied volatility crush reversal allocator'
   model_name: etf-option-vol-crush-reversal-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: option_volatility_reversal
   issue_path: alpha_research/issues/AR-094.md
   parent: AR-082
 - id: AR-095
   title: 'Divergent from AR-083: sector ETF post-rebalance volume exhaustion reversal allocator'
   model_name: sector-etf-volume-exhaustion-reversal-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: sector_liquidity_reversal
   issue_path: alpha_research/issues/AR-095.md
   parent: AR-083
 - id: AR-096
   title: 'Divergent from AR-084: mega-cap analyst-revision dispersion drift allocator'
   model_name: megacap-analyst-revision-dispersion-drift-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: analyst_revision_drift
   issue_path: alpha_research/issues/AR-096.md
   parent: AR-084
@@ -768,13 +768,13 @@ issues:
   issue_path: alpha_research/issues/AR-102.md
   parent: AR-093
 active_batch:
+- AR-097
+- AR-098
+- AR-099
+last_realdata_batch:
 - AR-094
 - AR-095
 - AR-096
-last_realdata_batch:
-- AR-091
-- AR-092
-- AR-093
-updated_at: '2026-06-26T16:02:14Z'
+updated_at: '2026-06-26T16:23:58Z'
 target_tried_ideas: 100
-tried_ideas_count: 84
+tried_ideas_count: 87

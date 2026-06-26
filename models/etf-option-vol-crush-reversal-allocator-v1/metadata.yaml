@@ -1,0 +1,26 @@
+issue_id: AR-094
+model_name: etf-option-vol-crush-reversal-allocator-v1
+status: researched
+suggested_decision: rejected
+parent: AR-082
+parent_relationship: divergent
+created_at_utc: '2026-06-26T16:21:38Z'
+updated_at_utc: '2026-06-26T16:21:38Z'
+hypothesis: ETF option-implied volatility shocks that rapidly normalize may create short-horizon mean-reversion or defensive-allocation signals.
+implementation_note: qfa/Alpaca OHLCV does not provide option-implied volatility, so this implementation is explicitly a realized high-low range/realized-volatility crush proxy and not a true IV model.
+data_source: Alpaca real daily ETF OHLCV via qfa/AlpacaGateway
+candidate_product_pool: [SPY, QQQ, IWM, TLT, GLD, HYG, LQD, XLU, XLE, SHY]
+selected_universe: [SPY, QQQ, IWM, TLT, GLD, HYG, LQD, XLU, XLE, SHY]
+evaluation:
+  primary_window: 2021-01-04/2025-12-15
+  random_windows: 10
+  primary_cost_bps: 10.0
+  primary_cost_adjusted_sharpe: -0.297205
+  random_median_sharpe_10bps: -0.35286478
+  random_p25_sharpe_10bps: -0.70003851
+  orthogonality_max_abs_corr: 0.91935325
+artifact_paths:
+  model: models/etf-option-vol-crush-reversal-allocator-v1/model.py
+  config: models/etf-option-vol-crush-reversal-allocator-v1/config.yaml
+  latest_json: models/etf-option-vol-crush-reversal-allocator-v1/evaluations/latest.json
+  latest_md: models/etf-option-vol-crush-reversal-allocator-v1/evaluations/latest.md

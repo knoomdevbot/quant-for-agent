@@ -1,0 +1,29 @@
+alpha_id: AR-096
+model_name: megacap-analyst-revision-dispersion-drift-v1
+status: blocked
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - AVGO
+  - TSLA
+  - JPM
+  - LLY
+required_data:
+  analyst_revision_breadth: point_in_time
+  estimate_dispersion: point_in_time
+available_data:
+  qfa_alpaca: real_ohlcv_bars_only
+parameters:
+  revision_windows_days: [5, 20, 60]
+  drift_hold_days: [10, 20, 40]
+  per_name_cap: 0.20
+  one_way_cost_bps: 5
+blocking_reason: >-
+  No durable non-secret point-in-time analyst revision or estimate dispersion
+  source exists locally, and qfa/AlpacaGateway in this repository exposes only
+  OHLCV bars plus account/order methods. OHLCV proxy testing was not used as a
+  faithful test of the analyst-revision mechanism.
