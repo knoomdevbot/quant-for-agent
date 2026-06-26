@@ -1,0 +1,42 @@
+model:
+  name: overnight-gap-reversal-megacap-v1
+  issue_id: AR-007
+  family: mean_reversion
+  contract: qfa_generate_signals
+  model_path: models/overnight-gap-reversal-megacap-v1/model.py
+universe:
+  symbols:
+    - AAPL
+    - MSFT
+    - NVDA
+    - AMZN
+    - META
+    - GOOGL
+    - TSLA
+parameters:
+  gap_z_window: 60
+  entry_z: 1.0
+  hold_period_qfa_periods: 1
+  gross_exposure_target: 1.0
+  max_abs_weight: 0.25
+  min_symbols: 3
+risk:
+  no_live_trading: true
+  single_name_abs_cap: 0.25
+  normalize_gross_exposure: true
+data:
+  source: Alpaca real market data via qfa backtest
+  timeframe: 1Day
+  start: 2024-01-01
+  end: 2025-12-31
+  data_csv_used: false
+evaluation:
+  latest_json: models/overnight-gap-reversal-megacap-v1/evaluations/latest.json
+  latest_markdown: models/overnight-gap-reversal-megacap-v1/evaluations/latest.md
+  qfa_db_path: models/overnight-gap-reversal-megacap-v1/evaluations/qfa_realdata.sqlite3
+  costs_slippage:
+    requested_assumption_bps: 5
+    applied: false
+    note: qfa backtest CLI in this repository exposes no transaction-cost/slippage parameter; metrics are pre-cost/gross.
+limitations:
+  - qfa daily backtest applies signals to next close-to-close return, so this is a lagged proxy rather than true same-day open-to-close overnight gap execution.

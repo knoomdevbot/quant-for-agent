@@ -1,0 +1,65 @@
+{
+  "issue_id": "AR-007",
+  "model_name": "overnight-gap-reversal-megacap-v1",
+  "created_at": "2026-06-26T06:27:46Z",
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "alpaca_real_market_data_backtest",
+  "data_source": "Alpaca real market data via qfa backtest (no --data-csv; no CSV fixtures)",
+  "universe": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA"
+  ],
+  "period": {
+    "start": "2024-01-01",
+    "end": "2025-12-31",
+    "timeframe": "1Day",
+    "periods": 500
+  },
+  "model_parameters": {
+    "gap_z_window": 60,
+    "entry_z": 1.0,
+    "hold_period_qfa_periods": 1,
+    "gross_exposure": 1.0,
+    "max_abs_weight": 0.25,
+    "min_symbols": 3
+  },
+  "metrics_pre_cost": {
+    "initial_cash": 100000.0,
+    "final_equity": 66886.333,
+    "total_return": -0.33113667,
+    "annualized_return": -0.18347395,
+    "annualized_volatility": 0.26868747,
+    "sharpe": -0.61761503,
+    "max_drawdown": -0.38506717,
+    "win_rate": 0.23,
+    "periods": 500
+  },
+  "costs": {
+    "assumption_bps": 5,
+    "applied": false,
+    "status": "documented_not_applied_current_qfa_backtest_cli_has_no_cost_or_slippage_parameter"
+  },
+  "qfa": {
+    "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/overnight-gap-reversal-megacap-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL,TSLA --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db /Users/moonk/quant-for-agent/models/overnight-gap-reversal-megacap-v1/evaluations/qfa_realdata.sqlite3 > /Users/moonk/quant-for-agent/models/overnight-gap-reversal-megacap-v1/evaluations/runs/qfa_realdata_20240101_20251231_run1.json",
+    "run_id": 1,
+    "run_json_path": "/Users/moonk/quant-for-agent/models/overnight-gap-reversal-megacap-v1/evaluations/runs/qfa_realdata_20240101_20251231_run1.json",
+    "db_path_used_during_run": "/Users/moonk/quant-for-agent/models/overnight-gap-reversal-megacap-v1/evaluations/qfa_realdata.sqlite3",
+    "db_artifact_retained": false,
+    "db_retention_note": "SQLite DB artifact removed before commit per alpha-model-management large artifact policy; compact JSON/Markdown summaries retained."
+  },
+  "implementation_limitation": "qfa daily bars/backtester evaluate signals on the latest completed daily bar and apply weights to the next close-to-close return, so this is a lagged proxy for true same-day open-to-close overnight gap reversal execution.",
+  "suggested_decision": "reject_or_research_watchlist_only; negative Sharpe and large drawdown fail AR-007 acceptance threshold before costs",
+  "refinement_child_idea": "AR-007-R1: Test true open-to-close overnight-gap reversal with an open-aware evaluator and volatility/market-regime filters to reduce lagged proxy error and drawdown.",
+  "divergent_child_idea": "AR-007-D1: Mega-cap post-earnings drift continuation using earnings-calendar/event dates and multi-day holding windows rather than overnight gap fading.",
+  "warnings": [
+    "Costs/slippage were not applied because qfa backtest CLI exposes no cost/slippage parameter; reported metrics are pre-cost.",
+    "SQLite artifact evaluations/qfa_realdata.sqlite3 was created under the model folder and should be removed by controller before commit if required.",
+    "No accepted alpha return-stream library was used for orthogonality checks in this pass.",
+    "Open-aware execution cannot be represented by current daily qfa close-to-close backtester."
+  ]
+}

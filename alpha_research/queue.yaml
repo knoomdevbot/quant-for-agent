@@ -47,22 +47,22 @@ issues:
 - id: AR-007
   title: Overnight gap reversal in mega-cap equities
   model_name: overnight-gap-reversal-megacap-v1
-  status: queued
-  priority: seed
+  status: rejected
+  priority: completed_realdata
   family: mean_reversion
   issue_path: alpha_research/issues/AR-007.md
 - id: AR-008
   title: Cross-asset risk-off regime switch
   model_name: risk-off-crossasset-switch-v1
-  status: queued
-  priority: seed
+  status: watchlist
+  priority: completed_realdata
   family: regime_allocation
   issue_path: alpha_research/issues/AR-008.md
 - id: AR-009
   title: Volume-confirmed price pressure continuation
   model_name: volume-price-pressure-megacap-v1
-  status: queued
-  priority: seed
+  status: rejected
+  priority: completed_realdata
   family: flow_momentum
   issue_path: alpha_research/issues/AR-009.md
 - id: AR-010
@@ -169,14 +169,62 @@ issues:
   family: regime_allocation
   issue_path: alpha_research/issues/AR-022.md
   parent: AR-006
+- id: AR-023
+  title: 'Refine AR-007: true open-to-close gap reversal evaluator'
+  model_name: overnight-gap-openclose-evaluator-megacap-v1
+  status: queued
+  priority: child
+  family: mean_reversion
+  issue_path: alpha_research/issues/AR-023.md
+  parent: AR-007
+- id: AR-024
+  title: 'Divergent from AR-007: mega-cap post-earnings drift continuation'
+  model_name: post-earnings-drift-megacap-v1
+  status: queued
+  priority: child
+  family: event_drift
+  issue_path: alpha_research/issues/AR-024.md
+  parent: AR-007
+- id: AR-025
+  title: 'Refine AR-008: costed random-window risk-off switch validation'
+  model_name: risk-off-crossasset-randomcost-v1
+  status: queued
+  priority: child
+  family: regime_allocation
+  issue_path: alpha_research/issues/AR-025.md
+  parent: AR-008
+- id: AR-026
+  title: 'Divergent from AR-008: stress-day gap reversal risk-off detector'
+  model_name: stress-gap-reversal-etf-v1
+  status: queued
+  priority: child
+  family: stress_reversal
+  issue_path: alpha_research/issues/AR-026.md
+  parent: AR-008
+- id: AR-027
+  title: 'Refine AR-009: regime-filtered volume pressure continuation'
+  model_name: volume-pressure-regime-filter-megacap-v1
+  status: queued
+  priority: child
+  family: flow_momentum
+  issue_path: alpha_research/issues/AR-027.md
+  parent: AR-009
+- id: AR-028
+  title: 'Divergent from AR-009: abnormal closing-volume reversal'
+  model_name: closing-volume-reversal-megacap-v1
+  status: queued
+  priority: child
+  family: liquidity_reversal
+  issue_path: alpha_research/issues/AR-028.md
+  parent: AR-009
 active_batch:
+- AR-010
+- AR-011
+- AR-012
+last_realdata_batch:
 - AR-007
 - AR-008
 - AR-009
-last_realdata_batch:
-- AR-004
-- AR-005
-- AR-006
-updated_at: '2026-06-26T06:30:00Z'
+updated_at: '2026-06-26T06:40:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 6
+tried_ideas_count: 9

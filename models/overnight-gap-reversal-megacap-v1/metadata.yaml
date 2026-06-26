@@ -1,0 +1,48 @@
+issue_id: AR-007
+model_name: overnight-gap-reversal-megacap-v1
+status: completed_real_data_backtest_rejected_watchlist
+created_at: "2026-06-26T06:27:46Z"
+family: mean_reversion
+hypothesis: Large overnight gaps in mega-cap equities may overreact and partially reverse.
+model_contract: qfa generate_signals(context) returning symbol weights
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+parameters:
+  gap_z_window: 60
+  entry_z: 1.0
+  hold_period_qfa_periods: 1
+  max_abs_weight: 0.25
+  min_symbols: 3
+evaluation:
+  data_source: Alpaca real market data via qfa backtest; no --data-csv; no CSV fixtures
+  period: 2024-01-01 to 2025-12-31
+  timeframe: 1Day
+  qfa_run_id: 1
+  run_json: models/overnight-gap-reversal-megacap-v1/evaluations/runs/qfa_realdata_20240101_20251231_run1.json
+  latest_json: models/overnight-gap-reversal-megacap-v1/evaluations/latest.json
+  qfa_db_path: models/overnight-gap-reversal-megacap-v1/evaluations/qfa_realdata.sqlite3
+  qfa_db_artifact_note: SQLite DB artifact created under model folder; controller should remove before commit if policy requires.
+  costs_slippage_applied: false
+  costs_slippage_note: qfa backtest CLI has no explicit cost/slippage parameter; 5 bps assumption documented but not applied.
+latest_metrics_pre_cost:
+  final_equity: 66886.333
+  total_return: -0.33113667
+  annualized_return: -0.18347395
+  annualized_volatility: 0.26868747
+  sharpe: -0.61761503
+  max_drawdown: -0.38506717
+  win_rate: 0.23
+  periods: 500
+decision: reject_or_research_watchlist_only
+refinement_child_idea: "AR-007-R1: Test true open-to-close overnight-gap reversal with an open-aware evaluator and volatility/market-regime filters to reduce lagged proxy error and drawdown."
+divergent_child_idea: "AR-007-D1: Mega-cap post-earnings drift continuation using earnings-calendar/event dates and multi-day holding windows rather than overnight gap fading."
+notes:
+  - Uses latest completed bar overnight gap z-score as a contrarian next-period signal.
+  - qfa daily bars/backtester cannot model entry immediately after the current session open; reported results are a close-to-close proxy.
+  - No live trading, qfa daemon, --data-csv, or CSV fixtures used.
