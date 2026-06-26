@@ -1,0 +1,43 @@
+alpha_id: AR-098
+model_name: sector-etf-earnings-season-dispersion-reversal-v1
+parent_id: AR-086
+family: sector_dispersion_reversal
+created_at_utc: 2026-06-26T16:43:42Z
+researcher: hermes_subagent
+hypothesis: "Sector ETFs with large earnings-season dispersion shocks may mean-revert over several days as index-level hedges and sector flows normalize."
+implementation_summary: "Rule-based qfa generate_signals(context) model using daily Alpaca OHLCV only: 5-day sector residual returns versus SPY, 60-day prior dispersion z-score, approximate earnings-season calendar gate, and sector-dollar-neutral residual reversal weights."
+universe:
+  - XLK
+  - XLY
+  - XLP
+  - XLV
+  - XLF
+  - XLI
+  - XLE
+  - XLU
+  - XLB
+  - XLRE
+  - SPY
+data:
+  source: Alpaca real daily OHLCV via qfa/AlpacaGateway
+  timeframe: 1Day
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+artifacts:
+  model: models/sector-etf-earnings-season-dispersion-reversal-v1/model.py
+  config: models/sector-etf-earnings-season-dispersion-reversal-v1/config.yaml
+  readme: models/sector-etf-earnings-season-dispersion-reversal-v1/README.md
+  latest_json: models/sector-etf-earnings-season-dispersion-reversal-v1/evaluations/latest.json
+  latest_markdown: models/sector-etf-earnings-season-dispersion-reversal-v1/evaluations/latest.md
+  runs_dir: models/sector-etf-earnings-season-dispersion-reversal-v1/evaluations/runs
+results_summary:
+  suggested_decision: rejected
+  primary_5bps_sharpe: 0.07492903
+  primary_5bps_max_drawdown: -0.05401764
+  random_window_median_5bps_sharpe: -0.19363557
+  random_window_p25_5bps_sharpe: -0.46529722
+  random_window_positive_rate_5bps: 0.3
+  orthogonality_status: unavailable_no_compact_return_streams
+children_policy: "Rejected result; create no refinement/direct-inversion/extension tasks."

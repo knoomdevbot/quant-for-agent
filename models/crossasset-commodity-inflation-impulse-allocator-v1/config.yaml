@@ -1,0 +1,23 @@
+model_name: crossasset-commodity-inflation-impulse-allocator-v1
+issue_id: AR-099
+family: commodity_inflation_macro
+universe: [DBC, GLD, USO, XLE, TIP, TLT, IEF, SPY, QQQ, XLU]
+timeframe: 1Day
+rebalance_proxy: daily target with slow 5/21/63/126-day features; intended as low-to-moderate-turnover macro allocator
+initial_cash: 100000
+costs:
+  primary_one_way_turnover_bps: 5
+  stress_one_way_turnover_bps: [10, 20]
+risk_controls:
+  max_single_weight: 0.30
+  long_only: true
+  gross_target: 1.0
+  no_leverage: true
+  defensive_confirmation: true
+  drawdown_volatility_brake: true
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

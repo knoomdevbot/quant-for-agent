@@ -1,0 +1,35 @@
+issue_id: AR-097
+model_name: commodity-inflation-shock-etf-rotation-v1
+family: commodity_macro_rotation
+version: 1
+status: researched
+created_at_utc: '2026-06-26T15:18:36Z'
+researched_at_utc: '2026-06-26T16:43:26Z'
+parent_alpha: AR-085
+parent_status: rejected
+allowed_lineage: genuinely_divergent_macro_commodity_only
+qfa_contract:
+  function: generate_signals(context)
+  model_path: models/commodity-inflation-shock-etf-rotation-v1/model.py
+universe:
+  - GLD
+  - USO
+  - DBC
+  - XLE
+  - TIP
+  - TLT
+  - IEF
+  - SPY
+  - XLP
+  - XLU
+data_policy:
+  source: Alpaca/qfa real daily OHLCV
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+artifact_policy:
+  durable_artifacts_only: true
+  commit_performed: false
+  temp_sqlite_removed: true

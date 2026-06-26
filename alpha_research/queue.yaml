@@ -722,24 +722,24 @@ issues:
 - id: AR-097
   title: 'Divergent from AR-085: commodity and inflation-shock ETF rotation'
   model_name: commodity-inflation-shock-etf-rotation-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: commodity_macro_rotation
   issue_path: alpha_research/issues/AR-097.md
   parent: AR-085
 - id: AR-098
   title: 'Divergent from AR-086: sector ETF earnings-season dispersion reversal'
   model_name: sector-etf-earnings-season-dispersion-reversal-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: sector_dispersion_reversal
   issue_path: alpha_research/issues/AR-098.md
   parent: AR-086
 - id: AR-099
   title: 'Divergent from AR-087: cross-asset commodity inflation impulse allocator'
   model_name: crossasset-commodity-inflation-impulse-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: commodity_inflation_macro
   issue_path: alpha_research/issues/AR-099.md
   parent: AR-087
@@ -768,13 +768,13 @@ issues:
   issue_path: alpha_research/issues/AR-102.md
   parent: AR-093
 active_batch:
+- AR-100
+- AR-101
+- AR-102
+last_realdata_batch:
 - AR-097
 - AR-098
 - AR-099
-last_realdata_batch:
-- AR-094
-- AR-095
-- AR-096
-updated_at: '2026-06-26T16:23:58Z'
+updated_at: '2026-06-26T16:55:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 87
+tried_ideas_count: 90
