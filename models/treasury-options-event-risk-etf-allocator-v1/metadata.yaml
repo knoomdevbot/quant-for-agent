@@ -1,0 +1,31 @@
+model_name: treasury-options-event-risk-etf-allocator-v1
+created_at: "2026-06-26T17:03:37Z"
+created_by: Hermes Agent
+status: rejected
+family: option_implied_event_risk_proxy
+parent_model: AR-091
+research_issue: AR-100
+hypothesis: Option-implied or realized ETF event-risk shocks around scheduled macro events can allocate across duration, gold, credit, equity, and defensive ETF sleeves.
+data_requirements:
+  prices: Daily OHLCV bars from qfa real market data provider
+  option_implied_volatility: unavailable in qfa for this evaluation; realized range/volume shocks are used as proxies
+known_risks:
+  - Direct options-implied volatility data was unavailable; proxy may lag true event-risk repricing.
+  - Calendar gate approximates macro-event clustering rather than exact point-in-time release calendars.
+  - Defensive duration/gold/cash allocation can overlap existing ETF defensive/momentum alphas.
+  - Cost sensitivity is material because average daily turnover is non-trivial.
+evaluation:
+  latest_json: models/treasury-options-event-risk-etf-allocator-v1/evaluations/latest.json
+  latest_md: models/treasury-options-event-risk-etf-allocator-v1/evaluations/latest.md
+  latest_run_json: models/treasury-options-event-risk-etf-allocator-v1/evaluations/runs/ar100-realdata-20260626T170337Z.json
+  random_or_stress_windows: 12
+  decision: rejected
+artifact_policy:
+  git_tracked: true
+  large_files_external: true
+  raw_daily_paths_retained: false
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

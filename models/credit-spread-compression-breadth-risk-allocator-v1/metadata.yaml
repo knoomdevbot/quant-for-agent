@@ -1,0 +1,20 @@
+model_name: credit-spread-compression-breadth-risk-allocator-v1
+issue_id: AR-102
+parent_issue_id: AR-093
+status: evaluated
+suggested_decision: rejected
+family: credit_breadth_regime
+hypothesis: Credit ETF spread-proxy compression/expansion breadth can identify risk-transfer regimes across credit, equities, duration, gold, and defensive sectors.
+universe: [HYG, JNK, LQD, VCIT, TIP, TLT, IEF, SHY, SPY, QQQ, IWM, XLF, XLI, XLE, XLU, XLP, XLV, GLD]
+data_source: qfa Alpaca real daily OHLCV only
+implementation: rule_based_generate_signals
+created_at_utc: '2026-06-26T00:00:00Z'
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+notes:
+  - Credit ETF price ratios are proxies for spread compression/expansion; true OAS data is not used.
+  - Final suggested decision is recorded in evaluations/latest.json after evaluation.
