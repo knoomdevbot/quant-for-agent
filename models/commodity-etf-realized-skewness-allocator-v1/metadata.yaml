@@ -1,0 +1,23 @@
+issue_id: AR-111
+model_name: commodity-etf-realized-skewness-allocator-v1
+family: commodity_cross_sectional_skewness
+version: 1
+status: researched
+created_at_utc: '2026-06-26T19:32:42Z'
+qfa_contract:
+  function: generate_signals(context)
+  model_path: models/commodity-etf-realized-skewness-allocator-v1/model.py
+hypothesis: Low trailing realized-skewness commodity ETF/ETN proxies outperform high-skewness commodity proxies cross-sectionally on a monthly basis.
+data_policy:
+  source: Alpaca/qfa real daily OHLCV
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+universe_policy:
+  primary: fixed_ex_ante_pure_commodity_etf_etn
+  sector_equity_proxies: diagnostic_only_not_primary
+artifact_policy:
+  compact_artifacts_only: true
+  commit_performed: false

@@ -819,9 +819,24 @@ issues:
   priority: completed_realdata
   family: cross_asset_real_rate_shock_reversal
   issue_path: alpha_research/issues/AR-109.md
+- id: AR-110
+  title: 'Payday and semi-monthly contribution-flow equity ETF timing'
+  model_name: payday-semimonthly-equity-etf-timing-v1
+  status: rejected
+  priority: completed_realdata
+  family: seasonality_contribution_flow
+  issue_path: alpha_research/issues/AR-110.md
+- id: AR-111
+  title: 'Commodity ETF realized-skewness cross-sectional allocator'
+  model_name: commodity-etf-realized-skewness-allocator-v1
+  status: rejected
+  priority: completed_realdata
+  family: commodity_cross_sectional_skewness
+  issue_path: alpha_research/issues/AR-111.md
 active_batch: []
 last_realdata_batch:
-- AR-109
-updated_at: '2026-06-26T19:30:00Z'
+- AR-110
+- AR-111
+updated_at: '2026-06-26T20:03:37Z'
 target_tried_ideas: 100
-tried_ideas_count: 100
+tried_ideas_count: 102

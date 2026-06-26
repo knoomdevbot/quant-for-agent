@@ -1,0 +1,17 @@
+model:
+  name: payday-semimonthly-equity-etf-timing-v1
+  issue_id: AR-110
+  path: models/payday-semimonthly-equity-etf-timing-v1/model.py
+  symbols: [SPY]
+  allocation: 1.0
+  timeframe: 1Day
+  data_source: qfa_alpaca_real_market_data
+  data_feed: iex
+  no_csv: true
+  no_daemon: true
+  no_orders: true
+parameters:
+  event_calendar_day: 16
+  primary_hold_sessions: 1
+  gross_exposure_cap: 1.0
+  costs_bps_tested: [5, 10, 20]

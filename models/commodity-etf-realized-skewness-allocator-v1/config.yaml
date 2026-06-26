@@ -1,0 +1,45 @@
+model_name: commodity-etf-realized-skewness-allocator-v1
+issue_id: AR-111
+qfa_contract:
+  function: generate_signals(context)
+  model_path: models/commodity-etf-realized-skewness-allocator-v1/model.py
+universe:
+  primary_pure_commodity_etf_etn:
+    - GLD
+    - SLV
+    - USO
+    - UNG
+    - DBA
+    - DBC
+    - CPER
+    - CORN
+    - WEAT
+    - SOYB
+    - PALL
+    - PPLT
+  diagnostic_sector_equity_proxies:
+    - XLE
+    - XOP
+    - COPX
+parameters:
+  lookback_days: 252
+  min_observations: 210
+  rebalance: monthly_first_trading_day_stateless_anchor
+  long_bucket: lowest_realized_skewness_tercile
+  short_bucket: highest_realized_skewness_tercile
+  weighting: equal_vol_within_long_short_buckets
+  target_gross: 1.0
+  max_abs_weight: 0.20
+data_policy:
+  source: Alpaca/qfa real daily OHLCV only
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+artifact_policy:
+  compact_artifacts_only: true
+  retain_raw_daily_bars: false
+  retain_equity_curves: false
+  retain_weights_tail: false
+  retain_sqlite_db: false
