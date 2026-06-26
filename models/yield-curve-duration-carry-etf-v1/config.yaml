@@ -1,0 +1,34 @@
+model_name: yield-curve-duration-carry-etf-v1
+issue_id: AR-061
+family: macro_carry_duration
+universe:
+  - SHY
+  - IEF
+  - TLT
+  - TIP
+  - LQD
+  - HYG
+  - GLD
+  - SPY
+timeframe: 1Day
+data_source: Alpaca real OHLCV via qfa only
+rebalance: weekly_wednesday_anchor
+positioning:
+  long_only: true
+  max_gross_exposure: 1.0
+  max_single_weight: 0.36
+  max_credit_weight: 0.16
+features:
+  duration_trend: TLT/SHY, IEF/SHY, and TLT/IEF relative returns over 63/126/189d
+  inflation_proxy: TIP vs IEF plus GLD trend
+  credit_stress: LQD vs HYG and IEF vs HYG relative returns
+  equity_stress: SPY 63d drawdown
+  rate_vol_penalty: TLT/IEF 63d realized volatility
+costs_slippage:
+  qfa_native_costs: unavailable
+  external_proxy: 5 and 10 bps one-way multiplied by daily target-weight turnover
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

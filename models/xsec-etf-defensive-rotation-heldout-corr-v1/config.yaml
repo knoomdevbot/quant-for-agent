@@ -1,0 +1,38 @@
+model:
+  name: xsec-etf-defensive-rotation-heldout-corr-v1
+  issue_id: AR-062
+  parent: AR-051
+  family: regime_allocation
+  contract: qfa_generate_signals
+universe:
+  symbols: [SPY, QQQ, IWM, XLV, XLY, XLE, XLU, XLP, TLT, IEF, GLD, SHY]
+  notes: Same liquid ETF universe as AR-051; broad equity beta, sectors, duration, gold, and cash-like Treasuries.
+parameters:
+  momentum_lookback: 126
+  secondary_lookback: 63
+  vol_window: 63
+  corr_window: 126
+  min_periods: 210
+  top_n: 3
+  corr_target: 0.35
+  corr_penalty: 1.10
+  target_vol: 0.09
+  max_abs_weight: 0.40
+  min_defensive_weight: 0.35
+  rebalance: monthly_calendar_proxy
+  risk_on_symbols: [SPY, QQQ, IWM, XLV, XLY, XLE]
+  defensive_symbols: [XLU, XLP, TLT, IEF, GLD, SHY]
+  heldout_tsmom_proxy_symbols: [SPY, QQQ, IWM, TLT, GLD]
+  heldout_carry_defensive_proxy_symbols: [IEF, TLT, GLD, XLP, XLU, SHY]
+search_space_considered:
+  lookback: [63, 126, 189]
+  top_n: [2, 3]
+  corr_cap_targets: [0.35, 0.45, 0.55]
+  cost_bps_one_way: [10, 20]
+evaluation:
+  data_source: Alpaca real market data through qfa AlpacaGateway only
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  daemon_run: false
+  trading_performed: false
+  costs: external turnover haircut at 10 and 20 bps one-way; 10 bps primary

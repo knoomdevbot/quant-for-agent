@@ -1,0 +1,20 @@
+issue_id: AR-063
+model_name: macro-surprise-drawdown-etf-allocator-v1
+status: watchlist
+created_at_utc: '2026-06-26T11:58:05Z'
+family: macro_regime_allocation
+hypothesis: drawdown-state and macro-surprise proxy allocator distinct from AR-051 momentum/correlation defensive rotation
+paths:
+  model: models/macro-surprise-drawdown-etf-allocator-v1/model.py
+  config: models/macro-surprise-drawdown-etf-allocator-v1/config.yaml
+  readme: models/macro-surprise-drawdown-etf-allocator-v1/README.md
+  latest_json: models/macro-surprise-drawdown-etf-allocator-v1/evaluations/latest.json
+  latest_md: models/macro-surprise-drawdown-etf-allocator-v1/evaluations/latest.md
+qfa_contract:
+  function: generate_signals(context)
+  data: qfa AlphaContext.prices OHLCV only
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

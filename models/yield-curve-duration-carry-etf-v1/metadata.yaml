@@ -1,0 +1,18 @@
+issue_id: AR-061
+model_name: yield-curve-duration-carry-etf-v1
+created_at_utc: '2026-06-26T11:56:57Z'
+status: research_evaluated
+parent_alpha: AR-049
+hypothesis: ETF-implied yield-curve duration/carry behavior can produce returns less redundant with AR-049 OHLCV carry/defensive rotation.
+model_path: models/yield-curve-duration-carry-etf-v1/model.py
+config_path: models/yield-curve-duration-carry-etf-v1/config.yaml
+evaluation_latest_json: models/yield-curve-duration-carry-etf-v1/evaluations/latest.json
+evaluation_latest_md: models/yield-curve-duration-carry-etf-v1/evaluations/latest.md
+data_source: Alpaca real market data through qfa/AlpacaGateway only
+universe: [SHY, IEF, TLT, TIP, LQD, HYG, GLD, SPY]
+research_constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  no_live_trading: true

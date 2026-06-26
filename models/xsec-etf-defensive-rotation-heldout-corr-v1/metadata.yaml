@@ -1,0 +1,26 @@
+issue_id: AR-062
+model_name: xsec-etf-defensive-rotation-heldout-corr-v1
+family: regime_allocation
+parent_alpha: AR-051
+status: research_complete
+suggested_decision: rejected
+created_at_utc: '2026-06-26T11:56:55Z'
+research_summary: >-
+  Tested a held-out-correlation-target refinement of AR-051 using the same liquid ETF universe.
+  The model applies monthly momentum/volatility rotation with explicit penalties for exceeding
+  0.35 absolute trailing correlation to pre-declared TSMOM-like and carry/defensive proxy streams.
+  Real Alpaca/qfa evaluation showed degraded random-window robustness and still-high available
+  correlation to AR-051, so the hypothesis was falsified.
+data_source: Alpaca real market data via qfa AlpacaGateway only; no CSV and no --data-csv.
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+artifacts:
+  model: models/xsec-etf-defensive-rotation-heldout-corr-v1/model.py
+  config: models/xsec-etf-defensive-rotation-heldout-corr-v1/config.yaml
+  readme: models/xsec-etf-defensive-rotation-heldout-corr-v1/README.md
+  latest_json: models/xsec-etf-defensive-rotation-heldout-corr-v1/evaluations/latest.json
+  latest_md: models/xsec-etf-defensive-rotation-heldout-corr-v1/evaluations/latest.md
+  immutable_run: models/xsec-etf-defensive-rotation-heldout-corr-v1/evaluations/runs/ar062_qfa_alpaca_real_20260626T115655Z.json

@@ -434,24 +434,24 @@ issues:
 - id: AR-061
   title: 'Divergent from AR-049: yield-curve ETF carry and duration allocator'
   model_name: yield-curve-duration-carry-etf-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: macro_carry_duration
   issue_path: alpha_research/issues/AR-061.md
   parent: AR-049
 - id: AR-062
   title: 'Refine AR-051: held-out correlation-target ETF defensive rotation'
   model_name: xsec-etf-defensive-rotation-heldout-corr-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: regime_allocation
   issue_path: alpha_research/issues/AR-062.md
   parent: AR-051
 - id: AR-063
   title: 'Divergent from AR-051: macro-surprise drawdown-state ETF allocator'
   model_name: macro-surprise-drawdown-etf-allocator-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: macro_regime_allocation
   issue_path: alpha_research/issues/AR-063.md
   parent: AR-051
@@ -503,14 +503,46 @@ issues:
   family: residual_momentum
   issue_path: alpha_research/issues/AR-069.md
   parent: AR-056
+- id: AR-070
+  title: 'Divergent from AR-061: FOMC/CPI bond ETF curve-shock reversal'
+  model_name: event-curve-shock-reversal-bond-etf-v1
+  status: queued
+  priority: child
+  family: event_macro_reversal
+  issue_path: alpha_research/issues/AR-070.md
+  parent: AR-061
+- id: AR-071
+  title: 'Divergent from AR-062: ETF realized skew crash-rebound breadth allocator'
+  model_name: etf-realized-skew-crash-rebound-breadth-v1
+  status: queued
+  priority: child
+  family: volatility_breadth_reversal
+  issue_path: alpha_research/issues/AR-071.md
+  parent: AR-062
+- id: AR-072
+  title: 'Refine AR-063: beta and redundancy constrained macro drawdown allocator'
+  model_name: macro-drawdown-beta-redundancy-constrained-v1
+  status: queued
+  priority: child
+  family: macro_regime_allocation
+  issue_path: alpha_research/issues/AR-072.md
+  parent: AR-063
+- id: AR-073
+  title: 'Divergent from AR-063: cross-sectional ETF relief-rally exhaustion reversal'
+  model_name: etf-relief-rally-exhaustion-reversal-v1
+  status: queued
+  priority: child
+  family: cross_sectional_reversal
+  issue_path: alpha_research/issues/AR-073.md
+  parent: AR-063
 active_batch:
+- AR-064
+- AR-065
+- AR-066
+last_realdata_batch:
 - AR-061
 - AR-062
 - AR-063
-last_realdata_batch:
-- AR-058
-- AR-059
-- AR-060
-updated_at: '2026-06-26T11:31:33Z'
+updated_at: '2026-06-26T12:00:43Z'
 target_tried_ideas: 100
-tried_ideas_count: 51
+tried_ideas_count: 54
