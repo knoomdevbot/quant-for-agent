@@ -26,22 +26,22 @@ issues:
 - id: AR-004
   title: Volatility breakout continuation on mega-cap equities
   model_name: vol-breakout-megacap-daily-v1
-  status: queued
-  priority: seed
+  status: rejected
+  priority: completed_realdata
   family: volatility_breakout
   issue_path: alpha_research/issues/AR-004.md
 - id: AR-005
   title: Residual mean reversion among mega-cap tech pairs
   model_name: pairs-residual-megacap-tech-5d-v1
-  status: queued
-  priority: seed
+  status: watchlist
+  priority: completed_realdata
   family: stat_arb
   issue_path: alpha_research/issues/AR-005.md
 - id: AR-006
   title: Turn-of-month seasonality in broad liquid ETFs
   model_name: turn-month-liquid-etf-seasonality-v1
-  status: queued
-  priority: seed
+  status: watchlist
+  priority: completed_realdata
   family: seasonality
   issue_path: alpha_research/issues/AR-006.md
 - id: AR-007
@@ -121,12 +121,62 @@ issues:
   family: null
   issue_path: alpha_research/issues/AR-012.md
   parent: AR-002
+- id: AR-017
+  title: 'Refine AR-004: regime-filtered volatility breakout continuation'
+  model_name: vol-breakout-regime-filter-megacap-daily-v1
+  status: queued
+  priority: child
+  family: volatility_breakout
+  issue_path: alpha_research/issues/AR-017.md
+  parent: AR-004
+- id: AR-018
+  title: 'Divergent from AR-004: mega-cap overnight gap reversal'
+  model_name: overnight-gap-reversal-event-megacap-v1
+  status: queued
+  priority: child
+  family: mean_reversion
+  issue_path: alpha_research/issues/AR-018.md
+  parent: AR-004
+- id: AR-019
+  title: 'Refine AR-005: adaptive pair selection with cointegration filters'
+  model_name: pairs-residual-adaptive-coint-megacap-tech-v1
+  status: queued
+  priority: child
+  family: stat_arb
+  issue_path: alpha_research/issues/AR-019.md
+  parent: AR-005
+- id: AR-020
+  title: 'Divergent from AR-005: mega-cap tech overnight residual reversal'
+  model_name: overnight-residual-reversal-megacap-tech-v1
+  status: queued
+  priority: child
+  family: overnight_reversal
+  issue_path: alpha_research/issues/AR-020.md
+  parent: AR-005
+- id: AR-021
+  title: 'Refine AR-006: exchange-calendar-aware turn-of-month window search'
+  model_name: turn-month-calendar-window-etf-v1
+  status: queued
+  priority: child
+  family: seasonality
+  issue_path: alpha_research/issues/AR-021.md
+  parent: AR-006
+- id: AR-022
+  title: 'Divergent from AR-006: ETF flow risk-on/risk-off breadth signal'
+  model_name: etf-flow-risk-breadth-regime-v1
+  status: queued
+  priority: child
+  family: regime_allocation
+  issue_path: alpha_research/issues/AR-022.md
+  parent: AR-006
 active_batch:
+- AR-007
+- AR-008
+- AR-009
+last_realdata_batch:
 - AR-004
 - AR-005
 - AR-006
-last_realdata_batch:
-- AR-001
-- AR-002
-- AR-003
-updated_at: '2026-06-26T06:00:00Z'
+updated_at: '2026-06-26T06:30:00Z'
+target_tried_ideas: 100
+tried_ideas_count: 6

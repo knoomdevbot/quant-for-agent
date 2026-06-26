@@ -1,0 +1,73 @@
+{
+  "model_name": "turn-month-liquid-etf-seasonality-v1",
+  "issue_id": "AR-006",
+  "evaluation_type": "real_data_qfa_alpaca_backtest",
+  "created_at_utc": "2026-06-26T06:20:22Z",
+  "qfa": {
+    "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/python -m py_compile models/turn-month-liquid-etf-seasonality-v1/model.py && /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run models/turn-month-liquid-etf-seasonality-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD --start 2024-01-01 --end 2025-12-31 --db models/turn-month-liquid-etf-seasonality-v1/evaluations/qfa-real.sqlite3",
+    "run_id": 1,
+    "run_json_path": "models/turn-month-liquid-etf-seasonality-v1/evaluations/runs/qfa_real_alpaca_20260626T062022Z.json",
+    "data_source": "Alpaca real market data via qfa AlpacaGateway; no --data-csv used",
+    "trading_performed": false,
+    "daemon_run": false,
+    "db_path_used_during_run": "models/turn-month-liquid-etf-seasonality-v1/evaluations/qfa-real.sqlite3",
+    "db_artifact_retained": false,
+    "db_retention_note": "SQLite DB artifact removed before commit per alpha-model-management large artifact policy; compact JSON/Markdown summaries retained."
+  },
+  "data": {
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "TLT",
+      "GLD"
+    ],
+    "start": "2024-01-01",
+    "end": "2025-12-31",
+    "timeframe": "1Day",
+    "equity_curve_points": 500,
+    "price_adjustment_note": "qfa uses the repository AlpacaGateway stock bars request; no explicit adjusted-price flag is exposed in this repo version."
+  },
+  "parameters": {
+    "pre_month_end_business_days": 3,
+    "post_month_start_business_days": 3,
+    "max_abs_weight": 0.25,
+    "min_observations": 2,
+    "positioning": "long-only equal weight across active broad ETFs during turn-of-month window, flat otherwise"
+  },
+  "metrics": {
+    "annualized_return": 0.01348484,
+    "annualized_volatility": 0.06371129,
+    "final_equity": 102693.3164,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.09795005,
+    "periods": 500,
+    "sharpe": 0.24228949,
+    "total_return": 0.02693316,
+    "win_rate": 0.144
+  },
+  "costs_slippage": {
+    "requested_assumption_bps": 5,
+    "applied_in_qfa": false,
+    "note": "Repository qfa backtester currently has no transaction-cost/slippage/turnover arguments or calculations, so metrics are pre-cost."
+  },
+  "random_period_protocol": {
+    "attempted": false,
+    "reason": "Task required at least one real-data qfa backtest; qfa CLI supports a single requested window but not built-in random-window protocol."
+  },
+  "orthogonality_checks": {
+    "attempted": false,
+    "reason": "No accepted/watchlist alpha return stream was available for comparison in this pass."
+  },
+  "warnings": [
+    "Metrics are pre-cost because qfa lacks transaction-cost/slippage support in this repository version.",
+    "The strategy is sparse and long-only; reported win_rate includes many flat days as non-wins under qfa metric logic.",
+    "Calendar business-day turn-of-month logic does not explicitly account for exchange holidays beyond qfa price availability.",
+    "No random-period protocol or orthogonality check was completed in this pass.",
+    "No trades were placed and no qfa daemon was run.",
+    "This is research output, not investment advice."
+  ],
+  "suggested_decision": "watchlist_continue_research_not_accept_until_costed_random_window_validation",
+  "refinement_child_idea": "AR-006-R1: add exchange-calendar-aware turn-of-month window search with turnover-based 5 bps cost haircut and 30 random-window robustness validation.",
+  "divergent_child_idea": "AR-006-D1: test non-calendar ETF flow signals using cross-asset risk-on/risk-off breadth and volatility regime features rather than month-boundary timing."
+}

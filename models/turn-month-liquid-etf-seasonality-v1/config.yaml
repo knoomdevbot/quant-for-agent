@@ -1,0 +1,37 @@
+model_name: turn-month-liquid-etf-seasonality-v1
+issue_id: AR-006
+family: seasonality
+universe:
+  intended: [SPY, QQQ, IWM, TLT, GLD]
+data:
+  intended_source: Alpaca real market data through qfa AlpacaGateway
+  latest_real_data_backtest:
+    symbols: [SPY, QQQ, IWM, TLT, GLD]
+    start: '2024-01-01'
+    end: '2025-12-31'
+    timeframe: 1Day
+    data_csv_used: false
+parameters:
+  selected:
+    pre_month_end_business_days: 3
+    post_month_start_business_days: 3
+    max_abs_weight: 0.25
+    min_observations: 2
+  search_space:
+    pre_month_end_business_days: [1, 2, 3, 4, 5]
+    post_month_start_business_days: [1, 2, 3, 4, 5]
+    direction: [long_only, long_short]
+risk_constraints:
+  normalize_gross_exposure: 1.0
+  max_abs_weight_pre_engine: 0.25
+  live_trading: false
+evaluation:
+  latest:
+    type: real_data_qfa_alpaca_backtest
+    json: models/turn-month-liquid-etf-seasonality-v1/evaluations/latest.json
+    markdown: models/turn-month-liquid-etf-seasonality-v1/evaluations/latest.md
+    run_json: models/turn-month-liquid-etf-seasonality-v1/evaluations/runs/qfa_real_alpaca_20260626T062022Z.json
+    db: models/turn-month-liquid-etf-seasonality-v1/evaluations/qfa-real.sqlite3
+    run_id: 1
+    costs_applied: false
+    cost_note: qfa backtester has no explicit transaction-cost/slippage support in this repo version.

@@ -1,0 +1,20 @@
+model_name: vol-breakout-megacap-daily-v1
+issue_id: AR-004
+created_at: 2026-06-26T06:20:36Z
+updated_at: 2026-06-26T06:20:36Z
+family: volatility_breakout
+research_stage: real_data_evaluated
+data_source: Alpaca real market data
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+qfa_contract: generate_signals(context) returns target weights by symbol
+live_trading: prohibited
+latest_evaluation: evaluations/latest.json
+latest_run: evaluations/runs/qfa_realdata_20240101_20251231_run1.json
+suggested_decision: reject_or_research_watchlist_only

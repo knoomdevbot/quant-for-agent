@@ -13,7 +13,7 @@
     "daemon_run": false,
     "db_path_used_during_run": "models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/qfa-real.sqlite3",
     "db_artifact_retained": false,
-    "db_retention_note": "SQLite DB artifact removed from model folder per model-management large artifact policy; use run_json_path/latest.json for committed summary."
+    "db_retention_note": "SQLite DB artifact removed before commit per alpha-model-management large artifact policy; compact JSON/Markdown summaries retained."
   },
   "data": {
     "symbols": [

@@ -2088,5 +2088,7 @@
   ],
   "qfa_db_path_used_during_run": "/Users/moonk/quant-for-agent/models/crosssec-momentum-liquid-megacap-daily-v1/evaluations/qfa_realdata.sqlite",
   "qfa_db_path_artifact_retained": false,
-  "qfa_db_path_retention_note": "SQLite DB removed from model folder per artifact policy; latest.json and run JSON are retained."
+  "qfa_db_path_retention_note": "SQLite DB removed from model folder per artifact policy; latest.json and run JSON are retained.",
+  "db_artifact_retained": false,
+  "db_retention_note": "SQLite DB artifact removed before commit per alpha-model-management large artifact policy; compact JSON/Markdown summaries retained."
 }
