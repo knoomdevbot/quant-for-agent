@@ -1,0 +1,40 @@
+model_name: vixy-tlt-stress-carry-etf-v1
+issue_id: AR-052
+family: volatility_stress_carry
+parent: AR-039
+type: divergent
+universe:
+  - VIXY
+  - TLT
+  - IEF
+  - SHY
+  - SPY
+timeframe: 1Day
+primary_backtest:
+  start: '2021-01-04'
+  end: '2026-06-15'
+  initial_cash: 100000
+risk:
+  long_only: true
+  max_vixy_weight: 0.12
+  max_single_weight: 0.72
+  gross_target: 1.0 after qfa normalization once signals are active
+costs_slippage:
+  qfa_native_costs: false
+  post_cost_proxy: subtract 5 bps times one-way daily target-weight turnover
+parameters:
+  min_history: 145
+  stress_inputs:
+    spy_drawdown_window: 63
+    spy_loss_window: 10
+    spy_fast_vol_window: 10
+    spy_slow_vol_window: 63
+    vixy_jump_windows: [5, 20]
+    spy_range_z_window: 63
+  duration_trend_window: 60
+  vixy_carry_decay_window: 60
+constraints:
+  data_source: Alpaca real OHLCV through qfa/AlpacaGateway only
+  no_data_csv: true
+  daemon_used: false
+  live_trading: false

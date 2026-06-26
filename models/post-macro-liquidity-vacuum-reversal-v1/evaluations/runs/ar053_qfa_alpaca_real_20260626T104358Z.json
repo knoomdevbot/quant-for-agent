@@ -1,0 +1,677 @@
+{
+  "activity_sample": [
+    {
+      "as_of": "2019-06-18T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": 0.005526864876103628,
+      "net_return_next": 0.005026864876103628,
+      "next_timestamp": "2019-06-19T04:00:00+00:00",
+      "turnover": 1.0,
+      "weights": {
+        "GLD": 0.363286,
+        "TLT": 0.246475,
+        "XLU": 0.390238
+      }
+    },
+    {
+      "as_of": "2019-06-19T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": 0.014084715619678698,
+      "net_return_next": 0.013826932684905459,
+      "next_timestamp": "2019-06-20T04:00:00+00:00",
+      "turnover": 0.51556587,
+      "weights": {
+        "GLD": 0.35727,
+        "TLT": 0.352133,
+        "XLE": 0.152125,
+        "XLU": 0.138472
+      }
+    },
+    {
+      "as_of": "2019-06-20T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": -0.004057795296805798,
+      "net_return_next": -0.004260856135483403,
+      "next_timestamp": "2019-06-21T04:00:00+00:00",
+      "turnover": 0.40612168,
+      "weights": {
+        "GLD": 0.318558,
+        "IWM": 0.117831,
+        "TLT": 0.437363,
+        "XLE": 0.072048,
+        "XLU": 0.0542
+      }
+    },
+    {
+      "as_of": "2019-06-21T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": 0.005706552265221394,
+      "net_return_next": 0.00564234153841873,
+      "next_timestamp": "2019-06-24T04:00:00+00:00",
+      "turnover": 0.12842145,
+      "weights": {
+        "GLD": 0.308547,
+        "IWM": 0.145816,
+        "TLT": 0.471951,
+        "XLE": 0.073686
+      }
+    },
+    {
+      "as_of": "2019-06-24T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": 0.000782105262161507,
+      "net_return_next": 0.0006877768800077767,
+      "next_timestamp": "2019-06-25T04:00:00+00:00",
+      "turnover": 0.18865676,
+      "weights": {
+        "GLD": 0.287904,
+        "IWM": 0.212096,
+        "TLT": 0.5
+      }
+    },
+    {
+      "as_of": "2019-07-11T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": 0.003953167673742588,
+      "net_return_next": 0.0034531676737425882,
+      "next_timestamp": "2019-07-12T04:00:00+00:00",
+      "turnover": 1.0,
+      "weights": {
+        "GLD": 0.352275,
+        "IWM": 0.147725,
+        "TLT": 0.5
+      }
+    },
+    {
+      "as_of": "2019-07-12T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": 0.00203410501780244,
+      "net_return_next": 0.00203410501780244,
+      "next_timestamp": "2019-07-15T04:00:00+00:00",
+      "turnover": 0.0,
+      "weights": {
+        "GLD": 0.352275,
+        "IWM": 0.147725,
+        "TLT": 0.5
+      }
+    },
+    {
+      "as_of": "2019-07-15T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": -0.0044105577202900505,
+      "net_return_next": -0.0044105577202900505,
+      "next_timestamp": "2019-07-16T04:00:00+00:00",
+      "turnover": 0.0,
+      "weights": {
+        "GLD": 0.352275,
+        "IWM": 0.147725,
+        "TLT": 0.5
+      }
+    },
+    {
+      "as_of": "2019-07-18T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": -0.007380832173611846,
+      "net_return_next": -0.007880832173611846,
+      "next_timestamp": "2019-07-19T04:00:00+00:00",
+      "turnover": 1.0,
+      "weights": {
+        "GLD": 0.340755,
+        "QQQ": 0.163512,
+        "TLT": 0.495734
+      }
+    },
+    {
+      "as_of": "2019-07-19T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": 0.0021915948817618175,
+      "net_return_next": 0.0021915948817618175,
+      "next_timestamp": "2019-07-22T04:00:00+00:00",
+      "turnover": 0.0,
+      "weights": {
+        "GLD": 0.340755,
+        "QQQ": 0.163512,
+        "TLT": 0.495734
+      }
+    },
+    {
+      "as_of": "2019-07-22T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": -0.0035613103501592304,
+      "net_return_next": -0.0035613103501592304,
+      "next_timestamp": "2019-07-23T04:00:00+00:00",
+      "turnover": 0.0,
+      "weights": {
+        "GLD": 0.340755,
+        "QQQ": 0.163512,
+        "TLT": 0.495734
+      }
+    },
+    {
+      "as_of": "2019-08-12T04:00:00+00:00",
+      "gross_exposure": 1.0,
+      "gross_return_next": 0.012677957321400677,
+      "net_return_next": 0.012177957321400677,
+      "next_timestamp": "2019-08-13T04:00:00+00:00",
+      "turnover": 1.0,
+      "weights": {
+        "IWM": 0.284321,
+        "SPY": 0.457531,
+        "XLE": 0.258149
+      }
+    }
+  ],
+  "artifacts": {
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/evaluations/runs/ar053_qfa_alpaca_real_20260626T104358Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/evaluations/latest.md"
+  },
+  "bad_result_policy": {
+    "divergent_child_idea": {
+      "mechanism": "Different mechanism: use option-implied volatility term-structure/vol-crush proxies around scheduled macro dates rather than OHLCV laggard reversal, if real options data support is added.",
+      "title": "Options-implied macro-volatility crush ETF carry allocator"
+    },
+    "note": "If rejected, no refinement/extension/direct inversion is suggested."
+  },
+  "cache_artifacts_retained": false,
+  "costs_slippage": {
+    "applied": "ex-post turnover haircut",
+    "formula": "net_return = gross next-day close-to-close model return - sum(abs(delta_weight))*0.0005",
+    "native_qfa_costs": "not supported by repo backtester",
+    "one_way_bps": 5.0
+  },
+  "created_at_utc": "2026-06-26T10:43:58Z",
+  "daemon_used": false,
+  "data_source": "Alpaca real daily OHLCV via qfa AlpacaGateway; no CSV; no --data-csv",
+  "date_range": {
+    "alpaca_rows": 12313,
+    "fetch_end": "2025-12-31",
+    "fetch_start": "2019-01-01",
+    "primary_end": "2025-12-15",
+    "primary_start": "2021-01-04",
+    "timeframe": "1Day"
+  },
+  "db_artifact_retained": false,
+  "decision": "reject_or_park_do_not_refine",
+  "decision_rationale": "Fails acceptance: primary post-cost Sharpe 0.49240692, median random Sharpe 0.18538839, p25 random Sharpe -0.52842540, orthogonality status low_to_moderate_redundancy.",
+  "issue_id": "AR-053",
+  "key_metrics": {
+    "median_random_window_sharpe_after_costs": 0.18538839,
+    "p25_random_window_sharpe_after_costs": -0.5284254,
+    "positive_random_window_rate": 0.5,
+    "primary_active_day_fraction": 0.14963797,
+    "primary_max_daily_turnover": 1.46845618,
+    "primary_mean_daily_turnover": 0.1002045,
+    "primary_median_daily_turnover": 0.0,
+    "primary_post_cost": {
+      "annualized_return": 0.0324517,
+      "annualized_turnover_proxy": 25.25153397,
+      "annualized_volatility": 0.06975364,
+      "end": "2025-12-15",
+      "estimated_cost_drag_annual_at_5bps": 0.01262577,
+      "final_equity": 117061.226,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.13532074,
+      "mean_daily_turnover": 0.1002045,
+      "periods": 1243,
+      "sharpe": 0.49240692,
+      "start": "2021-01-04",
+      "total_return": 0.17061226,
+      "win_rate": 0.08527755
+    },
+    "primary_pre_cost_gross": {
+      "annualized_return": 0.04557479,
+      "annualized_turnover_proxy": 0.0,
+      "annualized_volatility": 0.06966981,
+      "end": "2025-12-15",
+      "estimated_cost_drag_annual_at_5bps": 0.0,
+      "final_equity": 124586.1649,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.12979078,
+      "mean_daily_turnover": 0.0,
+      "periods": 1243,
+      "sharpe": 0.67422232,
+      "start": "2021-01-04",
+      "total_return": 0.24586165,
+      "win_rate": 0.08608206
+    },
+    "random_window_sharpes": [
+      -1.01566838,
+      0.39920934,
+      -0.44543003,
+      1.06456542,
+      -0.02843256,
+      1.08683613,
+      0.51335098,
+      -0.77741152
+    ],
+    "worst_random_window_max_drawdown": -0.13532074,
+    "worst_random_window_sharpe_after_costs": -1.01566838
+  },
+  "live_trades": false,
+  "model_name": "post-macro-liquidity-vacuum-reversal-v1",
+  "no_csv_used": true,
+  "orthogonality": {
+    "comparisons": [
+      {
+        "model_name": "AR-021/turn-month-liquid-etf-seasonality-v1",
+        "path": "/Users/moonk/quant-for-agent/models/turn-month-liquid-etf-seasonality-v1/evaluations/latest.json",
+        "status": "unavailable_no_equity_curve_found"
+      },
+      {
+        "correlation": 0.11679678,
+        "model_name": "AR-041/turn-month-vol-gated-etf-v1",
+        "overlap_periods": 1252,
+        "path": "/Users/moonk/quant-for-agent/models/turn-month-vol-gated-etf-v1/evaluations/latest.json",
+        "status": "computed"
+      },
+      {
+        "model_name": "AR-042/macro-liquidity-flow-etf-v1",
+        "path": "/Users/moonk/quant-for-agent/models/macro-liquidity-flow-etf-v1/evaluations/latest.json",
+        "status": "unavailable_no_equity_curve_found"
+      },
+      {
+        "correlation": 0.29718076,
+        "model_name": "AR-043/etf-stress-liquidity-volume-v1",
+        "overlap_periods": 1241,
+        "path": "/Users/moonk/quant-for-agent/models/etf-stress-liquidity-volume-v1/evaluations/latest.json",
+        "status": "computed"
+      },
+      {
+        "correlation": 0.26604731,
+        "model_name": "watchlist/tsmom-voltarget-liquid-etf-randomcost-v1",
+        "overlap_periods": 499,
+        "path": "/Users/moonk/quant-for-agent/models/tsmom-voltarget-liquid-etf-randomcost-v1/evaluations/latest.json",
+        "status": "computed"
+      },
+      {
+        "correlation": 0.2029155,
+        "model_name": "watchlist/risk-off-crossasset-switch-v1",
+        "overlap_periods": 499,
+        "path": "/Users/moonk/quant-for-agent/models/risk-off-crossasset-switch-v1/evaluations/latest.json",
+        "status": "computed"
+      }
+    ],
+    "max_abs_correlation": 0.29718076,
+    "method": "Pearson correlation of daily equity/strategy returns from available latest.json equity curves; AR-053 uses post-cost net daily returns.",
+    "status": "low_to_moderate_redundancy"
+  },
+  "parameters": {
+    "holding_decay_sessions": [
+      1.0,
+      0.55,
+      0.25
+    ],
+    "max_single_name": 0.5,
+    "min_core_range_multiple": 1.18,
+    "min_event_range_z": 0.85,
+    "min_history": 90,
+    "range_lookback": 60,
+    "vol_lookback": 40
+  },
+  "qfa_run_ids": [
+    {
+      "end": "2024-03-31",
+      "equity_points": 1318,
+      "id": 1,
+      "label": "smoke_2024Q1",
+      "metrics": {
+        "annualized_return": -0.02205411,
+        "annualized_volatility": 0.09605189,
+        "final_equity": 88990.7761,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.21245327,
+        "periods": 1318,
+        "sharpe": -0.18289742,
+        "total_return": -0.11009224,
+        "win_rate": 0.06828528
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2019-01-01 --end 2024-03-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2019-01-01"
+    },
+    {
+      "end": "2025-12-15",
+      "equity_points": 1747,
+      "id": 1,
+      "label": "primary_warm_2019_eval_2021_2025",
+      "metrics": {
+        "annualized_return": 0.01336267,
+        "annualized_volatility": 0.09230937,
+        "final_equity": 109639.0898,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.21245327,
+        "periods": 1747,
+        "sharpe": 0.19075175,
+        "total_return": 0.0963909,
+        "win_rate": 0.07727533
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2019-01-01 --end 2025-12-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2019-01-01"
+    },
+    {
+      "end": "2023-09-05",
+      "equity_points": 671,
+      "id": 1,
+      "label": "random_1_warm",
+      "metrics": {
+        "annualized_return": -0.0165121,
+        "annualized_volatility": 0.06544987,
+        "final_equity": 95663.4588,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.12979078,
+        "periods": 671,
+        "sharpe": -0.22164529,
+        "total_return": -0.04336541,
+        "win_rate": 0.0685544
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2020-12-31 --end 2023-09-05 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2020-12-31"
+    },
+    {
+      "end": "2022-05-26",
+      "equity_points": 604,
+      "id": 1,
+      "label": "random_2_warm",
+      "metrics": {
+        "annualized_return": 0.0280039,
+        "annualized_volatility": 0.05448023,
+        "final_equity": 106843.8063,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.03765708,
+        "periods": 604,
+        "sharpe": 0.534155,
+        "total_return": 0.06843806,
+        "win_rate": 0.06291391
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2020-01-02 --end 2022-05-26 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2020-01-02"
+    },
+    {
+      "end": "2022-11-15",
+      "equity_points": 723,
+      "id": 1,
+      "label": "random_3_warm",
+      "metrics": {
+        "annualized_return": -0.015658,
+        "annualized_volatility": 0.06567361,
+        "final_equity": 95573.0818,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.12979078,
+        "periods": 723,
+        "sharpe": -0.20739097,
+        "total_return": -0.04426918,
+        "win_rate": 0.06224066
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2020-01-02 --end 2022-11-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2020-01-02"
+    },
+    {
+      "end": "2025-04-14",
+      "equity_points": 797,
+      "id": 1,
+      "label": "random_4_warm",
+      "metrics": {
+        "annualized_return": 0.03387956,
+        "annualized_volatility": 0.06707316,
+        "final_equity": 111112.7975,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.08489424,
+        "periods": 797,
+        "sharpe": 0.52971371,
+        "total_return": 0.11112797,
+        "win_rate": 0.0727729
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2022-02-07 --end 2025-04-14 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2022-02-07"
+    },
+    {
+      "end": "2024-06-13",
+      "equity_points": 671,
+      "id": 1,
+      "label": "random_5_warm",
+      "metrics": {
+        "annualized_return": -0.02199879,
+        "annualized_volatility": 0.06178101,
+        "final_equity": 94248.9917,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.12979078,
+        "periods": 671,
+        "sharpe": -0.3291072,
+        "total_return": -0.05751008,
+        "win_rate": 0.05961252
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2021-10-11 --end 2024-06-13 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2021-10-11"
+    },
+    {
+      "end": "2025-01-15",
+      "equity_points": 671,
+      "id": 1,
+      "label": "random_6_warm",
+      "metrics": {
+        "annualized_return": 0.02069722,
+        "annualized_volatility": 0.04757156,
+        "final_equity": 105606.3053,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.04783624,
+        "periods": 671,
+        "sharpe": 0.45444827,
+        "total_return": 0.05606305,
+        "win_rate": 0.07004471
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2022-05-11 --end 2025-01-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2022-05-11"
+    },
+    {
+      "end": "2024-03-15",
+      "equity_points": 671,
+      "id": 1,
+      "label": "random_7_warm",
+      "metrics": {
+        "annualized_return": -0.00500043,
+        "annualized_volatility": 0.06640508,
+        "final_equity": 98674.0642,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.12979078,
+        "periods": 671,
+        "sharpe": -0.04227707,
+        "total_return": -0.01325936,
+        "win_rate": 0.06408346
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2021-07-14 --end 2024-03-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2021-07-14"
+    },
+    {
+      "end": "2023-07-24",
+      "equity_points": 797,
+      "id": 1,
+      "label": "random_8_warm",
+      "metrics": {
+        "annualized_return": -0.00663167,
+        "annualized_volatility": 0.06065808,
+        "final_equity": 97917.6062,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.12979078,
+        "periods": 797,
+        "sharpe": -0.07935118,
+        "total_return": -0.02082394,
+        "win_rate": 0.05771644
+      },
+      "sanitized_command": "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2020-05-20 --end 2023-07-24 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+      "start": "2020-05-20"
+    }
+  ],
+  "random_windows": [
+    {
+      "annualized_return": -0.04793229,
+      "annualized_turnover_proxy": 22.82559381,
+      "annualized_volatility": 0.04725948,
+      "end": "2023-09-05",
+      "estimated_cost_drag_annual_at_5bps": 0.0114128,
+      "final_equity": 95206.7714,
+      "initial_cash": 100000.0,
+      "label": "random_1",
+      "length_trading_days": 252,
+      "max_drawdown": -0.05759113,
+      "mean_daily_turnover": 0.09057775,
+      "periods": 252,
+      "sharpe": -1.01566838,
+      "start": "2022-09-01",
+      "total_return": -0.04793229,
+      "win_rate": 0.05555556
+    },
+    {
+      "annualized_return": 0.02231284,
+      "annualized_turnover_proxy": 22.05302789,
+      "annualized_volatility": 0.05973898,
+      "end": "2022-05-26",
+      "estimated_cost_drag_annual_at_5bps": 0.01102651,
+      "final_equity": 104512.3539,
+      "initial_cash": 100000.0,
+      "label": "random_2",
+      "length_trading_days": 504,
+      "max_drawdown": -0.04013427,
+      "mean_daily_turnover": 0.08751202,
+      "periods": 504,
+      "sharpe": 0.39920934,
+      "start": "2020-05-28",
+      "total_return": 0.04512354,
+      "win_rate": 0.0734127
+    },
+    {
+      "annualized_return": -0.03959348,
+      "annualized_turnover_proxy": 32.88239444,
+      "annualized_volatility": 0.08296392,
+      "end": "2022-11-15",
+      "estimated_cost_drag_annual_at_5bps": 0.0164412,
+      "final_equity": 94120.1578,
+      "initial_cash": 100000.0,
+      "label": "random_3",
+      "length_trading_days": 378,
+      "max_drawdown": -0.13532074,
+      "mean_daily_turnover": 0.13048569,
+      "periods": 378,
+      "sharpe": -0.44543003,
+      "start": "2021-05-18",
+      "total_return": -0.05879842,
+      "win_rate": 0.09259259
+    },
+    {
+      "annualized_return": 0.08740539,
+      "annualized_turnover_proxy": 28.27974608,
+      "annualized_volatility": 0.08178802,
+      "end": "2025-04-14",
+      "estimated_cost_drag_annual_at_5bps": 0.01413987,
+      "final_equity": 113393.2549,
+      "initial_cash": 100000.0,
+      "label": "random_4",
+      "length_trading_days": 378,
+      "max_drawdown": -0.054968,
+      "mean_daily_turnover": 0.11222121,
+      "periods": 378,
+      "sharpe": 1.06456542,
+      "start": "2023-10-10",
+      "total_return": 0.13393255,
+      "win_rate": 0.10846561
+    },
+    {
+      "annualized_return": -0.00219453,
+      "annualized_turnover_proxy": 22.14144411,
+      "annualized_volatility": 0.04374502,
+      "end": "2024-06-13",
+      "estimated_cost_drag_annual_at_5bps": 0.01107072,
+      "final_equity": 99780.5466,
+      "initial_cash": 100000.0,
+      "label": "random_5",
+      "length_trading_days": 252,
+      "max_drawdown": -0.04173826,
+      "mean_daily_turnover": 0.08786287,
+      "periods": 252,
+      "sharpe": -0.02843256,
+      "start": "2023-06-13",
+      "total_return": -0.00219453,
+      "win_rate": 0.07539683
+    },
+    {
+      "annualized_return": 0.0567033,
+      "annualized_turnover_proxy": 24.18561312,
+      "annualized_volatility": 0.05199742,
+      "end": "2025-01-15",
+      "estimated_cost_drag_annual_at_5bps": 0.01209281,
+      "final_equity": 105670.3301,
+      "initial_cash": 100000.0,
+      "label": "random_6",
+      "length_trading_days": 252,
+      "max_drawdown": -0.05106361,
+      "mean_daily_turnover": 0.09597466,
+      "periods": 252,
+      "sharpe": 1.08683613,
+      "start": "2024-01-12",
+      "total_return": 0.0567033,
+      "win_rate": 0.1031746
+    },
+    {
+      "annualized_return": 0.02332,
+      "annualized_turnover_proxy": 20.44172375,
+      "annualized_volatility": 0.04705424,
+      "end": "2024-03-15",
+      "estimated_cost_drag_annual_at_5bps": 0.01022086,
+      "final_equity": 102332.0004,
+      "initial_cash": 100000.0,
+      "label": "random_7",
+      "length_trading_days": 252,
+      "max_drawdown": -0.04173826,
+      "mean_daily_turnover": 0.08111795,
+      "periods": 252,
+      "sharpe": 0.51335098,
+      "start": "2023-03-15",
+      "total_return": 0.02332,
+      "win_rate": 0.07142857
+    },
+    {
+      "annualized_return": -0.06256657,
+      "annualized_turnover_proxy": 24.9601713,
+      "annualized_volatility": 0.07907083,
+      "end": "2023-07-24",
+      "estimated_cost_drag_annual_at_5bps": 0.01248009,
+      "final_equity": 90763.3791,
+      "initial_cash": 100000.0,
+      "label": "random_8",
+      "length_trading_days": 378,
+      "max_drawdown": -0.13532074,
+      "mean_daily_turnover": 0.0990483,
+      "periods": 378,
+      "sharpe": -0.77741152,
+      "start": "2022-01-19",
+      "total_return": -0.09236621,
+      "win_rate": 0.06349206
+    }
+  ],
+  "sanitized_commands": [
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2019-01-01 --end 2024-03-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2019-01-01 --end 2025-12-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2020-12-31 --end 2023-09-05 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2020-01-02 --end 2022-05-26 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2020-01-02 --end 2022-11-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2022-02-07 --end 2025-04-14 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2021-10-11 --end 2024-06-13 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2022-05-11 --end 2025-01-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2021-07-14 --end 2024-03-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "qfa backtest run /Users/moonk/quant-for-agent/models/post-macro-liquidity-vacuum-reversal-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,XLU,XLE --start 2020-05-20 --end 2023-07-24 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>"
+  ],
+  "suggested_decision": "reject_or_park_do_not_refine",
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "TLT",
+    "GLD",
+    "XLU",
+    "XLE"
+  ],
+  "warnings": [
+    "Scheduled macro dates are deterministic proxies, not official event calendar timestamps.",
+    "QFA daily backtester enters at next close-to-close return; this is not an intraday execution simulation.",
+    "Costs are ex-post proxy because qfa has no native transaction-cost parameter."
+  ]
+}

@@ -362,24 +362,24 @@ issues:
 - id: AR-052
   title: 'Divergent from AR-039: VIXY/TLT stress-carry ETF allocation'
   model_name: vixy-tlt-stress-carry-etf-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_stress_carry
   issue_path: alpha_research/issues/AR-052.md
   parent: AR-039
 - id: AR-053
   title: 'Divergent from AR-042: intraday post-macro ETF liquidity-vacuum reversal'
   model_name: post-macro-liquidity-vacuum-reversal-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: intraday_or_next_day_liquidity_reversal
   issue_path: alpha_research/issues/AR-053.md
   parent: AR-042
 - id: AR-054
   title: 'Refine AR-043: beta-reduced ETF stress liquidity allocation with drawdown brake'
   model_name: etf-stress-liquidity-beta-reduced-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: liquidity_stress
   issue_path: alpha_research/issues/AR-054.md
   parent: AR-043
@@ -463,14 +463,38 @@ issues:
   family: dispersion_recovery
   issue_path: alpha_research/issues/AR-064.md
   parent: AR-050
+- id: AR-065
+  title: 'Divergent from AR-052: ETF realized-volatility term-state breadth allocator'
+  model_name: etf-realized-vol-term-breadth-allocator-v1
+  status: queued
+  priority: child
+  family: volatility_breadth_regime
+  issue_path: alpha_research/issues/AR-065.md
+  parent: AR-052
+- id: AR-066
+  title: 'Divergent from AR-053: ETF realized-volatility carry rotation after macro-stress regimes'
+  model_name: etf-realized-vol-carry-macrostress-v1
+  status: queued
+  priority: child
+  family: volatility_carry_rotation
+  issue_path: alpha_research/issues/AR-066.md
+  parent: AR-053
+- id: AR-067
+  title: 'Divergent from AR-054: ETF defensive carry surprise allocator'
+  model_name: etf-defensive-carry-surprise-allocator-v1
+  status: queued
+  priority: child
+  family: defensive_carry_surprise
+  issue_path: alpha_research/issues/AR-067.md
+  parent: AR-054
 active_batch:
+- AR-055
+- AR-056
+- AR-057
+last_realdata_batch:
 - AR-052
 - AR-053
 - AR-054
-last_realdata_batch:
-- AR-049
-- AR-050
-- AR-051
-updated_at: '2026-06-26T10:31:13Z'
+updated_at: '2026-06-26T10:47:52Z'
 target_tried_ideas: 100
-tried_ideas_count: 42
+tried_ideas_count: 45

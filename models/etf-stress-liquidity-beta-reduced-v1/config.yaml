@@ -1,0 +1,46 @@
+alpha_id: AR-054
+model_name: etf-stress-liquidity-beta-reduced-v1
+model_family: liquidity_stress
+parent_alpha: AR-043
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+timeframe: 1Day
+holding_period: 1d
+rebalance: daily
+position_sizing: long_only_beta_reduced_stress_defensive_allocation
+parameters:
+  min_history: 160
+  baseline_window: 100
+  trend_window: 50
+  vol_window: 40
+  drawdown_window: 126
+  max_single_weight: 0.34
+  max_equity_normal: 0.50
+  max_equity_brake: 0.32
+  max_equity_crash: 0.18
+costs:
+  native_qfa_costs_applied: false
+  one_way_bps_assumption: 5.0
+  method: ex_post_turnover_haircut
+backtest:
+  data_source: Alpaca real OHLCV via qfa/AlpacaGateway
+  csv_used: false
+  primary_start: '2021-01-04'
+  primary_end: '2025-12-15'
+  random_windows: 9
+  temporary_db_pattern: /tmp/qfa-AR-054-*.sqlite3
+risk_controls:
+  no_daemon: true
+  no_trades: true
+  qfa_normalizes_nonzero_weights_to_full_gross: true
+acceptance_threshold:
+  improve_p25_or_worst_drawdown_vs_ar043: true
+  max_correlation_to_ar008_below: 0.60
+  max_available_watchlist_correlation_below: 0.60
+suggested_decision: reject
