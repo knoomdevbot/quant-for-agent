@@ -847,9 +847,24 @@ issues:
   priority: completed_realdata
   family: single_name_idiosyncratic_volatility_reversal
   issue_path: alpha_research/issues/AR-113.md
+- id: AR-114
+  title: 'Municipal bond ETF tax-calendar flow reversal and January reinvestment allocator'
+  model_name: municipal-tax-flow-calendar-reversal-v1
+  status: rejected
+  priority: completed_realdata
+  family: municipal_tax_calendar_flow
+  issue_path: alpha_research/issues/AR-114.md
+- id: AR-115
+  title: 'Constituent-confirmed sector ETF post-earnings pressure allocator'
+  model_name: constituent-confirmed-sector-earnings-pressure-v1
+  status: rejected
+  priority: completed_realdata
+  family: constituent_confirmed_sector_pressure
+  issue_path: alpha_research/issues/AR-115.md
 active_batch: []
 last_realdata_batch:
-- AR-113
-updated_at: '2026-06-26T22:12:07Z'
+- AR-114
+- AR-115
+updated_at: '2026-06-26T23:09:24Z'
 target_tried_ideas: 100
-tried_ideas_count: 104
+tried_ideas_count: 106

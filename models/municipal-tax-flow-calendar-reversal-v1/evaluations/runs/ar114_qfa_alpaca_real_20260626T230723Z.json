@@ -1,0 +1,542 @@
+{
+  "artifact_policy": {
+    "compact_artifacts_only": true,
+    "helper_scripts_retained": false,
+    "raw_bars_retained": false,
+    "sqlite_retained": false
+  },
+  "artifacts": {
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/municipal-tax-flow-calendar-reversal-v1/evaluations/runs/ar114_qfa_alpaca_real_20260626T230723Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/municipal-tax-flow-calendar-reversal-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/municipal-tax-flow-calendar-reversal-v1/evaluations/latest.md"
+  },
+  "compact_artifact_note": "Compact aggregate-only artifact; raw bars, daily return paths, equity curves, weight tails, SQLite DBs, caches, helper scripts, and credentials are not retained.",
+  "controls_and_ablations": {
+    "IEF_buy_hold_5bps": {
+      "annualized_return": -0.04216019,
+      "annualized_volatility": 0.07276025,
+      "max_drawdown": -0.27701248,
+      "periods": 1486,
+      "sharpe": -0.5556096,
+      "total_return": -0.2243114,
+      "win_rate": 0.48452221
+    },
+    "MUB_buy_hold_5bps": {
+      "annualized_return": -0.013573,
+      "annualized_volatility": 0.03859609,
+      "max_drawdown": -0.14438321,
+      "periods": 1486,
+      "sharpe": -0.33476591,
+      "total_return": -0.0774242,
+      "win_rate": 0.50605653
+    },
+    "MUB_only_from_primary_signal_5bps": {
+      "annualized_return": -0.01111202,
+      "annualized_volatility": 0.01918481,
+      "max_drawdown": -0.07318515,
+      "periods": 1486,
+      "sharpe": -0.57285322,
+      "total_return": -0.06376844,
+      "win_rate": 0.4589502
+    },
+    "SHY_buy_hold_5bps": {
+      "annualized_return": -0.00900565,
+      "annualized_volatility": 0.01949183,
+      "max_drawdown": -0.07070707,
+      "periods": 1486,
+      "sharpe": -0.45436731,
+      "total_return": -0.0519474,
+      "win_rate": 0.47240915
+    },
+    "TLT_buy_hold_5bps": {
+      "annualized_return": -0.10607593,
+      "annualized_volatility": 0.15294355,
+      "max_drawdown": -0.51764534,
+      "periods": 1486,
+      "sharpe": -0.65656679,
+      "total_return": -0.48378772,
+      "win_rate": 0.48519515
+    },
+    "credit_LQD_HYG_5bps": {
+      "annualized_return": -0.02375875,
+      "annualized_volatility": 0.07103777,
+      "max_drawdown": -0.23351434,
+      "periods": 1486,
+      "sharpe": -0.30297706,
+      "total_return": -0.13219855,
+      "win_rate": 0.51009421
+    },
+    "ex_april_5bps": {
+      "annualized_return": -0.0105231,
+      "annualized_volatility": 0.01945013,
+      "max_drawdown": -0.07329278,
+      "periods": 1486,
+      "sharpe": -0.53416755,
+      "total_return": -0.0604758,
+      "win_rate": 0.46567968
+    },
+    "ex_january_5bps": {
+      "annualized_return": -0.01584733,
+      "annualized_volatility": 0.02088644,
+      "max_drawdown": -0.10610362,
+      "periods": 1486,
+      "sharpe": -0.7543506,
+      "total_return": -0.08989681,
+      "win_rate": 0.46231494
+    },
+    "ex_late_nov_dec_5bps": {
+      "annualized_return": -0.01941188,
+      "annualized_volatility": 0.02049703,
+      "max_drawdown": -0.11608219,
+      "periods": 1486,
+      "sharpe": -0.9460888,
+      "total_return": -0.10916323,
+      "win_rate": 0.46164199
+    },
+    "ex_month_end_5bps": {
+      "annualized_return": -0.01679978,
+      "annualized_volatility": 0.01901641,
+      "max_drawdown": -0.10870054,
+      "periods": 1486,
+      "sharpe": -0.88140858,
+      "total_return": -0.09507839,
+      "win_rate": 0.4320323
+    },
+    "ex_turn_of_month_5bps": {
+      "annualized_return": -0.02576005,
+      "annualized_volatility": 0.02054839,
+      "max_drawdown": -0.14524712,
+      "periods": 1486,
+      "sharpe": -1.25972212,
+      "total_return": -0.14263647,
+      "win_rate": 0.4320323
+    },
+    "simple_muni_momentum_63d_5bps": {
+      "annualized_return": -0.06497149,
+      "annualized_volatility": 0.03576081,
+      "max_drawdown": -0.35740641,
+      "periods": 1486,
+      "sharpe": -1.86037039,
+      "total_return": -0.32708649,
+      "win_rate": 0.45491252
+    }
+  },
+  "costs_bps": [
+    2,
+    5,
+    10
+  ],
+  "created_at_utc": "2026-06-26T23:07:23Z",
+  "data_source": "qfa AlpacaGateway real daily OHLCV; profile secret values loaded ephemerally and redacted; no CSV, no data-csv argument, no daemon, no orders.",
+  "date_range": {
+    "actual_end": "2026-06-25",
+    "actual_start": "2018-11-01",
+    "requested_end": "2026-06-26",
+    "requested_start": "2018-01-01",
+    "timeframe": "1Day"
+  },
+  "decision": "rejected",
+  "decision_warnings": [
+    "Primary 5 bps Sharpe is not positive.",
+    "Random-window p25 Sharpe is below zero.",
+    "Positive-window rate is below 60% gate.",
+    "10 bps sensitivity Sharpe is not positive.",
+    "Max abs proxy correlation exceeds hard 0.60 threshold."
+  ],
+  "issue_id": "AR-114",
+  "metrics": {
+    "primary_10bps": {
+      "annualized_return": -0.02446999,
+      "annualized_volatility": 0.02185883,
+      "max_drawdown": -0.13823571,
+      "periods": 1486,
+      "sharpe": -1.12239666,
+      "total_return": -0.13592013,
+      "win_rate": 0.46096904
+    },
+    "primary_2bps": {
+      "annualized_return": -0.01242797,
+      "annualized_volatility": 0.02133222,
+      "max_drawdown": -0.08940358,
+      "periods": 1486,
+      "sharpe": -0.57556704,
+      "total_return": -0.07109123,
+      "win_rate": 0.46635262
+    },
+    "primary_5bps": {
+      "annualized_return": -0.01695934,
+      "annualized_volatility": 0.0214538,
+      "max_drawdown": -0.10294565,
+      "periods": 1486,
+      "sharpe": -0.78653569,
+      "total_return": -0.09594403,
+      "win_rate": 0.46366083
+    },
+    "random_windows_5bps": {
+      "count": 30,
+      "median_sharpe": -1.3008624,
+      "p25_sharpe": -3.40819012,
+      "positive_window_rate": 0.13333333,
+      "worst_drawdown": -0.085953,
+      "worst_sharpe": -3.98285574
+    },
+    "turnover": {
+      "activation_days": 65,
+      "activation_rate_muni_weight_positive": 0.04374159,
+      "annualized_turnover": 15.32018843,
+      "avg_daily_turnover": 0.0607944,
+      "avg_gross_exposure": 0.99932705,
+      "max_daily_turnover": 2.0,
+      "median_daily_turnover": 0.0
+    }
+  },
+  "model_name": "municipal-tax-flow-calendar-reversal-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "correlations": [
+      {
+        "correlation": 0.91520885,
+        "proxy": "SHY"
+      },
+      {
+        "correlation": 0.7540693,
+        "proxy": "IEF"
+      },
+      {
+        "correlation": 0.54169939,
+        "proxy": "TLT"
+      },
+      {
+        "correlation": 0.60723389,
+        "proxy": "LQD"
+      },
+      {
+        "correlation": 0.3774051,
+        "proxy": "HYG"
+      },
+      {
+        "correlation": 0.05026459,
+        "proxy": "SPY"
+      },
+      {
+        "correlation": 0.61756797,
+        "proxy": "MUB"
+      }
+    ],
+    "max_abs_correlation": 0.91520885,
+    "method": "Pearson correlation of primary 5 bps daily returns vs same-data ETF/control proxies; retained-library exact streams deferred because rejection is decisive.",
+    "status": "proxy_only_compact"
+  },
+  "random_windows": [
+    {
+      "end": "2021-07-23",
+      "id": 1,
+      "max_drawdown": -0.00588745,
+      "periods": 252,
+      "sharpe": -1.0339067,
+      "start": "2018-11-01",
+      "total_return": -0.00396433
+    },
+    {
+      "end": "2021-09-23",
+      "id": 2,
+      "max_drawdown": -0.00450841,
+      "periods": 252,
+      "sharpe": -1.08045925,
+      "start": "2020-09-24",
+      "total_return": -0.00427795
+    },
+    {
+      "end": "2021-11-22",
+      "id": 3,
+      "max_drawdown": -0.00867905,
+      "periods": 252,
+      "sharpe": -1.52126554,
+      "start": "2020-11-23",
+      "total_return": -0.00804678
+    },
+    {
+      "end": "2021-12-09",
+      "id": 4,
+      "max_drawdown": -0.010357,
+      "periods": 252,
+      "sharpe": -1.55511867,
+      "start": "2020-12-10",
+      "total_return": -0.00949349
+    },
+    {
+      "end": "2022-01-25",
+      "id": 5,
+      "max_drawdown": -0.02044451,
+      "periods": 252,
+      "sharpe": -2.72949662,
+      "start": "2021-01-27",
+      "total_return": -0.02044451
+    },
+    {
+      "end": "2022-01-27",
+      "id": 6,
+      "max_drawdown": -0.02108139,
+      "periods": 252,
+      "sharpe": -2.76908476,
+      "start": "2021-01-29",
+      "total_return": -0.02084793
+    },
+    {
+      "end": "2022-03-25",
+      "id": 7,
+      "max_drawdown": -0.03949342,
+      "periods": 252,
+      "sharpe": -3.2529548,
+      "start": "2021-03-29",
+      "total_return": -0.03904812
+    },
+    {
+      "end": "2022-04-26",
+      "id": 8,
+      "max_drawdown": -0.05931906,
+      "periods": 252,
+      "sharpe": -3.92050708,
+      "start": "2021-04-28",
+      "total_return": -0.05866475
+    },
+    {
+      "end": "2022-05-09",
+      "id": 9,
+      "max_drawdown": -0.06621411,
+      "periods": 252,
+      "sharpe": -3.98285574,
+      "start": "2021-05-11",
+      "total_return": -0.06301462
+    },
+    {
+      "end": "2022-05-26",
+      "id": 10,
+      "max_drawdown": -0.06610592,
+      "periods": 252,
+      "sharpe": -3.55428694,
+      "start": "2021-05-28",
+      "total_return": -0.05843209
+    },
+    {
+      "end": "2022-06-02",
+      "id": 11,
+      "max_drawdown": -0.06610592,
+      "periods": 252,
+      "sharpe": -3.74831265,
+      "start": "2021-06-04",
+      "total_return": -0.06233349
+    },
+    {
+      "end": "2022-06-15",
+      "id": 12,
+      "max_drawdown": -0.07518882,
+      "periods": 252,
+      "sharpe": -3.78858379,
+      "start": "2021-06-17",
+      "total_return": -0.06899482
+    },
+    {
+      "end": "2022-07-28",
+      "id": 13,
+      "max_drawdown": -0.07518882,
+      "periods": 252,
+      "sharpe": -3.1968124,
+      "start": "2021-07-29",
+      "total_return": -0.06291024
+    },
+    {
+      "end": "2022-09-28",
+      "id": 14,
+      "max_drawdown": -0.08441312,
+      "periods": 252,
+      "sharpe": -3.79016751,
+      "start": "2021-09-29",
+      "total_return": -0.08116865
+    },
+    {
+      "end": "2022-10-20",
+      "id": 15,
+      "max_drawdown": -0.085953,
+      "periods": 252,
+      "sharpe": -3.74489577,
+      "start": "2021-10-21",
+      "total_return": -0.08208101
+    },
+    {
+      "end": "2022-11-28",
+      "id": 16,
+      "max_drawdown": -0.08535751,
+      "periods": 252,
+      "sharpe": -3.45993523,
+      "start": "2021-11-29",
+      "total_return": -0.07935632
+    },
+    {
+      "end": "2023-01-31",
+      "id": 17,
+      "max_drawdown": -0.07242393,
+      "periods": 252,
+      "sharpe": -2.277817,
+      "start": "2022-01-31",
+      "total_return": -0.05588385
+    },
+    {
+      "end": "2023-04-03",
+      "id": 18,
+      "max_drawdown": -0.05279859,
+      "periods": 252,
+      "sharpe": -0.98627349,
+      "start": "2022-04-01",
+      "total_return": -0.02948938
+    },
+    {
+      "end": "2023-06-02",
+      "id": 19,
+      "max_drawdown": -0.03031944,
+      "periods": 252,
+      "sharpe": -0.58856755,
+      "start": "2022-06-02",
+      "total_return": -0.01778841
+    },
+    {
+      "end": "2023-06-08",
+      "id": 20,
+      "max_drawdown": -0.02956051,
+      "periods": 252,
+      "sharpe": -0.5661608,
+      "start": "2022-06-08",
+      "total_return": -0.01716881
+    },
+    {
+      "end": "2023-07-11",
+      "id": 21,
+      "max_drawdown": -0.02956051,
+      "periods": 252,
+      "sharpe": -0.49098419,
+      "start": "2022-07-11",
+      "total_return": -0.01452711
+    },
+    {
+      "end": "2023-07-18",
+      "id": 22,
+      "max_drawdown": -0.02956051,
+      "periods": 252,
+      "sharpe": -0.42223639,
+      "start": "2022-07-18",
+      "total_return": -0.01265797
+    },
+    {
+      "end": "2023-08-04",
+      "id": 23,
+      "max_drawdown": -0.02439172,
+      "periods": 252,
+      "sharpe": -0.60736522,
+      "start": "2022-08-04",
+      "total_return": -0.01780873
+    },
+    {
+      "end": "2023-10-04",
+      "id": 24,
+      "max_drawdown": -0.0227865,
+      "periods": 252,
+      "sharpe": -0.05998153,
+      "start": "2022-10-04",
+      "total_return": -0.0020993
+    },
+    {
+      "end": "2023-12-05",
+      "id": 25,
+      "max_drawdown": -0.0227865,
+      "periods": 252,
+      "sharpe": 0.30760722,
+      "start": "2022-12-05",
+      "total_return": 0.00820981
+    },
+    {
+      "end": "2023-12-13",
+      "id": 26,
+      "max_drawdown": -0.0227865,
+      "periods": 252,
+      "sharpe": 0.25139619,
+      "start": "2022-12-13",
+      "total_return": 0.00671362
+    },
+    {
+      "end": "2024-01-05",
+      "id": 27,
+      "max_drawdown": -0.0227865,
+      "periods": 252,
+      "sharpe": 0.30037702,
+      "start": "2023-01-05",
+      "total_return": 0.0080441
+    },
+    {
+      "end": "2024-02-06",
+      "id": 28,
+      "max_drawdown": -0.0227865,
+      "periods": 252,
+      "sharpe": 0.27286535,
+      "start": "2023-02-06",
+      "total_return": 0.00725975
+    },
+    {
+      "end": "2024-04-09",
+      "id": 29,
+      "max_drawdown": -0.02183803,
+      "periods": 252,
+      "sharpe": -0.53450733,
+      "start": "2023-04-10",
+      "total_return": -0.01224564
+    },
+    {
+      "end": "2024-04-18",
+      "id": 30,
+      "max_drawdown": -0.02183803,
+      "periods": 252,
+      "sharpe": -0.43831669,
+      "start": "2023-04-19",
+      "total_return": -0.01029637
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "universe": {
+    "bar_counts": {
+      "HYD": 1486,
+      "HYG": 1486,
+      "IEF": 1486,
+      "ITM": 1408,
+      "LQD": 1486,
+      "MUB": 1486,
+      "PZA": 1473,
+      "SHM": 1476,
+      "SHY": 1486,
+      "SPY": 1487,
+      "SUB": 1469,
+      "TFI": 1481,
+      "TLT": 1486,
+      "VTEB": 1486
+    },
+    "controls": [
+      "SHY",
+      "IEF",
+      "TLT",
+      "LQD",
+      "HYG",
+      "SPY"
+    ],
+    "selected_munis": [
+      "MUB",
+      "TFI",
+      "SHM",
+      "HYD",
+      "ITM",
+      "SUB",
+      "PZA",
+      "VTEB"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+alpha_id: AR-115
+model_name: constituent-confirmed-sector-earnings-pressure-v1
+family: constituent_confirmed_sector_pressure
+status: rejected
+created_at_utc: '2026-06-26T22:57:30+00:00'
+model_path: models/constituent-confirmed-sector-earnings-pressure-v1/model.py
+config_path: models/constituent-confirmed-sector-earnings-pressure-v1/config.yaml
+evaluation_artifacts:
+  latest_json: models/constituent-confirmed-sector-earnings-pressure-v1/evaluations/latest.json
+  latest_md: models/constituent-confirmed-sector-earnings-pressure-v1/evaluations/latest.md
+qfa_contract:
+  exposes_generate_signals: true
+  data_source: qfa_alpaca_real_daily_ohlcv
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

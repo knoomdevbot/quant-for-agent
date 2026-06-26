@@ -1,0 +1,39 @@
+alpha_id: AR-114
+model_name: municipal-tax-flow-calendar-reversal-v1
+family: municipal_tax_calendar_flow
+research_only: true
+universe:
+  candidate_pool: [MUB, TFI, SHM, HYD, ITM, SUB, PZA, VTEB, MLN, HYMB, SMB]
+  selected_munis: [MUB, TFI, SHM, HYD, ITM, SUB, PZA, VTEB]
+  controls: [SHY, IEF, TLT, LQD, HYG, SPY]
+selection_filters:
+  min_daily_bars: 1000
+  median_dollar_volume_min: 1000000
+  selected_before_performance_review: true
+signal:
+  windows:
+    late_nov_dec_tax_loss_reversal: "Nov 20 through Dec 31"
+    january_reinvestment: "Jan 1 through Jan 18"
+    april_tax_liquidity_reversal: "Apr 10 through Apr 30"
+  pressure_lookback: 21
+  momentum_lookback: 63
+  volume_lookback: 63
+  volatility_lookback: 21
+  min_pressure_return: -0.012
+  min_volume_z: -0.25
+  max_stabilization_abs_return: 0.008
+portfolio:
+  long_only: true
+  max_gross_exposure: 1.0
+  max_muni_weight: 0.22
+  fallback_symbol: SHY
+  fallback_weight_when_inactive: 0.25
+evaluation:
+  data_source: qfa_alpaca_real_daily_ohlcv
+  no_csv: true
+  no_data_csv_argument: true
+  no_daemon: true
+  no_orders: true
+  primary_cost_bps: 5
+  sensitivity_cost_bps: [2, 10]
+  random_windows: 30

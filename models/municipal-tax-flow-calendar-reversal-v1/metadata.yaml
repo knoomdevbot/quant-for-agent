@@ -1,0 +1,17 @@
+alpha_id: AR-114
+model_name: municipal-tax-flow-calendar-reversal-v1
+created_by: hermes-agent
+created_at_utc: '2026-06-26T00:00:00Z'
+status: research_evaluated
+research_only: true
+data_provenance: "Real daily OHLCV retrieved via qfa Alpaca gateway with secret values redacted; no CSV input, no daemon, no orders."
+artifact_policy:
+  compact_artifacts_only: true
+  raw_bars_retained: false
+  sqlite_retained: false
+  equity_curves_retained: false
+  weight_tails_retained: false
+limitations:
+  - "Calendar flow mechanism is proxied from ETF OHLCV; true fund flows, NAV discounts, distributions, and investor tax lots are not observed."
+  - "Municipal ETF universe is small and low-volatility, making turnover costs and microstructure assumptions important."
+  - "Daily bars may miss intraday creation/redemption and tax-loss-harvesting pressure dynamics."
