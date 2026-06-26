@@ -1,0 +1,14 @@
+alpha_id: AR-090
+model_name: google-trends-consumer-attention-etf-rotation-v1
+family: external_attention_rotation
+status: evaluated
+created_at_utc: 2026-06-26T15:25:26Z
+external_data_available: true
+external_provider: pytrends / Google Trends explore endpoint
+raw_external_data_retained: false
+compact_derived_features_retained: true
+market_data_source: Alpaca real daily OHLCV through qfa
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true

@@ -1,0 +1,21 @@
+issue_id: AR-089
+model_name: crossasset-overnight-gap-absorption-allocator-v1
+created_by: hermes-alpha-research-subagent
+created_at_utc: '2026-06-26T15:22:00Z'
+hypothesis: Cross-asset overnight gaps followed by next-session absorption/reversal can identify short-horizon ETF allocation opportunities distinct from volume-divergence risk-transfer.
+qfa_contract: generate_signals(context)
+artifact_contract:
+  model_py: model.py
+  config_yaml: config.yaml
+  metadata_yaml: metadata.yaml
+  readme: README.md
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md
+  immutable_run_json: evaluations/runs/<timestamp>.json
+restrictions:
+  alpaca_qfa_real_daily_ohlcv_only: true
+  no_csv: true
+  no_data_csv_argument: true
+  no_daemon: true
+  no_orders: true
+  temporary_sqlite_only: true

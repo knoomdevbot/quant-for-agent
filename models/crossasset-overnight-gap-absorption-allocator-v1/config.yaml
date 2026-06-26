@@ -1,0 +1,36 @@
+model_name: crossasset-overnight-gap-absorption-allocator-v1
+issue_id: AR-089
+family: overnight_gap_absorption
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - IEF
+  - GLD
+  - HYG
+  - LQD
+  - SHY
+  - XLE
+  - XLU
+  - XLV
+timeframe: 1Day
+data_source: Alpaca/qfa real daily OHLCV only
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+parameters:
+  lookback: 60
+  min_history: 45
+  gap_z_threshold: 1.0
+  absorption_z_threshold: 0.25
+  dispersion_min: 0.003
+  max_gross: 1.0
+  max_single: 0.35
+  vol_target_daily: 0.008
+  min_active: 3
+  confirmation_tilt: 0.25
+costs_slippage:
+  primary_one_way_bps: 10.0
+  stress_one_way_bps: 20.0

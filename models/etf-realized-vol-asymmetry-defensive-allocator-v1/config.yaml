@@ -1,0 +1,42 @@
+issue_id: AR-088
+model_name: etf-realized-vol-asymmetry-defensive-allocator-v1
+family: volatility_asymmetry_regime
+universe:
+  - SPY
+  - QQQ
+  - TLT
+  - IEF
+  - GLD
+  - XLU
+  - XLP
+  - XLV
+  - HYG
+  - LQD
+  - SHY
+data:
+  source: alpaca_qfa_real_daily_ohlcv
+  timeframe: 1Day
+  no_csv: true
+  no_data_csv_argument: true
+features:
+  semivol_window: 63
+  semivol_z_window: 126
+  realized_vol_fast: 21
+  realized_vol_medium: 63
+  realized_vol_slow: 126
+  equity_credit_stress_confirmation: true
+risk:
+  gross_exposure_max: 1.0
+  max_single_etf_weight: 0.35
+  long_only: true
+  cash_like_sleeve: SHY
+execution_constraints:
+  no_daemon: true
+  no_orders: true
+  paper_data_access: true
+evaluation:
+  primary_start: '2021-01-04'
+  primary_end: '2025-12-15'
+  random_stress_windows: 10
+  one_way_cost_bps_reported: [5, 10, 20]
+  sqlite_db_retained: false

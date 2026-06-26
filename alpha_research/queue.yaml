@@ -654,24 +654,24 @@ issues:
 - id: AR-088
   title: 'Divergent from AR-080: ETF realized-volatility asymmetry defensive allocator'
   model_name: etf-realized-vol-asymmetry-defensive-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_asymmetry_regime
   issue_path: alpha_research/issues/AR-088.md
   parent: AR-080
 - id: AR-089
   title: 'Divergent from AR-081: cross-asset ETF overnight gap absorption allocator'
   model_name: crossasset-overnight-gap-absorption-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: overnight_gap_absorption
   issue_path: alpha_research/issues/AR-089.md
   parent: AR-081
 - id: AR-090
   title: 'Google Trends consumer-attention discretionary ETF rotation'
   model_name: google-trends-consumer-attention-etf-rotation-v1
-  status: queued
-  priority: external_signal
+  status: rejected
+  priority: completed_realdata
   family: external_attention_rotation
   issue_path: alpha_research/issues/AR-090.md
 - id: AR-091
@@ -744,13 +744,13 @@ issues:
   issue_path: alpha_research/issues/AR-099.md
   parent: AR-087
 active_batch:
+- AR-091
+- AR-092
+- AR-093
+last_realdata_batch:
 - AR-088
 - AR-089
 - AR-090
-last_realdata_batch:
-- AR-085
-- AR-086
-- AR-087
-updated_at: '2026-06-26T15:18:36Z'
+updated_at: '2026-06-26T15:40:16Z'
 target_tried_ideas: 100
-tried_ideas_count: 78
+tried_ideas_count: 81
