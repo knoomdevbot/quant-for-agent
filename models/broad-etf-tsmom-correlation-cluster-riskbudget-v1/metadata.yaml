@@ -1,0 +1,45 @@
+id: AR-104
+model_name: broad-etf-tsmom-correlation-cluster-riskbudget-v1
+status: rejected
+family: time_series_momentum
+parent_alpha: AR-015
+created_at: 2026-06-26T17:00:00Z
+completed_at: 2026-06-26T17:28:10Z
+artifact_paths:
+  model: models/broad-etf-tsmom-correlation-cluster-riskbudget-v1/model.py
+  config: models/broad-etf-tsmom-correlation-cluster-riskbudget-v1/config.yaml
+  metadata: models/broad-etf-tsmom-correlation-cluster-riskbudget-v1/metadata.yaml
+  readme: models/broad-etf-tsmom-correlation-cluster-riskbudget-v1/README.md
+  evaluation_json: models/broad-etf-tsmom-correlation-cluster-riskbudget-v1/evaluations/latest.json
+  evaluation_markdown: models/broad-etf-tsmom-correlation-cluster-riskbudget-v1/evaluations/latest.md
+research_controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+evaluation_summary:
+  protocol: Compact bounded-recovery real-data qfa evaluation; primary window plus six deterministic pseudo-random windows.
+  primary_window: 2022-01-03 to 2025-12-31
+  random_windows: 6
+  cost_bps_one_way: [5, 10, 20]
+  primary_10bps_sharpe: -0.0499625
+  random_10bps_median_sharpe: -0.17854859
+  random_10bps_p25_sharpe: -0.5751906
+  random_10bps_worst_sharpe: -2.48863265
+  primary_10bps_max_drawdown: -0.14644236
+  random_10bps_worst_max_drawdown_including_primary: -0.14644236
+  median_annualized_one_way_turnover_10bps_basis: 36.61366227
+  max_available_orthogonality_correlation: 0.74805495
+decision:
+  suggested_decision: rejected
+  rationale: >-
+    Costed performance failed the 10 bps median/p25/worst Sharpe robustness
+    gate, turnover was high, macro-cluster concentration remained elevated,
+    and available retained-stream correlation exceeded the 0.60 target.
+  direct_child_created: false
+limitations:
+  - Bounded recovery used a compact protocol rather than a full rich 8-12 window study.
+  - External cost model is a turnover haircut because native qfa transaction costs are unavailable.
+  - Orthogonality is limited to prior artifacts with retained usable equity curves.
+  - Raw bars, equity curves, and daily weights are intentionally not retained in the compact artifacts.

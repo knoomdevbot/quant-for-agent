@@ -1,0 +1,631 @@
+{
+  "artifacts": {
+    "immutable_run_json": "models/broad-close-volume-dislocation-reversal-v1/evaluations/runs/ar103_qfa_alpaca_real_20260626T173023Z.json",
+    "latest_json": "models/broad-close-volume-dislocation-reversal-v1/evaluations/latest.json",
+    "latest_md": "models/broad-close-volume-dislocation-reversal-v1/evaluations/latest.md"
+  },
+  "controls": {
+    "no_csv_used": true,
+    "no_daemon": true,
+    "no_data_csv_argument_used": true,
+    "no_orders": true,
+    "raw_daily_paths_retained": false
+  },
+  "costs_slippage": {
+    "method": "daily return minus one-way turnover multiplied by the stated basis-point rate",
+    "one_way_turnover_bps": [
+      5,
+      10,
+      20
+    ]
+  },
+  "coverage_rows_by_symbol": {
+    "AAPL": 1365,
+    "ABT": 1363,
+    "ACN": 1363,
+    "ADBE": 1365,
+    "AMD": 1365,
+    "AMZN": 1365,
+    "AVGO": 1365,
+    "BAC": 1362,
+    "COST": 1365,
+    "CRM": 1362,
+    "CSCO": 1365,
+    "DIA": 1365,
+    "GOOGL": 1365,
+    "HD": 1362,
+    "IWM": 1365,
+    "JPM": 1362,
+    "KO": 1363,
+    "LIN": 1362,
+    "LLY": 1362,
+    "MA": 1362,
+    "MCD": 1362,
+    "META": 1365,
+    "MSFT": 1365,
+    "NFLX": 1365,
+    "NVDA": 1365,
+    "ORCL": 1362,
+    "PEP": 1365,
+    "QQQ": 1365,
+    "SPY": 1365,
+    "TMO": 1362,
+    "TSLA": 1365,
+    "UNH": 1362,
+    "V": 1362,
+    "WMT": 1362,
+    "XLE": 1365,
+    "XLF": 1365,
+    "XLI": 1365,
+    "XLK": 1365,
+    "XLV": 1365,
+    "XLY": 1365
+  },
+  "created_at": "2026-06-26T17:30:23Z",
+  "data_source": "Real daily market bars accessed through the project data gateway; no CSV fixtures or CSV arguments were used.",
+  "date_range": {
+    "fetch": {
+      "end": "2025-12-31",
+      "start": "2019-01-01"
+    },
+    "primary": {
+      "end": "2025-12-31",
+      "start": "2023-01-03"
+    }
+  },
+  "decision_reason": "Falsifier tripped at 10 bps: random-window median/p25 Sharpe was not robustly positive or activation/turnover did not justify broadening.",
+  "evaluation_status": "completed_compact_real_data_backtest",
+  "issue_id": "AR-103",
+  "limitations": [
+    "Compact recovery protocol: primary window plus seven real-data random/stress windows; no raw bars, equity curves, or weights retained.",
+    "Daily OHLCV is a proxy for close-volume dislocation and does not contain auction-only imbalance data."
+  ],
+  "model_name": "broad-close-volume-dislocation-reversal-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "comparisons": [
+      {
+        "correlation": 0.00272722,
+        "name": "SPY daily returns",
+        "overlap_periods": 750
+      },
+      {
+        "correlation": 0.00403339,
+        "name": "broad equal-weight universe daily returns",
+        "overlap_periods": 750
+      }
+    ],
+    "status": "compact_proxy_only"
+  },
+  "primary": {
+    "activation_fraction": 0.48666667,
+    "costs": {
+      "10bps": {
+        "metrics": {
+          "annualized_return": 0.00610005,
+          "annualized_volatility": 0.23719399,
+          "max_drawdown": -0.25391653,
+          "sharpe": 0.14208352,
+          "total_return": 0.01826455
+        },
+        "turnover": {
+          "annualized_one_way": 237.03073379,
+          "mean_daily": 0.94059815,
+          "total": 705.44861246
+        }
+      },
+      "20bps": {
+        "metrics": {
+          "annualized_return": -0.20637645,
+          "annualized_volatility": 0.23731228,
+          "max_drawdown": -0.52221209,
+          "sharpe": -0.85680093,
+          "total_return": -0.49738693
+        },
+        "turnover": {
+          "annualized_one_way": 237.03073379,
+          "mean_daily": 0.94059815,
+          "total": 705.44861246
+        }
+      },
+      "5bps": {
+        "metrics": {
+          "annualized_return": 0.132653,
+          "annualized_volatility": 0.23734126,
+          "max_drawdown": -0.1821247,
+          "sharpe": 0.64134117,
+          "total_return": 0.44878058
+        },
+        "turnover": {
+          "annualized_one_way": 237.03073379,
+          "mean_daily": 0.94059815,
+          "total": 705.44861246
+        }
+      }
+    },
+    "end": "2025-12-31",
+    "event_days": 365,
+    "label": "primary_2023_2025",
+    "periods": 750,
+    "pre_cost": {
+      "annualized_return": 0.275012,
+      "annualized_volatility": 0.23762589,
+      "max_drawdown": -0.14633612,
+      "sharpe": 1.13932069,
+      "total_return": 1.06077495
+    },
+    "start": "2023-01-03"
+  },
+  "random_summary_10bps": {
+    "count": 7,
+    "median_activation_fraction": 0.46,
+    "median_annualized_turnover": 226.56588319,
+    "median_sharpe": -0.04077626,
+    "p25_sharpe": -0.59216684,
+    "positive_window_rate": 0.42857143,
+    "worst_max_drawdown": -0.39077726,
+    "worst_sharpe": -1.87821482
+  },
+  "random_windows": [
+    {
+      "activation_fraction": 0.372,
+      "costs": {
+        "10bps": {
+          "metrics": {
+            "annualized_return": 0.05086991,
+            "annualized_volatility": 0.19985063,
+            "max_drawdown": -0.17327422,
+            "sharpe": 0.34777468,
+            "total_return": 0.05045617
+          },
+          "turnover": {
+            "annualized_one_way": 182.83975576,
+            "mean_daily": 0.72555459,
+            "total": 181.38864659
+          }
+        },
+        "20bps": {
+          "metrics": {
+            "annualized_return": -0.1248478,
+            "annualized_volatility": 0.20015555,
+            "max_drawdown": -0.23238241,
+            "sharpe": -0.56624345,
+            "total_return": -0.12392105
+          },
+          "turnover": {
+            "annualized_one_way": 182.83975576,
+            "mean_daily": 0.72555459,
+            "total": 181.38864659
+          }
+        },
+        "5bps": {
+          "metrics": {
+            "annualized_return": 0.15142897,
+            "annualized_volatility": 0.19996201,
+            "max_drawdown": -0.14603426,
+            "sharpe": 0.80476719,
+            "total_return": 0.15014115
+          },
+          "turnover": {
+            "annualized_one_way": 182.83975576,
+            "mean_daily": 0.72555459,
+            "total": 181.38864659
+          }
+        }
+      },
+      "end": "2021-08-31",
+      "event_days": 93,
+      "label": "random_2020_09_2021_08",
+      "periods": 250,
+      "pre_cost": {
+        "annualized_return": 0.26152468,
+        "annualized_volatility": 0.20024905,
+        "max_drawdown": -0.12577847,
+        "sharpe": 1.26014451,
+        "total_return": 0.25920081
+      },
+      "start": "2020-09-01"
+    },
+    {
+      "activation_fraction": 0.492,
+      "costs": {
+        "10bps": {
+          "metrics": {
+            "annualized_return": -0.18829607,
+            "annualized_volatility": 0.20578437,
+            "max_drawdown": -0.3283768,
+            "sharpe": -0.91055459,
+            "total_return": -0.18695101
+          },
+          "turnover": {
+            "annualized_one_way": 237.53742573,
+            "mean_daily": 0.94260883,
+            "total": 235.65220806
+          }
+        },
+        "20bps": {
+          "metrics": {
+            "annualized_return": -0.36026592,
+            "annualized_volatility": 0.2066958,
+            "max_drawdown": -0.42550929,
+            "sharpe": -2.05575215,
+            "total_return": -0.35799387
+          },
+          "turnover": {
+            "annualized_one_way": 237.53742573,
+            "mean_daily": 0.94260883,
+            "total": 235.65220806
+          }
+        },
+        "5bps": {
+          "metrics": {
+            "annualized_return": -0.08580676,
+            "annualized_volatility": 0.2055745,
+            "max_drawdown": -0.283213,
+            "sharpe": -0.33374368,
+            "total_return": -0.08515562
+          },
+          "turnover": {
+            "annualized_one_way": 237.53742573,
+            "mean_daily": 0.94260883,
+            "total": 235.65220806
+          }
+        }
+      },
+      "end": "2021-12-31",
+      "event_days": 123,
+      "label": "random_2021_01_2021_12",
+      "periods": 250,
+      "pre_cost": {
+        "annualized_return": 0.0295307,
+        "annualized_volatility": 0.20552933,
+        "max_drawdown": -0.24186627,
+        "sharpe": 0.24405043,
+        "total_return": 0.02929293
+      },
+      "start": "2021-01-04"
+    },
+    {
+      "activation_fraction": 0.5059761,
+      "costs": {
+        "10bps": {
+          "metrics": {
+            "annualized_return": -0.369877,
+            "annualized_volatility": 0.23138246,
+            "max_drawdown": -0.39077726,
+            "sharpe": -1.87821482,
+            "total_return": -0.36872111
+          },
+          "turnover": {
+            "annualized_one_way": 246.18054433,
+            "mean_daily": 0.97690692,
+            "total": 245.20363741
+          }
+        },
+        "20bps": {
+          "metrics": {
+            "annualized_return": -0.50786207,
+            "annualized_volatility": 0.23287424,
+            "max_drawdown": -0.50781037,
+            "sharpe": -2.92332254,
+            "total_return": -0.5064755
+          },
+          "turnover": {
+            "annualized_one_way": 246.18054433,
+            "mean_daily": 0.97690692,
+            "total": 245.20363741
+          }
+        },
+        "5bps": {
+          "metrics": {
+            "annualized_return": -0.28709322,
+            "annualized_volatility": 0.23085497,
+            "max_drawdown": -0.3413277,
+            "sharpe": -1.34931338,
+            "total_return": -0.28613523
+          },
+          "turnover": {
+            "annualized_one_way": 246.18054433,
+            "mean_daily": 0.97690692,
+            "total": 245.20363741
+          }
+        }
+      },
+      "end": "2022-05-31",
+      "event_days": 127,
+      "label": "random_2021_06_2022_05",
+      "periods": 251,
+      "pre_cost": {
+        "annualized_return": -0.19350994,
+        "annualized_volatility": 0.2304745,
+        "max_drawdown": -0.28790688,
+        "sharpe": -0.81746757,
+        "total_return": -0.19282136
+      },
+      "start": "2021-06-01"
+    },
+    {
+      "activation_fraction": 0.32128514,
+      "costs": {
+        "10bps": {
+          "metrics": {
+            "annualized_return": -0.00017052,
+            "annualized_volatility": 0.28837498,
+            "max_drawdown": -0.14843836,
+            "sharpe": 0.14276633,
+            "total_return": -0.00016849
+          },
+          "turnover": {
+            "annualized_one_way": 159.17591672,
+            "mean_daily": 0.63165046,
+            "total": 157.28096533
+          }
+        },
+        "20bps": {
+          "metrics": {
+            "annualized_return": -0.14767176,
+            "annualized_volatility": 0.2894171,
+            "max_drawdown": -0.19354164,
+            "sharpe": -0.40773568,
+            "total_return": -0.14604893
+          },
+          "turnover": {
+            "annualized_one_way": 159.17591672,
+            "mean_daily": 0.63165046,
+            "total": 157.28096533
+          }
+        },
+        "5bps": {
+          "metrics": {
+            "annualized_return": 0.0828054,
+            "annualized_volatility": 0.28799979,
+            "max_drawdown": -0.12829589,
+            "sharpe": 0.4192996,
+            "total_return": 0.08178037
+          },
+          "turnover": {
+            "annualized_one_way": 159.17591672,
+            "mean_daily": 0.63165046,
+            "total": 157.28096533
+          }
+        }
+      },
+      "end": "2022-12-30",
+      "event_days": 80,
+      "label": "random_2022_01_2022_12",
+      "periods": 249,
+      "pre_cost": {
+        "annualized_return": 0.17260452,
+        "annualized_volatility": 0.28772239,
+        "max_drawdown": -0.12293723,
+        "sharpe": 0.69631758,
+        "total_return": 0.17038388
+      },
+      "start": "2022-01-03"
+    },
+    {
+      "activation_fraction": 0.39759036,
+      "costs": {
+        "10bps": {
+          "metrics": {
+            "annualized_return": -0.03809431,
+            "annualized_volatility": 0.242069,
+            "max_drawdown": -0.19119608,
+            "sharpe": -0.04077626,
+            "total_return": -0.03764945
+          },
+          "turnover": {
+            "annualized_one_way": 196.92338789,
+            "mean_daily": 0.78144202,
+            "total": 194.57906185
+          }
+        },
+        "20bps": {
+          "metrics": {
+            "annualized_return": -0.21032582,
+            "annualized_volatility": 0.24292049,
+            "max_drawdown": -0.31616262,
+            "sharpe": -0.85128288,
+            "total_return": -0.20810282
+          },
+          "turnover": {
+            "annualized_one_way": 196.92338789,
+            "mean_daily": 0.78144202,
+            "total": 194.57906185
+          }
+        },
+        "5bps": {
+          "metrics": {
+            "annualized_return": 0.06151977,
+            "annualized_volatility": 0.24184679,
+            "max_drawdown": -0.12207528,
+            "sharpe": 0.36631053,
+            "total_return": 0.06076558
+          },
+          "turnover": {
+            "annualized_one_way": 196.92338789,
+            "mean_daily": 0.78144202,
+            "total": 194.57906185
+          }
+        }
+      },
+      "end": "2023-06-30",
+      "event_days": 99,
+      "label": "random_2022_07_2023_06",
+      "periods": 249,
+      "pre_cost": {
+        "annualized_return": 0.17136603,
+        "annualized_volatility": 0.24176085,
+        "max_drawdown": -0.10611813,
+        "sharpe": 0.77370971,
+        "total_return": 0.16916244
+      },
+      "start": "2022-07-01"
+    },
+    {
+      "activation_fraction": 0.46,
+      "costs": {
+        "10bps": {
+          "metrics": {
+            "annualized_return": -0.07151411,
+            "annualized_volatility": 0.19960201,
+            "max_drawdown": -0.15741625,
+            "sharpe": -0.2737791,
+            "total_return": -0.07096718
+          },
+          "turnover": {
+            "annualized_one_way": 226.56588319,
+            "mean_daily": 0.89907097,
+            "total": 224.76774126
+          }
+        },
+        "20bps": {
+          "metrics": {
+            "annualized_return": -0.25997935,
+            "annualized_volatility": 0.20011747,
+            "max_drawdown": -0.27150492,
+            "sharpe": -1.40523836,
+            "total_return": -0.25820895
+          },
+          "turnover": {
+            "annualized_one_way": 226.56588319,
+            "mean_daily": 0.89907097,
+            "total": 224.76774126
+          }
+        },
+        "5bps": {
+          "metrics": {
+            "annualized_return": 0.03988807,
+            "annualized_volatility": 0.19958881,
+            "max_drawdown": -0.11830214,
+            "sharpe": 0.29378442,
+            "total_return": 0.03956532
+          },
+          "turnover": {
+            "annualized_one_way": 226.56588319,
+            "mean_daily": 0.89907097,
+            "total": 224.76774126
+          }
+        }
+      },
+      "end": "2024-02-29",
+      "event_days": 115,
+      "label": "random_2023_03_2024_02",
+      "periods": 250,
+      "pre_cost": {
+        "annualized_return": 0.16455948,
+        "annualized_volatility": 0.19973881,
+        "max_drawdown": -0.099212,
+        "sharpe": 0.86071916,
+        "total_return": 0.1631523
+      },
+      "start": "2023-03-01"
+    },
+    {
+      "activation_fraction": 0.53441296,
+      "costs": {
+        "10bps": {
+          "metrics": {
+            "annualized_return": 0.15963526,
+            "annualized_volatility": 0.29889544,
+            "max_drawdown": -0.19089201,
+            "sharpe": 0.64141328,
+            "total_return": 0.15623256
+          },
+          "turnover": {
+            "annualized_one_way": 254.05557524,
+            "mean_daily": 1.00815704,
+            "total": 249.01479001
+          }
+        },
+        "20bps": {
+          "metrics": {
+            "annualized_return": -0.10051645,
+            "annualized_volatility": 0.298576,
+            "max_drawdown": -0.24945531,
+            "sharpe": -0.20879129,
+            "total_return": -0.09862386
+          },
+          "turnover": {
+            "annualized_one_way": 254.05557524,
+            "mean_daily": 1.00815704,
+            "total": 249.01479001
+          }
+        },
+        "5bps": {
+          "metrics": {
+            "annualized_return": 0.31650381,
+            "annualized_volatility": 0.29922329,
+            "max_drawdown": -0.16241053,
+            "sharpe": 1.06523559,
+            "total_return": 0.30934059
+          },
+          "turnover": {
+            "annualized_one_way": 254.05557524,
+            "mean_daily": 1.00815704,
+            "total": 249.01479001
+          }
+        }
+      },
+      "end": "2025-05-30",
+      "event_days": 132,
+      "label": "random_2024_06_2025_05",
+      "periods": 247,
+      "pre_cost": {
+        "annualized_return": 0.49444749,
+        "annualized_volatility": 0.29966276,
+        "max_drawdown": -0.13399203,
+        "sharpe": 1.48757582,
+        "total_return": 0.48258207
+      },
+      "start": "2024-06-03"
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "suggested_decision": "rejected",
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "DIA",
+    "XLK",
+    "XLF",
+    "XLE",
+    "XLV",
+    "XLY",
+    "XLI",
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "AVGO",
+    "TSLA",
+    "JPM",
+    "LLY",
+    "UNH",
+    "V",
+    "MA",
+    "HD",
+    "COST",
+    "NFLX",
+    "CRM",
+    "AMD",
+    "BAC",
+    "WMT",
+    "ORCL",
+    "ADBE",
+    "KO",
+    "PEP",
+    "CSCO",
+    "MCD",
+    "ABT",
+    "TMO",
+    "LIN",
+    "ACN"
+  ]
+}

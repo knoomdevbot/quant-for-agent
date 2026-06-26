@@ -1,0 +1,25 @@
+model_name: broad-close-volume-dislocation-reversal-v1
+issue_id: AR-103
+family: liquidity_reversal
+mode: research_only
+universe_policy: ex_ante_liquid_large_cap_and_etf_no_return_ranked_selection
+timeframe: 1Day
+initial_cash: 100000
+positioning:
+  gross_exposure_cap: 1.0
+  max_abs_symbol_weight: 0.10
+  max_etf_gross: 0.35
+signal:
+  volume_z_window: 60
+  volume_z_min: 1.35
+  dollar_volume_z_min: 1.20
+  close_location_extreme: 0.86
+  realized_vol_window: 20
+  turnover_throttle: persistence_blend_and_weak_flip_dampen
+cost_evaluation_bps_one_way: [5, 10, 20]
+real_data_only_controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

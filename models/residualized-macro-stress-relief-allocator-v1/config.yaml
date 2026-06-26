@@ -1,0 +1,58 @@
+issue_id: AR-105
+model_name: residualized-macro-stress-relief-allocator-v1
+family: macro_regime_allocation
+contract: generate_signals(context) returns target weights by symbol
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - DIA
+  - XLK
+  - XLI
+  - XLF
+  - XLV
+  - XLP
+  - XLU
+  - XLE
+  - XLB
+  - TLT
+  - IEF
+  - TIP
+  - LQD
+  - HYG
+  - SHY
+  - GLD
+  - SLV
+  - DBC
+  - USO
+  - VNQ
+  - MTUM
+  - QUAL
+  - USMV
+sleeves:
+  defensive_stress:
+    symbols: [IEF, TLT, TIP, LQD, GLD, XLU, XLP, XLV, SHY, USMV]
+    max_budget: 0.68
+  relief_rebound:
+    symbols: [SPY, QQQ, IWM, DIA, XLK, XLI, XLF, HYG, XLE, XLB, DBC, QUAL, MTUM]
+    max_budget: 0.38
+risk_controls:
+  gross_exposure_cap: 1.0
+  max_single_weight: 0.26
+  estimated_spy_beta_cap: 0.25
+  cash_proxy: SHY
+features:
+  - SPY drawdown state
+  - realized volatility shock
+  - credit relative move
+  - duration relative move
+  - gold and commodity relative moves
+  - risk-asset breadth
+  - stress-abatement confirmation
+  - rolling beta cap with SHY/IEF replacement
+research_controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

@@ -1,0 +1,36 @@
+issue_id: AR-105
+model_name: residualized-macro-stress-relief-allocator-v1
+title: Residualized two-sleeve macro stress relief allocator
+family: macro_regime_allocation
+status: researched
+created_at: 2026-06-26
+parent_alpha: AR-063
+hypothesis: >
+  Separate defensive-stress and stress-abatement relief-rebound ETF sleeves may
+  improve orthogonality versus generic risk-off/carry streams when the combined
+  portfolio is capped for estimated SPY beta and sleeve contribution dominance.
+paths:
+  model: models/residualized-macro-stress-relief-allocator-v1/model.py
+  config: models/residualized-macro-stress-relief-allocator-v1/config.yaml
+  evaluation_latest_json: models/residualized-macro-stress-relief-allocator-v1/evaluations/latest.json
+  evaluation_latest_md: models/residualized-macro-stress-relief-allocator-v1/evaluations/latest.md
+data_policy:
+  source: qfa/Alpaca real market data
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+credential_provenance: Configured paper-data access with values redacted.
+contract:
+  function: generate_signals(context)
+  output: target weights by symbol
+  long_only: true
+  gross_exposure_cap: 1.0
+  estimated_spy_beta_cap: 0.25
+falsifiers:
+  - Random-window p25 Sharpe below zero.
+  - Max relevant correlation above 0.50.
+  - Realized SPY beta above the 0.20-0.30 cap range.
+  - One sleeve dominates performance contribution.
+  - Drawdown or turnover lacks utility versus AR-063/AR-072.

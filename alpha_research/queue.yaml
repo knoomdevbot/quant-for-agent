@@ -770,7 +770,7 @@ issues:
 - id: AR-103
   title: 'Refine AR-045: broad liquid-universe close-volume dislocation reversal'
   model_name: broad-close-volume-dislocation-reversal-v1
-  status: queued
+  status: rejected
   priority: preflight_queue
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-103.md
@@ -778,7 +778,7 @@ issues:
 - id: AR-104
   title: 'Refine AR-015: broad ETF TSMOM with correlation-cluster risk budget'
   model_name: broad-etf-tsmom-correlation-cluster-riskbudget-v1
-  status: queued
+  status: rejected
   priority: preflight_queue
   family: time_series_momentum
   issue_path: alpha_research/issues/AR-104.md
@@ -786,19 +786,32 @@ issues:
 - id: AR-105
   title: 'Refine AR-063: residualized two-sleeve macro stress relief allocator'
   model_name: residualized-macro-stress-relief-allocator-v1
-  status: queued
+  status: rejected
   priority: preflight_queue
   family: macro_regime_allocation
   issue_path: alpha_research/issues/AR-105.md
   parent: AR-063
+- id: AR-106
+  title: 'ETF option-expiry and rebalance-week liquidity pressure reversal, ex-ToM controlled'
+  model_name: etf-opex-rebalance-liquidity-pressure-v1
+  status: queued
+  priority: preflight_queue
+  family: event_calendar_liquidity_pressure
+  issue_path: alpha_research/issues/AR-106.md
+- id: AR-107
+  title: 'Post-drawdown stabilized single-name sector-residual defensive leadership'
+  model_name: post-drawdown-residual-defensive-leadership-v1
+  status: queued
+  priority: preflight_queue
+  family: single_name_residual_momentum
+  issue_path: alpha_research/issues/AR-107.md
 active_batch:
+- AR-106
+- AR-107
+last_realdata_batch:
 - AR-103
 - AR-104
 - AR-105
-last_realdata_batch:
-- AR-100
-- AR-101
-- AR-102
-updated_at: '2026-06-26T17:04:15Z'
+updated_at: '2026-06-26T17:45:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 93
+tried_ideas_count: 96
