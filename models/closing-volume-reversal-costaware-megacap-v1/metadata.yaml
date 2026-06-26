@@ -1,0 +1,19 @@
+issue_id: AR-045
+model_name: closing-volume-reversal-costaware-megacap-v1
+parent_alpha: AR-028
+title: Cost-aware abnormal close-location/volume reversal
+status: accepted_research_candidate
+created_at: '2026-06-26T08:45:00Z'
+data_source: Alpaca/qfa daily OHLCV real market data; never CSV.
+model_path: models/closing-volume-reversal-costaware-megacap-v1/model.py
+config_path: models/closing-volume-reversal-costaware-megacap-v1/config.yaml
+evaluation_latest_json: models/closing-volume-reversal-costaware-megacap-v1/evaluations/latest.json
+evaluation_latest_md: models/closing-volume-reversal-costaware-megacap-v1/evaluations/latest.md
+research_constraints:
+  no_daemon: true
+  no_trading: true
+  alpaca_paper: true
+  temporary_sqlite_db_only: true
+  db_artifact_retained: false
+hypothesis: AR-028 close-location/abnormal-volume reversal may survive explicit turnover/cost controls, minimum expected-edge gates, and volatility-normalized sizing.
+falsifier: Median random-period Sharpe <= 0 after 5 bps turnover haircut, unacceptable drawdown, or degradation versus AR-028 without lower turnover.

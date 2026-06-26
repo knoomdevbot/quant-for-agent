@@ -314,24 +314,24 @@ issues:
 - id: AR-044
   title: 'Divergent from AR-025: cross-asset credit/equity stress dispersion mean reversion'
   model_name: credit-equity-stress-dispersion-reversion-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: dispersion_convergence
   issue_path: alpha_research/issues/AR-044.md
   parent: AR-025
 - id: AR-045
   title: 'Refinement from AR-028: cost-aware abnormal close-location reversal'
   model_name: closing-volume-reversal-costaware-megacap-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-045.md
   parent: AR-028
 - id: AR-046
   title: 'Divergent from AR-028: cross-sectional liquidity exhaustion recovery'
   model_name: liquidity-exhaustion-recovery-megacap-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-046.md
   parent: AR-028
@@ -391,14 +391,46 @@ issues:
   family: stress_recovery_decay
   issue_path: alpha_research/issues/AR-055.md
   parent: AR-043
+- id: AR-056
+  title: 'Refinement from AR-045: orthogonality-constrained close-location reversal'
+  model_name: closing-volume-reversal-orthogonalized-megacap-v1
+  status: queued
+  priority: child
+  family: liquidity_reversal
+  issue_path: alpha_research/issues/AR-056.md
+  parent: AR-045
+- id: AR-057
+  title: 'Divergent from AR-045: mega-cap range-compression breakout continuation'
+  model_name: range-compression-breakout-megacap-v1
+  status: queued
+  priority: child
+  family: volatility_breakout
+  issue_path: alpha_research/issues/AR-057.md
+  parent: AR-045
+- id: AR-058
+  title: 'Refinement from AR-046: regime-gated liquidity exhaustion recovery'
+  model_name: liquidity-exhaustion-recovery-regimegated-megacap-v1
+  status: queued
+  priority: child
+  family: liquidity_reversal
+  issue_path: alpha_research/issues/AR-058.md
+  parent: AR-046
+- id: AR-059
+  title: 'Divergent from AR-046: ETF defensive momentum carry rotation'
+  model_name: etf-defensive-momentum-carry-rotation-v1
+  status: queued
+  priority: child
+  family: cross_asset_rotation
+  issue_path: alpha_research/issues/AR-059.md
+  parent: AR-046
 active_batch:
+- AR-049
+- AR-050
+- AR-051
+last_realdata_batch:
 - AR-044
 - AR-045
 - AR-046
-last_realdata_batch:
-- AR-041
-- AR-042
-- AR-043
-updated_at: '2026-06-26T09:55:00Z'
+updated_at: '2026-06-26T10:03:41Z'
 target_tried_ideas: 100
-tried_ideas_count: 36
+tried_ideas_count: 39

@@ -1,0 +1,823 @@
+{
+  "created_at": "2026-06-26T09:58:13Z",
+  "data_source": "Alpaca real daily market data via qfa CLI and qfa AlpacaGateway; no CSV; no --data-csv",
+  "date_ranges": {
+    "full_data": {
+      "end": "2025-12-31",
+      "start": "2019-01-01"
+    },
+    "primary": {
+      "end": "2025-12-31",
+      "start": "2024-01-01"
+    }
+  },
+  "issue_id": "AR-044",
+  "model_name": "credit-equity-stress-dispersion-reversion-v1",
+  "orthogonality": {
+    "comparisons": [
+      {
+        "model_name": "tsmom-voltarget-liquid-etf-randomcost-v1",
+        "reason": "could not infer symbols from latest.json",
+        "status": "unavailable"
+      },
+      {
+        "model_name": "low-vol-quality-proxy-megacap-v1",
+        "reason": "needed symbols not in AR-044 Alpaca fetch: ['AAPL', 'MSFT', 'NVDA', 'AMZN', 'META', 'GOOGL', 'TSLA', 'JNJ']",
+        "status": "skipped"
+      },
+      {
+        "model_name": "xsec-etf-defensive-rotation-costmonthly-v1",
+        "reason": "could not infer symbols from latest.json",
+        "status": "unavailable"
+      },
+      {
+        "model_name": "turn-month-calendar-window-etf-v1",
+        "reason": "could not infer symbols from latest.json",
+        "status": "unavailable"
+      }
+    ],
+    "max_abs_correlation": null,
+    "redundancy_assessment": "unknown",
+    "status": "unavailable"
+  },
+  "primary_detail": {
+    "end": "2025-12-31",
+    "equity_curve_cost_adjusted_tail": [
+      {
+        "equity": 90850.7624,
+        "timestamp": "2025-12-23T05:00:00+00:00"
+      },
+      {
+        "equity": 90850.7624,
+        "timestamp": "2025-12-24T05:00:00+00:00"
+      },
+      {
+        "equity": 90850.7624,
+        "timestamp": "2025-12-26T05:00:00+00:00"
+      },
+      {
+        "equity": 90850.7624,
+        "timestamp": "2025-12-29T05:00:00+00:00"
+      },
+      {
+        "equity": 90850.7624,
+        "timestamp": "2025-12-30T05:00:00+00:00"
+      }
+    ],
+    "metrics_cost_adjusted": {
+      "annualized_return": -0.0472091,
+      "annualized_volatility": 0.05201569,
+      "final_equity": 90850.7624,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.10398019,
+      "periods": 500,
+      "sharpe": -0.90269815,
+      "total_return": -0.09149238,
+      "win_rate": 0.062
+    },
+    "metrics_pre_cost": {
+      "annualized_return": -0.02802964,
+      "annualized_volatility": 0.05196041,
+      "final_equity": 94515.2805,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.08267545,
+      "periods": 500,
+      "sharpe": -0.52021625,
+      "total_return": -0.0548472,
+      "win_rate": 0.072
+    },
+    "periods": 500,
+    "start": "2024-01-01",
+    "turnover": {
+      "active_day_fraction": 0.138,
+      "active_days": 69,
+      "average_daily_one_way_notional": 0.15812553,
+      "total_one_way_notional": 79.06276503
+    }
+  },
+  "qfa_cli_run": {
+    "end": "2025-12-31",
+    "id": 1,
+    "initial_cash": 100000.0,
+    "metrics": {
+      "annualized_return": -0.02802964,
+      "annualized_volatility": 0.05196041,
+      "final_equity": 94515.2805,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.08267545,
+      "periods": 500,
+      "sharpe": -0.52021625,
+      "total_return": -0.0548472,
+      "win_rate": 0.072
+    },
+    "model_path": "/Users/moonk/quant-for-agent/models/credit-equity-stress-dispersion-reversion-v1/model.py",
+    "start": "2024-01-01",
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "TLT",
+      "GLD",
+      "HYG",
+      "LQD",
+      "XLU"
+    ],
+    "timeframe": "1Day"
+  },
+  "qfa_direct_engine_run": {
+    "end": "2025-12-31",
+    "id": "direct_python_qfa_engine_no_store",
+    "initial_cash": 100000.0,
+    "metrics": {
+      "annualized_return": -0.02802964,
+      "annualized_volatility": 0.05196041,
+      "final_equity": 94515.2805,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.08267545,
+      "periods": 500,
+      "sharpe": -0.52021625,
+      "total_return": -0.0548472,
+      "win_rate": 0.072
+    },
+    "model_path": "/Users/moonk/quant-for-agent/models/credit-equity-stress-dispersion-reversion-v1/model.py",
+    "start": "2024-01-01",
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "TLT",
+      "GLD",
+      "HYG",
+      "LQD",
+      "XLU"
+    ],
+    "timeframe": "1Day"
+  },
+  "random_summary": {
+    "metrics_cost_adjusted": {
+      "annualized_return": {
+        "max": 0.01067481,
+        "mean": -0.02085852,
+        "median": -0.0259096,
+        "min": -0.06224142
+      },
+      "annualized_volatility": {
+        "max": 0.02695703,
+        "mean": 0.02279832,
+        "median": 0.02430127,
+        "min": 0.01735585
+      },
+      "max_drawdown": {
+        "max": -0.01128227,
+        "mean": -0.03232686,
+        "median": -0.03392846,
+        "min": -0.06200225
+      },
+      "periods": {
+        "max": 251.0,
+        "mean": 251.0,
+        "median": 251.0,
+        "min": 251.0
+      },
+      "sharpe": {
+        "max": 0.54628794,
+        "mean": -0.85619525,
+        "median": -1.00478338,
+        "min": -2.37014766
+      },
+      "total_return": {
+        "max": 0.01063223,
+        "mean": -0.0207778,
+        "median": -0.02580813,
+        "min": -0.06200225
+      },
+      "win_rate": {
+        "max": 0.07569721,
+        "mean": 0.05378486,
+        "median": 0.05577689,
+        "min": 0.03187251
+      }
+    },
+    "metrics_pre_cost": {
+      "annualized_return": {
+        "max": 0.03337148,
+        "mean": -0.00142638,
+        "median": -0.00565945,
+        "min": -0.04276234
+      },
+      "annualized_volatility": {
+        "max": 0.0263696,
+        "mean": 0.02262954,
+        "median": 0.02415886,
+        "min": 0.01680179
+      },
+      "max_drawdown": {
+        "max": -0.00761615,
+        "mean": -0.02354095,
+        "median": -0.02506953,
+        "min": -0.04259632
+      },
+      "periods": {
+        "max": 251.0,
+        "mean": 251.0,
+        "median": 251.0,
+        "min": 251.0
+      },
+      "sharpe": {
+        "max": 1.39523551,
+        "mean": 0.00431913,
+        "median": -0.21092707,
+        "min": -1.64405617
+      },
+      "total_return": {
+        "max": 0.03323688,
+        "mean": -0.00142188,
+        "median": -0.00563706,
+        "min": -0.04259632
+      },
+      "win_rate": {
+        "max": 0.07569721,
+        "mean": 0.05816733,
+        "median": 0.05976096,
+        "min": 0.04780876
+      }
+    },
+    "positive_sharpe_fraction_cost_adjusted": 0.4,
+    "turnover": {
+      "median_active_day_fraction": 0.12549801,
+      "median_average_daily_one_way_notional": 0.15928685
+    }
+  },
+  "random_windows": [
+    {
+      "end": "2020-10-07",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 97025.1193,
+          "timestamp": "2020-09-30T04:00:00+00:00"
+        },
+        {
+          "equity": 97025.1193,
+          "timestamp": "2020-10-01T04:00:00+00:00"
+        },
+        {
+          "equity": 97025.1193,
+          "timestamp": "2020-10-02T04:00:00+00:00"
+        },
+        {
+          "equity": 97025.1193,
+          "timestamp": "2020-10-05T04:00:00+00:00"
+        },
+        {
+          "equity": 97300.353,
+          "timestamp": "2020-10-06T04:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.02710255,
+        "annualized_volatility": 0.02567513,
+        "final_equity": 97300.353,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.03392846,
+        "periods": 251,
+        "sharpe": -1.05726813,
+        "total_return": -0.02699647,
+        "win_rate": 0.05577689
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.00762513,
+        "annualized_volatility": 0.02528558,
+        "final_equity": 99240.5011,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.02785537,
+        "periods": 251,
+        "sharpe": -0.29007546,
+        "total_return": -0.00759499,
+        "win_rate": 0.05976096
+      },
+      "periods": 251,
+      "start": "2019-10-08",
+      "turnover": {
+        "active_day_fraction": 0.12749004,
+        "active_days": 32,
+        "average_daily_one_way_notional": 0.15722837,
+        "total_one_way_notional": 39.46432208
+      },
+      "window_id": 1
+    },
+    {
+      "end": "2020-10-08",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 97310.771,
+          "timestamp": "2020-10-01T04:00:00+00:00"
+        },
+        {
+          "equity": 97310.771,
+          "timestamp": "2020-10-02T04:00:00+00:00"
+        },
+        {
+          "equity": 97310.771,
+          "timestamp": "2020-10-05T04:00:00+00:00"
+        },
+        {
+          "equity": 97586.815,
+          "timestamp": "2020-10-06T04:00:00+00:00"
+        },
+        {
+          "equity": 97538.0216,
+          "timestamp": "2020-10-07T04:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.02471665,
+        "annualized_volatility": 0.02592667,
+        "final_equity": 97538.0216,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.03392846,
+        "periods": 251,
+        "sharpe": -0.95229863,
+        "total_return": -0.02461978,
+        "win_rate": 0.05976096
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.00369377,
+        "annualized_volatility": 0.02559734,
+        "final_equity": 99632.0865,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.02785537,
+        "periods": 251,
+        "sharpe": -0.13177868,
+        "total_return": -0.00367913,
+        "win_rate": 0.06374502
+      },
+      "periods": 251,
+      "start": "2019-10-09",
+      "turnover": {
+        "active_day_fraction": 0.1314741,
+        "active_days": 33,
+        "average_daily_one_way_notional": 0.16918057,
+        "total_one_way_notional": 42.46432208
+      },
+      "window_id": 2
+    },
+    {
+      "end": "2021-08-05",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 100255.2958,
+          "timestamp": "2021-07-29T04:00:00+00:00"
+        },
+        {
+          "equity": 100205.1682,
+          "timestamp": "2021-07-30T04:00:00+00:00"
+        },
+        {
+          "equity": 100205.1682,
+          "timestamp": "2021-08-02T04:00:00+00:00"
+        },
+        {
+          "equity": 100205.1682,
+          "timestamp": "2021-08-03T04:00:00+00:00"
+        },
+        {
+          "equity": 100205.1682,
+          "timestamp": "2021-08-04T04:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.00205986,
+        "annualized_volatility": 0.02039466,
+        "final_equity": 100205.1682,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.02096528,
+        "periods": 251,
+        "sharpe": 0.11105587,
+        "total_return": 0.00205168,
+        "win_rate": 0.05976096
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.02161371,
+        "annualized_volatility": 0.02066607,
+        "final_equity": 102152.7021,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.01687944,
+        "periods": 251,
+        "sharpe": 1.04504491,
+        "total_return": 0.02152702,
+        "win_rate": 0.05976096
+      },
+      "periods": 251,
+      "start": "2020-08-05",
+      "turnover": {
+        "active_day_fraction": 0.11553785,
+        "active_days": 29,
+        "average_daily_one_way_notional": 0.15342879,
+        "total_one_way_notional": 38.51062538
+      },
+      "window_id": 3
+    },
+    {
+      "end": "2021-08-19",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 100161.059,
+          "timestamp": "2021-08-12T04:00:00+00:00"
+        },
+        {
+          "equity": 100110.9785,
+          "timestamp": "2021-08-13T04:00:00+00:00"
+        },
+        {
+          "equity": 100110.9785,
+          "timestamp": "2021-08-16T04:00:00+00:00"
+        },
+        {
+          "equity": 100110.9785,
+          "timestamp": "2021-08-17T04:00:00+00:00"
+        },
+        {
+          "equity": 100110.9785,
+          "timestamp": "2021-08-18T04:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.00111421,
+        "annualized_volatility": 0.02045395,
+        "final_equity": 100110.9785,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.02047552,
+        "periods": 251,
+        "sharpe": 0.06463236,
+        "total_return": 0.00110978,
+        "win_rate": 0.05976096
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.02167505,
+        "annualized_volatility": 0.02071332,
+        "final_equity": 102158.8121,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.01687944,
+        "periods": 251,
+        "sharpe": 1.04560715,
+        "total_return": 0.02158812,
+        "win_rate": 0.05976096
+      },
+      "periods": 251,
+      "start": "2020-08-19",
+      "turnover": {
+        "active_day_fraction": 0.11952191,
+        "active_days": 30,
+        "average_daily_one_way_notional": 0.16139691,
+        "total_one_way_notional": 40.51062538
+      },
+      "window_id": 4
+    },
+    {
+      "end": "2022-03-03",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 101063.2229,
+          "timestamp": "2022-02-24T05:00:00+00:00"
+        },
+        {
+          "equity": 101063.2229,
+          "timestamp": "2022-02-25T05:00:00+00:00"
+        },
+        {
+          "equity": 101063.2229,
+          "timestamp": "2022-02-28T05:00:00+00:00"
+        },
+        {
+          "equity": 101063.2229,
+          "timestamp": "2022-03-01T05:00:00+00:00"
+        },
+        {
+          "equity": 101063.2229,
+          "timestamp": "2022-03-02T05:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.01067481,
+        "annualized_volatility": 0.02377281,
+        "final_equity": 101063.2229,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.01454425,
+        "periods": 251,
+        "sharpe": 0.45850617,
+        "total_return": 0.01063223,
+        "win_rate": 0.07569721
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.03337148,
+        "annualized_volatility": 0.0237302,
+        "final_equity": 103323.688,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.01066741,
+        "periods": 251,
+        "sharpe": 1.39523551,
+        "total_return": 0.03323688,
+        "win_rate": 0.07569721
+      },
+      "periods": 251,
+      "start": "2021-03-04",
+      "turnover": {
+        "active_day_fraction": 0.13545817,
+        "active_days": 34,
+        "average_daily_one_way_notional": 0.17626378,
+        "total_one_way_notional": 44.24220884
+      },
+      "window_id": 5
+    },
+    {
+      "end": "2023-02-17",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 93799.775,
+          "timestamp": "2023-02-10T05:00:00+00:00"
+        },
+        {
+          "equity": 93799.775,
+          "timestamp": "2023-02-13T05:00:00+00:00"
+        },
+        {
+          "equity": 93799.775,
+          "timestamp": "2023-02-14T05:00:00+00:00"
+        },
+        {
+          "equity": 93799.775,
+          "timestamp": "2023-02-15T05:00:00+00:00"
+        },
+        {
+          "equity": 93799.775,
+          "timestamp": "2023-02-16T05:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.06224142,
+        "annualized_volatility": 0.02695703,
+        "final_equity": 93799.775,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.06200225,
+        "periods": 251,
+        "sharpe": -2.37014766,
+        "total_return": -0.06200225,
+        "win_rate": 0.0438247
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.04276234,
+        "annualized_volatility": 0.0263696,
+        "final_equity": 95740.3683,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.04259632,
+        "periods": 251,
+        "sharpe": -1.64405617,
+        "total_return": -0.04259632,
+        "win_rate": 0.04780876
+      },
+      "periods": 251,
+      "start": "2022-02-16",
+      "turnover": {
+        "active_day_fraction": 0.1314741,
+        "active_days": 33,
+        "average_daily_one_way_notional": 0.16300818,
+        "total_one_way_notional": 40.91505197
+      },
+      "window_id": 6
+    },
+    {
+      "end": "2023-08-30",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 96384.9148,
+          "timestamp": "2023-08-23T04:00:00+00:00"
+        },
+        {
+          "equity": 96005.209,
+          "timestamp": "2023-08-24T04:00:00+00:00"
+        },
+        {
+          "equity": 95957.2064,
+          "timestamp": "2023-08-25T04:00:00+00:00"
+        },
+        {
+          "equity": 95957.2064,
+          "timestamp": "2023-08-28T04:00:00+00:00"
+        },
+        {
+          "equity": 95957.2064,
+          "timestamp": "2023-08-29T04:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.04058569,
+        "annualized_volatility": 0.02482974,
+        "final_equity": 95957.2064,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.0406102,
+        "periods": 251,
+        "sharpe": -1.65612326,
+        "total_return": -0.04042794,
+        "win_rate": 0.05577689
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.02174656,
+        "annualized_volatility": 0.02459401,
+        "final_equity": 97833.8795,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.03215014,
+        "periods": 251,
+        "sharpe": -0.8816657,
+        "total_return": -0.02166121,
+        "win_rate": 0.05577689
+      },
+      "periods": 251,
+      "start": "2022-08-29",
+      "turnover": {
+        "active_day_fraction": 0.12749004,
+        "active_days": 32,
+        "average_daily_one_way_notional": 0.15426521,
+        "total_one_way_notional": 38.72056811
+      },
+      "window_id": 7
+    },
+    {
+      "end": "2023-11-15",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 95696.1873,
+          "timestamp": "2023-11-08T05:00:00+00:00"
+        },
+        {
+          "equity": 95454.5611,
+          "timestamp": "2023-11-09T05:00:00+00:00"
+        },
+        {
+          "equity": 95406.8338,
+          "timestamp": "2023-11-10T05:00:00+00:00"
+        },
+        {
+          "equity": 95406.8338,
+          "timestamp": "2023-11-13T05:00:00+00:00"
+        },
+        {
+          "equity": 95406.8338,
+          "timestamp": "2023-11-14T05:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.04611037,
+        "annualized_volatility": 0.02487177,
+        "final_equity": 95406.8338,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.04667137,
+        "periods": 251,
+        "sharpe": -1.88543607,
+        "total_return": -0.04593166,
+        "win_rate": 0.04780876
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.02650998,
+        "annualized_volatility": 0.02458752,
+        "final_equity": 97359.3818,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.03062617,
+        "periods": 251,
+        "sharpe": -1.08041077,
+        "total_return": -0.02640618,
+        "win_rate": 0.05179283
+      },
+      "periods": 251,
+      "start": "2022-11-14",
+      "turnover": {
+        "active_day_fraction": 0.12350598,
+        "active_days": 31,
+        "average_daily_one_way_notional": 0.16134533,
+        "total_one_way_notional": 40.49767876
+      },
+      "window_id": 8
+    },
+    {
+      "end": "2024-04-22",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 96886.1369,
+          "timestamp": "2024-04-15T04:00:00+00:00"
+        },
+        {
+          "equity": 96886.1369,
+          "timestamp": "2024-04-16T04:00:00+00:00"
+        },
+        {
+          "equity": 96886.1369,
+          "timestamp": "2024-04-17T04:00:00+00:00"
+        },
+        {
+          "equity": 96886.1369,
+          "timestamp": "2024-04-18T04:00:00+00:00"
+        },
+        {
+          "equity": 96886.1369,
+          "timestamp": "2024-04-19T04:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.03126073,
+        "annualized_volatility": 0.01735585,
+        "final_equity": 96886.1369,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.03886057,
+        "periods": 251,
+        "sharpe": -1.82116109,
+        "total_return": -0.03113863,
+        "win_rate": 0.03187251
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.01249451,
+        "annualized_volatility": 0.01680179,
+        "final_equity": 98755.4766,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.02228369,
+        "periods": 251,
+        "sharpe": -0.73994752,
+        "total_return": -0.01244523,
+        "win_rate": 0.04780876
+      },
+      "periods": 251,
+      "start": "2023-04-20",
+      "turnover": {
+        "active_day_fraction": 0.11155378,
+        "active_days": 28,
+        "average_daily_one_way_notional": 0.15218537,
+        "total_one_way_notional": 38.19852863
+      },
+      "window_id": 9
+    },
+    {
+      "end": "2025-10-20",
+      "equity_curve_cost_adjusted_tail": [
+        {
+          "equity": 101831.1629,
+          "timestamp": "2025-10-13T04:00:00+00:00"
+        },
+        {
+          "equity": 101831.1629,
+          "timestamp": "2025-10-14T04:00:00+00:00"
+        },
+        {
+          "equity": 101651.0895,
+          "timestamp": "2025-10-15T04:00:00+00:00"
+        },
+        {
+          "equity": 101005.0094,
+          "timestamp": "2025-10-16T04:00:00+00:00"
+        },
+        {
+          "equity": 100954.5069,
+          "timestamp": "2025-10-17T04:00:00+00:00"
+        }
+      ],
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.00958328,
+        "annualized_volatility": 0.01774557,
+        "final_equity": 100954.5069,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.01128227,
+        "periods": 251,
+        "sharpe": 0.54628794,
+        "total_return": 0.00954507,
+        "win_rate": 0.04780876
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.02390827,
+        "annualized_volatility": 0.01794994,
+        "final_equity": 102381.2274,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.00761615,
+        "periods": 251,
+        "sharpe": 1.32523806,
+        "total_return": 0.02381227,
+        "win_rate": 0.05976096
+      },
+      "periods": 251,
+      "start": "2024-10-16",
+      "turnover": {
+        "active_day_fraction": 0.09163347,
+        "active_days": 23,
+        "average_daily_one_way_notional": 0.11185518,
+        "total_one_way_notional": 28.07564999
+      },
+      "window_id": 10
+    }
+  ],
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "TLT",
+    "GLD",
+    "HYG",
+    "LQD",
+    "XLU"
+  ]
+}

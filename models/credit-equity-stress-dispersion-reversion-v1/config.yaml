@@ -1,0 +1,29 @@
+name: credit-equity-stress-dispersion-reversion-v1
+issue_id: AR-044
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - HYG
+  - LQD
+  - XLU
+timeframe: 1Day
+data_source: Alpaca real market data via qfa; CSV disabled
+research_only: true
+no_daemon: true
+no_trades: true
+parameters:
+  lookback: 7
+  confirm_window: 2
+  vol_window: 20
+  min_periods: 45
+  entry_z: 1.05
+  exit_z: 0.20
+  vol_ceiling: 0.34
+  target_vol: 0.10
+  max_symbol_abs_weight: 0.28
+risk:
+  cost_haircut_bps_one_way: 5
+  gross_normalized_by_qfa: true

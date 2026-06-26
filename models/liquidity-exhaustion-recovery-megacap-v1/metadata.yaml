@@ -1,0 +1,23 @@
+issue_id: AR-046
+model_name: liquidity-exhaustion-recovery-megacap-v1
+status: research_watchlist_not_trade
+created_at: '2026-06-26T09:59:10Z'
+parent_alpha: AR-028
+family: liquidity_reversal
+hypothesis: Cross-sectional liquidity exhaustion breadth across mega-caps may predict short-horizon basket-level recovery after broad forced selling/buying pressure.
+data_source: Alpaca/qfa real market daily OHLCV only
+no_csv_used: true
+no_data_csv_used: true
+db_artifact_retained: false
+primary_qfa_run: evaluations/runs/qfa_realdata_2024-01-01_2025-12-31_primary.json
+latest_evaluation: evaluations/latest.json
+primary_pre_cost_sharpe: 0.84859942
+primary_cost_adjusted_sharpe: 0.80678607
+median_random_cost_adjusted_sharpe: 0.19746282
+orthogonality:
+  ar028_daily_return_correlation: 0.463762
+  spy_daily_return_correlation: 0.356519
+limitations:
+  - Daily OHLCV has no auction imbalance, order-book depth, or true forced-flow labels.
+  - Signal is sparse and several random windows are negative.
+  - Not trade-ready; no daemon run and no trades placed.

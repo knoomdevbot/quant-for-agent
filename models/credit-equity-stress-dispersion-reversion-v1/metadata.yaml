@@ -1,0 +1,28 @@
+issue_id: AR-044
+model_name: credit-equity-stress-dispersion-reversion-v1
+family: dispersion_convergence
+parent_alpha: AR-025
+created_by: Hermes Agent
+created_at: 2026-06-26
+hypothesis: >-
+  After large short-horizon dispersion between equity beta ETFs and
+  credit/defensive ETF proxies, liquid ETFs may mean-revert as stress premia
+  normalize; mechanism is cross-asset convergence rather than AR-025's
+  trend-following risk-on/risk-off switch.
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - HYG
+  - LQD
+  - XLU
+evaluation_contract:
+  data_source: Alpaca/qfa real OHLCV only
+  no_csv: true
+  no_data_csv_flag: true
+  alpaca_paper: true
+  temporary_db_only: true
+  daemon_used: false
+  trades_placed: false
