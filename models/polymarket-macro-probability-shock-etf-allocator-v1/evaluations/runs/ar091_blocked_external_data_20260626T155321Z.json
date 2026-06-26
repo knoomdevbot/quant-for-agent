@@ -1,0 +1,100 @@
+{
+  "alpha_id": "AR-091",
+  "model_name": "polymarket-macro-probability-shock-etf-allocator-v1",
+  "created_at_utc": "2026-06-26T15:53:21Z",
+  "status": "blocked",
+  "suggested_decision": "reject_or_keep_blocked_until_auditable_prediction_market_archive_exists",
+  "decision_reason": "The required Polymarket external signal could not be established with reproducible point-in-time macro market discovery/history discipline in this pass. Current API snapshots and token price histories are reachable, but selecting markets after the fact and replaying histories would introduce ex-post selection/lookahead risk. No fabricated proxy was used.",
+  "artifacts": {
+    "model_path": "/Users/moonk/quant-for-agent/models/polymarket-macro-probability-shock-etf-allocator-v1/model.py",
+    "config_path": "/Users/moonk/quant-for-agent/models/polymarket-macro-probability-shock-etf-allocator-v1/config.yaml",
+    "metadata_path": "/Users/moonk/quant-for-agent/models/polymarket-macro-probability-shock-etf-allocator-v1/metadata.yaml",
+    "README_path": "/Users/moonk/quant-for-agent/models/polymarket-macro-probability-shock-etf-allocator-v1/README.md",
+    "latest_json": "/Users/moonk/quant-for-agent/models/polymarket-macro-probability-shock-etf-allocator-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/polymarket-macro-probability-shock-etf-allocator-v1/evaluations/latest.md",
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/polymarket-macro-probability-shock-etf-allocator-v1/evaluations/runs/ar091_blocked_external_data_20260626T155321Z.json"
+  },
+  "universe": {
+    "candidate_pool": ["SPY", "QQQ", "IWM", "TLT", "IEF", "SHY", "GLD", "HYG", "LQD", "XLE", "XLU", "XLV", "XLF", "KRE", "ITA", "XLI", "XLP", "XLY", "FXI", "EEM", "USO", "UUP"],
+    "selected_symbols": ["SPY", "QQQ", "IWM", "TLT", "IEF", "SHY", "GLD", "HYG", "LQD", "XLE", "XLU", "XLV", "XLF", "KRE", "ITA", "XLI", "XLP", "XLY", "FXI", "EEM", "USO", "UUP"],
+    "selection_rationale": "Ex-ante macro/political event exposure pool across broad equity, growth, small caps, duration, credit, gold, energy, utilities, healthcare, financials/regional banks, defense/industrials, defensives, China/EM, oil, and USD sleeves. No performance-based filtering was run."
+  },
+  "data_source": {
+    "external_signal": {
+      "provider": "Polymarket public Gamma API and CLOB API",
+      "availability": "insufficient_for_committed_reproducible_point_in_time_signal",
+      "attempted_endpoints": [
+        "https://gamma-api.polymarket.com/markets?limit=3&active=true&closed=false",
+        "https://clob.polymarket.com/markets?next_cursor=",
+        "https://clob.polymarket.com/prices-history?market=<token_id>&interval=1w&fidelity=1440"
+      ],
+      "observed_endpoint_behavior": "Initial requests without browser User-Agent returned HTTP 403; with browser User-Agent, current snapshots and token-level price history returned JSON. This still did not establish point-in-time macro market discovery for historical backtesting.",
+      "timestamp_lag_convention_required": "Probability observation timestamp must be strictly before the ETF close used for the next rebalance; market IDs/token IDs/liquidity filters must be known as of that timestamp.",
+      "timestamp_lag_convention_implemented": false,
+      "raw_external_data_retained": false,
+      "derived_feature_rows_retained": 0
+    },
+    "market_data": {
+      "source": "Alpaca real market data only if qfa evaluation is run",
+      "qfa_run_attempted": false,
+      "reason_not_run": "No valid external prediction-market signal; fallback-only SHY smoke would not evaluate AR-091 hypothesis."
+    }
+  },
+  "random_period_protocol": {
+    "planned": "External-signal availability check, then qfa/Alpaca primary and 6-12 random windows using only lagged prediction-market features.",
+    "executed": false,
+    "reason_not_executed": "Blocked before market-price evaluation due to external-signal timestamp discipline failure.",
+    "random_windows": []
+  },
+  "costs": {
+    "one_way_turnover_cost_bps_assumption": 10,
+    "applied": false,
+    "reason_not_applied": "No backtest metrics; issue blocked on external data."
+  },
+  "metrics": {
+    "median_sharpe": null,
+    "p25_sharpe": null,
+    "worst_period_sharpe": null,
+    "annualized_return": null,
+    "annualized_volatility": null,
+    "max_drawdown": null,
+    "turnover": null,
+    "activation_rate": null,
+    "positive_window_rate": null,
+    "win_rate": null,
+    "unavailable_reason": "No qfa backtest was run because the required prediction-market signal was not reproducibly available with point-in-time market selection/history discipline."
+  },
+  "orthogonality": {
+    "status": "not_evaluated_due_to_blocked_external_data",
+    "libraries_checked": ["AR-003/015 ETF TSMOM", "AR-028/045 closing-volume reversal", "AR-037/049 defensive carry", "AR-051/063 stress/carry variants", "recent cross-asset ETF alphas"],
+    "rationale": "Conceptual driver is distinct from price-only ETF alphas, but no return stream exists for correlation/redundancy testing."
+  },
+  "qfa_run_ids": {
+    "primary": null,
+    "random_windows": [],
+    "temporary_db_deleted": true
+  },
+  "provenance": {
+    "no_csv_used": true,
+    "no_data_csv_argument_used": true,
+    "no_daemon": true,
+    "no_orders": true,
+    "raw_daily_paths_retained": false,
+    "raw_external_data_retained": false,
+    "db_artifact_retained": false,
+    "command_summary": "No qfa daemon, no orders, no --data-csv. Public Polymarket endpoints were probed without secrets; no raw API payloads were retained."
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "bad_result_policy": {
+    "if_rejected_no_refinement_or_direct_extension": true,
+    "refinement_child": null,
+    "divergent_child": {
+      "title": "treasury-options-implied-event-risk-etf-allocator",
+      "mechanism": "Different return driver/data input/model family: broker/exchange/official option-implied Treasury-rate event risk and volatility term structure mapped to duration/gold/equity sleeves, rather than prediction-market probabilities."
+    }
+  }
+}

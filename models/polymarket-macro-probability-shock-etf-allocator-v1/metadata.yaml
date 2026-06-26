@@ -1,0 +1,31 @@
+alpha_id: AR-091
+model_name: polymarket-macro-probability-shock-etf-allocator-v1
+family: prediction_market_macro_regime
+created_at_utc: '2026-06-26T15:53:21Z'
+status: blocked
+decision: blocked_external_data_timestamp_discipline
+hypothesis: Large moves in liquid prediction-market probabilities for macro/political outcomes can identify event-risk repricing that spills into equity, duration, gold, and sector ETFs.
+falsifier_triggered: unavailable reproducible external data/timestamp discipline
+artifacts:
+  model_path: models/polymarket-macro-probability-shock-etf-allocator-v1/model.py
+  config_path: models/polymarket-macro-probability-shock-etf-allocator-v1/config.yaml
+  evaluation_latest_json: models/polymarket-macro-probability-shock-etf-allocator-v1/evaluations/latest.json
+  evaluation_latest_md: models/polymarket-macro-probability-shock-etf-allocator-v1/evaluations/latest.md
+external_data:
+  provider: Polymarket public Gamma API and CLOB API
+  attempted_endpoints:
+    - https://gamma-api.polymarket.com/markets?limit=3&active=true&closed=false
+    - https://clob.polymarket.com/markets?next_cursor=
+    - https://clob.polymarket.com/prices-history?market=<token_id>&interval=1w&fidelity=1440
+  result: current snapshots and token history reachable with browser User-Agent, but no compact committed point-in-time macro market selection/history dataset established
+  raw_external_data_retained: false
+market_data:
+  source: Alpaca real market data required for any qfa market-price research
+  qfa_backtest_run: false
+  reason_not_run: no valid external prediction-market signal; fallback-only smoke would not evaluate hypothesis
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

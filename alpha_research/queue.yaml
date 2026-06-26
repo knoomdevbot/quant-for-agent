@@ -677,21 +677,21 @@ issues:
 - id: AR-091
   title: 'Prediction-market macro probability shock ETF allocator'
   model_name: polymarket-macro-probability-shock-etf-allocator-v1
-  status: queued
+  status: rejected
   priority: external_signal
   family: prediction_market_macro_regime
   issue_path: alpha_research/issues/AR-091.md
 - id: AR-092
   title: 'Crypto risk-appetite spillover Nasdaq and ETF rotation'
   model_name: crypto-risk-appetite-spillover-etf-rotation-v1
-  status: queued
+  status: rejected
   priority: external_signal
   family: crypto_crossasset_risk_appetite
   issue_path: alpha_research/issues/AR-092.md
 - id: AR-093
   title: 'Crypto stress-to-quality flight defensive ETF allocator'
   model_name: crypto-stress-quality-flight-defensive-etf-allocator-v1
-  status: queued
+  status: rejected
   priority: external_signal
   family: crypto_stress_defensive_allocator
   issue_path: alpha_research/issues/AR-093.md
@@ -743,14 +743,38 @@ issues:
   family: commodity_inflation_macro
   issue_path: alpha_research/issues/AR-099.md
   parent: AR-087
+- id: AR-100
+  title: 'Divergent from AR-091: Treasury options-implied event-risk ETF allocator'
+  model_name: treasury-options-event-risk-etf-allocator-v1
+  status: queued
+  priority: child
+  family: option_implied_event_risk
+  issue_path: alpha_research/issues/AR-100.md
+  parent: AR-091
+- id: AR-101
+  title: 'Divergent from AR-092: commodity inflation-shock cross-asset ETF rotation'
+  model_name: commodity-inflation-shock-crossasset-rotation-v1
+  status: queued
+  priority: child
+  family: commodity_macro_rotation
+  issue_path: alpha_research/issues/AR-101.md
+  parent: AR-092
+- id: AR-102
+  title: 'Divergent from AR-093: credit-spread compression breadth risk allocator'
+  model_name: credit-spread-compression-breadth-risk-allocator-v1
+  status: queued
+  priority: child
+  family: credit_breadth_regime
+  issue_path: alpha_research/issues/AR-102.md
+  parent: AR-093
 active_batch:
+- AR-094
+- AR-095
+- AR-096
+last_realdata_batch:
 - AR-091
 - AR-092
 - AR-093
-last_realdata_batch:
-- AR-088
-- AR-089
-- AR-090
-updated_at: '2026-06-26T15:40:16Z'
+updated_at: '2026-06-26T16:02:14Z'
 target_tried_ideas: 100
-tried_ideas_count: 81
+tried_ideas_count: 84
