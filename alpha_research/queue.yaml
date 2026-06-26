@@ -833,10 +833,16 @@ issues:
   priority: completed_realdata
   family: commodity_cross_sectional_skewness
   issue_path: alpha_research/issues/AR-111.md
+- id: AR-112
+  title: 'International country ETF relative-strength and currency-stress rotation'
+  model_name: country-etf-rs-currency-stress-rotation-v1
+  status: rejected
+  priority: completed_realdata
+  family: international_country_rotation
+  issue_path: alpha_research/issues/AR-112.md
 active_batch: []
 last_realdata_batch:
-- AR-110
-- AR-111
-updated_at: '2026-06-26T20:03:37Z'
+- AR-112
+updated_at: '2026-06-26T20:55:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 102
+tried_ideas_count: 103
