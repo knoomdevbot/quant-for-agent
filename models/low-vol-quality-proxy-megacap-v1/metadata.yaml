@@ -1,0 +1,43 @@
+issue_id: AR-010
+model_name: low-vol-quality-proxy-megacap-v1
+title: Low-volatility quality proxy within mega-cap equities
+family: defensive_factor
+status: watchlist
+created_at: '2026-06-26T06:35:44Z'
+parent_alpha: null
+hypothesis: Among large equities, lower realized volatility and smoother positive returns may proxy for quality/defensive demand and improve risk-adjusted returns.
+implementation: Long-only inverse-realized-volatility rank among mega-cap equities with positive 126-day momentum filter, top 6 names, max 20% per name.
+data:
+  source: Alpaca real market data via qfa/AlpacaGateway
+  no_data_csv: true
+  no_csv_fixtures: true
+  primary_period: 2024-01-01 to 2025-12-31
+metrics_pre_cost:
+  sharpe: 0.35445852
+  annualized_return: 0.03414158
+  annualized_volatility: 0.11257841
+  max_drawdown: -0.16939658
+  total_return: 0.06887907
+  win_rate: 0.362
+random_window_summary:
+  completed_windows: 30
+  median_sharpe: 0.08598409
+  positive_sharpe_fraction: 0.5
+  min_sharpe: -1.86587634
+costs:
+  applied_by_qfa: false
+  assumption_bps: 5
+orthogonality:
+  status: unavailable_no_comparable_equity_curves
+decision:
+  suggested: watchlist
+  rationale: Full-period Sharpe is positive but modest; median random-window Sharpe is positive and lower-tail windows are not catastrophic. Keep on watchlist pending cost-aware and parameter-stability validation.
+artifacts:
+  model: models/low-vol-quality-proxy-megacap-v1/model.py
+  config: models/low-vol-quality-proxy-megacap-v1/config.yaml
+  latest_json: models/low-vol-quality-proxy-megacap-v1/evaluations/latest.json
+  latest_markdown: models/low-vol-quality-proxy-megacap-v1/evaluations/latest.md
+  run_json: models/low-vol-quality-proxy-megacap-v1/evaluations/runs/qfa_real_alpaca_20260626T063544Z.json
+children:
+  refinement: AR-010-R1: Parameter-stability/cost-aware low-vol quality proxy sweep vol_window=[60,126,189], top_n=[4,6,8], momentum_filter=[true,false], with explicit turnover-cost haircut and monthly rebalance approximation.
+  divergent: AR-010-D1: Mega-cap defensive earnings-quality drift using post-earnings gap persistence plus balance-sheet/profitability proxies rather than realized-volatility ranks.

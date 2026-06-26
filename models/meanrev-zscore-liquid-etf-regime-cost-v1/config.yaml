@@ -1,0 +1,43 @@
+issue_id: AR-011
+model_name: meanrev-zscore-liquid-etf-regime-cost-v1
+family: mean_reversion
+parent_alpha: AR-002
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - SLV
+  - XLF
+  - XLK
+  - XLE
+  - XLV
+timeframe: 1Day
+initial_cash: 100000
+parameters:
+  return_lookback_days: 3
+  z_window: 60
+  entry_z: 1.5
+  vol_window: 20
+  trend_window: 126
+  market_trend_symbol: SPY
+  market_vol_cutoff_annualized: 0.28
+  asset_vol_cutoff_annualized: 0.45
+  max_abs_weight: 0.20
+position_sizing: inverse_realized_volatility_scaled_then_gross_normalized_with_concentration_cap
+regime_filters:
+  market: require SPY above 126-day SMA and SPY 20-day annualized realized vol <= 28%
+  asset: require 20-day annualized realized vol <= 45%; long oversold only above asset 126-day SMA; short overbought only below asset 126-day SMA
+costs:
+  intended_one_way_bps: 5
+  qfa_native_cost_support: false
+  evaluation_postprocess: turnover haircut in custom Alpaca-backed evaluator; qfa CLI metrics remain pre-cost
+random_window_protocol:
+  seed: 11011
+  count: 30
+  window_trading_days: 252
+  source_span: 2019-01-01 through 2025-12-31 using Alpaca real daily bars
+primary_window:
+  start: 2024-01-01
+  end: 2025-12-31

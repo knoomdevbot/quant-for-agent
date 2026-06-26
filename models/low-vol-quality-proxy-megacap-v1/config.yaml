@@ -1,0 +1,44 @@
+model_name: low-vol-quality-proxy-megacap-v1
+issue_id: AR-010
+family: defensive_factor
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+  - JNJ
+  - PG
+  - KO
+  - PEP
+  - WMT
+parameters:
+  vol_window: 126
+  momentum_window: 126
+  momentum_filter: true
+  top_n: 6
+  max_abs_weight: 0.20
+  min_symbols: 5
+  gross_exposure: 1.0
+rebalance_proxy: daily qfa signal recomputation; ranks change slowly from 126-day windows
+risk:
+  long_only: true
+  no_live_trading: true
+  no_qfa_daemon: true
+  no_order_placement: true
+evaluation:
+  latest_data_source: alpaca_real_market_data_no_data_csv
+  primary_period: 2024-01-01_to_2025-12-31
+  random_window_seed: 10010
+  random_windows: 30
+  latest_json: models/low-vol-quality-proxy-megacap-v1/evaluations/latest.json
+  latest_markdown: models/low-vol-quality-proxy-megacap-v1/evaluations/latest.md
+  run_json: models/low-vol-quality-proxy-megacap-v1/evaluations/runs/qfa_real_alpaca_20260626T063544Z.json
+  qfa_db_path_used: models/low-vol-quality-proxy-megacap-v1/evaluations/qfa_realdata.sqlite3
+  qfa_db_retained: false
+costs:
+  assumption_bps: 5
+  applied_by_qfa: false
+  caveat: current qfa backtest CLI has no cost/slippage parameter

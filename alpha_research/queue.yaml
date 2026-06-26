@@ -68,16 +68,16 @@ issues:
 - id: AR-010
   title: Low-volatility quality proxy within mega-cap equities
   model_name: low-vol-quality-proxy-megacap-v1
-  status: queued
-  priority: seed
+  status: watchlist
+  priority: completed_realdata
   family: defensive_factor
   issue_path: alpha_research/issues/AR-010.md
 - id: AR-013
   title: 'Refine AR-001: invert/cost-aware mega-cap momentum after negative real-data
     run'
   model_name: crosssec-antimom-or-filtered-megacap-daily-v1
-  status: queued
-  priority: child
+  status: cancelled_bad_parent
+  priority: pruned_bad_parent
   family: cross_sectional_momentum
   issue_path: alpha_research/issues/AR-013.md
   parent: AR-001
@@ -106,26 +106,26 @@ issues:
   issue_path: alpha_research/issues/AR-016.md
   parent: AR-003
 - id: AR-011
-  title: AR-011 child from AR-002
-  model_name: null
-  status: queued
-  priority: child
-  family: null
+  title: AR-002 refinement — cost-aware regime-filtered ETF mean reversion
+  model_name: meanrev-zscore-liquid-etf-regime-cost-v1
+  status: rejected
+  priority: completed_realdata
+  family: mean_reversion
   issue_path: alpha_research/issues/AR-011.md
   parent: AR-002
 - id: AR-012
-  title: AR-012 child from AR-002
-  model_name: null
-  status: queued
-  priority: child
-  family: null
+  title: AR-002 divergent — liquid ETF overnight gap reversal
+  model_name: overnight-gap-reversal-liquid-etf-v1
+  status: rejected
+  priority: completed_realdata
+  family: intraday_or_overnight_reversal
   issue_path: alpha_research/issues/AR-012.md
   parent: AR-002
 - id: AR-017
   title: 'Refine AR-004: regime-filtered volatility breakout continuation'
   model_name: vol-breakout-regime-filter-megacap-daily-v1
-  status: queued
-  priority: child
+  status: cancelled_bad_parent
+  priority: pruned_bad_parent
   family: volatility_breakout
   issue_path: alpha_research/issues/AR-017.md
   parent: AR-004
@@ -172,8 +172,8 @@ issues:
 - id: AR-023
   title: 'Refine AR-007: true open-to-close gap reversal evaluator'
   model_name: overnight-gap-openclose-evaluator-megacap-v1
-  status: queued
-  priority: child
+  status: cancelled_bad_parent
+  priority: pruned_bad_parent
   family: mean_reversion
   issue_path: alpha_research/issues/AR-023.md
   parent: AR-007
@@ -204,8 +204,8 @@ issues:
 - id: AR-027
   title: 'Refine AR-009: regime-filtered volume pressure continuation'
   model_name: volume-pressure-regime-filter-megacap-v1
-  status: queued
-  priority: child
+  status: cancelled_bad_parent
+  priority: pruned_bad_parent
   family: flow_momentum
   issue_path: alpha_research/issues/AR-027.md
   parent: AR-009
@@ -217,14 +217,54 @@ issues:
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-028.md
   parent: AR-009
+- id: AR-029
+  title: 'Refine AR-010: parameter-stable cost-aware low-vol quality proxy'
+  model_name: low-vol-quality-cost-stable-megacap-v1
+  status: queued
+  priority: child
+  family: defensive_factor
+  issue_path: alpha_research/issues/AR-029.md
+  parent: AR-010
+- id: AR-030
+  title: 'Divergent from AR-010: defensive earnings-quality drift in mega-caps'
+  model_name: defensive-earnings-quality-drift-megacap-v1
+  status: queued
+  priority: child
+  family: event_quality
+  issue_path: alpha_research/issues/AR-030.md
+  parent: AR-010
+- id: AR-031
+  title: 'Refine AR-011: long-only oversold ETF rebound with adaptive volatility cutoff'
+  model_name: longonly-oversold-etf-volcutoff-v1
+  status: queued
+  priority: child
+  family: mean_reversion
+  issue_path: alpha_research/issues/AR-031.md
+  parent: AR-011
+- id: AR-032
+  title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after macro shock days'
+  model_name: etf-dispersion-convergence-macroshock-v1
+  status: queued
+  priority: child
+  family: dispersion_convergence
+  issue_path: alpha_research/issues/AR-032.md
+  parent: AR-011
+- id: AR-034
+  title: 'Divergent from AR-012: liquid ETF overnight gap continuation on macro trend days'
+  model_name: etf-gap-continuation-macrotrend-v1
+  status: queued
+  priority: child
+  family: gap_continuation
+  issue_path: alpha_research/issues/AR-034.md
+  parent: AR-012
 active_batch:
+- AR-014
+- AR-015
+- AR-016
+last_realdata_batch:
 - AR-010
 - AR-011
 - AR-012
-last_realdata_batch:
-- AR-007
-- AR-008
-- AR-009
-updated_at: '2026-06-26T06:40:00Z'
+updated_at: '2026-06-26T06:47:06Z'
 target_tried_ideas: 100
-tried_ideas_count: 9
+tried_ideas_count: 12

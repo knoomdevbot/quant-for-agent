@@ -1,0 +1,18 @@
+issue_id: AR-011
+model_name: meanrev-zscore-liquid-etf-regime-cost-v1
+status: completed_real_data_evaluation
+created_at: '2026-06-26T00:00:00Z'
+completed_at: '2026-06-26T06:40:08Z'
+model_path: models/meanrev-zscore-liquid-etf-regime-cost-v1/model.py
+config_path: models/meanrev-zscore-liquid-etf-regime-cost-v1/config.yaml
+readme_path: models/meanrev-zscore-liquid-etf-regime-cost-v1/README.md
+latest_json_path: models/meanrev-zscore-liquid-etf-regime-cost-v1/evaluations/latest.json
+latest_md_path: models/meanrev-zscore-liquid-etf-regime-cost-v1/evaluations/latest.md
+immutable_run_json_path: models/meanrev-zscore-liquid-etf-regime-cost-v1/evaluations/runs/qfa_real_alpaca_ar011_20260626T064008Z.json
+data_source: Alpaca real market data via qfa CLI/direct AlpacaGateway; no CSV and no --data-csv
+daemon_used: false
+live_trading: false
+trades_placed: false
+qfa_db_artifact_retained: false
+suggested_decision: rejected
+summary: Regime-filtered, volatility-scaled refinement of AR-002 ETF 3-day z-score mean reversion failed after a 5 bps one-way turnover cost proxy; median random-window cost-adjusted Sharpe was negative.

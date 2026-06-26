@@ -1,0 +1,209 @@
+{
+  "artifacts": {
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/meanrev-zscore-liquid-etf-regime-cost-v1/evaluations/runs/qfa_real_alpaca_ar011_20260626T064008Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/meanrev-zscore-liquid-etf-regime-cost-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/meanrev-zscore-liquid-etf-regime-cost-v1/evaluations/latest.md"
+  },
+  "bad_result_policy": "rejected result: no refinement/extension research task should be created for this hypothesis",
+  "commands": {
+    "artifact_generation": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; QFA_AR011_DB_PATH=<temporary-sqlite-db> QFA_AR011_CLI_JSON=/tmp/qfa_ar011_cli_output.json /Users/moonk/quant-for-agent/.venv/bin/python /Users/moonk/quant-for-agent/models/meanrev-zscore-liquid-etf-regime-cost-v1/evaluate_ar011.py",
+    "qfa_primary_cli": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/meanrev-zscore-liquid-etf-regime-cost-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,SLV,XLF,XLK,XLE,XLV --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>"
+  },
+  "costs_slippage": {
+    "assumption_one_way_bps": 5.0,
+    "external_cost_postprocess_applied": true,
+    "method": "daily target-weight turnover haircut: cost_return = gross_return - sum(abs(delta_weight))*0.0005",
+    "qfa_cli_costs_applied": false
+  },
+  "created_at": "2026-06-26T06:40:08Z",
+  "daemon_used": false,
+  "data_source": "Alpaca real daily market data via qfa CLI and qfa AlpacaGateway; no CSV; no --data-csv",
+  "date_ranges": {
+    "full_data": {
+      "end": "2025-12-31",
+      "start": "2019-01-01"
+    },
+    "primary": {
+      "end": "2025-12-31",
+      "start": "2024-01-01"
+    }
+  },
+  "decision_reason": "Median random-window Sharpe after 5 bps one-way turnover cost is <= 0, failing AR-011 falsifier.",
+  "divergent_child_idea": {
+    "hypothesis": "Trade sector/asset-class ETF residual dispersion convergence after large SPY/TLT/GLD disagreement days instead of time-series z-score reversal.",
+    "id": "AR-011-D1",
+    "policy_note": "Allowed only as a genuinely different mechanism; not a continuation of the failed AR-011 hypothesis.",
+    "title": "Cross-sectional ETF dispersion convergence after macro shock days"
+  },
+  "evaluation_status": "completed_real_data_backtest",
+  "issue_id": "AR-011",
+  "metrics": {
+    "primary_external_cost_adjusted_5bps_one_way": {
+      "annualized_return": -0.02766762,
+      "annualized_volatility": 0.06996248,
+      "final_equity": 94585.1406,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.14324186,
+      "periods": 500,
+      "sharpe": -0.36602343,
+      "total_return": -0.05414859,
+      "win_rate": 0.094
+    },
+    "primary_qfa_pre_cost": {
+      "annualized_return": 0.00958986,
+      "annualized_volatility": 0.06966445,
+      "final_equity": 101911.7283,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.11490466,
+      "periods": 500,
+      "sharpe": 0.17181857,
+      "total_return": 0.01911728,
+      "win_rate": 0.104
+    },
+    "primary_turnover": {
+      "active_day_fraction": 0.21,
+      "active_days": 105,
+      "average_daily_one_way_notional": 0.29823456,
+      "total_one_way_notional": 149.11727829
+    },
+    "random_windows_summary": {
+      "metrics_cost_adjusted": {
+        "annualized_return": {
+          "max": 0.07773137,
+          "mean": -0.00897989,
+          "median": -0.00464566,
+          "min": -0.10063995
+        },
+        "annualized_volatility": {
+          "max": 0.0928687,
+          "mean": 0.05863987,
+          "median": 0.056175,
+          "min": 0.02286928
+        },
+        "max_drawdown": {
+          "max": -0.0005,
+          "mean": -0.05843375,
+          "median": -0.06777121,
+          "min": -0.11660124
+        },
+        "periods": {
+          "max": 251.0,
+          "mean": 251.0,
+          "median": 251.0,
+          "min": 251.0
+        },
+        "sharpe": {
+          "max": 1.45351348,
+          "mean": -0.08325446,
+          "median": -0.04342475,
+          "min": -1.66405484
+        },
+        "total_return": {
+          "max": 0.07741127,
+          "mean": -0.00894863,
+          "median": -0.00462728,
+          "min": -0.10026131
+        },
+        "win_rate": {
+          "max": 0.09960159,
+          "mean": 0.05670651,
+          "median": 0.05776892,
+          "min": 0.01195219
+        }
+      },
+      "metrics_pre_cost": {
+        "annualized_return": {
+          "max": 0.10474121,
+          "mean": 0.01172254,
+          "median": 0.02036392,
+          "min": -0.07493947
+        },
+        "annualized_volatility": {
+          "max": 0.09332568,
+          "mean": 0.05860213,
+          "median": 0.05551564,
+          "min": 0.02360203
+        },
+        "max_drawdown": {
+          "max": 0.0,
+          "mean": -0.05119186,
+          "median": -0.05943193,
+          "min": -0.09520585
+        },
+        "periods": {
+          "max": 251.0,
+          "mean": 251.0,
+          "median": 251.0,
+          "min": 251.0
+        },
+        "sharpe": {
+          "max": 1.53600173,
+          "mean": 0.25460072,
+          "median": 0.37858426,
+          "min": -1.18422771
+        },
+        "total_return": {
+          "max": 0.10430461,
+          "mean": 0.01167139,
+          "median": 0.02028227,
+          "min": -0.07465348
+        },
+        "win_rate": {
+          "max": 0.10358566,
+          "mean": 0.05909694,
+          "median": 0.06573705,
+          "min": 0.01195219
+        }
+      },
+      "turnover": {
+        "mean_average_daily_one_way_notional": 0.16392747,
+        "median_active_day_fraction": 0.13944223,
+        "median_average_daily_one_way_notional": 0.19704842
+      }
+    },
+    "spy_benchmark_primary": {
+      "annualized_return": 0.20742841,
+      "annualized_volatility": 0.16387465,
+      "final_equity": 145352.7981,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.18998907,
+      "periods": 500,
+      "sharpe": 1.23183863,
+      "total_return": 0.45352798,
+      "win_rate": 0.58
+    }
+  },
+  "model_name": "meanrev-zscore-liquid-etf-regime-cost-v1",
+  "no_csv_used": true,
+  "orthogonality": {
+    "reason": "No canonical accepted-alpha return stream or orthogonality harness exists in this repository for AR-011 comparison.",
+    "status": "unavailable"
+  },
+  "qfa_db": {
+    "db_artifact_retained": false,
+    "db_path_used_during_run": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/qfa_ar011_XXXXXX.sqlite.8jvzquJMOF",
+    "db_retention_note": "Temporary SQLite DB was used during qfa execution but intentionally not retained; compact JSON/Markdown summaries are retained."
+  },
+  "qfa_run_ids": {
+    "cli_primary": 1,
+    "direct_engine_primary": "direct_python_qfa_engine_no_store"
+  },
+  "suggested_decision": "rejected",
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "TLT",
+    "GLD",
+    "SLV",
+    "XLF",
+    "XLK",
+    "XLE",
+    "XLV"
+  ],
+  "trades_placed": false,
+  "warnings": [
+    "qfa CLI metrics are pre-cost; 5 bps one-way costs are applied externally.",
+    "Evaluation is close-to-close on daily bars and excludes bid/ask spread dynamics, market impact, borrow/short availability, and intraday fill timing."
+  ]
+}

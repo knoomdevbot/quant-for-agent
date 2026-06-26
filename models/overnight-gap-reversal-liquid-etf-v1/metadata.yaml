@@ -1,0 +1,18 @@
+id: AR-012
+model_name: overnight-gap-reversal-liquid-etf-v1
+title: AR-002 divergent — liquid ETF overnight gap reversal
+type: divergent_child
+parent_alpha: AR-002
+status: researched
+decision: rejected
+created_at: 2026-06-26T05:46:38Z
+researched_at: 2026-06-26T06:34:00Z
+updated_at: 2026-06-26T06:47:06Z
+researcher: hermes-agent-subagent
+repository_branch: research/seed-alpha-ideas
+model_path: models/overnight-gap-reversal-liquid-etf-v1/model.py
+artifact_paths:
+  config: models/overnight-gap-reversal-liquid-etf-v1/config.yaml
+  latest_json: models/overnight-gap-reversal-liquid-etf-v1/evaluations/latest.json
+  latest_md: models/overnight-gap-reversal-liquid-etf-v1/evaluations/latest.md
+hypothesis: Large overnight gaps in liquid ETFs may mean-revert during the following regular session as opening imbalances are absorbed.
