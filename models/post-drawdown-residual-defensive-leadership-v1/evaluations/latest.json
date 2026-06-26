@@ -1,0 +1,803 @@
+{
+  "attribution": {
+    "defensive_only_10bps": {
+      "annualized_return": 0.00574706,
+      "annualized_volatility": 0.05567095,
+      "max_drawdown": -0.10784222,
+      "periods": 1480,
+      "sharpe": 0.13078569,
+      "total_return": 0.03422875,
+      "win_rate": 0.07702703
+    },
+    "full_score_correlations": {
+      "median_spearman_to_defensive_score": 0.17198655,
+      "median_spearman_to_residual_score": 0.97431027
+    },
+    "residual_only_10bps": {
+      "annualized_return": -0.01244232,
+      "annualized_volatility": 0.07260992,
+      "max_drawdown": -0.20604889,
+      "periods": 1480,
+      "sharpe": -0.13569709,
+      "total_return": -0.07089394,
+      "win_rate": 0.08040541
+    }
+  },
+  "candidate_universe": {
+    "coverage": {
+      "min_daily_bars": 1479,
+      "missing_or_short_symbols": [],
+      "requested_symbols": 131,
+      "sector_etf_proxies": [
+        "XLB",
+        "XLC",
+        "XLE",
+        "XLF",
+        "XLI",
+        "XLK",
+        "XLP",
+        "XLRE",
+        "XLU",
+        "XLV",
+        "XLY"
+      ],
+      "single_names": 119
+    },
+    "selection": "fixed ex ante broad liquid US large-cap single names plus SPY and sector ETF proxies; no return-ranked selection",
+    "symbols": [
+      "AAPL",
+      "ABBV",
+      "ABT",
+      "ACN",
+      "ADBE",
+      "ADP",
+      "AEP",
+      "AMAT",
+      "AMD",
+      "AMGN",
+      "AMT",
+      "AMZN",
+      "APD",
+      "AVGO",
+      "AXP",
+      "BA",
+      "BAC",
+      "BKNG",
+      "BLK",
+      "BMY",
+      "BRK.B",
+      "C",
+      "CAT",
+      "CB",
+      "CL",
+      "CMCSA",
+      "CMG",
+      "COP",
+      "COST",
+      "CRM",
+      "CSCO",
+      "CVS",
+      "CVX",
+      "D",
+      "DD",
+      "DE",
+      "DHR",
+      "DIS",
+      "DOW",
+      "DUK",
+      "ECL",
+      "EOG",
+      "EQIX",
+      "ETN",
+      "EXC",
+      "F",
+      "FCX",
+      "GE",
+      "GILD",
+      "GM",
+      "GOOG",
+      "GOOGL",
+      "GS",
+      "HD",
+      "HON",
+      "IBM",
+      "INTC",
+      "INTU",
+      "ISRG",
+      "JNJ",
+      "JPM",
+      "KO",
+      "LIN",
+      "LLY",
+      "LMT",
+      "LOW",
+      "LRCX",
+      "MA",
+      "MCD",
+      "MDLZ",
+      "MDT",
+      "META",
+      "MO",
+      "MPC",
+      "MRK",
+      "MS",
+      "MSFT",
+      "MU",
+      "NEE",
+      "NEM",
+      "NFLX",
+      "NKE",
+      "NOW",
+      "NVDA",
+      "O",
+      "ORCL",
+      "OXY",
+      "PEP",
+      "PFE",
+      "PG",
+      "PGR",
+      "PLD",
+      "PM",
+      "PSX",
+      "QCOM",
+      "RTX",
+      "SBUX",
+      "SCHW",
+      "SHW",
+      "SLB",
+      "SO",
+      "SPG",
+      "SRE",
+      "T",
+      "TGT",
+      "TJX",
+      "TMO",
+      "TMUS",
+      "TSLA",
+      "TXN",
+      "UNH",
+      "UNP",
+      "UPS",
+      "V",
+      "VZ",
+      "WELL",
+      "WFC",
+      "WMT",
+      "XOM",
+      "SPY",
+      "XLB",
+      "XLC",
+      "XLE",
+      "XLF",
+      "XLI",
+      "XLK",
+      "XLP",
+      "XLRE",
+      "XLU",
+      "XLV",
+      "XLY"
+    ]
+  },
+  "costs": {
+    "bps": [
+      5,
+      10,
+      20
+    ],
+    "method": "subtract daily one-way turnover * bps/10000 from portfolio returns"
+  },
+  "created_at_utc": "2026-06-26T17:49:03Z",
+  "data_controls": {
+    "credential_values_stored": false,
+    "end": "2026-06-20",
+    "no_csv_used": true,
+    "no_daemon": true,
+    "no_data_csv_argument_used": true,
+    "no_orders": true,
+    "raw_bars_retained": false,
+    "source": "qfa/Alpaca real market data",
+    "start": "2019-01-01",
+    "timeframe": "1Day"
+  },
+  "decision": "rejected",
+  "evaluation_type": "compact_real_data_qfa_alpaca_random_window_evaluation",
+  "falsifier_flags": {
+    "max_corr_le_0_50": true,
+    "median_sharpe_10bps_positive": false,
+    "p25_sharpe_10bps_nonnegative": false,
+    "primary_20bps_sharpe_positive": false,
+    "residual_attribution_dominant": true
+  },
+  "issue_id": "AR-107",
+  "model_name": "post-drawdown-residual-defensive-leadership-v1",
+  "orthogonality_checks": {
+    "max_abs_available_correlation": 0.37785436,
+    "proxy_daily_return_correlations_10bps": {
+      "SPY": 0.37785436,
+      "XLB": 0.24430719,
+      "XLC": 0.29961428,
+      "XLE": 0.18692373,
+      "XLF": 0.35482025,
+      "XLI": 0.34923982,
+      "XLK": 0.23070109,
+      "XLP": 0.31189084,
+      "XLRE": 0.33245769,
+      "XLU": 0.19514211,
+      "XLV": 0.34887185,
+      "XLY": 0.21571545
+    },
+    "retained_alpha_artifact_correlations": [
+      {
+        "alpha": "AR-029",
+        "artifact": "models/low-vol-quality-proxy-megacap-v1/evaluations/latest.json",
+        "status": "unavailable_no_retained_curve"
+      },
+      {
+        "alpha": "AR-063",
+        "artifact": "models/macro-surprise-drawdown-etf-allocator-v1/evaluations/latest.json",
+        "status": "unavailable_no_retained_curve"
+      },
+      {
+        "alpha": "AR-072",
+        "artifact": "models/macro-drawdown-beta-redundancy-constrained-v1/evaluations/latest.json",
+        "status": "unavailable_no_retained_curve"
+      },
+      {
+        "alpha": "AR-105",
+        "artifact": "models/residualized-macro-stress-relief-allocator-v1/evaluations/latest.json",
+        "status": "unavailable_no_retained_curve"
+      }
+    ]
+  },
+  "paths": {
+    "config": "/Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/config.yaml",
+    "latest_json": "/Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/evaluations/latest.md",
+    "metadata": "/Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/metadata.yaml",
+    "model": "/Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/model.py",
+    "readme": "/Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/README.md",
+    "run_json": "/Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/evaluations/runs/ar107_qfa_alpaca_real_20260626T174903Z.json"
+  },
+  "primary": {
+    "activation": 0.14864865,
+    "annualized_turnover": 8.09687298,
+    "cost_adjusted": {
+      "10bps": {
+        "annualized_return": -0.00448282,
+        "annualized_volatility": 0.059893,
+        "max_drawdown": -0.12879694,
+        "periods": 1480,
+        "sharpe": -0.04494087,
+        "total_return": -0.02604177,
+        "win_rate": 0.07972973
+      },
+      "20bps": {
+        "annualized_return": -0.01251329,
+        "annualized_volatility": 0.05992528,
+        "max_drawdown": -0.14184688,
+        "periods": 1480,
+        "sharpe": -0.18003282,
+        "total_return": -0.071286,
+        "win_rate": 0.07905405
+      },
+      "5bps": {
+        "annualized_return": -0.00044592,
+        "annualized_volatility": 0.0599219,
+        "max_drawdown": -0.12414002,
+        "periods": 1480,
+        "sharpe": 0.02264268,
+        "total_return": -0.00261607,
+        "win_rate": 0.07972973
+      }
+    },
+    "end": "2026-06-18",
+    "mean_daily_turnover": 0.03213045,
+    "pre_cost": {
+      "annualized_return": 0.00360548,
+      "annualized_volatility": 0.05998079,
+      "max_drawdown": -0.12050198,
+      "periods": 1480,
+      "sharpe": 0.09011601,
+      "total_return": 0.02136192,
+      "win_rate": 0.08040541
+    },
+    "sector_concentration": {
+      "max_sector_weight": 0.28402783,
+      "mean_max_sector_weight": 0.03512372
+    },
+    "start": "2020-01-01"
+  },
+  "qfa_smoke": {
+    "attempted": true,
+    "metrics": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "final_equity": 100000.0,
+      "initial_cash": 100000.0,
+      "max_drawdown": 0.0,
+      "periods": 60,
+      "sharpe": 0.0,
+      "total_return": 0.0,
+      "win_rate": 0.0
+    },
+    "status": "ok"
+  },
+  "random_period_protocol": {
+    "method": "12 deterministic random/stabilized-drawdown windows on Alpaca daily bars; weekly rebalance; external one-way turnover costs at 5/10/20 bps",
+    "runs": [
+      {
+        "activation": 0.45179063,
+        "annualized_turnover": 23.36676147,
+        "end": "2023-03-10",
+        "metrics_10bps": {
+          "annualized_return": -0.03054755,
+          "annualized_volatility": 0.10663531,
+          "max_drawdown": -0.12879694,
+          "periods": 363,
+          "sharpe": -0.23766998,
+          "total_return": -0.04370527,
+          "win_rate": 0.22865014
+        },
+        "metrics_20bps": {
+          "annualized_return": -0.05295978,
+          "annualized_volatility": 0.10681031,
+          "max_drawdown": -0.14184688,
+          "periods": 363,
+          "sharpe": -0.45604938,
+          "total_return": -0.07538853,
+          "win_rate": 0.22865014
+        },
+        "metrics_5bps": {
+          "annualized_return": -0.01915133,
+          "annualized_volatility": 0.10661687,
+          "max_drawdown": -0.12414002,
+          "periods": 363,
+          "sharpe": -0.12812824,
+          "total_return": -0.02747026,
+          "win_rate": 0.22865014
+        },
+        "name": "random_or_post_drawdown_01",
+        "sector_concentration": {
+          "max_sector_weight": 0.28402783,
+          "mean_max_sector_weight": 0.10973707
+        },
+        "start": "2021-09-28"
+      },
+      {
+        "activation": 0.41666667,
+        "annualized_turnover": 25.19550848,
+        "end": "2022-10-03",
+        "metrics_10bps": {
+          "annualized_return": -0.21348069,
+          "annualized_volatility": 0.12032392,
+          "max_drawdown": -0.11042721,
+          "periods": 120,
+          "sharpe": -1.93476865,
+          "total_return": -0.10805556,
+          "win_rate": 0.19166667
+        },
+        "metrics_20bps": {
+          "annualized_return": -0.23313835,
+          "annualized_volatility": 0.12106065,
+          "max_drawdown": -0.11293627,
+          "periods": 120,
+          "sharpe": -2.13111737,
+          "total_return": -0.11874145,
+          "win_rate": 0.19166667
+        },
+        "metrics_5bps": {
+          "annualized_return": -0.20347109,
+          "annualized_volatility": 0.12002316,
+          "max_drawdown": -0.10917091,
+          "periods": 120,
+          "sharpe": -1.83465593,
+          "total_return": -0.10266808,
+          "win_rate": 0.19166667
+        },
+        "name": "random_or_post_drawdown_02",
+        "sector_concentration": {
+          "max_sector_weight": 0.26688348,
+          "mean_max_sector_weight": 0.1029694
+        },
+        "start": "2022-04-08"
+      },
+      {
+        "activation": 0.46473029,
+        "annualized_turnover": 22.24328198,
+        "end": "2023-07-12",
+        "metrics_10bps": {
+          "annualized_return": 0.12011045,
+          "annualized_volatility": 0.1078172,
+          "max_drawdown": -0.07460365,
+          "periods": 241,
+          "sharpe": 1.10590036,
+          "total_return": 0.11457827,
+          "win_rate": 0.26141079
+        },
+        "metrics_20bps": {
+          "annualized_return": 0.09546223,
+          "annualized_volatility": 0.10797,
+          "max_drawdown": -0.08024627,
+          "periods": 241,
+          "sharpe": 0.89832176,
+          "total_return": 0.09111104,
+          "win_rate": 0.25726141
+        },
+        "metrics_5bps": {
+          "annualized_return": 0.13263314,
+          "annualized_volatility": 0.10780471,
+          "max_drawdown": -0.0717716,
+          "periods": 241,
+          "sharpe": 1.20919325,
+          "total_return": 0.12649229,
+          "win_rate": 0.26141079
+        },
+        "name": "random_or_post_drawdown_03",
+        "sector_concentration": {
+          "max_sector_weight": 0.28402783,
+          "mean_max_sector_weight": 0.11432735
+        },
+        "start": "2022-07-25"
+      },
+      {
+        "activation": 0.33195021,
+        "annualized_turnover": 15.97329046,
+        "end": "2023-10-06",
+        "metrics_10bps": {
+          "annualized_return": 0.11496937,
+          "annualized_volatility": 0.08385002,
+          "max_drawdown": -0.07460365,
+          "periods": 241,
+          "sharpe": 1.33973176,
+          "total_return": 0.1096854,
+          "win_rate": 0.19087137
+        },
+        "metrics_20bps": {
+          "annualized_return": 0.09731742,
+          "annualized_volatility": 0.08374557,
+          "max_drawdown": -0.08024627,
+          "periods": 241,
+          "sharpe": 1.1506668,
+          "total_return": 0.09287814,
+          "win_rate": 0.18672199
+        },
+        "metrics_5bps": {
+          "annualized_return": 0.12389543,
+          "annualized_volatility": 0.08396296,
+          "max_drawdown": -0.0717716,
+          "periods": 241,
+          "sharpe": 1.43305074,
+          "total_return": 0.1181799,
+          "win_rate": 0.19087137
+        },
+        "name": "random_or_post_drawdown_04",
+        "sector_concentration": {
+          "max_sector_weight": 0.28402783,
+          "mean_max_sector_weight": 0.08049621
+        },
+        "start": "2022-10-19"
+      },
+      {
+        "activation": 0.38655462,
+        "annualized_turnover": 22.37725714,
+        "end": "2023-06-08",
+        "metrics_10bps": {
+          "annualized_return": -0.07860832,
+          "annualized_volatility": 0.07992509,
+          "max_drawdown": -0.07460365,
+          "periods": 119,
+          "sharpe": -0.98443421,
+          "total_return": -0.03792307,
+          "win_rate": 0.19327731
+        },
+        "metrics_20bps": {
+          "annualized_return": -0.09902245,
+          "annualized_volatility": 0.08015749,
+          "max_drawdown": -0.08024627,
+          "periods": 119,
+          "sharpe": -1.26074625,
+          "total_return": -0.04804827,
+          "win_rate": 0.18487395
+        },
+        "metrics_5bps": {
+          "annualized_return": -0.06823618,
+          "annualized_volatility": 0.0799038,
+          "max_drawdown": -0.0717716,
+          "periods": 119,
+          "sharpe": -0.84467031,
+          "total_return": -0.03282394,
+          "win_rate": 0.19327731
+        },
+        "name": "random_or_post_drawdown_05",
+        "sector_concentration": {
+          "max_sector_weight": 0.26227078,
+          "mean_max_sector_weight": 0.09267536
+        },
+        "start": "2022-12-14"
+      },
+      {
+        "activation": 0.10788382,
+        "annualized_turnover": 7.46759029,
+        "end": "2024-03-05",
+        "metrics_10bps": {
+          "annualized_return": 0.03886673,
+          "annualized_volatility": 0.03871083,
+          "max_drawdown": -0.04779304,
+          "periods": 241,
+          "sharpe": 1.00431601,
+          "total_return": 0.03713905,
+          "win_rate": 0.07053942
+        },
+        "metrics_20bps": {
+          "annualized_return": 0.03114475,
+          "annualized_volatility": 0.03855792,
+          "max_drawdown": -0.05067249,
+          "periods": 241,
+          "sharpe": 0.81462675,
+          "total_return": 0.02976523,
+          "win_rate": 0.06639004
+        },
+        "metrics_5bps": {
+          "annualized_return": 0.04274682,
+          "annualized_volatility": 0.03884857,
+          "max_drawdown": -0.04688548,
+          "periods": 241,
+          "sharpe": 1.0968667,
+          "total_return": 0.0408433,
+          "win_rate": 0.07053942
+        },
+        "name": "random_or_post_drawdown_06",
+        "sector_concentration": {
+          "max_sector_weight": 0.26472258,
+          "mean_max_sector_weight": 0.02470187
+        },
+        "start": "2023-03-17"
+      },
+      {
+        "activation": 0.54771784,
+        "annualized_turnover": 26.33030086,
+        "end": "2023-01-24",
+        "metrics_10bps": {
+          "annualized_return": 0.01626429,
+          "annualized_volatility": 0.12467078,
+          "max_drawdown": -0.12802388,
+          "periods": 241,
+          "sharpe": 0.19157329,
+          "total_return": 0.01554885,
+          "win_rate": 0.29045643
+        },
+        "metrics_20bps": {
+          "annualized_return": -0.01017171,
+          "annualized_volatility": 0.12488481,
+          "max_drawdown": -0.13944898,
+          "periods": 241,
+          "sharpe": -0.01959173,
+          "total_return": -0.00972987,
+          "win_rate": 0.29045643
+        },
+        "metrics_5bps": {
+          "annualized_return": 0.02973678,
+          "annualized_volatility": 0.1246264,
+          "max_drawdown": -0.12414002,
+          "periods": 241,
+          "sharpe": 0.29727843,
+          "total_return": 0.02842048,
+          "win_rate": 0.29045643
+        },
+        "name": "random_or_post_drawdown_07",
+        "sector_concentration": {
+          "max_sector_weight": 0.28402783,
+          "mean_max_sector_weight": 0.13180836
+        },
+        "start": "2022-02-04"
+      },
+      {
+        "activation": 0.16574586,
+        "annualized_turnover": 9.60396523,
+        "end": "2025-10-02",
+        "metrics_10bps": {
+          "annualized_return": -0.03585748,
+          "annualized_volatility": 0.06961946,
+          "max_drawdown": -0.06905563,
+          "periods": 181,
+          "sharpe": -0.48903504,
+          "total_return": -0.02588691,
+          "win_rate": 0.08839779
+        },
+        "metrics_20bps": {
+          "annualized_return": -0.04506023,
+          "annualized_volatility": 0.0694046,
+          "max_drawdown": -0.07130401,
+          "periods": 181,
+          "sharpe": -0.62892545,
+          "total_return": -0.03257419,
+          "win_rate": 0.08839779
+        },
+        "metrics_5bps": {
+          "annualized_return": -0.031226,
+          "annualized_volatility": 0.0697709,
+          "max_drawdown": -0.06793011,
+          "periods": 181,
+          "sharpe": -0.41914857,
+          "total_return": -0.0225282,
+          "win_rate": 0.08839779
+        },
+        "name": "random_or_post_drawdown_08",
+        "sector_concentration": {
+          "max_sector_weight": 0.27974944,
+          "mean_max_sector_weight": 0.03409427
+        },
+        "start": "2025-01-10"
+      },
+      {
+        "activation": 0.16666667,
+        "annualized_turnover": 9.65732059,
+        "end": "2025-06-13",
+        "metrics_10bps": {
+          "annualized_return": -0.03605305,
+          "annualized_volatility": 0.06981347,
+          "max_drawdown": -0.06905563,
+          "periods": 180,
+          "sharpe": -0.49038532,
+          "total_return": -0.02588691,
+          "win_rate": 0.08888889
+        },
+        "metrics_20bps": {
+          "annualized_return": -0.0453048,
+          "annualized_volatility": 0.06959789,
+          "max_drawdown": -0.07130401,
+          "periods": 180,
+          "sharpe": -0.63066308,
+          "total_return": -0.03257419,
+          "win_rate": 0.08888889
+        },
+        "metrics_5bps": {
+          "annualized_return": -0.03139673,
+          "annualized_volatility": 0.06996538,
+          "max_drawdown": -0.06793011,
+          "periods": 180,
+          "sharpe": -0.42030559,
+          "total_return": -0.0225282,
+          "win_rate": 0.08888889
+        },
+        "name": "random_or_post_drawdown_09",
+        "sector_concentration": {
+          "max_sector_weight": 0.27974944,
+          "mean_max_sector_weight": 0.03428368
+        },
+        "start": "2024-09-23"
+      },
+      {
+        "activation": 0.07222222,
+        "annualized_turnover": 4.83606378,
+        "end": "2026-01-20",
+        "metrics_10bps": {
+          "annualized_return": 0.03682415,
+          "annualized_volatility": 0.02628141,
+          "max_drawdown": -0.00240354,
+          "periods": 180,
+          "sharpe": 1.38912491,
+          "total_return": 0.02616674,
+          "win_rate": 0.05
+        },
+        "metrics_20bps": {
+          "annualized_return": 0.03180525,
+          "annualized_volatility": 0.0269127,
+          "max_drawdown": -0.00327471,
+          "periods": 180,
+          "sharpe": 1.17684579,
+          "total_return": 0.0226162,
+          "win_rate": 0.05
+        },
+        "metrics_5bps": {
+          "annualized_return": 0.03934109,
+          "annualized_volatility": 0.02602023,
+          "max_drawdown": -0.00205752,
+          "periods": 180,
+          "sharpe": 1.49599767,
+          "total_return": 0.02794545,
+          "win_rate": 0.05
+        },
+        "name": "random_or_post_drawdown_10",
+        "sector_concentration": {
+          "max_sector_weight": 0.19822026,
+          "mean_max_sector_weight": 0.01397509
+        },
+        "start": "2025-04-30"
+      },
+      {
+        "activation": 0.08287293,
+        "annualized_turnover": 6.19403345,
+        "end": "2024-03-22",
+        "metrics_10bps": {
+          "annualized_return": -0.01883108,
+          "annualized_volatility": 0.0328784,
+          "max_drawdown": -0.04779304,
+          "periods": 181,
+          "sharpe": -0.56184047,
+          "total_return": -0.01356167,
+          "win_rate": 0.03867403
+        },
+        "metrics_20bps": {
+          "annualized_return": -0.02488891,
+          "annualized_volatility": 0.03283251,
+          "max_drawdown": -0.04960686,
+          "periods": 181,
+          "sharpe": -0.75128121,
+          "total_return": -0.01793991,
+          "win_rate": 0.03867403
+        },
+        "metrics_5bps": {
+          "annualized_return": -0.01579014,
+          "annualized_volatility": 0.03296384,
+          "max_drawdown": -0.04688548,
+          "periods": 181,
+          "sharpe": -0.4664323,
+          "total_return": -0.01136673,
+          "win_rate": 0.03867403
+        },
+        "name": "random_or_post_drawdown_11",
+        "sector_concentration": {
+          "max_sector_weight": 0.26472258,
+          "mean_max_sector_weight": 0.01767824
+        },
+        "start": "2023-07-03"
+      },
+      {
+        "activation": 0.02793296,
+        "annualized_turnover": 2.67486034,
+        "end": "2024-09-04",
+        "metrics_10bps": {
+          "annualized_return": 0.0230563,
+          "annualized_volatility": 0.0111984,
+          "max_drawdown": -0.00095,
+          "periods": 179,
+          "sharpe": 2.04115166,
+          "total_return": 0.01632314,
+          "win_rate": 0.02793296
+        },
+        "metrics_20bps": {
+          "annualized_return": 0.0203316,
+          "annualized_volatility": 0.01046858,
+          "max_drawdown": -0.0019,
+          "periods": 179,
+          "sharpe": 1.92793772,
+          "total_return": 0.01439973,
+          "win_rate": 0.02793296
+        },
+        "metrics_5bps": {
+          "annualized_return": 0.02442041,
+          "annualized_volatility": 0.01162781,
+          "max_drawdown": -0.000475,
+          "periods": 179,
+          "sharpe": 2.08079421,
+          "total_return": 0.01728552,
+          "win_rate": 0.02793296
+        },
+        "name": "random_or_post_drawdown_12",
+        "sector_concentration": {
+          "max_sector_weight": 0.24225624,
+          "mean_max_sector_weight": 0.00676693
+        },
+        "start": "2023-12-14"
+      }
+    ],
+    "summary": {
+      "count": 12,
+      "median_activation": 0.24930844,
+      "median_annualized_turnover": 12.81530552,
+      "median_sharpe_10bps": -0.02304834,
+      "p25_sharpe_10bps": -0.50824911,
+      "positive_window_rate_10bps": 0.5,
+      "worst_max_drawdown_10bps": -0.12879694,
+      "worst_sharpe_10bps": -1.93476865
+    }
+  },
+  "rationale": "Rejected: 10 bps random-window median Sharpe <= 0; 10 bps random-window p25 Sharpe < 0; 20 bps primary Sharpe non-positive",
+  "warnings": [
+    "External cost model is a turnover haircut; qfa native transaction costs are unavailable.",
+    "AlpacaGateway does not expose explicit adjusted-price controls.",
+    "Orthogonality is limited by compact retained artifacts; several prior alphas do not retain curves.",
+    "Artifacts intentionally omit raw bars, equity curves, daily return paths, weight tails, caches, pyc files, and helper scripts."
+  ]
+}

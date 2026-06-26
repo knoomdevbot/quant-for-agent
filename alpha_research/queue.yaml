@@ -794,24 +794,29 @@ issues:
 - id: AR-106
   title: 'ETF option-expiry and rebalance-week liquidity pressure reversal, ex-ToM controlled'
   model_name: etf-opex-rebalance-liquidity-pressure-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: event_calendar_liquidity_pressure
   issue_path: alpha_research/issues/AR-106.md
 - id: AR-107
   title: 'Post-drawdown stabilized single-name sector-residual defensive leadership'
   model_name: post-drawdown-residual-defensive-leadership-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: single_name_residual_momentum
   issue_path: alpha_research/issues/AR-107.md
+- id: AR-108
+  title: 'Treasury auction-week duration concession reversal ETF allocator'
+  model_name: treasury-auction-week-duration-concession-reversal-v1
+  status: queued
+  priority: preflight_queue
+  family: event_calendar_fixed_income_reversal
+  issue_path: alpha_research/issues/AR-108.md
 active_batch:
+- AR-108
+last_realdata_batch:
 - AR-106
 - AR-107
-last_realdata_batch:
-- AR-103
-- AR-104
-- AR-105
-updated_at: '2026-06-26T17:45:00Z'
+updated_at: '2026-06-26T17:52:35Z'
 target_tried_ideas: 100
-tried_ideas_count: 96
+tried_ideas_count: 98

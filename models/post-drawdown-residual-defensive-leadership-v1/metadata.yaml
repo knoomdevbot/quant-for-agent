@@ -1,0 +1,37 @@
+model_name: post-drawdown-residual-defensive-leadership-v1
+issue_id: AR-107
+family: single_name_residual_momentum
+created_at_utc: '2026-06-26T17:49:03Z'
+artifact_type: compact_qfa_real_data_alpha_research
+contract: generate_signals(context)
+language: python
+repository_path: /Users/moonk/quant-for-agent
+model_path: /Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/model.py
+evaluation_latest_json: /Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/evaluations/latest.json
+evaluation_latest_md: /Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/evaluations/latest.md
+immutable_run_json: /Users/moonk/quant-for-agent/models/post-drawdown-residual-defensive-leadership-v1/evaluations/runs/ar107_qfa_alpaca_real_20260626T174903Z.json
+data:
+  source: qfa/Alpaca real market data
+  timeframe: 1Day
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  credential_values_stored: false
+  raw_bars_retained: false
+  equity_curves_retained: false
+universe:
+  fixed_ex_ante: true
+  single_name_count: 119
+  total_symbol_count: 131
+  sector_proxy_count: 11
+metrics_summary:
+  primary_10bps_sharpe: -0.04494087
+  primary_20bps_sharpe: -0.18003282
+  random_10bps_median_sharpe: -0.02304834
+  random_10bps_p25_sharpe: -0.50824911
+  random_10bps_worst_sharpe: -1.93476865
+  positive_window_rate_10bps: 0.5
+  max_abs_available_correlation: 0.37785436
+decision: rejected
+children_created: false

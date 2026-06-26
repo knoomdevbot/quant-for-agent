@@ -1,0 +1,51 @@
+model_name: etf-opex-rebalance-liquidity-pressure-v1
+issue_id: AR-106
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - DIA
+  - VTI
+  - XLK
+  - XLF
+  - XLE
+  - XLV
+  - XLI
+  - XLY
+  - XLP
+  - XLU
+  - XLB
+  - XLRE
+  - IWF
+  - IWD
+  - MTUM
+  - VLUE
+  - QUAL
+  - USMV
+  - TLT
+  - IEF
+  - SHY
+  - HYG
+  - LQD
+  - GLD
+  - SLV
+  - USO
+  - DBA
+data:
+  source: qfa_alpaca_real_market_bars
+  timeframe: 1Day
+  csv_allowed: false
+signal:
+  event_gate: monthly_third_friday_opex_week_and_quarterly_expiry_rebalance_week
+  exclude_standard_turn_of_month: true
+  features:
+    - lagged_abnormal_volume_zscore
+    - close_location_extreme
+    - one_and_three_day_pressure_return
+    - failed_follow_through_confirmation
+    - realized_volatility_skip_filter
+risk:
+  gross_exposure_max: 1.0
+  per_symbol_cap: 0.10
+  leverage: false
+costs_evaluated_bps: [5, 10, 20]
