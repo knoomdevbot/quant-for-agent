@@ -536,24 +536,24 @@ issues:
 - id: AR-073
   title: 'Divergent from AR-063: cross-sectional ETF relief-rally exhaustion reversal'
   model_name: etf-relief-rally-exhaustion-reversal-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: cross_sectional_reversal
   issue_path: alpha_research/issues/AR-073.md
   parent: AR-063
 - id: AR-074
   title: 'Divergent from AR-064: macro-event liquidity gap ETF recovery allocator'
   model_name: macro-event-liquidity-gap-etf-recovery-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: event_liquidity_recovery
   issue_path: alpha_research/issues/AR-074.md
   parent: AR-064
 - id: AR-075
   title: 'Divergent from AR-067: sector ETF dispersion dislocation mean reversion'
   model_name: sector-etf-dispersion-dislocation-meanreversion-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: sector_dispersion_mean_reversion
   issue_path: alpha_research/issues/AR-075.md
   parent: AR-067
@@ -597,14 +597,38 @@ issues:
   family: correlation_regime_allocation
   issue_path: alpha_research/issues/AR-080.md
   parent: AR-072
+- id: AR-081
+  title: 'Divergent from AR-073: cross-asset ETF volume-divergence risk-transfer allocator'
+  model_name: crossasset-volume-divergence-risk-transfer-v1
+  status: queued
+  priority: child
+  family: cross_asset_flow_regime
+  issue_path: alpha_research/issues/AR-081.md
+  parent: AR-073
+- id: AR-082
+  title: 'Divergent from AR-074: ETF volume-drought trend persistence allocator'
+  model_name: etf-volume-drought-trend-persistence-v1
+  status: queued
+  priority: child
+  family: liquidity_trend_persistence
+  issue_path: alpha_research/issues/AR-082.md
+  parent: AR-074
+- id: AR-083
+  title: 'Divergent from AR-075: sector ETF breadth-confirmed defensive trend allocator'
+  model_name: sector-breadth-defensive-trend-allocator-v1
+  status: queued
+  priority: child
+  family: sector_breadth_trend
+  issue_path: alpha_research/issues/AR-083.md
+  parent: AR-075
 active_batch:
+- AR-076
+- AR-077
+- AR-078
+last_realdata_batch:
 - AR-073
 - AR-074
 - AR-075
-last_realdata_batch:
-- AR-070
-- AR-071
-- AR-072
-updated_at: '2026-06-26T13:01:07Z'
+updated_at: '2026-06-26T13:27:29Z'
 target_tried_ideas: 100
-tried_ideas_count: 63
+tried_ideas_count: 66

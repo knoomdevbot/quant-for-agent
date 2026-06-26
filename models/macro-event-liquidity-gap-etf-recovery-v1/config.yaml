@@ -1,0 +1,38 @@
+model_name: macro-event-liquidity-gap-etf-recovery-v1
+issue_id: AR-074
+family: event_liquidity_recovery
+qfa_compatible: true
+entrypoint: model.py:generate_signals
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+  - SHY
+timeframe: 1Day
+data_source: Alpaca real OHLCV via qfa AlpacaGateway only
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+signal:
+  type: deterministic scheduled macro-event liquidity gap/range recovery allocator
+  scheduled_macro_proxy: first Friday, CPI day-of-month window, regular FOMC midweek window, mid-quarter liquidity window
+  timestamp_safety: uses only bars with timestamp <= context.as_of; no explicit future event calendar
+  features:
+    - overnight gap z-score by ETF
+    - intraday range z-score by ETF
+    - event-day laggard/recovery score
+    - short reversal and recent drawdown score
+    - defensive ballast outside active event windows
+risk:
+  long_only: true
+  max_single_weight: 0.42
+  active_event_holding_decay: [1.0, 0.70, 0.45, 0.25, 0.10]
+  fallback_defensive_cap: 0.60
+cost_evaluation:
+  primary_one_way_bps: 10
+  stress_one_way_bps: 20

@@ -1,0 +1,44 @@
+model_name: sector-etf-dispersion-dislocation-meanreversion-v1
+issue_id: AR-075
+family: sector_dispersion_mean_reversion
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLF
+  - XLK
+  - XLE
+  - XLU
+  - XLV
+  - XLI
+  - XLP
+timeframe: 1Day
+data_source: Alpaca real market data through qfa/AlpacaGateway
+execution:
+  qfa_compatible: true
+  entrypoint: model.py:generate_signals
+  no_daemon: true
+  no_orders: true
+  no_csv_used: true
+parameters:
+  residual_lookback: 5
+  beta_window: 60
+  dispersion_window: 63
+  vol_window: 20
+  trend_window: 100
+  min_history: 130
+  dispersion_z_entry: 0.80
+  residual_z_entry: 0.55
+  max_gross: 1.0
+  sector_cap: 0.24
+  broad_hedge_cap: 0.35
+  trend_dampen_threshold: 0.12
+risk:
+  target: dollar/market-beta reduced sector relative value basket
+  turnover_cost_proxy_bps_one_way: [5, 10]
+  max_abs_sector_weight_before_qfa_normalization: 0.24
+  max_abs_spy_hedge_before_qfa_normalization: 0.35
+evaluation:
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  immutable_run_glob: evaluations/runs/ar075_qfa_alpaca_real_*.json
