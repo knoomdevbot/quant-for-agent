@@ -1,0 +1,45 @@
+model_name: post-earnings-drift-megacap-v1
+issue_id: AR-024
+family: event_drift
+status: evaluated
+hypothesis: >
+  Mega-cap post-earnings-like information shocks may diffuse over several
+  sessions, creating continuation that is independent of overnight-gap reversal.
+data_source:
+  provider: Alpaca
+  real_market_data_only: true
+  csv_used: false
+  timeframe: 1Day
+symbols:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+primary_backtest:
+  start: '2022-01-03'
+  end: '2025-12-15'
+  initial_cash: 100000
+parameters:
+  event_proxy: abnormal close-to-close shock plus abnormal volume/range and close-location confirmation
+  lookback_days: 90
+  hold_days: 8
+  volume_window: 20
+  range_window: 20
+  min_abs_close_to_close: 0.035
+  min_volume_multiple: 1.55
+  min_range_multiple: 1.20
+  min_close_location_edge: 0.68
+  max_abs_weight: 0.25
+costs_slippage:
+  qfa_applied: false
+  note: qfa CLI has no transaction cost/slippage parameter; metrics are pre-cost and turnover/cost sensitivity is documented in evaluation artifacts.
+random_window_protocol:
+  count: 8
+  seed: 24024
+  windows: documented in evaluations/latest.json
+risk_constraints:
+  no_live_trading: true
+  no_daemon: true

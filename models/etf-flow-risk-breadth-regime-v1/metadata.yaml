@@ -1,0 +1,11 @@
+id: AR-022
+model_name: etf-flow-risk-breadth-regime-v1
+type: divergent
+parent_alpha: AR-006
+status: evaluated_rejected
+family: regime_allocation
+created_at: '2026-06-26T06:30:00Z'
+evaluated_at: '2026-06-26T08:00:49Z'
+hypothesis: Non-calendar ETF breadth/flow/volume proxy across risk assets may capture allocation pressure independent of month-boundary seasonality.
+data_source: Alpaca real market data only via qfa; no CSV
+suggested_decision: reject_do_not_extend_failed_hypothesis

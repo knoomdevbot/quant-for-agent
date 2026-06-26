@@ -156,16 +156,16 @@ issues:
 - id: AR-021
   title: 'Refine AR-006: exchange-calendar-aware turn-of-month window search'
   model_name: turn-month-calendar-window-etf-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: seasonality
   issue_path: alpha_research/issues/AR-021.md
   parent: AR-006
 - id: AR-022
   title: 'Divergent from AR-006: ETF flow risk-on/risk-off breadth signal'
   model_name: etf-flow-risk-breadth-regime-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: regime_allocation
   issue_path: alpha_research/issues/AR-022.md
   parent: AR-006
@@ -180,8 +180,8 @@ issues:
 - id: AR-024
   title: 'Divergent from AR-007: mega-cap post-earnings drift continuation'
   model_name: post-earnings-drift-megacap-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: event_drift
   issue_path: alpha_research/issues/AR-024.md
   parent: AR-007
@@ -289,14 +289,30 @@ issues:
   family: macro_regime_allocation
   issue_path: alpha_research/issues/AR-040.md
   parent: AR-016
+- id: AR-041
+  title: 'Refine AR-021: volatility-gated turn-of-month ETF seasonality'
+  model_name: turn-month-vol-gated-etf-v1
+  status: queued
+  priority: child
+  family: seasonality
+  issue_path: alpha_research/issues/AR-041.md
+  parent: AR-021
+- id: AR-042
+  title: 'Divergent from AR-021: scheduled macro/liquidity ETF flow pressure'
+  model_name: macro-liquidity-flow-etf-v1
+  status: queued
+  priority: child
+  family: macro_flow
+  issue_path: alpha_research/issues/AR-042.md
+  parent: AR-021
 active_batch:
+- AR-025
+- AR-026
+- AR-028
+last_realdata_batch:
 - AR-021
 - AR-022
 - AR-024
-last_realdata_batch:
-- AR-018
-- AR-019
-- AR-020
-updated_at: '2026-06-26T07:55:00Z'
+updated_at: '2026-06-26T08:08:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 18
+tried_ideas_count: 21
