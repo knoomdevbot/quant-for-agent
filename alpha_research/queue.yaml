@@ -605,24 +605,24 @@ issues:
 - id: AR-082
   title: 'Divergent from AR-074: ETF volume-drought trend persistence allocator'
   model_name: etf-volume-drought-trend-persistence-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: liquidity_trend_persistence
   issue_path: alpha_research/issues/AR-082.md
   parent: AR-074
 - id: AR-083
   title: 'Divergent from AR-075: sector ETF breadth-confirmed defensive trend allocator'
   model_name: sector-breadth-defensive-trend-allocator-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: sector_breadth_trend
   issue_path: alpha_research/issues/AR-083.md
   parent: AR-075
 - id: AR-084
   title: 'Divergent from AR-076: mega-cap post-earnings volume-vacuum reversal allocator'
   model_name: megacap-earnings-volume-vacuum-reversal-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: event_liquidity_reversal
   issue_path: alpha_research/issues/AR-084.md
   parent: AR-076
@@ -695,14 +695,38 @@ issues:
   priority: external_signal
   family: crypto_stress_defensive_allocator
   issue_path: alpha_research/issues/AR-093.md
+- id: AR-094
+  title: 'Divergent from AR-082: ETF option-implied volatility crush reversal allocator'
+  model_name: etf-option-vol-crush-reversal-allocator-v1
+  status: queued
+  priority: child
+  family: option_volatility_reversal
+  issue_path: alpha_research/issues/AR-094.md
+  parent: AR-082
+- id: AR-095
+  title: 'Divergent from AR-083: sector ETF post-rebalance volume exhaustion reversal allocator'
+  model_name: sector-etf-volume-exhaustion-reversal-v1
+  status: queued
+  priority: child
+  family: sector_liquidity_reversal
+  issue_path: alpha_research/issues/AR-095.md
+  parent: AR-083
+- id: AR-096
+  title: 'Divergent from AR-084: mega-cap analyst-revision dispersion drift allocator'
+  model_name: megacap-analyst-revision-dispersion-drift-v1
+  status: queued
+  priority: child
+  family: analyst_revision_drift
+  issue_path: alpha_research/issues/AR-096.md
+  parent: AR-084
 active_batch:
+- AR-085
+- AR-086
+- AR-087
+last_realdata_batch:
 - AR-082
 - AR-083
 - AR-084
-last_realdata_batch:
-- AR-079
-- AR-080
-- AR-081
-updated_at: '2026-06-26T14:39:33Z'
+updated_at: '2026-06-26T14:42:15Z'
 target_tried_ideas: 100
-tried_ideas_count: 72
+tried_ideas_count: 75

@@ -1,0 +1,13 @@
+alpha_id: AR-083
+model_name: sector-breadth-defensive-trend-allocator-v1
+parent_id: AR-075
+created_by: Hermes Agent research subagent
+created_at_utc: '2026-06-26T14:31:00Z'
+hypothesis: Sector ETF breadth and defensive leadership identify persistent allocation regimes.
+model_type: rule_based_sector_etf_allocator
+qfa_compatible: true
+real_data_only: true
+no_csv_used: true
+no_daemon: true
+no_orders: true
+artifact_scope: models/sector-breadth-defensive-trend-allocator-v1 only

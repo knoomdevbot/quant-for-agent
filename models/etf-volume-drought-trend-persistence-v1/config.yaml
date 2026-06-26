@@ -1,0 +1,38 @@
+alpha_id: AR-082
+model_name: etf-volume-drought-trend-persistence-v1
+parent_id: AR-074
+family: liquidity_trend_persistence
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+  - SHY
+  - HYG
+  - LQD
+data_source: Alpaca real daily OHLCV via qfa AlpacaGateway
+constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  temporary_sqlite_only: true
+parameters:
+  volume_lookback: 126
+  drought_percentile: 30
+  range_lookback: 20
+  range_compression_lookback: 126
+  range_percentile: 40
+  fast_trend: 20
+  slow_trend: 60
+  vol_lookback: 20
+  rebalance_days: 5
+  max_weight: 0.35
+  min_signal_assets: 2
+  fallback_asset: SHY
+costs_slippage:
+  one_way_bps: 5
+  method: external turnover proxy in evaluation

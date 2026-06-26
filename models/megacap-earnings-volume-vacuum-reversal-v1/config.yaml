@@ -1,0 +1,43 @@
+alpha_id: AR-084
+model_name: megacap-earnings-volume-vacuum-reversal-v1
+parent_id: AR-076
+family: event_liquidity_reversal
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - AVGO
+  - TSLA
+  - JPM
+  - LLY
+data_source: Alpaca real market data via qfa/AlpacaGateway
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+timeframe: 1Day
+model:
+  type: rule_based_qfa_generate_signals
+  event_calendar: unavailable_in_qfa_alpaca_daily_bars
+  event_proxy: abnormal volume plus large residual return as earnings-like event
+  event_lookback_days: [1, 2, 3]
+  volume_drought_lookbacks: [3, 5]
+  reversal_hold_effective_days: 5
+  event_volume_z: 1.10
+  min_abs_event_residual: 0.012
+  min_event_residual_z: 0.55
+  max_drought_ratio: 0.83
+  max_followthrough_same_direction: 0.006
+  max_abs_weight: 0.22
+  beta_neutralize: true
+risk:
+  gross_normalized: true
+  dollar_neutralized: true
+  beta_neutralized: true
+  high_market_vol_brake: true
+costs:
+  evaluation_one_way_turnover_bps: 5
+  qfa_native_costs_available: false
