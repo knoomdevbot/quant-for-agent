@@ -109,6 +109,10 @@
   },
   "model_name": "treasury-options-event-risk-etf-allocator-v1",
   "model_path": "models/treasury-options-event-risk-etf-allocator-v1/model.py",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
   "orthogonality": {
     "avg_abs_corr_to_top_alphas": null,
     "cointegration_min_pvalue": null,
@@ -217,8 +221,9 @@
       "2024-01-02",
       "2024-06-28"
     ],
-    "temporary_qfa_db_used_during_run": "/tmp/qfa-ar100-realdata.sqlite3"
+    "temporary_qfa_db_used_during_run": "temporary SQLite DB used during evaluation; DB artifact not retained"
   },
+  "raw_daily_paths_retained": false,
   "reproducibility": {
     "command_summary": "Temporary evaluator used qfa AlpacaGateway and qfa backtest engine on the documented symbols/windows with a temporary SQLite DB; compact summaries only are retained.",
     "data_access": "Configured paper-data access was used with credential values redacted; evaluation used real market data, no CSV, no daemon, and no orders.",

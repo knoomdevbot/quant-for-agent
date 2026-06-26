@@ -101,10 +101,15 @@
   "initial_cash": 100000.0,
   "issue_id": "AR-101",
   "model_name": "commodity-inflation-shock-crossasset-rotation-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
   "orthogonality": {
     "note": "Rejected on robustness and cost-sensitivity before promotion; orthogonality against accepted/watchlist ETF alphas was not used to rescue the decision.",
     "status": "deferred_due_rejection"
   },
+  "raw_daily_paths_retained": false,
   "run_id": "ar101_qfa_alpaca_real_20260626T170206Z",
   "schema_version": 1,
   "selected_universe": [

@@ -46,6 +46,10 @@
   "generated_at_utc": "2026-06-26T17:02:03Z",
   "issue_id": "AR-102",
   "model_name": "credit-spread-compression-breadth-risk-allocator-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
   "parent_issue_id": "AR-093",
   "primary_backtest": {
     "end": "2026-06-20",
@@ -158,6 +162,7 @@
       "window_count": 11
     }
   },
+  "raw_daily_paths_retained": false,
   "selected_universe": [
     "HYG",
     "JNK",

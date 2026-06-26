@@ -447,10 +447,15 @@
     ]
   },
   "model_name": "treasury-options-event-risk-etf-allocator-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
   "orthogonality": {
     "checked": "searched model evaluation JSON artifacts for retained return streams; artifacts are compact metrics only or explicitly no retained daily returns.",
     "status": "unavailable_no_compact_retained_return_streams_found_for_existing_watchlist_strong_alphas"
   },
+  "raw_daily_paths_retained": false,
   "selected_universe": [
     "BIL",
     "SHV",
