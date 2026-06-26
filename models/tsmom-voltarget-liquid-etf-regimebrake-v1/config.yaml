@@ -1,0 +1,44 @@
+model_name: tsmom-voltarget-liquid-etf-regimebrake-v1
+issue_id: AR-036
+family: time_series_momentum
+parent_alpha: AR-015
+symbols:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - SLV
+  - USO
+  - FXE
+  - FXY
+timeframe: 1Day
+initial_cash: 100000
+parameters:
+  lookback_days: 126
+  vol_window: 20
+  target_vol: 0.10
+  max_abs_weight: 0.35
+  min_periods: 127
+  regime_window: 60
+  drawdown_brake: 0.10
+  spy_vol_brake: 0.25
+  smoothing_alpha: 0.25
+  max_daily_turnover: 0.50
+risk:
+  gross_exposure_target: 1.0_when_in_risk_on_regime
+  long_only_positive_momentum: true
+  single_name_abs_cap: 0.35
+  regime_brake: all_zero_weights_when_spy_60d_drawdown_or_20d_vol_breaches_threshold
+  turnover_constraint: recursive_weight_smoothing_plus_daily_l1_turnover_throttle
+evaluation:
+  data_source: Alpaca real market data via qfa/AlpacaGateway only
+  no_data_csv: true
+  no_daemon: true
+  no_trades: true
+  main_window:
+    start: '2024-01-01'
+    end: '2025-12-31'
+  random_window_seed: 36036
+  random_windows: 8
+  cost_haircuts_bps: [5]

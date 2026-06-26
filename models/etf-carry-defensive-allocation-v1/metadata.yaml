@@ -1,0 +1,12 @@
+issue_id: AR-037
+model_name: etf-carry-defensive-allocation-v1
+status: watchlist_not_accepted
+created_at_utc: '2026-06-26T08:35:45Z'
+parent_alpha: AR-015
+mechanism: slow cross-asset carry/defensive proxy allocation with volatility risk budgeting
+not_pure_price_tsmom: true
+data_constraints:
+  source: qfa Alpaca real market data
+  csv_used: false
+  daemon_used: false
+  live_trades: false

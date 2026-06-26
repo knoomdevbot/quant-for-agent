@@ -244,24 +244,24 @@ issues:
 - id: AR-035
   title: 'Divergent from AR-012: cross-asset ETF volatility-risk rotation'
   model_name: etf-vol-risk-rotation-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: volatility_regime_rotation
   issue_path: alpha_research/issues/AR-035.md
   parent: AR-012
 - id: AR-036
   title: 'Refine AR-015: regime brake and turnover constraint for ETF TSMOM'
   model_name: tsmom-voltarget-liquid-etf-regimebrake-v1
-  status: queued
-  priority: child
+  status: rejected
+  priority: completed_realdata
   family: time_series_momentum
   issue_path: alpha_research/issues/AR-036.md
   parent: AR-015
 - id: AR-037
   title: 'Divergent from AR-015: liquid ETF carry/defensive allocation'
   model_name: etf-carry-defensive-allocation-v1
-  status: queued
-  priority: child
+  status: watchlist
+  priority: completed_realdata
   family: cross_asset_carry_defensive
   issue_path: alpha_research/issues/AR-037.md
   parent: AR-015
@@ -337,14 +337,30 @@ issues:
   family: liquidity_reversal
   issue_path: alpha_research/issues/AR-046.md
   parent: AR-028
+- id: AR-049
+  title: 'Refine AR-037: orthogonality-constrained carry/defensive ETF allocation'
+  model_name: etf-carry-defensive-orthogonal-v1
+  status: queued
+  priority: child
+  family: cross_asset_carry_defensive
+  issue_path: alpha_research/issues/AR-049.md
+  parent: AR-037
+- id: AR-050
+  title: 'Divergent from AR-037: ETF convexity stress-premium allocator'
+  model_name: etf-convexity-stress-premium-v1
+  status: queued
+  priority: child
+  family: volatility_regime_rotation
+  issue_path: alpha_research/issues/AR-050.md
+  parent: AR-037
 active_batch:
+- AR-038
+- AR-039
+- AR-040
+last_realdata_batch:
 - AR-035
 - AR-036
 - AR-037
-last_realdata_batch:
-- AR-029
-- AR-030
-- AR-032
-updated_at: '2026-06-26T08:30:00Z'
+updated_at: '2026-06-26T09:00:11Z'
 target_tried_ideas: 100
-tried_ideas_count: 27
+tried_ideas_count: 30

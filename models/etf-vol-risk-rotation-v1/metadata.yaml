@@ -1,0 +1,18 @@
+model_name: etf-vol-risk-rotation-v1
+issue_id: AR-035
+status: evaluated_rejected
+created_at_utc: '2026-06-26T08:34:47Z'
+parent_alpha: AR-012
+mechanism: Cross-asset ETF realized-volatility regime and breadth rotation, deliberately divergent from overnight gap reversal.
+data_source: Alpaca real market data via qfa; no CSV; no --data-csv.
+live_trading: false
+daemon_used: false
+temporary_db_only: true
+db_artifact_retained: false
+decision:
+  suggested_decision: rejected
+  rationale: Median random-window Sharpe was negative despite positive primary pre-cost Sharpe; bad-result policy applied with no refinement/direct inversion/extension child.
+artifacts:
+  latest_json: models/etf-vol-risk-rotation-v1/evaluations/latest.json
+  latest_md: models/etf-vol-risk-rotation-v1/evaluations/latest.md
+  immutable_run_json: models/etf-vol-risk-rotation-v1/evaluations/runs/ar035_qfa_alpaca_real_20260626T083447Z.json

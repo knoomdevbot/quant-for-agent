@@ -1,0 +1,50 @@
+model_name: etf-vol-risk-rotation-v1
+issue_id: AR-035
+family: volatility_regime_rotation
+research_only: true
+data_source: Alpaca real market data via qfa AlpacaGateway
+csv_usage: none
+qfa:
+  timeframe: 1Day
+  initial_cash: 100000
+  symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - TLT
+    - GLD
+    - SLV
+    - XLF
+    - XLK
+    - XLE
+    - XLV
+primary_backtest:
+  start: '2021-01-04'
+  end: '2025-12-15'
+params:
+  vol_fast_window: 20
+  vol_slow_window: 60
+  breadth_window: 60
+  drawdown_window: 63
+  momentum_window: 63
+  risk_budget_low: 0.55
+  risk_budget_high: 1.0
+  top_n: 3
+  max_abs_weight: 0.45
+  risk_on_symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - XLK
+    - XLF
+    - XLE
+    - XLV
+  defensive_symbols:
+    - TLT
+    - GLD
+    - SLV
+    - XLV
+costs_slippage:
+  one_way_bps_assumption: 5.0
+  qfa_applied: false
+  note: qfa backtest CLI has no native transaction-cost/slippage parameter; evaluation includes ex-post turnover haircut.
