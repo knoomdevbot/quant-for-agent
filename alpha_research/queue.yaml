@@ -233,14 +233,6 @@ issues:
   family: event_quality
   issue_path: alpha_research/issues/AR-030.md
   parent: AR-010
-- id: AR-031
-  title: 'Refine AR-011: long-only oversold ETF rebound with adaptive volatility cutoff'
-  model_name: longonly-oversold-etf-volcutoff-v1
-  status: queued
-  priority: child
-  family: mean_reversion
-  issue_path: alpha_research/issues/AR-031.md
-  parent: AR-011
 - id: AR-032
   title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after macro shock days'
   model_name: etf-dispersion-convergence-macroshock-v1
@@ -249,13 +241,13 @@ issues:
   family: dispersion_convergence
   issue_path: alpha_research/issues/AR-032.md
   parent: AR-011
-- id: AR-034
-  title: 'Divergent from AR-012: liquid ETF overnight gap continuation on macro trend days'
-  model_name: etf-gap-continuation-macrotrend-v1
+- id: AR-035
+  title: 'Divergent from AR-012: cross-asset ETF volatility-risk rotation'
+  model_name: etf-vol-risk-rotation-v1
   status: queued
   priority: child
-  family: gap_continuation
-  issue_path: alpha_research/issues/AR-034.md
+  family: volatility_regime_rotation
+  issue_path: alpha_research/issues/AR-035.md
   parent: AR-012
 active_batch:
 - AR-014
@@ -265,6 +257,6 @@ last_realdata_batch:
 - AR-010
 - AR-011
 - AR-012
-updated_at: '2026-06-26T06:47:06Z'
+updated_at: '2026-06-26T06:44:59Z'
 target_tried_ideas: 100
 tried_ideas_count: 12

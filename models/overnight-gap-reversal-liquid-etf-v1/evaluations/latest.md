@@ -91,4 +91,4 @@ UNAVAILABLE: No retained parent AR-002 return stream or common factor library wa
 
 Because AR-012 was rejected, no refinement/extension of the failed gap-reversal hypothesis is proposed.
 
-- Divergent: **AR-034 — Liquid ETF overnight gap continuation on macro trend days**. Instead of extending the rejected reversal mechanism, test whether large ETF overnight gaps continue when cross-asset risk indicators align, targeting macro-news trend continuation rather than opening-imbalance reversal.
+- Divergent: **AR-035 — Cross-asset ETF volatility-risk rotation**. Instead of extending the rejected reversal mechanism, test whether large ETF overnight gaps continue when cross-asset risk indicators align, targeting macro-news trend continuation rather than opening-imbalance reversal.
