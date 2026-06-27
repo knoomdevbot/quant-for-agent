@@ -1,0 +1,28 @@
+model_name: eia-petroleum-inventory-energy-etf-drift-fade-v1
+issue_id: AR-131
+status: rejected
+suggested_decision: reject
+created_utc: '2026-06-27T17:09:03Z'
+data_source: qfa/Alpaca real daily OHLCV via AlpacaGateway
+primary_hypothesis: weekly EIA Petroleum Status Report release dates may create close-to-close energy/oil ETF drift
+selected_universe:
+  - XLE
+  - VDE
+  - IYE
+  - XOP
+  - OIH
+  - USO
+  - BNO
+  - DBC
+primary_result_summary:
+  events: 530
+  median_net_event_return_10bps_one_way: -0.0007590571358238925
+  mean_net_event_return_10bps_one_way: 0.003885133724265608
+  hit_rate: 0.47735849056603774
+  random_non_event_median_percentile: 1.0
+rejection_reason: primary leg failed strict AR-131 gates
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

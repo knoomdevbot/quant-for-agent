@@ -970,14 +970,21 @@ issues:
 - id: AR-131
   title: 'Weekly EIA petroleum inventory report energy ETF drift/fade event study'
   model_name: eia-petroleum-inventory-energy-etf-drift-fade-v1
-  status: queued
-  priority: preflight_queue_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: event_calendar_energy_inventory
   issue_path: alpha_research/issues/AR-131.md
+- id: AR-132
+  title: 'Treasury coupon-payment date duration ETF reinvestment drift fast-falsification'
+  model_name: treasury-coupon-payment-duration-etf-drift-v1
+  status: queued
+  priority: preflight_queue_fast_falsification
+  family: event_calendar_treasury_reinvestment
+  issue_path: alpha_research/issues/AR-132.md
 active_batch:
-- AR-131
+- AR-132
 last_realdata_batch:
-- AR-130
-updated_at: '2026-06-27T16:18:56Z'
+- AR-131
+updated_at: '2026-06-27T17:35:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 121
+tried_ideas_count: 122

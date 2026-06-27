@@ -1,0 +1,19 @@
+model_name: eia-petroleum-inventory-energy-etf-drift-fade-v1
+issue_id: AR-131
+symbols:
+  - XLE
+  - VDE
+  - IYE
+  - XOP
+  - OIH
+  - USO
+  - BNO
+  - DBC
+max_gross_exposure: 1.0
+event_rule: deterministic_approx_eia_petroleum_report_wednesday_with_us_federal_holiday_thursday_shift
+primary_leg: prior_close_to_release_day_close
+primary_cost_one_way_bps: 10
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true

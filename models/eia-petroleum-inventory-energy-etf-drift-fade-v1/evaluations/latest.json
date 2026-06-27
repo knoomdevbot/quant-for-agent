@@ -1,0 +1,735 @@
+{
+  "activation_turnover": {
+    "activation_rate": 0.20113851992409867,
+    "event_count": 530,
+    "gross_turnover_per_event_roundtrip": 2.0,
+    "total_gross_turnover": 1060.0
+  },
+  "alpha_id": "AR-131",
+  "broad_control_event_correlations": {
+    "GLD": {
+      "corr_with_primary_gross": 0.00824658719935827,
+      "event_mean_gross": 0.0006562983660611221
+    },
+    "QQQ": {
+      "corr_with_primary_gross": 0.055061351408026066,
+      "event_mean_gross": 0.0015860566939524688
+    },
+    "SPY": {
+      "corr_with_primary_gross": 0.04473183604998726,
+      "event_mean_gross": 0.0008810445162205887
+    },
+    "TLT": {
+      "corr_with_primary_gross": 0.07731117382251565,
+      "event_mean_gross": 0.0002464095458121446
+    }
+  },
+  "by_year": {
+    "2016": {
+      "hit_rate": 0.4,
+      "max_event_equity_drawdown": -0.09503889998913574,
+      "mean": 0.0009341942895935572,
+      "median": -0.004214434818819833,
+      "n": 35,
+      "p25": -0.015359415733298465,
+      "sharpe": 0.3139153120485048,
+      "worst": -0.02880709145617781
+    },
+    "2017": {
+      "hit_rate": 0.38461538461538464,
+      "max_event_equity_drawdown": -0.18706760217835644,
+      "mean": -0.0029651200951045283,
+      "median": -0.002041791777790852,
+      "n": 52,
+      "p25": -0.007968500650544769,
+      "sharpe": -1.6905401141483427,
+      "worst": -0.03681398032893725
+    },
+    "2018": {
+      "hit_rate": 0.4807692307692308,
+      "max_event_equity_drawdown": -0.1716862262982614,
+      "mean": -0.002599706782119768,
+      "median": -0.0004930942238676236,
+      "n": 52,
+      "p25": -0.013220839070207222,
+      "sharpe": -1.23962372995226,
+      "worst": -0.03719927385201291
+    },
+    "2019": {
+      "hit_rate": 0.4807692307692308,
+      "max_event_equity_drawdown": -0.24993806918968828,
+      "mean": -0.0031192999348189513,
+      "median": -0.0017080277011771571,
+      "n": 52,
+      "p25": -0.015118250687738958,
+      "sharpe": -1.4932630357613073,
+      "worst": -0.04194687832460535
+    },
+    "2020": {
+      "hit_rate": 0.4528301886792453,
+      "max_event_equity_drawdown": -0.3022517033509513,
+      "mean": 0.05166497135268212,
+      "median": -0.004042650390521525,
+      "n": 53,
+      "p25": -0.026610911844447444,
+      "sharpe": 1.1413168762230927,
+      "worst": -0.11353174579354766
+    },
+    "2021": {
+      "hit_rate": 0.5961538461538461,
+      "max_event_equity_drawdown": -0.15234115307371496,
+      "mean": 0.0005268730869508614,
+      "median": 0.0013446539504007125,
+      "n": 52,
+      "p25": -0.010800954339208411,
+      "sharpe": 0.1963053828833683,
+      "worst": -0.03620565210925006
+    },
+    "2022": {
+      "hit_rate": 0.5961538461538461,
+      "max_event_equity_drawdown": -0.10310319747665768,
+      "mean": 0.0021783743416510723,
+      "median": 0.00358584331980861,
+      "n": 52,
+      "p25": -0.012781756999542522,
+      "sharpe": 0.7142993410045777,
+      "worst": -0.05931139384529789
+    },
+    "2023": {
+      "hit_rate": 0.4230769230769231,
+      "max_event_equity_drawdown": -0.267271384745483,
+      "mean": -0.0045665879544769285,
+      "median": -0.0037624476116496827,
+      "n": 52,
+      "p25": -0.013482944395729795,
+      "sharpe": -2.1034655101346518,
+      "worst": -0.052923015602622886
+    },
+    "2024": {
+      "hit_rate": 0.46153846153846156,
+      "max_event_equity_drawdown": -0.1113446095986131,
+      "mean": -0.0021299294018809643,
+      "median": -0.0021648298548413766,
+      "n": 52,
+      "p25": -0.006118365763918504,
+      "sharpe": -1.3960537991105393,
+      "worst": -0.024988863062100977
+    },
+    "2025": {
+      "hit_rate": 0.4716981132075472,
+      "max_event_equity_drawdown": -0.09582840735396102,
+      "mean": 0.0007020763962765828,
+      "median": -0.002401910065842323,
+      "n": 53,
+      "p25": -0.008225403575468372,
+      "sharpe": 0.3181374543420217,
+      "worst": -0.03038371958148424
+    },
+    "2026": {
+      "hit_rate": 0.48,
+      "max_event_equity_drawdown": -0.15245857060896506,
+      "mean": -0.003596353060010174,
+      "median": -0.001118520635458543,
+      "n": 25,
+      "p25": -0.012856089844165875,
+      "sharpe": -1.230946206074384,
+      "worst": -0.05009899310766491
+    }
+  },
+  "calendar_source": "deterministic public-calendar approximation: normal Wednesday EIA Petroleum Status Report, shifted to Thursday when Mon/Tue/Wed US federal holiday occurs; no inventory surprise data",
+  "candidate_pool": [
+    "XLE",
+    "VDE",
+    "IYE",
+    "XOP",
+    "OIH",
+    "XES",
+    "USO",
+    "BNO",
+    "DBC",
+    "DBA"
+  ],
+  "config_path": "models/eia-petroleum-inventory-energy-etf-drift-fade-v1/config.yaml",
+  "control_symbols": [
+    "SPY",
+    "QQQ",
+    "GLD",
+    "TLT"
+  ],
+  "cost_model": "10 bps one-way each entry and exit primary; sensitivity 5/20 bps",
+  "cost_sensitivity": {
+    "10bps_one_way": {
+      "hit_rate": 0.47735849056603774,
+      "max_event_equity_drawdown": -0.7225696167870151,
+      "mean": 0.003885133724265608,
+      "median": -0.0007590571358238925,
+      "n": 530,
+      "p25": -0.012643599666233052,
+      "sharpe": 0.26730584511878813,
+      "worst": -0.11353174579354766
+    },
+    "20bps_one_way": {
+      "hit_rate": 0.41509433962264153,
+      "max_event_equity_drawdown": -1.1520694355622738,
+      "mean": 0.0018851337242656086,
+      "median": -0.0027590571358238926,
+      "n": 530,
+      "p25": -0.014643599666233052,
+      "sharpe": 0.12970139487849902,
+      "worst": -0.11553174579354766
+    },
+    "5bps_one_way": {
+      "hit_rate": 0.5018867924528302,
+      "max_event_equity_drawdown": -0.548569616787015,
+      "mean": 0.00488513372426561,
+      "median": 0.00024094286417610748,
+      "n": 530,
+      "p25": -0.011643599666233052,
+      "sharpe": 0.3361080702389329,
+      "worst": -0.11253174579354766
+    }
+  },
+  "coverage_liquidity": {
+    "BNO": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 20.5,
+      "median_dollar_volume": 10132115.4,
+      "median_volume": 427175.0,
+      "n": 2635
+    },
+    "DBA": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 20.01,
+      "median_dollar_volume": 10182946.96,
+      "median_volume": 517478.0,
+      "n": 2635
+    },
+    "DBC": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 17.94,
+      "median_dollar_volume": 26873685.299999997,
+      "median_volume": 1489792.0,
+      "n": 2635
+    },
+    "GLD": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 166.39,
+      "median_dollar_volume": 1308055624.3899999,
+      "median_volume": 8109694.0,
+      "n": 2635
+    },
+    "IYE": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 38.91,
+      "median_dollar_volume": 29103934.68,
+      "median_volume": 748019.0,
+      "n": 2635
+    },
+    "OIH": {
+      "first": "2016-05-02",
+      "last": "2026-06-26",
+      "median_close": 188.32,
+      "median_dollar_volume": 143587337.64,
+      "median_volume": 939024.0,
+      "n": 2553
+    },
+    "QQQ": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 288.96,
+      "median_dollar_volume": 12359504133.039999,
+      "median_volume": 39594952.0,
+      "n": 2635
+    },
+    "SPY": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 380.01,
+      "median_dollar_volume": 27695991855.84,
+      "median_volume": 74074953.0,
+      "n": 2635
+    },
+    "TLT": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 120.82,
+      "median_dollar_volume": 1942284696.24,
+      "median_volume": 15325365.0,
+      "n": 2635
+    },
+    "USO": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 42.09,
+      "median_dollar_volume": 279600291.86,
+      "median_volume": 7853801.0,
+      "n": 2635
+    },
+    "VDE": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 98.0,
+      "median_dollar_volume": 45296723.36,
+      "median_volume": 456242.0,
+      "n": 2635
+    },
+    "XES": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 50.69,
+      "median_dollar_volume": 7983370.459999999,
+      "median_volume": 182243.0,
+      "n": 2635
+    },
+    "XLE": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 68.59,
+      "median_dollar_volume": 1281811631.52,
+      "median_volume": 18760483.0,
+      "n": 2635
+    },
+    "XOP": {
+      "first": "2016-01-04",
+      "last": "2026-06-26",
+      "median_close": 80.04,
+      "median_dollar_volume": 562898728.0,
+      "median_volume": 8216892.0,
+      "n": 2635
+    }
+  },
+  "created_utc": "2026-06-27T17:09:03Z",
+  "data_source": "qfa/Alpaca real daily OHLCV via AlpacaGateway; configured paper-data access with credential values redacted",
+  "decision_gates": {
+    "hit_rate_ge_55pct": false,
+    "holiday_shift_exclusion_survives": false,
+    "median_event_return_gt_0": false,
+    "p25_not_materially_negative": false,
+    "placebo_rank_ge_0_85": true,
+    "positive_year_rate_not_one_regime_dependent": false
+  },
+  "diagnostic_legs_gross_no_rescue": {
+    "post_release_day_plus_2_to_3": {
+      "hit_rate": 0.5444234404536862,
+      "max_event_equity_drawdown": -0.5743754971966029,
+      "mean": 0.0021711849907719116,
+      "median": 0.0029800751073314896,
+      "n": 529,
+      "p25": -0.012036102871754745,
+      "sharpe": 0.5116823779478488,
+      "worst": -0.275698279779171
+    },
+    "post_release_next_day": {
+      "hit_rate": 0.5188679245283019,
+      "max_event_equity_drawdown": -0.41143274977497246,
+      "mean": 0.00010547985808103353,
+      "median": 0.0006599541313595039,
+      "n": 530,
+      "p25": -0.008128237532946909,
+      "sharpe": 0.04450792538944938,
+      "worst": -0.09306394606424469
+    }
+  },
+  "event_dates_retained": false,
+  "excluded_symbols": {
+    "DBA": "agriculture commodity ETF; weak direct petroleum/energy exposure, excluded before return review",
+    "GLD": "control only; excluded from primary before return review",
+    "QQQ": "control only; excluded from primary before return review",
+    "SPY": "control only; excluded from primary before return review",
+    "TLT": "control only; excluded from primary before return review",
+    "XES": "insufficient pre-return coverage/liquidity/exposure filter"
+  },
+  "holiday_shift_diagnostics": {
+    "exclude_shifted": {
+      "hit_rate": 0.4822222222222222,
+      "max_event_equity_drawdown": -0.58029391233185,
+      "mean": 0.0051228654869131625,
+      "median": -0.0006271917591678649,
+      "n": 450,
+      "p25": -0.01281306572901031,
+      "sharpe": 0.3252781471770538,
+      "worst": -0.11353174579354766
+    },
+    "shifted_only": {
+      "hit_rate": 0.45,
+      "max_event_equity_drawdown": -0.3079590948339626,
+      "mean": -0.0030771074406268895,
+      "median": -0.0016548681901943831,
+      "n": 80,
+      "p25": -0.010595146359101889,
+      "sharpe": -1.593835541949499,
+      "worst": -0.0367066654679631
+    }
+  },
+  "issue_id": "AR-131",
+  "leave_one_year_out": {
+    "2016": {
+      "hit_rate": 0.48282828282828283,
+      "max_event_equity_drawdown": -0.698679837857173,
+      "mean": 0.004093786007525249,
+      "median": -0.0006361490872186498,
+      "n": 495,
+      "p25": -0.012422200136104072,
+      "sharpe": 0.2725595348875155,
+      "worst": -0.11353174579354766
+    },
+    "2017": {
+      "hit_rate": 0.4874476987447699,
+      "max_event_equity_drawdown": -0.5683833718415796,
+      "mean": 0.004630349620933489,
+      "median": -0.0006620653090138717,
+      "n": 478,
+      "p25": -0.013179709464966027,
+      "sharpe": 0.30279867450171977,
+      "worst": -0.11353174579354766
+    },
+    "2018": {
+      "hit_rate": 0.4769874476987448,
+      "max_event_equity_drawdown": -0.5873848641167871,
+      "mean": 0.004590597545043933,
+      "median": -0.000959380229967095,
+      "n": 478,
+      "p25": -0.012500515051309483,
+      "sharpe": 0.30028259272637714,
+      "worst": -0.11353174579354766
+    },
+    "2019": {
+      "hit_rate": 0.4769874476987448,
+      "max_event_equity_drawdown": -0.5603660201764296,
+      "mean": 0.004647122323161838,
+      "median": -0.0006883180869599933,
+      "n": 478,
+      "p25": -0.012428502399218966,
+      "sharpe": 0.30398821324385145,
+      "worst": -0.11353174579354766
+    },
+    "2020": {
+      "hit_rate": 0.480083857442348,
+      "max_event_equity_drawdown": -0.7549197844594545,
+      "mean": -0.0014237371233362262,
+      "median": -0.0006401621026843312,
+      "n": 477,
+      "p25": -0.010549725748779935,
+      "sharpe": -0.6082281880999366,
+      "worst": -0.05931139384529789
+    },
+    "2021": {
+      "hit_rate": 0.46443514644351463,
+      "max_event_equity_drawdown": -0.7225696167870151,
+      "mean": 0.004250467517446295,
+      "median": -0.001347914350312637,
+      "n": 478,
+      "p25": -0.012643599666233052,
+      "sharpe": 0.278169793945729,
+      "worst": -0.11353174579354766
+    },
+    "2022": {
+      "hit_rate": 0.46443514644351463,
+      "max_event_equity_drawdown": -0.7225696167870151,
+      "mean": 0.004070806293085602,
+      "median": -0.0017933297557946645,
+      "n": 478,
+      "p25": -0.012643599666233052,
+      "sharpe": 0.26652884378370445,
+      "worst": -0.11353174579354766
+    },
+    "2023": {
+      "hit_rate": 0.48326359832635984,
+      "max_event_equity_drawdown": -0.7225696167870151,
+      "mean": 0.004804567881785719,
+      "median": -0.0006291982669007056,
+      "n": 478,
+      "p25": -0.012343505690659179,
+      "sharpe": 0.31434751895299845,
+      "worst": -0.11353174579354766
+    },
+    "2024": {
+      "hit_rate": 0.4790794979079498,
+      "max_event_equity_drawdown": -0.7225696167870151,
+      "mean": 0.004539492055980301,
+      "median": -0.0006883180869599933,
+      "n": 478,
+      "p25": -0.013144606946706367,
+      "sharpe": 0.2967904654349558,
+      "worst": -0.11353174579354766
+    },
+    "2025": {
+      "hit_rate": 0.4779874213836478,
+      "max_event_equity_drawdown": -0.7225696167870151,
+      "mean": 0.004238806760708836,
+      "median": -0.0006839685153434121,
+      "n": 477,
+      "p25": -0.013156579228097166,
+      "sharpe": 0.2769725569481956,
+      "worst": -0.11353174579354766
+    },
+    "2026": {
+      "hit_rate": 0.4772277227722772,
+      "max_event_equity_drawdown": -0.7225696167870151,
+      "mean": 0.004255504357150549,
+      "median": -0.0006926676585765745,
+      "n": 505,
+      "p25": -0.012522418514301357,
+      "sharpe": 0.28608453311231596,
+      "worst": -0.11353174579354766
+    }
+  },
+  "metrics": {
+    "event_count": 530,
+    "event_sharpe": 0.26730584511878813,
+    "hit_rate": 0.47735849056603774,
+    "max_drawdown": -0.7225696167870151,
+    "mean_sharpe": 0.26730584511878813,
+    "median_event_return": -0.0007590571358238925,
+    "median_sharpe": 0.26730584511878813,
+    "p25_event_return": -0.012643599666233052,
+    "p25_sharpe": null,
+    "turnover": 1060.0,
+    "worst_event_return": -0.11353174579354766,
+    "worst_period_sharpe": null
+  },
+  "model_family": "event_calendar_energy_inventory",
+  "model_name": "eia-petroleum-inventory-energy-etf-drift-fade-v1",
+  "model_path": "models/eia-petroleum-inventory-energy-etf-drift-fade-v1/model.py",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": "deferred_due_rejection/unavailable; compact comparable event-return streams unavailable and not used to rescue result",
+  "orthogonality_summary": {
+    "avg_corr_to_top_alphas": null,
+    "cointegration_pvalue_min": null,
+    "max_corr_to_library": null,
+    "notes": "deferred_due_rejection/unavailable; compact comparable event-return streams unavailable and not used to rescue result",
+    "redundancy_penalty": null
+  },
+  "primary_leg": "prior trading close to approximated EIA release-day close, equal-weight long fixed selected ETF basket",
+  "primary_metrics_10bps_one_way": {
+    "hit_rate": 0.47735849056603774,
+    "max_event_equity_drawdown": -0.7225696167870151,
+    "mean": 0.003885133724265608,
+    "median": -0.0007590571358238925,
+    "n": 530,
+    "p25": -0.012643599666233052,
+    "sharpe": 0.26730584511878813,
+    "worst": -0.11353174579354766
+  },
+  "product_contribution_gross": {
+    "BNO": {
+      "mean_gross": 0.0001772761701660829,
+      "median_gross": 0.0012880936186828729
+    },
+    "DBC": {
+      "mean_gross": 0.00031173022341658794,
+      "median_gross": 0.0008820316225534031
+    },
+    "IYE": {
+      "mean_gross": -0.00010033329027884503,
+      "median_gross": 0.0004896503434703714
+    },
+    "OIH": {
+      "mean_gross": 0.03296579573349343,
+      "median_gross": -0.0003496081928998085
+    },
+    "USO": {
+      "mean_gross": 0.0137003223375691,
+      "median_gross": 0.0008778896854412244
+    },
+    "VDE": {
+      "mean_gross": -0.00015892597967913626,
+      "median_gross": 0.000425571568242078
+    },
+    "XLE": {
+      "mean_gross": -3.4878155254395535e-05,
+      "median_gross": 0.0007652781363448602
+    },
+    "XOP": {
+      "mean_gross": 0.0002200827546920389,
+      "median_gross": 0.0013136547467537119
+    }
+  },
+  "random_non_event_placebo": {
+    "median_of_medians": -0.0016293858889951645,
+    "primary_median_percentile": 1.0,
+    "runs": 200,
+    "sampled_run_summaries": [
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.0021301967477354495,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 0
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 1
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 2
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 3
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.0021301967477354504,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 4
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 5
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 6
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 7
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 8
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 9
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 10
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 11
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 12
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 13
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.0021301967477354504,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 14
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 15
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 16
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 17
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 18
+      },
+      {
+        "hit_rate": 0.4457593688362919,
+        "mean": -0.00213019674773545,
+        "median": -0.0016293858889951645,
+        "n": 507,
+        "run": 19
+      }
+    ]
+  },
+  "raw_daily_paths_retained": false,
+  "rejection_reason": "Predeclared primary leg fails one or more strict AR-131 gates; diagnostics cannot rescue failed primary leg.",
+  "retained_raw_data": false,
+  "same_weekday_month_placebo": {
+    "hit_rate": 0.41832669322709165,
+    "max_event_equity_drawdown": -0.783649892246387,
+    "mean": -0.0029184087423761735,
+    "median": -0.0014083355098402205,
+    "n": 251,
+    "p25": -0.01205711123984153,
+    "sharpe": -1.3549492144857773,
+    "worst": -0.04275394735764844
+  },
+  "sample": {
+    "end": "2026-06-26",
+    "event_count": 530,
+    "holiday_shifted_event_count": 80,
+    "start": "2016-01-04",
+    "trading_sessions": 2635
+  },
+  "selected_universe": [
+    "XLE",
+    "VDE",
+    "IYE",
+    "XOP",
+    "OIH",
+    "USO",
+    "BNO",
+    "DBC"
+  ],
+  "status": "rejected",
+  "suggested_decision": "reject"
+}
