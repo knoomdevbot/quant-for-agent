@@ -1,0 +1,23 @@
+issue_id: AR-124
+model_name: leveraged-inverse-etf-tracking-stress-reversal-v1
+family: leveraged_inverse_etf_tracking_stress
+version: 1
+decision: rejected
+created_at_utc: '2026-06-27T12:20:01Z'
+research_status: fast_falsification_complete
+data_source: qfa AlpacaGateway / Alpaca real daily OHLCV
+artifact_paths:
+  model: models/leveraged-inverse-etf-tracking-stress-reversal-v1/model.py
+  config: models/leveraged-inverse-etf-tracking-stress-reversal-v1/config.yaml
+  evaluation_latest_json: models/leveraged-inverse-etf-tracking-stress-reversal-v1/evaluations/latest.json
+  evaluation_latest_md: models/leveraged-inverse-etf-tracking-stress-reversal-v1/evaluations/latest.md
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+summary: >-
+  Predeclared leveraged/inverse ETF tracking-residual stress proxy tested on real
+  Alpaca daily OHLCV. Primary reversal sleeve failed random-window, ablation, and
+  cost-sensitivity gates; alpha rejected.

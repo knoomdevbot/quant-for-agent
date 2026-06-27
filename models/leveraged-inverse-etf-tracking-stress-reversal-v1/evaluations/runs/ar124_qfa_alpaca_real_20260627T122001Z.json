@@ -1,0 +1,420 @@
+{
+  "ablations": {
+    "bear_inverse_pair_only": {
+      "annualized_return": -0.2623419188106825,
+      "annualized_volatility": 0.17336381825701483,
+      "beats_primary": true,
+      "max_drawdown": -0.9672719344191739,
+      "sharpe": -1.6673554126088712
+    },
+    "broad_index_only": {
+      "annualized_return": -0.11879260603866548,
+      "annualized_volatility": 0.09775024550154948,
+      "beats_primary": true,
+      "max_drawdown": -0.7865422801215596,
+      "sharpe": -1.2445613975498135
+    },
+    "bull_pair_only": {
+      "annualized_return": -0.3387100815196704,
+      "annualized_volatility": 0.17558091473469475,
+      "beats_primary": false,
+      "max_drawdown": -0.9869478565027854,
+      "sharpe": -2.2649705552872463
+    },
+    "family_relative_ohlcv_pressure": {
+      "annualized_return": -0.36200467155911664,
+      "annualized_volatility": 0.1570073898381857,
+      "beats_primary": false,
+      "max_drawdown": -0.9908986962759276,
+      "sharpe": -2.7812030842898507
+    },
+    "no_leveraged_inverse_pair_information": {
+      "annualized_return": -0.3179277016015094,
+      "annualized_volatility": 0.18641529126562803,
+      "beats_primary": true,
+      "max_drawdown": -0.981938127964115,
+      "sharpe": -1.9570165577203613
+    },
+    "realized_vol_asymmetry": {
+      "annualized_return": -0.13056889104994873,
+      "annualized_volatility": 0.18221213658046462,
+      "beats_primary": true,
+      "max_drawdown": -0.7782349584659956,
+      "sharpe": -0.6757894437388291
+    },
+    "sector_only": {
+      "annualized_return": -0.28469942838385953,
+      "annualized_volatility": 0.18176668423421183,
+      "beats_primary": true,
+      "max_drawdown": -0.9702257408171875,
+      "sharpe": -1.750108608884471
+    },
+    "simple_1d_momentum": {
+      "annualized_return": -0.44775825710036976,
+      "annualized_volatility": 0.19670136273586247,
+      "beats_primary": false,
+      "max_drawdown": -0.9979901198574708,
+      "sharpe": -2.9158606610759166
+    },
+    "simple_underlying_1d_reversal": {
+      "annualized_return": -0.21617254246496442,
+      "annualized_volatility": 0.19638405880748663,
+      "beats_primary": true,
+      "max_drawdown": -0.933822231832032,
+      "sharpe": -1.1418797833864083
+    },
+    "tracking_residual_only": {
+      "annualized_return": -0.3105293841732404,
+      "annualized_volatility": 0.17757329176380274,
+      "beats_primary": true,
+      "max_drawdown": -0.979847874331161,
+      "sharpe": -2.002535095275242
+    },
+    "volume_range_stress_only": {
+      "annualized_return": -0.3179277016015094,
+      "annualized_volatility": 0.18641529126562803,
+      "beats_primary": true,
+      "max_drawdown": -0.981938127964115,
+      "sharpe": -1.9570165577203613
+    }
+  },
+  "created_at_utc": "2026-06-27T12:20:01Z",
+  "data_source": "qfa AlpacaGateway real daily OHLCV; fetched into transient memory only",
+  "date_range": {
+    "end": "2026-06-26",
+    "start": "2016-01-04",
+    "timeframe": "1Day"
+  },
+  "decision": "rejected",
+  "evaluation_protocol": {
+    "costs": "10 bps one-way primary with 5/20 bps sensitivity",
+    "crisis_exclusion": "exclude 2020-02-15..2020-05-31 diagnostic",
+    "feature_shift": "close-D residual/range/volume information shifted to D+1 positions",
+    "primary_sleeve": "reversal predeclared; continuation diagnostic only",
+    "random_windows": 40
+  },
+  "failed_gates": [
+    "median random-window Sharpe <= 0",
+    "p25 random-window Sharpe < 0",
+    "positive-window rate < 55%",
+    "primary did not beat all mandatory ablations",
+    "20 bps cost sensitivity destroys result"
+  ],
+  "issue_id": "AR-124",
+  "metrics": {
+    "activation": 0.5984819734345351,
+    "continuation_10bps": {
+      "activation": 0.5984819734345351,
+      "annualized_return": -0.20277880208727916,
+      "annualized_turnover": 283.28280834914614,
+      "annualized_volatility": 0.17694056892454457,
+      "max_drawdown": -0.9144123407754546,
+      "periods": 2635,
+      "sharpe": -1.1923148503478254,
+      "turnover": 1.1241381283696275
+    },
+    "count": 40,
+    "crisis_exclusion_reversal_10bps": {
+      "annualized_return": -0.28401048005263485,
+      "annualized_volatility": 0.16853181124305827,
+      "max_drawdown": -0.967102332053044,
+      "sharpe": -1.8961195211724453
+    },
+    "max_drawdown": -0.979847874331161,
+    "median_sharpe": -2.4434936465256367,
+    "p25_sharpe": -3.1916911357773055,
+    "positive_window_rate": 0.025,
+    "primary_reversal_10bps": {
+      "activation": 0.5984819734345351,
+      "annualized_return": -0.3105293841732404,
+      "annualized_turnover": 283.28280834914614,
+      "annualized_volatility": 0.17757329176380274,
+      "max_drawdown": -0.979847874331161,
+      "periods": 2635,
+      "sharpe": -2.002535095275242,
+      "turnover": 1.1241381283696275
+    },
+    "reversal_20bps": {
+      "activation": 0.5984819734345351,
+      "annualized_return": -0.4810705673998493,
+      "annualized_turnover": 283.28280834914614,
+      "annualized_volatility": 0.1790378610687363,
+      "max_drawdown": -0.9989583276233167,
+      "periods": 2635,
+      "sharpe": -3.5684047679972686,
+      "turnover": 1.1241381283696275
+    },
+    "reversal_5bps": {
+      "activation": 0.5984819734345351,
+      "annualized_return": -0.20540663121229552,
+      "annualized_turnover": 283.28280834914614,
+      "annualized_volatility": 0.1771261270499424,
+      "max_drawdown": -0.9194075085663952,
+      "periods": 2635,
+      "sharpe": -1.2079265105009898,
+      "turnover": 1.1241381283696275
+    },
+    "turnover": 1.1241381283696275,
+    "worst_period_sharpe": -4.112605404079418,
+    "worst_random_drawdown": -0.8450615852637017
+  },
+  "model_name": "leveraged-inverse-etf-tracking-stress-reversal-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "max_relevant_correlation": null,
+    "reason": "No compact accepted/watchlist daily return streams found in a stable contract without large retained arrays; not used to rescue result.",
+    "status": "unavailable/deferred"
+  },
+  "provenance": {
+    "commands_sanitized": [
+      "python transient evaluator with Alpaca environment loaded; no CSV, no daemon, no orders"
+    ],
+    "raw_data_retention": "none; bars remained in memory only"
+  },
+  "raw_daily_paths_retained": false,
+  "universe_protocol": {
+    "candidate_pool_description": "Predeclared unlevered ETF underlyings with related leveraged/inverse ETFs across broad index, sectors/industries, real estate, retail/homebuilders, and Treasuries. Products are signal inputs only; primary trades unlevered underlyings only.",
+    "candidate_pool_size_symbols": 44,
+    "filters": "Require Alpaca daily bars, >=750 overlapping close-to-close returns with underlying, current 63-day median underlying dollar volume >= $10M and signal ETF >= $1M. Inclusion fixed before performance review and not based on returns.",
+    "limitations": "Survivorship/inception differences, distribution adjustments and close timing can pollute residuals.",
+    "mapping_list": [
+      {
+        "group": "broad",
+        "underlying": "SPY",
+        "usable_pairs": [
+          {
+            "multiple": -1,
+            "overlap_days": 2513,
+            "symbol": "SH"
+          },
+          {
+            "multiple": -2,
+            "overlap_days": 2634,
+            "symbol": "SDS"
+          },
+          {
+            "multiple": 2,
+            "overlap_days": 2634,
+            "symbol": "SSO"
+          },
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "UPRO"
+          },
+          {
+            "multiple": -3,
+            "overlap_days": 2634,
+            "symbol": "SPXU"
+          }
+        ]
+      },
+      {
+        "group": "broad",
+        "underlying": "QQQ",
+        "usable_pairs": [
+          {
+            "multiple": -1,
+            "overlap_days": 2634,
+            "symbol": "PSQ"
+          },
+          {
+            "multiple": -2,
+            "overlap_days": 2634,
+            "symbol": "QID"
+          },
+          {
+            "multiple": 2,
+            "overlap_days": 2634,
+            "symbol": "QLD"
+          },
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "TQQQ"
+          },
+          {
+            "multiple": -3,
+            "overlap_days": 2634,
+            "symbol": "SQQQ"
+          }
+        ]
+      },
+      {
+        "group": "broad",
+        "underlying": "IWM",
+        "usable_pairs": [
+          {
+            "multiple": -2,
+            "overlap_days": 2634,
+            "symbol": "TWM"
+          },
+          {
+            "multiple": 2,
+            "overlap_days": 2634,
+            "symbol": "UWM"
+          },
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "TNA"
+          },
+          {
+            "multiple": -3,
+            "overlap_days": 2634,
+            "symbol": "TZA"
+          }
+        ]
+      },
+      {
+        "group": "sector",
+        "underlying": "XLE",
+        "usable_pairs": [
+          {
+            "multiple": 2,
+            "overlap_days": 2634,
+            "symbol": "ERX"
+          },
+          {
+            "multiple": -2,
+            "overlap_days": 2634,
+            "symbol": "ERY"
+          }
+        ]
+      },
+      {
+        "group": "sector",
+        "underlying": "XLF",
+        "usable_pairs": [
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "FAS"
+          },
+          {
+            "multiple": -3,
+            "overlap_days": 2634,
+            "symbol": "FAZ"
+          }
+        ]
+      },
+      {
+        "group": "sector",
+        "underlying": "XLK",
+        "usable_pairs": [
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "TECL"
+          },
+          {
+            "multiple": -3,
+            "overlap_days": 2634,
+            "symbol": "TECS"
+          }
+        ]
+      },
+      {
+        "group": "sector",
+        "underlying": "SMH",
+        "usable_pairs": [
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "SOXL"
+          },
+          {
+            "multiple": -3,
+            "overlap_days": 2634,
+            "symbol": "SOXS"
+          }
+        ]
+      },
+      {
+        "group": "sector",
+        "underlying": "XBI",
+        "usable_pairs": [
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "LABU"
+          },
+          {
+            "multiple": -3,
+            "overlap_days": 2634,
+            "symbol": "LABD"
+          }
+        ]
+      },
+      {
+        "group": "sector",
+        "underlying": "XRT",
+        "usable_pairs": [
+          {
+            "multiple": 2,
+            "overlap_days": 2634,
+            "symbol": "RETL"
+          }
+        ]
+      },
+      {
+        "group": "sector",
+        "underlying": "XHB",
+        "usable_pairs": [
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "NAIL"
+          }
+        ]
+      },
+      {
+        "group": "treasury",
+        "underlying": "TLT",
+        "usable_pairs": [
+          {
+            "multiple": -2,
+            "overlap_days": 2634,
+            "symbol": "TBT"
+          },
+          {
+            "multiple": 2,
+            "overlap_days": 2634,
+            "symbol": "UBT"
+          },
+          {
+            "multiple": 3,
+            "overlap_days": 2634,
+            "symbol": "TMF"
+          },
+          {
+            "multiple": -3,
+            "overlap_days": 2634,
+            "symbol": "TMV"
+          }
+        ]
+      }
+    ],
+    "rationale": "Residuals proxy leveraged/inverse product tracking stress; daily OHLCV cannot observe NAV premia, flows, borrow, creations/redemptions, or rebalance trades.",
+    "selected_mapping_count": 11,
+    "selected_underlyings": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "XLE",
+      "XLF",
+      "XLK",
+      "SMH",
+      "XBI",
+      "XRT",
+      "XHB",
+      "TLT"
+    ]
+  },
+  "warnings": [
+    "Daily bars only; no NAV/flow/borrow observations, so this is tracking-stress proxy research only."
+  ]
+}

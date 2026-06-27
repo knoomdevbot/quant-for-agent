@@ -917,9 +917,16 @@ issues:
   priority: completed_realdata
   family: tax_loss_calendar_reversal
   issue_path: alpha_research/issues/AR-123.md
+- id: AR-124
+  title: 'Leveraged/inverse ETF tracking-stress reversal in underlying ETFs'
+  model_name: leveraged-inverse-etf-tracking-stress-reversal-v1
+  status: rejected
+  priority: completed_realdata
+  family: leveraged_inverse_etf_tracking_stress
+  issue_path: alpha_research/issues/AR-124.md
 active_batch: []
 last_realdata_batch:
-- AR-123
-updated_at: '2026-06-27T10:08:13Z'
+- AR-124
+updated_at: '2026-06-27T12:28:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 114
+tried_ideas_count: 115

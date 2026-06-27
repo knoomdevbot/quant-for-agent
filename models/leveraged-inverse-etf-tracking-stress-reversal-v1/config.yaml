@@ -1,0 +1,70 @@
+model_name: leveraged-inverse-etf-tracking-stress-reversal-v1
+issue_id: AR-124
+family: leveraged_inverse_etf_tracking_stress
+status: rejected
+research_only: true
+primary_sleeve: reversal
+trading_universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLE
+  - XLF
+  - XLK
+  - SMH
+  - XBI
+  - IYR
+  - XRT
+  - XHB
+  - TLT
+signal_inputs:
+  - SH
+  - SDS
+  - SSO
+  - UPRO
+  - SPXU
+  - PSQ
+  - QID
+  - QLD
+  - TQQQ
+  - SQQQ
+  - TWM
+  - UWM
+  - TNA
+  - TZA
+  - ERX
+  - ERY
+  - FAS
+  - FAZ
+  - TECL
+  - TECS
+  - SOXL
+  - SOXS
+  - LABU
+  - LABD
+  - URE
+  - SRS
+  - RETL
+  - NAIL
+  - TBT
+  - UBT
+  - TMF
+  - TMV
+parameters:
+  residual_lookback: 60
+  min_lookback: 40
+  event_threshold_z: 0.75
+  max_single_underlying_weight: 0.20
+  gross_exposure_cap: 1.0
+  signal_shift: close_D_to_D_plus_1
+costs:
+  primary_one_way_bps: 10
+  sensitivity_one_way_bps: [5, 20]
+data:
+  source: qfa AlpacaGateway real daily OHLCV
+  csv_used: false
+  data_csv_argument_used: false
+safety:
+  no_daemon: true
+  no_orders: true
+  leveraged_inverse_etfs_signal_only: true
