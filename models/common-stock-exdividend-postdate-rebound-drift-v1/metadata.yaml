@@ -1,0 +1,35 @@
+name: common-stock-exdividend-postdate-rebound-drift-v1
+issue_id: AR-125
+status: rejected
+created_at: 2026-06-27
+research_only: true
+data_sources:
+  - Alpaca cash-dividend corporate-action records
+  - Alpaca real daily OHLCV via qfa-compatible alpaca-py clients
+prohibitions_observed:
+  csv_used: false
+  data_csv_argument_used: false
+  daemon_run: false
+  orders_submitted: false
+timestamp_safety: first entry bar strictly after max(ex_date, process_date); no announcement timestamp assumption; no pre-event exposure
+primary_evaluation:
+  start: 2024-01-01
+  end: 2026-06-26
+  primary_window: 5d
+  primary_cost: 10bps
+  event_count: 2084
+  selected_symbol_count: 287
+  mean_event_return: 0.000888614063488815
+  p25_event_return: -0.02237172993954087
+  positive_window_rate: 0.5148752399232246
+  sharpe_proxy: 0.1284697818469211
+  decision: rejected
+  rationale:
+    - primary p25 event return materially negative
+    - primary positive-window rate below 55%
+    - 20 bps stress does not retain positive mean return
+    - does not beat matched placebo dates
+artifacts:
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md
+  immutable_run_json: evaluations/runs/ar125_qfa_alpaca_real_20260627T201852Z.json
