@@ -899,8 +899,8 @@ issues:
 - id: AR-121
   title: 'ETF family-relative OHLCV liquidity-pressure proxy allocator'
   model_name: etf-family-relative-ohlcv-liquidity-pressure-v1
-  status: queued
-  priority: preflight_queue_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: etf_liquidity_pressure_mean_reversion
   issue_path: alpha_research/issues/AR-121.md
 - id: AR-122
@@ -910,10 +910,17 @@ issues:
   priority: completed_realdata
   family: macro_shock_sector_relative_stabilization
   issue_path: alpha_research/issues/AR-122.md
+- id: AR-123
+  title: 'Timestamp-safe tax-loss rebound basket with separated ETF and large-cap sleeves'
+  model_name: tax-loss-rebound-etf-largecap-sleeves-v1
+  status: queued
+  priority: preflight_queue_fast_falsification
+  family: tax_loss_calendar_reversal
+  issue_path: alpha_research/issues/AR-123.md
 active_batch:
-- AR-121
+- AR-123
 last_realdata_batch:
-- AR-122
-updated_at: '2026-06-27T06:38:40Z'
+- AR-121
+updated_at: '2026-06-27T08:14:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 112
+tried_ideas_count: 113

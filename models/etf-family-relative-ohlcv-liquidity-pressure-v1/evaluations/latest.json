@@ -1,0 +1,1443 @@
+{
+  "ablations_10bps": {
+    "mean_reversion": {
+      "full_period": {
+        "activation_rate": 1.0,
+        "annual_return": -0.3144331061054694,
+        "annual_vol": 0.1303670854479229,
+        "days": 2005,
+        "end": "2026-06-24",
+        "max_drawdown": -0.9510420335205579,
+        "positive_day_rate": 0.37855361596009973,
+        "sharpe": -2.826991836105954,
+        "start": "2018-07-02",
+        "total_return": -0.9503915962409851,
+        "turnover_annual": 418.2244097974644,
+        "turnover_daily": 1.6596206737994619
+      },
+      "random_window_summary": {
+        "activation_rate": {
+          "mean": 1.0,
+          "median": 1.0,
+          "p25": 1.0,
+          "worst": 1.0
+        },
+        "annual_return": {
+          "mean": -0.32569606562810843,
+          "median": -0.3314475517040426,
+          "p25": -0.3602657513101858,
+          "worst": -0.39120513586436034
+        },
+        "annual_vol": {
+          "mean": 0.13387672791001592,
+          "median": 0.12386290015147781,
+          "p25": 0.10880309085106873,
+          "worst": 0.10270107254786855
+        },
+        "max_drawdown": {
+          "mean": -0.5550358826264448,
+          "median": -0.5599835414665157,
+          "p25": -0.599126605959972,
+          "worst": -0.6269521550384338
+        },
+        "positive_day_rate": {
+          "mean": 0.37417328042328046,
+          "median": 0.3849206349206349,
+          "p25": 0.33482142857142855,
+          "worst": 0.30952380952380953
+        },
+        "positive_window_rate": 0.0,
+        "sharpe": {
+          "mean": -2.9405429588166747,
+          "median": -2.951537590634846,
+          "p25": -3.1643480502307475,
+          "worst": -3.8490238042553964
+        },
+        "turnover_annual": {
+          "mean": 418.5133153458198,
+          "median": 418.756476657304,
+          "p25": 414.3752466834785,
+          "worst": 410.83458359355575
+        },
+        "turnover_daily": {
+          "mean": 1.6607671243881743,
+          "median": 1.6617320502273967,
+          "p25": 1.6443462169979306,
+          "worst": 1.6302959666410943
+        }
+      }
+    },
+    "no_volume": {
+      "full_period": {
+        "activation_rate": 0.9890274314214463,
+        "annual_return": -0.3665521793843952,
+        "annual_vol": 0.1768166126764377,
+        "days": 2005,
+        "end": "2026-06-24",
+        "max_drawdown": -0.9739995006133079,
+        "positive_day_rate": 0.372069825436409,
+        "sharpe": -2.4891992607494133,
+        "start": "2018-07-02",
+        "total_return": -0.9735550805061355,
+        "turnover_annual": 438.87965590079557,
+        "turnover_daily": 1.741585936114268
+      },
+      "random_window_summary": {
+        "activation_rate": {
+          "mean": 0.9890873015873017,
+          "median": 0.9900793650793651,
+          "p25": 0.9821428571428571,
+          "worst": 0.9761904761904762
+        },
+        "annual_return": {
+          "mean": -0.3886535560907222,
+          "median": -0.34494799584571634,
+          "p25": -0.49944485131190225,
+          "worst": -0.5278019806235248
+        },
+        "annual_vol": {
+          "mean": 0.17950954790016607,
+          "median": 0.1683690549801944,
+          "p25": 0.1337383295859411,
+          "worst": 0.12272396743332545
+        },
+        "max_drawdown": {
+          "mean": -0.6316819717965595,
+          "median": -0.5884751252114225,
+          "p25": -0.7527160257736234,
+          "worst": -0.777966762137734
+        },
+        "positive_day_rate": {
+          "mean": 0.37251984126984133,
+          "median": 0.3839285714285714,
+          "p25": 0.3427579365079365,
+          "worst": 0.3253968253968254
+        },
+        "positive_window_rate": 0.0,
+        "sharpe": {
+          "mean": -2.714933636031431,
+          "median": -2.7476458382119997,
+          "p25": -2.8478934564575833,
+          "worst": -3.8876203486086833
+        },
+        "turnover_annual": {
+          "mean": 438.9204243063473,
+          "median": 440.24006252587924,
+          "p25": 431.1199335507488,
+          "worst": 426.72573143044616
+        },
+        "turnover_daily": {
+          "mean": 1.741747715501378,
+          "median": 1.7469843751026952,
+          "p25": 1.710793387106146,
+          "worst": 1.6933560771049452
+        }
+      }
+    },
+    "raw_not_family": {
+      "full_period": {
+        "activation_rate": 0.6199501246882793,
+        "annual_return": -0.20963965501477944,
+        "annual_vol": 0.22626669023759302,
+        "days": 2005,
+        "end": "2026-06-24",
+        "max_drawdown": -0.8823645885498353,
+        "positive_day_rate": 0.2628428927680798,
+        "sharpe": -0.9204665542274744,
+        "start": "2018-07-02",
+        "total_return": -0.8461628765326803,
+        "turnover_annual": 293.4923942203656,
+        "turnover_daily": 1.1646523580173238
+      },
+      "random_window_summary": {
+        "activation_rate": {
+          "mean": 0.6177248677248678,
+          "median": 0.6220238095238095,
+          "p25": 0.6046626984126984,
+          "worst": 0.5813492063492064
+        },
+        "annual_return": {
+          "mean": -0.23014842401216792,
+          "median": -0.25716945054811924,
+          "p25": -0.34339063325109465,
+          "worst": -0.46717793511310146
+        },
+        "annual_vol": {
+          "mean": 0.22560096573068467,
+          "median": 0.1953072877570765,
+          "p25": 0.18444179044856296,
+          "worst": 0.16609214554502758
+        },
+        "max_drawdown": {
+          "mean": -0.463554004787035,
+          "median": -0.48047779149007946,
+          "p25": -0.619455117416458,
+          "worst": -0.7692081060529935
+        },
+        "positive_day_rate": {
+          "mean": 0.2579365079365079,
+          "median": 0.2648809523809524,
+          "p25": 0.2361111111111111,
+          "worst": 0.2222222222222222
+        },
+        "positive_window_rate": 0.0,
+        "sharpe": {
+          "mean": -1.029249897823649,
+          "median": -1.236531827999226,
+          "p25": -1.5302748860136746,
+          "worst": -1.8954014840833708
+        },
+        "turnover_annual": {
+          "mean": 292.37804748486974,
+          "median": 294.1160217945604,
+          "p25": 287.0016361331286,
+          "worst": 278.6245024165071
+        },
+        "turnover_daily": {
+          "mean": 1.1602303471621813,
+          "median": 1.1671270706133352,
+          "p25": 1.1388953814806693,
+          "worst": 1.1056527873670916
+        }
+      }
+    },
+    "tsmom_defensive": {
+      "full_period": {
+        "activation_rate": 1.0,
+        "annual_return": -0.017484829045926187,
+        "annual_vol": 0.1483378577058865,
+        "days": 2005,
+        "end": "2026-06-24",
+        "max_drawdown": -0.44611012100474334,
+        "positive_day_rate": 0.514713216957606,
+        "sharpe": -0.0444180051563429,
+        "start": "2018-07-02",
+        "total_return": -0.13094248926643748,
+        "turnover_annual": 111.82698847152211,
+        "turnover_daily": 0.4437578907600084
+      },
+      "random_window_summary": {
+        "activation_rate": {
+          "mean": 1.0,
+          "median": 1.0,
+          "p25": 1.0,
+          "worst": 1.0
+        },
+        "annual_return": {
+          "mean": -0.03296821843655544,
+          "median": -0.0450799669523414,
+          "p25": -0.09187270232858807,
+          "worst": -0.164796645079192
+        },
+        "annual_vol": {
+          "mean": 0.15497482331933532,
+          "median": 0.16401588230776176,
+          "p25": 0.1258649662903089,
+          "worst": 0.11667451938783875
+        },
+        "max_drawdown": {
+          "mean": -0.24960856913036109,
+          "median": -0.2225261725194228,
+          "p25": -0.3387688128600965,
+          "worst": -0.3519225881766481
+        },
+        "positive_day_rate": {
+          "mean": 0.5099206349206349,
+          "median": 0.5059523809523809,
+          "p25": 0.49206349206349204,
+          "worst": 0.47023809523809523
+        },
+        "positive_window_rate": 0.4166666666666667,
+        "sharpe": {
+          "mean": -0.1527265826028449,
+          "median": -0.21966801542245568,
+          "p25": -0.5745472392668243,
+          "worst": -0.8575388207175919
+        },
+        "turnover_annual": {
+          "mean": 115.78194784264743,
+          "median": 117.89120882172335,
+          "p25": 107.32982072141954,
+          "worst": 96.28879297801505
+        },
+        "turnover_daily": {
+          "mean": 0.4594521739787596,
+          "median": 0.4678222572290609,
+          "p25": 0.42591198698976007,
+          "worst": 0.3820983848333931
+        }
+      }
+    }
+  },
+  "candidate_pool": {
+    "bond_duration": [
+      "TLT",
+      "IEF",
+      "SHY",
+      "BIL",
+      "VGIT",
+      "VGLT",
+      "EDV",
+      "MUB"
+    ],
+    "broad_index": [
+      "SPY",
+      "IVV",
+      "VOO",
+      "QQQ",
+      "DIA",
+      "IWM",
+      "VTI",
+      "RSP"
+    ],
+    "commodity": [
+      "GLD",
+      "SLV",
+      "USO",
+      "UNG",
+      "DBC",
+      "DBA",
+      "PDBC",
+      "CPER"
+    ],
+    "credit": [
+      "HYG",
+      "JNK",
+      "LQD",
+      "VCIT",
+      "VCSH",
+      "BND",
+      "AGG",
+      "TIP"
+    ],
+    "factor_style": [
+      "MTUM",
+      "QUAL",
+      "USMV",
+      "VLUE",
+      "SIZE",
+      "VUG",
+      "VTV",
+      "IWF",
+      "IWD",
+      "SPLV",
+      "SPHB",
+      "IJR"
+    ],
+    "industry": [
+      "SMH",
+      "XBI",
+      "KRE",
+      "KIE",
+      "XRT",
+      "ITA",
+      "IYT",
+      "XHB",
+      "GDX",
+      "GDXJ",
+      "TAN",
+      "ICLN"
+    ],
+    "international": [
+      "EFA",
+      "EEM",
+      "VEA",
+      "VWO",
+      "EWJ",
+      "EWZ",
+      "EWG",
+      "EWU",
+      "FXI",
+      "INDA",
+      "MCHI",
+      "ACWX"
+    ],
+    "real_assets": [
+      "VNQ",
+      "IYR",
+      "REM",
+      "XME",
+      "IGE",
+      "URA"
+    ],
+    "sector": [
+      "XLB",
+      "XLE",
+      "XLF",
+      "XLI",
+      "XLK",
+      "XLP",
+      "XLU",
+      "XLV",
+      "XLY",
+      "XLRE",
+      "XLC",
+      "VGT",
+      "VHT",
+      "VDE"
+    ]
+  },
+  "costs_bps": {
+    "primary": 10,
+    "stress": [
+      5,
+      20
+    ]
+  },
+  "coverage_liquidity_table": [
+    {
+      "coverage_since_2019": 1.0,
+      "family": "broad_index",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 31402270832.13,
+      "selected": true,
+      "symbol": "SPY"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "broad_index",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1999348828.8,
+      "selected": true,
+      "symbol": "IVV"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "broad_index",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1739883617.02,
+      "selected": true,
+      "symbol": "VOO"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "broad_index",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 16175630803.17,
+      "selected": true,
+      "symbol": "QQQ"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "broad_index",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1237120926.93,
+      "selected": true,
+      "symbol": "DIA"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "broad_index",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 5439031334.48,
+      "selected": true,
+      "symbol": "IWM"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "broad_index",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 745956403.93,
+      "selected": true,
+      "symbol": "VTI"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "broad_index",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 496775717.43,
+      "selected": true,
+      "symbol": "RSP"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 457196976.69,
+      "selected": true,
+      "symbol": "XLB"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1414610520.51,
+      "selected": true,
+      "symbol": "XLE"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1650740614.39,
+      "selected": true,
+      "symbol": "XLF"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1062723239.16,
+      "selected": true,
+      "symbol": "XLI"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1119540690.47,
+      "selected": true,
+      "symbol": "XLK"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 841361765.5,
+      "selected": true,
+      "symbol": "XLP"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 901031959.56,
+      "selected": true,
+      "symbol": "XLU"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1153349127.37,
+      "selected": true,
+      "symbol": "XLV"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 725278856.61,
+      "selected": true,
+      "symbol": "XLY"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 210868815.97,
+      "selected": true,
+      "symbol": "XLRE"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-06-19",
+      "last": "2026-06-25",
+      "median_dollar_volume": 335095860.49,
+      "selected": true,
+      "symbol": "XLC"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 217243395.4,
+      "selected": true,
+      "symbol": "VGT"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 47176699.98,
+      "selected": true,
+      "symbol": "VHT"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "sector",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 58778311.47,
+      "selected": true,
+      "symbol": "VDE"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1057765975.4,
+      "selected": true,
+      "symbol": "SMH"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 759067702.98,
+      "selected": true,
+      "symbol": "XBI"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 569032282.03,
+      "selected": true,
+      "symbol": "KRE"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 32479768.41,
+      "selected": true,
+      "symbol": "KIE"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 308101871.07,
+      "selected": true,
+      "symbol": "XRT"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 44449016.85,
+      "selected": true,
+      "symbol": "ITA"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 35487012.16,
+      "selected": true,
+      "symbol": "IYT"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 173725605.38,
+      "selected": true,
+      "symbol": "XHB"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 896964914.12,
+      "selected": true,
+      "symbol": "GDX"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 340989168.04,
+      "selected": true,
+      "symbol": "GDXJ"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 47387282.81,
+      "selected": true,
+      "symbol": "TAN"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "industry",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 51508639.54,
+      "selected": true,
+      "symbol": "ICLN"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "bond_duration",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 2361447379.25,
+      "selected": true,
+      "symbol": "TLT"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "bond_duration",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 673595836.44,
+      "selected": true,
+      "symbol": "IEF"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "bond_duration",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 303066960.28,
+      "selected": true,
+      "symbol": "SHY"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "bond_duration",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 446798040.36,
+      "selected": true,
+      "symbol": "BIL"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "bond_duration",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 96453229.2,
+      "selected": true,
+      "symbol": "VGIT"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "bond_duration",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 85889039.94,
+      "selected": true,
+      "symbol": "VGLT"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "bond_duration",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 33915623.09,
+      "selected": true,
+      "symbol": "EDV"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "bond_duration",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 269565245.31,
+      "selected": true,
+      "symbol": "MUB"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "credit",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 2524300776.1,
+      "selected": true,
+      "symbol": "HYG"
+    },
+    {
+      "coverage_since_2019": 0.9548,
+      "family": "credit",
+      "first": "2019-05-06",
+      "last": "2026-06-25",
+      "median_dollar_volume": 628912508.26,
+      "selected": true,
+      "symbol": "JNK"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "credit",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 2193577877.92,
+      "selected": true,
+      "symbol": "LQD"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "credit",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 400573970.1,
+      "selected": true,
+      "symbol": "VCIT"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "credit",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 267071076.5,
+      "selected": true,
+      "symbol": "VCSH"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "credit",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 437593074.34,
+      "selected": true,
+      "symbol": "BND"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "credit",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 726272540.64,
+      "selected": true,
+      "symbol": "AGG"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "credit",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 263820127.08,
+      "selected": true,
+      "symbol": "TIP"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "commodity",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1486454833.63,
+      "selected": true,
+      "symbol": "GLD"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "commodity",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 465066586.71,
+      "selected": true,
+      "symbol": "SLV"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "commodity",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 276504976.1,
+      "selected": true,
+      "symbol": "USO"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "commodity",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 98682443.09,
+      "selected": true,
+      "symbol": "UNG"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "commodity",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 24206035.31,
+      "selected": true,
+      "symbol": "DBC"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "commodity",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 10183445.19,
+      "selected": false,
+      "symbol": "DBA"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "commodity",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 48372094.95,
+      "selected": true,
+      "symbol": "PDBC"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "commodity",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 2497002.7,
+      "selected": false,
+      "symbol": "CPER"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1417983648.88,
+      "selected": true,
+      "symbol": "EFA"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1688314265.74,
+      "selected": true,
+      "symbol": "EEM"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 503887448.2,
+      "selected": true,
+      "symbol": "VEA"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 467525197.18,
+      "selected": true,
+      "symbol": "VWO"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 379590771.5,
+      "selected": true,
+      "symbol": "EWJ"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 820124950.95,
+      "selected": true,
+      "symbol": "EWZ"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 81235521.09,
+      "selected": true,
+      "symbol": "EWG"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 71090424.56,
+      "selected": true,
+      "symbol": "EWU"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1026499419.03,
+      "selected": true,
+      "symbol": "FXI"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 171446378.19,
+      "selected": true,
+      "symbol": "INDA"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 209619577.55,
+      "selected": true,
+      "symbol": "MCHI"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "international",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 72934168.39,
+      "selected": true,
+      "symbol": "ACWX"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 126356087.56,
+      "selected": true,
+      "symbol": "MTUM"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 146801090.01,
+      "selected": true,
+      "symbol": "QUAL"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 208644387.81,
+      "selected": true,
+      "symbol": "USMV"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 49747971.23,
+      "selected": true,
+      "symbol": "VLUE"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 1046944.18,
+      "selected": false,
+      "symbol": "SIZE"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 268272250.91,
+      "selected": true,
+      "symbol": "VUG"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 328063054.94,
+      "selected": true,
+      "symbol": "VTV"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 401981641.67,
+      "selected": true,
+      "symbol": "IWF"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 340833777.21,
+      "selected": true,
+      "symbol": "IWD"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 161341891.63,
+      "selected": true,
+      "symbol": "SPLV"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 27261566.73,
+      "selected": true,
+      "symbol": "SPHB"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "factor_style",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 392890091.81,
+      "selected": true,
+      "symbol": "IJR"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "real_assets",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 402514115.66,
+      "selected": true,
+      "symbol": "VNQ"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "real_assets",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 583960463.64,
+      "selected": true,
+      "symbol": "IYR"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "real_assets",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 12771366.74,
+      "selected": false,
+      "symbol": "REM"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "real_assets",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 137210228.82,
+      "selected": true,
+      "symbol": "XME"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "real_assets",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 5167120.95,
+      "selected": false,
+      "symbol": "IGE"
+    },
+    {
+      "coverage_since_2019": 1.0,
+      "family": "real_assets",
+      "first": "2018-01-02",
+      "last": "2026-06-25",
+      "median_dollar_volume": 39413573.56,
+      "selected": true,
+      "symbol": "URA"
+    }
+  ],
+  "coverage_liquidity_table_note": "coverage_liquidity_table selected=true means the symbol passed raw coverage/liquidity filters; selected_symbols is the final top-4-per-family diversified universe fixed before performance review.",
+  "created_at": "2026-06-27T07:59:12+00:00",
+  "data_provenance": {
+    "end": "2026-06-26",
+    "no_csv_used": true,
+    "no_daemon": true,
+    "no_data_csv_argument_used": true,
+    "no_orders": true,
+    "raw_daily_paths_retained": false,
+    "source": "qfa Alpaca real daily OHLCV via configured paper-data access; credential values redacted",
+    "start": "2018-01-01",
+    "timeframe": "1Day"
+  },
+  "decision": "rejected",
+  "decision_reason": "Failed acceptance gate: primary 10 bps random-window median/p25/positive-window or baseline superiority insufficient.",
+  "limitations": [
+    "Daily OHLCV cannot observe ETF flows, NAV, creations/redemptions, or premium/discount.",
+    "Signal is daily close-to-next-close and assumes executable close/next session without borrow/short constraints; model is long-only cash-fallback.",
+    "Alpaca coverage/liquidity filters are historical and do not handle delisting/survivorship exhaustively."
+  ],
+  "metrics": {
+    "annualized_return": -0.33586918045857017,
+    "annualized_volatility": 0.2245810505772788,
+    "full_period_sharpe": -1.703527684726152,
+    "max_drawdown": -0.9620576279452809,
+    "mean_sharpe": -1.6888281020797062,
+    "median_annual_return": -0.31361645500081,
+    "median_annual_volatility": 0.20347073311117905,
+    "median_sharpe": -1.6798552901618442,
+    "median_window_max_drawdown": -0.5499098352707663,
+    "p25_sharpe": -1.8692487748563318,
+    "positive_window_rate": 0.0,
+    "turnover": 1.6756477660133895,
+    "worst_period_sharpe": -2.1912983094366383
+  },
+  "model_name": "etf-family-relative-ohlcv-liquidity-pressure-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "avg_corr_to_top_alphas": null,
+    "cointegration_pvalue_min": null,
+    "max_corr_to_library": null,
+    "method": "No compact daily return series were found for the requested prior alphas in durable artifacts; numeric correlation was therefore not computed. Conceptual overlap is high with AR-028/045/056 close-location/liquidity reversal and moderate with AR-015 ETF TSMOM and AR-037/049/051 defensive/carry allocators; baselines above test the main proxies directly.",
+    "redundancy_penalty": "numeric_not_available_compact_prior_returns_missing"
+  },
+  "primary_full_period": {
+    "activation_rate": 0.9152119700748129,
+    "annual_return": -0.33586918045857017,
+    "annual_vol": 0.2245810505772788,
+    "days": 2005,
+    "end": "2026-06-24",
+    "max_drawdown": -0.9620576279452809,
+    "positive_day_rate": 0.3650872817955112,
+    "sharpe": -1.703527684726152,
+    "start": "2018-07-02",
+    "total_return": -0.9614709903596024,
+    "turnover_annual": 425.89350537746475,
+    "turnover_daily": 1.6900535927677172
+  },
+  "primary_random_window_summary": {
+    "activation_rate": {
+      "mean": 0.9103009259259259,
+      "median": 0.9097222222222222,
+      "p25": 0.902281746031746,
+      "worst": 0.8968253968253969
+    },
+    "annual_return": {
+      "mean": -0.3388871306452379,
+      "median": -0.31361645500081,
+      "p25": -0.45781826282708726,
+      "worst": -0.528537757832827
+    },
+    "annual_vol": {
+      "mean": 0.23035943616821328,
+      "median": 0.20347073311117905,
+      "p25": 0.1705890153047224,
+      "worst": 0.14534278631028677
+    },
+    "max_drawdown": {
+      "mean": -0.5920605726515445,
+      "median": -0.5499098352707663,
+      "p25": -0.72595039884198,
+      "worst": -0.7999209214535075
+    },
+    "positive_day_rate": {
+      "mean": 0.36516203703703703,
+      "median": 0.37202380952380953,
+      "p25": 0.3427579365079365,
+      "worst": 0.32341269841269843
+    },
+    "positive_window_rate": 0.0,
+    "sharpe": {
+      "mean": -1.6888281020797062,
+      "median": -1.6798552901618442,
+      "p25": -1.8692487748563318,
+      "worst": -2.1912983094366383
+    },
+    "turnover_annual": {
+      "mean": 423.0812906248337,
+      "median": 422.2632370353741,
+      "p25": 419.19287807315004,
+      "worst": 414.18557597108435
+    },
+    "turnover_daily": {
+      "mean": 1.678894010416007,
+      "median": 1.6756477660133895,
+      "p25": 1.6634638018775796,
+      "worst": 1.643593555440811
+    }
+  },
+  "raw_daily_paths_retained": false,
+  "schema_version": "ar121.compact.v1",
+  "selected_count": 36,
+  "selected_symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "IVV",
+    "XLF",
+    "XLE",
+    "XLV",
+    "XLK",
+    "SMH",
+    "GDX",
+    "XBI",
+    "KRE",
+    "TLT",
+    "IEF",
+    "BIL",
+    "SHY",
+    "HYG",
+    "LQD",
+    "AGG",
+    "JNK",
+    "GLD",
+    "SLV",
+    "USO",
+    "UNG",
+    "EEM",
+    "EFA",
+    "FXI",
+    "EWZ",
+    "IWF",
+    "IJR",
+    "IWD",
+    "VTV",
+    "IYR",
+    "VNQ",
+    "XME",
+    "URA"
+  ],
+  "selection_filters": {
+    "coverage_since_2019_min": 0.94,
+    "family_liquidity_cap": "top 4 per family by median dollar volume after filters",
+    "median_dollar_volume_min": 20000000,
+    "performance_used_for_selection": false
+  },
+  "status": "rejected",
+  "stress_20bps_random_window_summary": {
+    "activation_rate": {
+      "mean": 0.9103009259259259,
+      "median": 0.9097222222222222,
+      "p25": 0.902281746031746,
+      "worst": 0.8968253968253969
+    },
+    "annual_return": {
+      "mean": -0.5676117552371515,
+      "median": -0.5519501685865178,
+      "p25": -0.6469481601532663,
+      "worst": -0.6919852620715966
+    },
+    "annual_vol": {
+      "mean": 0.23096696331264477,
+      "median": 0.20401793727834508,
+      "p25": 0.17153230360057528,
+      "worst": 0.1465889164050216
+    },
+    "max_drawdown": {
+      "mean": -0.8137715890980779,
+      "median": -0.800650500379728,
+      "p25": -0.875869106410099,
+      "worst": -0.9086040875737189
+    },
+    "positive_day_rate": {
+      "mean": 0.29778439153439157,
+      "median": 0.2996031746031746,
+      "p25": 0.2757936507936508,
+      "worst": 0.2698412698412698
+    },
+    "positive_window_rate": 0.0,
+    "sharpe": {
+      "mean": -3.656104813027913,
+      "median": -3.716237727553982,
+      "p25": -3.8422247394039095,
+      "worst": -5.004982613245468
+    },
+    "turnover_annual": {
+      "mean": 423.0812906248337,
+      "median": 422.2632370353741,
+      "p25": 419.19287807315004,
+      "worst": 414.18557597108435
+    },
+    "turnover_daily": {
+      "mean": 1.678894010416007,
+      "median": 1.6756477660133895,
+      "p25": 1.6634638018775796,
+      "worst": 1.643593555440811
+    }
+  },
+  "stress_5bps_random_window_summary": {
+    "activation_rate": {
+      "mean": 0.9103009259259259,
+      "median": 0.9097222222222222,
+      "p25": 0.902281746031746,
+      "worst": 0.8968253968253969
+    },
+    "annual_return": {
+      "mean": -0.18274972132297265,
+      "median": -0.15069383934348562,
+      "p25": -0.3283069784304393,
+      "worst": -0.4168808366657315
+    },
+    "annual_vol": {
+      "mean": 0.23015441055920202,
+      "median": 0.20330719008327702,
+      "p25": 0.1702344644284751,
+      "worst": 0.14486472805124495
+    },
+    "max_drawdown": {
+      "mean": -0.4371665031613204,
+      "median": -0.37725973125916756,
+      "p25": -0.6399877664594709,
+      "worst": -0.7274583577193419
+    },
+    "positive_day_rate": {
+      "mean": 0.41583994708994715,
+      "median": 0.42658730158730157,
+      "p25": 0.3923611111111111,
+      "worst": 0.36904761904761907
+    },
+    "positive_window_rate": 0.08333333333333333,
+    "sharpe": {
+      "mean": -0.6995149292590365,
+      "median": -0.718267592389758,
+      "p25": -1.1267739512505897,
+      "worst": -1.509226638869487
+    },
+    "turnover_annual": {
+      "mean": 423.0812906248337,
+      "median": 422.2632370353741,
+      "p25": 419.19287807315004,
+      "worst": 414.18557597108435
+    },
+    "turnover_daily": {
+      "mean": 1.678894010416007,
+      "median": 1.6756477660133895,
+      "p25": 1.6634638018775796,
+      "worst": 1.643593555440811
+    }
+  }
+}

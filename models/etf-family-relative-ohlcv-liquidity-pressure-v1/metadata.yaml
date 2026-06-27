@@ -1,0 +1,37 @@
+model_name: etf-family-relative-ohlcv-liquidity-pressure-v1
+issue_id: AR-121
+family: etf_liquidity_pressure_mean_reversion
+status: rejected
+decision: rejected
+created_at: '2026-06-27T07:59:12Z'
+research_data:
+  source: qfa/Alpaca real daily OHLCV, configured paper-data access, credential values redacted
+  timeframe: 1Day
+  start: '2018-01-01'
+  end: '2026-06-26'
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+universe:
+  selected_count: 36
+  selected_symbols: [SPY, QQQ, IWM, IVV, XLF, XLE, XLV, XLK, SMH, GDX, XBI, KRE, TLT, IEF, BIL, SHY, HYG, LQD, AGG, JNK, GLD, SLV, USO, UNG, EEM, EFA, FXI, EWZ, IWF, IJR, IWD, VTV, IYR, VNQ, XME, URA]
+primary_10bps_random_windows:
+  sharpe_median: -1.6798552901618442
+  sharpe_mean: -1.6888281020797062
+  sharpe_p25: -1.8692487748563318
+  sharpe_worst: -2.1912983094366383
+  annual_return_median: -0.31361645500081
+  annual_vol_median: 0.20347073311117905
+  max_drawdown_median: -0.5499098352707663
+  turnover_daily_median: 1.6756477660133895
+  turnover_annual_median: 422.2632370353741
+  activation_rate_median: 0.9097222222222222
+  positive_day_rate_median: 0.37202380952380953
+  positive_window_rate: 0.0
+stress_sharpe_median:
+  five_bps: -0.718267592389758
+  twenty_bps: -3.716237727553982
+acceptance_result: failed
+acceptance_reason: primary 10 bps random-window Sharpe and positive-window gates failed; turnover/cost fragility severe; TSMOM defensive baseline was less bad.
