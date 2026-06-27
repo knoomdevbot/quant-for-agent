@@ -52,7 +52,17 @@ class TradingDaemon:
                 side = "buy" if weight >= 0 else "sell"
                 response = {"dry_run": True, "symbol": symbol, "side": side, "notional": notional}
                 if not self.config.dry_run:
-                    response = self.alpaca.submit_notional_order(symbol, side, notional)
+                    try:
+                        response = self.alpaca.submit_notional_order(symbol, side, notional)
+                    except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
+                        response = {
+                            "status": "error",
+                            "error_type": type(exc).__name__,
+                            "message": str(exc),
+                            "symbol": symbol,
+                            "side": side,
+                            "notional": notional,
+                        }
                 event = {
                     "model_name": model["name"],
                     "symbol": symbol,
