@@ -1,0 +1,13 @@
+issue_id: AR-125
+model_name: monthend-stockbond-imbalance-rebalance-allocator-v1
+status: research_evaluated
+created_utc: '2026-06-27T06:02:00Z'
+hypothesis: Large completed-month stock-vs-bond performance gaps create predictable month-end/turn-of-month balanced-fund rebalance pressure.
+falsifier: Reject if the conditioned allocator fails after realistic costs, loses to generic ToM/momentum/reversal baselines, is placebo-like, or overlaps watchlist alphas.
+selected_universe_rationale: Broad liquid Alpaca-covered ETFs chosen before performance review to proxy equity index/sector sleeves plus Treasury, aggregate, credit, and inflation-linked bond sleeves; GLD/UUP retained only as diagnostics/controls.
+data_access: configured paper-data Alpaca access, values redacted
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

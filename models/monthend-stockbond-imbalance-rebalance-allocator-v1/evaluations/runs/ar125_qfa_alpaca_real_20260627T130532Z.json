@@ -1,0 +1,506 @@
+{
+  "alpha_id": "AR-125",
+  "backtest": {
+    "costs_bps": 10,
+    "data_source": "qfa/Alpaca real daily OHLCV with configured paper-data access values redacted",
+    "no_csv_used": true,
+    "no_data_csv_argument_used": true,
+    "random_periods": 100,
+    "train_test_split": "random month subsets / event-window robustness"
+  },
+  "baseline_random_subset_10bps": {
+    "duration_carry": {
+      "median_sharpe": -0.6121,
+      "p25_sharpe": -0.921897,
+      "positive_window_rate": 0.133333,
+      "samples": 60,
+      "worst_period_sharpe": -2.62472
+    },
+    "generic_tom": {
+      "median_sharpe": -0.031416,
+      "p25_sharpe": -0.322244,
+      "positive_window_rate": 0.483333,
+      "samples": 60,
+      "worst_period_sharpe": -1.173857
+    },
+    "momentum": {
+      "median_sharpe": -1.415505,
+      "p25_sharpe": -1.852238,
+      "positive_window_rate": 0.033333,
+      "samples": 60,
+      "worst_period_sharpe": -2.867712
+    },
+    "uncond_bond": {
+      "median_sharpe": -1.296349,
+      "p25_sharpe": -1.549588,
+      "positive_window_rate": 0.016667,
+      "samples": 60,
+      "worst_period_sharpe": -3.086244
+    },
+    "uncond_equity": {
+      "median_sharpe": -0.031416,
+      "p25_sharpe": -0.322244,
+      "positive_window_rate": 0.483333,
+      "samples": 60,
+      "worst_period_sharpe": -1.173857
+    }
+  },
+  "baselines_10bps": {
+    "duration_carry": {
+      "activation": 0.19099,
+      "annualized_return": -0.038918,
+      "annualized_volatility": 0.051475,
+      "avg_daily_turnover": 0.096199,
+      "event_count": 408,
+      "max_drawdown": -0.287862,
+      "positive_day_rate": 0.090568,
+      "sharpe": -0.745336,
+      "turnover": 205.0
+    },
+    "generic_tom": {
+      "activation": 0.19099,
+      "annualized_return": 0.001966,
+      "annualized_volatility": 0.075215,
+      "avg_daily_turnover": 0.096199,
+      "event_count": 408,
+      "max_drawdown": -0.146789,
+      "positive_day_rate": 0.10183,
+      "sharpe": 0.063772,
+      "turnover": 205.0
+    },
+    "momentum": {
+      "activation": 0.145941,
+      "annualized_return": -0.048004,
+      "annualized_volatility": 0.0353,
+      "avg_daily_turnover": 0.120131,
+      "event_count": 408,
+      "max_drawdown": -0.342193,
+      "positive_day_rate": 0.064289,
+      "sharpe": -1.375786,
+      "turnover": 256.0
+    },
+    "placebo_dates_day8_11": {
+      "activation": 0.14641,
+      "annualized_return": -0.0147,
+      "annualized_volatility": 0.040787,
+      "avg_daily_turnover": 0.073205,
+      "event_count": 408,
+      "max_drawdown": -0.148718,
+      "positive_day_rate": 0.064758,
+      "sharpe": -0.342568,
+      "turnover": 156.0
+    },
+    "primary_20d_imbalance": {
+      "activation": 0.153918,
+      "annualized_return": -0.008497,
+      "annualized_volatility": 0.035675,
+      "avg_daily_turnover": 0.103238,
+      "event_count": 408,
+      "max_drawdown": -0.105638,
+      "positive_day_rate": 0.069451,
+      "sharpe": -0.221369,
+      "turnover": 220.0
+    },
+    "reversal": {
+      "activation": 0.145941,
+      "annualized_return": -0.012261,
+      "annualized_volatility": 0.034438,
+      "avg_daily_turnover": 0.120131,
+      "event_count": 408,
+      "max_drawdown": -0.155864,
+      "positive_day_rate": 0.064289,
+      "sharpe": -0.341036,
+      "turnover": 256.0
+    },
+    "uncond_bond": {
+      "activation": 0.19099,
+      "annualized_return": -0.040531,
+      "annualized_volatility": 0.029248,
+      "avg_daily_turnover": 0.096199,
+      "event_count": 408,
+      "max_drawdown": -0.296504,
+      "positive_day_rate": 0.081183,
+      "sharpe": -1.399883,
+      "turnover": 205.0
+    },
+    "uncond_equity": {
+      "activation": 0.19099,
+      "annualized_return": 0.001966,
+      "annualized_volatility": 0.075215,
+      "avg_daily_turnover": 0.096199,
+      "event_count": 408,
+      "max_drawdown": -0.146789,
+      "positive_day_rate": 0.10183,
+      "sharpe": 0.063772,
+      "turnover": 205.0
+    }
+  },
+  "config_path": "models/monthend-stockbond-imbalance-rebalance-allocator-v1/config.yaml",
+  "coverage": {
+    "AGG": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 698164810.64,
+      "start": "2018-01-02"
+    },
+    "BND": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 409752868.65,
+      "start": "2018-01-02"
+    },
+    "DIA": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 1227883707.36,
+      "start": "2018-01-02"
+    },
+    "GLD": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 1400794534.08,
+      "start": "2018-01-02"
+    },
+    "HYG": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 2398415410.0,
+      "start": "2018-01-02"
+    },
+    "IEF": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 626511123.5,
+      "start": "2018-01-02"
+    },
+    "IWM": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 5131986959.700001,
+      "start": "2018-01-02"
+    },
+    "LQD": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 2045528212.6,
+      "start": "2018-01-02"
+    },
+    "QQQ": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 14934979288.24,
+      "start": "2018-01-02"
+    },
+    "SHY": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 286499172.96,
+      "start": "2018-01-02"
+    },
+    "SPY": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 30586177991.14,
+      "start": "2018-01-02"
+    },
+    "TIP": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 247480215.84,
+      "start": "2018-01-02"
+    },
+    "TLT": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 2221299477.44,
+      "start": "2018-01-02"
+    },
+    "UUP": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 27993008.56,
+      "start": "2018-01-02"
+    },
+    "XLB": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 445105741.05,
+      "start": "2018-01-02"
+    },
+    "XLE": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 1362628229.04,
+      "start": "2018-01-02"
+    },
+    "XLF": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 1650465889.96,
+      "start": "2018-01-02"
+    },
+    "XLI": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 1052593392.36,
+      "start": "2018-01-02"
+    },
+    "XLK": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 1106706322.69,
+      "start": "2018-01-02"
+    },
+    "XLP": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 834616144.16,
+      "start": "2018-01-02"
+    },
+    "XLRE": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 197392422.15,
+      "start": "2018-01-02"
+    },
+    "XLU": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 899208222.64,
+      "start": "2018-01-02"
+    },
+    "XLV": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 1115914199.4,
+      "start": "2018-01-02"
+    },
+    "XLY": {
+      "bars": 2131,
+      "end": "2026-06-25",
+      "median_dollar_volume": 709924894.98,
+      "start": "2018-01-02"
+    }
+  },
+  "created_at_utc": "2026-06-27T13:05:32Z",
+  "data_source": "Alpaca real daily OHLCV via qfa AlpacaGateway; configured paper-data access values redacted",
+  "date_range": {
+    "actual_end": "2026-06-25",
+    "actual_start": "2018-01-02",
+    "end": "2026-06-26",
+    "start": "2018-01-01",
+    "timeframe": "1Day"
+  },
+  "decision": "rejected",
+  "decision_rationale": "fails incremental 10bps random/baseline hurdle; edge not robust versus generic ToM or simple sleeve rules",
+  "deferred_due_rejection": true,
+  "falsifier": "Reject if 10bps cost-adjusted event performance is weak, p25 random subset Sharpe is negative, baselines/placebos match or beat it, or watchlist correlation is excessive.",
+  "holding_period": "last-2/first-2 trading-day month-end window",
+  "hypothesis": "Completed-month stock-vs-bond imbalance predicts reversal pressure in last-2/first-2 trading-day month-end window from balanced-fund/pension rebalancing.",
+  "issue_id": "AR-125",
+  "metrics": {
+    "annualized_return": -0.012261,
+    "annualized_volatility": 0.034438,
+    "max_drawdown": -0.155864,
+    "mean_sharpe": null,
+    "median_sharpe": -0.329847,
+    "p25_sharpe": -0.698312,
+    "positive_window_rate": 0.27,
+    "primary_sharpe_10bps": -0.341036,
+    "turnover": 256.0,
+    "worst_period_sharpe": -1.790418
+  },
+  "model_family": "seasonality",
+  "model_name": "monthend-stockbond-imbalance-rebalance-allocator-v1",
+  "model_path": "models/monthend-stockbond-imbalance-rebalance-allocator-v1/model.py",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "avg_corr_to_top_alphas": null,
+    "cointegration_pvalue_min": null,
+    "max_abs_correlation": 0.047495,
+    "max_corr_to_library": 0.047495,
+    "redundancy_penalty": 0,
+    "status": "computed_where_retained_curves_available",
+    "top": [
+      {
+        "corr": -0.047495,
+        "model": "tsmom-voltarget-liquid-etf-randomcost-v1",
+        "overlap": 499
+      },
+      {
+        "corr": -0.045294,
+        "model": "etf-carry-defensive-turnover-brake-v1",
+        "overlap": 989
+      },
+      {
+        "corr": 0.040872,
+        "model": "etf-vol-risk-rotation-v1",
+        "overlap": 1241
+      },
+      {
+        "corr": -0.039352,
+        "model": "meanrev-zscore-liquid-etf-1d-v1",
+        "overlap": 499
+      },
+      {
+        "corr": -0.025547,
+        "model": "etf-carry-defensive-orthogonal-v1",
+        "overlap": 989
+      },
+      {
+        "corr": -0.024717,
+        "model": "yield-curve-duration-carry-etf-v1",
+        "overlap": 989
+      },
+      {
+        "corr": -0.021217,
+        "model": "risk-off-crossasset-randomcost-v1",
+        "overlap": 1241
+      },
+      {
+        "corr": -0.019102,
+        "model": "post-earnings-drift-megacap-v1",
+        "overlap": 989
+      }
+    ]
+  },
+  "parameters": {
+    "lookback": "completed_month",
+    "primary_cost_bps": 10,
+    "rebalance": "month_end_window"
+  },
+  "parent_id": null,
+  "primary_costs": {
+    "10bps": {
+      "activation": 0.145941,
+      "annualized_return": -0.012261,
+      "annualized_volatility": 0.034438,
+      "avg_daily_turnover": 0.120131,
+      "event_count": 408,
+      "max_drawdown": -0.155864,
+      "positive_day_rate": 0.064289,
+      "sharpe": -0.341036,
+      "turnover": 256.0
+    },
+    "3bps": {
+      "activation": 0.145941,
+      "annualized_return": 0.008815,
+      "annualized_volatility": 0.034289,
+      "avg_daily_turnover": 0.120131,
+      "event_count": 408,
+      "max_drawdown": -0.093423,
+      "positive_day_rate": 0.069451,
+      "sharpe": 0.27308,
+      "turnover": 256.0
+    },
+    "5bps": {
+      "activation": 0.145941,
+      "annualized_return": 0.00275,
+      "annualized_volatility": 0.034282,
+      "avg_daily_turnover": 0.120131,
+      "event_count": 408,
+      "max_drawdown": -0.104243,
+      "positive_day_rate": 0.068043,
+      "sharpe": 0.097215,
+      "turnover": 256.0
+    }
+  },
+  "random_month_subset_10bps": {
+    "median_sharpe": -0.329847,
+    "p25_sharpe": -0.698312,
+    "positive_window_rate": 0.27,
+    "samples": 100,
+    "worst_period_sharpe": -1.790418
+  },
+  "raw_daily_paths_retained": false,
+  "selected_universe": {
+    "bonds": [
+      "TLT",
+      "IEF",
+      "SHY",
+      "LQD",
+      "HYG",
+      "AGG",
+      "BND",
+      "TIP"
+    ],
+    "controls_not_traded": [
+      "GLD",
+      "UUP"
+    ],
+    "equity": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA",
+      "XLK",
+      "XLF",
+      "XLE",
+      "XLY",
+      "XLP",
+      "XLI",
+      "XLU",
+      "XLV",
+      "XLB",
+      "XLRE"
+    ],
+    "rationale": "Fixed before performance review for broad liquid Alpaca coverage, high median dollar volume, and direct equity/duration/credit/inflation exposure to the rebalance mechanism."
+  },
+  "signal_definition": "Completed-month equity-vs-bond return imbalance conditions month-end equity/duration sleeve reversal weights.",
+  "smoke_contract": {
+    "as_of": "2022-03-25T04:00:00+00:00",
+    "finite": true,
+    "gross": 0.0,
+    "signal_keys": 24
+  },
+  "status": "rejected",
+  "timeframe": "daily",
+  "universe": {
+    "candidate_pool_description": "Broad liquid ETFs across US equity indices/sectors, Treasury/duration/credit bonds, plus GLD/UUP diagnostics considered ex ante.",
+    "candidate_pool_size": 24,
+    "limitations": [
+      "ETF-only proxy for balanced-fund/pension flows",
+      "no direct flow data",
+      "sparse monthly event sample",
+      "calendar effect crowding risk"
+    ],
+    "selected_symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA",
+      "XLK",
+      "XLF",
+      "XLE",
+      "XLY",
+      "XLP",
+      "XLI",
+      "XLU",
+      "XLV",
+      "XLB",
+      "XLRE",
+      "TLT",
+      "IEF",
+      "SHY",
+      "LQD",
+      "HYG",
+      "AGG",
+      "BND",
+      "TIP"
+    ],
+    "selected_universe_size": 22,
+    "selection_filters": [
+      "Alpaca daily OHLCV coverage 2018-2026",
+      "median dollar volume/liquidity",
+      "economic exposure to equity/duration/credit rebalance mechanism"
+    ],
+    "selection_rationale": "Fixed before performance review for broad liquid Alpaca coverage, high median dollar volume, and direct equity/duration/credit/inflation exposure to the rebalance mechanism."
+  },
+  "warnings": [
+    "Long/short weights are research backtest only; no orders placed.",
+    "No raw daily bars/equity curves/SQLite DB retained in artifacts."
+  ]
+}

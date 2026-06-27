@@ -1,0 +1,23 @@
+model_name: monthend-stockbond-imbalance-rebalance-allocator-v1
+issue_id: AR-125
+family: monthend_rebalance_flow
+data_source: Alpaca/qfa real daily OHLCV only
+universe:
+  equity: [SPY, QQQ, IWM, DIA, XLK, XLF, XLE, XLY, XLP, XLI, XLU, XLV, XLB, XLRE]
+  bonds: [TLT, IEF, SHY, LQD, HYG, AGG, BND, TIP]
+  controls_not_traded: [GLD, UUP]
+signal:
+  imbalance: prior completed calendar-month equal-weight equity basket return minus bond basket return
+  primary_window: last 2 and first 2 trading days around month end
+  model_window_proxy: no-lookahead calendar turn window used by qfa generate_signals
+  threshold_abs_imbalance: 0.01
+  primary_cost_bps_one_way: 10
+risk:
+  gross_exposure_cap: 1.0
+  long_short_research_backtest_only: true
+guardrails:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

@@ -924,9 +924,16 @@ issues:
   priority: completed_realdata
   family: leveraged_inverse_etf_tracking_stress
   issue_path: alpha_research/issues/AR-124.md
+- id: AR-125
+  title: 'Month-end stock-bond imbalance pension-rebalance ETF allocator'
+  model_name: monthend-stockbond-imbalance-rebalance-allocator-v1
+  status: rejected
+  priority: completed_realdata
+  family: monthend_rebalance_flow
+  issue_path: alpha_research/issues/AR-125.md
 active_batch: []
 last_realdata_batch:
-- AR-124
-updated_at: '2026-06-27T12:28:00Z'
+- AR-125
+updated_at: '2026-06-27T13:12:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 115
+tried_ideas_count: 116
