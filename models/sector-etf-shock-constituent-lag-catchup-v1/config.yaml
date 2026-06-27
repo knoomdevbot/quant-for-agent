@@ -1,0 +1,32 @@
+model_name: sector-etf-shock-constituent-lag-catchup-v1
+issue_id: AR-128
+family: single_name_sector_lead_lag
+data_source: qfa_alpaca_real_daily_ohlcv
+traded_sleeve: liquid_large_cap_common_stocks
+controls:
+  market: SPY
+  diagnostics: [QQQ, IWM]
+sector_etfs: [XLK, XLY, XLC, XLF, XLV, XLE, XLP, XLI, XLU, XLB, XLRE]
+parameters:
+  shock_lookback_days: 1
+  residualization: spy_market_residual_and_mapped_sector_proxy
+  shock_z_threshold: 0.75
+  volatility_lookback_days: 20
+  constituent_recent_return_control_days: 5
+  top_bottom_fraction: 0.20
+  max_gross_per_sector: 0.25
+  holding_period_days: 1
+  gross_exposure: 1.0
+  primary_one_way_cost_bps: 10
+  cost_sensitivity_bps: [5, 10, 20]
+risk_controls:
+  min_bars: 80
+  min_active_names: 8
+  no_leverage_beyond_normalized_gross: true
+  sector_gross_cap: 0.25
+research_flags:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

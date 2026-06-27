@@ -1,0 +1,21 @@
+issue_id: AR-128
+model_name: sector-etf-shock-constituent-lag-catchup-v1
+status: rejected
+priority: completed_realdata
+created_at_utc: '2026-06-27T23:55:00Z'
+updated_at_utc: '2026-06-27T23:55:00Z'
+data_source: qfa/Alpaca real daily OHLCV
+research_decision: rejected
+rejection_reason: Primary 10 bps costed random-window evaluation failed required p25/worst Sharpe and positive-window robustness gates and did not beat all baselines.
+artifact_policy:
+  compact: true
+  raw_daily_bars_retained: false
+  equity_curves_retained: false
+  sqlite_db_retained: false
+  helper_scripts_retained: false
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
