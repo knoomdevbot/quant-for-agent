@@ -1,0 +1,168 @@
+model_name: single-name-month-of-year-seasonality-largecap-v1
+issue_id: AR-129
+data_source: qfa/Alpaca real daily OHLCV only
+universe:
+- AAPL
+- ABBV
+- ABT
+- ADBE
+- ADI
+- ADP
+- AEP
+- AMAT
+- AMD
+- AMGN
+- AMZN
+- ANET
+- AON
+- APD
+- APH
+- AVGO
+- AXP
+- BA
+- BAC
+- BKNG
+- BLK
+- BMY
+- BSX
+- C
+- CAT
+- CB
+- CDNS
+- CHTR
+- CI
+- CL
+- CMCSA
+- CME
+- CMG
+- COF
+- COP
+- COST
+- CRM
+- CVX
+- D
+- DD
+- DE
+- DHR
+- DIS
+- DUK
+- EA
+- ECL
+- ELV
+- EMR
+- EOG
+- ETN
+- EXC
+- FCX
+- FTNT
+- GD
+- GE
+- GILD
+- GIS
+- GOOG
+- GOOGL
+- GS
+- HD
+- HLT
+- HON
+- IBM
+- ICE
+- INTC
+- INTU
+- ISRG
+- ITW
+- JNJ
+- JPM
+- KLAC
+- KMB
+- KO
+- LLY
+- LMT
+- LOW
+- LRCX
+- MAR
+- MCD
+- MDLZ
+- MDT
+- META
+- MMC
+- MMM
+- MO
+- MPC
+- MRK
+- MS
+- MSFT
+- MSI
+- MU
+- NEE
+- NEM
+- NFLX
+- NKE
+- NOC
+- NOW
+- NVDA
+- ORCL
+- ORLY
+- OXY
+- PANW
+- PEG
+- PEP
+- PFE
+- PG
+- PGR
+- PM
+- PNC
+- PSX
+- QCOM
+- RCL
+- REGN
+- RTX
+- SBUX
+- SCHW
+- SHOP
+- SHW
+- SLB
+- SNPS
+- SO
+- SPGI
+- SRE
+- SYK
+- T
+- TGT
+- TJX
+- TMO
+- TMUS
+- TSLA
+- TTWO
+- TXN
+- UNH
+- UNP
+- UPS
+- USB
+- VLO
+- VRTX
+- VZ
+- WFC
+- WMT
+- XOM
+parameters:
+  warmup_months: 36
+  min_same_calendar_month_observations: 3
+  same_month_statistic: median
+  rebalance: last_trading_day_prior_month / next calendar month target
+  top_fraction: 0.2
+  long_gross: 0.5
+  short_gross: 0.5
+  sector_neutral_scores: true
+  max_sector_gross: 0.25
+  primary_one_way_cost_bps: 10
+  cost_sensitivity_bps:
+  - 5
+  - 10
+  - 20
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

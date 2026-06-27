@@ -1,0 +1,18 @@
+issue_id: AR-129
+title: Single-name same-calendar-month seasonality among liquid large caps
+model_name: single-name-month-of-year-seasonality-largecap-v1
+family: single_name_cross_sectional_calendar_seasonality
+status: rejected
+created_at: '2026-06-27T23:09:57Z'
+data_source: Alpaca real daily OHLCV via qfa AlpacaGateway
+evaluation_latest: evaluations/latest.json
+limitations:
+- static current large-cap universe creates survivorship bias
+- manual sector/common-stock classification; no point-in-time index membership
+- Alpaca coverage varies by symbol and corporate actions
+root_booleans:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

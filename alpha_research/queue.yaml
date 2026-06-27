@@ -951,16 +951,15 @@ issues:
 - id: AR-129
   title: Single-name same-calendar-month seasonality among liquid large caps
   model_name: single-name-month-of-year-seasonality-largecap-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: single_name_cross_sectional_calendar_seasonality
   issue_path: alpha_research/issues/AR-129.md
-active_batch:
-- AR-129
+active_batch: []
 last_realdata_batch:
-- AR-126
 - AR-127
 - AR-128
-updated_at: '2026-06-27T23:05:21Z'
+- AR-129
+updated_at: '2026-06-27T23:09:57Z'
 target_tried_ideas: 100
-tried_ideas_count: 119
+tried_ideas_count: 120
