@@ -958,16 +958,13 @@ issues:
 - id: AR-130
   title: SEC 13F filing-deadline mega-cap attention and residual pressure reversal
   model_name: sec-13f-deadline-megacap-attention-reversal-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: public_filing_calendar_single_name_residual_reversal
   issue_path: alpha_research/issues/AR-130.md
-active_batch:
-- AR-130
+active_batch: []
 last_realdata_batch:
-- AR-127
-- AR-128
-- AR-129
-updated_at: '2026-06-27T23:14:46Z'
+- AR-130
+updated_at: '2026-06-27T23:52:23Z'
 target_tried_ideas: 100
-tried_ideas_count: 120
+tried_ideas_count: 121

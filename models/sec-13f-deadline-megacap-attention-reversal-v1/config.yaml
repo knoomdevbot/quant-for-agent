@@ -1,0 +1,26 @@
+model: sec-13f-deadline-megacap-attention-reversal-v1
+issue: AR-130
+start: '2019-01-01'
+end: '2026-06-26'
+timeframe: 1Day
+data_source: qfa_alpaca_real_daily_ohlcv
+no_csv: true
+no_data_csv_argument: true
+no_daemon: true
+no_orders: true
+signal:
+  event_calendar: sec_13f_deadline_45_calendar_days_after_quarter_end_shift_to_next_trading_day
+  pre_deadline_window_trading_days: 5
+  volume_z_lookback_trading_days: 120
+  holding_period_trading_days: 3
+  abnormal_volume_z_threshold: 0.0
+  sleeve_fraction: 0.20
+  max_sector_gross: 0.25
+costs:
+  primary_one_way_bps: 10
+  sensitivities_one_way_bps: [5, 20]
+universe:
+  selected_count: 130
+  selected_symbols: ['TSLA', 'AAPL', 'AMZN', 'MSFT', 'META', 'NVDA', 'AMD', 'GOOGL', 'GOOG', 'BA', 'NFLX', 'V', 'BAC', 'JPM', 'DIS', 'INTC', 'MA', 'MU', 'SHOP', 'C', 'XOM', 'CRM', 'UNH', 'JNJ', 'T', 'WFC', 'PFE', 'HD', 'ADBE', 'PG', 'QCOM', 'CVX', 'VZ', 'WMT', 'CMCSA', 'MRK', 'KO', 'AVGO', 'COST', 'BMY', 'BKNG', 'ORCL', 'ABBV', 'NKE', 'GE', 'GS', 'TXN', 'MCD', 'SBUX', 'PEP', 'MS', 'AMGN', 'IBM', 'NOW', 'LOW', 'LRCX', 'UNP', 'TMO', 'LLY', 'CHTR', 'CAT', 'TGT', 'AMAT', 'MDT', 'ABT', 'NEE', 'HON', 'GILD', 'DHR', 'RTX', 'UPS', 'LMT', 'MMM', 'AXP', 'AMT', 'PM', 'TMUS', 'COP', 'INTU', 'OXY', 'ELV', 'ISRG', 'LIN', 'SCHW', 'MO', 'SPGI', 'REGN', 'CI', 'TJX', 'CMG', 'MDLZ', 'NEM', 'BLK', 'DE', 'ADI', 'SLB', 'MPC', 'VRTX', 'EA', 'ADP', 'USB', 'FCX', 'SHW', 'BSX', 'SPG', 'EOG', 'DUK', 'DD', 'NOC', 'EQIX', 'RCL', 'CME', 'PANW', 'CL', 'PNC', 'D', 'VLO', 'AON', 'COF', 'PLD', 'MAR', 'SYK', 'KLAC', 'APD', 'CB', 'SO', 'ICE', 'EXC', 'PSX', 'ORLY']
+  controls: ['XLB', 'XLC', 'XLE', 'XLF', 'XLI', 'XLK', 'XLP', 'XLRE', 'XLU', 'XLV', 'XLY', 'SPY', 'QQQ', 'IWM', 'DIA']
+decision: rejected

@@ -1,0 +1,17 @@
+name: sec-13f-deadline-megacap-attention-reversal-v1
+issue: AR-130
+family: public_filing_calendar_single_name_residual_reversal
+status: rejected
+created_utc: '2026-06-27T23:49:49Z'
+data_source: qfa/Alpaca real daily OHLCV
+artifact_contract:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+decision_summary: >-
+  Rejected. Full-sample 10 bps Sharpe was mildly positive (0.354903), but p25
+  event-window Sharpe was materially negative (-0.751899), worst window -2.185575,
+  event hit rate only 52%, 20 bps cost sensitivity weak (Sharpe 0.108692), and
+  the model was highly redundant with raw return-pressure reversal (corr 0.973612).
