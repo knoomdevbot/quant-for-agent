@@ -906,15 +906,14 @@ issues:
 - id: AR-122
   title: 'Macro-shock defensive-sector relative stabilization event-study'
   model_name: macro-shock-defensive-relative-stabilization-v1
-  status: queued
-  priority: preflight_queue_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: macro_shock_sector_relative_stabilization
   issue_path: alpha_research/issues/AR-122.md
 active_batch:
 - AR-121
-- AR-122
 last_realdata_batch:
-- AR-120
-updated_at: '2026-06-27T05:21:32Z'
+- AR-122
+updated_at: '2026-06-27T06:38:40Z'
 target_tried_ideas: 100
-tried_ideas_count: 111
+tried_ideas_count: 112

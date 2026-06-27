@@ -1,0 +1,59 @@
+name: macro-shock-defensive-relative-stabilization-v1
+version: 1
+status: rejected_research
+issue: AR-122
+model_path: models/macro-shock-defensive-relative-stabilization-v1/model.py
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - DIA
+  - USMV
+  - SPLV
+  - QUAL
+  - MTUM
+  - XLK
+  - XLY
+  - XLP
+  - XLV
+  - XLU
+  - XLF
+  - XLI
+  - XLE
+  - XLB
+  - XLRE
+  - XLC
+  - HYG
+  - LQD
+  - SHY
+  - IEF
+  - TLT
+  - TIP
+  - GLD
+params:
+  min_periods: 260
+  shock_lookback_days: 5
+  hold_days: 5
+  top_n: 3
+  sleeve_gross: 0.95
+  cash_symbol: SHY
+  cash_weight: 0.05
+  defensive_symbols: [XLP, XLV, XLU, USMV, SPLV]
+  cyclical_symbols: [XLK, XLY, XLI, XLF, XLE, XLB, IWM, MTUM]
+  recovery_symbols: [XLP, XLV, XLU, USMV, SPLV, XLRE, GLD, TLT, IEF, LQD]
+risk:
+  max_gross_exposure: 1.0
+  long_only: true
+  event_gated: true
+costs_bps:
+  primary: 10
+  sensitivity: [5, 20]
+data:
+  source: Alpaca real daily OHLCV
+  feed_requested: iex
+  csv_used: false
+  data_csv_argument_used: false
+execution:
+  research_only: true
+  daemon: false
+  orders: false

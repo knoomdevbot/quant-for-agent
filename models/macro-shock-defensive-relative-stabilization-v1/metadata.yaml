@@ -1,0 +1,47 @@
+name: macro-shock-defensive-relative-stabilization-v1
+issue: AR-122
+title: Macro-shock defensive-sector relative stabilization event-study
+family: macro_shock_sector_relative_stabilization
+status: rejected_research
+decision: reject
+created_utc: '2026-06-27T06:31:32Z'
+research_only: true
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+data_source: Alpaca real daily OHLCV, IEX feed requested
+candidate_pool:
+  sectors: [XLK, XLY, XLP, XLV, XLU, XLF, XLI, XLE, XLB, XLRE, XLC]
+  broad_style: [SPY, QQQ, IWM, DIA, USMV, SPLV, QUAL, MTUM]
+  credit_duration: [HYG, LQD, SHY, IEF, TLT, TIP]
+  hedges_commodities: [GLD, DBC]
+selected_universe: [SPY, QQQ, IWM, DIA, USMV, SPLV, QUAL, MTUM, XLK, XLY, XLP, XLV, XLU, XLF, XLI, XLE, XLB, XLRE, XLC, HYG, LQD, SHY, IEF, TLT, TIP, GLD]
+selection_filters:
+  min_observations: 1200
+  min_recent_median_dollar_volume: 2000000
+  fixed_before_performance_review: true
+primary_metrics_10bps:
+  annualized_return: -0.03201679972670418
+  annualized_vol: 0.053829986881343654
+  sharpe: -0.5947762870029704
+  max_drawdown: -0.20594574239617336
+  mean_daily_turnover: 0.06792199058507062
+  activation_rate: 0.16879623402824478
+random_window_metrics:
+  median_sharpe: -0.6829971197256637
+  mean_sharpe: -0.7618965672074787
+  p25_sharpe: -1.591355309804599
+  worst_sharpe: -3.2963606369505865
+  positive_window_rate: 0.18
+event_metrics:
+  events: 51
+  independent_shock_clusters: 33
+  hit_rate: 0.39215686274509803
+  mean_event_return: -0.0022739817780815666
+  median_event_return: -0.004724187734773899
+limitations:
+  - Daily OHLCV only; no external macro calendar or intraday confirmation.
+  - Alpaca IEX daily bars may differ from consolidated adjusted ETF histories.
+  - Direct alpha-library return series unavailable; orthogonality checked with proxy baselines.

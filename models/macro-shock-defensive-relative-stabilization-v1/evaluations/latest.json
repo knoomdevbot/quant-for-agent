@@ -1,0 +1,564 @@
+{
+  "active_events_sample": [
+    {
+      "date": "2021-09-20",
+      "hold_end": "2021-09-27",
+      "hold_start": "2021-09-21",
+      "names": [
+        "TLT",
+        "LQD",
+        "IEF"
+      ]
+    },
+    {
+      "date": "2021-10-06",
+      "hold_end": "2021-10-13",
+      "hold_start": "2021-10-07",
+      "names": [
+        "XLU",
+        "SPLV",
+        "XLP"
+      ]
+    },
+    {
+      "date": "2021-12-01",
+      "hold_end": "2021-12-08",
+      "hold_start": "2021-12-02",
+      "names": [
+        "TLT",
+        "IEF",
+        "LQD"
+      ]
+    },
+    {
+      "date": "2021-12-16",
+      "hold_end": "2021-12-23",
+      "hold_start": "2021-12-17",
+      "names": [
+        "XLV",
+        "XLP",
+        "SPLV"
+      ]
+    },
+    {
+      "date": "2022-01-07",
+      "hold_end": "2022-01-14",
+      "hold_start": "2022-01-10",
+      "names": [
+        "XLP",
+        "XLU",
+        "SPLV"
+      ]
+    },
+    {
+      "date": "2022-01-27",
+      "hold_end": "2022-02-03",
+      "hold_start": "2022-01-28",
+      "names": [
+        "TLT",
+        "IEF",
+        "LQD"
+      ]
+    },
+    {
+      "date": "2022-02-14",
+      "hold_end": "2022-02-22",
+      "hold_start": "2022-02-15",
+      "names": [
+        "GLD",
+        "IEF",
+        "TLT"
+      ]
+    },
+    {
+      "date": "2022-03-03",
+      "hold_end": "2022-03-10",
+      "hold_start": "2022-03-04",
+      "names": [
+        "XLRE",
+        "XLU",
+        "SPLV"
+      ]
+    },
+    {
+      "date": "2022-04-04",
+      "hold_end": "2022-04-11",
+      "hold_start": "2022-04-05",
+      "names": [
+        "XLRE",
+        "XLU",
+        "XLP"
+      ]
+    },
+    {
+      "date": "2022-04-25",
+      "hold_end": "2022-05-02",
+      "hold_start": "2022-04-26",
+      "names": [
+        "IEF",
+        "LQD",
+        "TLT"
+      ]
+    },
+    {
+      "date": "2022-05-24",
+      "hold_end": "2022-06-01",
+      "hold_start": "2022-05-25",
+      "names": [
+        "XLP",
+        "XLRE",
+        "XLU"
+      ]
+    },
+    {
+      "date": "2022-06-21",
+      "hold_end": "2022-06-28",
+      "hold_start": "2022-06-22",
+      "names": [
+        "XLP",
+        "XLV",
+        "USMV"
+      ]
+    },
+    {
+      "date": "2022-07-12",
+      "hold_end": "2022-07-19",
+      "hold_start": "2022-07-13",
+      "names": [
+        "TLT",
+        "IEF",
+        "LQD"
+      ]
+    },
+    {
+      "date": "2022-08-22",
+      "hold_end": "2022-08-29",
+      "hold_start": "2022-08-23",
+      "names": [
+        "XLP",
+        "XLU",
+        "IEF"
+      ]
+    },
+    {
+      "date": "2022-09-07",
+      "hold_end": "2022-09-14",
+      "hold_start": "2022-09-08",
+      "names": [
+        "XLU",
+        "GLD",
+        "XLRE"
+      ]
+    },
+    {
+      "date": "2022-09-22",
+      "hold_end": "2022-09-29",
+      "hold_start": "2022-09-23",
+      "names": [
+        "GLD",
+        "XLP",
+        "IEF"
+      ]
+    },
+    {
+      "date": "2022-10-11",
+      "hold_end": "2022-10-18",
+      "hold_start": "2022-10-12",
+      "names": [
+        "XLP",
+        "IEF",
+        "SPLV"
+      ]
+    },
+    {
+      "date": "2022-11-04",
+      "hold_end": "2022-11-11",
+      "hold_start": "2022-11-07",
+      "names": [
+        "GLD",
+        "XLU",
+        "SPLV"
+      ]
+    },
+    {
+      "date": "2022-12-09",
+      "hold_end": "2022-12-16",
+      "hold_start": "2022-12-12",
+      "names": [
+        "GLD",
+        "XLRE",
+        "XLV"
+      ]
+    },
+    {
+      "date": "2022-12-27",
+      "hold_end": "2023-01-04",
+      "hold_start": "2022-12-28",
+      "names": [
+        "XLU",
+        "XLP",
+        "SPLV"
+      ]
+    }
+  ],
+  "candidate_pool": {
+    "broad_style": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA",
+      "USMV",
+      "SPLV",
+      "QUAL",
+      "MTUM"
+    ],
+    "credit_duration": [
+      "HYG",
+      "LQD",
+      "SHY",
+      "IEF",
+      "TLT",
+      "TIP"
+    ],
+    "hedges_commodities": [
+      "GLD",
+      "DBC"
+    ],
+    "sectors": [
+      "XLK",
+      "XLY",
+      "XLP",
+      "XLV",
+      "XLU",
+      "XLF",
+      "XLI",
+      "XLE",
+      "XLB",
+      "XLRE",
+      "XLC"
+    ]
+  },
+  "coverage_observations": {
+    "DBC": 1485,
+    "DIA": 1486,
+    "GLD": 1486,
+    "HYG": 1486,
+    "IEF": 1486,
+    "IWM": 1486,
+    "LQD": 1486,
+    "MTUM": 1486,
+    "QQQ": 1486,
+    "QUAL": 1486,
+    "SHY": 1486,
+    "SPLV": 1486,
+    "SPY": 1487,
+    "TIP": 1486,
+    "TLT": 1486,
+    "USMV": 1486,
+    "XLB": 1486,
+    "XLC": 1486,
+    "XLE": 1486,
+    "XLF": 1486,
+    "XLI": 1486,
+    "XLK": 1486,
+    "XLP": 1486,
+    "XLRE": 1486,
+    "XLU": 1486,
+    "XLV": 1486,
+    "XLY": 1486
+  },
+  "data_source": "Alpaca real daily OHLCV via qfa-compatible environment; IEX feed requested",
+  "decision": "reject",
+  "first_last_dates": {
+    "DBC": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "DIA": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "GLD": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "HYG": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "IEF": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "IWM": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "LQD": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "MTUM": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "QQQ": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "QUAL": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "SHY": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "SPLV": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "SPY": [
+      "2018-11-01",
+      "2026-06-25"
+    ],
+    "TIP": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "TLT": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "USMV": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLB": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLC": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLE": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLF": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLI": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLK": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLP": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLRE": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLU": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLV": [
+      "2020-07-27",
+      "2026-06-25"
+    ],
+    "XLY": [
+      "2020-07-27",
+      "2026-06-25"
+    ]
+  },
+  "issue": "AR-122",
+  "limitations": [
+    "Daily OHLCV only; no external macro calendar or intraday confirmation.",
+    "Alpaca IEX daily bars may differ from consolidated adjusted ETF histories.",
+    "Library orthogonality checked with compact proxy baselines only; direct AR return series unavailable in this clean artifact pass.",
+    "Random windows are calendar-history samples, not full nested parameter walk-forward."
+  ],
+  "metrics": {
+    "baselines_10bps": {
+      "defensive_carry": {
+        "activation_rate": 1.0,
+        "annualized_return": 0.053305131817601964,
+        "annualized_vol": 0.12256108343378899,
+        "max_drawdown": -0.15834651501289887,
+        "mean_daily_turnover": 0.0,
+        "sharpe": 0.4349270610552241
+      },
+      "pullback_proxy": {
+        "activation_rate": 0.08876933422999328,
+        "annualized_return": -0.00368825789571323,
+        "annualized_vol": 0.08549160149248511,
+        "max_drawdown": -0.18755305260754074,
+        "mean_daily_turnover": 0.07397444519166106,
+        "sharpe": -0.04314175698343229
+      },
+      "shock_only": {
+        "activation_rate": 0.4324142568930733,
+        "annualized_return": -0.017721633592437322,
+        "annualized_vol": 0.11324659991489099,
+        "max_drawdown": -0.23506415422546245,
+        "mean_daily_turnover": 0.052925353059852055,
+        "sharpe": -0.1564871140127455
+      },
+      "tsmom": {
+        "activation_rate": 0.8251513113651647,
+        "annualized_return": -0.06917386919386338,
+        "annualized_vol": 0.14114014611115713,
+        "max_drawdown": -0.4440932446480629,
+        "mean_daily_turnover": 0.20845438242546516,
+        "sharpe": -0.49010767736760324
+      }
+    },
+    "cost_sensitivity_bps": {
+      "10": {
+        "activation_rate": 0.16879623402824478,
+        "annualized_return": -0.03201679972670418,
+        "annualized_vol": 0.053829986881343654,
+        "max_drawdown": -0.20594574239617336,
+        "mean_daily_turnover": 0.06792199058507062,
+        "sharpe": -0.5947762870029704
+      },
+      "20": {
+        "activation_rate": 0.16879623402824478,
+        "annualized_return": -0.04913314135414197,
+        "annualized_vol": 0.054333877952683886,
+        "max_drawdown": -0.2684665403485117,
+        "mean_daily_turnover": 0.06792199058507062,
+        "sharpe": -0.904281880945974
+      },
+      "5": {
+        "activation_rate": 0.16879623402824478,
+        "annualized_return": -0.023458628912985283,
+        "annualized_vol": 0.05368788933306506,
+        "max_drawdown": -0.1817135369022187,
+        "mean_daily_turnover": 0.06792199058507062,
+        "sharpe": -0.4369445177375913
+      }
+    },
+    "event_windows": {
+      "events": 51,
+      "hit_rate": 0.39215686274509803,
+      "independent_shock_clusters": 33,
+      "mean_event_return": -0.0022739817780815666,
+      "median_event_return": -0.004724187734773899,
+      "worst_event_return": -0.029018537842851022
+    },
+    "orthogonality_proxy_correlations": {
+      "defensive_carry": 0.32457694738442916,
+      "pullback_proxy": 0.13183134859859258,
+      "shock_only": 0.36308301118013225,
+      "tsmom": 0.2800363662504289
+    },
+    "primary_10bps": {
+      "activation_rate": 0.16879623402824478,
+      "annualized_return": -0.03201679972670418,
+      "annualized_vol": 0.053829986881343654,
+      "max_drawdown": -0.20594574239617336,
+      "mean_daily_turnover": 0.06792199058507062,
+      "sharpe": -0.5947762870029704
+    },
+    "random_126d_windows": {
+      "count": 200,
+      "mean_sharpe": -0.7618965672074787,
+      "median_sharpe": -0.6829971197256637,
+      "p25_sharpe": -1.591355309804599,
+      "positive_window_rate": 0.18,
+      "worst_sharpe": -3.2963606369505865
+    }
+  },
+  "model": "macro-shock-defensive-relative-stabilization-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "parameters": {
+    "cash_fallback": "5% SHY during active sleeves",
+    "cooldown_days": 5,
+    "hold_days": 5,
+    "shock": "SPY bottom-tail/3d drawdown or HYG weakness with equity weakness or vol jump with negative 5d SPY",
+    "stabilization": "3d defensive-vs-cyclical relative return positive, defensive/cyclical absolute-return compression <1.20, HYG-LQD confirmation not deeply negative",
+    "top_n": 3
+  },
+  "period": {
+    "bars_rows": 40122,
+    "dates": 1487,
+    "end": "2026-06-26",
+    "start": "2018-01-01"
+  },
+  "raw_daily_paths_retained": false,
+  "recent_median_dollar_volume": {
+    "DBC": 500409.8675,
+    "DIA": 48291343.55,
+    "GLD": 89657599.815,
+    "HYG": 224026837.185,
+    "IEF": 28893520.03,
+    "IWM": 255181262.41000003,
+    "LQD": 241569268.9675,
+    "MTUM": 9238554.18,
+    "QQQ": 460278669.74750006,
+    "QUAL": 7741309.209999999,
+    "SHY": 8567593.645,
+    "SPLV": 9198074.655000001,
+    "SPY": 912504820.46,
+    "TIP": 12862405.8675,
+    "TLT": 143820269.26999998,
+    "USMV": 6513375.985,
+    "XLB": 31340190.85,
+    "XLC": 32308264.25,
+    "XLE": 90337327.73500001,
+    "XLF": 123131415.26,
+    "XLI": 74658442.1925,
+    "XLK": 68650350.1,
+    "XLP": 68352855.1925,
+    "XLRE": 16820308.71,
+    "XLU": 53318797.94,
+    "XLV": 98426661.205,
+    "XLY": 42333224.05
+  },
+  "run_id": "ar122_qfa_alpaca_real_20260627T063132Z",
+  "selected_universe": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "DIA",
+    "USMV",
+    "SPLV",
+    "QUAL",
+    "MTUM",
+    "XLK",
+    "XLY",
+    "XLP",
+    "XLV",
+    "XLU",
+    "XLF",
+    "XLI",
+    "XLE",
+    "XLB",
+    "XLRE",
+    "XLC",
+    "HYG",
+    "LQD",
+    "SHY",
+    "IEF",
+    "TLT",
+    "TIP",
+    "GLD"
+  ],
+  "selection_filters": {
+    "fixed_before_performance_review": true,
+    "min_observations": 1200,
+    "min_recent_median_dollar_volume": 2000000
+  }
+}
