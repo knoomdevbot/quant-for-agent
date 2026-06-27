@@ -941,10 +941,18 @@ issues:
   priority: completed_realdata
   family: holiday_calendar_equity_etf_seasonality
   issue_path: alpha_research/issues/AR-127.md
-active_batch: []
+- id: AR-128
+  title: Sector ETF shock lead-lag catch-up in liquid large-cap constituents
+  model_name: sector-etf-shock-constituent-lag-catchup-v1
+  status: queued
+  priority: preflight_queue
+  family: single_name_sector_lead_lag
+  issue_path: alpha_research/issues/AR-128.md
+active_batch:
+- AR-128
 last_realdata_batch:
 - AR-126
 - AR-127
-updated_at: '2026-06-27T22:17:15Z'
+updated_at: '2026-06-27T22:53:55Z'
 target_tried_ideas: 100
 tried_ideas_count: 118
