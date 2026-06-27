@@ -1,0 +1,16 @@
+{
+  "alpha_id": "AR-123",
+  "status": "rejected",
+  "decision": "rejected",
+  "model_path": "models/tax-loss-rebound-etf-largecap-sleeves-v1/model.py",
+  "config_path": "models/tax-loss-rebound-etf-largecap-sleeves-v1/config.yaml",
+  "latest_json": "models/tax-loss-rebound-etf-largecap-sleeves-v1/evaluations/latest.json",
+  "data_source": "qfa/Alpaca real daily OHLCV",
+  "summary_metrics": {
+    "combined_median_return_10bps": 0.00365759,
+    "combined_p25_return_10bps": -0.00626644,
+    "combined_worst_return_10bps": -0.017882,
+    "combined_event_sharpe_annualized_daily": 4.62613502,
+    "combined_hit_rate": 0.55555556
+  }
+}

@@ -913,14 +913,21 @@ issues:
 - id: AR-123
   title: 'Timestamp-safe tax-loss rebound basket with separated ETF and large-cap sleeves'
   model_name: tax-loss-rebound-etf-largecap-sleeves-v1
-  status: queued
-  priority: preflight_queue_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: tax_loss_calendar_reversal
   issue_path: alpha_research/issues/AR-123.md
+- id: AR-124
+  title: 'Sparse peer-confirmed ETF cluster first-252d-high continuation'
+  model_name: sparse-peer-confirmed-etf-cluster-52w-high-v1
+  status: queued
+  priority: preflight_queue_fast_falsification
+  family: etf_cluster_event_momentum
+  issue_path: alpha_research/issues/AR-124.md
 active_batch:
-- AR-123
+- AR-124
 last_realdata_batch:
-- AR-121
-updated_at: '2026-06-27T08:14:00Z'
+- AR-123
+updated_at: '2026-06-27T10:56:26Z'
 target_tried_ideas: 100
-tried_ideas_count: 113
+tried_ideas_count: 114
