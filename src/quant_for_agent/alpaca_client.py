@@ -37,6 +37,16 @@ class AlpacaGateway:
     def account_equity(self) -> float:
         return float(self.trading_client.get_account().equity)
 
+    def position_market_values(self, symbols: list[str]) -> dict[str, float]:
+        allowed = set(symbols)
+        values: dict[str, float] = {symbol: 0.0 for symbol in symbols}
+        for position in self.trading_client.get_all_positions():
+            symbol = getattr(position, "symbol", None)
+            if symbol not in allowed:
+                continue
+            values[str(symbol)] = float(getattr(position, "market_value", 0.0) or 0.0)
+        return values
+
     def submit_notional_order(self, symbol: str, side: str, notional: float) -> dict[str, Any]:
         from alpaca.trading.enums import OrderSide, TimeInForce
         from alpaca.trading.requests import MarketOrderRequest
