@@ -1,0 +1,780 @@
+{
+  "acceptance": {
+    "ex_overlap_median_gt_0": true,
+    "ex_overlap_p25_near_zero_or_better": true,
+    "hit_rate_ge_55": false,
+    "max_relevant_corr": 0.0684019493707905,
+    "max_relevant_corr_le_060": true,
+    "median_gt_0": false,
+    "no_single_year_family_dependence": false,
+    "placebo_rank_ge_085": true,
+    "suggested_decision": "rejected"
+  },
+  "bugfix_note": "Corrected event construction: did not reuse 2026-06-26 as the pre-holiday date for future 2026 Independence/Labor/Thanksgiving/Christmas holidays; holidays are included only when the pre-holiday session is present and 1-3 calendar days before the holiday.",
+  "candidate_pool": [
+    "SPY",
+    "IVV",
+    "VOO",
+    "QQQ",
+    "IWM",
+    "MDY",
+    "DIA",
+    "VTI",
+    "EFA",
+    "IEFA",
+    "EEM",
+    "VEA",
+    "HYG",
+    "JNK",
+    "LQD",
+    "VCIT",
+    "VCSH",
+    "AGG"
+  ],
+  "cost_model": {
+    "primary_one_way_bps": 10,
+    "round_trip_bps": 20,
+    "sensitivities_one_way_bps": [
+      5,
+      20
+    ]
+  },
+  "cost_sensitivity": {
+    "10bps_one_way": {
+      "event_sharpe": -0.8667982232107728,
+      "hit_rate": 0.43103448275862066,
+      "max_event_equity_drawdown": -0.049321329356428856,
+      "mean": -0.0005648872339473548,
+      "median": -0.0005690443546642161,
+      "n": 58,
+      "p25": -0.003175568528289545,
+      "worst": -0.012518476484733499
+    },
+    "20bps_one_way": {
+      "event_sharpe": -3.9357230319861642,
+      "hit_rate": 0.22413793103448276,
+      "max_event_equity_drawdown": -0.15647936032433704,
+      "mean": -0.0025648872339473546,
+      "median": -0.0025690443546642163,
+      "n": 58,
+      "p25": -0.005175568528289545,
+      "worst": -0.014518476484733499
+    },
+    "5bps_one_way": {
+      "event_sharpe": 0.6676641811769228,
+      "hit_rate": 0.5517241379310345,
+      "max_event_equity_drawdown": -0.026248163451988903,
+      "mean": 0.0004351127660526452,
+      "median": 0.00043095564533578395,
+      "n": 58,
+      "p25": -0.002175568528289545,
+      "worst": -0.0115184764847335
+    }
+  },
+  "coverage": {
+    "bar_rows_input": 26767,
+    "common_daily_rows": 1487,
+    "end": "2026-06-26",
+    "start": "2020-07-27",
+    "symbol_summary": {
+      "AGG": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 15247274.28,
+        "rows": 1487
+      },
+      "DIA": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 14959251.19,
+        "rows": 1487
+      },
+      "EEM": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 44119942.75,
+        "rows": 1487
+      },
+      "EFA": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 40722036.355,
+        "rows": 1487
+      },
+      "HYG": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 89993031.27000001,
+        "rows": 1487
+      },
+      "IEFA": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 14032104.75,
+        "rows": 1487
+      },
+      "IVV": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 26970750.24,
+        "rows": 1487
+      },
+      "IWM": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 101428841.08,
+        "rows": 1487
+      },
+      "JNK": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 20354047.245,
+        "rows": 1487
+      },
+      "LQD": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 72027925.32,
+        "rows": 1487
+      },
+      "MDY": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 5699389.74,
+        "rows": 1487
+      },
+      "QQQ": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 231504337.03,
+        "rows": 1487
+      },
+      "SPY": {
+        "first": "2018-11-01",
+        "last": "2026-06-26",
+        "median_dollar_volume": 531921255.0025,
+        "rows": 1488
+      },
+      "VCIT": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 13339282.964999998,
+        "rows": 1487
+      },
+      "VCSH": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 9851587.2,
+        "rows": 1487
+      },
+      "VEA": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 9421535.0,
+        "rows": 1487
+      },
+      "VOO": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 19028842.71,
+        "rows": 1487
+      },
+      "VTI": {
+        "first": "2020-07-27",
+        "last": "2026-06-26",
+        "median_dollar_volume": 6586453.1,
+        "rows": 1487
+      }
+    }
+  },
+  "credit_sleeve": [
+    "HYG",
+    "LQD",
+    "VCIT"
+  ],
+  "data_source": "Alpaca real daily OHLCV via configured paper-data credentials; values redacted; IEX feed requested; no CSV; no daemon; no orders",
+  "equity_sleeve": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "MDY",
+    "EFA",
+    "EEM"
+  ],
+  "event_definition": "close-to-close basket return ending on true last available tradable NYSE session 1-3 calendar days before predeclared full-day holidays; future holidays whose true pre-holiday session is outside data are excluded; post-holiday legs excluded; net returns subtract round-trip one-way costs",
+  "events_compact": [
+    {
+      "date": "2020-09-04",
+      "early_close_adjacent": false,
+      "family": "Labor",
+      "holiday": "2020-09-07",
+      "net_10bps": -0.006956812358933897,
+      "overlap": false
+    },
+    {
+      "date": "2020-11-25",
+      "early_close_adjacent": false,
+      "family": "Thanksgiving",
+      "holiday": "2020-11-26",
+      "net_10bps": -0.0031982171128449076,
+      "overlap": true
+    },
+    {
+      "date": "2020-12-24",
+      "early_close_adjacent": true,
+      "family": "Christmas",
+      "holiday": "2020-12-25",
+      "net_10bps": -0.0005604355264344017,
+      "overlap": false
+    },
+    {
+      "date": "2020-12-31",
+      "early_close_adjacent": false,
+      "family": "New Year",
+      "holiday": "2021-01-01",
+      "net_10bps": -0.0017803136800880423,
+      "overlap": true
+    },
+    {
+      "date": "2021-01-15",
+      "early_close_adjacent": false,
+      "family": "MLK",
+      "holiday": "2021-01-18",
+      "net_10bps": -0.009519263385033195,
+      "overlap": true
+    },
+    {
+      "date": "2021-02-12",
+      "early_close_adjacent": false,
+      "family": "Presidents",
+      "holiday": "2021-02-15",
+      "net_10bps": 7.132926625497311e-05,
+      "overlap": false
+    },
+    {
+      "date": "2021-04-01",
+      "early_close_adjacent": false,
+      "family": "Good Friday",
+      "holiday": "2021-04-02",
+      "net_10bps": 0.007301463052611111,
+      "overlap": true
+    },
+    {
+      "date": "2021-05-28",
+      "early_close_adjacent": false,
+      "family": "Memorial",
+      "holiday": "2021-05-31",
+      "net_10bps": -0.0006086664180838914,
+      "overlap": true
+    },
+    {
+      "date": "2021-07-02",
+      "early_close_adjacent": false,
+      "family": "Independence",
+      "holiday": "2021-07-05",
+      "net_10bps": -0.00048674660145817247,
+      "overlap": true
+    },
+    {
+      "date": "2021-09-03",
+      "early_close_adjacent": false,
+      "family": "Labor",
+      "holiday": "2021-09-06",
+      "net_10bps": -0.002259721887454847,
+      "overlap": true
+    },
+    {
+      "date": "2021-11-24",
+      "early_close_adjacent": false,
+      "family": "Thanksgiving",
+      "holiday": "2021-11-25",
+      "net_10bps": -0.001674672409927788,
+      "overlap": false
+    },
+    {
+      "date": "2021-12-23",
+      "early_close_adjacent": true,
+      "family": "Christmas",
+      "holiday": "2021-12-24",
+      "net_10bps": 0.0016083885462084236,
+      "overlap": false
+    },
+    {
+      "date": "2021-12-30",
+      "early_close_adjacent": false,
+      "family": "New Year",
+      "holiday": "2021-12-31",
+      "net_10bps": -0.0016834349745951582,
+      "overlap": true
+    },
+    {
+      "date": "2022-01-14",
+      "early_close_adjacent": false,
+      "family": "MLK",
+      "holiday": "2022-01-17",
+      "net_10bps": -0.0033657994342432473,
+      "overlap": true
+    },
+    {
+      "date": "2022-02-18",
+      "early_close_adjacent": false,
+      "family": "Presidents",
+      "holiday": "2022-02-21",
+      "net_10bps": -0.006616784043232365,
+      "overlap": true
+    },
+    {
+      "date": "2022-04-14",
+      "early_close_adjacent": false,
+      "family": "Good Friday",
+      "holiday": "2022-04-15",
+      "net_10bps": -0.012518476484733499,
+      "overlap": true
+    },
+    {
+      "date": "2022-05-27",
+      "early_close_adjacent": false,
+      "family": "Memorial",
+      "holiday": "2022-05-30",
+      "net_10bps": 0.01451127668677151,
+      "overlap": true
+    },
+    {
+      "date": "2022-06-17",
+      "early_close_adjacent": false,
+      "family": "Juneteenth",
+      "holiday": "2022-06-20",
+      "net_10bps": 0.0012037366383136862,
+      "overlap": true
+    },
+    {
+      "date": "2022-07-01",
+      "early_close_adjacent": false,
+      "family": "Independence",
+      "holiday": "2022-07-04",
+      "net_10bps": 0.004371896791835042,
+      "overlap": true
+    },
+    {
+      "date": "2022-09-02",
+      "early_close_adjacent": false,
+      "family": "Labor",
+      "holiday": "2022-09-05",
+      "net_10bps": -0.00797174492878315,
+      "overlap": true
+    },
+    {
+      "date": "2022-11-23",
+      "early_close_adjacent": false,
+      "family": "Thanksgiving",
+      "holiday": "2022-11-24",
+      "net_10bps": 0.004515457209000807,
+      "overlap": false
+    },
+    {
+      "date": "2022-12-23",
+      "early_close_adjacent": false,
+      "family": "Christmas",
+      "holiday": "2022-12-26",
+      "net_10bps": -0.0002082222714007752,
+      "overlap": false
+    },
+    {
+      "date": "2022-12-30",
+      "early_close_adjacent": false,
+      "family": "New Year",
+      "holiday": "2023-01-02",
+      "net_10bps": -0.0070802773209940805,
+      "overlap": true
+    },
+    {
+      "date": "2023-01-13",
+      "early_close_adjacent": false,
+      "family": "MLK",
+      "holiday": "2023-01-16",
+      "net_10bps": 0.0009678408247965451,
+      "overlap": false
+    },
+    {
+      "date": "2023-02-17",
+      "early_close_adjacent": false,
+      "family": "Presidents",
+      "holiday": "2023-02-20",
+      "net_10bps": -0.0026855901300731513,
+      "overlap": true
+    },
+    {
+      "date": "2023-04-06",
+      "early_close_adjacent": false,
+      "family": "Good Friday",
+      "holiday": "2023-04-07",
+      "net_10bps": 0.0004038137433279871,
+      "overlap": false
+    },
+    {
+      "date": "2023-05-26",
+      "early_close_adjacent": false,
+      "family": "Memorial",
+      "holiday": "2023-05-29",
+      "net_10bps": 0.00904291182575707,
+      "overlap": true
+    },
+    {
+      "date": "2023-06-16",
+      "early_close_adjacent": false,
+      "family": "Juneteenth",
+      "holiday": "2023-06-19",
+      "net_10bps": -0.006664414231099078,
+      "overlap": true
+    },
+    {
+      "date": "2023-07-03",
+      "early_close_adjacent": true,
+      "family": "Independence",
+      "holiday": "2023-07-04",
+      "net_10bps": -0.0014177872060000647,
+      "overlap": true
+    },
+    {
+      "date": "2023-09-01",
+      "early_close_adjacent": false,
+      "family": "Labor",
+      "holiday": "2023-09-04",
+      "net_10bps": -0.0004454783385159473,
+      "overlap": true
+    },
+    {
+      "date": "2023-11-22",
+      "early_close_adjacent": false,
+      "family": "Thanksgiving",
+      "holiday": "2023-11-23",
+      "net_10bps": 0.0011788735427778058,
+      "overlap": false
+    },
+    {
+      "date": "2023-12-22",
+      "early_close_adjacent": false,
+      "family": "Christmas",
+      "holiday": "2023-12-25",
+      "net_10bps": -0.0013421759249203124,
+      "overlap": false
+    },
+    {
+      "date": "2023-12-29",
+      "early_close_adjacent": false,
+      "family": "New Year",
+      "holiday": "2024-01-01",
+      "net_10bps": -0.006451565174021467,
+      "overlap": true
+    },
+    {
+      "date": "2024-01-12",
+      "early_close_adjacent": false,
+      "family": "MLK",
+      "holiday": "2024-01-15",
+      "net_10bps": -0.0007842101898285969,
+      "overlap": false
+    },
+    {
+      "date": "2024-02-16",
+      "early_close_adjacent": false,
+      "family": "Presidents",
+      "holiday": "2024-02-19",
+      "net_10bps": -0.006527561699585952,
+      "overlap": true
+    },
+    {
+      "date": "2024-03-28",
+      "early_close_adjacent": false,
+      "family": "Good Friday",
+      "holiday": "2024-03-29",
+      "net_10bps": -0.0016899457517978273,
+      "overlap": true
+    },
+    {
+      "date": "2024-05-24",
+      "early_close_adjacent": false,
+      "family": "Memorial",
+      "holiday": "2024-05-27",
+      "net_10bps": 0.003919738743498406,
+      "overlap": false
+    },
+    {
+      "date": "2024-06-18",
+      "early_close_adjacent": false,
+      "family": "Juneteenth",
+      "holiday": "2024-06-19",
+      "net_10bps": 0.0014832113413151657,
+      "overlap": true
+    },
+    {
+      "date": "2024-07-03",
+      "early_close_adjacent": true,
+      "family": "Independence",
+      "holiday": "2024-07-04",
+      "net_10bps": 0.004224934684759709,
+      "overlap": true
+    },
+    {
+      "date": "2024-08-30",
+      "early_close_adjacent": false,
+      "family": "Labor",
+      "holiday": "2024-09-02",
+      "net_10bps": 0.001947328348947115,
+      "overlap": true
+    },
+    {
+      "date": "2024-11-27",
+      "early_close_adjacent": false,
+      "family": "Thanksgiving",
+      "holiday": "2024-11-28",
+      "net_10bps": -0.0017080095497548058,
+      "overlap": true
+    },
+    {
+      "date": "2024-12-24",
+      "early_close_adjacent": true,
+      "family": "Christmas",
+      "holiday": "2024-12-25",
+      "net_10bps": 0.008463216481752548,
+      "overlap": false
+    },
+    {
+      "date": "2024-12-31",
+      "early_close_adjacent": false,
+      "family": "New Year",
+      "holiday": "2025-01-01",
+      "net_10bps": -0.0038158656044126895,
+      "overlap": true
+    },
+    {
+      "date": "2025-01-17",
+      "early_close_adjacent": false,
+      "family": "MLK",
+      "holiday": "2025-01-20",
+      "net_10bps": 0.003563371996371049,
+      "overlap": true
+    },
+    {
+      "date": "2025-02-14",
+      "early_close_adjacent": false,
+      "family": "Presidents",
+      "holiday": "2025-02-17",
+      "net_10bps": 0.0002611437248079382,
+      "overlap": true
+    },
+    {
+      "date": "2025-04-17",
+      "early_close_adjacent": false,
+      "family": "Good Friday",
+      "holiday": "2025-04-18",
+      "net_10bps": 0.002661474652836333,
+      "overlap": true
+    },
+    {
+      "date": "2025-05-23",
+      "early_close_adjacent": false,
+      "family": "Memorial",
+      "holiday": "2025-05-26",
+      "net_10bps": -0.003353617243859061,
+      "overlap": false
+    },
+    {
+      "date": "2025-06-18",
+      "early_close_adjacent": false,
+      "family": "Juneteenth",
+      "holiday": "2025-06-19",
+      "net_10bps": -0.0005776531828940305,
+      "overlap": true
+    },
+    {
+      "date": "2025-07-03",
+      "early_close_adjacent": true,
+      "family": "Independence",
+      "holiday": "2025-07-04",
+      "net_10bps": 0.0016653258930108168,
+      "overlap": true
+    },
+    {
+      "date": "2025-08-29",
+      "early_close_adjacent": false,
+      "family": "Labor",
+      "holiday": "2025-09-01",
+      "net_10bps": -0.006973287063980419,
+      "overlap": true
+    },
+    {
+      "date": "2025-11-26",
+      "early_close_adjacent": false,
+      "family": "Thanksgiving",
+      "holiday": "2025-11-27",
+      "net_10bps": 0.004106817850714874,
+      "overlap": true
+    },
+    {
+      "date": "2025-12-24",
+      "early_close_adjacent": true,
+      "family": "Christmas",
+      "holiday": "2025-12-25",
+      "net_10bps": 0.00043942220005289967,
+      "overlap": false
+    },
+    {
+      "date": "2025-12-31",
+      "early_close_adjacent": false,
+      "family": "New Year",
+      "holiday": "2026-01-01",
+      "net_10bps": -0.007587755214122556,
+      "overlap": true
+    },
+    {
+      "date": "2026-01-16",
+      "early_close_adjacent": false,
+      "family": "MLK",
+      "holiday": "2026-01-19",
+      "net_10bps": -0.0031076227746234574,
+      "overlap": true
+    },
+    {
+      "date": "2026-02-13",
+      "early_close_adjacent": false,
+      "family": "Presidents",
+      "holiday": "2026-02-16",
+      "net_10bps": 0.0021715246214156414,
+      "overlap": false
+    },
+    {
+      "date": "2026-04-02",
+      "early_close_adjacent": false,
+      "family": "Good Friday",
+      "holiday": "2026-04-03",
+      "net_10bps": -0.001682409279559931,
+      "overlap": true
+    },
+    {
+      "date": "2026-05-22",
+      "early_close_adjacent": false,
+      "family": "Memorial",
+      "holiday": "2026-05-25",
+      "net_10bps": 0.0007406784058162658,
+      "overlap": false
+    },
+    {
+      "date": "2026-06-18",
+      "early_close_adjacent": false,
+      "family": "Juneteenth",
+      "holiday": "2026-06-19",
+      "net_10bps": 0.009715900755390467,
+      "overlap": true
+    }
+  ],
+  "issue_id": "AR-129",
+  "model": "holiday-pre-riskon-simplified-robustness-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "primary_metrics_net_10bps": {
+    "event_sharpe": -0.8667982232107728,
+    "hit_rate": 0.43103448275862066,
+    "max_event_equity_drawdown": -0.049321329356428856,
+    "mean": -0.0005648872339473548,
+    "median": -0.0005690443546642161,
+    "n": 58,
+    "p25": -0.003175568528289545,
+    "worst": -0.012518476484733499
+  },
+  "raw_daily_paths_retained": false,
+  "robustness": {
+    "control_correlations_abs": {
+      "month_end_proxy": 0.02487063777259038,
+      "opex_proxy": 0.0028031444011367757,
+      "payday_proxy": 0.0684019493707905,
+      "tom_proxy": 0.054997286114135006
+    },
+    "ex_calendar_overlap": {
+      "event_sharpe": 0.6992466577340931,
+      "hit_rate": 0.6111111111111112,
+      "max_event_equity_drawdown": -0.009120591029041114,
+      "mean": 0.0005333409810887483,
+      "median": 0.0004216179716904434,
+      "n": 18,
+      "p25": -0.0007282665239800481,
+      "worst": -0.006956812358933897
+    },
+    "family_net_sums": {
+      "Christmas": 0.008400193505258382,
+      "Good Friday": -0.0055240800673158254,
+      "Independence": 0.00835762356214733,
+      "Juneteenth": 0.0051607813210262105,
+      "Labor": -0.022659716228721146,
+      "MLK": -0.012245682962560903,
+      "Memorial": 0.024252321999900295,
+      "New Year": -0.028399211968233994,
+      "Presidents": -0.013325938260412916,
+      "Thanksgiving": 0.003220249529965985
+    },
+    "placebo_iterations": 1000,
+    "placebo_matched_month_weekday_median_rank": 0.901,
+    "positive_family_rate": 0.5,
+    "positive_year_rate": 0.2857142857142857,
+    "year_net_sums": {
+      "2020": -0.012495778678301248,
+      "2021": -0.007251324811478544,
+      "2022": -0.013158937157466074,
+      "2023": -0.0074135710679706125,
+      "2024": 0.005512836804893071,
+      "2025": -0.005794756387062156,
+      "2026": 0.007838071728438985
+    }
+  },
+  "run_id": "ar129_qfa_alpaca_real_corrected_20260627T152833Z.json",
+  "sleeve_diagnostics_net_10bps": {
+    "credit_only": {
+      "event_sharpe": -3.8612592018260496,
+      "hit_rate": 0.3275862068965517,
+      "max_event_equity_drawdown": -0.09802826358021707,
+      "mean": -0.0016664112864516196,
+      "median": -0.0012375850209870479,
+      "n": 58,
+      "p25": -0.0036639757784049727,
+      "worst": -0.010519584916525047
+    },
+    "equity_credit": {
+      "event_sharpe": -0.8667982232107728,
+      "hit_rate": 0.43103448275862066,
+      "max_event_equity_drawdown": -0.049321329356428856,
+      "mean": -0.0005648872339473548,
+      "median": -0.0005690443546642161,
+      "n": 58,
+      "p25": -0.003175568528289545,
+      "worst": -0.012518476484733499
+    },
+    "equity_only": {
+      "event_sharpe": -0.016367140401273496,
+      "hit_rate": 0.46551724137931033,
+      "max_event_equity_drawdown": -0.04153929284456001,
+      "mean": -1.4125207695222052e-05,
+      "median": -9.785201488804289e-05,
+      "n": 58,
+      "p25": -0.0037425757882505444,
+      "worst": -0.013517922268837725
+    }
+  },
+  "universe": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "MDY",
+    "EFA",
+    "EEM",
+    "HYG",
+    "LQD",
+    "VCIT"
+  ],
+  "warnings": [
+    "Uses current ETF symbols; survivorship/availability bias possible.",
+    "NYSE holiday/early-close calendar generated from public rules plus 2018 national mourning closure; not an exchange API calendar.",
+    "Daily-bar close-to-close implementation cannot verify intraday early-close execution quality."
+  ]
+}

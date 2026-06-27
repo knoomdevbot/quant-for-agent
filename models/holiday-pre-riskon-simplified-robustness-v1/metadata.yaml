@@ -1,0 +1,15 @@
+name: holiday-pre-riskon-simplified-robustness-v1
+issue: AR-129
+status: researched
+suggested_decision: rejected
+family: event_calendar_holiday_risk_premium
+hypothesis: Pre-holiday risk-on drift in broad equity/credit ETFs survives simplification and robustness gates.
+created_by: scheduled qfa alpha research batch
+artifact_policy:
+  compact_only: true
+  raw_daily_paths_retained: false
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+latest_evaluation: evaluations/latest.json

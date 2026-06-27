@@ -1,0 +1,23 @@
+name: holiday-pre-riskon-simplified-robustness-v1
+issue: AR-129
+parent: AR-127
+model_type: rule_based_event_calendar
+universe:
+  selected: [SPY, QQQ, IWM, MDY, EFA, EEM, HYG, LQD, VCIT]
+  equity_sleeve: [SPY, QQQ, IWM, MDY, EFA, EEM]
+  credit_sleeve: [HYG, LQD, VCIT]
+signal:
+  event: last tradable NYSE session before predeclared full-day holidays
+  exposure: equal_weight_long_risk_on_basket
+  outside_event_window: cash
+  post_holiday_leg: excluded
+costs:
+  primary_one_way_bps: 10
+  sensitivities_one_way_bps: [5, 20]
+data:
+  source: Alpaca real daily OHLCV via configured paper-data access; values redacted
+  feed: IEX requested after recent SIP data 403
+  csv_used: false
+  data_csv_argument_used: false
+  daemon_used: false
+  orders_placed: false

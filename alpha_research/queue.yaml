@@ -955,16 +955,22 @@ issues:
 - id: AR-129
   title: 'Refine AR-127 pre-holiday risk-on ETF calendar premium with robustness gates'
   model_name: holiday-pre-riskon-simplified-robustness-v1
-  status: queued
-  priority: preflight_queue_watchlist_refinement
+  status: rejected
+  priority: completed_realdata
   family: event_calendar_holiday_risk_premium
   issue_path: alpha_research/issues/AR-129.md
   parent: AR-127
+- id: AR-130
+  title: 'Scheduled FOMC decision-day rate-sensitive ETF drift/fade event study'
+  model_name: fomc-decision-day-rate-sensitive-etf-drift-fade-v1
+  status: queued
+  priority: preflight_queue_fast_falsification
+  family: event_calendar_rate_sensitive_etf_drift_fade
+  issue_path: alpha_research/issues/AR-130.md
 active_batch:
-- AR-129
+- AR-130
 last_realdata_batch:
-- AR-127
-- AR-128
-updated_at: '2026-06-27T14:55:00Z'
+- AR-129
+updated_at: '2026-06-27T15:48:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 119
+tried_ideas_count: 120
