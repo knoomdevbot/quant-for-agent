@@ -892,14 +892,29 @@ issues:
 - id: AR-120
   title: 'Timestamp-safe ETF distribution ex-date drift and reversal allocator'
   model_name: etf-distribution-exdate-reversal-allocator-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: etf_distribution_exdiv_event_timing
   issue_path: alpha_research/issues/AR-120.md
+- id: AR-121
+  title: 'ETF family-relative OHLCV liquidity-pressure proxy allocator'
+  model_name: etf-family-relative-ohlcv-liquidity-pressure-v1
+  status: queued
+  priority: preflight_queue_fast_falsification
+  family: etf_liquidity_pressure_mean_reversion
+  issue_path: alpha_research/issues/AR-121.md
+- id: AR-122
+  title: 'Macro-shock defensive-sector relative stabilization event-study'
+  model_name: macro-shock-defensive-relative-stabilization-v1
+  status: queued
+  priority: preflight_queue_fast_falsification
+  family: macro_shock_sector_relative_stabilization
+  issue_path: alpha_research/issues/AR-122.md
 active_batch:
-- AR-120
+- AR-121
+- AR-122
 last_realdata_batch:
-- AR-118
-updated_at: '2026-06-27T04:55:00Z'
+- AR-120
+updated_at: '2026-06-27T05:21:32Z'
 target_tried_ideas: 100
-tried_ideas_count: 110
+tried_ideas_count: 111

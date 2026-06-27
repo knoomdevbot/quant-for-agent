@@ -1,0 +1,33 @@
+model: etf-distribution-exdate-reversal-allocator-v1
+issue_id: AR-120
+status: blocked
+universe:
+  - HYG
+  - LQD
+  - SHY
+  - IEF
+  - TLT
+  - GOVT
+  - TIP
+  - EMB
+  - MUB
+  - VCIT
+  - VCSH
+  - BND
+  - AGG
+  - XLU
+  - XLP
+  - XLV
+  - VNQ
+  - XLRE
+parameters:
+  mode: cash_stub
+  reason: missing_timestamp_safe_announcement_or_asof_timestamp_for_distribution_events
+  max_gross: 0.0
+data_policy:
+  real_market_data_only: true
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

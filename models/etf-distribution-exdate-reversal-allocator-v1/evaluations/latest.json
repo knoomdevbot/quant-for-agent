@@ -1,0 +1,56 @@
+{
+  "issue_id": "AR-120",
+  "model_name": "etf-distribution-exdate-reversal-allocator-v1",
+  "status": "rejected",
+  "recommendation": "rejected_blocked_timestamp_safety",
+  "created_at_utc": "2026-06-27T05:14:55Z",
+  "evaluation_type": "real_data_qfa_alpaca_corporate_action_timestamp_safety_preflight",
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "source_provenance": "Alpaca paper-data credentials were sourced from the configured local profile only for real daily bars and corporate-action access; secret values are not stored, printed, or committed.",
+  "candidate_pool_preperformance": ["HYG", "LQD", "SHY", "IEF", "TLT", "GOVT", "TIP", "EMB", "MUB", "VCIT", "VCSH", "BND", "AGG", "XLU", "XLP", "XLV", "VNQ", "XLRE"],
+  "coverage_query_period": {"start": "2018-01-01", "end": "2025-12-31"},
+  "selected_universe_by_preperformance_coverage": ["HYG", "LQD", "SHY", "IEF", "TLT", "GOVT", "TIP", "EMB", "MUB", "VCIT", "VCSH", "BND", "AGG", "XLU", "XLP", "XLV", "VNQ", "XLRE"],
+  "selection_rationale": "All pool symbols had Alpaca daily bar coverage over the query period, at least 32 cash-dividend records, and median daily dollar volume above 1mm in the retrieved bars; this was determined before any performance review.",
+  "timestamp_safety_assessment": {
+    "alpaca_cash_dividend_endpoint_available": true,
+    "has_ex_date": true,
+    "has_payable_date": true,
+    "has_rate": true,
+    "has_announcement_or_asof_timestamp": false,
+    "event_fields_observed": ["corporate_action_type", "cusip", "due_bill_off_date", "due_bill_on_date", "ex_date", "foreign", "id", "payable_date", "process_date", "rate", "record_date", "special", "symbol"],
+    "blocker": "Alpaca cash-dividend records available through alpaca-py 0.43.4 do not expose announcement/as-of/knowledge timestamps. Historical ex-date availability before a trading decision cannot be verified without look-ahead risk. Issue AR-120 explicitly requires blocking/rejecting instead of inferring ex-dates or using non timestamp-safe records."
+  },
+  "corporate_action_coverage": {
+    "cash_dividend_events_total": 1399,
+    "counts_by_symbol": {"AGG": 96, "BND": 100, "EMB": 97, "GOVT": 97, "HYG": 96, "IEF": 96, "LQD": 96, "MUB": 96, "SHY": 97, "TIP": 76, "TLT": 96, "VCIT": 98, "VCSH": 97, "VNQ": 32, "XLP": 32, "XLRE": 32, "XLU": 32, "XLV": 33},
+    "first_ex_date_by_symbol": {"AGG": "2018-02-01", "BND": "2018-02-01", "EMB": "2018-02-01", "GOVT": "2018-02-01", "HYG": "2018-02-01", "IEF": "2018-02-01", "LQD": "2018-02-01", "MUB": "2018-02-01", "SHY": "2018-02-01", "TIP": "2018-02-01", "TLT": "2018-02-01", "VCIT": "2018-02-01", "VCSH": "2018-02-01", "VNQ": "2018-03-26", "XLP": "2018-03-16", "XLRE": "2018-03-16", "XLU": "2018-03-16", "XLV": "2018-03-16"},
+    "last_ex_date_by_symbol": {"AGG": "2025-12-19", "BND": "2025-12-18", "EMB": "2025-12-19", "GOVT": "2025-12-19", "HYG": "2025-12-19", "IEF": "2025-12-19", "LQD": "2025-12-19", "MUB": "2025-12-19", "SHY": "2025-12-19", "TIP": "2025-12-19", "TLT": "2025-12-19", "VCIT": "2025-12-18", "VCSH": "2025-12-18", "VNQ": "2025-12-22", "XLP": "2025-12-22", "XLRE": "2025-12-22", "XLU": "2025-12-22", "XLV": "2025-12-22"}
+  },
+  "daily_bar_coverage": {
+    "bar_counts_by_symbol": {"AGG": 1365, "BND": 1365, "EMB": 1365, "GOVT": 1365, "HYG": 1365, "IEF": 1365, "LQD": 1365, "MUB": 1365, "SHY": 1365, "TIP": 1365, "TLT": 1365, "VCIT": 1365, "VCSH": 1365, "VNQ": 1365, "XLP": 1365, "XLRE": 1365, "XLU": 1365, "XLV": 1365},
+    "median_dollar_volume_by_symbol_rounded": {"AGG": 14063944.89, "BND": 8668325.89, "EMB": 19321897.21, "GOVT": 2404537.17, "HYG": 84273981.12, "IEF": 12590589.38, "LQD": 65878385.56, "MUB": 8536704.0, "SHY": 4996993.4, "TIP": 7624596.62, "TLT": 51764396.16, "VCIT": 11635349.82, "VCSH": 8953267.4, "VNQ": 6711803.15, "XLP": 21549595.55, "XLRE": 3680750.0, "XLU": 18346295.22, "XLV": 24504145.92}
+  },
+  "performance_metrics": {
+    "backtest_run": false,
+    "reason_not_run": "timestamp_safe_event_data_unavailable",
+    "primary_sharpe_10bps": null,
+    "random_median_sharpe_10bps": null,
+    "random_p25_sharpe_10bps": null,
+    "positive_window_rate_10bps": null,
+    "cost_sensitivity_5_10_20bps": null,
+    "orthogonality": "not_evaluated_because_model_blocked_before_performance_review"
+  },
+  "artifacts": {
+    "model_py": "models/etf-distribution-exdate-reversal-allocator-v1/model.py",
+    "config_yaml": "models/etf-distribution-exdate-reversal-allocator-v1/config.yaml",
+    "metadata_yaml": "models/etf-distribution-exdate-reversal-allocator-v1/metadata.yaml",
+    "readme_md": "models/etf-distribution-exdate-reversal-allocator-v1/README.md",
+    "latest_json": "models/etf-distribution-exdate-reversal-allocator-v1/evaluations/latest.json",
+    "latest_md": "models/etf-distribution-exdate-reversal-allocator-v1/evaluations/latest.md",
+    "immutable_run_json": "models/etf-distribution-exdate-reversal-allocator-v1/evaluations/runs/ar120_qfa_alpaca_blocked_20260627T051455Z.json"
+  }
+}

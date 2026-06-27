@@ -1,0 +1,41 @@
+model_name: etf-distribution-exdate-reversal-allocator-v1
+issue_id: AR-120
+status: blocked
+suggested_decision: blocked
+created_at_utc: '2026-06-27T05:14:55Z'
+research_program: AlphaEvolve qfa
+hypothesis: Timestamp-safe ETF distribution/ex-dividend events may create short-horizon pressure, drift, or recovery effects not explained by carry, duration, month-end, or ETF TSMOM.
+implementation_summary: >-
+  Safe qfa generate_signals(context) stub returning zero weights because the
+  required timestamp-safe distribution event source was not available in the
+  observed Alpaca corporate-action response.
+data_protocol:
+  source: Alpaca real daily OHLCV plus Alpaca cash-dividend corporate-action endpoint for coverage/timestamp-safety preflight
+  credentials: Configured local Alpaca paper-data profile; secret values not printed or stored
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+evaluation_summary:
+  recommendation: blocked
+  backtest_run: false
+  reason_not_run: missing_announcement_or_asof_knowledge_timestamp_for_historical_distribution_events
+  candidate_pool_size: 18
+  selected_universe_size: 18
+  cash_dividend_events_observed: 1399
+  observed_event_fields: corporate_action_type, cusip, due_bill_off_date, due_bill_on_date, ex_date, foreign, id, payable_date, process_date, rate, record_date, special, symbol
+  random_window_metrics: not_evaluated
+  cost_sensitivity_5_10_20bps: not_evaluated
+  orthogonality_status: not_evaluated_blocked_before_performance_review
+falsifier_result: >-
+  Blocked by data provenance: Alpaca cash-dividend records did not expose
+  announcement/as-of/knowledge timestamps needed to verify event availability
+  before the trading decision. No OHLCV-inferred ex-date proxy was used.
+artifacts:
+  model: model.py
+  config: config.yaml
+  readme: README.md
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  immutable_run: evaluations/runs/ar120_qfa_alpaca_blocked_20260627T051455Z.json
