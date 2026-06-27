@@ -1,0 +1,85 @@
+{
+  "model_name": "russell-june-reconstitution-size-spread-reversal-v1",
+  "research_issue": "AR-126",
+  "family": "event_calendar_size_flow_reversal",
+  "candidate_pool": [
+    "IWM",
+    "IWB",
+    "VTWO",
+    "VTI",
+    "IJR",
+    "MDY",
+    "RSP",
+    "IWF",
+    "IWD",
+    "IWO",
+    "IWN",
+    "VTV",
+    "VB",
+    "VBR",
+    "VBK"
+  ],
+  "selected_universe": [
+    "IJR",
+    "IWB",
+    "IWD",
+    "IWF",
+    "IWM",
+    "IWN",
+    "IWO",
+    "MDY",
+    "VBK",
+    "VBR",
+    "VTI",
+    "VTWO"
+  ],
+  "calendar_rule": "last Friday in June as public Russell reconstitution effective-date proxy",
+  "primary_rule": {
+    "pre_event_pressure_lookback_trading_days": 5,
+    "entry": "next trading day after last Friday in June",
+    "holding_period_trading_days": 5,
+    "signal": "per sleeve, reverse the pre-event small-minus-large spread move; long laggard leg and short winner leg",
+    "gross_exposure": 1.0,
+    "cost_bps_primary_one_way": 10,
+    "cost_bps_sensitivity_one_way": [
+      5,
+      20
+    ]
+  },
+  "sleeves": [
+    {
+      "name": "russell_small_vs_large",
+      "small": "IWM",
+      "large": "IWB"
+    },
+    {
+      "name": "vanguard_russell2000_vs_total_market",
+      "small": "VTWO",
+      "large": "VTI"
+    },
+    {
+      "name": "core_small_vs_mid",
+      "small": "IJR",
+      "large": "MDY"
+    },
+    {
+      "name": "small_value_vs_large_value",
+      "small": "IWN",
+      "large": "IWD"
+    },
+    {
+      "name": "small_growth_vs_large_growth",
+      "small": "IWO",
+      "large": "IWF"
+    },
+    {
+      "name": "vanguard_small_growth_vs_small_value",
+      "small": "VBK",
+      "large": "VBR"
+    }
+  ],
+  "risk": {
+    "max_gross_exposure": 1.0,
+    "cash_when_no_event_window": true
+  }
+}

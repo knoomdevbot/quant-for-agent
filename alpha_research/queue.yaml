@@ -931,9 +931,16 @@ issues:
   priority: completed_realdata
   family: monthend_rebalance_flow
   issue_path: alpha_research/issues/AR-125.md
+- id: AR-126
+  title: 'Russell June Reconstitution Size-Spread Reversal Event Study'
+  model_name: russell-june-reconstitution-size-spread-reversal-v1
+  status: rejected
+  priority: completed_realdata
+  family: event_calendar_size_flow_reversal
+  issue_path: alpha_research/issues/AR-126.md
 active_batch: []
 last_realdata_batch:
-- AR-125
-updated_at: '2026-06-27T13:12:00Z'
+- AR-126
+updated_at: '2026-06-27T13:51:43Z'
 target_tried_ideas: 100
-tried_ideas_count: 116
+tried_ideas_count: 117

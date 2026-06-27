@@ -1,0 +1,971 @@
+{
+  "artifact_policy": {
+    "compact_summary_only": true,
+    "helper_evaluator_retained": false,
+    "raw_bars_retained": false
+  },
+  "baselines": {
+    "june_etf_tsmom_63d_same_hold": {
+      "avg_gross_turnover_per_event": 2.0,
+      "best_event_return": 0.04951102,
+      "daily_event_sharpe": 5.55318082,
+      "event_count": 9,
+      "max_drawdown_during_holds": -0.02911043,
+      "mean_event_return": 0.01212943,
+      "median_event_return": 0.00720964,
+      "p25_event_return": -0.00168979,
+      "positive_event_rate": 0.66666667,
+      "total_gross_turnover": 18.0,
+      "worst_event_return": -0.00602664
+    },
+    "june_fixed_long_iwm_short_iwb": {
+      "avg_gross_turnover_per_event": 2.0,
+      "best_event_return": 0.00459575,
+      "daily_event_sharpe": -1.94363833,
+      "event_count": 9,
+      "max_drawdown_during_holds": -0.03423053,
+      "mean_event_return": -0.00437852,
+      "median_event_return": -0.00430785,
+      "p25_event_return": -0.00957029,
+      "positive_event_rate": 0.33333333,
+      "total_gross_turnover": 18.0,
+      "worst_event_return": -0.01568009
+    },
+    "june_fixed_short_iwm_long_iwb": {
+      "avg_gross_turnover_per_event": 2.0,
+      "best_event_return": 0.01176364,
+      "daily_event_sharpe": 1.94363833,
+      "event_count": 9,
+      "max_drawdown_during_holds": -0.0132082,
+      "mean_event_return": 0.00035793,
+      "median_event_return": 0.00028476,
+      "p25_event_return": -0.00615777,
+      "positive_event_rate": 0.55555556,
+      "total_gross_turnover": 18.0,
+      "worst_event_return": -0.00858085
+    },
+    "june_pressure_momentum_follow": {
+      "avg_gross_turnover_per_event": 2.0,
+      "best_event_return": 0.0019891,
+      "daily_event_sharpe": -4.06271992,
+      "event_count": 9,
+      "max_drawdown_during_holds": -0.02715168,
+      "mean_event_return": -0.00451999,
+      "median_event_return": -0.00291823,
+      "p25_event_return": -0.00784858,
+      "positive_event_rate": 0.11111111,
+      "total_gross_turnover": 18.0,
+      "worst_event_return": -0.0107715
+    },
+    "no_signal_zero_return": {
+      "mean_event_return": 0.0,
+      "median_event_return": 0.0,
+      "positive_event_rate": 0.0
+    },
+    "non_june_last_friday_pressure_reversal_placebo": {
+      "best_monthly_mean_event_return": 0.00178123,
+      "mean_of_monthly_mean_event_returns": -0.00141364,
+      "months": {
+        "1": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.00814221,
+          "daily_event_sharpe": 3.49631979,
+          "event_count": 10,
+          "max_drawdown_during_holds": -0.00706929,
+          "mean_event_return": 0.00063556,
+          "median_event_return": -0.00131521,
+          "p25_event_return": -0.00171552,
+          "positive_event_rate": 0.4,
+          "total_gross_turnover": 20.0,
+          "worst_event_return": -0.00360398
+        },
+        "10": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.01465246,
+          "daily_event_sharpe": 0.99716955,
+          "event_count": 9,
+          "max_drawdown_during_holds": -0.00808425,
+          "mean_event_return": -0.00115238,
+          "median_event_return": -0.00319353,
+          "p25_event_return": -0.0035766,
+          "positive_event_rate": 0.22222222,
+          "total_gross_turnover": 18.0,
+          "worst_event_return": -0.00762918
+        },
+        "11": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.00369318,
+          "daily_event_sharpe": -2.18821451,
+          "event_count": 9,
+          "max_drawdown_during_holds": -0.02277867,
+          "mean_event_return": -0.00384605,
+          "median_event_return": -0.00419563,
+          "p25_event_return": -0.00845278,
+          "positive_event_rate": 0.33333333,
+          "total_gross_turnover": 18.0,
+          "worst_event_return": -0.00954937
+        },
+        "12": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.00832672,
+          "daily_event_sharpe": -0.6832055,
+          "event_count": 9,
+          "max_drawdown_during_holds": -0.0124897,
+          "mean_event_return": -0.00246293,
+          "median_event_return": -0.00218195,
+          "p25_event_return": -0.00596672,
+          "positive_event_rate": 0.11111111,
+          "total_gross_turnover": 18.0,
+          "worst_event_return": -0.01005581
+        },
+        "2": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.00581319,
+          "daily_event_sharpe": -1.23278734,
+          "event_count": 10,
+          "max_drawdown_during_holds": -0.02218056,
+          "mean_event_return": -0.00280251,
+          "median_event_return": -0.0022094,
+          "p25_event_return": -0.00494775,
+          "positive_event_rate": 0.3,
+          "total_gross_turnover": 20.0,
+          "worst_event_return": -0.01211791
+        },
+        "3": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.01072674,
+          "daily_event_sharpe": 3.36020936,
+          "event_count": 10,
+          "max_drawdown_during_holds": -0.00899221,
+          "mean_event_return": 0.00084916,
+          "median_event_return": -0.00032936,
+          "p25_event_return": -0.00195056,
+          "positive_event_rate": 0.4,
+          "total_gross_turnover": 20.0,
+          "worst_event_return": -0.00379836
+        },
+        "4": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.06108992,
+          "daily_event_sharpe": 1.30627819,
+          "event_count": 10,
+          "max_drawdown_during_holds": -0.02766298,
+          "mean_event_return": 0.00178123,
+          "median_event_return": -0.00492073,
+          "p25_event_return": -0.00727886,
+          "positive_event_rate": 0.2,
+          "total_gross_turnover": 20.0,
+          "worst_event_return": -0.00927376
+        },
+        "5": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.00944627,
+          "daily_event_sharpe": 0.20368457,
+          "event_count": 10,
+          "max_drawdown_during_holds": -0.02673082,
+          "mean_event_return": -0.00183398,
+          "median_event_return": -0.00088958,
+          "p25_event_return": -0.00345903,
+          "positive_event_rate": 0.4,
+          "total_gross_turnover": 20.0,
+          "worst_event_return": -0.01977
+        },
+        "7": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.01374809,
+          "daily_event_sharpe": 1.26461643,
+          "event_count": 9,
+          "max_drawdown_during_holds": -0.00880586,
+          "mean_event_return": -0.00104046,
+          "median_event_return": -0.00274742,
+          "p25_event_return": -0.00497016,
+          "positive_event_rate": 0.22222222,
+          "total_gross_turnover": 18.0,
+          "worst_event_return": -0.00876456
+        },
+        "8": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.00035362,
+          "daily_event_sharpe": -4.30124505,
+          "event_count": 9,
+          "max_drawdown_during_holds": -0.01619868,
+          "mean_event_return": -0.00392546,
+          "median_event_return": -0.00411884,
+          "p25_event_return": -0.00562747,
+          "positive_event_rate": 0.11111111,
+          "total_gross_turnover": 18.0,
+          "worst_event_return": -0.00654856
+        },
+        "9": {
+          "avg_gross_turnover_per_event": 2.0,
+          "best_event_return": 0.00803245,
+          "daily_event_sharpe": 0.34744259,
+          "event_count": 9,
+          "max_drawdown_during_holds": -0.01071699,
+          "mean_event_return": -0.00175218,
+          "median_event_return": -0.00348789,
+          "p25_event_return": -0.00549626,
+          "positive_event_rate": 0.33333333,
+          "total_gross_turnover": 18.0,
+          "worst_event_return": -0.00964678
+        }
+      },
+      "months_beating_primary_mean": 3,
+      "worst_monthly_mean_event_return": -0.00392546
+    },
+    "opex_like_third_friday_deferred": "not separately implemented; non-June last-Friday and quarter-end proxies used for fast falsification",
+    "turn_of_quarter_non_june_last_friday_proxy": {
+      "12": {
+        "avg_gross_turnover_per_event": 2.0,
+        "best_event_return": 0.00832672,
+        "daily_event_sharpe": -0.6832055,
+        "event_count": 9,
+        "max_drawdown_during_holds": -0.0124897,
+        "mean_event_return": -0.00246293,
+        "median_event_return": -0.00218195,
+        "p25_event_return": -0.00596672,
+        "positive_event_rate": 0.11111111,
+        "total_gross_turnover": 18.0,
+        "worst_event_return": -0.01005581
+      },
+      "3": {
+        "avg_gross_turnover_per_event": 2.0,
+        "best_event_return": 0.01072674,
+        "daily_event_sharpe": 3.36020936,
+        "event_count": 10,
+        "max_drawdown_during_holds": -0.00899221,
+        "mean_event_return": 0.00084916,
+        "median_event_return": -0.00032936,
+        "p25_event_return": -0.00195056,
+        "positive_event_rate": 0.4,
+        "total_gross_turnover": 20.0,
+        "worst_event_return": -0.00379836
+      },
+      "9": {
+        "avg_gross_turnover_per_event": 2.0,
+        "best_event_return": 0.00803245,
+        "daily_event_sharpe": 0.34744259,
+        "event_count": 9,
+        "max_drawdown_during_holds": -0.01071699,
+        "mean_event_return": -0.00175218,
+        "median_event_return": -0.00348789,
+        "p25_event_return": -0.00549626,
+        "positive_event_rate": 0.33333333,
+        "total_gross_turnover": 18.0,
+        "worst_event_return": -0.00964678
+      }
+    }
+  },
+  "config_path": "models/russell-june-reconstitution-size-spread-reversal-v1/config.yaml",
+  "data": {
+    "availability_summary": {
+      "IJR": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 337660244.8,
+        "median_dollar_volume_recent_1y": 607757096.25
+      },
+      "IWB": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 169306342.71,
+        "median_dollar_volume_recent_1y": 328767506.36
+      },
+      "IWD": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 301526542.49,
+        "median_dollar_volume_recent_1y": 548574213.01
+      },
+      "IWF": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 335206289.31,
+        "median_dollar_volume_recent_1y": 632843389.25
+      },
+      "IWM": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 4722564106.67,
+        "median_dollar_volume_recent_1y": 8826425061.61
+      },
+      "IWN": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 154669421.81,
+        "median_dollar_volume_recent_1y": 130942157.45
+      },
+      "IWO": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 114539472.46,
+        "median_dollar_volume_recent_1y": 128168231.14
+      },
+      "MDY": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 394107879.49,
+        "median_dollar_volume_recent_1y": 488485905.87
+      },
+      "RSP": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 264636957.1,
+        "median_dollar_volume_recent_1y": 2426759417.75
+      },
+      "VB": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 116874622.6,
+        "median_dollar_volume_recent_1y": 164503222.62
+      },
+      "VBK": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 41986829.8,
+        "median_dollar_volume_recent_1y": 62269146.96
+      },
+      "VBR": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 60130195.23,
+        "median_dollar_volume_recent_1y": 69240255.64
+      },
+      "VTI": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 627895935.43,
+        "median_dollar_volume_recent_1y": 1281514842.86
+      },
+      "VTV": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 267205407.66,
+        "median_dollar_volume_recent_1y": 585130415.28
+      },
+      "VTWO": {
+        "bars": 2634,
+        "first_bar": "2016-01-04",
+        "last_bar": "2026-06-25",
+        "median_dollar_volume_full": 52719111.83,
+        "median_dollar_volume_recent_1y": 255678626.32
+      }
+    },
+    "candidate_pool": [
+      "IWM",
+      "IWB",
+      "VTWO",
+      "VTI",
+      "IJR",
+      "MDY",
+      "RSP",
+      "IWF",
+      "IWD",
+      "IWO",
+      "IWN",
+      "VTV",
+      "VB",
+      "VBR",
+      "VBK"
+    ],
+    "candidate_pool_size": 15,
+    "end": "2026-06-25",
+    "fetch_mode": "qfa_alpaca_gateway_default",
+    "limitations": [
+      "ETF proxies do not identify actual Russell additions/deletions or closing-auction imbalances",
+      "daily OHLCV is coarse for an auction-flow hypothesis",
+      "VTWO launch limits common-history event count to post-2011; 2026 event lacks a full post-event hold as of evaluation date"
+    ],
+    "paper_data_access": "configured paper-data access with credential values redacted",
+    "selected_universe": [
+      "IJR",
+      "IWB",
+      "IWD",
+      "IWF",
+      "IWM",
+      "IWN",
+      "IWO",
+      "MDY",
+      "VBK",
+      "VBR",
+      "VTI",
+      "VTWO"
+    ],
+    "selected_universe_size": 12,
+    "source": "qfa/Alpaca real daily OHLCV",
+    "start": "2016-01-04",
+    "timeframe": "1Day",
+    "universe_selection_filters": [
+      "real-data coverage through at least 12 annual June events",
+      "recent median dollar-volume proxy",
+      "economic exposure to size/style Russell reconstitution spreads",
+      "no performance-based selection"
+    ],
+    "universe_selection_rationale": "Selected paired US size/style ETFs with complete post-2011 overlap and direct small-vs-large or size-style spread exposure; RSP, VB, and VTV retained as diagnostics/candidates but excluded from primary sleeves because they did not add a clean predeclared pair beyond the selected spread set."
+  },
+  "decision": {
+    "rationale": [
+      "fewer than 12 usable annual June events",
+      "primary 10 bps median event return is not positive",
+      "positive-year rate does not clear >50% gate",
+      "does not beat ETF TSMOM-style June baseline"
+    ],
+    "status": "rejected"
+  },
+  "evaluated_at": "2026-06-27T13:51:43Z",
+  "evaluator": "transient_python_event_study_using_qfa_alpaca_gateway",
+  "event_details_compact": [
+    {
+      "entry_date": "2017-07-03",
+      "event_date": "2017-06-30",
+      "exit_date": "2017-07-10",
+      "gross_turnover": 2.0,
+      "net_return": -0.0011707,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": 0.005492
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": 0.001967
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": -0.000532
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": 0.005114
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": 0.005425
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": -0.013682
+        }
+      ],
+      "year": 2017
+    },
+    {
+      "entry_date": "2018-07-02",
+      "event_date": "2018-06-29",
+      "exit_date": "2018-07-09",
+      "gross_turnover": 2.0,
+      "net_return": 0.00386553,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": -0.011026
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": -0.011799
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": -0.008405
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": -0.012674
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": -0.010493
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": -0.001978
+        }
+      ],
+      "year": 2018
+    },
+    {
+      "entry_date": "2019-07-01",
+      "event_date": "2019-06-28",
+      "exit_date": "2019-07-08",
+      "gross_turnover": 2.0,
+      "net_return": 0.00374556,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": 0.013149
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": 0.011308
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": 0.006952
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": 0.015864
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": 0.014591
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": -0.003899
+        }
+      ],
+      "year": 2019
+    },
+    {
+      "entry_date": "2020-06-29",
+      "event_date": "2020-06-26",
+      "exit_date": "2020-07-06",
+      "gross_turnover": 2.0,
+      "net_return": -0.00316927,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": -0.000382
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": 0.002437
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": -0.000242
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": 0.001114
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": -0.003297
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": 0.026201
+        }
+      ],
+      "year": 2020
+    },
+    {
+      "entry_date": "2021-06-28",
+      "event_date": "2021-06-25",
+      "exit_date": "2021-07-02",
+      "gross_turnover": 2.0,
+      "net_return": 0.00679803,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": 0.015985
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": 0.018376
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": -9.3e-05
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": 0.010545
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": 0.019938
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": -0.001419
+        }
+      ],
+      "year": 2021
+    },
+    {
+      "entry_date": "2022-06-27",
+      "event_date": "2022-06-24",
+      "exit_date": "2022-07-01",
+      "gross_turnover": 2.0,
+      "net_return": -0.00108209,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": -0.001318
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": 0.001971
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": 0.002047
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": -0.00871
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": 0.010195
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": 0.050685
+        }
+      ],
+      "year": 2022
+    },
+    {
+      "entry_date": "2023-07-03",
+      "event_date": "2023-06-30",
+      "exit_date": "2023-07-10",
+      "gross_turnover": 2.0,
+      "net_return": -0.00601856,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": 0.011953
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": 0.013179
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": -0.0012
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": 0.008553
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": 0.01596
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": -0.00205
+        }
+      ],
+      "year": 2023
+    },
+    {
+      "entry_date": "2024-07-01",
+      "event_date": "2024-06-28",
+      "exit_date": "2024-07-08",
+      "gross_turnover": 2.0,
+      "net_return": 0.00390837,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": 0.013014
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": 0.012092
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": 0.012075
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": 0.018648
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": 0.007531
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": 0.009174
+        }
+      ],
+      "year": 2024
+    },
+    {
+      "entry_date": "2025-06-30",
+      "event_date": "2025-06-27",
+      "exit_date": "2025-07-07",
+      "gross_turnover": 2.0,
+      "net_return": -0.00218099,
+      "sleeve_pressures": [
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "russell_small_vs_large",
+          "pre_spread_return": -0.004294
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "vanguard_russell2000_vs_total_market",
+          "pre_spread_return": -0.003626
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "core_small_vs_mid",
+          "pre_spread_return": 0.00548
+        },
+        {
+          "direction_small_minus_large": -1.0,
+          "name": "small_value_vs_large_value",
+          "pre_spread_return": 0.008522
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "small_growth_vs_large_growth",
+          "pre_spread_return": -0.013877
+        },
+        {
+          "direction_small_minus_large": 1.0,
+          "name": "vanguard_small_growth_vs_small_value",
+          "pre_spread_return": -0.002887
+        }
+      ],
+      "year": 2025
+    }
+  ],
+  "metrics": {
+    "cost_sensitivity": {
+      "10": {
+        "avg_gross_turnover_per_event": 2.0,
+        "best_event_return": 0.00679803,
+        "daily_event_sharpe": 4.06271992,
+        "event_count": 9,
+        "max_drawdown_during_holds": -0.00801675,
+        "mean_event_return": 0.00052177,
+        "median_event_return": -0.00108209,
+        "p25_event_return": -0.00218099,
+        "positive_event_rate": 0.44444444,
+        "total_gross_turnover": 18.0,
+        "worst_event_return": -0.00601856
+      },
+      "20": {
+        "avg_gross_turnover_per_event": 2.0,
+        "best_event_return": 0.00479803,
+        "daily_event_sharpe": 4.06271992,
+        "event_count": 9,
+        "max_drawdown_during_holds": -0.00801675,
+        "mean_event_return": -0.00147823,
+        "median_event_return": -0.00308209,
+        "p25_event_return": -0.00418099,
+        "positive_event_rate": 0.44444444,
+        "total_gross_turnover": 18.0,
+        "worst_event_return": -0.00801856
+      },
+      "5": {
+        "avg_gross_turnover_per_event": 2.0,
+        "best_event_return": 0.00779803,
+        "daily_event_sharpe": 4.06271992,
+        "event_count": 9,
+        "max_drawdown_during_holds": -0.00801675,
+        "mean_event_return": 0.00152177,
+        "median_event_return": -8.209e-05,
+        "p25_event_return": -0.00118099,
+        "positive_event_rate": 0.44444444,
+        "total_gross_turnover": 18.0,
+        "worst_event_return": -0.00501856
+      }
+    },
+    "leave_one_year_out": [
+      {
+        "left_out_year": 2017,
+        "mean_event_return": 0.00073332,
+        "positive_event_rate": 0.5
+      },
+      {
+        "left_out_year": 2018,
+        "mean_event_return": 0.00010379,
+        "positive_event_rate": 0.375
+      },
+      {
+        "left_out_year": 2019,
+        "mean_event_return": 0.00011879,
+        "positive_event_rate": 0.375
+      },
+      {
+        "left_out_year": 2020,
+        "mean_event_return": 0.00098314,
+        "positive_event_rate": 0.5
+      },
+      {
+        "left_out_year": 2021,
+        "mean_event_return": -0.00026277,
+        "positive_event_rate": 0.375
+      },
+      {
+        "left_out_year": 2022,
+        "mean_event_return": 0.00072225,
+        "positive_event_rate": 0.5
+      },
+      {
+        "left_out_year": 2023,
+        "mean_event_return": 0.00133931,
+        "positive_event_rate": 0.5
+      },
+      {
+        "left_out_year": 2024,
+        "mean_event_return": 9.844e-05,
+        "positive_event_rate": 0.375
+      },
+      {
+        "left_out_year": 2025,
+        "mean_event_return": 0.00085961,
+        "positive_event_rate": 0.5
+      }
+    ],
+    "primary_10bps": {
+      "avg_gross_turnover_per_event": 2.0,
+      "best_event_return": 0.00679803,
+      "daily_event_sharpe": 4.06271992,
+      "event_count": 9,
+      "max_drawdown_during_holds": -0.00801675,
+      "mean_event_return": 0.00052177,
+      "median_event_return": -0.00108209,
+      "p25_event_return": -0.00218099,
+      "positive_event_rate": 0.44444444,
+      "total_gross_turnover": 18.0,
+      "worst_event_return": -0.00601856
+    },
+    "top2_abs_contribution_share": 0.40128213,
+    "top_abs_contribution_years": [
+      {
+        "net_return": 0.00679803,
+        "year": 2021
+      },
+      {
+        "net_return": -0.00601856,
+        "year": 2023
+      },
+      {
+        "net_return": 0.00390837,
+        "year": 2024
+      },
+      {
+        "net_return": 0.00386553,
+        "year": 2018
+      },
+      {
+        "net_return": 0.00374556,
+        "year": 2019
+      }
+    ]
+  },
+  "model_name": "russell-june-reconstitution-size-spread-reversal-v1",
+  "model_path": "models/russell-june-reconstitution-size-spread-reversal-v1/model.py",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "max_corr_to_library": "unavailable/deferred_due_rejection",
+    "reason": "Primary failed fast-falsification gates; existing compact comparable event streams were not available in a uniform form in this subtask."
+  },
+  "protocol": {
+    "baselines": [
+      "zero no-signal",
+      "fixed June IWM/IWB spread directions",
+      "same-window ETF TSMOM 63d",
+      "pressure momentum",
+      "non-June last-Friday placebo months",
+      "turn-of-quarter non-June proxies"
+    ],
+    "calendar_proxy": "last Friday in June as public Russell reconstitution effective-date proxy",
+    "cost_model": "fixed one-way bps charged on entry and exit turnover; annual events start from cash",
+    "event_count": 9,
+    "primary_window": {
+      "cost_bps_primary_one_way": 10,
+      "cost_bps_sensitivity_one_way": [
+        5,
+        20
+      ],
+      "entry": "next trading day after last Friday in June",
+      "gross_exposure": 1.0,
+      "holding_period_trading_days": 5,
+      "pre_event_pressure_lookback_trading_days": 5,
+      "signal": "per sleeve, reverse the pre-event small-minus-large spread move; long laggard leg and short winner leg"
+    },
+    "usable_event_years": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  "raw_daily_paths_retained": false,
+  "run_id": "ar126_qfa_alpaca_real_20260627T135143Z",
+  "warnings": [
+    "No trades/orders were placed; qfa daemon was not run.",
+    "Result should not be used for live trading without intraday execution study, constituent-level data, and portfolio fit review."
+  ]
+}
