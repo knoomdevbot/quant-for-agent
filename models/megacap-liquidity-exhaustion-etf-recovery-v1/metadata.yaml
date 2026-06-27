@@ -1,0 +1,22 @@
+model_name: megacap-liquidity-exhaustion-etf-recovery-v1
+created_at: "2026-06-27"
+created_by: Hermes Agent
+status: evaluating
+family: liquidity_reversal_breadth
+parent_model: AR-046/AR-043 family context
+research_issue: AR-119
+hypothesis: "When broad liquid mega-cap equities show capitulation-like abnormal volume and downside range expansion while close-location breadth begins improving, forced-selling liquidity imbalance may resolve over the next 3-10 sessions; diversified ETFs/cash should capture recovery with lower single-name idiosyncratic risk."
+data_requirements:
+  prices: qfa/Alpaca real daily OHLCV
+  fundamentals: none
+  raw_data_retained: false
+known_risks:
+  - survivorship risk from fixed current mega-cap signal universe
+  - possible redundancy with ETF stress/liquidity reversal family
+  - daily bar timing and close-to-next-close execution approximation
+  - activation may cluster in market stress regimes
+artifact_policy:
+  git_tracked: true
+  compact_summaries_only: true
+  raw_daily_paths_retained: false
+  no_credentials: true

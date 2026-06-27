@@ -875,9 +875,24 @@ issues:
   priority: completed_realdata
   family: international_country_stale_participation
   issue_path: alpha_research/issues/AR-117.md
-active_batch: []
+- id: AR-118
+  title: 'Defensive carry pullback recovery allocator with anti-redundancy baselines'
+  model_name: defensive-carry-pullback-recovery-allocator-v1
+  status: queued
+  priority: preflight_queue
+  family: cross_asset_carry_defensive_pullback_recovery
+  issue_path: alpha_research/issues/AR-118.md
+- id: AR-119
+  title: 'Liquidity-exhaustion recovery breadth across mega-caps and ETFs'
+  model_name: megacap-liquidity-exhaustion-etf-recovery-v1
+  status: rejected
+  priority: completed_realdata
+  family: liquidity_reversal_breadth
+  issue_path: alpha_research/issues/AR-119.md
+active_batch:
+- AR-118
 last_realdata_batch:
-- AR-117
-updated_at: '2026-06-27T02:55:24Z'
+- AR-119
+updated_at: '2026-06-27T03:45:50Z'
 target_tried_ideas: 100
-tried_ideas_count: 108
+tried_ideas_count: 109
