@@ -1,0 +1,50 @@
+name: fiftytwo-week-high-anchor-momentum-reversal-v1
+issue_id: AR-128
+version: 1
+research_only: true
+data_source: qfa_alpaca_daily_ohlcv
+execution_guards:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+rebalance: monthly
+cost_bps_one_way_primary: 10
+cost_bps_one_way_stress: 20
+parameters:
+  high_low_window: 252
+  extrema_lag_bars_minimum: 1
+  momentum_window: 126
+  vol_window: 63
+  equity_top_n: 15
+  equity_short_n: 8
+  etf_top_n: 8
+  etf_short_n: 4
+  high_proximity_floor: 0.92
+  low_proximity_ceiling: 1.12
+  max_abs_weight: 0.08
+  gross_exposure: 1.0
+universe:
+  equities:
+    rationale: broad liquid large-cap Alpaca/qfa equity coverage across sectors; no current-index-membership claim; selected by static liquidity/coverage feasibility before performance review
+    requested_count: 80
+    filters:
+      - real Alpaca/qfa daily OHLCV available
+      - at least 900 daily observations in evaluation window
+      - trailing 252-day median dollar volume above 5 million USD proxy
+      - sufficient lagged 252-trading-day high/low history
+    limitations:
+      - static current-symbol pool has survivorship and delisting bias
+      - liquidity proxy uses OHLCV dollar volume, not consolidated ADV
+  etfs:
+    rationale: liquid cross-asset ETF sleeve across broad index, sectors, styles, rates, credit, commodities, FX, and regions; intended as redundancy stress test against ETF TSMOM
+    requested_count: 48
+    filters:
+      - real Alpaca/qfa daily OHLCV available
+      - at least 900 daily observations in evaluation window
+      - trailing 252-day median dollar volume above 5 million USD proxy
+      - sufficient lagged 252-trading-day high/low history
+    limitations:
+      - ETF sleeve can be dominated by time-series momentum and macro beta
+      - static ETF menu omits delisted/closed funds

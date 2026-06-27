@@ -1,0 +1,28 @@
+alpha_id: AR-127
+model_name: holiday-etf-risk-premium-timing-v1
+family: event_calendar_holiday_risk_premium
+version: 1
+status: researched
+signal_timing: qfa next-daily-bar; signal at close before event hold
+primary_rule: long equal-weight risk-on ETF basket for the daily interval ending on the last full trading session before an NYSE full-day holiday/closure
+postholiday_diagnostic_rule: long equal-weight defensive basket for the first daily interval after an NYSE full-day holiday/closure
+cost_bps_one_way_primary: 10
+candidate_pool:
+  equity_beta: [SPY, QQQ, IWM, MDY, DIA, EFA, EEM, VEA, VWO]
+  sectors: [XLK, XLF, XLY, XLI, XLE, XLB, XLV, XLP, XLU, XLRE, XLC]
+  credit: [HYG, JNK, LQD, VCIT, VCSH]
+  duration: [TLT, IEF, SHY, IEI, TIP]
+  gold_commodities_energy: [GLD, SLV, DBC, USO, UNG]
+  defensive_cash_fx: [SHY, BIL, GLD, UUP, XLU, XLP]
+selection_filters:
+  min_symbol_coverage_fraction_of_max: 0.85
+  median_dollar_volume_min: 5000000
+  no_return_based_inclusion: true
+selected_risk_on: [SPY, QQQ, IWM, MDY, EFA, EEM, XLK, XLF, XLY, XLI, HYG, LQD, DBC, USO]
+selected_defensive: [TLT, IEF, SHY, GLD, UUP, XLU, XLP]
+guardrails:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

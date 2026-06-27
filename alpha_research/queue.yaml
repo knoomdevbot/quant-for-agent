@@ -938,9 +938,33 @@ issues:
   priority: completed_realdata
   family: event_calendar_size_flow_reversal
   issue_path: alpha_research/issues/AR-126.md
-active_batch: []
+- id: AR-127
+  title: 'Pre-holiday and post-holiday ETF risk-premium timing, ex-calendar controls'
+  model_name: holiday-etf-risk-premium-timing-v1
+  status: watchlist
+  priority: completed_realdata
+  family: event_calendar_holiday_risk_premium
+  issue_path: alpha_research/issues/AR-127.md
+- id: AR-128
+  title: '52-week high/low anchored momentum-reversal split across liquid equities and ETFs'
+  model_name: fiftytwo-week-high-anchor-momentum-reversal-v1
+  status: rejected
+  priority: completed_realdata
+  family: anchoring_momentum_reversal
+  issue_path: alpha_research/issues/AR-128.md
+- id: AR-129
+  title: 'Refine AR-127 pre-holiday risk-on ETF calendar premium with robustness gates'
+  model_name: holiday-pre-riskon-simplified-robustness-v1
+  status: queued
+  priority: preflight_queue_watchlist_refinement
+  family: event_calendar_holiday_risk_premium
+  issue_path: alpha_research/issues/AR-129.md
+  parent: AR-127
+active_batch:
+- AR-129
 last_realdata_batch:
-- AR-126
-updated_at: '2026-06-27T13:51:43Z'
+- AR-127
+- AR-128
+updated_at: '2026-06-27T14:55:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 117
+tried_ideas_count: 119

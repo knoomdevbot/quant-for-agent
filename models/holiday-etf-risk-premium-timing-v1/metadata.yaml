@@ -1,0 +1,22 @@
+alpha_id: AR-127
+name: holiday-etf-risk-premium-timing-v1
+title: Pre-holiday and post-holiday ETF risk-premium timing, ex-calendar controls
+family: event_calendar_holiday_risk_premium
+created_at_utc: '2026-06-27T14:36:02Z'
+data_source: Alpaca/qfa real daily OHLCV only
+model_path: models/holiday-etf-risk-premium-timing-v1/model.py
+config_path: models/holiday-etf-risk-premium-timing-v1/config.yaml
+evaluation_latest: models/holiday-etf-risk-premium-timing-v1/evaluations/latest.json
+summary_latest: models/holiday-etf-risk-premium-timing-v1/evaluations/latest.md
+research_window: '2018-01-01 through 2026-06-27'
+root_booleans:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+suggested_decision: advance_to_refinement
+limitations:
+  - Daily bars cannot isolate intraday early-close behavior.
+  - Holiday sample is sparse and includes observed full-day exchange closures.
+  - Post-holiday defensive/normalization sleeve failed in this specification.

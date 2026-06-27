@@ -1,0 +1,40 @@
+name: fiftytwo-week-high-anchor-momentum-reversal-v1
+issue_id: AR-128
+family: anchoring_momentum_reversal
+status: researched_rejected
+created_utc: '2026-06-27T14:36:32Z'
+last_evaluated_utc: '2026-06-27T14:36:32Z'
+model_file: model.py
+config_file: config.yaml
+evaluation_latest: evaluations/latest.json
+summary_latest: evaluations/latest.md
+data:
+  source: qfa AlpacaGateway real daily OHLCV via Alpaca paper-data credentials
+  start: '2018-01-01'
+  end: '2026-06-26'
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+signal_summary: >-
+  Monthly cross-sectional rule using at least one-bar-lagged 252-day high/low
+  proximity. Long candidates are near lagged 52-week highs with positive
+  126-day momentum; diagnostic underweights are near lagged lows with negative
+  126-day momentum. Equity and ETF sleeves are constructed separately.
+primary_result:
+  decision: reject
+  reason: >-
+    Equity anchor was positive but materially weaker than simple momentum,
+    time-series momentum, low-volatility, and beta-deflated controls on random
+    windows; ETF anchor was negative and highly correlated with ETF momentum.
+  equity_anchor_full_sharpe: 0.3915
+  equity_anchor_random_median_sharpe: 0.2833
+  equity_anchor_random_p25_sharpe: -0.0584
+  etf_anchor_full_sharpe: -0.1443
+  etf_anchor_random_median_sharpe: -0.2368
+  etf_anchor_random_p25_sharpe: -0.5384
+  combined_anchor_random_median_sharpe: 0.2513
+orthogonality:
+  equity_anchor_vs_equity_momentum_corr: 0.3303
+  etf_anchor_vs_etf_momentum_corr: 0.8254

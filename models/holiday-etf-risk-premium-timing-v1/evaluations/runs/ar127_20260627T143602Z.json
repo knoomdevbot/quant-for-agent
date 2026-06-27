@@ -1,0 +1,738 @@
+{
+  "alpha_id": "AR-127",
+  "by_family_preholiday": {
+    "christmas": {
+      "event_sharpe_sqrt252": -0.25480314363917994,
+      "events": 8,
+      "hit_rate": 0.625,
+      "mean_event_return": -0.00014398146976141255,
+      "median_event_return": 0.0012419536140691873,
+      "p25_event_return": -0.0003285967665136537,
+      "worst_event_return": -0.021069225803528418
+    },
+    "good_friday": {
+      "event_sharpe_sqrt252": 8.688040112832114,
+      "events": 8,
+      "hit_rate": 0.875,
+      "mean_event_return": 0.00431822846557904,
+      "median_event_return": 0.0031835864430692726,
+      "p25_event_return": 0.0009343970674157479,
+      "worst_event_return": -0.009226378089284146
+    },
+    "independence": {
+      "event_sharpe_sqrt252": 14.674187140630387,
+      "events": 8,
+      "hit_rate": 0.875,
+      "mean_event_return": 0.0033374304747439488,
+      "median_event_return": 0.004256940923717428,
+      "p25_event_return": 0.00204584371336327,
+      "worst_event_return": -0.003723147715007566
+    },
+    "juneteenth": {
+      "event_sharpe_sqrt252": 3.783085057638766,
+      "events": 5,
+      "hit_rate": 0.4,
+      "mean_event_return": 0.0012914063872005359,
+      "median_event_return": -2.3759911927060924e-05,
+      "p25_event_return": -0.002796496234261631,
+      "worst_event_return": -0.0035880171715089878
+    },
+    "labor": {
+      "event_sharpe_sqrt252": -9.908692852129738,
+      "events": 8,
+      "hit_rate": 0.25,
+      "mean_event_return": -0.002791967515538294,
+      "median_event_return": -0.0027255676361151006,
+      "p25_event_return": -0.006698076804146243,
+      "worst_event_return": -0.00874760228732401
+    },
+    "memorial": {
+      "event_sharpe_sqrt252": 8.639626591496958,
+      "events": 8,
+      "hit_rate": 0.75,
+      "mean_event_return": 0.004330469556614886,
+      "median_event_return": 0.0024953095389577493,
+      "p25_event_return": -0.0006382013557876792,
+      "worst_event_return": -0.005215047888600395
+    },
+    "mlk": {
+      "event_sharpe_sqrt252": 2.7754689231204996,
+      "events": 8,
+      "hit_rate": 0.625,
+      "mean_event_return": 0.0011703824707573656,
+      "median_event_return": 0.0009442206272478257,
+      "p25_event_return": -0.00046361034406307793,
+      "worst_event_return": -0.012290044661630129
+    },
+    "new_year": {
+      "event_sharpe_sqrt252": -5.25061792694342,
+      "events": 6,
+      "hit_rate": 0.3333333333333333,
+      "mean_event_return": -0.0016440018505549582,
+      "median_event_return": -0.0014222931663850468,
+      "p25_event_return": -0.004872533191359104,
+      "worst_event_return": -0.008153331283887042
+    },
+    "other_01_02": {
+      "event_sharpe_sqrt252": 0.0,
+      "events": 1,
+      "hit_rate": 0.0,
+      "mean_event_return": -0.002331488435998658,
+      "median_event_return": -0.002331488435998658,
+      "p25_event_return": -0.002331488435998658,
+      "worst_event_return": -0.002331488435998658
+    },
+    "other_01_09": {
+      "event_sharpe_sqrt252": 0.0,
+      "events": 1,
+      "hit_rate": 0.0,
+      "mean_event_return": -0.0014989054829808715,
+      "median_event_return": -0.0014989054829808715,
+      "p25_event_return": -0.0014989054829808715,
+      "worst_event_return": -0.0014989054829808715
+    },
+    "other_12_05": {
+      "event_sharpe_sqrt252": 0.0,
+      "events": 1,
+      "hit_rate": 0.0,
+      "mean_event_return": -0.027310232876813056,
+      "median_event_return": -0.027310232876813056,
+      "p25_event_return": -0.027310232876813056,
+      "worst_event_return": -0.027310232876813056
+    },
+    "presidents": {
+      "event_sharpe_sqrt252": 1.217222431085321,
+      "events": 8,
+      "hit_rate": 0.375,
+      "mean_event_return": 0.0003907525154599133,
+      "median_event_return": -9.343122239227137e-05,
+      "p25_event_return": -0.004208727093997364,
+      "worst_event_return": -0.004768944547158307
+    },
+    "thanksgiving": {
+      "event_sharpe_sqrt252": 7.423972644361103,
+      "events": 8,
+      "hit_rate": 0.625,
+      "mean_event_return": 0.001790992544522689,
+      "median_event_return": 0.0009181884485987844,
+      "p25_event_return": -0.0007410653796685587,
+      "worst_event_return": -0.002655003539029095
+    }
+  },
+  "by_year_preholiday": {
+    "2018": {
+      "event_sharpe_sqrt252": -6.988574106711248,
+      "events": 6,
+      "hit_rate": 0.3333333333333333,
+      "mean_event_return": -0.00641057572154289,
+      "median_event_return": -0.002100677207283205,
+      "p25_event_return": -0.016732706281398203,
+      "worst_event_return": -0.027310232876813056
+    },
+    "2019": {
+      "event_sharpe_sqrt252": 9.978602057278511,
+      "events": 9,
+      "hit_rate": 0.6666666666666666,
+      "mean_event_return": 0.0030584221700612436,
+      "median_event_return": 0.001790464176995252,
+      "p25_event_return": -0.0001999420000940277,
+      "worst_event_return": -0.0034257455568597597
+    },
+    "2020": {
+      "event_sharpe_sqrt252": 2.9261124034252934,
+      "events": 9,
+      "hit_rate": 0.5555555555555556,
+      "mean_event_return": 0.0013237393665322947,
+      "median_event_return": 0.0011448395916293977,
+      "p25_event_return": -0.0006485592680591464,
+      "worst_event_return": -0.00874760228732401
+    },
+    "2021": {
+      "event_sharpe_sqrt252": 2.6787590838141124,
+      "events": 8,
+      "hit_rate": 0.625,
+      "mean_event_return": 0.0011726197835392489,
+      "median_event_return": 0.0013449524864630675,
+      "p25_event_return": -0.001270285214715207,
+      "worst_event_return": -0.012290044661630129
+    },
+    "2022": {
+      "event_sharpe_sqrt252": 1.2276291763236138,
+      "events": 10,
+      "hit_rate": 0.5,
+      "mean_event_return": 0.0006275520173171679,
+      "median_event_return": -0.0008355533654701224,
+      "p25_event_return": -0.004473712703245977,
+      "worst_event_return": -0.009226378089284146
+    },
+    "2023": {
+      "event_sharpe_sqrt252": 2.9234298799367116,
+      "events": 10,
+      "hit_rate": 0.6,
+      "mean_event_return": 0.0009713740945322642,
+      "median_event_return": 0.00027882303334825307,
+      "p25_event_return": -0.002276012442139356,
+      "worst_event_return": -0.005790833363014573
+    },
+    "2024": {
+      "event_sharpe_sqrt252": 5.89841354210922,
+      "events": 10,
+      "hit_rate": 0.6,
+      "mean_event_return": 0.0014938019643563794,
+      "median_event_return": 0.0015842850432951647,
+      "p25_event_return": -0.0016855833431354442,
+      "worst_event_return": -0.004714596063252179
+    },
+    "2025": {
+      "event_sharpe_sqrt252": 0.8458477095524415,
+      "events": 11,
+      "hit_rate": 0.45454545454545453,
+      "mean_event_return": 0.0002565277807701844,
+      "median_event_return": -2.3759911927060924e-05,
+      "p25_event_return": -0.0020870940582808314,
+      "worst_event_return": -0.008153331283887042
+    },
+    "2026": {
+      "event_sharpe_sqrt252": 14.567465967546136,
+      "events": 5,
+      "hit_rate": 0.8,
+      "mean_event_return": 0.004112961251395357,
+      "median_event_return": 0.0023166891867505038,
+      "p25_event_return": 0.0012933261660635679,
+      "worst_event_return": -0.0006861353461612737
+    }
+  },
+  "candidate_pool": {
+    "credit": [
+      "HYG",
+      "JNK",
+      "LQD",
+      "VCIT",
+      "VCSH"
+    ],
+    "defensive_cash_fx": [
+      "SHY",
+      "BIL",
+      "GLD",
+      "UUP",
+      "XLU",
+      "XLP"
+    ],
+    "duration": [
+      "TLT",
+      "IEF",
+      "SHY",
+      "IEI",
+      "TIP"
+    ],
+    "equity_beta": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "MDY",
+      "DIA",
+      "EFA",
+      "EEM",
+      "VEA",
+      "VWO"
+    ],
+    "gold_commodities_energy": [
+      "GLD",
+      "SLV",
+      "DBC",
+      "USO",
+      "UNG"
+    ],
+    "sectors": [
+      "XLK",
+      "XLF",
+      "XLY",
+      "XLI",
+      "XLE",
+      "XLB",
+      "XLV",
+      "XLP",
+      "XLU",
+      "XLRE",
+      "XLC"
+    ]
+  },
+  "combined_pre_risk_on_post_defensive_daily_metrics": {
+    "annualized_return": -0.007233869155793271,
+    "annualized_volatility": 0.025010145433146037,
+    "hit_rate": 0.03670634920634921,
+    "max_drawdown": -0.09545156966909463,
+    "mean_daily": -2.756594520223281e-05,
+    "sharpe": -0.27775201106013125,
+    "total_return": -0.05642675275523512
+  },
+  "compact_artifact_policy": {
+    "daily_returns_included": false,
+    "equity_curve_included": false,
+    "raw_bars_included": false,
+    "weight_tails_included": false
+  },
+  "controls": {
+    "month_end_risk_on_10bps": {
+      "event_sharpe_sqrt252": 0.6800814938364471,
+      "events": 290,
+      "hit_rate": 0.5172413793103449,
+      "mean_event_return": 0.0014527693343115422,
+      "median_event_return": 0.00023498458365537646,
+      "p25_event_return": -0.005632611587237995,
+      "worst_event_return": -0.0393600277203745
+    },
+    "opex_risk_on_10bps": {
+      "event_sharpe_sqrt252": -1.9755521328308168,
+      "events": 96,
+      "hit_rate": 0.4791666666666667,
+      "mean_event_return": -0.001213113822683542,
+      "median_event_return": -0.0002456259883496704,
+      "p25_event_return": -0.005607099478739282,
+      "worst_event_return": -0.030580175443149504
+    },
+    "payday_risk_on_10bps": {
+      "event_sharpe_sqrt252": -1.3341384698140262,
+      "events": 391,
+      "hit_rate": 0.48081841432225064,
+      "mean_event_return": -0.0007771732910952971,
+      "median_event_return": -0.00044963049595125783,
+      "p25_event_return": -0.006676633963546796,
+      "worst_event_return": -0.0393600277203745
+    },
+    "turn_of_month_risk_on_10bps": {
+      "event_sharpe_sqrt252": 0.3932963183792913,
+      "events": 581,
+      "hit_rate": 0.5146299483648882,
+      "mean_event_return": 0.000622834595732705,
+      "median_event_return": 0.00023613714510474786,
+      "p25_event_return": -0.0056388243465269675,
+      "worst_event_return": -0.05044455729385713
+    }
+  },
+  "cost_sensitivity_preholiday_risk_on": {
+    "10bps": {
+      "event_sharpe_sqrt252": 1.8921351020636594,
+      "events": 78,
+      "hit_rate": 0.5641025641025641,
+      "mean_event_return": 0.0008291134663577621,
+      "median_event_return": 0.0008962807880902996,
+      "p25_event_return": -0.002278024496097168,
+      "worst_event_return": -0.027310232876813056
+    },
+    "20bps": {
+      "event_sharpe_sqrt252": -0.3899833037266576,
+      "events": 78,
+      "hit_rate": 0.5,
+      "mean_event_return": -0.00017088653364223807,
+      "median_event_return": -0.00010371921190970045,
+      "p25_event_return": -0.003278024496097168,
+      "worst_event_return": -0.028310232876813057
+    },
+    "5bps": {
+      "event_sharpe_sqrt252": 3.0331943049588173,
+      "events": 78,
+      "hit_rate": 0.6410256410256411,
+      "mean_event_return": 0.0013291134663577621,
+      "median_event_return": 0.0013962807880902996,
+      "p25_event_return": -0.001778024496097168,
+      "worst_event_return": -0.026810232876813056
+    }
+  },
+  "costs": {
+    "primary_one_way_bps": 10,
+    "sensitivity_bps": [
+      5,
+      10,
+      20
+    ]
+  },
+  "data_source": "Alpaca/qfa StockHistoricalDataClient daily OHLCV only",
+  "decision": "watchlist_preholiday_risk_on_only; reject postholiday diagnostics",
+  "decision_reason": "Passes core median/hit/placebo/ex-control gates.",
+  "end": "2026-06-27",
+  "event_counts": {
+    "families": [
+      "christmas",
+      "good_friday",
+      "independence",
+      "juneteenth",
+      "labor",
+      "memorial",
+      "mlk",
+      "new_year",
+      "other_01_02",
+      "other_01_09",
+      "other_12_05",
+      "presidents",
+      "thanksgiving"
+    ],
+    "postholiday_events": 78,
+    "preholiday_events": 78,
+    "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ]
+  },
+  "event_detection": "pre signal occurs at close before the last session preceding a weekday exchange-closure gap; post signal occurs at close of that last pre-holiday session.",
+  "ex_all_controls_preholiday_risk_on_10bps": {
+    "event_sharpe_sqrt252": 7.272366156642392,
+    "events": 34,
+    "hit_rate": 0.6176470588235294,
+    "mean_event_return": 0.0024165172149731534,
+    "median_event_return": 0.0012419536140691873,
+    "p25_event_return": -0.0003420620075462664,
+    "worst_event_return": -0.009226378089284146
+  },
+  "generated_at_utc": "2026-06-27T14:36:02.691699+00:00",
+  "leave_one_family_out_preholiday": {
+    "christmas": {
+      "event_sharpe_sqrt252": 2.2078367483268218,
+      "events": 70,
+      "hit_rate": 0.5571428571428572,
+      "mean_event_return": 0.0009403243161999535,
+      "median_event_return": 0.0005007151806774231,
+      "p25_event_return": -0.0025741247632714856,
+      "worst_event_return": -0.027310232876813056
+    },
+    "good_friday": {
+      "event_sharpe_sqrt252": 1.0060995337195808,
+      "events": 70,
+      "hit_rate": 0.5285714285714286,
+      "mean_event_return": 0.0004303574664467587,
+      "median_event_return": 0.00027882303334825307,
+      "p25_event_return": -0.0025741247632714856,
+      "worst_event_return": -0.027310232876813056
+    },
+    "independence": {
+      "event_sharpe_sqrt252": 1.1957414568218456,
+      "events": 70,
+      "hit_rate": 0.5285714285714286,
+      "mean_event_return": 0.0005424486653993405,
+      "median_event_return": 0.00033127878894409577,
+      "p25_event_return": -0.0025741247632714856,
+      "worst_event_return": -0.027310232876813056
+    },
+    "juneteenth": {
+      "event_sharpe_sqrt252": 1.78849279329768,
+      "events": 73,
+      "hit_rate": 0.5753424657534246,
+      "mean_event_return": 0.0007974495676699009,
+      "median_event_return": 0.0011321798711221862,
+      "p25_event_return": -0.002117632676392699,
+      "worst_event_return": -0.027310232876813056
+    },
+    "labor": {
+      "event_sharpe_sqrt252": 2.7828375137536483,
+      "events": 70,
+      "hit_rate": 0.6,
+      "mean_event_return": 0.0012429512928601684,
+      "median_event_return": 0.0011687807452982766,
+      "p25_event_return": -0.0013788250408598526,
+      "worst_event_return": -0.027310232876813056
+    },
+    "memorial": {
+      "event_sharpe_sqrt252": 1.004117872058414,
+      "events": 70,
+      "hit_rate": 0.5428571428571428,
+      "mean_event_return": 0.0004289584846140905,
+      "median_event_return": 0.0005007151806774231,
+      "p25_event_return": -0.002278024496097168,
+      "worst_event_return": -0.027310232876813056
+    },
+    "mlk": {
+      "event_sharpe_sqrt252": 1.7838950262528452,
+      "events": 70,
+      "hit_rate": 0.5571428571428572,
+      "mean_event_return": 0.0007901112944263786,
+      "median_event_return": 0.0007366142637093097,
+      "p25_event_return": -0.0025741247632714856,
+      "worst_event_return": -0.027310232876813056
+    },
+    "new_year": {
+      "event_sharpe_sqrt252": 2.3199584419991717,
+      "events": 72,
+      "hit_rate": 0.5833333333333334,
+      "mean_event_return": 0.0010352064094338218,
+      "median_event_return": 0.0011624508850446708,
+      "p25_event_return": -0.002101914395527495,
+      "worst_event_return": -0.027310232876813056
+    },
+    "other_01_02": {
+      "event_sharpe_sqrt252": 1.97555632935528,
+      "events": 77,
+      "hit_rate": 0.5714285714285714,
+      "mean_event_return": 0.000870160244310443,
+      "median_event_return": 0.0011321798711221862,
+      "p25_event_return": -0.002117632676392699,
+      "worst_event_return": -0.027310232876813056
+    },
+    "other_01_09": {
+      "event_sharpe_sqrt252": 1.9497935324402407,
+      "events": 77,
+      "hit_rate": 0.5714285714285714,
+      "mean_event_return": 0.0008593474786868353,
+      "median_event_return": 0.0011321798711221862,
+      "p25_event_return": -0.002331488435998658,
+      "worst_event_return": -0.027310232876813056
+    },
+    "other_12_05": {
+      "event_sharpe_sqrt252": 3.057397199142867,
+      "events": 77,
+      "hit_rate": 0.5714285714285714,
+      "mean_event_return": 0.001194559522762578,
+      "median_event_return": 0.0011321798711221862,
+      "p25_event_return": -0.002117632676392699,
+      "worst_event_return": -0.021069225803528418
+    },
+    "presidents": {
+      "event_sharpe_sqrt252": 1.9479513111973552,
+      "events": 70,
+      "hit_rate": 0.5857142857142857,
+      "mean_event_return": 0.0008792118607460877,
+      "median_event_return": 0.001138509731375792,
+      "p25_event_return": -0.0020945719361371348,
+      "worst_event_return": -0.027310232876813056
+    },
+    "thanksgiving": {
+      "event_sharpe_sqrt252": 1.5773205352256492,
+      "events": 70,
+      "hit_rate": 0.5571428571428572,
+      "mean_event_return": 0.0007191844288531989,
+      "median_event_return": 0.0008962807880902996,
+      "p25_event_return": -0.002589334084185258,
+      "worst_event_return": -0.027310232876813056
+    }
+  },
+  "leave_one_year_out_preholiday": {
+    "2018": {
+      "event_sharpe_sqrt252": 3.9737468127751403,
+      "events": 72,
+      "hit_rate": 0.5833333333333334,
+      "mean_event_return": 0.0014324208986828163,
+      "median_event_return": 0.001138509731375792,
+      "p25_event_return": -0.0020484504556260055,
+      "worst_event_return": -0.012290044661630129
+    },
+    "2019": {
+      "event_sharpe_sqrt252": 1.193588344523991,
+      "events": 69,
+      "hit_rate": 0.5507246376811594,
+      "mean_event_return": 0.0005383340702225252,
+      "median_event_return": 0.0006603817050584129,
+      "p25_event_return": -0.002655003539029095,
+      "worst_event_return": -0.027310232876813056
+    },
+    "2020": {
+      "event_sharpe_sqrt252": 1.7395156128026765,
+      "events": 69,
+      "hit_rate": 0.5652173913043478,
+      "mean_event_return": 0.0007645970445958664,
+      "median_event_return": 0.0006603817050584129,
+      "p25_event_return": -0.002331488435998658,
+      "worst_event_return": -0.027310232876813056
+    },
+    "2021": {
+      "event_sharpe_sqrt252": 1.7897198534659413,
+      "events": 70,
+      "hit_rate": 0.5571428571428572,
+      "mean_event_return": 0.0007898556015370206,
+      "median_event_return": 0.0008962807880902996,
+      "p25_event_return": -0.0025741247632714856,
+      "worst_event_return": -0.027310232876813056
+    },
+    "2022": {
+      "event_sharpe_sqrt252": 1.9936653468118601,
+      "events": 68,
+      "hit_rate": 0.5735294117647058,
+      "mean_event_return": 0.0008587548559225553,
+      "median_event_return": 0.001138509731375792,
+      "p25_event_return": -0.001630526541078264,
+      "worst_event_return": -0.027310232876813056
+    },
+    "2023": {
+      "event_sharpe_sqrt252": 1.781423161164357,
+      "events": 68,
+      "hit_rate": 0.5588235294117647,
+      "mean_event_return": 0.0008081927857438646,
+      "median_event_return": 0.0011687807452982766,
+      "p25_event_return": -0.002171096616294189,
+      "worst_event_return": -0.027310232876813056
+    },
+    "2024": {
+      "event_sharpe_sqrt252": 1.5893520201600815,
+      "events": 68,
+      "hit_rate": 0.5588235294117647,
+      "mean_event_return": 0.0007313651578285537,
+      "median_event_return": 0.0005007151806774231,
+      "p25_event_return": -0.002417436985394191,
+      "worst_event_return": -0.027310232876813056
+    },
+    "2025": {
+      "event_sharpe_sqrt252": 2.0152623480108214,
+      "events": 67,
+      "hit_rate": 0.582089552238806,
+      "mean_event_return": 0.00092312007145423,
+      "median_event_return": 0.0011321798711221862,
+      "p25_event_return": -0.0022245605561956785,
+      "worst_event_return": -0.027310232876813056
+    },
+    "2026": {
+      "event_sharpe_sqrt252": 1.3587134927860316,
+      "events": 73,
+      "hit_rate": 0.547945205479452,
+      "mean_event_return": 0.0006041923851908035,
+      "median_event_return": 0.00034104865629643326,
+      "p25_event_return": -0.002655003539029095,
+      "worst_event_return": -0.027310232876813056
+    }
+  },
+  "limitations": [
+    "Daily bars cannot isolate intraday early-close premia.",
+    "Holiday windows are sparse and include observed market-closure gaps inferred from trading sessions.",
+    "Alpaca ETF data may include survivorship of current ETFs only."
+  ],
+  "metrics_summary": {
+    "hit_rate": 0.5641025641025641,
+    "max_drawdown": null,
+    "median_event_return": 0.0008962807880902996,
+    "median_sharpe": 1.8921351020636594,
+    "p25_event_return": -0.002278024496097168,
+    "p25_sharpe": null,
+    "turnover": null,
+    "worst_event_return": -0.027310232876813056,
+    "worst_period_sharpe": null
+  },
+  "model_name": "holiday-etf-risk-premium-timing-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality_proxy_correlations_to_combined_daily": {
+    "defensive_daily": 0.13116304231308046,
+    "month_end_risk_on_10bps": 0.020031514359047348,
+    "opex_risk_on_10bps": 0.11501878858549046,
+    "payday_risk_on_10bps": 0.06961021599567575,
+    "spy_tsmom_proxy": 0.08944908970132695,
+    "turn_of_month_risk_on_10bps": 0.04835728803870808
+  },
+  "orthogonality_summary": {
+    "max_corr_to_library": null,
+    "notes": [
+      "Direct compact retained-stream correlations unavailable; controls/ablations vs ToM/OPEX/payday/month-end/TSMOM/defensive proxies recorded."
+    ]
+  },
+  "placebo_matched_month_weekday_1000": {
+    "mean_event_return_rank": 0.901,
+    "placebo_mean_median": -0.0006027375204807408,
+    "placebo_mean_p95": 0.0012424280656523057,
+    "placebo_sharpe_median": -0.9522504342076765
+  },
+  "postholiday_defensive_10bps": {
+    "event_sharpe_sqrt252": -6.664064408294386,
+    "events": 78,
+    "hit_rate": 0.38461538461538464,
+    "mean_event_return": -0.0015415871269693175,
+    "median_event_return": -0.0009115299716721448,
+    "p25_event_return": -0.003872433762815929,
+    "worst_event_return": -0.00986805780717007
+  },
+  "postholiday_risk_on_diagnostic_10bps": {
+    "event_sharpe_sqrt252": -4.055199669284427,
+    "events": 78,
+    "hit_rate": 0.34615384615384615,
+    "mean_event_return": -0.002557919608453164,
+    "median_event_return": -0.0024058373600995267,
+    "p25_event_return": -0.007660208114890515,
+    "worst_event_return": -0.03352621738255111
+  },
+  "primary_preholiday_risk_on_10bps": {
+    "event_sharpe_sqrt252": 1.8921351020636594,
+    "events": 78,
+    "hit_rate": 0.5641025641025641,
+    "mean_event_return": 0.0008291134663577621,
+    "median_event_return": 0.0008962807880902996,
+    "p25_event_return": -0.002278024496097168,
+    "worst_event_return": -0.027310232876813056
+  },
+  "rationale": "Broad, liquid ETFs spanning equity beta, sectors, credit, duration, commodity/gold/energy and defensive sleeves; selection used coverage/liquidity proxies only, not returns.",
+  "raw_daily_paths_retained": false,
+  "selected_defensive": [
+    "TLT",
+    "IEF",
+    "SHY",
+    "GLD",
+    "UUP",
+    "XLU",
+    "XLP"
+  ],
+  "selected_risk_on": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "MDY",
+    "EFA",
+    "EEM",
+    "XLK",
+    "XLF",
+    "XLY",
+    "XLI",
+    "HYG",
+    "LQD",
+    "DBC",
+    "USO"
+  ],
+  "selected_universe": [
+    "BIL",
+    "DBC",
+    "DIA",
+    "EEM",
+    "EFA",
+    "GLD",
+    "HYG",
+    "IEF",
+    "IEI",
+    "IWM",
+    "LQD",
+    "MDY",
+    "QQQ",
+    "SHY",
+    "SLV",
+    "SPY",
+    "TIP",
+    "TLT",
+    "UNG",
+    "USO",
+    "UUP",
+    "VCIT",
+    "VCSH",
+    "VEA",
+    "VWO",
+    "XLB",
+    "XLC",
+    "XLE",
+    "XLF",
+    "XLI",
+    "XLK",
+    "XLP",
+    "XLRE",
+    "XLU",
+    "XLV",
+    "XLY"
+  ],
+  "selection_filters": {
+    "median_dollar_volume_min": 5000000,
+    "min_symbol_coverage_fraction_of_max": 0.85,
+    "no_return_based_inclusion": true
+  },
+  "start": "2018-01-01",
+  "status": "watchlist",
+  "suggested_decision": "advance_to_refinement"
+}
