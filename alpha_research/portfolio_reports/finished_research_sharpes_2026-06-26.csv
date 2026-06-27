@@ -1,0 +1,86 @@
+issue_id,model,title,status,family,sharpe,metric_path
+AR-028,closing-volume-reversal-megacap-v1,Divergent from AR-009: abnormal closing-volume reversal,watchlist,liquidity_reversal,1.5511248,random_windows.summary.median_sharpe
+AR-015,tsmom-voltarget-liquid-etf-randomcost-v1,Refine AR-003: random-window and cost-haircut validation for ETF TSMOM,watchlist,time_series_momentum,1.21599641,metrics.sharpe
+AR-003,tsmom-voltarget-liquid-etf-weekly-v1,Volatility-targeted time-series momentum on liquid ETFs,watchlist,time_series_momentum,1.21599641,metrics.sharpe
+AR-018,overnight-gap-reversal-event-megacap-v1,Divergent from AR-004: mega-cap overnight gap reversal,rejected,mean_reversion,1.15561986,metrics.sharpe
+AR-072,macro-drawdown-beta-redundancy-constrained-v1,Refine AR-063: beta and redundancy constrained macro drawdown allocator,rejected,macro_regime_allocation,1.03872587,metrics.primary_qfa_pre_cost.sharpe
+AR-063,macro-surprise-drawdown-etf-allocator-v1,Divergent from AR-051: macro-surprise drawdown-state ETF allocator,watchlist,macro_regime_allocation,0.98361468,metrics.primary_qfa_pre_cost.sharpe
+AR-042,macro-liquidity-flow-etf-v1,Divergent from AR-021: scheduled macro/liquidity ETF flow pressure,rejected,macro_flow,0.896267885,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-045,closing-volume-reversal-costaware-megacap-v1,Refinement from AR-028: cost-aware abnormal close-location reversal,watchlist,liquidity_reversal,0.85504813,primary_metrics_pre_cost.sharpe
+AR-059,etf-defensive-momentum-carry-rotation-v1,Divergent from AR-046: ETF defensive momentum carry rotation,rejected,cross_asset_rotation,0.85049833,metrics.primary_qfa_pre_cost.sharpe
+AR-014,event-earnings-drift-megacap-20d-v1,Divergent from AR-001: mega-cap post-earnings drift signal,rejected,event_drift,0.83975742,random_period_protocol.median_sharpe
+AR-008,risk-off-crossasset-switch-v1,Cross-asset risk-off regime switch,watchlist,regime_allocation,0.78756489,qfa_result.metrics.sharpe
+AR-016,xsec-etf-defensive-rotation-v1,Divergent from AR-003: cross-sectional ETF defensive rotation,watchlist,regime_allocation,0.73896,random_period_protocol.median_sharpe
+AR-039,xsec-etf-defensive-rotation-costmonthly-v1,Refine AR-016: cost-aware monthly ETF defensive rotation,watchlist,regime_allocation,0.64744015,metrics.cost_adjusted.sharpe
+AR-037,etf-carry-defensive-allocation-v1,Divergent from AR-015: liquid ETF carry/defensive allocation,watchlist,cross_asset_carry_defensive,0.60892376,random_windows.summary.median_sharpe
+AR-041,turn-month-vol-gated-etf-v1,Refine AR-021: volatility-gated turn-of-month ETF seasonality,rejected,seasonality,0.60669391,primary_metrics_pre_cost.sharpe
+AR-051,xsec-etf-defensive-rotation-orthogonal-v1,Refine AR-039: orthogonality-constrained ETF defensive rotation,watchlist,regime_allocation,0.58872054,random_period_protocol.median_cost_adjusted_sharpe
+AR-005,pairs-residual-megacap-tech-5d-v1,Residual mean reversion among mega-cap tech pairs,watchlist,stat_arb,0.57877812,metrics.sharpe
+AR-056,closing-volume-reversal-orthogonalized-megacap-v1,Refinement from AR-045: orthogonality-constrained close-location reversal,watchlist,liquidity_reversal,0.56265677,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-021,turn-month-calendar-window-etf-v1,Refine AR-006: exchange-calendar-aware turn-of-month window search,watchlist,seasonality,0.55523109,primary_metrics_cost_haircut.sharpe
+AR-065,etf-realized-vol-term-breadth-allocator-v1,Divergent from AR-052: ETF realized-volatility term-state breadth allocator,rejected,volatility_breadth_regime,0.54771488,primary_result.metrics.sharpe
+AR-032,etf-dispersion-convergence-macroshock-v1,Divergent from AR-011: cross-sectional ETF dispersion convergence after macro shock,rejected,dispersion_convergence,0.54337974,metrics.primary_qfa_pre_cost.sharpe
+AR-049,etf-carry-defensive-orthogonal-v1,Refine AR-037: orthogonality-constrained carry/defensive ETF allocation,watchlist,cross_asset_carry_defensive,0.51915481,primary_result.metrics.sharpe
+AR-036,tsmom-voltarget-liquid-etf-regimebrake-v1,Refine AR-015: regime brake and turnover constraint for ETF TSMOM,rejected,time_series_momentum,0.48820084,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-077,etf-trend-breadth-regime-allocator-v1,Divergent from AR-069: ETF trend-breadth regime allocator,rejected,trend_breadth_regime,0.45959471,metrics.primary_qfa_pre_cost.sharpe
+AR-043,etf-stress-liquidity-volume-v1,Divergent from AR-026: ETF stress liquidity-volume dislocation detector,watchlist,liquidity_stress,0.45490526,metrics.primary_post_cost_proxy.sharpe
+AR-081,crossasset-volume-divergence-risk-transfer-v1,Divergent from AR-073: cross-asset ETF volume-divergence risk-transfer allocator,rejected,cross_asset_flow_regime,0.45095645,metrics.median_sharpe
+AR-061,yield-curve-duration-carry-etf-v1,Divergent from AR-049: yield-curve ETF carry and duration allocator,rejected,macro_carry_duration,0.44419568,random_windows.summary.median_sharpe
+AR-050,etf-convexity-stress-premium-v1,Divergent from AR-037: ETF convexity stress-premium allocator,rejected,volatility_regime_rotation,0.41748806,metrics.primary_post_cost_proxy.sharpe
+AR-066,etf-realized-vol-carry-macrostress-v1,Divergent from AR-053: ETF realized-volatility carry rotation after macro-stress,rejected,volatility_carry_rotation,0.40767835,random_windows.summary.median_sharpe
+AR-067,etf-defensive-carry-surprise-allocator-v1,Divergent from AR-054: ETF defensive carry surprise allocator,rejected,defensive_carry_surprise,0.38330564,metrics.median_sharpe
+AR-092,crypto-risk-appetite-spillover-etf-rotation-v1,Crypto risk-appetite spillover Nasdaq and ETF rotation,rejected,crypto_crossasset_risk_appetite,0.35477704,metrics.median_sharpe
+AR-010,low-vol-quality-proxy-megacap-v1,Low-volatility quality proxy within mega-cap equities,watchlist,defensive_factor,0.35445852,metrics_pre_cost.sharpe
+AR-093,crypto-stress-quality-flight-defensive-etf-allocator-v1,Crypto stress-to-quality flight defensive ETF allocator,rejected,crypto_stress_defensive_allocator,0.33147098,metrics.median_sharpe
+AR-088,etf-realized-vol-asymmetry-defensive-allocator-v1,Divergent from AR-080: ETF realized-volatility asymmetry defensive allocator,rejected,volatility_asymmetry_regime,0.28745096,metrics.primary_qfa_pre_cost.sharpe
+AR-089,crossasset-overnight-gap-absorption-allocator-v1,Divergent from AR-081: cross-asset ETF overnight gap absorption allocator,rejected,overnight_gap_absorption,0.28009224,metrics.primary_qfa_pre_cost.sharpe
+AR-055,etf-stress-recovery-halflife-v1,Divergent from AR-043: ETF stress recovery half-life allocator,rejected,stress_recovery_decay,0.27749142,metrics.primary_post_cost_proxy.sharpe
+AR-057,range-compression-breakout-megacap-v1,Divergent from AR-045: mega-cap range-compression breakout continuation,rejected,volatility_breakout,0.27437433,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-054,etf-stress-liquidity-beta-reduced-v1,Refine AR-043: beta-reduced ETF stress liquidity allocation with drawdown brake,rejected,liquidity_stress,0.27230672,metrics.primary_post_cost_proxy.sharpe
+AR-006,turn-month-liquid-etf-seasonality-v1,Turn-of-month seasonality in broad liquid ETFs,watchlist,seasonality,0.24228949,metrics.sharpe
+AR-082,etf-volume-drought-trend-persistence-v1,Divergent from AR-074: ETF volume-drought trend persistence allocator,rejected,liquidity_trend_persistence,0.20135101,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-046,liquidity-exhaustion-recovery-megacap-v1,Divergent from AR-028: cross-sectional liquidity exhaustion recovery,watchlist,liquidity_reversal,0.19746282,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-053,post-macro-liquidity-vacuum-reversal-v1,Divergent from AR-042: intraday post-macro ETF liquidity-vacuum reversal,rejected,intraday_or_next_day_liquidity_reversal,0.18538839000000001,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-011,meanrev-zscore-liquid-etf-regime-cost-v1,AR-002 refinement \u2014 cost-aware regime-filtered ETF mean reversion,rejected,mean_reversion,0.17181857,metrics.primary_qfa_pre_cost.sharpe
+AR-029,low-vol-quality-coststable-megacap-v1,Refine AR-010: parameter-stable cost-aware low-vol quality proxy,rejected,defensive_factor,0.16835842,metrics.sharpe
+AR-083,sector-breadth-defensive-trend-allocator-v1,Divergent from AR-075: sector ETF breadth-confirmed defensive trend allocator,rejected,sector_breadth_trend,0.1370738,metrics.median_sharpe
+AR-040,yield-credit-stress-etf-allocation-v1,Divergent from AR-016: yield-curve and credit-stress ETF allocation,rejected,macro_regime_allocation,0.10597314,metrics.primary_post_cost_proxy.sharpe
+AR-094,etf-option-vol-crush-reversal-allocator-v1,Divergent from AR-082: ETF option-implied volatility crush reversal allocator,rejected,option_volatility_reversal,0.1045973,metrics.primary_qfa_pre_cost.sharpe
+AR-084,megacap-earnings-volume-vacuum-reversal-v1,Divergent from AR-076: mega-cap post-earnings volume-vacuum reversal allocator,rejected,event_liquidity_reversal,0.07856542,metrics.random_window_summary.median_sharpe
+AR-080,crossasset-realized-correlation-breakdown-allocator-v1,Divergent from AR-072: cross-asset realized-correlation breakdown allocator,rejected,correlation_regime_allocation,0.0,metrics.median_sharpe
+AR-058,liquidity-exhaustion-recovery-regimegated-megacap-v1,Refinement from AR-046: regime-gated liquidity exhaustion recovery,rejected,liquidity_reversal,0.0,metrics.median_random_sharpe
+AR-025,risk-off-crossasset-randomcost-v1,Refine AR-008: costed random-window risk-off switch validation,rejected,regime_allocation,-0.0405186,primary_result.metrics.sharpe
+AR-085,etf-opening-range-liquidity-reversal-v1,Divergent from AR-077: ETF opening-range liquidity reversal after index futures,rejected,intraday_liquidity_reversal,-0.04427722,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-062,xsec-etf-defensive-rotation-heldout-corr-v1,Refine AR-051: held-out correlation-target ETF defensive rotation,rejected,regime_allocation,-0.04525001,random_period_protocol.median_cost_adjusted_sharpe
+AR-090,google-trends-consumer-attention-etf-rotation-v1,Google Trends consumer-attention discretionary ETF rotation,rejected,external_attention_rotation,-0.04776364499999999,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-035,etf-vol-risk-rotation-v1,Divergent from AR-012: cross-asset ETF volatility-risk rotation,rejected,volatility_regime_rotation,-0.18289894,metrics.random_window_summary.median_sharpe
+AR-022,etf-flow-risk-breadth-regime-v1,Divergent from AR-006: ETF flow risk-on/risk-off breadth signal,rejected,regime_allocation,-0.18670423,random_period_protocol.median_sharpe
+AR-073,etf-relief-rally-exhaustion-reversal-v1,Divergent from AR-063: cross-sectional ETF relief-rally exhaustion reversal,rejected,cross_sectional_reversal,-0.2121423,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-086,bond-etf-carry-vol-regime-allocator-v1,Divergent from AR-078: bond ETF term-structure carry and volatility regime allocator,rejected,fixed_income_carry_regime,-0.24134084,metrics.random_window_summary.median_sharpe
+AR-019,pairs-residual-adaptive-coint-megacap-tech-v1,Refine AR-005: adaptive pair selection with cointegration filters,rejected,stat_arb,-0.26783072,metrics.sharpe
+AR-069,post-gap-residual-continuation-megacap-v1,Divergent from AR-056: post-gap residual continuation basket,rejected,residual_momentum,-0.276384,metrics.median_sharpe
+AR-024,post-earnings-drift-megacap-v1,Divergent from AR-007: mega-cap post-earnings drift continuation,rejected,event_drift,-0.28729,primary_result.metrics.sharpe
+AR-095,sector-etf-volume-exhaustion-reversal-v1,Divergent from AR-083: sector ETF post-rebalance volume exhaustion reversal allocator,rejected,sector_liquidity_reversal,-0.29281638,metrics.median_sharpe
+AR-030,earnings-quality-drift-megacap-v1,Divergent from AR-010: defensive earnings-quality drift in mega-caps,rejected,event_quality,-0.35078842,primary_result.metrics.sharpe
+AR-052,vixy-tlt-stress-carry-etf-v1,Divergent from AR-039: VIXY/TLT stress-carry ETF allocation,rejected,volatility_stress_carry,-0.36403915,metrics.primary_post_cost_proxy.sharpe
+AR-071,etf-realized-skew-crash-rebound-breadth-v1,Divergent from AR-062: ETF realized skew crash-rebound breadth allocator,rejected,volatility_breadth_reversal,-0.366450075,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-038,liquidity-seasonality-balance-window-v1,Divergent from AR-014: liquidity-seasonality balance-sheet-window alpha,rejected,liquidity_seasonality,-0.36843186499999997,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-060,etf-carry-defensive-turnover-brake-v1,Refine AR-049: lower-turnover orthogonal ETF carry/defensive allocation,rejected,cross_asset_carry_defensive,-0.46117907,random_windows.summary.median_sharpe
+AR-064,etf-crash-recovery-dispersion-allocator-v1,Divergent from AR-050: ETF crash-recovery dispersion allocator,rejected,dispersion_recovery,-0.51296081,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-044,credit-equity-stress-dispersion-reversion-v1,Divergent from AR-025: cross-asset credit/equity stress dispersion mean reversion,rejected,dispersion_convergence,-0.52021625,metrics.primary_qfa_pre_cost.sharpe
+AR-026,stress-gap-reversal-etf-v1,Divergent from AR-008: stress-day gap reversal risk-off detector,rejected,stress_reversal,-0.5746989134938384,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-076,megacap-vol-contraction-breakout-continuation-v1,Divergent from AR-068: mega-cap volatility contraction breakout continuation,rejected,volatility_breakout,-0.580527185,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-007,overnight-gap-reversal-megacap-v1,Overnight gap reversal in mega-cap equities,rejected,mean_reversion,-0.61761503,metrics_pre_cost.sharpe
+AR-074,macro-event-liquidity-gap-etf-recovery-v1,Divergent from AR-064: macro-event liquidity gap ETF recovery allocator,rejected,event_liquidity_recovery,-0.68668877,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-004,vol-breakout-megacap-daily-v1,Volatility breakout continuation on mega-cap equities,rejected,volatility_breakout,-0.7039863,metrics_pre_cost.sharpe
+AR-002,meanrev-zscore-liquid-etf-1d-v1,Short-term ETF mean reversion after stretched 3-day moves,rejected,mean_reversion,-0.70937156,metrics.sharpe
+AR-012,overnight-gap-reversal-liquid-etf-v1,AR-002 divergent \u2014 liquid ETF overnight gap reversal,rejected,intraday_or_overnight_reversal,-0.812567691979875,metrics.primary_open_to_close_cost_adjusted_5bps.sharpe
+AR-020,overnight-residual-reversal-megacap-tech-v1,Divergent from AR-005: mega-cap tech overnight residual reversal,rejected,overnight_reversal,-0.8318835343487867,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-068,residual-close-location-reversal-opportunity-balanced-v1,Refinement from AR-056: opportunity-balanced residual close-location reversal,rejected,liquidity_reversal,-0.96208304,metrics.median_sharpe
+AR-001,crosssec-momentum-liquid-megacap-daily-v1,Cross-sectional intermediate momentum on liquid mega-cap equities,rejected,cross_sectional_momentum,-0.99519064,qfa_result.metrics.sharpe
+AR-075,sector-etf-dispersion-dislocation-meanreversion-v1,Divergent from AR-067: sector ETF dispersion dislocation mean reversion,rejected,sector_dispersion_mean_reversion,-1.198009685,computed_median_random_window_cost_or_nonprecost_sharpe
+AR-070,event-curve-shock-reversal-bond-etf-v1,Divergent from AR-061: FOMC/CPI bond ETF curve-shock reversal,rejected,event_macro_reversal,-1.316767,key_metrics.primary_cost_adjusted_10bps.sharpe
+AR-009,volume-price-pressure-megacap-v1,Volume-confirmed price pressure continuation,rejected,flow_momentum,-1.55991515,metrics_pre_cost.sharpe
+AR-087,etf-opening-auction-imbalance-continuation-v1,Divergent from AR-079: ETF intraday opening-auction imbalance continuation,rejected,intraday_flow_continuation,-5.84184963,metrics.random_window_summary.median_sharpe
+AR-078,intraday-treasury-announcement-reversion-v1,Divergent from AR-070: intraday post-announcement Treasury ETF mean reversion,rejected,event_intraday_reversal,-6.12762232,metrics.high_cost_20bps.sharpe
+AR-079,intraday-range-expansion-close-location-reversal-breadth-v1,Divergent from AR-071: intraday range-expansion close-location reversal breadth,rejected,intraday_liquidity_reversal,-116.90279197,metrics.median_sharpe
