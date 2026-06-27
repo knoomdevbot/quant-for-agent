@@ -101,3 +101,25 @@ def test_daemon_submits_only_delta_between_current_and_target_position(tmp_path)
     assert events[0]["side"] == "buy"
     assert events[0]["notional"] == 300.0
     assert alpaca.submitted_orders == [{"symbol": "MSFT", "side": "buy", "notional": 300.0}]
+
+
+def test_daemon_rebalances_shared_symbols_against_aggregate_target(tmp_path):
+    model_path = tmp_path / "shared_symbol_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'AAPL': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("core_model", str(model_path), 0.5, ["AAPL"])
+    store.upsert_model("satellite_model", str(model_path), 0.5, ["AAPL"])
+    alpaca = FakeAlpacaGateway(positions={"AAPL": 1000.0})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True),
+    ).tick()
+
+    assert events == []
+    assert alpaca.submitted_orders == []

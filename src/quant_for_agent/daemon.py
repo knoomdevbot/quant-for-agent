@@ -39,42 +39,47 @@ class TradingDaemon:
         now = pd.Timestamp.utcnow()
         start = now - pd.Timedelta(days=self.config.lookback_days)
         equity = self.alpaca.account_equity()
+        target_values: dict[str, float] = {}
+        target_model_names: dict[str, list[str]] = {}
         for model in models:
             prices = self.alpaca.get_bars(model["symbols"], start=start.to_pydatetime(), end=now.to_pydatetime())
             context = AlphaContext(symbols=model["symbols"], prices=prices, as_of=now)
             raw = load_alpha_function(model["model_path"])(context) or {}
             weights = normalize_weights(raw, model["symbols"])
             sleeve_notional = equity * float(model["allocation"])
-            current_values = self.alpaca.position_market_values(model["symbols"])
             for symbol, weight in weights.items():
-                target_notional = sleeve_notional * weight
-                current_notional = current_values.get(symbol, 0.0)
-                delta_notional = target_notional - current_notional
-                notional = abs(delta_notional)
-                if notional < 1.0:
-                    continue
-                side = "buy" if delta_notional >= 0 else "sell"
-                response = {"dry_run": True, "symbol": symbol, "side": side, "notional": notional}
-                if not self.config.dry_run:
-                    try:
-                        response = self.alpaca.submit_notional_order(symbol, side, notional)
-                    except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
-                        response = {
-                            "status": "error",
-                            "error_type": type(exc).__name__,
-                            "message": str(exc),
-                            "symbol": symbol,
-                            "side": side,
-                            "notional": notional,
-                        }
-                event = {
-                    "model_name": model["name"],
-                    "symbol": symbol,
-                    "side": side,
-                    "notional": notional,
-                    "dry_run": self.config.dry_run,
-                    "response": response,
-                }
-                self.store.save_trade_event(event)
-                events.append(event)
+                target_values[symbol] = target_values.get(symbol, 0.0) + (sleeve_notional * weight)
+                target_model_names.setdefault(symbol, []).append(model["name"])
+
+        current_values = self.alpaca.position_market_values(list(target_values))
+        for symbol, target_notional in target_values.items():
+            current_notional = current_values.get(symbol, 0.0)
+            delta_notional = target_notional - current_notional
+            notional = abs(delta_notional)
+            if notional < 1.0:
+                continue
+            side = "buy" if delta_notional >= 0 else "sell"
+            response = {"dry_run": True, "symbol": symbol, "side": side, "notional": notional}
+            if not self.config.dry_run:
+                try:
+                    response = self.alpaca.submit_notional_order(symbol, side, notional)
+                except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
+                    response = {
+                        "status": "error",
+                        "error_type": type(exc).__name__,
+                        "message": str(exc),
+                        "symbol": symbol,
+                        "side": side,
+                        "notional": notional,
+                    }
+            event = {
+                "model_name": ",".join(target_model_names.get(symbol, [])),
+                "symbol": symbol,
+                "side": side,
+                "notional": notional,
+                "dry_run": self.config.dry_run,
+                "response": response,
+            }
+            self.store.save_trade_event(event)
+            events.append(event)
         return events
