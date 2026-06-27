@@ -878,8 +878,8 @@ issues:
 - id: AR-118
   title: 'Defensive carry pullback recovery allocator with anti-redundancy baselines'
   model_name: defensive-carry-pullback-recovery-allocator-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: cross_asset_carry_defensive_pullback_recovery
   issue_path: alpha_research/issues/AR-118.md
 - id: AR-119
@@ -889,10 +889,17 @@ issues:
   priority: completed_realdata
   family: liquidity_reversal_breadth
   issue_path: alpha_research/issues/AR-119.md
+- id: AR-120
+  title: 'Timestamp-safe ETF distribution ex-date drift and reversal allocator'
+  model_name: etf-distribution-exdate-reversal-allocator-v1
+  status: queued
+  priority: preflight_queue
+  family: etf_distribution_exdiv_event_timing
+  issue_path: alpha_research/issues/AR-120.md
 active_batch:
-- AR-118
+- AR-120
 last_realdata_batch:
-- AR-119
-updated_at: '2026-06-27T03:45:50Z'
+- AR-118
+updated_at: '2026-06-27T04:55:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 109
+tried_ideas_count: 110

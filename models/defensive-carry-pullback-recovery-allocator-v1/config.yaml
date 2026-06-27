@@ -1,0 +1,88 @@
+model_name: defensive-carry-pullback-recovery-allocator-v1
+issue_id: AR-118
+universe:
+  - SHY
+  - IEF
+  - TLT
+  - GOVT
+  - TIP
+  - LQD
+  - HYG
+  - GLD
+  - SLV
+  - DBC
+  - USO
+  - DBA
+  - SPY
+  - QQQ
+  - IWM
+  - DIA
+  - USMV
+  - QUAL
+  - SPLV
+  - XLU
+  - XLP
+  - XLV
+  - XLE
+  - XLF
+  - XLI
+  - XLB
+  - XLRE
+  - XLC
+defensive_carry_universe:
+  - SHY
+  - IEF
+  - TLT
+  - GOVT
+  - TIP
+  - LQD
+  - HYG
+  - GLD
+  - USMV
+  - SPLV
+  - XLU
+  - XLP
+  - XLV
+risk_context:
+  - SPY
+  - HYG
+  - LQD
+parameters:
+  min_history_days: 90
+  trend_window_days: 63
+  pullback_window_days: 5
+  volatility_window_days: 42
+  top_n: 3
+  max_gross: 0.95
+  trend_return_min: 0.0
+  trend_return_per_vol_min: 0.05
+  score_threshold: 0.35
+  stress_gate:
+    spy_20d_return_min: -0.08
+    spy_20d_return_max: 0.03
+    spy_20d_realized_vol_max: 0.33
+    hyg_20d_return_min: -0.06
+    lqd_20d_return_min: -0.05
+  score_weights:
+    trend_risk_adjusted: 0.42
+    pullback_z: 0.30
+    rebound: 0.18
+    low_vol_bonus: 0.10
+    defensive_carry_bias: 0.35
+    non_defensive_bias: -0.10
+evaluation:
+  data_source: qfa_alpaca_real_daily_ohlcv
+  timeframe: 1Day
+  start: '2018-01-01'
+  end: '2026-06-26'
+  primary_cost_bps: 10
+  cost_sensitivity_bps: [0, 5, 10, 20]
+  random_seed: 118
+  random_windows: 30
+  window_length_trading_days: 252
+constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
