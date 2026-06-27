@@ -861,10 +861,18 @@ issues:
   priority: completed_realdata
   family: constituent_confirmed_sector_pressure
   issue_path: alpha_research/issues/AR-115.md
+- id: AR-116
+  title: 'Large-cap concentration breadth mean reversion using cap-weight vs equal-weight proxy'
+  model_name: concentration-breadth-meanreversion-v1
+  status: rejected
+  priority: completed_realdata
+  family: breadth_concentration_mean_reversion
+  issue_path: alpha_research/issues/AR-116.md
 active_batch: []
 last_realdata_batch:
 - AR-114
 - AR-115
-updated_at: '2026-06-26T23:09:24Z'
+- AR-116
+updated_at: '2026-06-27T01:00:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 106
+tried_ideas_count: 107
