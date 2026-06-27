@@ -927,10 +927,24 @@ issues:
   priority: completed_realdata
   family: corporate_action_cash_dividend_event_timing
   issue_path: alpha_research/issues/AR-125.md
+- id: AR-126
+  title: Single-name post-OPEX range-release residual continuation in liquid large caps
+  model_name: single-name-post-opex-range-release-continuation-v1
+  status: rejected
+  priority: completed_realdata
+  family: single_name_calendar_volatility_release
+  issue_path: alpha_research/issues/AR-126.md
+- id: AR-127
+  title: NYSE holiday pre-close equity ETF drift and post-holiday normalization
+  model_name: nyse-holiday-preclose-etf-drift-v1
+  status: rejected
+  priority: completed_realdata
+  family: holiday_calendar_equity_etf_seasonality
+  issue_path: alpha_research/issues/AR-127.md
 active_batch: []
 last_realdata_batch:
-- AR-124
-- AR-125
-updated_at: '2026-06-27T20:35:00Z'
+- AR-126
+- AR-127
+updated_at: '2026-06-27T22:17:15Z'
 target_tried_ideas: 100
-tried_ideas_count: 116
+tried_ideas_count: 118

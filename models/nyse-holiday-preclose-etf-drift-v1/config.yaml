@@ -1,0 +1,34 @@
+model_name: nyse-holiday-preclose-etf-drift-v1
+issue_id: AR-127
+version: 1
+universe:
+  primary_broad_equity: [SPY, QQQ, IWM, DIA]
+  sector_diagnostics: [XLB, XLC, XLE, XLF, XLI, XLK, XLP, XLRE, XLU, XLV, XLY]
+  controls: [TLT, IEF, SHY, GLD]
+data:
+  source: qfa_alpaca_real_daily_ohlcv
+  timeframe: 1Day
+  fetch_start: '2020-01-01'
+  fetch_end: '2026-06-26'
+  csv_used: false
+  data_csv_argument_used: false
+calendar:
+  nyse_full_holidays: deterministic_modern_rules
+  early_closes: [day_after_thanksgiving, christmas_eve_when_trading_day, july_3_when_applicable]
+  special_one_off_closures: excluded
+signal:
+  sleeves:
+    pre_full_holiday_last_session: true
+    pre_early_close_session: true
+    post_full_holiday_first_session: true
+  sizing: fixed_equal_weight_broad_equity_basket
+  gross_exposure: 1.0
+  min_history_bars: 60
+risk:
+  leverage: false
+  costs_one_way_bps_primary: 10
+  costs_one_way_bps_sensitivity: [5, 10, 20]
+controls:
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

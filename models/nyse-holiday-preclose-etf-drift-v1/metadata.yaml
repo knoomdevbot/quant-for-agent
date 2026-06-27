@@ -1,0 +1,24 @@
+model_name: nyse-holiday-preclose-etf-drift-v1
+issue_id: AR-127
+status: evaluated_rejected
+created_at_utc: '2026-06-27T22:13:53Z'
+family: holiday_calendar_equity_etf_seasonality
+model_type: rule_based_calendar_event_allocator
+qfa_compatible: true
+entrypoint: model.py:generate_signals
+research_only: true
+data_source: Alpaca real daily OHLCV via qfa AlpacaGateway
+provenance: Alpaca profile environment was sourced silently if present; credentials were mapped only in transient shell/process environment; no credential values printed or stored.
+compliance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+artifacts:
+  latest_json: models/nyse-holiday-preclose-etf-drift-v1/evaluations/latest.json
+  latest_md: models/nyse-holiday-preclose-etf-drift-v1/evaluations/latest.md
+  immutable_run_json: models/nyse-holiday-preclose-etf-drift-v1/evaluations/runs/ar127_qfa_alpaca_real_20260627T221353Z.json
+decision:
+  suggested: rejected
+  reason: Failed random-window robustness and placebo superiority after 10 bps one-way costs.

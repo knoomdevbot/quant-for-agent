@@ -1,0 +1,31 @@
+id: AR-126
+name: single-name-post-opex-range-release-continuation-v1
+status: rejected
+family: single_name_calendar_volatility_release
+created_utc: 2026-06-27T22:14:38.239017+00:00
+data_source: Alpaca real daily OHLCV via qfa gateway; credentials redacted and loaded transiently
+research_only: true
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+summary:
+  selected_count: 120
+  event_dates_count: 75
+  primary_sharpe_5bps: -0.39444470469866094
+  median_random_window_sharpe: -0.5647458779459439
+  decision_reason: Primary after-cost median random-window Sharpe is not positive enough and hard placebo/reversal ablations are not convincingly beaten.
+limitations:
+  - Survivorship bias from static current large-cap universe
+  - No timestamp-safe earnings exclusions available in daily OHLCV-only qfa/Alpaca path
+  - Daily bars cannot observe option open interest, dealer gamma, or closing auction imbalance
+  - No raw bars/equity curves retained by design
+artifacts:
+  model_py: /Users/moonk/quant-for-agent/models/single-name-post-opex-range-release-continuation-v1/model.py
+  config_yaml: /Users/moonk/quant-for-agent/models/single-name-post-opex-range-release-continuation-v1/config.yaml
+  metadata_yaml: /Users/moonk/quant-for-agent/models/single-name-post-opex-range-release-continuation-v1/metadata.yaml
+  readme_md: /Users/moonk/quant-for-agent/models/single-name-post-opex-range-release-continuation-v1/README.md
+  latest_json: /Users/moonk/quant-for-agent/models/single-name-post-opex-range-release-continuation-v1/evaluations/latest.json
+  latest_md: /Users/moonk/quant-for-agent/models/single-name-post-opex-range-release-continuation-v1/evaluations/latest.md
+  immutable_run_json: /Users/moonk/quant-for-agent/models/single-name-post-opex-range-release-continuation-v1/evaluations/runs/ar126_qfa_alpaca_real_20260627T221438Z.json
