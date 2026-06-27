@@ -5,7 +5,7 @@ CLI-first quant system for AI agents. MVP scope:
 - Run repeatable backtests against Python alpha model modules.
 - Store and query historical backtest results from SQLite.
 - Register alpha models against portfolio allocations.
-- Run a simple Alpaca-backed trading daemon, paper-first, with explicit `--live` required for order placement.
+- Run a simple Alpaca-backed trading daemon, paper-first, with explicit `--submit-orders` required before any order placement.
 
 ## Installation
 
@@ -42,8 +42,10 @@ qfa --help
 qfa backtest run examples/momentum_alpha.py --symbols AAPL,MSFT --start 2024-01-01 --end 2024-03-01 --data-csv tests/fixtures/prices.csv
 qfa backtest list
 qfa models add examples/momentum_alpha.py --name momentum --allocation 0.25 --symbols AAPL,MSFT
-qfa daemon run --dry-run --once
+qfa daemon run --once
 ```
+
+`qfa daemon run` defaults to simulation/no-submit mode and prints `SIMULATION ONLY: no Alpaca orders will be submitted.` To submit to an Alpaca paper account, set `ALPACA_PAPER=true` and pass `--submit-orders`. Live brokerage submission with `ALPACA_PAPER=false` is blocked unless `--allow-live-brokerage` is also passed.
 
 After direct `pip install "git+https://github.com/knoomdevbot/quant-for-agent.git"`, use `qfa` with your own alpha model file and data CSV paths.
 
@@ -74,4 +76,4 @@ export ALPACA_SECRET_KEY=...
 export ALPACA_PAPER=true
 ```
 
-Live order placement requires passing `--live` to the daemon. Use paper trading first.
+Order placement requires passing `--submit-orders` to the daemon. With `ALPACA_PAPER=true`, orders go to the Alpaca paper account. With `ALPACA_PAPER=false`, live brokerage orders also require `--allow-live-brokerage`. Use paper trading first.
