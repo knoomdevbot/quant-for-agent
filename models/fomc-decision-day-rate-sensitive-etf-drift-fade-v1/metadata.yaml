@@ -1,0 +1,34 @@
+model_name: fomc-decision-day-rate-sensitive-etf-drift-fade-v1
+issue_id: AR-130
+status: rejected
+suggested_decision: reject
+created_utc: '2026-06-27T09:10:00Z'
+data_source: qfa/Alpaca real daily OHLCV via configured paper-data access
+primary_hypothesis: scheduled FOMC decision days may create timestamp-safe close-to-close drift/fade in rate-sensitive ETFs
+selected_universe:
+  - TLT
+  - IEF
+  - SHY
+  - LQD
+  - HYG
+  - GLD
+  - SPY
+  - QQQ
+  - XLF
+  - XLRE
+excluded_optional_symbols:
+  TIP: optional clean coverage/liquidity but excluded before performance review to keep core basket fixed
+  UUP: optional clean coverage/liquidity but excluded before performance review to keep core basket fixed
+  XLU: optional clean coverage/liquidity but excluded before performance review to keep core basket fixed
+primary_result_summary:
+  events: 83
+  median_net_event_return_10bps_one_way: -0.0016006991252089692
+  mean_net_event_return_10bps_one_way: -0.0010470103303396642
+  hit_rate: 0.42168674698795183
+  random_matched_non_fomc_median_percentile: 0.3
+rejection_reason: predeclared primary leg has negative median return, sub-55% hit rate, weak placebo rank, materially negative p25, and negative ex-calendar-overlap subset
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

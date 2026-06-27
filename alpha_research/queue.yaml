@@ -963,14 +963,21 @@ issues:
 - id: AR-130
   title: 'Scheduled FOMC decision-day rate-sensitive ETF drift/fade event study'
   model_name: fomc-decision-day-rate-sensitive-etf-drift-fade-v1
-  status: queued
-  priority: preflight_queue_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: event_calendar_rate_sensitive_etf_drift_fade
   issue_path: alpha_research/issues/AR-130.md
+- id: AR-131
+  title: 'Weekly EIA petroleum inventory report energy ETF drift/fade event study'
+  model_name: eia-petroleum-inventory-energy-etf-drift-fade-v1
+  status: queued
+  priority: preflight_queue_fast_falsification
+  family: event_calendar_energy_inventory
+  issue_path: alpha_research/issues/AR-131.md
 active_batch:
-- AR-130
+- AR-131
 last_realdata_batch:
-- AR-129
-updated_at: '2026-06-27T15:48:00Z'
+- AR-130
+updated_at: '2026-06-27T16:18:56Z'
 target_tried_ideas: 100
-tried_ideas_count: 120
+tried_ideas_count: 121

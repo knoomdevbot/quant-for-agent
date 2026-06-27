@@ -1,0 +1,722 @@
+{
+  "activation_turnover": {
+    "activation_rate": 0.03149905123339659,
+    "event_count": 83,
+    "gross_turnover_per_event_roundtrip": 2.0,
+    "total_gross_turnover": 166.0,
+    "trading_sessions": 2635
+  },
+  "calendar_overlap_exclusions": {
+    "ex_any_calendar_overlap": {
+      "hit_rate": 0.3181818181818182,
+      "max_event_equity_drawdown": -0.0716974771461224,
+      "mean": -0.00309665224844403,
+      "median": -0.0018916137847640718,
+      "n": 22,
+      "p25": -0.005985215811376799,
+      "sharpe": -2.126766009271197,
+      "worst": -0.023794997495418267
+    },
+    "ex_auction_week": {
+      "hit_rate": 0.373134328358209,
+      "max_event_equity_drawdown": -0.10683033050256785,
+      "mean": -0.0016063193603661583,
+      "median": -0.0017066277011023128,
+      "n": 67,
+      "p25": -0.005382104198772462,
+      "sharpe": -2.045675602301532,
+      "worst": -0.023794997495418267
+    },
+    "ex_month_end": {
+      "hit_rate": 0.4098360655737705,
+      "max_event_equity_drawdown": -0.07623984806254969,
+      "mean": -0.0011248248303505747,
+      "median": -0.0016382153276962446,
+      "n": 61,
+      "p25": -0.004651351340637376,
+      "sharpe": -1.2950578159520936,
+      "worst": -0.023794997495418267
+    },
+    "ex_opex": {
+      "hit_rate": 0.42168674698795183,
+      "max_event_equity_drawdown": -0.08909215084898126,
+      "mean": -0.0010470103303396642,
+      "median": -0.0016006991252089692,
+      "n": 83,
+      "p25": -0.004989212135576941,
+      "sharpe": -1.4576739919080475,
+      "worst": -0.023794997495418267
+    },
+    "ex_payday": {
+      "hit_rate": 0.42857142857142855,
+      "max_event_equity_drawdown": -0.07494482773049005,
+      "mean": -0.0013380310060495876,
+      "median": -0.0013403567086088678,
+      "n": 56,
+      "p25": -0.005303943886712424,
+      "sharpe": -1.545939335343952,
+      "worst": -0.023794997495418267
+    },
+    "ex_turn_of_month": {
+      "hit_rate": 0.4418604651162791,
+      "max_event_equity_drawdown": -0.05217863148727697,
+      "mean": -0.0010064325528628992,
+      "median": -0.0011397905383003764,
+      "n": 43,
+      "p25": -0.004784687299131561,
+      "sharpe": -0.9460901830499643,
+      "worst": -0.023794997495418267
+    }
+  },
+  "candidate_pool": [
+    "TLT",
+    "IEF",
+    "SHY",
+    "LQD",
+    "HYG",
+    "GLD",
+    "SPY",
+    "QQQ",
+    "XLF",
+    "XLRE",
+    "TIP",
+    "UUP",
+    "XLU"
+  ],
+  "cost_sensitivity": {
+    "10bps_one_way": {
+      "hit_rate": 0.42168674698795183,
+      "max_event_equity_drawdown": -0.08909215084898126,
+      "mean": -0.0010470103303396642,
+      "median": -0.0016006991252089692,
+      "n": 83,
+      "p25": -0.004989212135576941,
+      "sharpe": -1.4576739919080475,
+      "worst": -0.023794997495418267
+    },
+    "20bps_one_way": {
+      "hit_rate": 0.2891566265060241,
+      "max_event_equity_drawdown": -0.21937335533932145,
+      "mean": -0.0030470103303396646,
+      "median": -0.0036006991252089692,
+      "n": 83,
+      "p25": -0.006989212135576941,
+      "sharpe": -4.242124058289262,
+      "worst": -0.025794997495418266
+    },
+    "5bps_one_way": {
+      "hit_rate": 0.4578313253012048,
+      "max_event_equity_drawdown": -0.058101386101459984,
+      "mean": -4.701033033966428e-05,
+      "median": -0.0006006991252089691,
+      "n": 83,
+      "p25": -0.003989212135576941,
+      "sharpe": -0.06544895871744051,
+      "worst": -0.022794997495418266
+    }
+  },
+  "coverage_liquidity": {
+    "GLD": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 166.39,
+      "median_dollar_volume": 1349371984.6599998,
+      "median_volume": 8109694.0,
+      "n": 2635
+    },
+    "HYG": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 83.51,
+      "median_dollar_volume": 2190060021.73,
+      "median_volume": 26225123.0,
+      "n": 2635
+    },
+    "IEF": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 104.13,
+      "median_dollar_volume": 548616714.75,
+      "median_volume": 5268575.0,
+      "n": 2635
+    },
+    "LQD": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 116.03,
+      "median_dollar_volume": 1654151875.29,
+      "median_volume": 14256243.0,
+      "n": 2635
+    },
+    "QQQ": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 288.96,
+      "median_dollar_volume": 11441357329.92,
+      "median_volume": 39594952.0,
+      "n": 2635
+    },
+    "SHY": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 83.61,
+      "median_dollar_volume": 246066069.42,
+      "median_volume": 2943022.0,
+      "n": 2635
+    },
+    "SPY": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 380.01,
+      "median_dollar_volume": 28149222889.53,
+      "median_volume": 74074953.0,
+      "n": 2635
+    },
+    "TIP": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 112.83,
+      "median_dollar_volume": 216869640.35999998,
+      "median_volume": 1922092.0,
+      "n": 2635
+    },
+    "TLT": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 120.82,
+      "median_dollar_volume": 1851610599.3,
+      "median_volume": 15325365.0,
+      "n": 2635
+    },
+    "UUP": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 26.29,
+      "median_dollar_volume": 28832742.509999998,
+      "median_volume": 1096719.0,
+      "n": 2635
+    },
+    "XLF": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 31.46,
+      "median_dollar_volume": 1526733476.8400002,
+      "median_volume": 48529354.0,
+      "n": 2635
+    },
+    "XLRE": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 37.38,
+      "median_dollar_volume": 163630389.3,
+      "median_volume": 4377485.0,
+      "n": 2635
+    },
+    "XLU": {
+      "first": "2016-01-04 00:00:00+00:00",
+      "last": "2026-06-26 00:00:00+00:00",
+      "median_close": 62.18,
+      "median_dollar_volume": 871365337.1,
+      "median_volume": 14013595.0,
+      "n": 2635
+    }
+  },
+  "created_utc": "2026-06-27T16:13:46Z",
+  "data_source": "qfa/Alpaca real daily OHLCV via configured paper-data access",
+  "decision_gates": {
+    "ex_calendar_overlap_positive_median": false,
+    "hit_rate_ge_55pct": false,
+    "median_event_return_gt_0": false,
+    "no_high_redundancy": false,
+    "p25_not_materially_negative": false,
+    "placebo_rank_ge_0_85": false,
+    "positive_year_rate_not_one_regime_dependent": false
+  },
+  "diagnostic_legs": {
+    "post_decision_1d_long_gross": {
+      "hit_rate": 0.4939759036144578,
+      "max_event_equity_drawdown": -0.10398292548332244,
+      "mean": -0.0004973432649699314,
+      "median": -0.00024906619925125774,
+      "n": 83,
+      "p25": -0.0024770268790239637,
+      "sharpe": -0.6979561916930564,
+      "worst": -0.02734533184228919
+    },
+    "post_decision_2_3d_long_gross": {
+      "hit_rate": 0.4819277108433735,
+      "max_event_equity_drawdown": -0.20466179808491614,
+      "mean": -0.0022301520819972705,
+      "median": -0.00012081321011740976,
+      "n": 83,
+      "p25": -0.004824844234718023,
+      "sharpe": -1.8603120307038987,
+      "worst": -0.04214482369688982
+    }
+  },
+  "excluded_symbols": {
+    "TIP": "optional clean coverage/liquidity but excluded before performance review to keep primary basket fixed to core candidate pool",
+    "UUP": "optional clean coverage/liquidity but excluded before performance review to keep primary basket fixed to core candidate pool",
+    "XLU": "optional clean coverage/liquidity but excluded before performance review to keep primary basket fixed to core candidate pool"
+  },
+  "fomc_calendar": {
+    "event_dates_evaluated": [
+      "2016-01-27",
+      "2016-03-16",
+      "2016-04-27",
+      "2016-06-15",
+      "2016-07-27",
+      "2016-09-21",
+      "2016-11-02",
+      "2016-12-14",
+      "2017-02-01",
+      "2017-03-15",
+      "2017-05-03",
+      "2017-06-14",
+      "2017-07-26",
+      "2017-09-20",
+      "2017-11-01",
+      "2017-12-13",
+      "2018-01-31",
+      "2018-03-21",
+      "2018-05-02",
+      "2018-06-13",
+      "2018-08-01",
+      "2018-09-26",
+      "2018-11-08",
+      "2018-12-19",
+      "2019-01-30",
+      "2019-03-20",
+      "2019-05-01",
+      "2019-06-19",
+      "2019-07-31",
+      "2019-09-18",
+      "2019-10-30",
+      "2019-12-11",
+      "2020-01-29",
+      "2020-04-29",
+      "2020-06-10",
+      "2020-07-29",
+      "2020-09-16",
+      "2020-11-05",
+      "2020-12-16",
+      "2021-01-27",
+      "2021-03-17",
+      "2021-04-28",
+      "2021-06-16",
+      "2021-07-28",
+      "2021-09-22",
+      "2021-11-03",
+      "2021-12-15",
+      "2022-01-26",
+      "2022-03-16",
+      "2022-05-04",
+      "2022-06-15",
+      "2022-07-27",
+      "2022-09-21",
+      "2022-11-02",
+      "2022-12-14",
+      "2023-02-01",
+      "2023-03-22",
+      "2023-05-03",
+      "2023-06-14",
+      "2023-07-26",
+      "2023-09-20",
+      "2023-11-01",
+      "2023-12-13",
+      "2024-01-31",
+      "2024-03-20",
+      "2024-05-01",
+      "2024-06-12",
+      "2024-07-31",
+      "2024-09-18",
+      "2024-11-07",
+      "2024-12-18",
+      "2025-01-29",
+      "2025-03-19",
+      "2025-05-07",
+      "2025-06-18",
+      "2025-07-30",
+      "2025-09-17",
+      "2025-10-29",
+      "2025-12-10",
+      "2026-01-28",
+      "2026-03-18",
+      "2026-04-29",
+      "2026-06-17"
+    ],
+    "scheduled_dates_total": 87,
+    "source_note": "hardcoded public scheduled FOMC decision dates; unscheduled/emergency meetings excluded"
+  },
+  "issue_id": "AR-130",
+  "model_name": "fomc-decision-day-rate-sensitive-etf-drift-fade-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality_vs_accepted_library": "unavailable_due_event_study: retained accepted-library compact comparable event streams were not available; proxy correlations reported instead and not used to rescue result",
+  "placebos": {
+    "random_matched_non_fomc": {
+      "event_mean_percentile": 0.712,
+      "event_median_percentile": 0.3,
+      "iterations": 1000,
+      "mean_distribution": {
+        "hit_rate": 0.021,
+        "max_event_equity_drawdown": -0.7541372569304264,
+        "mean": -0.0014029458146357886,
+        "median": -0.0013786662726798706,
+        "n": 1000,
+        "p25": -0.0018287241715328414,
+        "sharpe": -66.66107295894122,
+        "worst": -0.0033939035087411137
+      },
+      "median_distribution": {
+        "hit_rate": 0.005,
+        "max_event_equity_drawdown": -0.7552178472485128,
+        "mean": -0.00140803914316389,
+        "median": -0.0014096608443869823,
+        "n": 1000,
+        "p25": -0.0016883637873775874,
+        "sharpe": -94.20738501523476,
+        "worst": -0.0029461299065723684
+      }
+    },
+    "same_month_same_weekday": {
+      "hit_rate": 0.3373493975903614,
+      "max_event_equity_drawdown": -0.11252767670243724,
+      "mean": -0.0014989931807057697,
+      "median": -0.0015358191121696767,
+      "n": 83,
+      "p25": -0.003636014893168625,
+      "sharpe": -3.3459982207641183,
+      "worst": -0.013124859394494735
+    }
+  },
+  "primary_leg": {
+    "definition": "equal-weight selected ETF basket prior close to scheduled FOMC decision-day close, 10 bps one-way costs (20 bps round trip)",
+    "hit_rate": 0.42168674698795183,
+    "max_event_equity_drawdown": -0.08909215084898126,
+    "mean": -0.0010470103303396642,
+    "median": -0.0016006991252089692,
+    "n": 83,
+    "p25": -0.004989212135576941,
+    "sharpe": -1.4576739919080475,
+    "worst": -0.023794997495418267
+  },
+  "proxy_ablations": {
+    "basket_20d_tsmom_sign_proxy": {
+      "corr_with_primary_event_returns": 0.22326183897124402,
+      "hit_rate": 0.39759036144578314,
+      "max_event_equity_drawdown": -0.160885099953611,
+      "mean": -0.0019861481239758184,
+      "median": -0.0016382153276962446,
+      "n": 83,
+      "p25": -0.005570023332995359,
+      "sharpe": -2.7359601092317263,
+      "worst": -0.023794997495418267
+    },
+    "cash_SHY": {
+      "corr_with_primary_event_returns": 0.6393318211444619,
+      "hit_rate": 0.5421686746987951,
+      "max_event_equity_drawdown": -0.011494888598660435,
+      "mean": 0.00021671508625994415,
+      "median": 0.00017344048100831344,
+      "n": 83,
+      "p25": -0.0006117223178812581,
+      "sharpe": 1.2887650506408679,
+      "worst": -0.0052368773596394025
+    },
+    "credit_HYG_minus_SHY": {
+      "corr_with_primary_event_returns": 0.8410326387263588,
+      "hit_rate": 0.5421686746987951,
+      "max_event_equity_drawdown": -0.017351998984050376,
+      "mean": 0.0009935405936833043,
+      "median": 0.000682247010642012,
+      "n": 83,
+      "p25": -0.0016251371036477003,
+      "sharpe": 1.8617915910981957,
+      "worst": -0.010130297347502593
+    },
+    "duration_TLT": {
+      "corr_with_primary_event_returns": 0.4709994946437975,
+      "hit_rate": 0.6506024096385542,
+      "max_event_equity_drawdown": -0.03648915192274527,
+      "mean": 0.0027842089188626898,
+      "median": 0.0023300658846217015,
+      "n": 83,
+      "p25": -0.0018720625111556255,
+      "sharpe": 3.171063351742594,
+      "worst": -0.01632833186231253
+    },
+    "equity_SPY": {
+      "corr_with_primary_event_returns": 0.8989036337528251,
+      "hit_rate": 0.46987951807228917,
+      "max_event_equity_drawdown": -0.06837945165031867,
+      "mean": 0.0005244979502159454,
+      "median": -0.00015456167713467917,
+      "n": 83,
+      "p25": -0.004064333800427589,
+      "sharpe": 0.4387410238316817,
+      "worst": -0.0298035711330652
+    },
+    "gold_GLD": {
+      "corr_with_primary_event_returns": 0.6636509316291863,
+      "hit_rate": 0.6024096385542169,
+      "max_event_equity_drawdown": -0.0880251661592022,
+      "mean": 0.0020447879932816875,
+      "median": 0.0037282132537981294,
+      "n": 83,
+      "p25": -0.005739799728731343,
+      "sharpe": 1.611345813276277,
+      "worst": -0.031637163324406026
+    },
+    "intermediate_duration_IEF": {
+      "corr_with_primary_event_returns": 0.6011137951975056,
+      "hit_rate": 0.6265060240963856,
+      "max_event_equity_drawdown": -0.029805151301872557,
+      "mean": 0.00147803684982562,
+      "median": 0.001306762495916436,
+      "n": 83,
+      "p25": -0.0013879401569097394,
+      "sharpe": 2.8411945194573023,
+      "worst": -0.010990183525394825
+    },
+    "month_end_equal_basket": {
+      "corr_with_primary_event_returns": 1.0,
+      "hit_rate": 0.5783132530120482,
+      "max_event_equity_drawdown": -0.04572544543095658,
+      "mean": 0.0009529896696603357,
+      "median": 0.00039930087479103096,
+      "n": 83,
+      "p25": -0.002989212135576941,
+      "sharpe": 1.3267760744731665,
+      "worst": -0.021794997495418265
+    },
+    "risk_off_minus_equity": {
+      "corr_with_primary_event_returns": -0.4752807139270483,
+      "hit_rate": 0.6265060240963856,
+      "max_event_equity_drawdown": -0.13518112099733448,
+      "mean": 0.0022597109686467443,
+      "median": 0.0018847240987923675,
+      "n": 83,
+      "p25": -0.0038421909034734303,
+      "sharpe": 1.6246472689200062,
+      "worst": -0.03158436193290992
+    }
+  },
+  "raw_daily_paths_retained": false,
+  "selected_universe": [
+    "TLT",
+    "IEF",
+    "SHY",
+    "LQD",
+    "HYG",
+    "GLD",
+    "SPY",
+    "QQQ",
+    "XLF",
+    "XLRE"
+  ],
+  "status": "rejected",
+  "suggested_decision": "reject",
+  "warnings": [
+    "Daily bars cannot isolate intraday FOMC statement/press conference effects or macro surprise magnitude.",
+    "Approximate calendar-overlap flags are coarse proxies for ToM/month-end/OPEX/payday/Treasury auction-week.",
+    "Optional TIP/UUP/XLU had clean coverage but were excluded before return review to keep basket fixed to core pool."
+  ],
+  "yearly": {
+    "by_year": {
+      "2016": {
+        "count": 8.0,
+        "mean": -0.001249289000203439,
+        "median": 0.0005068331112066855,
+        "sum": -0.009994312001627512
+      },
+      "2017": {
+        "count": 8.0,
+        "mean": -0.0007567757677399905,
+        "median": -0.0012688066795233193,
+        "sum": -0.006054206141919924
+      },
+      "2018": {
+        "count": 8.0,
+        "mean": -0.0035593981065142302,
+        "median": -0.003991431800894028,
+        "sum": -0.028475184852113842
+      },
+      "2019": {
+        "count": 8.0,
+        "mean": -0.0004786115438221476,
+        "median": 0.0002195503694952211,
+        "sum": -0.003828892350577181
+      },
+      "2020": {
+        "count": 7.0,
+        "mean": 0.0025347055580159997,
+        "median": -0.00025016327070922313,
+        "sum": 0.017742938906111998
+      },
+      "2021": {
+        "count": 8.0,
+        "mean": -0.00222149342510321,
+        "median": -0.0015678948708063895,
+        "sum": -0.01777194740082568
+      },
+      "2022": {
+        "count": 8.0,
+        "mean": 0.001575874307645491,
+        "median": 0.0019422435292242987,
+        "sum": 0.012606994461163928
+      },
+      "2023": {
+        "count": 8.0,
+        "mean": 0.0019064884482028592,
+        "median": 0.0004003090059019293,
+        "sum": 0.015251907585622873
+      },
+      "2024": {
+        "count": 8.0,
+        "mean": -0.0022241174411164783,
+        "median": 0.0008823627932681117,
+        "sum": -0.017792939528931826
+      },
+      "2025": {
+        "count": 8.0,
+        "mean": -0.002496155317394436,
+        "median": -0.0024379459508597195,
+        "sum": -0.01996924253915549
+      },
+      "2026": {
+        "count": 4.0,
+        "mean": -0.00715424338898487,
+        "median": -0.008085288073507089,
+        "sum": -0.02861697355593948
+      }
+    },
+    "leave_one_year_out": [
+      {
+        "excluded_year": 2016,
+        "hit_rate": 0.4,
+        "max_event_equity_drawdown": -0.07857433069802822,
+        "mean": -0.0010254339388875281,
+        "median": -0.0016057337011016175,
+        "n": 75,
+        "p25": -0.004989212135576941,
+        "sharpe": -1.328254455742495,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2017,
+        "hit_rate": 0.4266666666666667,
+        "max_event_equity_drawdown": -0.08351129721633299,
+        "mean": -0.0010779686836836298,
+        "median": -0.0016006991252089692,
+        "n": 75,
+        "p25": -0.005382104198772462,
+        "sharpe": -1.3757474769257036,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2018,
+        "hit_rate": 0.4533333333333333,
+        "max_event_equity_drawdown": -0.07577103337905822,
+        "mean": -0.0007790223008810439,
+        "median": -0.0011397905383003764,
+        "n": 75,
+        "p25": -0.005028794705551102,
+        "sharpe": -0.9967330872960113,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2019,
+        "hit_rate": 0.4,
+        "max_event_equity_drawdown": -0.08554748413757607,
+        "mean": -0.001107639534234866,
+        "median": -0.0016057337011016175,
+        "n": 75,
+        "p25": -0.004989212135576941,
+        "sharpe": -1.415027272887464,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2020,
+        "hit_rate": 0.42105263157894735,
+        "max_event_equity_drawdown": -0.10501622523397514,
+        "mean": -0.0013769052147934759,
+        "median": -0.001621974514398931,
+        "n": 76,
+        "p25": -0.005303943886712424,
+        "sharpe": -1.825288997081587,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2021,
+        "hit_rate": 0.44,
+        "max_event_equity_drawdown": -0.07577103337905855,
+        "mean": -0.0009217321335648863,
+        "median": -0.0016006991252089692,
+        "n": 75,
+        "p25": -0.004989212135576941,
+        "sharpe": -1.192436554256413,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2022,
+        "hit_rate": 0.41333333333333333,
+        "max_event_equity_drawdown": -0.1000806147495773,
+        "mean": -0.0013267846917247475,
+        "median": -0.0016006991252089692,
+        "n": 75,
+        "p25": -0.004741578588543597,
+        "sharpe": -1.966104499951024,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2023,
+        "hit_rate": 0.4,
+        "max_event_equity_drawdown": -0.10271325043205226,
+        "mean": -0.001362050200050867,
+        "median": -0.0016057337011016175,
+        "n": 75,
+        "p25": -0.005143092294090261,
+        "sharpe": -1.825626817667755,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2024,
+        "hit_rate": 0.41333333333333333,
+        "max_event_equity_drawdown": -0.07239170205663747,
+        "mean": -0.0009214522385234708,
+        "median": -0.0016006991252089692,
+        "n": 75,
+        "p25": -0.004874914547037782,
+        "sharpe": -1.2977754501568048,
+        "worst": -0.01455997661360303
+      },
+      {
+        "excluded_year": 2025,
+        "hit_rate": 0.44,
+        "max_event_equity_drawdown": -0.07063026780023896,
+        "mean": -0.0008924348650538219,
+        "median": -0.0015300560405111612,
+        "n": 75,
+        "p25": -0.004989212135576941,
+        "sharpe": -1.1483399761160933,
+        "worst": -0.023794997495418267
+      },
+      {
+        "excluded_year": 2026,
+        "hit_rate": 0.43037974683544306,
+        "max_event_equity_drawdown": -0.06485149230954546,
+        "mean": -0.0007377833400285148,
+        "median": -0.0015300560405111612,
+        "n": 79,
+        "p25": -0.004741578588543597,
+        "sharpe": -1.0171739323433842,
+        "worst": -0.023794997495418267
+      }
+    ],
+    "positive_year_rate_by_sum": 0.2727272727272727,
+    "single_year_contribution_dominance": -0.20417214813636042
+  }
+}
