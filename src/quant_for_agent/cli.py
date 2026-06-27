@@ -8,7 +8,7 @@ import typer
 
 from .alpaca_client import AlpacaGateway
 from .backtest import BacktestConfig, run_backtest
-from .config import DEFAULT_DB_PATH
+from .config import DEFAULT_DB_PATH, AlpacaConfig
 from .daemon import DaemonConfig, TradingDaemon
 from .data import load_price_csv
 from .storage import Store
@@ -116,12 +116,42 @@ def model_list(db: Optional[Path] = None):
 @daemon_app.command("run")
 def daemon_run(
     interval_seconds: int = typer.Option(300),
-    dry_run: bool = typer.Option(True, help="Keep true unless intentionally placing orders"),
-    live: bool = typer.Option(False, help="Required to place Alpaca orders"),
+    submit_orders: bool = typer.Option(
+        False,
+        "--submit-orders",
+        help="Submit orders to the configured Alpaca account. Default is simulation/no-submit.",
+    ),
+    allow_live_brokerage: bool = typer.Option(
+        False,
+        "--allow-live-brokerage",
+        help="Permit order submission when ALPACA_PAPER=false. Required for live brokerage.",
+    ),
+    dry_run: Optional[bool] = typer.Option(
+        None,
+        "--dry-run/--no-dry-run",
+        hidden=True,
+        help="Deprecated: use default simulation mode or --submit-orders.",
+    ),
+    live: bool = typer.Option(False, "--live", hidden=True, help="Deprecated live-order interlock."),
     once: bool = typer.Option(False, help="Run one tick and exit"),
     db: Optional[Path] = None,
 ):
-    effective_dry_run = dry_run or not live
+    effective_dry_run = not submit_orders
+
+    if effective_dry_run:
+        typer.echo("SIMULATION ONLY: no Alpaca orders will be submitted.")
+    else:
+        alpaca_config = AlpacaConfig.from_env()
+        if not alpaca_config.paper and not allow_live_brokerage:
+            typer.echo(
+                "Refusing to submit live brokerage orders: ALPACA_PAPER=false requires "
+                "--allow-live-brokerage.",
+                err=True,
+            )
+            raise typer.Exit(code=1)
+        account_mode = "paper" if alpaca_config.paper else "live brokerage"
+        typer.echo(f"Submitting orders to Alpaca {account_mode} account.")
+
     daemon = TradingDaemon(
         store=_store(db),
         alpaca=AlpacaGateway(),
