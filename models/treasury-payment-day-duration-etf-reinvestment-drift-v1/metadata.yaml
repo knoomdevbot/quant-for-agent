@@ -1,0 +1,11 @@
+name: treasury-payment-day-duration-etf-reinvestment-drift-v1
+issue_id: AR-123
+status: research_evaluated
+suggested_decision: rejected
+family: event_calendar_fixed_income_reinvestment_flow
+hypothesis: Deterministic, publicly known Treasury coupon/principal payment dates create same-day reinvestment demand/support in direct Treasury duration ETFs.
+falsifier: Reject if the primary prior-close to payment-date-close basket return after 5 bps cost has non-positive median event return, materially negative p25, hit rate below ~55%, placebo percentile below ~0.85, sparse events, one-regime dominance, or disappears outside turn-of-month/month-end.
+data_source: qfa/Alpaca real daily OHLCV only; no CSV, no --data-csv, no daemon, no orders.
+model_file: model.py
+evaluation_latest: evaluations/latest.json
+summary: evaluations/latest.md

@@ -1,0 +1,43 @@
+name: treasury-payment-day-duration-etf-reinvestment-drift-v1
+version: 1
+issue_id: AR-123
+symbols:
+  - TLT
+  - IEF
+  - SHY
+  - GOVT
+  - TIP
+  - EDV
+  - ZROZ
+  - LQD
+  - HYG
+  - BIL
+  - SGOV
+selected_symbols:
+  - TLT
+  - IEF
+  - SHY
+  - GOVT
+  - TIP
+  - EDV
+  - ZROZ
+controls:
+  - LQD
+  - HYG
+  - BIL
+  - SGOV
+timeframe: 1Day
+start: '2016-01-01'
+primary_horizon: prior_close_to_payment_date_close
+cost_bps:
+  primary: 5
+  sensitivity: [10, 20]
+leverage: 1.0
+shorting: false
+orders_enabled: false
+data_constraints:
+  source: qfa/Alpaca real daily OHLCV
+  no_csv: true
+  no_data_csv_argument: true
+  no_daemon: true
+  no_orders: true
