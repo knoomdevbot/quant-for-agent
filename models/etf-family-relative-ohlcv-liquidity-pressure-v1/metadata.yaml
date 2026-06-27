@@ -1,0 +1,24 @@
+model_name: etf-family-relative-ohlcv-liquidity-pressure-v1
+issue_id: AR-121
+status: researched_rejected
+created_utc: '2026-06-27T07:15:45Z'
+research_type: fast_falsification
+implementation: rule_based_qfa_generate_signals
+asset_class: liquid_us_listed_etfs
+data_source: qfa/Alpaca real daily OHLCV
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+decision_suggestion: rejected
+primary_metric_summary:
+  primary_10bps_sharpe: -5.115264
+  random_window_median_sharpe_10bps: -5.723304
+  random_window_p25_sharpe_10bps: -5.9111895
+  random_window_positive_rate_10bps: 0.0
+  max_abs_proxy_correlation: 0.862731
+artifacts:
+  latest_json: models/etf-family-relative-ohlcv-liquidity-pressure-v1/evaluations/latest.json
+  latest_markdown: models/etf-family-relative-ohlcv-liquidity-pressure-v1/evaluations/latest.md
+  immutable_run: models/etf-family-relative-ohlcv-liquidity-pressure-v1/evaluations/runs/ar121_qfa_alpaca_real_20260627T071545Z.json

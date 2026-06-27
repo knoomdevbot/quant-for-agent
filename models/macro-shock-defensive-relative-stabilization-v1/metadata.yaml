@@ -1,0 +1,12 @@
+id: AR-122
+name: macro-shock-defensive-relative-stabilization-v1
+family: macro_shock_sector_relative_stabilization
+status: researched
+decision: rejected
+data_source: Alpaca real daily OHLCV via qfa AlpacaGateway
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+created_at_utc: 2026-06-27T07:16:22Z

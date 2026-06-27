@@ -899,22 +899,21 @@ issues:
 - id: AR-121
   title: 'ETF family-relative OHLCV liquidity-pressure proxy allocator'
   model_name: etf-family-relative-ohlcv-liquidity-pressure-v1
-  status: queued
-  priority: preflight_queue_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: etf_liquidity_pressure_mean_reversion
   issue_path: alpha_research/issues/AR-121.md
 - id: AR-122
   title: 'Macro-shock defensive-sector relative stabilization event-study'
   model_name: macro-shock-defensive-relative-stabilization-v1
-  status: queued
-  priority: preflight_queue_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: macro_shock_sector_relative_stabilization
   issue_path: alpha_research/issues/AR-122.md
-active_batch:
+active_batch: []
+last_realdata_batch:
 - AR-121
 - AR-122
-last_realdata_batch:
-- AR-120
-updated_at: '2026-06-27T05:21:32Z'
+updated_at: '2026-06-27T07:25:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 111
+tried_ideas_count: 113

@@ -1,0 +1,49 @@
+model_name: macro-shock-defensive-relative-stabilization-v1
+issue_id: AR-122
+data_source: qfa_alpaca_real_daily_ohlcv
+timeframe: 1Day
+selected_universe:
+  - SPY
+  - QQQ
+  - IWM
+  - DIA
+  - USMV
+  - SPLV
+  - QUAL
+  - MTUM
+  - XLK
+  - XLY
+  - XLP
+  - XLV
+  - XLU
+  - XLF
+  - XLI
+  - XLE
+  - XLB
+  - XLRE
+  - XLC
+  - HYG
+  - LQD
+  - SHY
+  - IEF
+  - TLT
+  - TIP
+  - GLD
+  - DBC
+costs_bps:
+  primary: 10
+  stress: [5, 20]
+shock_rules:
+  spy_1d_return_lte: -0.018
+  spy_3d_return_lte: -0.04
+  spy_3d_hyg_3d_credit_combo: [-0.025, -0.012]
+  spy_3d_tlt_3d_duration_stress_combo: [-0.025, -0.018]
+  realized_vol_rank_gate: 0.80
+stabilization_features:
+  - defensive_vs_cyclical_3d_relative_return_rank
+  - defensive_close_location_3d_rank
+  - defensive_vs_cyclical_5d_vol_compression_rank
+holding_window_calendar_days: 10
+top_n: 3
+shy_fallback_weight: 1.0
+active_shy_cash_sleeve: 0.05
