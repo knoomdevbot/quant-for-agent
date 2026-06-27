@@ -1,0 +1,67 @@
+alpha_id: AR-091
+model_name: polymarket-macro-probability-shock-etf-allocator-v1
+status: blocked
+model_path: models/polymarket-macro-probability-shock-etf-allocator-v1/model.py
+universe:
+  candidate_pool:
+    - SPY
+    - QQQ
+    - IWM
+    - TLT
+    - IEF
+    - SHY
+    - GLD
+    - HYG
+    - LQD
+    - XLE
+    - XLU
+    - XLV
+    - XLF
+    - KRE
+    - ITA
+    - XLI
+    - XLP
+    - XLY
+    - FXI
+    - EEM
+    - USO
+    - UUP
+  selected_symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - TLT
+    - IEF
+    - SHY
+    - GLD
+    - HYG
+    - LQD
+    - XLE
+    - XLU
+    - XLV
+    - XLF
+    - KRE
+    - ITA
+    - XLI
+    - XLP
+    - XLY
+    - FXI
+    - EEM
+    - USO
+    - UUP
+position_sizing:
+  gross_exposure_max: 1.0
+  max_single_weight: 0.40
+  fallback_symbol: SHY
+signal:
+  external_source_required: Polymarket public read-only APIs
+  implementation_state: blocked_no_committed_external_signal
+  timestamp_lag_convention: would require market probability observation available strictly before next ETF close; not implemented because reproducible point-in-time market discovery/history was not established
+costs:
+  one_way_turnover_bps_assumption: 10
+  applied_in_backtest: false
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

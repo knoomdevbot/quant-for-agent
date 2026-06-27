@@ -1,0 +1,20 @@
+issue_id: AR-074
+model_name: macro-event-liquidity-gap-etf-recovery-v1
+created_at_utc: '2026-06-26T13:24:40Z'
+status: evaluated_rejected
+hypothesis: Scheduled macro-event liquidity gaps and post-event recovery flows can create ETF recovery allocation opportunities using timestamp-safe OHLCV proxies.
+universe: [SPY, QQQ, IWM, TLT, GLD, XLU, XLE, SHY]
+artifacts:
+  model: models/macro-event-liquidity-gap-etf-recovery-v1/model.py
+  config: models/macro-event-liquidity-gap-etf-recovery-v1/config.yaml
+  evaluation_latest_json: models/macro-event-liquidity-gap-etf-recovery-v1/evaluations/latest.json
+  evaluation_latest_md: models/macro-event-liquidity-gap-etf-recovery-v1/evaluations/latest.md
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+notes:
+  - Evaluation artifacts contain compact summary metrics only; raw daily returns, equity curves, and weight tails are omitted.
+  - Alpaca credentials are never stored in artifacts.

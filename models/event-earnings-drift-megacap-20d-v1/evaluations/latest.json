@@ -1,0 +1,229 @@
+{
+  "bad_result_policy": "no refinement/direct inversion/extension of rejected event-drift proxy retained",
+  "costs_slippage": {
+    "applied_in_qfa": false,
+    "note": "qfa backtest CLI has no transaction-cost/slippage parameter; reported backtest metrics are pre-cost. Turnover estimate is reported separately to frame likely cost sensitivity.",
+    "requested_assumption_bps": 5
+  },
+  "created_at_utc": "2026-06-26T07:25:11Z",
+  "data": {
+    "equity_curve_points": 990,
+    "main_end": "2025-12-15",
+    "main_start": "2022-01-03",
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "META",
+      "GOOGL",
+      "TSLA"
+    ],
+    "timeframe": "1Day"
+  },
+  "decision_rationale": "Rejected by controller: severe full-window loss/drawdown and one catastrophic random window outweigh positive median random-window Sharpe.",
+  "divergent_child_idea": {
+    "hypothesis": "Different liquidity/seasonality mechanism, not event-drift continuation.",
+    "id": "AR-038",
+    "title": "Liquidity-seasonality balance-sheet-window alpha"
+  },
+  "evaluation_type": "real_data_qfa_alpaca_backtest_with_random_windows",
+  "issue_id": "AR-014",
+  "metrics": {
+    "annualized_return": -0.29244556,
+    "annualized_volatility": 0.54699733,
+    "final_equity": 25690.4012,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.92820358,
+    "periods": 990,
+    "sharpe": 0.10436232,
+    "total_return": -0.74309599,
+    "win_rate": 0.47676768
+  },
+  "model_name": "event-earnings-drift-megacap-20d-v1",
+  "orthogonality_checks": {
+    "attempted": true,
+    "method": "Pearson correlation of daily equity returns from retained qfa JSON equity curves over overlapping timestamps where available.",
+    "results": [
+      {
+        "correlation": 0.46785201,
+        "model_name": "crosssec-momentum-liquid-megacap-daily-v1",
+        "overlap_periods": 489,
+        "path": "/Users/moonk/quant-for-agent/models/crosssec-momentum-liquid-megacap-daily-v1/evaluations/latest.json"
+      }
+    ]
+  },
+  "parameters": {
+    "event_proxy": "abnormal overnight gap plus same-day close-to-close move plus abnormal volume",
+    "hold_days": 20,
+    "lookback_days": 80,
+    "max_abs_weight": 0.25,
+    "min_abs_close_to_close": 0.015,
+    "min_abs_gap": 0.025,
+    "min_volume_multiple": 1.35
+  },
+  "qfa": {
+    "command_template": "source alpaca.env; export ALPACA_API_KEY=${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}; .venv/bin/qfa backtest run models/event-earnings-drift-megacap-20d-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL,TSLA --start <start> --end <end> --timeframe 1Day --initial-cash 100000 --db /tmp/qfa-ar014-research-98284.sqlite3",
+    "daemon_run": false,
+    "data_source": "Alpaca real market data via qfa AlpacaGateway; no CSV; --data-csv was not used",
+    "db_artifact_retained": false,
+    "db_path_used_during_run": "/tmp/qfa-ar014-research-98284.sqlite3",
+    "run_ids": {
+      "main_20220103_20251215": 1,
+      "random1_20220301_20221215": 3,
+      "random2_20230215_20240215": 4,
+      "random3_20240501_20250501": 5,
+      "random4_20250115_20251215": 6,
+      "random5_20220901_20230901": 7,
+      "random6_20231101_20241101": 8,
+      "smoke_20250101_20250331": 2
+    },
+    "trading_performed": false
+  },
+  "random_period_protocol": {
+    "best_sharpe": 2.00788181,
+    "median_sharpe": 0.83975742,
+    "median_total_return": 0.15665476,
+    "p25_sharpe": 0.23852784,
+    "positive_sharpe_windows": 5,
+    "positive_window_rate": 0.83333333,
+    "runs": [
+      {
+        "artifact": "evaluations/runs/ar014_qfa_real_alpaca_20260626T0021Z_random1_20220301_20221215.json",
+        "end": "2022-12-15",
+        "label": "random1_20220301_20221215",
+        "metrics": {
+          "annualized_return": 0.20987839,
+          "annualized_volatility": 0.26808289,
+          "final_equity": 116323.6528,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.13721489,
+          "periods": 200,
+          "sharpe": 0.84300207,
+          "total_return": 0.16323653,
+          "win_rate": 0.395
+        },
+        "qfa_run_id": 3,
+        "start": "2022-03-01"
+      },
+      {
+        "artifact": "evaluations/runs/ar014_qfa_real_alpaca_20260626T0021Z_random2_20230215_20240215.json",
+        "end": "2024-02-15",
+        "label": "random2_20230215_20240215",
+        "metrics": {
+          "annualized_return": 0.15136018,
+          "annualized_volatility": 0.18987029,
+          "final_equity": 115007.2986,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.14234899,
+          "periods": 250,
+          "sharpe": 0.83651276,
+          "total_return": 0.15007299,
+          "win_rate": 0.384
+        },
+        "qfa_run_id": 4,
+        "start": "2023-02-15"
+      },
+      {
+        "artifact": "evaluations/runs/ar014_qfa_real_alpaca_20260626T0021Z_random3_20240501_20250501.json",
+        "end": "2025-05-01",
+        "label": "random3_20240501_20250501",
+        "metrics": {
+          "annualized_return": -0.05374446,
+          "annualized_volatility": 0.36067191,
+          "final_equity": 94687.8046,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.39427123,
+          "periods": 249,
+          "sharpe": 0.03919954,
+          "total_return": -0.05312195,
+          "win_rate": 0.42971888
+        },
+        "qfa_run_id": 5,
+        "start": "2024-05-01"
+      },
+      {
+        "artifact": "evaluations/runs/ar014_qfa_real_alpaca_20260626T0021Z_random4_20250115_20251215.json",
+        "end": "2025-12-15",
+        "label": "random4_20250115_20251215",
+        "metrics": {
+          "annualized_return": 0.27315893,
+          "annualized_volatility": 0.24669933,
+          "final_equity": 124540.3263,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.13825337,
+          "periods": 229,
+          "sharpe": 1.10218414,
+          "total_return": 0.24540326,
+          "win_rate": 0.38864629
+        },
+        "qfa_run_id": 6,
+        "start": "2025-01-15"
+      },
+      {
+        "artifact": "evaluations/runs/ar014_qfa_real_alpaca_20260626T0021Z_random5_20220901_20230901.json",
+        "end": "2023-09-01",
+        "label": "random5_20220901_20230901",
+        "metrics": {
+          "annualized_return": 0.56974717,
+          "annualized_volatility": 0.23879538,
+          "final_equity": 156413.9575,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.14994355,
+          "periods": 250,
+          "sharpe": 2.00788181,
+          "total_return": 0.56413958,
+          "win_rate": 0.436
+        },
+        "qfa_run_id": 7,
+        "start": "2022-09-01"
+      },
+      {
+        "artifact": "evaluations/runs/ar014_qfa_real_alpaca_20260626T0021Z_random6_20231101_20241101.json",
+        "end": "2024-11-01",
+        "label": "random6_20231101_20241101",
+        "metrics": {
+          "annualized_return": -0.91276886,
+          "annualized_volatility": 0.96790708,
+          "final_equity": 8807.9584,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.9271268,
+          "periods": 251,
+          "sharpe": -1.00292976,
+          "total_return": -0.91192042,
+          "win_rate": 0.38645418
+        },
+        "qfa_run_id": 8,
+        "start": "2023-11-01"
+      }
+    ],
+    "window_count": 6,
+    "worst_max_drawdown": -0.9271268,
+    "worst_sharpe": -1.00292976
+  },
+  "smoke_metrics": {
+    "annualized_return": 0.1218559,
+    "annualized_volatility": 0.09232246,
+    "final_equity": 102681.7956,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.02628384,
+    "periods": 58,
+    "sharpe": 1.29097993,
+    "total_return": 0.02681796,
+    "win_rate": 0.15517241
+  },
+  "suggested_decision": "rejected",
+  "turnover": {
+    "exposure_day_rate": 0.88787879,
+    "max_daily_one_way_turnover": 1.0,
+    "mean_daily_one_way_turnover": 0.08099117,
+    "median_daily_one_way_turnover": 0.00620529,
+    "periods": 990
+  },
+  "warnings": [
+    "Proxy events are price/volume approximations because qfa/Alpaca path here exposes OHLCV bars, not a point-in-time earnings calendar.",
+    "Metrics are pre-cost; qfa lacks native cost/slippage support.",
+    "No trades were placed and no daemon was run.",
+    "Research output only, not investment advice."
+  ]
+}

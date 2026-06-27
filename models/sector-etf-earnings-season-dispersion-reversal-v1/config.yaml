@@ -1,0 +1,49 @@
+name: sector-etf-earnings-season-dispersion-reversal-v1
+alpha_id: AR-098
+parent_id: AR-086
+family: sector_dispersion_reversal
+status: research_evaluated
+suggested_decision: rejected
+model_path: models/sector-etf-earnings-season-dispersion-reversal-v1/model.py
+symbols:
+  - XLK
+  - XLY
+  - XLP
+  - XLV
+  - XLF
+  - XLI
+  - XLE
+  - XLU
+  - XLB
+  - XLRE
+  - SPY
+timeframe: 1Day
+data_source: qfa_alpaca_real_market_data
+research_only: true
+allow_orders: false
+allow_daemon: false
+allow_csv_data: false
+parameters:
+  residual_lookback: 5
+  dispersion_window: 60
+  min_history: 90
+  min_sector_count: 8
+  dispersion_z_entry: 0.75
+  residual_z_entry: 0.40
+  max_abs_weight: 0.18
+  earnings_season_proxy: "Jan/Apr/Jul/Oct day >= 10 and Feb/May/Aug/Nov day <= 15"
+risk:
+  gross_exposure_qfa_normalized_when_active: 1.0
+  max_single_etf_abs_weight_before_qfa_normalize: 0.18
+  sector_dollar_neutral: true
+  leverage: none
+costs_tested_one_way_bps: [5, 10, 20]
+evaluation:
+  latest_json: models/sector-etf-earnings-season-dispersion-reversal-v1/evaluations/latest.json
+  latest_markdown: models/sector-etf-earnings-season-dispersion-reversal-v1/evaluations/latest.md
+  random_window_count: 10
+  primary_window: [2021-01-04, 2025-12-15]
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

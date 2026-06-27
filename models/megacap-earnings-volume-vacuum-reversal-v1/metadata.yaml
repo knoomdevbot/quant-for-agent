@@ -1,0 +1,40 @@
+alpha_id: AR-084
+model_name: megacap-earnings-volume-vacuum-reversal-v1
+title: Mega-cap post-earnings volume-vacuum reversal allocator
+parent_id: AR-076
+family: event_liquidity_reversal
+status: rejected
+created_at_utc: '2026-06-26T14:34:25Z'
+owner: hermes-agent
+artifacts:
+  model: model.py
+  config: config.yaml
+  readme: README.md
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md
+  immutable_run: evaluations/runs/ar084_qfa_alpaca_real_20260626T143425Z.json
+data_contract:
+  data_source: Alpaca real market data through qfa/AlpacaGateway
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  db_artifact_retained: false
+  raw_daily_paths_retained: false
+evaluation_summary:
+  primary_start: '2024-01-01'
+  primary_end: '2025-12-31'
+  primary_sharpe_5bps: 0.63444419
+  primary_annualized_return_5bps: 0.01587829
+  primary_annualized_volatility_5bps: 0.02533439
+  primary_max_drawdown_5bps: -0.01965929
+  random_median_sharpe_5bps: 0.07856542
+  random_p25_sharpe_5bps: -0.77604925
+  random_worst_sharpe_5bps: -1.41967623
+  random_positive_window_rate: 0.5
+  orthogonality_status: pass_available_max_corr_le_0p60
+  suggested_decision: rejected
+warnings:
+  - True point-in-time earnings calendar was unavailable via qfa/Alpaca daily OHLCV; abnormal-volume event proxy used.
+  - qfa native cost/slippage is unavailable; 5 bps one-way turnover haircut applied externally.
+  - Peer orthogonality was limited because retained daily return streams were not present in compared artifacts.

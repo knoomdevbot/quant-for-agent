@@ -1,0 +1,15 @@
+model_name: tsmom-voltarget-liquid-etf-regimebrake-v1
+issue_id: AR-036
+status: evaluated
+created_at_utc: '2026-06-26T07:30:00Z'
+evaluated_at_utc: '2026-06-26T08:56:54Z'
+family: time_series_momentum
+parent_alpha: AR-015
+hypothesis: AR-015 ETF TSMOM may improve worst-window Sharpe/drawdown by adding an SPY regime brake and explicit turnover throttling.
+qfa_contract: generate_signals(context) -> dict[str, float]
+data_policy: Alpaca/qfa real market data only; never use --data-csv.
+trading_policy: Research-only; no daemon and no trades.
+suggested_decision: rejected
+primary_metric: 5bps_costed_main_sharpe
+primary_sharpe: 1.11293094
+random_median_sharpe: 0.48820084

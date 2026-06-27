@@ -1,0 +1,40 @@
+model_name: liquidity-exhaustion-recovery-megacap-v1
+issue_id: AR-046
+family: liquidity_reversal
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - AVGO
+  - TSLA
+  - JPM
+  - LLY
+data:
+  source: alpaca_qfa_daily_ohlcv
+  timeframe: 1Day
+  csv_allowed: false
+  data_csv_allowed: false
+risk:
+  gross_exposure: 1.0
+  max_abs_weight: 0.18
+  min_breadth_count: 4
+parameters:
+  volume_z_window: 60
+  range_z_window: 60
+  min_history: 65
+  min_breadth_count: 4
+  min_net_intensity: 4.0
+  clv_extreme: 0.22
+  volume_z_min: 0.75
+  range_z_min: 0.25
+  basket_floor_fraction: 0.60
+evaluation:
+  primary_start: '2024-01-01'
+  primary_end: '2025-12-31'
+  random_windows: 8
+  turnover_cost_bps: 5
+  no_daemon: true
+  no_trades: true

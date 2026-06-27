@@ -1,0 +1,43 @@
+model_name: etf-flow-risk-breadth-regime-v1
+issue_id: AR-022
+parent_issue_id: AR-006
+family: regime_allocation
+data_source: Alpaca real market data via qfa AlpacaGateway; no CSV
+symbols:
+  - SPY
+  - QQQ
+  - IWM
+  - XLF
+  - XLY
+  - XLI
+  - SMH
+  - HYG
+  - TLT
+  - IEF
+  - GLD
+  - XLU
+  - XLP
+  - XLV
+  - LQD
+  - SHY
+backtest:
+  start: '2021-01-01'
+  end: '2025-12-31'
+  timeframe: 1Day
+  initial_cash: 100000
+parameters:
+  min_periods: 126
+  breadth_lookback: 20
+  trend_lookback: 63
+  volume_lookback: 20
+  vol_window: 20
+  top_n: 4
+  max_abs_weight: 0.35
+  target_vol: 0.10
+  risk_on_threshold: 0.08
+  risk_off_threshold: -0.04
+risk_controls:
+  research_only: true
+  daemon_run: false
+  trading_performed: false
+  max_gross_exposure: 1.0

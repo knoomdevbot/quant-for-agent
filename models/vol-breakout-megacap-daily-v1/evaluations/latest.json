@@ -1,0 +1,63 @@
+{
+  "costs": {
+    "applied": false,
+    "assumption_bps": 5,
+    "status": "documented_not_applied_current_qfa_backtest_cli_has_no_cost_or_slippage_parameter"
+  },
+  "created_at": "2026-06-26T06:20:36Z",
+  "data_source": "Alpaca real market data via qfa backtest (no --data-csv; no CSV fixtures)",
+  "divergent_child_idea": "AR-004-D1: Mega-cap overnight gap-reversal/event-liquidity alpha using open-to-close reversion after large news-driven gaps rather than intraday range continuation.",
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "alpaca_real_market_data_backtest",
+  "issue_id": "AR-004",
+  "metrics_pre_cost": {
+    "annualized_return": -0.1564594,
+    "annualized_volatility": 0.20937325,
+    "final_equity": 71348.5093,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.37851101,
+    "periods": 500,
+    "sharpe": -0.7039863,
+    "total_return": -0.28651491,
+    "win_rate": 0.092
+  },
+  "model_name": "vol-breakout-megacap-daily-v1",
+  "model_parameters": {
+    "atr_window": 20,
+    "breakout_threshold": 1.5,
+    "close_location_filter": 0.8,
+    "gross_exposure": 1.0,
+    "max_abs_weight": 0.25,
+    "min_symbols": 3
+  },
+  "period": {
+    "end": "2025-12-31",
+    "periods": 500,
+    "start": "2024-01-01",
+    "timeframe": "1Day"
+  },
+  "qfa": {
+    "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; . .venv/bin/activate; qfa backtest run /Users/moonk/quant-for-agent/models/vol-breakout-megacap-daily-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL,TSLA --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db /Users/moonk/quant-for-agent/models/vol-breakout-megacap-daily-v1/evaluations/qfa_realdata.sqlite > /Users/moonk/quant-for-agent/models/vol-breakout-megacap-daily-v1/evaluations/runs/qfa_realdata_20240101_20251231_run1.json",
+    "run_id": 1,
+    "run_json_path": "/Users/moonk/quant-for-agent/models/vol-breakout-megacap-daily-v1/evaluations/runs/qfa_realdata_20240101_20251231_run1.json",
+    "db_path_used_during_run": "/Users/moonk/quant-for-agent/models/vol-breakout-megacap-daily-v1/evaluations/qfa_realdata.sqlite",
+    "db_artifact_retained": false,
+    "db_retention_note": "SQLite DB artifact removed before commit per alpha-model-management large artifact policy; compact JSON/Markdown summaries retained."
+  },
+  "refinement_child_idea": "AR-004-R1: Volatility breakout continuation with market-regime filter and tighter exit/hold logic to reduce drawdowns and avoid bearish/choppy regimes.",
+  "suggested_decision": "reject_or_research_watchlist_only; negative Sharpe and large drawdown fail AR-004 acceptance threshold before costs",
+  "universe": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA"
+  ],
+  "warnings": [
+    "Costs/slippage were not applied because qfa backtest CLI exposes no cost/slippage parameter; reported metrics are pre-cost.",
+    "SQLite artifact evaluations/qfa_realdata.sqlite was created under the model folder and should be removed by controller before commit.",
+    "No accepted alpha return-stream library was found/used for orthogonality checks in this pass."
+  ]
+}

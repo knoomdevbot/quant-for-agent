@@ -1,0 +1,535 @@
+{
+  "alpha_id": "AR-083",
+  "artifacts": {
+    "README_path": "/Users/moonk/quant-for-agent/models/sector-breadth-defensive-trend-allocator-v1/README.md",
+    "config_path": "/Users/moonk/quant-for-agent/models/sector-breadth-defensive-trend-allocator-v1/config.yaml",
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/sector-breadth-defensive-trend-allocator-v1/evaluations/runs/ar083_qfa_alpaca_real_20260626T143608Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/sector-breadth-defensive-trend-allocator-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/sector-breadth-defensive-trend-allocator-v1/evaluations/latest.md",
+    "metadata_path": "/Users/moonk/quant-for-agent/models/sector-breadth-defensive-trend-allocator-v1/metadata.yaml",
+    "model_path": "/Users/moonk/quant-for-agent/models/sector-breadth-defensive-trend-allocator-v1/model.py"
+  },
+  "children": {
+    "divergent_child": {
+      "mechanism": "Different return driver: reversal after abnormal sector ETF volume/range exhaustion, not breadth-confirmed trend or defensive leadership.",
+      "title": "Sector ETF post-rebalance volume exhaustion reversal allocator"
+    },
+    "refinement_child": null
+  },
+  "command": "Credentials were sourced from the configured secret profile with values redacted; qfa backtest run used the model path, listed ETF symbols, 1Day timeframe, 100000 initial cash, and a temporary SQLite database; no CSV input, daemon, or order command was used.",
+  "costs_slippage": {
+    "external_turnover_haircut_applied": true,
+    "method": "0.5 * daily target-weight absolute change times 5 bps subtracted from next close-to-close portfolio return",
+    "one_way_bps": 5.0,
+    "qfa_native_costs_applied": false
+  },
+  "created_at_utc": "2026-06-26T14:36:08Z",
+  "data_source": "Alpaca real daily market data through qfa/AlpacaGateway; no CSV input.",
+  "date_ranges": {
+    "data_end": "2025-12-15",
+    "data_start": "2019-01-01",
+    "primary_end": "2025-12-15",
+    "primary_start": "2024-01-02",
+    "timeframe": "1Day"
+  },
+  "db_artifact_retained": false,
+  "decision_reason": "p25 random-window Sharpe negative after 5 bps costs; max drawdown at or beyond unacceptable ~20% threshold",
+  "evaluation_status": "completed_real_data_backtest",
+  "issue_id": "AR-083",
+  "metrics": {
+    "annualized_return": -0.09743285,
+    "annualized_volatility": 0.20057746,
+    "max_drawdown": -0.25603581,
+    "median_sharpe": 0.1370738,
+    "p25_sharpe": -0.04859923,
+    "positive_window_rate": 0.7,
+    "primary_external_cost_adjusted_5bps_one_way": {
+      "annualized_return": -0.09743285,
+      "annualized_volatility": 0.20057746,
+      "final_equity": 81961.3444,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.25603581,
+      "periods": 489,
+      "sharpe": -0.39731969,
+      "total_return": -0.18038656,
+      "win_rate": 0.37218814
+    },
+    "primary_qfa_pre_cost": {
+      "annualized_return": -0.0910412,
+      "annualized_volatility": 0.20057782,
+      "final_equity": 83091.386,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.2556285,
+      "periods": 489,
+      "sharpe": -0.36215209,
+      "total_return": -0.16908614,
+      "win_rate": 0.37627812
+    },
+    "random_window_summary_metrics": {
+      "count": 10,
+      "median_mean_daily_turnover": 0.04292636,
+      "median_sharpe": 0.1370738,
+      "p25_sharpe": -0.04859923,
+      "positive_window_rate": 0.7,
+      "sharpe_values": [
+        0.53329966,
+        0.11783075,
+        0.15631685,
+        0.38399788,
+        0.02653437,
+        -0.82848241,
+        0.82594876,
+        -0.07364377,
+        -0.33113136,
+        0.64504632
+      ],
+      "worst_max_drawdown": -0.25603581,
+      "worst_period_sharpe": -0.82848241
+    },
+    "turnover_proxy": {
+      "active_day_fraction": 0.71574642,
+      "annualized_turnover_proxy": 14.1073933,
+      "max_daily_one_way_turnover": 0.78293914,
+      "mean_daily_one_way_turnover": 0.05598172,
+      "mean_gross_exposure": 0.71574642,
+      "median_daily_one_way_turnover": 0.02874477
+    },
+    "worst_period_sharpe": -0.82848241
+  },
+  "model_name": "sector-breadth-defensive-trend-allocator-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "availability": {
+      "AR-037": "unavailable_no_retained_curve_in_run_json",
+      "AR-049": "unavailable_no_retained_curve_in_run_json",
+      "AR-051": "unavailable_no_retained_curve_in_run_json",
+      "AR-063": "unavailable_no_retained_curve_in_run_json",
+      "AR-077": "unavailable_no_retained_curve_in_run_json"
+    },
+    "correlations": [],
+    "max_abs_correlation": null,
+    "method": "Pearson correlation of overlapping daily equity returns from retained prior run JSON curves; AR-083 curve used in memory only and not written.",
+    "status": "unavailable"
+  },
+  "parent_id": "AR-075",
+  "qfa_run_ids": {
+    "primary_direct_qfa_engine": "direct_python_qfa_engine_primary",
+    "random_direct_qfa_engine_window_ids": [
+      "direct_python_qfa_engine_2020_stress",
+      "direct_python_qfa_engine_2021_reopen",
+      "direct_python_qfa_engine_2022_bear",
+      "direct_python_qfa_engine_2023_disinflation",
+      "direct_python_qfa_engine_2024_concentration",
+      "direct_python_qfa_engine_2025_partial",
+      "direct_python_qfa_engine_random_2020_2021",
+      "direct_python_qfa_engine_random_2021_2022",
+      "direct_python_qfa_engine_random_2022_2023",
+      "direct_python_qfa_engine_random_2023_2024"
+    ],
+    "smoke_cli_run_id": 1
+  },
+  "qfa_smoke": {
+    "db_deleted": true,
+    "db_path": "/tmp/qfa-ar083-smoke-20260626T143608Z.sqlite3",
+    "end": "2024-06-28",
+    "id": 1,
+    "metrics": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "final_equity": 100000.0,
+      "initial_cash": 100000.0,
+      "max_drawdown": 0.0,
+      "periods": 122,
+      "sharpe": 0.0,
+      "total_return": 0.0,
+      "win_rate": 0.0
+    },
+    "start": "2024-01-02"
+  },
+  "raw_daily_paths_retained": false,
+  "suggested_decision": "rejected",
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "XLF",
+    "XLK",
+    "XLE",
+    "XLU",
+    "XLV",
+    "XLI",
+    "XLP"
+  ],
+  "warnings_failure_modes": [
+    "p25 random-window Sharpe negative after 5 bps costs",
+    "max drawdown at or beyond unacceptable ~20% threshold",
+    "qfa CLI lacks native cost/slippage flags; cost haircut applied externally",
+    "Universe has no cash/SHY fallback, so risk-off state is lower gross defensive sectors/cash residual",
+    "Model has 140-day warmup in each qfa window, causing early-window flat exposure"
+  ],
+  "windows": [
+    {
+      "end": "2020-12-31",
+      "label": "2020_stress",
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.05399924,
+        "annualized_volatility": 0.10997258,
+        "final_equity": 104917.1066,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.09706836,
+        "periods": 230,
+        "sharpe": 0.53329966,
+        "total_return": 0.04917107,
+        "win_rate": 0.23478261
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.05952706,
+        "annualized_volatility": 0.1100154,
+        "final_equity": 105419.204,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.09661575,
+        "periods": 230,
+        "sharpe": 0.5806856,
+        "total_return": 0.05419204,
+        "win_rate": 0.23478261
+      },
+      "qfa_run_id": "direct_python_qfa_engine_2020_stress",
+      "start": "2020-02-03",
+      "turnover_proxy": {
+        "active_day_fraction": 0.39565217,
+        "annualized_turnover_proxy": 10.47204026,
+        "max_daily_one_way_turnover": 0.60154881,
+        "mean_daily_one_way_turnover": 0.04155572,
+        "mean_gross_exposure": 0.39565217,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2021-12-31",
+      "label": "2021_reopen",
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.00640265,
+        "annualized_volatility": 0.08416997,
+        "final_equity": 100635.1678,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.07693746,
+        "periods": 250,
+        "sharpe": 0.11783075,
+        "total_return": 0.00635168,
+        "win_rate": 0.236
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.01530587,
+        "annualized_volatility": 0.0842291,
+        "final_equity": 101518.3472,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.07383062,
+        "periods": 250,
+        "sharpe": 0.22237321,
+        "total_return": 0.01518347,
+        "win_rate": 0.236
+      },
+      "qfa_run_id": "direct_python_qfa_engine_2021_reopen",
+      "start": "2021-01-04",
+      "turnover_proxy": {
+        "active_day_fraction": 0.444,
+        "annualized_turnover_proxy": 17.62496967,
+        "max_daily_one_way_turnover": 0.99922419,
+        "mean_daily_one_way_turnover": 0.06994036,
+        "mean_gross_exposure": 0.444,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2022-12-30",
+      "label": "2022_bear",
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.01166179,
+        "annualized_volatility": 0.1200239,
+        "final_equity": 101152.2163,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.14728204,
+        "periods": 249,
+        "sharpe": 0.15631685,
+        "total_return": 0.01152216,
+        "win_rate": 0.2248996
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.01750425,
+        "annualized_volatility": 0.12009437,
+        "final_equity": 101729.4072,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.1466812,
+        "periods": 249,
+        "sharpe": 0.20424533,
+        "total_return": 0.01729407,
+        "win_rate": 0.2248996
+      },
+      "qfa_run_id": "direct_python_qfa_engine_2022_bear",
+      "start": "2022-01-03",
+      "turnover_proxy": {
+        "active_day_fraction": 0.44176707,
+        "annualized_turnover_proxy": 11.53391335,
+        "max_daily_one_way_turnover": 0.95885352,
+        "mean_daily_one_way_turnover": 0.0457695,
+        "mean_gross_exposure": 0.44176707,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2023-12-29",
+      "label": "2023_disinflation",
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.02731119,
+        "annualized_volatility": 0.07807919,
+        "final_equity": 102687.1911,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.11449929,
+        "periods": 248,
+        "sharpe": 0.38399788,
+        "total_return": 0.02687191,
+        "win_rate": 0.22580645
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.03305243,
+        "annualized_volatility": 0.07818202,
+        "final_equity": 103251.9347,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.11158059,
+        "periods": 248,
+        "sharpe": 0.4548829,
+        "total_return": 0.03251935,
+        "win_rate": 0.22983871
+      },
+      "qfa_run_id": "direct_python_qfa_engine_2023_disinflation",
+      "start": "2023-01-03",
+      "turnover_proxy": {
+        "active_day_fraction": 0.43145161,
+        "annualized_turnover_proxy": 11.1628464,
+        "max_daily_one_way_turnover": 0.85128622,
+        "mean_daily_one_way_turnover": 0.04429701,
+        "mean_gross_exposure": 0.43145161,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2024-12-31",
+      "label": "2024_concentration",
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.00098555,
+        "annualized_volatility": 0.07842293,
+        "final_equity": 99902.2265,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.06604952,
+        "periods": 250,
+        "sharpe": 0.02653437,
+        "total_return": -0.00097773,
+        "win_rate": 0.224
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.00405762,
+        "annualized_volatility": 0.07837286,
+        "final_equity": 100402.5354,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.06563936,
+        "periods": 250,
+        "sharpe": 0.09074866,
+        "total_return": 0.00402535,
+        "win_rate": 0.228
+      },
+      "qfa_run_id": "direct_python_qfa_engine_2024_concentration",
+      "start": "2024-01-02",
+      "turnover_proxy": {
+        "active_day_fraction": 0.444,
+        "annualized_turnover_proxy": 10.06265744,
+        "max_daily_one_way_turnover": 0.55234431,
+        "mean_daily_one_way_turnover": 0.03993118,
+        "mean_gross_exposure": 0.444,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2025-12-15",
+      "label": "2025_partial",
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.21846733,
+        "annualized_volatility": 0.25237829,
+        "final_equity": 79308.4258,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.25603581,
+        "periods": 237,
+        "sharpe": -0.82848241,
+        "total_return": -0.20691574,
+        "win_rate": 0.21940928
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.21513554,
+        "annualized_volatility": 0.25237453,
+        "final_equity": 79626.3641,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.2556285,
+        "periods": 237,
+        "sharpe": -0.81166126,
+        "total_return": -0.20373636,
+        "win_rate": 0.22362869
+      },
+      "qfa_run_id": "direct_python_qfa_engine_2025_partial",
+      "start": "2025-01-02",
+      "turnover_proxy": {
+        "active_day_fraction": 0.41350211,
+        "annualized_turnover_proxy": 8.49670351,
+        "max_daily_one_way_turnover": 0.5,
+        "mean_daily_one_way_turnover": 0.03371708,
+        "mean_gross_exposure": 0.41350211,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2021-08-16",
+      "label": "random_2020_2021",
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.05786056,
+        "annualized_volatility": 0.07116496,
+        "final_equity": 105267.8577,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.05702806,
+        "periods": 230,
+        "sharpe": 0.82594876,
+        "total_return": 0.05267858,
+        "win_rate": 0.22608696
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.06166777,
+        "annualized_volatility": 0.07120458,
+        "final_equity": 105613.5847,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.05576133,
+        "periods": 230,
+        "sharpe": 0.87599182,
+        "total_return": 0.05613585,
+        "win_rate": 0.23043478
+      },
+      "qfa_run_id": "direct_python_qfa_engine_random_2020_2021",
+      "start": "2020-09-15",
+      "turnover_proxy": {
+        "active_day_fraction": 0.39565217,
+        "annualized_turnover_proxy": 7.19203969,
+        "max_daily_one_way_turnover": 0.59342583,
+        "mean_daily_one_way_turnover": 0.02853984,
+        "mean_gross_exposure": 0.39565217,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2022-05-31",
+      "label": "random_2021_2022",
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.01255595,
+        "annualized_volatility": 0.10163041,
+        "final_equity": 98749.3565,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.08826254,
+        "periods": 251,
+        "sharpe": -0.07364377,
+        "total_return": -0.01250643,
+        "win_rate": 0.22709163
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.0087356,
+        "annualized_volatility": 0.10165232,
+        "final_equity": 99129.8917,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.08799616,
+        "periods": 251,
+        "sharpe": -0.03562301,
+        "total_return": -0.00870108,
+        "win_rate": 0.22709163
+      },
+      "qfa_run_id": "direct_python_qfa_engine_random_2021_2022",
+      "start": "2021-06-01",
+      "turnover_proxy": {
+        "active_day_fraction": 0.44621514,
+        "annualized_turnover_proxy": 7.72657024,
+        "max_daily_one_way_turnover": 0.6427936,
+        "mean_daily_one_way_turnover": 0.03066099,
+        "mean_gross_exposure": 0.44621514,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2023-05-31",
+      "label": "random_2022_2023",
+      "metrics_cost_adjusted": {
+        "annualized_return": -0.02981945,
+        "annualized_volatility": 0.08144052,
+        "final_equity": 97053.0256,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.0648198,
+        "periods": 249,
+        "sharpe": -0.33113136,
+        "total_return": -0.02946974,
+        "win_rate": 0.22088353
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.01976788,
+        "annualized_volatility": 0.08132562,
+        "final_equity": 98046.5136,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.06192607,
+        "periods": 249,
+        "sharpe": -0.2049915,
+        "total_return": -0.01953486,
+        "win_rate": 0.2248996
+      },
+      "qfa_run_id": "direct_python_qfa_engine_random_2022_2023",
+      "start": "2022-06-01",
+      "turnover_proxy": {
+        "active_day_fraction": 0.44176707,
+        "annualized_turnover_proxy": 20.59290159,
+        "max_daily_one_way_turnover": 0.9957825,
+        "mean_daily_one_way_turnover": 0.08171786,
+        "mean_gross_exposure": 0.44176707,
+        "median_daily_one_way_turnover": 0.0
+      }
+    },
+    {
+      "end": "2024-06-28",
+      "label": "random_2023_2024",
+      "metrics_cost_adjusted": {
+        "annualized_return": 0.03966533,
+        "annualized_volatility": 0.06341463,
+        "final_equity": 103902.3592,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.04363562,
+        "periods": 248,
+        "sharpe": 0.64504632,
+        "total_return": 0.03902359,
+        "win_rate": 0.22177419
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.04604897,
+        "annualized_volatility": 0.06338774,
+        "final_equity": 104530.172,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.04330723,
+        "periods": 248,
+        "sharpe": 0.74187692,
+        "total_return": 0.04530172,
+        "win_rate": 0.22580645
+      },
+      "qfa_run_id": "direct_python_qfa_engine_random_2023_2024",
+      "start": "2023-07-03",
+      "turnover_proxy": {
+        "active_day_fraction": 0.43951613,
+        "annualized_turnover_proxy": 12.2410537,
+        "max_daily_one_way_turnover": 0.58601685,
+        "mean_daily_one_way_turnover": 0.04857561,
+        "mean_gross_exposure": 0.43951613,
+        "median_daily_one_way_turnover": 0.0
+      }
+    }
+  ]
+}

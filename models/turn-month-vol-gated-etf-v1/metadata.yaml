@@ -1,0 +1,26 @@
+model_name: turn-month-vol-gated-etf-v1
+issue_id: AR-041
+status: researched_reject_falsified_by_lower_tail_or_parent_comparison
+created_at_utc: '2026-06-26T09:42:54Z'
+parent_alpha: AR-021
+family: seasonality
+hypothesis: AR-021 turn-of-month ETF exposure improves when high-volatility/risk-off regimes are gated flat.
+data_source: Alpaca real market data via qfa AlpacaGateway only; no --data-csv.
+primary_backtest:
+  symbols: [SPY, QQQ, IWM, TLT, GLD]
+  start: '2021-01-01'
+  end: '2025-12-31'
+  timeframe: 1Day
+  qfa_run_id: 1
+costs_slippage:
+  native_qfa_costs_applied: false
+  ex_post_haircut_applied: true
+  one_way_bps: 5.0
+random_window_validation:
+  windows: 8
+  median_cost_adjusted_sharpe: -0.12131964
+  p25_cost_adjusted_sharpe: -0.5080568
+  worst_cost_adjusted_sharpe: -2.25284534
+orthogonality:
+  parent_ar021_correlation: 0.63722267
+suggested_decision: reject_falsified_by_lower_tail_or_parent_comparison

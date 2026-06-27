@@ -1,0 +1,39 @@
+model_name: sector-etf-dispersion-dislocation-meanreversion-v1
+issue_id: AR-075
+status: evaluated
+suggested_decision: rejected
+created_at_utc: '2026-06-26T13:22:59Z'
+research_program: AlphaEvolve qfa
+hypothesis: Short-horizon sector ETF dispersion dislocations mean-revert after broad market-adjusted sector moves.
+implementation_summary: >-
+  Rule-based qfa generate_signals(context) model that estimates sector ETF returns
+  residualized to SPY, triggers after elevated cross-sectional residual dispersion,
+  fades sector residual outliers, volatility-normalizes scores, and adds an SPY
+  hedge to reduce broad market beta.
+data_protocol:
+  source: Alpaca real daily OHLCV via qfa AlpacaGateway
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  temporary_db_only: true
+  db_artifact_retained: false
+evaluation_summary:
+  primary_period: 2024-01-01 to 2025-12-31
+  primary_sharpe_5bps: 0.43709188
+  primary_max_drawdown_5bps: -0.02449612
+  random_window_count: 10
+  random_median_sharpe_5bps: -0.414531
+  random_p25_sharpe_5bps: -0.76493942
+  random_worst_sharpe_5bps: -0.94985866
+  random_positive_window_rate_5bps: 0.2
+  worst_max_drawdown_including_primary_5bps: -0.09659022
+  orthogonality_status: limited_no_retained_curves
+falsifier_result: failed because median random-window Sharpe after 5 bps turnover haircut was <= 0 and p25 was materially negative.
+artifacts:
+  model: model.py
+  config: config.yaml
+  readme: README.md
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  immutable_run: evaluations/runs/ar075_qfa_alpaca_real_20260626T132259Z.json

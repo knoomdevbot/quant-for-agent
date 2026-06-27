@@ -1,0 +1,22 @@
+issue_id: AR-072
+parent_issue_id: AR-063
+model_name: macro-drawdown-beta-redundancy-constrained-v1
+status: researched
+created_by: Hermes research subagent
+created_at_utc: '2026-06-26T00:00:00Z'
+description: Beta- and redundancy-constrained refinement of AR-063 macro drawdown ETF allocator.
+implementation: qfa-compatible Python model exposing generate_signals(context)
+universe: [SPY, QQQ, TLT, IEF, GLD, XLU, XLP, XLV, HYG, LQD, SHY]
+constraints:
+  real_alpaca_market_data_only: true
+  no_csv: true
+  no_data_csv_argument: true
+  no_daemon: true
+  no_trades_or_orders: true
+  sqlite_db_retained: false
+artifacts:
+  model: model.py
+  config: config.yaml
+  readme: README.md
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md

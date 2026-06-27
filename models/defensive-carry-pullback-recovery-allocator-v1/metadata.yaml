@@ -1,0 +1,37 @@
+model_name: defensive-carry-pullback-recovery-allocator-v1
+issue_id: AR-118
+status: rejected
+family: cross_asset_carry_defensive_pullback_recovery
+created_at: '2026-06-27'
+last_evaluated_at: '2026-06-27T04:36:42Z'
+summary: >-
+  Rule-based long-only ETF allocator that buys top defensive/carry pullback-recovery
+  setups with positive 63-day risk-adjusted trend during benign/moderate stress;
+  falls back to SHY when inactive.
+data_source: qfa_alpaca_real_daily_ohlcv
+data_notes:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+  paper_data_access: true
+latest_evaluation:
+  path: models/defensive-carry-pullback-recovery-allocator-v1/evaluations/latest.json
+  status: rejected
+  primary_cost_bps: 10
+  primary_sharpe: -1.241678
+  primary_annualized_return: -0.175841
+  primary_max_drawdown: -0.674394
+  primary_turnover: 0.617948
+  random_window_median_sharpe: -1.7066
+  random_window_positive_rate: 0.0
+  max_abs_corr_to_relevant_proxy: 0.4464
+acceptance_result: >-
+  Rejected because the full model failed primary and random-window 10 bps
+  robustness thresholds, despite no proxy correlation breach in retained compact
+  benchmark comparisons.
+warnings:
+  - Alpaca/IEX paper-data access returned truncated history before 2020 for most ETFs.
+  - Prior alpha raw return streams were generally unavailable, so orthogonality uses ETF/proxy benchmarks.
+  - Daily close-to-next-close replay is an approximation, not an execution simulator.

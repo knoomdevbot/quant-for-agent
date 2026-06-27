@@ -1,0 +1,35 @@
+model_name: tsmom-voltarget-liquid-etf-randomcost-v1
+issue_id: AR-015
+family: time_series_momentum
+symbols:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - SLV
+  - USO
+  - FXE
+  - FXY
+timeframe: 1Day
+initial_cash: 100000
+parameters:
+  lookback_days: 126
+  vol_window: 20
+  target_vol: 0.10
+  max_abs_weight: 0.35
+  min_periods: 127
+risk:
+  gross_exposure_target: 1.0
+  long_only_positive_momentum: true
+  single_name_abs_cap: 0.35
+evaluation:
+  data_source: Alpaca real market data via qfa/AlpacaGateway only
+  no_data_csv: true
+  no_daemon: true
+  no_trades: true
+  main_window:
+    start: '2024-01-01'
+    end: '2025-12-31'
+  random_window_seed: 15015
+  cost_haircuts_bps: [1, 5, 10]

@@ -1,0 +1,33 @@
+name: etf-defensive-momentum-carry-rotation-v1
+issue_id: AR-059
+family: cross_asset_rotation
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - HYG
+  - LQD
+  - XLU
+timeframe: 1Day
+initial_cash: 100000
+parameters:
+  fast_momentum_lookback_days: 63
+  slow_momentum_lookback_days: 126
+  volatility_lookback_days: 40
+  drawdown_lookback_days: 63
+  trend_stability_lookback_days: 84
+  rebalance_logic: weekly/stale-weight style deterministic target recompute
+  max_gross: 1.0
+  max_per_etf: 0.35
+risk:
+  long_only: true
+  residual_cash_allowed: true
+  no_daemon: true
+  no_orders: true
+evaluation:
+  data_source: Alpaca real market data through qfa only
+  no_csv: true
+  no_data_csv_argument: true
+  turnover_cost_one_way_bps: 5

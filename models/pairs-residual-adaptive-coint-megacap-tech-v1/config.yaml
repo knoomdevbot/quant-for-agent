@@ -1,0 +1,36 @@
+model_name: pairs-residual-adaptive-coint-megacap-tech-v1
+issue_id: AR-019
+parent: AR-005
+family: stat_arb
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+data_source: Alpaca real market data via qfa/AlpacaGateway only; no CSV and no --data-csv
+execution:
+  research_only: true
+  daemon_used: false
+  trades_placed: false
+  qfa_timeframe: 1Day
+parameters:
+  formation_window: 180
+  z_window: 45
+  corr_window: 90
+  min_pair_observations: 150
+  min_symbols: 4
+  min_corr: 0.55
+  max_adf_ar1_phi: 0.985
+  max_half_life_days: 45.0
+  min_zero_crossings: 3
+  entry_z: 1.75
+  max_z: 3.0
+  max_pairs: 3
+risk:
+  gross_normalized: true
+  max_abs_single_name_weight: 0.30
+costs:
+  one_way_bps_assumption: 5
+  qfa_costs_applied: false

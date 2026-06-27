@@ -1,0 +1,40 @@
+alpha_id: AR-087
+model_name: etf-opening-auction-imbalance-continuation-v1
+family: intraday_flow_continuation
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLV
+  - XLY
+  - XLE
+  - XLU
+  - XLP
+  - TLT
+  - IEF
+  - GLD
+  - HYG
+  - LQD
+  - SHY
+data_source: alpaca_qfa_real_1min_ohlcv_only_no_csv
+signal:
+  opening_minutes: 30
+  entry_delay_minutes: 1
+  hold_minutes: 120
+  imbalance_z: 1.0
+  vwap_dev_z: 0.75
+  relative_volume_min: 0.80
+  breadth_min_abs: 0.20
+risk:
+  max_gross: 1.0
+  max_single: 0.16
+  no_leverage: true
+costs:
+  primary_one_way_bps: 10.0
+  stress_one_way_bps: 20.0
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

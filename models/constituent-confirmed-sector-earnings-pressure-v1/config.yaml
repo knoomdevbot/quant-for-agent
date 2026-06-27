@@ -1,0 +1,40 @@
+alpha_id: AR-115
+model_name: constituent-confirmed-sector-earnings-pressure-v1
+research_mode: true
+data_source: qfa_alpaca_real_daily_ohlcv
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+trade_universe:
+  - XLK
+  - XLY
+  - XLC
+  - XLF
+  - XLV
+  - XLE
+  - XLP
+  - XLI
+  - XLU
+  - XLRE
+  - XLB
+signal_context:
+  benchmark: SPY
+  fixed_constituent_map: see model.py SECTOR_CONSTITUENTS
+reporting_windows:
+  - Jan 10 through Feb 15
+  - Apr 10 through May 15
+  - Jul 10 through Aug 15
+  - Oct 10 through Nov 15
+parameters:
+  min_history: 90
+  volume_lookback: 40
+  residual_lookback: 63
+  etf_lookback: 5
+  max_etfs: 4
+  gross_target: 1.0
+  min_confirmation_score: 0.18
+  min_breadth: 0.52
+costs_bps_primary: 10
+cost_sensitivity_bps: [5, 20]
+selection_policy: broad ex-ante SPDR sectors plus fixed mega-cap constituents selected by availability, liquidity, and economic sector exposure before performance review

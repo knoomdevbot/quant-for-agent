@@ -1,0 +1,25 @@
+model_name: etf-option-vol-crush-reversal-allocator-v1
+issue_id: AR-094
+family: option_volatility_reversal_proxy
+qfa_contract: generate_signals(context)
+data_source: Alpaca real daily ETF OHLCV through qfa; no CSV
+implied_volatility_data: unavailable
+proxy_label: realized_range_volatility_crush_proxy_not_true_option_iv
+candidate_product_pool: [SPY, QQQ, IWM, TLT, GLD, HYG, LQD, XLU, XLE, SHY]
+selected_universe: [SPY, QQQ, IWM, TLT, GLD, HYG, LQD, XLU, XLE, SHY]
+timeframe: 1Day
+min_history_bars: 150
+costs_slippage:
+  one_way_bps_primary: 10.0
+  tested_one_way_bps: [5.0, 10.0, 20.0]
+  method: target_weight_turnover_cost_subtracted_from_daily_return
+risk_controls:
+  max_single_weight: 0.45
+  no_shorting: true
+  defensive_fallback_assets: [TLT, GLD, LQD, XLU, SHY]
+research_constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  db_artifact_retained: false

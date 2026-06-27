@@ -1,0 +1,32 @@
+alpha_id: AR-083
+model_name: sector-breadth-defensive-trend-allocator-v1
+parent_id: AR-075
+family: sector_breadth_trend
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLF
+  - XLK
+  - XLE
+  - XLU
+  - XLV
+  - XLI
+  - XLP
+timeframe: 1Day
+data_source: Alpaca/qfa real market data only
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+parameters:
+  trend_lookbacks: [20, 60, 126]
+  breadth_threshold: 0.60
+  defensive_spread_lookback: 60
+  rebalance_days: 5
+  sector_cap: 0.35
+  vol_lookback: 20
+  spy_trend_lookback: 126
+costs_slippage:
+  one_way_bps: 5
+  method: external target-weight turnover haircut

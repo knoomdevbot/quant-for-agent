@@ -1,0 +1,34 @@
+alpha_id: AR-092
+model_name: crypto-risk-appetite-spillover-etf-rotation-v1
+universe:
+  - QQQ
+  - SPY
+  - IWM
+  - SMH
+  - ARKK
+  - HYG
+  - LQD
+  - TLT
+  - IEF
+  - SHY
+  - GLD
+  - XLE
+  - XLU
+  - XLV
+  - XLP
+max_gross_exposure: 1.0
+max_single_weight: 0.35
+rebalance: daily
+signal:
+  external_source: Alpaca CryptoHistoricalDataClient BTC/USD and ETH/USD daily bars
+  timestamp_lag: daily crypto features effective next calendar date only
+  features: [btc_3d_return, btc_7d_return, btc_20d_return, eth_7d_return, btc_realized_vol_20d, btc_drawdown_20d_60d, weekend_return, btc_eth_dispersion]
+risk:
+  one_way_turnover_cost_bps: 10
+  no_leverage: true
+  fallback: SHY/IEF/TLT/GLD/defensive sectors
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

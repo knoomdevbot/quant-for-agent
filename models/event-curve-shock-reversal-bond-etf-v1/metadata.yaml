@@ -1,0 +1,15 @@
+issue_id: AR-070
+parent: AR-061
+model_name: event-curve-shock-reversal-bond-etf-v1
+status: rejected
+created_at_utc: '2026-06-26T12:00:43Z'
+research_completed_at_utc: '2026-06-26T12:55:35Z'
+hypothesis: Scheduled macro-event shocks in bond ETFs can create reversal/continuation returns distinct from continuous duration/carry allocators.
+falsifiers:
+  - Median random-event-window Sharpe <= 0 after costs.
+  - Performance concentrated in one event year.
+  - High correlation to AR-049/AR-061 carry curves.
+artifact_contract:
+  durable_artifacts_only_under_model_folder: true
+  raw_daily_paths_retained: false
+  db_artifact_retained: false

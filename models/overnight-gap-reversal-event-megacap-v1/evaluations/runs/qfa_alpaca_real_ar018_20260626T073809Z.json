@@ -1,0 +1,2302 @@
+{
+  "created_at": "2026-06-26T07:38:09Z",
+  "data_source": "Alpaca real daily OHLCV via qfa AlpacaGateway; no CSV; no --data-csv",
+  "date_ranges": {
+    "data_fetch": {
+      "end": "2025-12-31",
+      "start": "2021-01-01"
+    },
+    "primary": {
+      "end": "2025-12-31",
+      "start": "2024-01-01"
+    }
+  },
+  "direct_open_to_close_intended_harness": {
+    "end": "2025-12-31",
+    "equity_curve_cost_adjusted_tail": [
+      {
+        "equity": 160882.7345,
+        "timestamp": "2025-12-23T05:00:00+00:00"
+      },
+      {
+        "equity": 160882.7345,
+        "timestamp": "2025-12-24T05:00:00+00:00"
+      },
+      {
+        "equity": 160882.7345,
+        "timestamp": "2025-12-26T05:00:00+00:00"
+      },
+      {
+        "equity": 160882.7345,
+        "timestamp": "2025-12-29T05:00:00+00:00"
+      },
+      {
+        "equity": 160882.7345,
+        "timestamp": "2025-12-30T05:00:00+00:00"
+      }
+    ],
+    "metrics_cost_adjusted": {
+      "annualized_return": 0.27020264,
+      "annualized_volatility": 0.22963229,
+      "final_equity": 160882.7345,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.17053299,
+      "periods": 501,
+      "sharpe": 1.15561986,
+      "total_return": 0.60882734,
+      "win_rate": 0.20558882
+    },
+    "metrics_pre_cost": {
+      "annualized_return": 0.39171578,
+      "annualized_volatility": 0.23019872,
+      "final_equity": 192926.6264,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.16422968,
+      "periods": 501,
+      "sharpe": 1.55056085,
+      "total_return": 0.92926626,
+      "win_rate": 0.20558882
+    },
+    "periods": 501,
+    "start": "2024-01-01",
+    "turnover": {
+      "active_day_fraction": 0.38522954,
+      "active_days": 193,
+      "annualized_turnover_proxy": 183.13898879,
+      "event_counts_by_symbol": {
+        "AAPL": 50,
+        "AMZN": 50,
+        "GOOGL": 43,
+        "META": 45,
+        "MSFT": 54,
+        "NVDA": 61,
+        "TSLA": 58
+      },
+      "mean_daily_turnover": 0.72674202,
+      "mean_gross_exposure": 0.38522954,
+      "median_daily_turnover": 1.0
+    }
+  },
+  "issue_id": "AR-018",
+  "model_name": "overnight-gap-reversal-event-megacap-v1",
+  "qfa_cli_run": {
+    "end": "2025-12-31",
+    "id": 1,
+    "initial_cash": 100000.0,
+    "metrics": {
+      "annualized_return": -0.11359256,
+      "annualized_volatility": 0.24613203,
+      "final_equity": 78722.3405,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.32068938,
+      "periods": 500,
+      "sharpe": -0.36424762,
+      "total_return": -0.2127766,
+      "win_rate": 0.166
+    },
+    "model_path": "/Users/moonk/quant-for-agent/models/overnight-gap-reversal-event-megacap-v1/model.py",
+    "start": "2024-01-01",
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "META",
+      "GOOGL",
+      "TSLA"
+    ],
+    "timeframe": "1Day"
+  },
+  "qfa_direct_engine_run": {
+    "end": "2025-12-31",
+    "id": "direct_python_qfa_engine_no_store",
+    "initial_cash": 100000.0,
+    "metrics": {
+      "annualized_return": -0.11359256,
+      "annualized_volatility": 0.24613203,
+      "final_equity": 78722.3405,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.32068938,
+      "periods": 500,
+      "sharpe": -0.36424762,
+      "total_return": -0.2127766,
+      "win_rate": 0.166
+    },
+    "model_path": "/Users/moonk/quant-for-agent/models/overnight-gap-reversal-event-megacap-v1/model.py",
+    "start": "2024-01-01",
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "META",
+      "GOOGL",
+      "TSLA"
+    ],
+    "timeframe": "1Day"
+  },
+  "random_window_protocol": {
+    "completed_windows": 30,
+    "requested_windows": 30,
+    "runs": [
+      {
+        "end": "2022-01-18",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 71763.3968,
+            "timestamp": "2022-01-10T05:00:00+00:00"
+          },
+          {
+            "equity": 71727.5151,
+            "timestamp": "2022-01-11T05:00:00+00:00"
+          },
+          {
+            "equity": 72005.7832,
+            "timestamp": "2022-01-12T05:00:00+00:00"
+          },
+          {
+            "equity": 71969.7803,
+            "timestamp": "2022-01-13T05:00:00+00:00"
+          },
+          {
+            "equity": 73694.7915,
+            "timestamp": "2022-01-14T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.26305208,
+          "annualized_volatility": 0.21045713,
+          "final_equity": 73694.7915,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.32326513,
+          "periods": 252,
+          "sharpe": -1.34226224,
+          "total_return": -0.26305208,
+          "win_rate": 0.13095238
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.20738835,
+          "annualized_volatility": 0.21013089,
+          "final_equity": 79261.1648,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.2975918,
+          "periods": 252,
+          "sharpe": -0.99863951,
+          "total_return": -0.20738835,
+          "win_rate": 0.13492063
+        },
+        "periods": 252,
+        "start": "2021-01-19",
+        "turnover": {
+          "active_day_fraction": 0.30555556,
+          "active_days": 77,
+          "annualized_turnover_proxy": 145.28729557,
+          "event_counts_by_symbol": {
+            "AAPL": 26,
+            "AMZN": 16,
+            "GOOGL": 24,
+            "META": 22,
+            "MSFT": 30,
+            "NVDA": 19,
+            "TSLA": 24
+          },
+          "mean_daily_turnover": 0.57653689,
+          "mean_gross_exposure": 0.30555556,
+          "median_daily_turnover": 0.0
+        },
+        "window_id": 1
+      },
+      {
+        "end": "2022-01-21",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 71969.7803,
+            "timestamp": "2022-01-13T05:00:00+00:00"
+          },
+          {
+            "equity": 73694.7915,
+            "timestamp": "2022-01-14T05:00:00+00:00"
+          },
+          {
+            "equity": 73276.9438,
+            "timestamp": "2022-01-18T05:00:00+00:00"
+          },
+          {
+            "equity": 73911.8184,
+            "timestamp": "2022-01-19T05:00:00+00:00"
+          },
+          {
+            "equity": 75626.442,
+            "timestamp": "2022-01-20T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.24373558,
+          "annualized_volatility": 0.21212348,
+          "final_equity": 75626.442,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.32326513,
+          "periods": 252,
+          "sharpe": -1.20824136,
+          "total_return": -0.24373558,
+          "win_rate": 0.13888889
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.18467917,
+          "annualized_volatility": 0.21183407,
+          "final_equity": 81532.0826,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.2975918,
+          "periods": 252,
+          "sharpe": -0.85569579,
+          "total_return": -0.18467917,
+          "win_rate": 0.14285714
+        },
+        "periods": 252,
+        "start": "2021-01-22",
+        "turnover": {
+          "active_day_fraction": 0.31746032,
+          "active_days": 80,
+          "annualized_turnover_proxy": 150.06166697,
+          "event_counts_by_symbol": {
+            "AAPL": 26,
+            "AMZN": 16,
+            "GOOGL": 24,
+            "META": 23,
+            "MSFT": 33,
+            "NVDA": 19,
+            "TSLA": 24
+          },
+          "mean_daily_turnover": 0.59548281,
+          "mean_gross_exposure": 0.31746032,
+          "median_daily_turnover": 0.0
+        },
+        "window_id": 2
+      },
+      {
+        "end": "2022-02-23",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 68967.8407,
+            "timestamp": "2022-02-15T05:00:00+00:00"
+          },
+          {
+            "equity": 68967.8407,
+            "timestamp": "2022-02-16T05:00:00+00:00"
+          },
+          {
+            "equity": 65911.4729,
+            "timestamp": "2022-02-17T05:00:00+00:00"
+          },
+          {
+            "equity": 65878.5171,
+            "timestamp": "2022-02-18T05:00:00+00:00"
+          },
+          {
+            "equity": 65855.6497,
+            "timestamp": "2022-02-22T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.3414435,
+          "annualized_volatility": 0.24029003,
+          "final_equity": 65855.6497,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.35709495,
+          "periods": 252,
+          "sharpe": -1.61451613,
+          "total_return": -0.3414435,
+          "win_rate": 0.1547619
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.28177468,
+          "annualized_volatility": 0.23972865,
+          "final_equity": 71822.5317,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.3076947,
+          "periods": 252,
+          "sharpe": -1.25773952,
+          "total_return": -0.28177468,
+          "win_rate": 0.16269841
+        },
+        "periods": 252,
+        "start": "2021-02-24",
+        "turnover": {
+          "active_day_fraction": 0.37301587,
+          "active_days": 94,
+          "annualized_turnover_proxy": 172.87186189,
+          "event_counts_by_symbol": {
+            "AAPL": 31,
+            "AMZN": 24,
+            "GOOGL": 30,
+            "META": 27,
+            "MSFT": 38,
+            "NVDA": 28,
+            "TSLA": 29
+          },
+          "mean_daily_turnover": 0.68599945,
+          "mean_gross_exposure": 0.37301587,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 3
+      },
+      {
+        "end": "2022-03-15",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 72689.9498,
+            "timestamp": "2022-03-08T05:00:00+00:00"
+          },
+          {
+            "equity": 71599.1165,
+            "timestamp": "2022-03-09T05:00:00+00:00"
+          },
+          {
+            "equity": 70925.0094,
+            "timestamp": "2022-03-10T05:00:00+00:00"
+          },
+          {
+            "equity": 70889.5469,
+            "timestamp": "2022-03-11T05:00:00+00:00"
+          },
+          {
+            "equity": 70889.5469,
+            "timestamp": "2022-03-14T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.29110453,
+          "annualized_volatility": 0.2632838,
+          "final_equity": 70889.5469,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.35741641,
+          "periods": 252,
+          "sharpe": -1.17360895,
+          "total_return": -0.29110453,
+          "win_rate": 0.15873016
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.22418787,
+          "annualized_volatility": 0.26281694,
+          "final_equity": 77581.2131,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.3076947,
+          "periods": 252,
+          "sharpe": -0.83349381,
+          "total_return": -0.22418787,
+          "win_rate": 0.16666667
+        },
+        "periods": 252,
+        "start": "2021-03-16",
+        "turnover": {
+          "active_day_fraction": 0.38492063,
+          "active_days": 97,
+          "annualized_turnover_proxy": 179.87186189,
+          "event_counts_by_symbol": {
+            "AAPL": 34,
+            "AMZN": 26,
+            "GOOGL": 32,
+            "META": 27,
+            "MSFT": 40,
+            "NVDA": 29,
+            "TSLA": 30
+          },
+          "mean_daily_turnover": 0.71377723,
+          "mean_gross_exposure": 0.38492063,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 4
+      },
+      {
+        "end": "2022-03-25",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 70889.5469,
+            "timestamp": "2022-03-18T04:00:00+00:00"
+          },
+          {
+            "equity": 70889.5469,
+            "timestamp": "2022-03-21T04:00:00+00:00"
+          },
+          {
+            "equity": 70889.5469,
+            "timestamp": "2022-03-22T04:00:00+00:00"
+          },
+          {
+            "equity": 70889.5469,
+            "timestamp": "2022-03-23T04:00:00+00:00"
+          },
+          {
+            "equity": 70889.5469,
+            "timestamp": "2022-03-24T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.29110453,
+          "annualized_volatility": 0.2632838,
+          "final_equity": 70889.5469,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.35741641,
+          "periods": 252,
+          "sharpe": -1.17360895,
+          "total_return": -0.29110453,
+          "win_rate": 0.15873016
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.22418787,
+          "annualized_volatility": 0.26281694,
+          "final_equity": 77581.2131,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.3076947,
+          "periods": 252,
+          "sharpe": -0.83349381,
+          "total_return": -0.22418787,
+          "win_rate": 0.16666667
+        },
+        "periods": 252,
+        "start": "2021-03-26",
+        "turnover": {
+          "active_day_fraction": 0.38492063,
+          "active_days": 97,
+          "annualized_turnover_proxy": 179.87186189,
+          "event_counts_by_symbol": {
+            "AAPL": 34,
+            "AMZN": 26,
+            "GOOGL": 32,
+            "META": 27,
+            "MSFT": 40,
+            "NVDA": 29,
+            "TSLA": 30
+          },
+          "mean_daily_turnover": 0.71377723,
+          "mean_gross_exposure": 0.38492063,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 5
+      },
+      {
+        "end": "2022-09-21",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 54721.4418,
+            "timestamp": "2022-09-14T04:00:00+00:00"
+          },
+          {
+            "equity": 54721.4418,
+            "timestamp": "2022-09-15T04:00:00+00:00"
+          },
+          {
+            "equity": 55028.3462,
+            "timestamp": "2022-09-16T04:00:00+00:00"
+          },
+          {
+            "equity": 55000.8321,
+            "timestamp": "2022-09-19T04:00:00+00:00"
+          },
+          {
+            "equity": 55000.8321,
+            "timestamp": "2022-09-20T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.44999168,
+          "annualized_volatility": 0.32072583,
+          "final_equity": 55000.8321,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.46061812,
+          "periods": 252,
+          "sharpe": -1.70137706,
+          "total_return": -0.44999168,
+          "win_rate": 0.16269841
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.3915942,
+          "annualized_volatility": 0.31996374,
+          "final_equity": 60840.5803,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.40858608,
+          "periods": 252,
+          "sharpe": -1.39165728,
+          "total_return": -0.3915942,
+          "win_rate": 0.17063492
+        },
+        "periods": 252,
+        "start": "2021-09-21",
+        "turnover": {
+          "active_day_fraction": 0.42063492,
+          "active_days": 106,
+          "annualized_turnover_proxy": 200.79138253,
+          "event_counts_by_symbol": {
+            "AAPL": 34,
+            "AMZN": 26,
+            "GOOGL": 34,
+            "META": 22,
+            "MSFT": 42,
+            "NVDA": 33,
+            "TSLA": 33
+          },
+          "mean_daily_turnover": 0.7967912,
+          "mean_gross_exposure": 0.42063492,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 6
+      },
+      {
+        "end": "2022-10-17",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 54383.2882,
+            "timestamp": "2022-10-10T04:00:00+00:00"
+          },
+          {
+            "equity": 54383.2882,
+            "timestamp": "2022-10-11T04:00:00+00:00"
+          },
+          {
+            "equity": 54383.2882,
+            "timestamp": "2022-10-12T04:00:00+00:00"
+          },
+          {
+            "equity": 57614.3733,
+            "timestamp": "2022-10-13T04:00:00+00:00"
+          },
+          {
+            "equity": 57585.5662,
+            "timestamp": "2022-10-14T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.42414434,
+          "annualized_volatility": 0.32824481,
+          "final_equity": 57585.5662,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.47909091,
+          "periods": 252,
+          "sharpe": -1.51555819,
+          "total_return": -0.42414434,
+          "win_rate": 0.17063492
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.36324248,
+          "annualized_volatility": 0.32758777,
+          "final_equity": 63675.7525,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.42540992,
+          "periods": 252,
+          "sharpe": -1.21313803,
+          "total_return": -0.36324248,
+          "win_rate": 0.17460317
+        },
+        "periods": 252,
+        "start": "2021-10-15",
+        "turnover": {
+          "active_day_fraction": 0.42063492,
+          "active_days": 106,
+          "annualized_turnover_proxy": 200.1298635,
+          "event_counts_by_symbol": {
+            "AAPL": 36,
+            "AMZN": 25,
+            "GOOGL": 31,
+            "META": 20,
+            "MSFT": 40,
+            "NVDA": 34,
+            "TSLA": 32
+          },
+          "mean_daily_turnover": 0.79416613,
+          "mean_gross_exposure": 0.42063492,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 7
+      },
+      {
+        "end": "2022-11-01",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 62733.2969,
+            "timestamp": "2022-10-25T04:00:00+00:00"
+          },
+          {
+            "equity": 62202.6944,
+            "timestamp": "2022-10-26T04:00:00+00:00"
+          },
+          {
+            "equity": 62515.2406,
+            "timestamp": "2022-10-27T04:00:00+00:00"
+          },
+          {
+            "equity": 63790.1086,
+            "timestamp": "2022-10-28T04:00:00+00:00"
+          },
+          {
+            "equity": 63803.3723,
+            "timestamp": "2022-10-31T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.36196628,
+          "annualized_volatility": 0.31914155,
+          "final_equity": 63803.3723,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.43211886,
+          "periods": 252,
+          "sharpe": -1.24774304,
+          "total_return": -0.36196628,
+          "win_rate": 0.17857143
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.29552485,
+          "annualized_volatility": 0.31878661,
+          "final_equity": 70447.5148,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.38694082,
+          "periods": 252,
+          "sharpe": -0.93937621,
+          "total_return": -0.29552485,
+          "win_rate": 0.18253968
+        },
+        "periods": 252,
+        "start": "2021-11-01",
+        "turnover": {
+          "active_day_fraction": 0.41666667,
+          "active_days": 105,
+          "annualized_turnover_proxy": 197.49219377,
+          "event_counts_by_symbol": {
+            "AAPL": 37,
+            "AMZN": 27,
+            "GOOGL": 32,
+            "META": 23,
+            "MSFT": 40,
+            "NVDA": 35,
+            "TSLA": 28
+          },
+          "mean_daily_turnover": 0.78369918,
+          "mean_gross_exposure": 0.41666667,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 8
+      },
+      {
+        "end": "2022-11-04",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 66947.4862,
+            "timestamp": "2022-10-28T04:00:00+00:00"
+          },
+          {
+            "equity": 66961.4064,
+            "timestamp": "2022-10-31T04:00:00+00:00"
+          },
+          {
+            "equity": 66927.9257,
+            "timestamp": "2022-11-01T04:00:00+00:00"
+          },
+          {
+            "equity": 69943.669,
+            "timestamp": "2022-11-02T04:00:00+00:00"
+          },
+          {
+            "equity": 69908.6972,
+            "timestamp": "2022-11-03T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.30091303,
+          "annualized_volatility": 0.31763787,
+          "final_equity": 69908.6972,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.43211886,
+          "periods": 252,
+          "sharpe": -0.96813675,
+          "total_return": -0.30091303,
+          "win_rate": 0.17857143
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.22853116,
+          "annualized_volatility": 0.3172941,
+          "final_equity": 77146.8841,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.38694082,
+          "periods": 252,
+          "sharpe": -0.65954833,
+          "total_return": -0.22853116,
+          "win_rate": 0.18253968
+        },
+        "periods": 252,
+        "start": "2021-11-04",
+        "turnover": {
+          "active_day_fraction": 0.41269841,
+          "active_days": 104,
+          "annualized_turnover_proxy": 196.49219377,
+          "event_counts_by_symbol": {
+            "AAPL": 37,
+            "AMZN": 27,
+            "GOOGL": 32,
+            "META": 23,
+            "MSFT": 40,
+            "NVDA": 36,
+            "TSLA": 26
+          },
+          "mean_daily_turnover": 0.77973093,
+          "mean_gross_exposure": 0.41269841,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 9
+      },
+      {
+        "end": "2023-01-05",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 68104.0371,
+            "timestamp": "2022-12-28T05:00:00+00:00"
+          },
+          {
+            "equity": 67258.1789,
+            "timestamp": "2022-12-29T05:00:00+00:00"
+          },
+          {
+            "equity": 67224.5498,
+            "timestamp": "2022-12-30T05:00:00+00:00"
+          },
+          {
+            "equity": 61306.5906,
+            "timestamp": "2023-01-03T05:00:00+00:00"
+          },
+          {
+            "equity": 60407.2755,
+            "timestamp": "2023-01-04T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.39592725,
+          "annualized_volatility": 0.31095553,
+          "final_equity": 60407.2755,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.44394726,
+          "periods": 252,
+          "sharpe": -1.46443377,
+          "total_return": -0.39592725,
+          "win_rate": 0.15873016
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.33939171,
+          "annualized_volatility": 0.3102745,
+          "final_equity": 66060.8286,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.39766001,
+          "periods": 252,
+          "sharpe": -1.18064519,
+          "total_return": -0.33939171,
+          "win_rate": 0.16269841
+        },
+        "periods": 252,
+        "start": "2022-01-04",
+        "turnover": {
+          "active_day_fraction": 0.37698413,
+          "active_days": 95,
+          "annualized_turnover_proxy": 178.09935778,
+          "event_counts_by_symbol": {
+            "AAPL": 35,
+            "AMZN": 29,
+            "GOOGL": 30,
+            "META": 25,
+            "MSFT": 35,
+            "NVDA": 35,
+            "TSLA": 24
+          },
+          "mean_daily_turnover": 0.70674348,
+          "mean_gross_exposure": 0.37698413,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 10
+      },
+      {
+        "end": "2023-03-08",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 71143.9976,
+            "timestamp": "2023-03-01T05:00:00+00:00"
+          },
+          {
+            "equity": 71143.9976,
+            "timestamp": "2023-03-02T05:00:00+00:00"
+          },
+          {
+            "equity": 69673.9643,
+            "timestamp": "2023-03-03T05:00:00+00:00"
+          },
+          {
+            "equity": 69653.5765,
+            "timestamp": "2023-03-06T05:00:00+00:00"
+          },
+          {
+            "equity": 69618.7498,
+            "timestamp": "2023-03-07T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.3038125,
+          "annualized_volatility": 0.30244711,
+          "final_equity": 69618.7498,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.40016647,
+          "periods": 252,
+          "sharpe": -1.04633424,
+          "total_return": -0.3038125,
+          "win_rate": 0.1468254
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.24110302,
+          "annualized_volatility": 0.30201503,
+          "final_equity": 75889.6982,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.36040167,
+          "periods": 252,
+          "sharpe": -0.7631787,
+          "total_return": -0.24110302,
+          "win_rate": 0.1468254
+        },
+        "periods": 252,
+        "start": "2022-03-07",
+        "turnover": {
+          "active_day_fraction": 0.3531746,
+          "active_days": 89,
+          "annualized_turnover_proxy": 171.9386574,
+          "event_counts_by_symbol": {
+            "AAPL": 32,
+            "AMZN": 22,
+            "GOOGL": 27,
+            "META": 19,
+            "MSFT": 29,
+            "NVDA": 27,
+            "TSLA": 22
+          },
+          "mean_daily_turnover": 0.68229626,
+          "mean_gross_exposure": 0.3531746,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 11
+      },
+      {
+        "end": "2023-04-20",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 68599.8872,
+            "timestamp": "2023-04-13T04:00:00+00:00"
+          },
+          {
+            "equity": 68565.5872,
+            "timestamp": "2023-04-14T04:00:00+00:00"
+          },
+          {
+            "equity": 68565.5872,
+            "timestamp": "2023-04-17T04:00:00+00:00"
+          },
+          {
+            "equity": 68565.5872,
+            "timestamp": "2023-04-18T04:00:00+00:00"
+          },
+          {
+            "equity": 68565.5872,
+            "timestamp": "2023-04-19T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.31434413,
+          "annualized_volatility": 0.29840752,
+          "final_equity": 68565.5872,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.40016647,
+          "periods": 252,
+          "sharpe": -1.11546799,
+          "total_return": -0.31434413,
+          "win_rate": 0.1468254
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.25405818,
+          "annualized_volatility": 0.29789112,
+          "final_equity": 74594.1822,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.36040167,
+          "periods": 252,
+          "sharpe": -0.83552242,
+          "total_return": -0.25405818,
+          "win_rate": 0.1468254
+        },
+        "periods": 252,
+        "start": "2022-04-19",
+        "turnover": {
+          "active_day_fraction": 0.3452381,
+          "active_days": 87,
+          "annualized_turnover_proxy": 167.9386574,
+          "event_counts_by_symbol": {
+            "AAPL": 31,
+            "AMZN": 22,
+            "GOOGL": 27,
+            "META": 19,
+            "MSFT": 27,
+            "NVDA": 25,
+            "TSLA": 22
+          },
+          "mean_daily_turnover": 0.66642324,
+          "mean_gross_exposure": 0.3452381,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 12
+      },
+      {
+        "end": "2023-05-09",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 69266.216,
+            "timestamp": "2023-05-02T04:00:00+00:00"
+          },
+          {
+            "equity": 69266.216,
+            "timestamp": "2023-05-03T04:00:00+00:00"
+          },
+          {
+            "equity": 69609.6507,
+            "timestamp": "2023-05-04T04:00:00+00:00"
+          },
+          {
+            "equity": 68483.5296,
+            "timestamp": "2023-05-05T04:00:00+00:00"
+          },
+          {
+            "equity": 68449.2878,
+            "timestamp": "2023-05-08T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.31550712,
+          "annualized_volatility": 0.28763663,
+          "final_equity": 68449.2878,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.38263103,
+          "periods": 252,
+          "sharpe": -1.17393002,
+          "total_return": -0.31550712,
+          "win_rate": 0.15079365
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.25397947,
+          "annualized_volatility": 0.28716983,
+          "final_equity": 74602.0528,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.35088431,
+          "periods": 252,
+          "sharpe": -0.87708513,
+          "total_return": -0.25397947,
+          "win_rate": 0.15079365
+        },
+        "periods": 252,
+        "start": "2022-05-06",
+        "turnover": {
+          "active_day_fraction": 0.3531746,
+          "active_days": 89,
+          "annualized_turnover_proxy": 171.58577484,
+          "event_counts_by_symbol": {
+            "AAPL": 32,
+            "AMZN": 23,
+            "GOOGL": 25,
+            "META": 19,
+            "MSFT": 27,
+            "NVDA": 25,
+            "TSLA": 22
+          },
+          "mean_daily_turnover": 0.68089593,
+          "mean_gross_exposure": 0.3531746,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 13
+      },
+      {
+        "end": "2023-06-29",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 83829.3093,
+            "timestamp": "2023-06-22T04:00:00+00:00"
+          },
+          {
+            "equity": 83787.3947,
+            "timestamp": "2023-06-23T04:00:00+00:00"
+          },
+          {
+            "equity": 81395.6678,
+            "timestamp": "2023-06-26T04:00:00+00:00"
+          },
+          {
+            "equity": 81354.9699,
+            "timestamp": "2023-06-27T04:00:00+00:00"
+          },
+          {
+            "equity": 81354.9699,
+            "timestamp": "2023-06-28T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.1864503,
+          "annualized_volatility": 0.26342202,
+          "final_equity": 81354.9699,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.29877583,
+          "periods": 252,
+          "sharpe": -0.65183883,
+          "total_return": -0.1864503,
+          "win_rate": 0.15079365
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.11846119,
+          "annualized_volatility": 0.26310891,
+          "final_equity": 88153.8813,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.26699095,
+          "periods": 252,
+          "sharpe": -0.3481815,
+          "total_return": -0.11846119,
+          "win_rate": 0.1547619
+        },
+        "periods": 252,
+        "start": "2022-06-28",
+        "turnover": {
+          "active_day_fraction": 0.32936508,
+          "active_days": 83,
+          "annualized_turnover_proxy": 160.19808859,
+          "event_counts_by_symbol": {
+            "AAPL": 26,
+            "AMZN": 21,
+            "GOOGL": 20,
+            "META": 18,
+            "MSFT": 21,
+            "NVDA": 22,
+            "TSLA": 21
+          },
+          "mean_daily_turnover": 0.6357067,
+          "mean_gross_exposure": 0.32936508,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 14
+      },
+      {
+        "end": "2023-08-08",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 86482.0566,
+            "timestamp": "2023-08-01T04:00:00+00:00"
+          },
+          {
+            "equity": 85538.7863,
+            "timestamp": "2023-08-02T04:00:00+00:00"
+          },
+          {
+            "equity": 85496.0169,
+            "timestamp": "2023-08-03T04:00:00+00:00"
+          },
+          {
+            "equity": 85167.9162,
+            "timestamp": "2023-08-04T04:00:00+00:00"
+          },
+          {
+            "equity": 85125.3323,
+            "timestamp": "2023-08-07T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.14874668,
+          "annualized_volatility": 0.25878469,
+          "final_equity": 85125.3323,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.19755977,
+          "periods": 252,
+          "sharpe": -0.49344148,
+          "total_return": -0.14874668,
+          "win_rate": 0.1547619
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.0760058,
+          "annualized_volatility": 0.25859176,
+          "final_equity": 92399.4196,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.18361412,
+          "periods": 252,
+          "sharpe": -0.17717026,
+          "total_return": -0.0760058,
+          "win_rate": 0.15873016
+        },
+        "periods": 252,
+        "start": "2022-08-05",
+        "turnover": {
+          "active_day_fraction": 0.33730159,
+          "active_days": 85,
+          "annualized_turnover_proxy": 163.76066334,
+          "event_counts_by_symbol": {
+            "AAPL": 27,
+            "AMZN": 26,
+            "GOOGL": 22,
+            "META": 17,
+            "MSFT": 22,
+            "NVDA": 19,
+            "TSLA": 22
+          },
+          "mean_daily_turnover": 0.6498439,
+          "mean_gross_exposure": 0.33730159,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 15
+      },
+      {
+        "end": "2023-08-24",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 84527.4226,
+            "timestamp": "2023-08-17T04:00:00+00:00"
+          },
+          {
+            "equity": 85661.5359,
+            "timestamp": "2023-08-18T04:00:00+00:00"
+          },
+          {
+            "equity": 81814.2881,
+            "timestamp": "2023-08-21T04:00:00+00:00"
+          },
+          {
+            "equity": 84218.4874,
+            "timestamp": "2023-08-22T04:00:00+00:00"
+          },
+          {
+            "equity": 84176.3781,
+            "timestamp": "2023-08-23T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.15823622,
+          "annualized_volatility": 0.26402217,
+          "final_equity": 84176.3781,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.2052066,
+          "periods": 252,
+          "sharpe": -0.52083963,
+          "total_return": -0.15823622,
+          "win_rate": 0.15873016
+        },
+        "metrics_pre_cost": {
+          "annualized_return": -0.08626622,
+          "annualized_volatility": 0.26368607,
+          "final_equity": 91373.3782,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.18361412,
+          "periods": 252,
+          "sharpe": -0.21098148,
+          "total_return": -0.08626622,
+          "win_rate": 0.16269841
+        },
+        "periods": 252,
+        "start": "2022-08-23",
+        "turnover": {
+          "active_day_fraction": 0.34126984,
+          "active_days": 86,
+          "annualized_turnover_proxy": 163.76066334,
+          "event_counts_by_symbol": {
+            "AAPL": 28,
+            "AMZN": 26,
+            "GOOGL": 22,
+            "META": 17,
+            "MSFT": 22,
+            "NVDA": 17,
+            "TSLA": 23
+          },
+          "mean_daily_turnover": 0.6498439,
+          "mean_gross_exposure": 0.34126984,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 16
+      },
+      {
+        "end": "2023-09-19",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 94886.0566,
+            "timestamp": "2023-09-12T04:00:00+00:00"
+          },
+          {
+            "equity": 94886.0566,
+            "timestamp": "2023-09-13T04:00:00+00:00"
+          },
+          {
+            "equity": 94886.0566,
+            "timestamp": "2023-09-14T04:00:00+00:00"
+          },
+          {
+            "equity": 94886.0566,
+            "timestamp": "2023-09-15T04:00:00+00:00"
+          },
+          {
+            "equity": 97542.1603,
+            "timestamp": "2023-09-18T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.0245784,
+          "annualized_volatility": 0.26633176,
+          "final_equity": 97542.1603,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.2052066,
+          "periods": 252,
+          "sharpe": 0.03891567,
+          "total_return": -0.0245784,
+          "win_rate": 0.16666667
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.05712309,
+          "annualized_volatility": 0.26620699,
+          "final_equity": 105712.3091,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.18361412,
+          "periods": 252,
+          "sharpe": 0.34088064,
+          "total_return": 0.05712309,
+          "win_rate": 0.17063492
+        },
+        "periods": 252,
+        "start": "2022-09-16",
+        "turnover": {
+          "active_day_fraction": 0.33730159,
+          "active_days": 85,
+          "annualized_turnover_proxy": 160.76066334,
+          "event_counts_by_symbol": {
+            "AAPL": 27,
+            "AMZN": 25,
+            "GOOGL": 22,
+            "META": 15,
+            "MSFT": 23,
+            "NVDA": 17,
+            "TSLA": 24
+          },
+          "mean_daily_turnover": 0.63793914,
+          "mean_gross_exposure": 0.33730159,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 17
+      },
+      {
+        "end": "2023-10-19",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 102730.5412,
+            "timestamp": "2023-10-12T04:00:00+00:00"
+          },
+          {
+            "equity": 102730.5412,
+            "timestamp": "2023-10-13T04:00:00+00:00"
+          },
+          {
+            "equity": 102185.7714,
+            "timestamp": "2023-10-16T04:00:00+00:00"
+          },
+          {
+            "equity": 101973.5563,
+            "timestamp": "2023-10-17T04:00:00+00:00"
+          },
+          {
+            "equity": 101021.9008,
+            "timestamp": "2023-10-18T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.01021901,
+          "annualized_volatility": 0.2573911,
+          "final_equity": 101021.9008,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.2052066,
+          "periods": 252,
+          "sharpe": 0.16751872,
+          "total_return": 0.01021901,
+          "win_rate": 0.15873016
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.09295853,
+          "annualized_volatility": 0.25718666,
+          "final_equity": 109295.8526,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.18361412,
+          "periods": 252,
+          "sharpe": 0.47348982,
+          "total_return": 0.09295853,
+          "win_rate": 0.16269841
+        },
+        "periods": 252,
+        "start": "2022-10-18",
+        "turnover": {
+          "active_day_fraction": 0.32936508,
+          "active_days": 83,
+          "annualized_turnover_proxy": 157.31487496,
+          "event_counts_by_symbol": {
+            "AAPL": 23,
+            "AMZN": 23,
+            "GOOGL": 21,
+            "META": 13,
+            "MSFT": 23,
+            "NVDA": 18,
+            "TSLA": 26
+          },
+          "mean_daily_turnover": 0.62426538,
+          "mean_gross_exposure": 0.32936508,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 18
+      },
+      {
+        "end": "2024-01-12",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 95614.3431,
+            "timestamp": "2024-01-05T05:00:00+00:00"
+          },
+          {
+            "equity": 95614.3431,
+            "timestamp": "2024-01-08T05:00:00+00:00"
+          },
+          {
+            "equity": 95614.3431,
+            "timestamp": "2024-01-09T05:00:00+00:00"
+          },
+          {
+            "equity": 95614.3431,
+            "timestamp": "2024-01-10T05:00:00+00:00"
+          },
+          {
+            "equity": 95614.3431,
+            "timestamp": "2024-01-11T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.04385657,
+          "annualized_volatility": 0.19420269,
+          "final_equity": 95614.3431,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.2052066,
+          "periods": 252,
+          "sharpe": -0.13469748,
+          "total_return": -0.04385657,
+          "win_rate": 0.13492063
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.0305505,
+          "annualized_volatility": 0.1938159,
+          "final_equity": 103055.05,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.17802829,
+          "periods": 252,
+          "sharpe": 0.25121262,
+          "total_return": 0.0305505,
+          "win_rate": 0.13888889
+        },
+        "periods": 252,
+        "start": "2023-01-11",
+        "turnover": {
+          "active_day_fraction": 0.31349206,
+          "active_days": 79,
+          "annualized_turnover_proxy": 149.69522743,
+          "event_counts_by_symbol": {
+            "AAPL": 20,
+            "AMZN": 21,
+            "GOOGL": 19,
+            "META": 11,
+            "MSFT": 21,
+            "NVDA": 11,
+            "TSLA": 23
+          },
+          "mean_daily_turnover": 0.59402868,
+          "mean_gross_exposure": 0.31349206,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 19
+      },
+      {
+        "end": "2024-06-14",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 93377.9359,
+            "timestamp": "2024-06-07T04:00:00+00:00"
+          },
+          {
+            "equity": 94432.8226,
+            "timestamp": "2024-06-10T04:00:00+00:00"
+          },
+          {
+            "equity": 94385.6062,
+            "timestamp": "2024-06-11T04:00:00+00:00"
+          },
+          {
+            "equity": 94385.6062,
+            "timestamp": "2024-06-12T04:00:00+00:00"
+          },
+          {
+            "equity": 97304.403,
+            "timestamp": "2024-06-13T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.02695597,
+          "annualized_volatility": 0.19899727,
+          "final_equity": 97304.403,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.20846624,
+          "periods": 252,
+          "sharpe": -0.03812138,
+          "total_return": -0.02695597,
+          "win_rate": 0.17063492
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.06426307,
+          "annualized_volatility": 0.19870572,
+          "final_equity": 106426.3072,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.15424681,
+          "periods": 252,
+          "sharpe": 0.41242999,
+          "total_return": 0.06426307,
+          "win_rate": 0.17063492
+        },
+        "periods": 252,
+        "start": "2023-06-14",
+        "turnover": {
+          "active_day_fraction": 0.38095238,
+          "active_days": 96,
+          "annualized_turnover_proxy": 179.07649566,
+          "event_counts_by_symbol": {
+            "AAPL": 23,
+            "AMZN": 20,
+            "GOOGL": 19,
+            "META": 15,
+            "MSFT": 24,
+            "NVDA": 21,
+            "TSLA": 28
+          },
+          "mean_daily_turnover": 0.71062101,
+          "mean_gross_exposure": 0.38095238,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 20
+      },
+      {
+        "end": "2024-10-10",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 99386.9017,
+            "timestamp": "2024-10-03T04:00:00+00:00"
+          },
+          {
+            "equity": 99386.9017,
+            "timestamp": "2024-10-04T04:00:00+00:00"
+          },
+          {
+            "equity": 99386.9017,
+            "timestamp": "2024-10-07T04:00:00+00:00"
+          },
+          {
+            "equity": 99386.9017,
+            "timestamp": "2024-10-08T04:00:00+00:00"
+          },
+          {
+            "equity": 99386.9017,
+            "timestamp": "2024-10-09T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.00613098,
+          "annualized_volatility": 0.16738036,
+          "final_equity": 99386.9017,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.1899045,
+          "periods": 252,
+          "sharpe": 0.04695821,
+          "total_return": -0.00613098,
+          "win_rate": 0.17460317
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.08167294,
+          "annualized_volatility": 0.16748892,
+          "final_equity": 108167.2939,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.15353182,
+          "periods": 252,
+          "sharpe": 0.55248135,
+          "total_return": 0.08167294,
+          "win_rate": 0.17460317
+        },
+        "periods": 252,
+        "start": "2023-10-10",
+        "turnover": {
+          "active_day_fraction": 0.36111111,
+          "active_days": 91,
+          "annualized_turnover_proxy": 169.34924719,
+          "event_counts_by_symbol": {
+            "AAPL": 22,
+            "AMZN": 21,
+            "GOOGL": 19,
+            "META": 18,
+            "MSFT": 29,
+            "NVDA": 18,
+            "TSLA": 20
+          },
+          "mean_daily_turnover": 0.67202082,
+          "mean_gross_exposure": 0.36111111,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 21
+      },
+      {
+        "end": "2024-12-06",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 93681.7852,
+            "timestamp": "2024-11-29T05:00:00+00:00"
+          },
+          {
+            "equity": 93681.7852,
+            "timestamp": "2024-12-02T05:00:00+00:00"
+          },
+          {
+            "equity": 93681.7852,
+            "timestamp": "2024-12-03T05:00:00+00:00"
+          },
+          {
+            "equity": 93681.7852,
+            "timestamp": "2024-12-04T05:00:00+00:00"
+          },
+          {
+            "equity": 93681.7852,
+            "timestamp": "2024-12-05T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": -0.06318215,
+          "annualized_volatility": 0.17968059,
+          "final_equity": 93681.7852,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16643116,
+          "periods": 252,
+          "sharpe": -0.27288062,
+          "total_return": -0.06318215,
+          "win_rate": 0.17857143
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.01900455,
+          "annualized_volatility": 0.17974288,
+          "final_equity": 101900.4548,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.14078322,
+          "periods": 252,
+          "sharpe": 0.19499481,
+          "total_return": 0.01900455,
+          "win_rate": 0.17857143
+        },
+        "periods": 252,
+        "start": "2023-12-06",
+        "turnover": {
+          "active_day_fraction": 0.3531746,
+          "active_days": 89,
+          "annualized_turnover_proxy": 168.1605551,
+          "event_counts_by_symbol": {
+            "AAPL": 20,
+            "AMZN": 21,
+            "GOOGL": 20,
+            "META": 17,
+            "MSFT": 29,
+            "NVDA": 20,
+            "TSLA": 22
+          },
+          "mean_daily_turnover": 0.66730379,
+          "mean_gross_exposure": 0.3531746,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 22
+      },
+      {
+        "end": "2024-12-20",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 93183.8528,
+            "timestamp": "2024-12-13T05:00:00+00:00"
+          },
+          {
+            "equity": 93985.5634,
+            "timestamp": "2024-12-16T05:00:00+00:00"
+          },
+          {
+            "equity": 94838.0588,
+            "timestamp": "2024-12-17T05:00:00+00:00"
+          },
+          {
+            "equity": 98250.231,
+            "timestamp": "2024-12-18T05:00:00+00:00"
+          },
+          {
+            "equity": 100015.3181,
+            "timestamp": "2024-12-19T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.00015318,
+          "annualized_volatility": 0.18435527,
+          "final_equity": 100015.3181,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16271405,
+          "periods": 252,
+          "sharpe": 0.09337372,
+          "total_return": 0.00015318,
+          "win_rate": 0.19047619
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.09028151,
+          "annualized_volatility": 0.18462423,
+          "final_equity": 109028.1507,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.13910811,
+          "periods": 252,
+          "sharpe": 0.56083655,
+          "total_return": 0.09028151,
+          "win_rate": 0.19047619
+        },
+        "periods": 252,
+        "start": "2023-12-20",
+        "turnover": {
+          "active_day_fraction": 0.36507937,
+          "active_days": 92,
+          "annualized_turnover_proxy": 172.66016296,
+          "event_counts_by_symbol": {
+            "AAPL": 20,
+            "AMZN": 21,
+            "GOOGL": 20,
+            "META": 19,
+            "MSFT": 29,
+            "NVDA": 23,
+            "TSLA": 22
+          },
+          "mean_daily_turnover": 0.68515938,
+          "mean_gross_exposure": 0.36507937,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 23
+      },
+      {
+        "end": "2025-01-28",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 113736.2838,
+            "timestamp": "2025-01-21T05:00:00+00:00"
+          },
+          {
+            "equity": 113427.5519,
+            "timestamp": "2025-01-22T05:00:00+00:00"
+          },
+          {
+            "equity": 113370.8381,
+            "timestamp": "2025-01-23T05:00:00+00:00"
+          },
+          {
+            "equity": 113370.8381,
+            "timestamp": "2025-01-24T05:00:00+00:00"
+          },
+          {
+            "equity": 113456.8437,
+            "timestamp": "2025-01-27T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.13456844,
+          "annualized_volatility": 0.20370525,
+          "final_equity": 113456.8437,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.13547031,
+          "periods": 252,
+          "sharpe": 0.72111868,
+          "total_return": 0.13456844,
+          "win_rate": 0.20238095
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.23878326,
+          "annualized_volatility": 0.20416573,
+          "final_equity": 123878.3264,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.11941154,
+          "periods": 252,
+          "sharpe": 1.15056998,
+          "total_return": 0.23878326,
+          "win_rate": 0.20238095
+        },
+        "periods": 252,
+        "start": "2024-01-25",
+        "turnover": {
+          "active_day_fraction": 0.37301587,
+          "active_days": 94,
+          "annualized_turnover_proxy": 176.02258441,
+          "event_counts_by_symbol": {
+            "AAPL": 21,
+            "AMZN": 23,
+            "GOOGL": 22,
+            "META": 21,
+            "MSFT": 33,
+            "NVDA": 27,
+            "TSLA": 23
+          },
+          "mean_daily_turnover": 0.69850232,
+          "mean_gross_exposure": 0.37301587,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 24
+      },
+      {
+        "end": "2025-02-03",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 117660.53,
+            "timestamp": "2025-01-27T05:00:00+00:00"
+          },
+          {
+            "equity": 117601.6997,
+            "timestamp": "2025-01-28T05:00:00+00:00"
+          },
+          {
+            "equity": 120175.023,
+            "timestamp": "2025-01-29T05:00:00+00:00"
+          },
+          {
+            "equity": 120686.6593,
+            "timestamp": "2025-01-30T05:00:00+00:00"
+          },
+          {
+            "equity": 126029.3155,
+            "timestamp": "2025-01-31T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.26029315,
+          "annualized_volatility": 0.20626923,
+          "final_equity": 126029.3155,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.1090492,
+          "periods": 252,
+          "sharpe": 1.22436326,
+          "total_return": 0.26029315,
+          "win_rate": 0.21428571
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.37870565,
+          "annualized_volatility": 0.20691078,
+          "final_equity": 137870.5652,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09416989,
+          "periods": 252,
+          "sharpe": 1.65559158,
+          "total_return": 0.37870565,
+          "win_rate": 0.21428571
+        },
+        "periods": 252,
+        "start": "2024-01-31",
+        "turnover": {
+          "active_day_fraction": 0.38095238,
+          "active_days": 96,
+          "annualized_turnover_proxy": 180.02258441,
+          "event_counts_by_symbol": {
+            "AAPL": 23,
+            "AMZN": 23,
+            "GOOGL": 22,
+            "META": 22,
+            "MSFT": 34,
+            "NVDA": 26,
+            "TSLA": 23
+          },
+          "mean_daily_turnover": 0.71437533,
+          "mean_gross_exposure": 0.38095238,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 25
+      },
+      {
+        "end": "2025-04-25",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 149792.423,
+            "timestamp": "2025-04-17T04:00:00+00:00"
+          },
+          {
+            "equity": 149792.423,
+            "timestamp": "2025-04-21T04:00:00+00:00"
+          },
+          {
+            "equity": 149792.423,
+            "timestamp": "2025-04-22T04:00:00+00:00"
+          },
+          {
+            "equity": 152091.8345,
+            "timestamp": "2025-04-23T04:00:00+00:00"
+          },
+          {
+            "equity": 152015.7886,
+            "timestamp": "2025-04-24T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.52015789,
+          "annualized_volatility": 0.25486756,
+          "final_equity": 152015.7886,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.17053299,
+          "periods": 252,
+          "sharpe": 1.7705422,
+          "total_return": 0.52015789,
+          "win_rate": 0.22222222
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.65562346,
+          "annualized_volatility": 0.2556404,
+          "final_equity": 165562.3464,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16422968,
+          "periods": 252,
+          "sharpe": 2.10038645,
+          "total_return": 0.65562346,
+          "win_rate": 0.22222222
+        },
+        "periods": 252,
+        "start": "2024-04-23",
+        "turnover": {
+          "active_day_fraction": 0.36507937,
+          "active_days": 92,
+          "annualized_turnover_proxy": 171.37972472,
+          "event_counts_by_symbol": {
+            "AAPL": 26,
+            "AMZN": 34,
+            "GOOGL": 22,
+            "META": 31,
+            "MSFT": 32,
+            "NVDA": 24,
+            "TSLA": 30
+          },
+          "mean_daily_turnover": 0.68007827,
+          "mean_gross_exposure": 0.36507937,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 26
+      },
+      {
+        "end": "2025-09-29",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 139046.6103,
+            "timestamp": "2025-09-22T04:00:00+00:00"
+          },
+          {
+            "equity": 139046.6103,
+            "timestamp": "2025-09-23T04:00:00+00:00"
+          },
+          {
+            "equity": 139046.6103,
+            "timestamp": "2025-09-24T04:00:00+00:00"
+          },
+          {
+            "equity": 141535.2004,
+            "timestamp": "2025-09-25T04:00:00+00:00"
+          },
+          {
+            "equity": 141464.4328,
+            "timestamp": "2025-09-26T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.41464433,
+          "annualized_volatility": 0.23762989,
+          "final_equity": 141464.4328,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.17053299,
+          "periods": 252,
+          "sharpe": 1.57783275,
+          "total_return": 0.41464433,
+          "win_rate": 0.1984127
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.53815007,
+          "annualized_volatility": 0.23813481,
+          "final_equity": 153815.0071,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16422968,
+          "periods": 252,
+          "sharpe": 1.92692381,
+          "total_return": 0.53815007,
+          "win_rate": 0.1984127
+        },
+        "periods": 252,
+        "start": "2024-09-25",
+        "turnover": {
+          "active_day_fraction": 0.34920635,
+          "active_days": 88,
+          "annualized_turnover_proxy": 167.85483863,
+          "event_counts_by_symbol": {
+            "AAPL": 25,
+            "AMZN": 28,
+            "GOOGL": 22,
+            "META": 29,
+            "MSFT": 22,
+            "NVDA": 33,
+            "TSLA": 29
+          },
+          "mean_daily_turnover": 0.66609063,
+          "mean_gross_exposure": 0.34920635,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 27
+      },
+      {
+        "end": "2025-10-08",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 139889.5776,
+            "timestamp": "2025-10-01T04:00:00+00:00"
+          },
+          {
+            "equity": 150018.2859,
+            "timestamp": "2025-10-02T04:00:00+00:00"
+          },
+          {
+            "equity": 151844.634,
+            "timestamp": "2025-10-03T04:00:00+00:00"
+          },
+          {
+            "equity": 147386.3618,
+            "timestamp": "2025-10-06T04:00:00+00:00"
+          },
+          {
+            "equity": 147312.6687,
+            "timestamp": "2025-10-07T04:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.47312669,
+          "annualized_volatility": 0.25023506,
+          "final_equity": 147312.6687,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.17053299,
+          "periods": 252,
+          "sharpe": 1.67230158,
+          "total_return": 0.47312669,
+          "win_rate": 0.20238095
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.60647854,
+          "annualized_volatility": 0.25083622,
+          "final_equity": 160647.8537,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16422968,
+          "periods": 252,
+          "sharpe": 2.01484423,
+          "total_return": 0.60647854,
+          "win_rate": 0.20238095
+        },
+        "periods": 252,
+        "start": "2024-10-04",
+        "turnover": {
+          "active_day_fraction": 0.36111111,
+          "active_days": 91,
+          "annualized_turnover_proxy": 173.85483863,
+          "event_counts_by_symbol": {
+            "AAPL": 26,
+            "AMZN": 28,
+            "GOOGL": 22,
+            "META": 30,
+            "MSFT": 22,
+            "NVDA": 33,
+            "TSLA": 30
+          },
+          "mean_daily_turnover": 0.68990015,
+          "mean_gross_exposure": 0.36111111,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 28
+      },
+      {
+        "end": "2025-11-17",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 168203.1802,
+            "timestamp": "2025-11-10T05:00:00+00:00"
+          },
+          {
+            "equity": 168119.0786,
+            "timestamp": "2025-11-11T05:00:00+00:00"
+          },
+          {
+            "equity": 168119.0786,
+            "timestamp": "2025-11-12T05:00:00+00:00"
+          },
+          {
+            "equity": 159635.621,
+            "timestamp": "2025-11-13T05:00:00+00:00"
+          },
+          {
+            "equity": 164768.5385,
+            "timestamp": "2025-11-14T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.64768538,
+          "annualized_volatility": 0.25967572,
+          "final_equity": 164768.5385,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.17053299,
+          "periods": 252,
+          "sharpe": 2.05220127,
+          "total_return": 0.64768538,
+          "win_rate": 0.23015873
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.81226131,
+          "annualized_volatility": 0.26049445,
+          "final_equity": 181226.1306,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16422968,
+          "periods": 252,
+          "sharpe": 2.41271267,
+          "total_return": 0.81226131,
+          "win_rate": 0.23015873
+        },
+        "periods": 252,
+        "start": "2024-11-13",
+        "turnover": {
+          "active_day_fraction": 0.40079365,
+          "active_days": 101,
+          "annualized_turnover_proxy": 191.18281134,
+          "event_counts_by_symbol": {
+            "AAPL": 29,
+            "AMZN": 29,
+            "GOOGL": 23,
+            "META": 28,
+            "MSFT": 23,
+            "NVDA": 42,
+            "TSLA": 33
+          },
+          "mean_daily_turnover": 0.75866195,
+          "mean_gross_exposure": 0.40079365,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 29
+      },
+      {
+        "end": "2025-12-16",
+        "equity_curve_cost_adjusted_tail": [
+          {
+            "equity": 179211.3358,
+            "timestamp": "2025-12-09T05:00:00+00:00"
+          },
+          {
+            "equity": 177096.4714,
+            "timestamp": "2025-12-10T05:00:00+00:00"
+          },
+          {
+            "equity": 177007.9231,
+            "timestamp": "2025-12-11T05:00:00+00:00"
+          },
+          {
+            "equity": 177007.9231,
+            "timestamp": "2025-12-12T05:00:00+00:00"
+          },
+          {
+            "equity": 174706.066,
+            "timestamp": "2025-12-15T05:00:00+00:00"
+          }
+        ],
+        "metrics_cost_adjusted": {
+          "annualized_return": 0.74706066,
+          "annualized_volatility": 0.26812397,
+          "final_equity": 174706.066,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.17053299,
+          "periods": 252,
+          "sharpe": 2.21451667,
+          "total_return": 0.74706066,
+          "win_rate": 0.23809524
+        },
+        "metrics_pre_cost": {
+          "annualized_return": 0.92893724,
+          "annualized_volatility": 0.26897446,
+          "final_equity": 192893.7241,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.16422968,
+          "periods": 252,
+          "sharpe": 2.57732125,
+          "total_return": 0.92893724,
+          "win_rate": 0.23809524
+        },
+        "periods": 252,
+        "start": "2024-12-12",
+        "turnover": {
+          "active_day_fraction": 0.42063492,
+          "active_days": 106,
+          "annualized_turnover_proxy": 198.93719643,
+          "event_counts_by_symbol": {
+            "AAPL": 30,
+            "AMZN": 29,
+            "GOOGL": 24,
+            "META": 29,
+            "MSFT": 26,
+            "NVDA": 41,
+            "TSLA": 35
+          },
+          "mean_daily_turnover": 0.78943332,
+          "mean_gross_exposure": 0.42063492,
+          "median_daily_turnover": 1.0
+        },
+        "window_id": 30
+      }
+    ],
+    "seed": 18018,
+    "summary": {
+      "metrics_cost_adjusted": {
+        "annualized_return": {
+          "count": 30,
+          "max": 0.74706066,
+          "mean": -0.0582425,
+          "median": -0.15349145,
+          "min": -0.44999168,
+          "p25": -0.30308763,
+          "p75": 0.00770255
+        },
+        "annualized_volatility": {
+          "count": 30,
+          "max": 0.32824481,
+          "mean": 0.25299032,
+          "median": 0.2592302,
+          "min": 0.16738036,
+          "p25": 0.21087372,
+          "p75": 0.28275847
+        },
+        "max_drawdown": {
+          "count": 30,
+          "max": -0.1090492,
+          "mean": -0.27637261,
+          "median": -0.20683642,
+          "min": -0.47909091,
+          "p25": -0.37632738,
+          "p75": -0.17053299
+        },
+        "periods": {
+          "count": 30,
+          "max": 252,
+          "mean": 252.0,
+          "median": 252.0,
+          "min": 252,
+          "p25": 252.0,
+          "p75": 252.0
+        },
+        "sharpe": {
+          "count": 30,
+          "max": 2.21451667,
+          "mean": -0.24257985,
+          "median": -0.50714055,
+          "min": -1.70137706,
+          "p25": -1.17384975,
+          "p75": 0.14898247
+        },
+        "total_return": {
+          "count": 30,
+          "max": 0.74706066,
+          "mean": -0.0582425,
+          "median": -0.15349145,
+          "min": -0.44999168,
+          "p25": -0.30308763,
+          "p75": 0.00770255
+        },
+        "win_rate": {
+          "count": 30,
+          "max": 0.23809524,
+          "mean": 0.17275132,
+          "median": 0.16468254,
+          "min": 0.13095238,
+          "p25": 0.1547619,
+          "p75": 0.1875
+        }
+      },
+      "metrics_pre_cost": {
+        "annualized_return": {
+          "count": 30,
+          "max": 0.92893724,
+          "mean": 0.02748058,
+          "median": -0.08113601,
+          "min": -0.3915942,
+          "p25": -0.23796006,
+          "p75": 0.09228928
+        },
+        "annualized_volatility": {
+          "count": 30,
+          "max": 0.32758777,
+          "mean": 0.2528875,
+          "median": 0.2595431,
+          "min": 0.16748892,
+          "p25": 0.21055668,
+          "p75": 0.28262099
+        },
+        "max_drawdown": {
+          "count": 30,
+          "max": -0.09416989,
+          "mean": -0.24657895,
+          "median": -0.18361412,
+          "min": -0.42540992,
+          "p25": -0.34008691,
+          "p75": -0.16422968
+        },
+        "periods": {
+          "count": 30,
+          "max": 252,
+          "mean": 252.0,
+          "median": 252.0,
+          "min": 252,
+          "p25": 252.0,
+          "p75": 252.0
+        },
+        "sharpe": {
+          "count": 30,
+          "max": 2.57732125,
+          "mean": 0.10830429,
+          "median": -0.19407587,
+          "min": -1.39165728,
+          "p25": -0.85065245,
+          "p75": 0.55874775
+        },
+        "total_return": {
+          "count": 30,
+          "max": 0.92893724,
+          "mean": 0.02748058,
+          "median": -0.08113601,
+          "min": -0.3915942,
+          "p25": -0.23796006,
+          "p75": 0.09228928
+        },
+        "win_rate": {
+          "count": 30,
+          "max": 0.23809524,
+          "mean": 0.17539682,
+          "median": 0.17063492,
+          "min": 0.13492063,
+          "p25": 0.15972222,
+          "p75": 0.18849206
+        }
+      },
+      "positive_sharpe_fraction_cost_adjusted": 0.36666667,
+      "turnover": {
+        "median_active_day_fraction": 0.36309524,
+        "median_mean_daily_turnover": 0.68372782
+      }
+    },
+    "window_trading_days": 252
+  },
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA"
+  ]
+}

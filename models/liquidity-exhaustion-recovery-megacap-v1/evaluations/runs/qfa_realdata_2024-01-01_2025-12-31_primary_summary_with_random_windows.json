@@ -1,0 +1,402 @@
+{
+  "costs_slippage": {
+    "applied_in_turnover_replay": true,
+    "assumption_bps_per_unit_turnover": 5,
+    "handling": "qfa CLI has no native cost/slippage parameter; a separate AlpacaGateway replay of the same model applied 5 bps times absolute weight turnover. No raw data retained.",
+    "primary_active_periods": 10,
+    "primary_cost_adjusted_metrics": {
+      "annualized_return": 0.08682701,
+      "annualized_volatility": 0.11017782,
+      "final_equity": 117963.2889,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.04908474,
+      "periods": 500,
+      "sharpe": 0.80678607,
+      "total_return": 0.17963289,
+      "win_rate": 0.012
+    },
+    "primary_mean_daily_turnover": 0.04,
+    "primary_total_turnover": 20.0,
+    "qfa_native_costs_available": false
+  },
+  "created_at": "2026-06-26T09:59:10Z",
+  "data_source": "Alpaca real market data via qfa backtest and AlpacaGateway for turnover-cost replay; no CSV fixtures; no --data-csv",
+  "date_range": {
+    "end": "2025-12-31",
+    "periods": 500,
+    "start": "2024-01-01",
+    "timeframe": "1Day"
+  },
+  "db_artifact_retained": false,
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "alpaca_qfa_real_market_data_backtest_with_random_windows_and_5bps_turnover_haircut",
+  "implementation_limitation": "Alpaca/qfa daily bars do not provide auction imbalance, order-book depth, or true forced-flow labels. The model uses daily range, volume, and close-location proxies; qfa applies next close-to-close returns.",
+  "issue_id": "AR-046",
+  "mechanism": "Cross-sectional breadth/intensity of abnormal range-volume close-location exhaustion across mega-caps. Triggered broad downside exhaustion buys a basket; broad upside exhaustion shorts a basket. This is basket-level recovery allocation rather than AR-028 single-name event fading.",
+  "metrics_pre_cost": {
+    "annualized_return": 0.0922616,
+    "annualized_volatility": 0.11068819,
+    "final_equity": 119136.5358,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.04429516,
+    "periods": 500,
+    "sharpe": 0.84859942,
+    "total_return": 0.19136536,
+    "win_rate": 0.012
+  },
+  "model_name": "liquidity-exhaustion-recovery-megacap-v1",
+  "model_parameters": {
+    "basket_floor_fraction": 0.6,
+    "clv_extreme": 0.22,
+    "max_abs_weight": 0.18,
+    "min_breadth_count": 4,
+    "min_net_intensity": 4.0,
+    "range_z_min": 0.25,
+    "range_z_window": 60,
+    "volume_z_min": 0.75,
+    "volume_z_window": 60
+  },
+  "no_csv_used": true,
+  "no_data_csv_used": true,
+  "orthogonality": {
+    "comparisons": [
+      {
+        "daily_return_correlation": 0.463762,
+        "model": "AR-028 closing-volume-reversal-megacap-v1",
+        "overlap_periods": 499
+      },
+      {
+        "daily_return_correlation": 0.183383,
+        "model": "tsmom-voltarget-liquid-etf-randomcost-v1 watchlist",
+        "overlap_periods": 499
+      },
+      {
+        "daily_return_correlation": 0.281591,
+        "model": "mega-cap equal-weight market proxy",
+        "overlap_periods": 499
+      },
+      {
+        "daily_return_correlation": 0.356519,
+        "model": "SPY market proxy",
+        "overlap_periods": 499
+      }
+    ],
+    "note": "Several accepted/watchlist latest.json files did not retain equity curves, so only available streams were compared.",
+    "status": "computed_against_AR028_and_available_watchlist_streams_with_equity_curves; moderate parent correlation but below high-correlation rejection threshold used in this pass"
+  },
+  "qfa": {
+    "command": "credentials sourced from profile secret file (redacted); qfa backtest run models/liquidity-exhaustion-recovery-megacap-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL,AVGO,TSLA,JPM,LLY --start <start> --end <end> --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>; no --data-csv",
+    "db_artifact_retained": false,
+    "db_retention_note": "Temporary SQLite DBs were created under /tmp for each qfa run and removed after JSON run artifacts were retained.",
+    "primary_run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2024-01-01_2025-12-31_primary.json",
+    "run_ids": {
+      "primary": 1,
+      "random_windows": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "sanitized_command_no_credentials": true
+  },
+  "random_windows": {
+    "count": 8,
+    "results": [
+      {
+        "active_periods": 3,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.07247506,
+          "annualized_volatility": 0.05416006,
+          "final_equity": 105710.1831,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0040571,
+          "periods": 200,
+          "sharpe": 1.31828727,
+          "total_return": 0.05710183,
+          "win_rate": 0.01
+        },
+        "db_artifact_retained": false,
+        "end": "2020-12-15",
+        "metrics_pre_cost": {
+          "annualized_return": 0.07649877,
+          "annualized_volatility": 0.05481568,
+          "final_equity": 106024.8264,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.00256041,
+          "periods": 200,
+          "sharpe": 1.37147825,
+          "total_return": 0.06024826,
+          "win_rate": 0.01
+        },
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2020-03-01_2020-12-15_random1.json",
+        "start": "2020-03-01",
+        "total_turnover": 6.0,
+        "window_id": 1
+      },
+      {
+        "active_periods": 1,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.01080511,
+          "annualized_volatility": 0.01086154,
+          "final_equity": 100985.7178,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0005,
+          "periods": 230,
+          "sharpe": 0.99486069,
+          "total_return": 0.00985718,
+          "win_rate": 0.00434783
+        },
+        "db_artifact_retained": false,
+        "end": "2021-08-15",
+        "metrics_pre_cost": {
+          "annualized_return": 0.01190753,
+          "annualized_volatility": 0.01137,
+          "final_equity": 101086.2359,
+          "initial_cash": 100000.0,
+          "max_drawdown": 0.0,
+          "periods": 230,
+          "sharpe": 1.04673405,
+          "total_return": 0.01086236,
+          "win_rate": 0.00434783
+        },
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2020-09-15_2021-08-15_random2.json",
+        "start": "2020-09-15",
+        "total_turnover": 2.0,
+        "window_id": 2
+      },
+      {
+        "active_periods": 2,
+        "cost_adjusted_metrics": {
+          "annualized_return": -0.00548518,
+          "annualized_volatility": 0.00331708,
+          "final_equity": 99499.2481,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.00500752,
+          "periods": 230,
+          "sharpe": -1.65650001,
+          "total_return": -0.00500752,
+          "win_rate": 0.0
+        },
+        "db_artifact_retained": false,
+        "end": "2021-12-15",
+        "metrics_pre_cost": {
+          "annualized_return": -0.00330131,
+          "annualized_volatility": 0.00258099,
+          "final_equity": 99698.6463,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.00301354,
+          "periods": 230,
+          "sharpe": -1.27990592,
+          "total_return": -0.00301354,
+          "win_rate": 0.0
+        },
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2021-01-15_2021-12-15_random3.json",
+        "start": "2021-01-15",
+        "total_turnover": 4.0,
+        "window_id": 3
+      },
+      {
+        "active_periods": 4,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.0129817,
+          "annualized_volatility": 0.03411142,
+          "final_equity": 101235.9724,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.02072455,
+          "periods": 240,
+          "sharpe": 0.39492564,
+          "total_return": 0.01235972,
+          "win_rate": 0.00833333
+        },
+        "db_artifact_retained": false,
+        "end": "2022-10-15",
+        "metrics_pre_cost": {
+          "annualized_return": 0.01670406,
+          "annualized_volatility": 0.03432949,
+          "final_equity": 101590.234,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0187542,
+          "periods": 240,
+          "sharpe": 0.49946783,
+          "total_return": 0.01590234,
+          "win_rate": 0.00833333
+        },
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2021-11-01_2022-10-15_random4.json",
+        "start": "2021-11-01",
+        "total_turnover": 7.0,
+        "window_id": 4
+      },
+      {
+        "active_periods": 8,
+        "cost_adjusted_metrics": {
+          "annualized_return": -0.05032174,
+          "annualized_volatility": 0.06540149,
+          "final_equity": 95260.1434,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.07442596,
+          "periods": 237,
+          "sharpe": -0.75631205,
+          "total_return": -0.04739857,
+          "win_rate": 0.01265823
+        },
+        "db_artifact_retained": false,
+        "end": "2022-12-20",
+        "metrics_pre_cost": {
+          "annualized_return": -0.04218527,
+          "annualized_volatility": 0.06507702,
+          "final_equity": 96027.5187,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06939006,
+          "periods": 237,
+          "sharpe": -0.62937133,
+          "total_return": -0.03972481,
+          "win_rate": 0.01687764
+        },
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2022-01-10_2022-12-20_random5.json",
+        "start": "2022-01-10",
+        "total_turnover": 16.0,
+        "window_id": 5
+      },
+      {
+        "active_periods": 0,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.0,
+          "annualized_volatility": 0.0,
+          "final_equity": 100000.0,
+          "initial_cash": 100000.0,
+          "max_drawdown": 0.0,
+          "periods": 208,
+          "sharpe": 0.0,
+          "total_return": 0.0,
+          "win_rate": 0.0
+        },
+        "db_artifact_retained": false,
+        "end": "2023-11-30",
+        "metrics_pre_cost": {
+          "annualized_return": 0.0,
+          "annualized_volatility": 0.0,
+          "final_equity": 100000.0,
+          "initial_cash": 100000.0,
+          "max_drawdown": 0.0,
+          "periods": 208,
+          "sharpe": 0.0,
+          "total_return": 0.0,
+          "win_rate": 0.0
+        },
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2023-02-01_2023-11-30_random6.json",
+        "start": "2023-02-01",
+        "total_turnover": 0.0,
+        "window_id": 6
+      },
+      {
+        "active_periods": 3,
+        "cost_adjusted_metrics": {
+          "annualized_return": -0.02789984,
+          "annualized_volatility": 0.02154246,
+          "final_equity": 97790.2603,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0220974,
+          "periods": 199,
+          "sharpe": -1.30264188,
+          "total_return": -0.0220974,
+          "win_rate": 0.00502513
+        },
+        "db_artifact_retained": false,
+        "end": "2024-12-15",
+        "metrics_pre_cost": {
+          "annualized_return": -0.02418683,
+          "annualized_volatility": 0.0209422,
+          "final_equity": 98085.1025,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.01914897,
+          "periods": 199,
+          "sharpe": -1.15857545,
+          "total_return": -0.01914897,
+          "win_rate": 0.00502513
+        },
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2024-03-01_2024-12-15_random7.json",
+        "start": "2024-03-01",
+        "total_turnover": 6.0,
+        "window_id": 7
+      },
+      {
+        "active_periods": 3,
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.04098713,
+          "annualized_volatility": 0.02868736,
+          "final_equity": 103717.7587,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0005,
+          "periods": 229,
+          "sharpe": 1.41442134,
+          "total_return": 0.03717759,
+          "win_rate": 0.01310044
+        },
+        "db_artifact_retained": false,
+        "end": "2025-12-15",
+        "metrics_pre_cost": {
+          "annualized_return": 0.04440781,
+          "annualized_volatility": 0.02939838,
+          "final_equity": 104027.4223,
+          "initial_cash": 100000.0,
+          "max_drawdown": 0.0,
+          "periods": 229,
+          "sharpe": 1.4925078,
+          "total_return": 0.04027422,
+          "win_rate": 0.01310044
+        },
+        "qfa_run_id": 1,
+        "run_json_path": "/Users/moonk/quant-for-agent/models/liquidity-exhaustion-recovery-megacap-v1/evaluations/runs/qfa_realdata_2025-01-15_2025-12-15_random8.json",
+        "start": "2025-01-15",
+        "total_turnover": 6.0,
+        "window_id": 8
+      }
+    ],
+    "selection": "8 predetermined stress/regime windows from 2020-2025, no grid search",
+    "summary_cost_adjusted": {
+      "mean_sharpe": 0.05088013,
+      "median_sharpe": 0.19746282,
+      "median_total_return": 0.00492859,
+      "positive_sharpe_count": 4,
+      "worst_max_drawdown": -0.07442596
+    },
+    "summary_pre_cost": {
+      "mean_sharpe": 0.1677919,
+      "median_sharpe": 0.24973392,
+      "median_total_return": 0.00543118,
+      "positive_sharpe_count": 4,
+      "worst_max_drawdown": -0.06939006
+    }
+  },
+  "suggested_children": [],
+  "suggested_decision": "research_watchlist_not_trade; primary and median random-window Sharpe remain positive after 5 bps turnover replay, drawdown is acceptable, but signal is sparse, several random windows are negative, and AR-028 correlation is moderate.",
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "AVGO",
+    "TSLA",
+    "JPM",
+    "LLY"
+  ],
+  "warnings": [
+    "No daemon was run and no trades were placed.",
+    "Never used CSV or --data-csv; all qfa runs fetched Alpaca real market data.",
+    "The liquidity-exhaustion proxy lacks auction imbalance/order-book data and should not be treated as confirmed forced-flow evidence."
+  ]
+}

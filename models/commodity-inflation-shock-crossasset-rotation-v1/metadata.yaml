@@ -1,0 +1,18 @@
+model_name: commodity-inflation-shock-crossasset-rotation-v1
+issue_id: AR-101
+family: commodity_macro_rotation
+parent_alpha: AR-092
+hypothesis: Commodity, precious-metal, credit, duration, and sector ETF moves can identify inflation/liquidity shocks that lead short-horizon cross-asset ETF rotation.
+model_type: rule_based_long_only_allocator
+contract: generate_signals(context)
+data:
+  provider: Alpaca via qfa market-data interfaces
+  timeframe: 1Day
+  csv_backed_data: false
+risk:
+  max_gross: 1.0
+  max_single_weight: 0.25
+  leverage: none
+  orders_or_trading: none
+artifact_policy:
+  raw_daily_paths_retained: false

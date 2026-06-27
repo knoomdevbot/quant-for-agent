@@ -1,0 +1,194 @@
+{
+  "artifacts": {
+    "README_path": "/Users/moonk/quant-for-agent/models/etf-opening-range-liquidity-reversal-v1/README.md",
+    "config_path": "/Users/moonk/quant-for-agent/models/etf-opening-range-liquidity-reversal-v1/config.yaml",
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/etf-opening-range-liquidity-reversal-v1/evaluations/runs/ar085_qfa_alpaca_real_20260626T151212Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/etf-opening-range-liquidity-reversal-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/etf-opening-range-liquidity-reversal-v1/evaluations/latest.md",
+    "metadata_path": "/Users/moonk/quant-for-agent/models/etf-opening-range-liquidity-reversal-v1/metadata.yaml",
+    "model_path": "/Users/moonk/quant-for-agent/models/etf-opening-range-liquidity-reversal-v1/model.py"
+  },
+  "compact_artifact_note": "Raw daily/equity/weight paths pruned; aggregate metrics retained.",
+  "costs_slippage": {
+    "method": "external event turnover haircut, including entry and same-day flattening",
+    "one_way_bps_tested": [
+      10,
+      20
+    ]
+  },
+  "created_at_utc": "2026-06-26T15:12:12Z",
+  "data_source": "Alpaca/qfa real 1Min OHLCV via AlpacaGateway; no CSV; no --data-csv; no daemon; no orders; secrets not printed.",
+  "decision": "reject",
+  "decision_reason": "Bounded Alpaca/qfa 1Min evaluation did not produce sufficient robust positive activation; rejected rather than promoting.",
+  "evaluation_status": "completed_bounded_real_intraday",
+  "intraday_not_daily_proxy": true,
+  "issue_id": "AR-085",
+  "metrics": {
+    "median_sharpe_10bps": -0.04427722,
+    "p25_sharpe_10bps": -0.41766358,
+    "unavailable_if_no_events": false
+  },
+  "model_name": "etf-opening-range-liquidity-reversal-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "qfa": {
+    "daemon_used": false,
+    "data_csv_used": false,
+    "orders_placed": false,
+    "temporary_db_used": false,
+    "used_alpaca_gateway": true
+  },
+  "random_window_summary": {
+    "attempted": true,
+    "count": 3,
+    "median_sharpe_10bps": -0.04427722,
+    "p25_sharpe_10bps": -0.41766358,
+    "positive_window_rate_10bps": 0.33333333,
+    "total_active_events": 51
+  },
+  "raw_daily_paths_retained": false,
+  "universe": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "TLT",
+    "IEF",
+    "GLD",
+    "XLU",
+    "XLE",
+    "XLV"
+  ],
+  "windows": [
+    {
+      "end": "2025-05-31",
+      "label": "recent_2025_q2",
+      "metrics_10bps": {
+        "annualized_return": -0.02862665,
+        "annualized_volatility": 0.20596714,
+        "cost_bps_one_way": 10,
+        "events": 22,
+        "label": "recent_2025_q2",
+        "max_drawdown": -0.06096053,
+        "mean_turnover": 1.74949013,
+        "periods": 22,
+        "sharpe": -0.04427722,
+        "total_return": -0.00253241,
+        "win_rate": 0.31818182
+      },
+      "metrics_20bps": {
+        "annualized_return": -0.37525131,
+        "annualized_volatility": 0.20604555,
+        "cost_bps_one_way": 20,
+        "events": 22,
+        "label": "recent_2025_q2",
+        "max_drawdown": -0.08674167,
+        "mean_turnover": 1.74949013,
+        "periods": 22,
+        "sharpe": -2.18394019,
+        "total_return": -0.04023534,
+        "win_rate": 0.31818182
+      },
+      "rows": 248997,
+      "start": "2025-04-01",
+      "symbols_available": [
+        "GLD",
+        "IEF",
+        "IWM",
+        "QQQ",
+        "SPY",
+        "TLT",
+        "XLE",
+        "XLU",
+        "XLV"
+      ]
+    },
+    {
+      "end": "2025-04-30",
+      "label": "tariff_shock_2025",
+      "metrics_10bps": {
+        "annualized_return": 0.47125065,
+        "annualized_volatility": 0.21575514,
+        "cost_bps_one_way": 10,
+        "events": 20,
+        "label": "tariff_shock_2025",
+        "max_drawdown": -0.03246764,
+        "mean_turnover": 1.71412925,
+        "periods": 20,
+        "sharpe": 1.89194556,
+        "total_return": 0.03111823,
+        "win_rate": 0.5
+      },
+      "metrics_20bps": {
+        "annualized_return": -0.04456824,
+        "annualized_volatility": 0.21572873,
+        "cost_bps_one_way": 20,
+        "events": 20,
+        "label": "tariff_shock_2025",
+        "max_drawdown": -0.04646293,
+        "mean_turnover": 1.71412925,
+        "periods": 20,
+        "sharpe": -0.11015499,
+        "total_return": -0.00361187,
+        "win_rate": 0.5
+      },
+      "rows": 237514,
+      "start": "2025-03-01",
+      "symbols_available": [
+        "GLD",
+        "IEF",
+        "IWM",
+        "QQQ",
+        "SPY",
+        "TLT",
+        "XLE",
+        "XLU",
+        "XLV"
+      ]
+    },
+    {
+      "end": "2024-08-31",
+      "label": "vol_shock_2024",
+      "metrics_10bps": {
+        "annualized_return": -0.08303113,
+        "annualized_volatility": 0.10355414,
+        "cost_bps_one_way": 10,
+        "events": 9,
+        "label": "vol_shock_2024",
+        "max_drawdown": -0.01260154,
+        "mean_turnover": 1.77894147,
+        "periods": 9,
+        "sharpe": -0.79104994,
+        "total_return": -0.00309099,
+        "win_rate": 0.33333333
+      },
+      "metrics_20bps": {
+        "annualized_return": -0.41460619,
+        "annualized_volatility": 0.10281383,
+        "cost_bps_one_way": 20,
+        "events": 9,
+        "label": "vol_shock_2024",
+        "max_drawdown": -0.01631372,
+        "mean_turnover": 1.77894147,
+        "periods": 9,
+        "sharpe": -5.15698854,
+        "total_return": -0.01894224,
+        "win_rate": 0.33333333
+      },
+      "rows": 188435,
+      "start": "2024-07-15",
+      "symbols_available": [
+        "GLD",
+        "IEF",
+        "IWM",
+        "QQQ",
+        "SPY",
+        "TLT",
+        "XLE",
+        "XLU",
+        "XLV"
+      ]
+    }
+  ]
+}

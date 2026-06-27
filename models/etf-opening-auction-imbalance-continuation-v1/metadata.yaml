@@ -1,0 +1,14 @@
+alpha_id: AR-087
+model_name: etf-opening-auction-imbalance-continuation-v1
+title: ETF intraday opening-auction imbalance continuation
+family: intraday_flow_continuation
+parent_alpha: AR-079
+status: evaluated_rejected
+created_at_utc: '2026-06-26T15:16:02Z'
+research_only: true
+data_source: Alpaca/qfa real 1Min OHLCV only; no CSV
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

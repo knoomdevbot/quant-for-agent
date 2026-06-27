@@ -1,0 +1,59 @@
+model_name: earnings-quality-drift-megacap-v1
+issue_id: AR-030
+family: event_drift
+status: evaluated
+hypothesis: >
+  Mega-cap stocks with persistent post-event price drift and stable realized
+  volatility may proxy for earnings quality / post-earnings drift and produce a
+  return stream distinct from pure low-volatility ranking.
+data_source:
+  provider: Alpaca
+  access_path: qfa AlpacaGateway
+  real_market_data_only: true
+  csv_used: false
+  timeframe: 1Day
+symbols:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+  - JNJ
+  - PG
+  - KO
+  - PEP
+  - WMT
+primary_backtest:
+  start: '2022-01-03'
+  end: '2025-12-15'
+  initial_cash: 100000
+parameters:
+  event_proxy: large overnight or close-to-close OHLCV information shock with abnormal volume
+  lookback_days: 160
+  event_scan_days: 45
+  hold_days: 20
+  vol_window: 60
+  volume_window: 20
+  min_abs_event_return: 0.025
+  min_volume_multiple: 1.30
+  min_post_event_abs_drift: 0.008
+  max_abs_weight: 0.22
+  min_active_names: 2
+earnings_dates:
+  real_earnings_dates_available_via_qfa_alpaca: false
+  fabricated_dates_used: false
+  limitation: >
+    qfa/Alpaca market-data path in this repository does not provide a reliable
+    earnings calendar; this model uses only documented OHLCV event proxies.
+costs_slippage:
+  qfa_applied: false
+  one_way_bps_assumption: 5
+  note: qfa CLI has no transaction cost/slippage parameter; cost sensitivity is documented in evaluation artifacts.
+random_window_protocol:
+  count: 8
+  seed: 30030
+risk_constraints:
+  no_live_trading: true
+  no_daemon: true

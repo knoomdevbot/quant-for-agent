@@ -1,0 +1,70 @@
+{
+  "end": "2024-01-04",
+  "equity_curve": [
+    {
+      "equity": 100000.0,
+      "timestamp": "2024-01-02T00:00:00+00:00"
+    },
+    {
+      "equity": 100000.0,
+      "timestamp": "2024-01-03T00:00:00+00:00"
+    },
+    {
+      "equity": 99004.35902516347,
+      "timestamp": "2024-01-04T00:00:00+00:00"
+    }
+  ],
+  "id": 1,
+  "initial_cash": 100000.0,
+  "metrics": {
+    "annualized_return": -0.5685181,
+    "annualized_volatility": 0.091252,
+    "final_equity": 99004.359,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.00995641,
+    "periods": 3,
+    "sharpe": -9.16515139,
+    "total_return": -0.00995641,
+    "win_rate": 0.0
+  },
+  "model_path": "/Users/moonk/quant-for-agent/models/meanrev-zscore-liquid-etf-1d-v1/model.py",
+  "research_context": {
+    "cost_assumption_bps_documented": 5,
+    "costs_applied_in_qfa": false,
+    "evaluation_type": "data_limited_smoke",
+    "fixture": "tests/fixtures/prices.csv",
+    "fixture_limitations": "Only AAPL/MSFT and four dates; cannot evaluate ETF universe, 20/60-day windows, or random periods.",
+    "issue_id": "AR-002",
+    "live_trading": false,
+    "model_name": "meanrev-zscore-liquid-etf-1d-v1",
+    "smoke_symbols": [
+      "AAPL",
+      "MSFT"
+    ],
+    "suggested_decision": "research_seed_only_do_not_accept_until_full_etf_random_window_costed_test",
+    "target_universe_unavailable_locally": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "TLT",
+      "GLD",
+      "SLV",
+      "XLF",
+      "XLK",
+      "XLE",
+      "XLV"
+    ],
+    "warnings": [
+      "Smoke result is statistically meaningless with 3 return periods.",
+      "Target ETF universe is absent from local fixture.",
+      "qfa backtest engine has no transaction-cost/slippage option, so 5 bps costs were not applied.",
+      "Annualized metrics from three periods are unstable and should not drive allocation."
+    ]
+  },
+  "start": "2024-01-01",
+  "symbols": [
+    "AAPL",
+    "MSFT"
+  ],
+  "timeframe": "1Day"
+}

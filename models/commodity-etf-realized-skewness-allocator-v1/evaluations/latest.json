@@ -1,0 +1,1770 @@
+{
+  "ablation_results": {
+    "equal_weight_not_vol_weighted": {
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": -0.15438543,
+          "annualized_volatility": 0.26727005,
+          "final_equity": 47808.047,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.58081204,
+          "periods": 1109,
+          "sharpe": -0.43717332,
+          "total_return": -0.52191953,
+          "win_rate": 0.48782687
+        },
+        "20bps": {
+          "annualized_return": -0.15693476,
+          "annualized_volatility": 0.2672961,
+          "final_equity": 47177.0057,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.58478964,
+          "periods": 1109,
+          "sharpe": -0.44839471,
+          "total_return": -0.52822994,
+          "win_rate": 0.48782687
+        },
+        "5bps": {
+          "annualized_return": -0.15310831,
+          "annualized_volatility": 0.26725883,
+          "final_equity": 48126.6204,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.57880962,
+          "periods": 1109,
+          "sharpe": -0.4315589,
+          "total_return": -0.5187338,
+          "win_rate": 0.4896303
+        }
+      },
+      "end": "2025-12-31",
+      "label": "equal_weight_not_vol_weighted",
+      "pre_cost_metrics": {
+        "annualized_return": -0.15182953,
+        "annualized_volatility": 0.26724881,
+        "final_equity": 48447.2458,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.57679806,
+        "periods": 1109,
+        "sharpe": -0.42594208,
+        "total_return": -0.51552754,
+        "win_rate": 0.49053201
+      },
+      "raw_daily_paths_retained": false,
+      "start": "2021-08-02",
+      "symbols": [
+        "GLD",
+        "SLV",
+        "USO",
+        "UNG",
+        "DBA",
+        "DBC",
+        "CPER",
+        "CORN",
+        "WEAT",
+        "SOYB",
+        "PALL",
+        "PPLT"
+      ],
+      "turnover": {
+        "annualized_one_way": 3.01082056,
+        "average_daily_one_way": 0.0119477,
+        "total_one_way": 13.25
+      }
+    },
+    "expanded_with_sector_equity_proxies_diagnostic_only": {
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": -0.19309484,
+          "annualized_volatility": 0.27385716,
+          "final_equity": 38899.5895,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.62304291,
+          "periods": 1109,
+          "sharpe": -0.57014835,
+          "total_return": -0.6110041,
+          "win_rate": 0.50405771
+        },
+        "20bps": {
+          "annualized_return": -0.19643125,
+          "annualized_volatility": 0.27388676,
+          "final_equity": 38196.7126,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.62827604,
+          "periods": 1109,
+          "sharpe": -0.58517509,
+          "total_return": -0.61803287,
+          "win_rate": 0.50405771
+        },
+        "5bps": {
+          "annualized_return": -0.19142209,
+          "annualized_volatility": 0.27384516,
+          "final_equity": 39255.7254,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.62041695,
+          "periods": 1109,
+          "sharpe": -0.56262799,
+          "total_return": -0.60744275,
+          "win_rate": 0.50495942
+        }
+      },
+      "end": "2025-12-31",
+      "label": "diagnostic_expanded_with_sector_equity_proxies",
+      "pre_cost_metrics": {
+        "annualized_return": -0.1897463,
+        "annualized_volatility": 0.27383505,
+        "final_equity": 39615.0291,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.61777339,
+        "periods": 1109,
+        "sharpe": -0.55510318,
+        "total_return": -0.60384971,
+        "win_rate": 0.50495942
+      },
+      "raw_daily_paths_retained": false,
+      "start": "2021-08-02",
+      "symbols": [
+        "GLD",
+        "SLV",
+        "USO",
+        "UNG",
+        "DBA",
+        "DBC",
+        "CPER",
+        "CORN",
+        "WEAT",
+        "SOYB",
+        "PALL",
+        "PPLT",
+        "XLE",
+        "XOP",
+        "COPX"
+      ],
+      "turnover": {
+        "annualized_one_way": 4.13250378,
+        "average_daily_one_way": 0.01639882,
+        "total_one_way": 18.18629638
+      }
+    },
+    "long_only_underweight_high_skew": {
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": 0.11084174,
+          "annualized_volatility": 0.16144475,
+          "final_equity": 158820.2505,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.21761316,
+          "periods": 1109,
+          "sharpe": 0.73051728,
+          "total_return": 0.5882025,
+          "win_rate": 0.52660054
+        },
+        "20bps": {
+          "annualized_return": 0.10881876,
+          "annualized_volatility": 0.16144903,
+          "final_equity": 157551.3343,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.22011955,
+          "periods": 1109,
+          "sharpe": 0.71920739,
+          "total_return": 0.57551334,
+          "win_rate": 0.52660054
+        },
+        "5bps": {
+          "annualized_return": 0.11185438,
+          "annualized_volatility": 0.16144391,
+          "final_equity": 159458.3848,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.21635729,
+          "periods": 1109,
+          "sharpe": 0.73616649,
+          "total_return": 0.59458385,
+          "win_rate": 0.52660054
+        }
+      },
+      "end": "2025-12-31",
+      "label": "long_only_underweight_high_skew",
+      "pre_cost_metrics": {
+        "annualized_return": 0.11286778,
+        "annualized_volatility": 0.16144394,
+        "final_equity": 160098.9821,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.21509962,
+        "periods": 1109,
+        "sharpe": 0.74181176,
+        "total_return": 0.60098982,
+        "win_rate": 0.52660054
+      },
+      "raw_daily_paths_retained": false,
+      "start": "2021-08-02",
+      "symbols": [
+        "GLD",
+        "SLV",
+        "USO",
+        "UNG",
+        "DBA",
+        "DBC",
+        "CPER",
+        "CORN",
+        "WEAT",
+        "SOYB",
+        "PALL",
+        "PPLT"
+      ],
+      "turnover": {
+        "annualized_one_way": 1.82284073,
+        "average_daily_one_way": 0.00723349,
+        "total_one_way": 8.02194592
+      }
+    },
+    "no_energy": {
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": -0.24821683,
+          "annualized_volatility": 0.36377552,
+          "final_equity": 28491.0922,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.75042812,
+          "periods": 1109,
+          "sharpe": -0.39856937,
+          "total_return": -0.71508908,
+          "win_rate": 0.51487827
+        },
+        "20bps": {
+          "annualized_return": -0.25133719,
+          "annualized_volatility": 0.36379748,
+          "final_equity": 27974.3352,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.75118104,
+          "periods": 1109,
+          "sharpe": -0.40994905,
+          "total_return": -0.72025665,
+          "win_rate": 0.51487827
+        },
+        "5bps": {
+          "annualized_return": -0.24665248,
+          "annualized_volatility": 0.36376704,
+          "final_equity": 28752.9207,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.750051,
+          "periods": 1109,
+          "sharpe": -0.39287633,
+          "total_return": -0.71247079,
+          "win_rate": 0.51487827
+        }
+      },
+      "end": "2025-12-31",
+      "label": "no_energy",
+      "pre_cost_metrics": {
+        "annualized_return": -0.24508535,
+        "annualized_volatility": 0.36376022,
+        "final_equity": 29017.0756,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.74967344,
+        "periods": 1109,
+        "sharpe": -0.38718125,
+        "total_return": -0.70982924,
+        "win_rate": 0.5166817
+      },
+      "raw_daily_paths_retained": false,
+      "start": "2021-08-02",
+      "symbols": [
+        "GLD",
+        "SLV",
+        "DBA",
+        "CPER",
+        "CORN",
+        "WEAT",
+        "SOYB",
+        "PALL",
+        "PPLT"
+      ],
+      "turnover": {
+        "annualized_one_way": 4.14864643,
+        "average_daily_one_way": 0.01646288,
+        "total_one_way": 18.25733689
+      }
+    },
+    "no_metals": {
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": -1.0,
+          "annualized_volatility": 0.54793751,
+          "final_equity": -12148.994,
+          "initial_cash": 100000.0,
+          "max_drawdown": -1.10742482,
+          "periods": 1109,
+          "sharpe": -0.38471707,
+          "total_return": -1.12148994,
+          "win_rate": 0.51758341
+        },
+        "20bps": {
+          "annualized_return": -1.0,
+          "annualized_volatility": 0.54794577,
+          "final_equity": -11975.1628,
+          "initial_cash": 100000.0,
+          "max_drawdown": -1.10738475,
+          "periods": 1109,
+          "sharpe": -0.39067373,
+          "total_return": -1.11975163,
+          "win_rate": 0.51758341
+        },
+        "5bps": {
+          "annualized_return": -1.0,
+          "annualized_volatility": 0.54793496,
+          "final_equity": -12236.806,
+          "initial_cash": 100000.0,
+          "max_drawdown": -1.10744486,
+          "periods": 1109,
+          "sharpe": -0.38173757,
+          "total_return": -1.12236806,
+          "win_rate": 0.51758341
+        }
+      },
+      "end": "2025-12-31",
+      "label": "no_metals",
+      "pre_cost_metrics": {
+        "annualized_return": -1.0,
+        "annualized_volatility": 0.54793347,
+        "final_equity": -12325.2208,
+        "initial_cash": 100000.0,
+        "max_drawdown": -1.10746489,
+        "periods": 1109,
+        "sharpe": -0.37875732,
+        "total_return": -1.12325221,
+        "win_rate": 0.51758341
+      },
+      "raw_daily_paths_retained": false,
+      "start": "2021-08-02",
+      "symbols": [
+        "USO",
+        "UNG",
+        "DBA",
+        "DBC",
+        "CORN",
+        "WEAT",
+        "SOYB"
+      ],
+      "turnover": {
+        "annualized_one_way": 3.26710308,
+        "average_daily_one_way": 0.01296469,
+        "total_one_way": 14.3778465
+      }
+    },
+    "pure_commodity_etf_only": {
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": -0.20412031,
+          "annualized_volatility": 0.31653938,
+          "final_equity": 36614.2353,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.67718342,
+          "periods": 1109,
+          "sharpe": -0.4407577,
+          "total_return": -0.63385765,
+          "win_rate": 0.50766456
+        },
+        "20bps": {
+          "annualized_return": -0.20755669,
+          "annualized_volatility": 0.31656246,
+          "final_equity": 35923.6049,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.68175127,
+          "periods": 1109,
+          "sharpe": -0.45436338,
+          "total_return": -0.64076395,
+          "win_rate": 0.50495942
+        },
+        "5bps": {
+          "annualized_return": -0.2023973,
+          "annualized_volatility": 0.31653079,
+          "final_equity": 36964.3565,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.67487603,
+          "periods": 1109,
+          "sharpe": -0.43395007,
+          "total_return": -0.63035643,
+          "win_rate": 0.50856628
+        }
+      },
+      "end": "2025-12-31",
+      "label": "primary_12m_low_skew_long_high_skew_short",
+      "pre_cost_metrics": {
+        "annualized_return": -0.20067108,
+        "annualized_volatility": 0.31652417,
+        "final_equity": 37317.7202,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.67255286,
+        "periods": 1109,
+        "sharpe": -0.42713941,
+        "total_return": -0.6268228,
+        "win_rate": 0.50946799
+      },
+      "raw_daily_paths_retained": false,
+      "start": "2021-08-02",
+      "symbols": [
+        "GLD",
+        "SLV",
+        "USO",
+        "UNG",
+        "DBA",
+        "DBC",
+        "CPER",
+        "CORN",
+        "WEAT",
+        "SOYB",
+        "PALL",
+        "PPLT"
+      ],
+      "turnover": {
+        "annualized_one_way": 4.3172222,
+        "average_daily_one_way": 0.01713183,
+        "total_one_way": 18.99920405
+      }
+    }
+  },
+  "artifacts": {
+    "README_path": "/Users/moonk/quant-for-agent/models/commodity-etf-realized-skewness-allocator-v1/README.md",
+    "config_path": "/Users/moonk/quant-for-agent/models/commodity-etf-realized-skewness-allocator-v1/config.yaml",
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/commodity-etf-realized-skewness-allocator-v1/evaluations/runs/ar111_qfa_alpaca_real_20260626T195819Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/commodity-etf-realized-skewness-allocator-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/commodity-etf-realized-skewness-allocator-v1/evaluations/latest.md",
+    "metadata_path": "/Users/moonk/quant-for-agent/models/commodity-etf-realized-skewness-allocator-v1/metadata.yaml",
+    "model_path": "/Users/moonk/quant-for-agent/models/commodity-etf-realized-skewness-allocator-v1/model.py"
+  },
+  "candidate_pool": [
+    "GLD",
+    "SLV",
+    "USO",
+    "UNG",
+    "DBA",
+    "DBC",
+    "CPER",
+    "CORN",
+    "WEAT",
+    "SOYB",
+    "PALL",
+    "PPLT"
+  ],
+  "costs_slippage": {
+    "method": "subtract one-way turnover * bps/10000 from daily portfolio returns",
+    "tested_one_way_bps": [
+      5,
+      10,
+      20
+    ]
+  },
+  "created_at_utc": "2026-06-26T19:58:19Z",
+  "data_source": "Alpaca/qfa real daily OHLCV via AlpacaGateway StockHistoricalDataClient, feed=iex unless profile overrides; no CSV and no --data-csv",
+  "decision": {
+    "rationale": "Rejected: 10 bps random-window median/p25 Sharpe and pure-commodity ETF proxy evidence do not satisfy robustness gates.",
+    "suggested_decision": "rejected"
+  },
+  "diagnostic_sector_equity_proxy_pool": [
+    "XLE",
+    "XOP",
+    "COPX"
+  ],
+  "issue_id": "AR-111",
+  "limitations": [
+    "ETF/ETN commodity proxies are not futures; roll yield/collateral curves unavailable in qfa.",
+    "AlpacaGateway in this repo does not expose adjusted-price controls.",
+    "Monthly stateless qfa model freezes weights using calendar-month anchors rather than persisted state."
+  ],
+  "lookback_diagnostics": {
+    "252d": {
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": -0.20412031,
+          "annualized_volatility": 0.31653938,
+          "final_equity": 36614.2353,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.67718342,
+          "periods": 1109,
+          "sharpe": -0.4407577,
+          "total_return": -0.63385765,
+          "win_rate": 0.50766456
+        },
+        "20bps": {
+          "annualized_return": -0.20755669,
+          "annualized_volatility": 0.31656246,
+          "final_equity": 35923.6049,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.68175127,
+          "periods": 1109,
+          "sharpe": -0.45436338,
+          "total_return": -0.64076395,
+          "win_rate": 0.50495942
+        },
+        "5bps": {
+          "annualized_return": -0.2023973,
+          "annualized_volatility": 0.31653079,
+          "final_equity": 36964.3565,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.67487603,
+          "periods": 1109,
+          "sharpe": -0.43395007,
+          "total_return": -0.63035643,
+          "win_rate": 0.50856628
+        }
+      },
+      "end": "2025-12-31",
+      "label": "lookback_252d",
+      "pre_cost_metrics": {
+        "annualized_return": -0.20067108,
+        "annualized_volatility": 0.31652417,
+        "final_equity": 37317.7202,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.67255286,
+        "periods": 1109,
+        "sharpe": -0.42713941,
+        "total_return": -0.6268228,
+        "win_rate": 0.50946799
+      },
+      "raw_daily_paths_retained": false,
+      "start": "2021-08-02",
+      "symbols": [
+        "GLD",
+        "SLV",
+        "USO",
+        "UNG",
+        "DBA",
+        "DBC",
+        "CPER",
+        "CORN",
+        "WEAT",
+        "SOYB",
+        "PALL",
+        "PPLT"
+      ],
+      "turnover": {
+        "annualized_one_way": 4.3172222,
+        "average_daily_one_way": 0.01713183,
+        "total_one_way": 18.99920405
+      }
+    },
+    "378d": {
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": -0.21434128,
+          "annualized_volatility": 0.30898483,
+          "final_equity": 34589.6496,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.66825434,
+          "periods": 1109,
+          "sharpe": -0.51591246,
+          "total_return": -0.6541035,
+          "win_rate": 0.50856628
+        },
+        "20bps": {
+          "annualized_return": -0.21644914,
+          "annualized_volatility": 0.30899905,
+          "final_equity": 34183.109,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.67215342,
+          "periods": 1109,
+          "sharpe": -0.52456287,
+          "total_return": -0.65816891,
+          "win_rate": 0.50676285
+        },
+        "5bps": {
+          "annualized_return": -0.21328559,
+          "annualized_volatility": 0.30897919,
+          "final_equity": 34794.6578,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.66628813,
+          "periods": 1109,
+          "sharpe": -0.51158451,
+          "total_return": -0.65205342,
+          "win_rate": 0.50856628
+        }
+      },
+      "end": "2025-12-31",
+      "label": "lookback_378d",
+      "pre_cost_metrics": {
+        "annualized_return": -0.21222873,
+        "annualized_volatility": 0.30897454,
+        "final_equity": 35000.8329,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.66431072,
+        "periods": 1109,
+        "sharpe": -0.50725479,
+        "total_return": -0.64999167,
+        "win_rate": 0.50856628
+      },
+      "raw_daily_paths_retained": false,
+      "start": "2021-08-02",
+      "symbols": [
+        "GLD",
+        "SLV",
+        "USO",
+        "UNG",
+        "DBA",
+        "DBC",
+        "CPER",
+        "CORN",
+        "WEAT",
+        "SOYB",
+        "PALL",
+        "PPLT"
+      ],
+      "turnover": {
+        "annualized_one_way": 2.68030647,
+        "average_daily_one_way": 0.01063614,
+        "total_one_way": 11.7954757
+      }
+    },
+    "6m_126d": "unavailable_in_model_contract_min_obs_210_prevents_clean_6m_variant"
+  },
+  "metrics": {
+    "median_random_sharpe_10bps": 0.15554151,
+    "p25_random_sharpe_10bps": -0.56518058,
+    "positive_window_rate_10bps": 0.5,
+    "primary_max_drawdown_10bps": -0.67718342,
+    "primary_sharpe_10bps": -0.4407577,
+    "primary_turnover_annualized": 4.3172222,
+    "worst_random_max_drawdown_10bps": -0.6544038,
+    "worst_random_sharpe_10bps": -0.58867967
+  },
+  "model_name": "commodity-etf-realized-skewness-allocator-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "alpha_library_checks": [
+      {
+        "alpha": "AR-097",
+        "artifact": "models/commodity-inflation-shock-etf-rotation-v1/evaluations/latest.json",
+        "model_name": "commodity-inflation-shock-etf-rotation-v1",
+        "status": "deferred_no_compact_return_series_available_or_not_retained"
+      },
+      {
+        "alpha": "AR-099",
+        "artifact": "models/crossasset-commodity-inflation-impulse-allocator-v1/evaluations/latest.json",
+        "model_name": "crossasset-commodity-inflation-impulse-allocator-v1",
+        "status": "deferred_no_compact_return_series_available_or_not_retained"
+      },
+      {
+        "alpha": "AR-101",
+        "artifact": "models/commodity-inflation-shock-crossasset-rotation-v1/evaluations/latest.json",
+        "model_name": "commodity-inflation-shock-crossasset-rotation-v1",
+        "status": "deferred_no_compact_return_series_available_or_not_retained"
+      }
+    ],
+    "commodity_macro_watchlist_proxy_correlations": [
+      {
+        "correlation_to_primary_10bps_daily_returns": 0.08907466,
+        "overlap_periods": 1109,
+        "proxy": "DBC"
+      },
+      {
+        "correlation_to_primary_10bps_daily_returns": -0.00598695,
+        "overlap_periods": 1109,
+        "proxy": "GLD"
+      },
+      {
+        "correlation_to_primary_10bps_daily_returns": 0.13105335,
+        "overlap_periods": 1109,
+        "proxy": "USO"
+      },
+      {
+        "correlation_to_primary_10bps_daily_returns": 0.04865638,
+        "overlap_periods": 1109,
+        "proxy": "XLE"
+      },
+      {
+        "correlation_to_primary_10bps_daily_returns": -0.03318822,
+        "overlap_periods": 1109,
+        "proxy": "SPY"
+      },
+      {
+        "correlation_to_primary_10bps_daily_returns": -0.04625746,
+        "overlap_periods": 1109,
+        "proxy": "TLT"
+      }
+    ],
+    "status": "computed_vs_simple_proxies_deferred_vs_prior_alpha_artifacts"
+  },
+  "parameters": {
+    "bucket": "lowest skew tercile long, highest skew tercile short",
+    "cost_bps": [
+      5,
+      10,
+      20
+    ],
+    "gross": 1.0,
+    "lookback_days": 252,
+    "rebalance": "monthly"
+  },
+  "primary_backtest": {
+    "cost_adjusted_metrics": {
+      "10bps": {
+        "annualized_return": -0.20412031,
+        "annualized_volatility": 0.31653938,
+        "final_equity": 36614.2353,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.67718342,
+        "periods": 1109,
+        "sharpe": -0.4407577,
+        "total_return": -0.63385765,
+        "win_rate": 0.50766456
+      },
+      "20bps": {
+        "annualized_return": -0.20755669,
+        "annualized_volatility": 0.31656246,
+        "final_equity": 35923.6049,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.68175127,
+        "periods": 1109,
+        "sharpe": -0.45436338,
+        "total_return": -0.64076395,
+        "win_rate": 0.50495942
+      },
+      "5bps": {
+        "annualized_return": -0.2023973,
+        "annualized_volatility": 0.31653079,
+        "final_equity": 36964.3565,
+        "initial_cash": 100000.0,
+        "max_drawdown": -0.67487603,
+        "periods": 1109,
+        "sharpe": -0.43395007,
+        "total_return": -0.63035643,
+        "win_rate": 0.50856628
+      }
+    },
+    "end": "2025-12-31",
+    "label": "primary_12m_low_skew_long_high_skew_short",
+    "pre_cost_metrics": {
+      "annualized_return": -0.20067108,
+      "annualized_volatility": 0.31652417,
+      "final_equity": 37317.7202,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.67255286,
+      "periods": 1109,
+      "sharpe": -0.42713941,
+      "total_return": -0.6268228,
+      "win_rate": 0.50946799
+    },
+    "raw_daily_paths_retained": false,
+    "start": "2021-08-02",
+    "symbols": [
+      "GLD",
+      "SLV",
+      "USO",
+      "UNG",
+      "DBA",
+      "DBC",
+      "CPER",
+      "CORN",
+      "WEAT",
+      "SOYB",
+      "PALL",
+      "PPLT"
+    ],
+    "turnover": {
+      "annualized_one_way": 4.3172222,
+      "average_daily_one_way": 0.01713183,
+      "total_one_way": 18.99920405
+    }
+  },
+  "random_windows": {
+    "count": 12,
+    "median_annualized_one_way_turnover": 4.31182838,
+    "median_sharpe_10bps": 0.15554151,
+    "method": "12 deterministic pseudo-random windows from 2020-2025 using fixed selected universe and lagged features",
+    "p25_sharpe_10bps": -0.56518058,
+    "positive_window_rate_10bps": 0.5,
+    "runs": [
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.04239532,
+            "annualized_volatility": 0.07976761,
+            "final_equity": 106163.5229,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06421444,
+            "periods": 363,
+            "sharpe": 0.56036731,
+            "total_return": 0.06163523,
+            "win_rate": 0.51790634
+          },
+          "20bps": {
+            "annualized_return": 0.03802964,
+            "annualized_volatility": 0.08003228,
+            "final_equity": 105523.6407,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06572287,
+            "periods": 363,
+            "sharpe": 0.50633034,
+            "total_return": 0.05523641,
+            "win_rate": 0.51515152
+          },
+          "5bps": {
+            "annualized_return": 0.04458401,
+            "annualized_volatility": 0.07964697,
+            "final_equity": 106484.7656,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06345976,
+            "periods": 363,
+            "sharpe": 0.58743419,
+            "total_return": 0.06484766,
+            "win_rate": 0.51790634
+          }
+        },
+        "end": "2025-09-22",
+        "label": "random_1",
+        "pre_cost_metrics": {
+          "annualized_return": 0.0467766,
+          "annualized_volatility": 0.07953418,
+          "final_equity": 106806.8788,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06270476,
+          "periods": 363,
+          "sharpe": 0.61452255,
+          "total_return": 0.06806879,
+          "win_rate": 0.51790634
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2024-04-10",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 4.17638857,
+          "average_daily_one_way": 0.01657297,
+          "total_one_way": 6.01598829
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.09282471,
+            "annualized_volatility": 0.08212696,
+            "final_equity": 108859.8532,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06083684,
+            "periods": 241,
+            "sharpe": 1.12194208,
+            "total_return": 0.08859853,
+            "win_rate": 0.52282158
+          },
+          "20bps": {
+            "annualized_return": 0.08828933,
+            "annualized_volatility": 0.0823026,
+            "final_equity": 108427.7514,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06102934,
+            "periods": 241,
+            "sharpe": 1.06917523,
+            "total_return": 0.08427751,
+            "win_rate": 0.5186722
+          },
+          "5bps": {
+            "annualized_return": 0.09509852,
+            "annualized_volatility": 0.08204934,
+            "final_equity": 109076.4581,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06074058,
+            "periods": 241,
+            "sharpe": 1.14826742,
+            "total_return": 0.09076458,
+            "win_rate": 0.52282158
+          }
+        },
+        "end": "2025-01-22",
+        "label": "random_2",
+        "pre_cost_metrics": {
+          "annualized_return": 0.09737642,
+          "annualized_volatility": 0.08197855,
+          "final_equity": 109293.4329,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06064433,
+          "periods": 241,
+          "sharpe": 1.17454475,
+          "total_return": 0.09293433,
+          "win_rate": 0.52697095
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2024-02-05",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 4.14579101,
+          "average_daily_one_way": 0.01645155,
+          "total_one_way": 3.96482394
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.09203851,
+            "annualized_volatility": 0.07898566,
+            "final_equity": 111167.1801,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06083684,
+            "periods": 303,
+            "sharpe": 1.15429388,
+            "total_return": 0.1116718,
+            "win_rate": 0.54125413
+          },
+          "20bps": {
+            "annualized_return": 0.08806398,
+            "annualized_volatility": 0.07915565,
+            "final_equity": 110680.8771,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06102934,
+            "periods": 303,
+            "sharpe": 1.10590535,
+            "total_return": 0.10680877,
+            "win_rate": 0.5379538
+          },
+          "5bps": {
+            "annualized_return": 0.09403039,
+            "annualized_volatility": 0.07890989,
+            "final_equity": 111411.0304,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.06074058,
+            "periods": 303,
+            "sharpe": 1.17842863,
+            "total_return": 0.1141103,
+            "win_rate": 0.54125413
+          }
+        },
+        "end": "2025-05-23",
+        "label": "random_3",
+        "pre_cost_metrics": {
+          "annualized_return": 0.09602535,
+          "annualized_volatility": 0.07884029,
+          "final_equity": 111655.3476,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06064433,
+          "periods": 303,
+          "sharpe": 1.20251565,
+          "total_return": 0.11655348,
+          "win_rate": 0.54125413
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2024-03-08",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 3.63401274,
+          "average_daily_one_way": 0.01442069,
+          "total_one_way": 4.3694677
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.03799357,
+            "annualized_volatility": 0.08025965,
+            "final_equity": 105502.7454,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.08020091,
+            "periods": 362,
+            "sharpe": 0.504706,
+            "total_return": 0.05502745,
+            "win_rate": 0.52486188
+          },
+          "20bps": {
+            "annualized_return": 0.03294993,
+            "annualized_volatility": 0.08047369,
+            "final_equity": 104767.1146,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.08147429,
+            "periods": 362,
+            "sharpe": 0.4430416,
+            "total_return": 0.04767115,
+            "win_rate": 0.52209945
+          },
+          "5bps": {
+            "annualized_return": 0.04052352,
+            "annualized_volatility": 0.08016507,
+            "final_equity": 105872.3352,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.07956391,
+            "periods": 362,
+            "sharpe": 0.53557858,
+            "total_return": 0.05872335,
+            "win_rate": 0.52486188
+          }
+        },
+        "end": "2025-04-09",
+        "label": "random_4",
+        "pre_cost_metrics": {
+          "annualized_return": 0.0430589,
+          "annualized_volatility": 0.08007882,
+          "final_equity": 106243.1125,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.07892671,
+          "periods": 362,
+          "sharpe": 0.56646514,
+          "total_return": 0.06243113,
+          "win_rate": 0.52762431
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2023-10-27",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 4.85433493,
+          "average_daily_one_way": 0.01926323,
+          "total_one_way": 6.97329066
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.03749629,
+            "annualized_volatility": 0.08139296,
+            "final_equity": 104555.9623,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.09242791,
+            "periods": 305,
+            "sharpe": 0.49288686,
+            "total_return": 0.04555962,
+            "win_rate": 0.52786885
+          },
+          "20bps": {
+            "annualized_return": 0.0319813,
+            "annualized_volatility": 0.0816181,
+            "final_equity": 103883.662,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.09368437,
+            "periods": 305,
+            "sharpe": 0.42644093,
+            "total_return": 0.03883662,
+            "win_rate": 0.52131148
+          },
+          "5bps": {
+            "annualized_return": 0.04026364,
+            "annualized_volatility": 0.08129367,
+            "final_equity": 104893.597,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.09179938,
+            "periods": 305,
+            "sharpe": 0.52616194,
+            "total_return": 0.04893597,
+            "win_rate": 0.52786885
+          }
+        },
+        "end": "2024-11-27",
+        "label": "random_5",
+        "pre_cost_metrics": {
+          "annualized_return": 0.04303757,
+          "annualized_volatility": 0.08120326,
+          "final_equity": 105232.225,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09117065,
+          "periods": 305,
+          "sharpe": 0.55945715,
+          "total_return": 0.05232225,
+          "win_rate": 0.53114754
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2023-09-13",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 5.31222449,
+          "average_daily_one_way": 0.02108026,
+          "total_one_way": 6.42947805
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": -0.06833006,
+            "annualized_volatility": 0.10995287,
+            "final_equity": 87240.8194,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.20132685,
+            "periods": 486,
+            "sharpe": -0.58867967,
+            "total_return": -0.12759181,
+            "win_rate": 0.48765432
+          },
+          "20bps": {
+            "annualized_return": -0.07192547,
+            "annualized_volatility": 0.10996747,
+            "final_equity": 86592.688,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.20377641,
+            "periods": 486,
+            "sharpe": -0.62373789,
+            "total_return": -0.13407312,
+            "win_rate": 0.48559671
+          },
+          "5bps": {
+            "annualized_return": -0.066528,
+            "annualized_volatility": 0.1099539,
+            "final_equity": 87566.5439,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.20019776,
+            "periods": 486,
+            "sharpe": -0.57110384,
+            "total_return": -0.12433456,
+            "win_rate": 0.48971193
+          }
+        },
+        "end": "2023-11-21",
+        "label": "random_6",
+        "pre_cost_metrics": {
+          "annualized_return": -0.06472305,
+          "annualized_volatility": 0.10996047,
+          "final_equity": 87893.3788,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.19906747,
+          "periods": 486,
+          "sharpe": -0.55350041,
+          "total_return": -0.12106621,
+          "win_rate": 0.48971193
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2021-12-15",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 3.86385313,
+          "average_daily_one_way": 0.01533275,
+          "total_one_way": 7.45171675
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.04415079,
+            "annualized_volatility": 0.07944537,
+            "final_equity": 106402.912,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.09242791,
+            "periods": 362,
+            "sharpe": 0.58351819,
+            "total_return": 0.06402912,
+            "win_rate": 0.52209945
+          },
+          "20bps": {
+            "annualized_return": 0.03895081,
+            "annualized_volatility": 0.07966417,
+            "final_equity": 105642.5392,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.09368437,
+            "periods": 362,
+            "sharpe": 0.51945418,
+            "total_return": 0.05642539,
+            "win_rate": 0.51657459
+          },
+          "5bps": {
+            "annualized_return": 0.04675939,
+            "annualized_volatility": 0.07934891,
+            "final_equity": 106784.9816,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.09179938,
+            "periods": 362,
+            "sharpe": 0.61558228,
+            "total_return": 0.06784982,
+            "win_rate": 0.52209945
+          }
+        },
+        "end": "2025-02-13",
+        "label": "random_7",
+        "pre_cost_metrics": {
+          "annualized_return": 0.04937374,
+          "annualized_volatility": 0.07926112,
+          "final_equity": 107168.3118,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09117065,
+          "periods": 362,
+          "sharpe": 0.64765354,
+          "total_return": 0.07168312,
+          "win_rate": 0.52486188
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2023-09-04",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 4.97593114,
+          "average_daily_one_way": 0.01974576,
+          "total_one_way": 7.14796457
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": -0.03361109,
+            "annualized_volatility": 0.10485492,
+            "final_equity": 93644.5035,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.2100092,
+            "periods": 484,
+            "sharpe": -0.27362782,
+            "total_return": -0.06355496,
+            "win_rate": 0.50619835
+          },
+          "20bps": {
+            "annualized_return": -0.03782126,
+            "annualized_volatility": 0.10488493,
+            "final_equity": 92862.5115,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.21455104,
+            "periods": 484,
+            "sharpe": -0.31514101,
+            "total_return": -0.07137489,
+            "win_rate": 0.50413223
+          },
+          "5bps": {
+            "annualized_return": -0.03150003,
+            "annualized_volatility": 0.10484876,
+            "final_equity": 94037.793,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.20772953,
+            "periods": 484,
+            "sharpe": -0.252841,
+            "total_return": -0.05962207,
+            "win_rate": 0.50619835
+          }
+        },
+        "end": "2024-04-11",
+        "label": "random_8",
+        "pre_cost_metrics": {
+          "annualized_return": -0.02938498,
+          "annualized_volatility": 0.10484849,
+          "final_equity": 94432.6189,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.20544401,
+          "periods": 484,
+          "sharpe": -0.23203869,
+          "total_return": -0.05567381,
+          "win_rate": 0.50826446
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2022-05-06",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 4.36231739,
+          "average_daily_one_way": 0.01731078,
+          "total_one_way": 8.37841911
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": -0.34537922,
+            "annualized_volatility": 0.43651183,
+            "final_equity": 39663.4426,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.6544038,
+            "periods": 550,
+            "sharpe": -0.57376151,
+            "total_return": -0.60336557,
+            "win_rate": 0.51636364
+          },
+          "20bps": {
+            "annualized_return": -0.3484202,
+            "annualized_volatility": 0.43654183,
+            "final_equity": 39262.4081,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.65539547,
+            "periods": 550,
+            "sharpe": -0.58434732,
+            "total_return": -0.60737592,
+            "win_rate": 0.51454545
+          },
+          "5bps": {
+            "annualized_return": -0.34385411,
+            "annualized_volatility": 0.43649917,
+            "final_equity": 39865.401,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.65390716,
+            "periods": 550,
+            "sharpe": -0.56846501,
+            "total_return": -0.60134599,
+            "win_rate": 0.51636364
+          }
+        },
+        "end": "2025-12-31",
+        "label": "random_9",
+        "pre_cost_metrics": {
+          "annualized_return": -0.34232591,
+          "annualized_volatility": 0.43648808,
+          "final_equity": 40068.3259,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.65340999,
+          "periods": 550,
+          "sharpe": -0.5631662,
+          "total_return": -0.59931674,
+          "win_rate": 0.51818182
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2023-10-20",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 4.63835945,
+          "average_daily_one_way": 0.01840619,
+          "total_one_way": 10.12340356
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": -0.38755182,
+            "annualized_volatility": 0.47962046,
+            "final_equity": 41422.0708,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.6544038,
+            "periods": 453,
+            "sharpe": -0.58513403,
+            "total_return": -0.58577929,
+            "win_rate": 0.52538631
+          },
+          "20bps": {
+            "annualized_return": -0.39010517,
+            "annualized_volatility": 0.4796449,
+            "final_equity": 41112.152,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.65539547,
+            "periods": 453,
+            "sharpe": -0.59378003,
+            "total_return": -0.58887848,
+            "win_rate": 0.52317881
+          },
+          "5bps": {
+            "annualized_return": -0.38627172,
+            "annualized_volatility": 0.47961016,
+            "final_equity": 41577.8338,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.65390716,
+            "periods": 453,
+            "sharpe": -0.58080838,
+            "total_return": -0.58422166,
+            "win_rate": 0.52538631
+          }
+        },
+        "end": "2025-12-31",
+        "label": "random_10",
+        "pre_cost_metrics": {
+          "annualized_return": -0.38498934,
+          "annualized_volatility": 0.47960114,
+          "final_equity": 41734.1349,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.65340999,
+          "periods": 453,
+          "sharpe": -0.57648099,
+          "total_return": -0.58265865,
+          "win_rate": 0.52538631
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2024-03-12",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 4.16130964,
+          "average_daily_one_way": 0.01651313,
+          "total_one_way": 7.48044948
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": -0.02590102,
+            "annualized_volatility": 0.110698,
+            "final_equity": 97511.39,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.09996419,
+            "periods": 242,
+            "sharpe": -0.18180384,
+            "total_return": -0.0248861,
+            "win_rate": 0.52479339
+          },
+          "20bps": {
+            "annualized_return": -0.0312973,
+            "annualized_volatility": 0.11072176,
+            "final_equity": 96992.5786,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.1037045,
+            "periods": 242,
+            "sharpe": -0.23190729,
+            "total_return": -0.03007421,
+            "win_rate": 0.52066116
+          },
+          "5bps": {
+            "annualized_return": -0.02319285,
+            "annualized_volatility": 0.11069713,
+            "final_equity": 97771.7171,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.09808902,
+            "periods": 242,
+            "sharpe": -0.15672845,
+            "total_return": -0.02228283,
+            "win_rate": 0.52479339
+          }
+        },
+        "end": "2024-02-01",
+        "label": "random_11",
+        "pre_cost_metrics": {
+          "annualized_return": -0.02047797,
+          "annualized_volatility": 0.1107036,
+          "final_equity": 98032.6602,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0962105,
+          "periods": 242,
+          "sharpe": -0.13164394,
+          "total_return": -0.0196734,
+          "win_rate": 0.52479339
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2023-02-14",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 5.55186282,
+          "average_daily_one_way": 0.0220312,
+          "total_one_way": 5.3315508
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": -0.37056454,
+            "annualized_volatility": 0.46819018,
+            "final_equity": 41710.0935,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.6544038,
+            "periods": 476,
+            "sharpe": -0.56232027,
+            "total_return": -0.58289906,
+            "win_rate": 0.51890756
+          },
+          "20bps": {
+            "annualized_return": -0.37325107,
+            "annualized_volatility": 0.46821445,
+            "final_equity": 41374.4619,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.65539547,
+            "periods": 476,
+            "sharpe": -0.57139238,
+            "total_return": -0.58625538,
+            "win_rate": 0.51680672
+          },
+          "5bps": {
+            "annualized_return": -0.36921758,
+            "annualized_volatility": 0.46818006,
+            "final_equity": 41878.8521,
+            "initial_cash": 100000.0,
+            "max_drawdown": -0.65390716,
+            "periods": 476,
+            "sharpe": -0.55778147,
+            "total_return": -0.58121148,
+            "win_rate": 0.51890756
+          }
+        },
+        "end": "2025-12-31",
+        "label": "random_12",
+        "pre_cost_metrics": {
+          "annualized_return": -0.36786814,
+          "annualized_volatility": 0.46817127,
+          "final_equity": 42048.2419,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.65340999,
+          "periods": 476,
+          "sharpe": -0.55324089,
+          "total_return": -0.57951758,
+          "win_rate": 0.5210084
+        },
+        "raw_daily_paths_retained": false,
+        "start": "2024-02-07",
+        "symbols": [
+          "GLD",
+          "SLV",
+          "USO",
+          "UNG",
+          "DBA",
+          "DBC",
+          "CPER",
+          "CORN",
+          "WEAT",
+          "SOYB",
+          "PALL",
+          "PPLT"
+        ],
+        "turnover": {
+          "annualized_one_way": 4.26133937,
+          "average_daily_one_way": 0.01691008,
+          "total_one_way": 8.04919659
+        }
+      }
+    ],
+    "worst_max_drawdown_10bps": -0.6544038,
+    "worst_sharpe_10bps": -0.58867967
+  },
+  "raw_daily_paths_retained": false,
+  "sanitized_provenance": "Configured paper-data access was used with credential values redacted; evaluation used real market data, no CSV, no daemon, and no orders.",
+  "selected_universe": [
+    "GLD",
+    "SLV",
+    "USO",
+    "UNG",
+    "DBA",
+    "DBC",
+    "CPER",
+    "CORN",
+    "WEAT",
+    "SOYB",
+    "PALL",
+    "PPLT"
+  ],
+  "selection_details": [
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "GLD"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "SLV"
+    },
+    {
+      "first_bar": "2020-04-21",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 257,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "USO"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "UNG"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "DBA"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "DBC"
+    },
+    {
+      "first_bar": "2020-07-29",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 254,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "CPER"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "CORN"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "WEAT"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "SOYB"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "PALL"
+    },
+    {
+      "first_bar": "2020-07-27",
+      "last_bar": "2025-12-30",
+      "pre_start_observations": 256,
+      "primary_missing_rate": 0.0,
+      "reason": "passes_history_coverage_filter",
+      "selected": true,
+      "symbol": "PPLT"
+    }
+  ],
+  "selection_filters": {
+    "commodity_exposure_purity": "primary selected from commodity-linked ETF/ETN pool; sector equity proxies diagnostic-only",
+    "fixed_ex_ante_pool": true,
+    "minimum_pre_start_observations": 252,
+    "no_return_ranked_universe_selection": true,
+    "primary_missing_rate_max": 0.08
+  },
+  "selection_rationale": "Selected symbols had enough Alpaca daily history/coverage from the fixed pure commodity ETF/ETN candidate pool. This is an ETF/ETN proxy test, not a futures replication; products embed roll methodology, fees, issuer construction and possible tracking error.",
+  "sqlite_db_retained": false,
+  "suggested_decision": "rejected"
+}

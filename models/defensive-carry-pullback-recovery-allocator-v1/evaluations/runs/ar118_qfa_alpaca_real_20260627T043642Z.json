@@ -1,0 +1,682 @@
+{
+  "ablations_and_baselines": {
+    "carry_rank": {
+      "activation": 1.0,
+      "annualized_return": -0.046786,
+      "annualized_volatility": 0.0733,
+      "max_drawdown": -0.265936,
+      "mean_daily_return": -0.000179,
+      "periods": 1397,
+      "sharpe": -0.617011,
+      "turnover": 0.0
+    },
+    "equal_defensive": {
+      "activation": 1.0,
+      "annualized_return": 0.009116,
+      "annualized_volatility": 0.073933,
+      "max_drawdown": -0.16931,
+      "mean_daily_return": 4.7e-05,
+      "periods": 1397,
+      "sharpe": 0.159752,
+      "turnover": 0.0
+    },
+    "etf_tsmom": {
+      "activation": 1.0,
+      "annualized_return": -0.013571,
+      "annualized_volatility": 0.203315,
+      "max_drawdown": -0.543162,
+      "mean_daily_return": 2.9e-05,
+      "periods": 1397,
+      "sharpe": 0.036011,
+      "turnover": 0.286772
+    },
+    "no_gate": {
+      "activation": 1.0,
+      "annualized_return": -0.215291,
+      "annualized_volatility": 0.160478,
+      "max_drawdown": -0.746056,
+      "mean_daily_return": -0.000908,
+      "periods": 1397,
+      "sharpe": -1.425686,
+      "turnover": 0.672638
+    },
+    "no_pullback": {
+      "activation": 1.0,
+      "annualized_return": -0.128964,
+      "annualized_volatility": 0.158393,
+      "max_drawdown": -0.586242,
+      "mean_daily_return": -0.000496,
+      "periods": 1397,
+      "sharpe": -0.789671,
+      "turnover": 0.333627
+    },
+    "no_trend": {
+      "activation": 1.0,
+      "annualized_return": -0.140116,
+      "annualized_volatility": 0.108052,
+      "max_drawdown": -0.584713,
+      "mean_daily_return": -0.000576,
+      "periods": 1397,
+      "sharpe": -1.342593,
+      "turnover": 1.017426
+    }
+  },
+  "artifacts": {
+    "immutable_run_json": "models/defensive-carry-pullback-recovery-allocator-v1/evaluations/runs/ar118_qfa_alpaca_real_20260627T043642Z.json",
+    "latest_json": "models/defensive-carry-pullback-recovery-allocator-v1/evaluations/latest.json",
+    "latest_md": "models/defensive-carry-pullback-recovery-allocator-v1/evaluations/latest.md"
+  },
+  "config_path": "models/defensive-carry-pullback-recovery-allocator-v1/config.yaml",
+  "data": {
+    "candidate_pool_size": 28,
+    "coverage_summary": {
+      "by_symbol": {
+        "DBA": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 0.2
+        },
+        "DBC": {
+          "bars": 1485,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 0.5
+        },
+        "DIA": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 15.0
+        },
+        "GLD": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 16.1
+        },
+        "GOVT": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 2.4
+        },
+        "HYG": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 90.0
+        },
+        "IEF": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 13.6
+        },
+        "IWM": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 101.4
+        },
+        "LQD": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 72.0
+        },
+        "QQQ": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 231.4
+        },
+        "QUAL": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 1.7
+        },
+        "SHY": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 5.4
+        },
+        "SLV": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 6.6
+        },
+        "SPLV": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 2.3
+        },
+        "SPY": {
+          "bars": 1487,
+          "first": "2018-11-01",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 531.7
+        },
+        "TIP": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 7.8
+        },
+        "TLT": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 54.8
+        },
+        "USMV": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 2.6
+        },
+        "USO": {
+          "bars": 1487,
+          "first": "2020-04-21",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 2.8
+        },
+        "XLB": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 10.4
+        },
+        "XLC": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 6.8
+        },
+        "XLE": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 37.6
+        },
+        "XLF": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 49.7
+        },
+        "XLI": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 27.1
+        },
+        "XLP": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 23.2
+        },
+        "XLRE": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 4.0
+        },
+        "XLU": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 19.6
+        },
+        "XLV": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 26.0
+        }
+      },
+      "failed_symbols": {},
+      "symbols_with_bars": 28
+    },
+    "end": "2026-06-26",
+    "paper_data_access": true,
+    "selected_universe": [
+      "SHY",
+      "IEF",
+      "TLT",
+      "GOVT",
+      "TIP",
+      "LQD",
+      "HYG",
+      "GLD",
+      "SLV",
+      "DBC",
+      "USO",
+      "DBA",
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA",
+      "USMV",
+      "QUAL",
+      "SPLV",
+      "XLU",
+      "XLP",
+      "XLV",
+      "XLE",
+      "XLF",
+      "XLI",
+      "XLB",
+      "XLRE",
+      "XLC"
+    ],
+    "selected_universe_size": 28,
+    "source": "qfa_alpaca_real_daily_ohlcv",
+    "start": "2018-01-01",
+    "survivorship_bias_checked": false,
+    "universe_selection_filters": [
+      "Alpaca daily coverage",
+      "ETF liquidity/median dollar-volume sanity",
+      "ex-ante exposure diversity across duration, credit, commodities, broad/style equity, and sectors"
+    ]
+  },
+  "decision": {
+    "rationale": [
+      "Failed acceptance thresholds: primary/random-window 10 bps Sharpe and positive-window breadth are not compelling."
+    ],
+    "status": "rejected"
+  },
+  "evaluated_at": "2026-06-27T04:36:42Z",
+  "evaluator": "transient_qfa_alpaca_replay",
+  "full_period_metrics_by_cost_bps": {
+    "0": {
+      "activation": 1.0,
+      "annualized_return": -0.036785,
+      "annualized_volatility": 0.146252,
+      "max_drawdown": -0.310257,
+      "mean_daily_return": -0.000104,
+      "periods": 1397,
+      "sharpe": -0.178739,
+      "turnover": 0.617948
+    },
+    "10": {
+      "activation": 1.0,
+      "annualized_return": -0.175841,
+      "annualized_volatility": 0.146522,
+      "max_drawdown": -0.674394,
+      "mean_daily_return": -0.000722,
+      "periods": 1397,
+      "sharpe": -1.241678,
+      "turnover": 0.617948
+    },
+    "20": {
+      "activation": 1.0,
+      "annualized_return": -0.294984,
+      "annualized_volatility": 0.147689,
+      "max_drawdown": -0.857754,
+      "mean_daily_return": -0.00134,
+      "periods": 1397,
+      "sharpe": -2.286726,
+      "turnover": 0.617948
+    },
+    "5": {
+      "activation": 1.0,
+      "annualized_return": -0.108997,
+      "annualized_volatility": 0.146274,
+      "max_drawdown": -0.513087,
+      "mean_daily_return": -0.000413,
+      "periods": 1397,
+      "sharpe": -0.711247,
+      "turnover": 0.617948
+    }
+  },
+  "metrics": {
+    "activation": 1.0,
+    "annualized_return": -0.175841,
+    "annualized_volatility": 0.146522,
+    "max_drawdown": -0.674394,
+    "mean_daily_return": -0.000722,
+    "mean_sharpe": -1.6983,
+    "median_sharpe": -1.7066,
+    "p25_sharpe": -2.1835,
+    "periods": 1397,
+    "positive_window_rate": 0.0,
+    "sharpe": -1.241678,
+    "turnover": 0.617948,
+    "window_count": 30,
+    "window_length_trading_days": 252,
+    "worst_period_sharpe": -2.9676
+  },
+  "model_name": "defensive-carry-pullback-recovery-allocator-v1",
+  "model_path": "models/defensive-carry-pullback-recovery-allocator-v1/model.py",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "compared_to_library_snapshot": "available ETF/proxy benchmarks only; prior alpha raw daily streams not retained in compact artifacts",
+    "correlations": {
+      "GLD": 0.3884,
+      "HYG": 0.1568,
+      "IEF": 0.1715,
+      "IWM": 0.1522,
+      "LQD": 0.1627,
+      "QQQ": 0.1252,
+      "SHY": 0.188,
+      "SPY": 0.1577,
+      "TLT": 0.1279,
+      "equal_weight_defensive_proxy": 0.4227,
+      "simple_etf_tsmom_proxy": 0.4464
+    },
+    "max_abs_corr_to_relevant_proxy": 0.4464,
+    "redundancy_penalty": "low_or_unproven"
+  },
+  "protocol": {
+    "compact_artifact_note": "No raw bars, daily return paths, equity curves, or weight tails retained.",
+    "cost_sensitivity_bps": [
+      0,
+      5,
+      10,
+      20
+    ],
+    "execution_assumption": "signals at close, next daily close-to-close return approximation",
+    "primary_cost_bps": 10,
+    "random_periods_requested": 30,
+    "random_seed": 118,
+    "timeframe": "1Day",
+    "transient_evaluator_outside_repo": true,
+    "warmup_days": 90,
+    "window_length_trading_days": 252
+  },
+  "random_windows_10bps": [
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1352,
+      "end": "2021-12-15",
+      "max_drawdown": -0.1808,
+      "sharpe": -1.472,
+      "start": "2020-12-16",
+      "turnover": 0.783
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1679,
+      "end": "2022-01-21",
+      "max_drawdown": -0.1857,
+      "sharpe": -1.8409,
+      "start": "2021-01-25",
+      "turnover": 0.7767
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.221,
+      "end": "2022-02-15",
+      "max_drawdown": -0.2323,
+      "sharpe": -2.415,
+      "start": "2021-02-18",
+      "turnover": 0.748
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.182,
+      "end": "2022-06-01",
+      "max_drawdown": -0.201,
+      "sharpe": -1.4496,
+      "start": "2021-06-03",
+      "turnover": 0.7263
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1726,
+      "end": "2022-06-08",
+      "max_drawdown": -0.201,
+      "sharpe": -1.3598,
+      "start": "2021-06-10",
+      "turnover": 0.7228
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2696,
+      "end": "2022-08-12",
+      "max_drawdown": -0.2797,
+      "sharpe": -2.0462,
+      "start": "2021-08-13",
+      "turnover": 0.5869
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2692,
+      "end": "2022-09-20",
+      "max_drawdown": -0.2704,
+      "sharpe": -2.0515,
+      "start": "2021-09-21",
+      "turnover": 0.5666
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2365,
+      "end": "2022-12-27",
+      "max_drawdown": -0.2621,
+      "sharpe": -1.82,
+      "start": "2021-12-28",
+      "turnover": 0.4546
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2188,
+      "end": "2023-02-08",
+      "max_drawdown": -0.2861,
+      "sharpe": -1.6469,
+      "start": "2022-02-08",
+      "turnover": 0.4399
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.267,
+      "end": "2023-05-25",
+      "max_drawdown": -0.2671,
+      "sharpe": -2.8759,
+      "start": "2022-05-25",
+      "turnover": 0.499
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1905,
+      "end": "2023-06-20",
+      "max_drawdown": -0.1505,
+      "sharpe": -2.2638,
+      "start": "2022-06-17",
+      "turnover": 0.4728
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1657,
+      "end": "2023-08-15",
+      "max_drawdown": -0.1656,
+      "sharpe": -2.1896,
+      "start": "2022-08-15",
+      "turnover": 0.5223
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2055,
+      "end": "2023-12-28",
+      "max_drawdown": -0.2231,
+      "sharpe": -2.3233,
+      "start": "2022-12-28",
+      "turnover": 0.5371
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1935,
+      "end": "2024-03-21",
+      "max_drawdown": -0.215,
+      "sharpe": -2.5863,
+      "start": "2023-03-22",
+      "turnover": 0.56
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2237,
+      "end": "2024-04-23",
+      "max_drawdown": -0.227,
+      "sharpe": -2.9676,
+      "start": "2023-04-24",
+      "turnover": 0.585
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1911,
+      "end": "2024-05-22",
+      "max_drawdown": -0.2108,
+      "sharpe": -2.4082,
+      "start": "2023-05-23",
+      "turnover": 0.536
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1736,
+      "end": "2024-06-17",
+      "max_drawdown": -0.2013,
+      "sharpe": -2.1652,
+      "start": "2023-06-16",
+      "turnover": 0.5588
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1684,
+      "end": "2024-08-14",
+      "max_drawdown": -0.1936,
+      "sharpe": -2.0295,
+      "start": "2023-08-15",
+      "turnover": 0.6087
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1423,
+      "end": "2024-09-13",
+      "max_drawdown": -0.1936,
+      "sharpe": -1.7015,
+      "start": "2023-09-14",
+      "turnover": 0.6435
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.0894,
+      "end": "2024-11-04",
+      "max_drawdown": -0.1118,
+      "sharpe": -1.4151,
+      "start": "2023-11-03",
+      "turnover": 0.6588
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.0718,
+      "end": "2024-11-11",
+      "max_drawdown": -0.1016,
+      "sharpe": -1.1114,
+      "start": "2023-11-10",
+      "turnover": 0.672
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.1243,
+      "end": "2024-12-26",
+      "max_drawdown": -0.1384,
+      "sharpe": -1.7117,
+      "start": "2023-12-27",
+      "turnover": 0.7375
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.0587,
+      "end": "2025-06-17",
+      "max_drawdown": -0.0918,
+      "sharpe": -0.751,
+      "start": "2024-06-14",
+      "turnover": 0.6882
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.0444,
+      "end": "2025-08-01",
+      "max_drawdown": -0.0918,
+      "sharpe": -0.5946,
+      "start": "2024-07-31",
+      "turnover": 0.6354
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.0645,
+      "end": "2025-08-18",
+      "max_drawdown": -0.0918,
+      "sharpe": -0.8957,
+      "start": "2024-08-15",
+      "turnover": 0.6432
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2597,
+      "end": "2025-12-10",
+      "max_drawdown": -0.2797,
+      "sharpe": -1.3038,
+      "start": "2024-12-09",
+      "turnover": 0.6914
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2001,
+      "end": "2026-01-23",
+      "max_drawdown": -0.2797,
+      "sharpe": -0.8985,
+      "start": "2025-01-23",
+      "turnover": 0.6444
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2317,
+      "end": "2026-02-10",
+      "max_drawdown": -0.2797,
+      "sharpe": -0.8554,
+      "start": "2025-02-10",
+      "turnover": 0.633
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2105,
+      "end": "2026-02-19",
+      "max_drawdown": -0.2675,
+      "sharpe": -0.7529,
+      "start": "2025-02-19",
+      "turnover": 0.6144
+    },
+    {
+      "activation": 1.0,
+      "annualized_return": -0.2737,
+      "end": "2026-06-16",
+      "max_drawdown": -0.2804,
+      "sharpe": -1.0463,
+      "start": "2025-06-16",
+      "turnover": 0.599
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "reproducibility": {
+    "command": "Transient evaluator used configured real market data, no CSV, no daemon, and no orders; credential values redacted.",
+    "environment": "local qfa editable checkout with configured paper-data access",
+    "git_commit": null,
+    "qfa_db": null,
+    "qfa_run_id": null
+  },
+  "run_id": "ar118_qfa_alpaca_real_20260627T043642Z",
+  "warnings": [
+    "Alpaca/IEX paper-data access may provide truncated historical coverage before 2020 for many ETFs; metrics use returned real bars only.",
+    "Daily close-to-next-close replay is an approximation and not an intraday execution simulator.",
+    "Proxy orthogonality cannot fully test AR-015/037/049/051/060/061/067/071/105 without retained raw return streams."
+  ]
+}

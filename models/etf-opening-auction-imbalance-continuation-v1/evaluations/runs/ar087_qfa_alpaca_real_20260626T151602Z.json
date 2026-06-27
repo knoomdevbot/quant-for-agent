@@ -1,0 +1,901 @@
+{
+  "artifact_policy": {
+    "compact_json": true,
+    "raw_daily_paths_retained": false
+  },
+  "bad_result_policy": {
+    "direct_extension_child": null,
+    "divergent_child": null,
+    "if_rejected_no_refinement_or_direct_extension": true,
+    "refinement_child": null
+  },
+  "compact_artifact_note": "Raw daily/equity/weight paths pruned; aggregate metrics retained.",
+  "costs_slippage": {
+    "method": "daily event return minus roundtrip turnover * one-way bps / 10000; qfa native cost parameter not used",
+    "primary_one_way_bps": 10.0,
+    "stress_one_way_bps": 20.0
+  },
+  "created_at_utc": "2026-06-26T15:16:02Z",
+  "data": {
+    "fetch_end": "2025-12-15",
+    "fetch_start": "2023-10-01",
+    "symbols_available": [
+      "GLD",
+      "HYG",
+      "IEF",
+      "IWM",
+      "LQD",
+      "QQQ",
+      "SHY",
+      "SPY",
+      "TLT",
+      "XLE",
+      "XLP",
+      "XLU",
+      "XLV",
+      "XLY"
+    ],
+    "symbols_requested": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "XLV",
+      "XLY",
+      "XLE",
+      "XLU",
+      "XLP",
+      "TLT",
+      "IEF",
+      "GLD",
+      "HYG",
+      "LQD",
+      "SHY"
+    ],
+    "timeframe": "1Min"
+  },
+  "data_source": "Alpaca/qfa real 1Min OHLCV only; no CSV input; credentials redacted",
+  "db_artifact_retained": false,
+  "decision": {
+    "rationale": "Rejected by falsifier: random-window robustness after 10 bps one-way turnover cost did not produce positive p25 Sharpe and turnover/costs dominate the opening-continuation edge.",
+    "suggested_decision": "rejected"
+  },
+  "evaluation_status": "completed_real_intraday",
+  "intraday_not_daily_proxy": true,
+  "issue_id": "AR-087",
+  "metrics": {
+    "primary_cost_adjusted_10bps": {
+      "annualized_return": -0.10385271,
+      "annualized_volatility": 0.02554109,
+      "max_drawdown": -0.19477831,
+      "periods": 490,
+      "sharpe": -4.27938852,
+      "total_return": -0.19201298,
+      "win_rate": 0.07142857
+    },
+    "primary_cost_adjusted_20bps": {
+      "annualized_return": -0.18446577,
+      "annualized_volatility": 0.03078717,
+      "max_drawdown": -0.32703667,
+      "periods": 490,
+      "sharpe": -6.60516815,
+      "total_return": -0.32732659,
+      "win_rate": 0.04081633
+    },
+    "random_window_summary": {
+      "count": 14,
+      "median_annualized_return": -0.1111209,
+      "median_annualized_volatility": 0.02079343,
+      "median_roundtrip_turnover": 0.38725385,
+      "median_sharpe": -5.84184963,
+      "median_win_rate": 0.06557377,
+      "p25_sharpe": -6.33759196,
+      "positive_window_rate": 0.0,
+      "sharpe_values": [
+        -5.88791509,
+        -5.77863949,
+        -6.22047233,
+        -7.29496853,
+        -5.30693894,
+        -5.23591857,
+        -6.18101741,
+        -7.44248814,
+        -6.37663184,
+        -6.53922227,
+        -5.79578416,
+        -5.44569431,
+        -1.36298217,
+        -1.24268057
+      ],
+      "worst_max_drawdown": -0.04143642,
+      "worst_sharpe": -7.44248814
+    }
+  },
+  "model_name": "etf-opening-auction-imbalance-continuation-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "availability": {
+      "AR-079_parent": {
+        "found": 2,
+        "usable_with_curve": 0
+      },
+      "accepted_watchlist_latest": {
+        "found": 77,
+        "usable_with_curve": 19
+      },
+      "retained_liquidity_intraday": {
+        "found": 3,
+        "usable_with_curve": 1
+      }
+    },
+    "comparisons": [
+      {
+        "artifact": "models/tsmom-voltarget-liquid-etf-regimebrake-v1/evaluations/latest.json",
+        "correlation": -0.1228216,
+        "overlap_periods": 488,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/yield-credit-stress-etf-allocation-v1/evaluations/latest.json",
+        "correlation": -0.1214052,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/etf-stress-liquidity-volume-v1/evaluations/latest.json",
+        "correlation": -0.11014192,
+        "overlap_periods": 489,
+        "target": "retained_liquidity_intraday"
+      },
+      {
+        "artifact": "models/etf-stress-liquidity-volume-v1/evaluations/latest.json",
+        "correlation": -0.11014192,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/etf-stress-recovery-halflife-v1/evaluations/latest.json",
+        "correlation": -0.10048916,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/crosssec-momentum-liquid-megacap-daily-v1/evaluations/latest.json",
+        "correlation": 0.09496726,
+        "overlap_periods": 488,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/etf-stress-liquidity-beta-reduced-v1/evaluations/latest.json",
+        "correlation": -0.08818268,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/earnings-quality-drift-megacap-v1/evaluations/latest.json",
+        "correlation": 0.08507456,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/macro-surprise-drawdown-etf-allocator-v1/evaluations/latest.json",
+        "correlation": -0.07789063,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/post-earnings-drift-megacap-v1/evaluations/latest.json",
+        "correlation": -0.06998775,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/etf-carry-defensive-allocation-v1/evaluations/latest.json",
+        "correlation": -0.06282842,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/xsec-etf-defensive-rotation-orthogonal-v1/evaluations/latest.json",
+        "correlation": 0.05227798,
+        "overlap_periods": 303,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/meanrev-zscore-liquid-etf-1d-v1/evaluations/latest.json",
+        "correlation": -0.05060813,
+        "overlap_periods": 488,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/etf-carry-defensive-orthogonal-v1/evaluations/latest.json",
+        "correlation": -0.03412659,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/turn-month-vol-gated-etf-v1/evaluations/latest.json",
+        "correlation": 0.02999229,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/risk-off-crossasset-switch-v1/evaluations/latest.json",
+        "correlation": 0.02772217,
+        "overlap_periods": 488,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/risk-off-crossasset-randomcost-v1/evaluations/latest.json",
+        "correlation": 0.02579471,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/etf-vol-risk-rotation-v1/evaluations/latest.json",
+        "correlation": -0.02056368,
+        "overlap_periods": 489,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/tsmom-voltarget-liquid-etf-randomcost-v1/evaluations/latest.json",
+        "correlation": -0.01624479,
+        "overlap_periods": 488,
+        "target": "accepted_watchlist_latest"
+      },
+      {
+        "artifact": "models/closing-volume-reversal-orthogonalized-megacap-v1/evaluations/latest.json",
+        "correlation": 0.01222161,
+        "overlap_periods": 488,
+        "target": "accepted_watchlist_latest"
+      }
+    ],
+    "max_abs_correlation_available": 0.1228216,
+    "mechanism_vs_AR079": "Distinct: AR-087 tests same-day continuation from opening range/VWAP/relative-volume imbalance; AR-079 faded range-expansion close-location reversal breadth near later bars.",
+    "method": "Pearson correlation of daily AR-087 10bps returns against retained compact equity curves only; parent AR-079 had no retained comparable curve in compact artifacts",
+    "status": "computed"
+  },
+  "parameters": {
+    "entry_delay_minutes": 1,
+    "hold_minutes": 120,
+    "imbalance_z": 1.0,
+    "max_gross": 1.0,
+    "max_single": 0.16,
+    "opening_minutes": 30,
+    "relative_volume_min": 0.8,
+    "vwap_dev_z": 0.75
+  },
+  "primary_backtest": {
+    "active_days": 160,
+    "end": "2025-12-15",
+    "metrics_cost_adjusted_10bps": {
+      "annualized_return": -0.10385271,
+      "annualized_volatility": 0.02554109,
+      "max_drawdown": -0.19477831,
+      "periods": 490,
+      "sharpe": -4.27938852,
+      "total_return": -0.19201298,
+      "win_rate": 0.07142857
+    },
+    "metrics_cost_adjusted_20bps": {
+      "annualized_return": -0.18446577,
+      "annualized_volatility": 0.03078717,
+      "max_drawdown": -0.32703667,
+      "periods": 490,
+      "sharpe": -6.60516815,
+      "total_return": -0.32732659,
+      "win_rate": 0.04081633
+    },
+    "metrics_pre_cost": {
+      "annualized_return": -0.01538819,
+      "annualized_volatility": 0.02288115,
+      "max_drawdown": -0.04318438,
+      "periods": 490,
+      "sharpe": -0.66631253,
+      "total_return": -0.02970399,
+      "win_rate": 0.15510204
+    },
+    "periods": 490,
+    "start": "2024-01-02",
+    "turnover_proxy": {
+      "active_day_fraction": 0.32653061,
+      "mean_daily_roundtrip_turnover": 0.37323106,
+      "mean_gross_exposure_when_active": 0.57151007,
+      "median_daily_roundtrip_turnover": 0.0,
+      "total_roundtrip_turnover": 182.88322105
+    }
+  },
+  "qfa": {
+    "daemon_run": false,
+    "interface": "AlpacaGateway real bars plus qfa-compatible model contract; separate CLI smoke documented by sanitized command",
+    "orders_submitted": false,
+    "temp_db_deleted": true,
+    "temp_db_path_used": "/tmp/qfa_ar087_smoke_<pid>.sqlite3",
+    "trading_performed": false
+  },
+  "random_windows": [
+    {
+      "active_days": 19,
+      "end": "2024-04-30",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.12051385,
+        "annualized_volatility": 0.02176513,
+        "max_drawdown": -0.03005714,
+        "periods": 61,
+        "sharpe": -5.88791509,
+        "total_return": -0.030607,
+        "win_rate": 0.01639344
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.19937978,
+        "annualized_volatility": 0.02860703,
+        "max_drawdown": -0.05118866,
+        "periods": 61,
+        "sharpe": -7.75566817,
+        "total_return": -0.05240427,
+        "win_rate": 0.01639344
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.03400132,
+        "annualized_volatility": 0.01772975,
+        "max_drawdown": -0.01224233,
+        "periods": 61,
+        "sharpe": -1.94225896,
+        "total_return": -0.0083387,
+        "win_rate": 0.18032787
+      },
+      "periods": 61,
+      "start": "2024-02-02",
+      "turnover_proxy": {
+        "active_day_fraction": 0.31147541,
+        "mean_daily_roundtrip_turnover": 0.37188668,
+        "mean_gross_exposure_when_active": 0.59697599,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 22.68508754
+      },
+      "window_id": "w01"
+    },
+    {
+      "active_days": 18,
+      "end": "2024-06-26",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.11083169,
+        "annualized_volatility": 0.02028825,
+        "max_drawdown": -0.03049675,
+        "periods": 61,
+        "sharpe": -5.77863949,
+        "total_return": -0.02803443,
+        "win_rate": 0.01639344
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.19078514,
+        "annualized_volatility": 0.02752585,
+        "max_drawdown": -0.04995186,
+        "periods": 61,
+        "sharpe": -7.67380804,
+        "total_return": -0.04995186,
+        "win_rate": 0.01639344
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.02310746,
+        "annualized_volatility": 0.01617274,
+        "max_drawdown": -0.01185892,
+        "periods": 61,
+        "sharpe": -1.43753606,
+        "total_return": -0.00564313,
+        "win_rate": 0.13114754
+      },
+      "periods": 61,
+      "start": "2024-04-01",
+      "turnover_proxy": {
+        "active_day_fraction": 0.29508197,
+        "mean_daily_roundtrip_turnover": 0.37297456,
+        "mean_gross_exposure_when_active": 0.63198468,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 22.75144835
+      },
+      "window_id": "w02"
+    },
+    {
+      "active_days": 19,
+      "end": "2024-07-01",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.124028,
+        "annualized_volatility": 0.0212466,
+        "max_drawdown": -0.03399946,
+        "periods": 61,
+        "sharpe": -6.22047233,
+        "total_return": -0.03154603,
+        "win_rate": 0.01639344
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.20515314,
+        "annualized_volatility": 0.02836474,
+        "max_drawdown": -0.053983,
+        "periods": 61,
+        "sharpe": -8.07708038,
+        "total_return": -0.05406288,
+        "win_rate": 0.01639344
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.03475236,
+        "annualized_volatility": 0.01714704,
+        "max_drawdown": -0.01472315,
+        "periods": 61,
+        "sharpe": -2.05420183,
+        "total_return": -0.00852538,
+        "win_rate": 0.13114754
+      },
+      "periods": 61,
+      "start": "2024-04-04",
+      "turnover_proxy": {
+        "active_day_fraction": 0.31147541,
+        "mean_daily_roundtrip_turnover": 0.38468417,
+        "mean_gross_exposure_when_active": 0.61751932,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 23.46573407
+      },
+      "window_id": "w03"
+    },
+    {
+      "active_days": 22,
+      "end": "2024-09-13",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.16609858,
+        "annualized_volatility": 0.02484865,
+        "max_drawdown": -0.04143642,
+        "periods": 61,
+        "sharpe": -7.29496853,
+        "total_return": -0.04301583,
+        "win_rate": 0.06557377
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.2474002,
+        "annualized_volatility": 0.03163795,
+        "max_drawdown": -0.06421664,
+        "periods": 61,
+        "sharpe": -8.96288952,
+        "total_return": -0.06648634,
+        "win_rate": 0.04918033
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.07612994,
+        "annualized_volatility": 0.02007867,
+        "max_drawdown": -0.01830046,
+        "periods": 61,
+        "sharpe": -3.9331701,
+        "total_return": -0.01898499,
+        "win_rate": 0.09836066
+      },
+      "periods": 61,
+      "start": "2024-06-18",
+      "turnover_proxy": {
+        "active_day_fraction": 0.36065574,
+        "mean_daily_roundtrip_turnover": 0.40594167,
+        "mean_gross_exposure_when_active": 0.56278277,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 24.762442
+      },
+      "window_id": "w04"
+    },
+    {
+      "active_days": 17,
+      "end": "2024-10-23",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.09338947,
+        "annualized_volatility": 0.0184392,
+        "max_drawdown": -0.02487335,
+        "periods": 61,
+        "sharpe": -5.30693894,
+        "total_return": -0.02345307,
+        "win_rate": 0.06557377
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.16078856,
+        "annualized_volatility": 0.02382405,
+        "max_drawdown": -0.04164497,
+        "periods": 61,
+        "sharpe": -7.34349252,
+        "total_return": -0.0415443,
+        "win_rate": 0.06557377
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.02066592,
+        "annualized_volatility": 0.01573985,
+        "max_drawdown": -0.00947339,
+        "periods": 61,
+        "sharpe": -1.31892546,
+        "total_return": -0.00504212,
+        "win_rate": 0.09836066
+      },
+      "periods": 61,
+      "start": "2024-07-30",
+      "turnover_proxy": {
+        "active_day_fraction": 0.27868852,
+        "mean_daily_roundtrip_turnover": 0.30593665,
+        "mean_gross_exposure_when_active": 0.54888635,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 18.66213595
+      },
+      "window_id": "w05"
+    },
+    {
+      "active_days": 17,
+      "end": "2024-10-25",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.08803814,
+        "annualized_volatility": 0.01756868,
+        "max_drawdown": -0.02462248,
+        "periods": 61,
+        "sharpe": -5.23591857,
+        "total_return": -0.02206089,
+        "win_rate": 0.06557377
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.15532512,
+        "annualized_volatility": 0.02291791,
+        "max_drawdown": -0.04084234,
+        "periods": 61,
+        "sharpe": -7.35180409,
+        "total_return": -0.0400376,
+        "win_rate": 0.06557377
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.01547899,
+        "annualized_volatility": 0.01503207,
+        "max_drawdown": -0.00947339,
+        "periods": 61,
+        "sharpe": -1.0303571,
+        "total_return": -0.00376908,
+        "win_rate": 0.09836066
+      },
+      "periods": 61,
+      "start": "2024-08-01",
+      "turnover_proxy": {
+        "active_day_fraction": 0.27868852,
+        "mean_daily_roundtrip_turnover": 0.30357062,
+        "mean_gross_exposure_when_active": 0.5446414,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 18.51780752
+      },
+      "window_id": "w06"
+    },
+    {
+      "active_days": 20,
+      "end": "2024-11-12",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.08503581,
+        "annualized_volatility": 0.01435898,
+        "max_drawdown": -0.02128253,
+        "periods": 61,
+        "sharpe": -6.18101741,
+        "total_return": -0.02128253,
+        "win_rate": 0.04918033
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.17074888,
+        "annualized_volatility": 0.02109823,
+        "max_drawdown": -0.04431039,
+        "periods": 61,
+        "sharpe": -8.86061606,
+        "total_return": -0.04431039,
+        "win_rate": 0.03278689
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.00941202,
+        "annualized_volatility": 0.01183259,
+        "max_drawdown": -0.00328202,
+        "periods": 61,
+        "sharpe": 0.79754448,
+        "total_return": 0.00227022,
+        "win_rate": 0.18032787
+      },
+      "periods": 61,
+      "start": "2024-08-19",
+      "turnover_proxy": {
+        "active_day_fraction": 0.32786885,
+        "mean_daily_roundtrip_turnover": 0.38964346,
+        "mean_gross_exposure_when_active": 0.59420628,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 23.76825107
+      },
+      "window_id": "w07"
+    },
+    {
+      "active_days": 23,
+      "end": "2024-12-05",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.10209071,
+        "annualized_volatility": 0.0144522,
+        "max_drawdown": -0.02412854,
+        "periods": 61,
+        "sharpe": -7.44248814,
+        "total_return": -0.02573009,
+        "win_rate": 0.04918033
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.19452842,
+        "annualized_volatility": 0.02145097,
+        "max_drawdown": -0.04798177,
+        "periods": 61,
+        "sharpe": -10.06983594,
+        "total_return": -0.05101753,
+        "win_rate": 0.01639344
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.0008237,
+        "annualized_volatility": 0.01138001,
+        "max_drawdown": -0.00318878,
+        "periods": 61,
+        "sharpe": 0.07794861,
+        "total_return": 0.00019933,
+        "win_rate": 0.19672131
+      },
+      "periods": 61,
+      "start": "2024-09-11",
+      "turnover_proxy": {
+        "active_day_fraction": 0.37704918,
+        "mean_daily_roundtrip_turnover": 0.4303468,
+        "mean_gross_exposure_when_active": 0.57067728,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 26.25115509
+      },
+      "window_id": "w08"
+    },
+    {
+      "active_days": 23,
+      "end": "2025-01-07",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.12082663,
+        "annualized_volatility": 0.02015794,
+        "max_drawdown": -0.03069047,
+        "periods": 61,
+        "sharpe": -6.37663184,
+        "total_return": -0.03069047,
+        "win_rate": 0.04918033
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.21266972,
+        "annualized_volatility": 0.02716571,
+        "max_drawdown": -0.05623604,
+        "periods": 61,
+        "sharpe": -8.78422486,
+        "total_return": -0.05623604,
+        "win_rate": 0.01639344
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.01840438,
+        "annualized_volatility": 0.01594874,
+        "max_drawdown": -0.00949814,
+        "periods": 61,
+        "sharpe": -1.15682183,
+        "total_return": -0.00448644,
+        "win_rate": 0.21311475
+      },
+      "periods": 61,
+      "start": "2024-10-10",
+      "turnover_proxy": {
+        "active_day_fraction": 0.37704918,
+        "mean_daily_roundtrip_turnover": 0.43686479,
+        "mean_gross_exposure_when_active": 0.5793207,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 26.64875213
+      },
+      "window_id": "w09"
+    },
+    {
+      "active_days": 23,
+      "end": "2025-01-31",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.1306713,
+        "annualized_volatility": 0.02137405,
+        "max_drawdown": -0.03377945,
+        "periods": 61,
+        "sharpe": -6.53922227,
+        "total_return": -0.03332904,
+        "win_rate": 0.06557377
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.22189096,
+        "annualized_volatility": 0.02843719,
+        "max_drawdown": -0.05776307,
+        "periods": 61,
+        "sharpe": -8.80412358,
+        "total_return": -0.05892362,
+        "win_rate": 0.0
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.02889252,
+        "annualized_volatility": 0.01695334,
+        "max_drawdown": -0.01236704,
+        "periods": 61,
+        "sharpe": -1.72088949,
+        "total_return": -0.00707172,
+        "win_rate": 0.19672131
+      },
+      "periods": 61,
+      "start": "2024-11-01",
+      "turnover_proxy": {
+        "active_day_fraction": 0.37704918,
+        "mean_daily_roundtrip_turnover": 0.43886847,
+        "mean_gross_exposure_when_active": 0.58197776,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 26.77097694
+      },
+      "window_id": "w10"
+    },
+    {
+      "active_days": 21,
+      "end": "2025-02-06",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.11141011,
+        "annualized_volatility": 0.02034025,
+        "max_drawdown": -0.02825307,
+        "periods": 61,
+        "sharpe": -5.79578416,
+        "total_return": -0.02818752,
+        "win_rate": 0.06557377
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.19371651,
+        "annualized_volatility": 0.02679441,
+        "max_drawdown": -0.04864142,
+        "periods": 61,
+        "sharpe": -8.01934022,
+        "total_return": -0.05078607,
+        "win_rate": 0.01639344
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.0208161,
+        "annualized_volatility": 0.01643403,
+        "max_drawdown": -0.01236704,
+        "periods": 61,
+        "sharpe": -1.27186627,
+        "total_return": -0.00507906,
+        "win_rate": 0.18032787
+      },
+      "periods": 61,
+      "start": "2024-11-07",
+      "turnover_proxy": {
+        "active_day_fraction": 0.3442623,
+        "mean_daily_roundtrip_turnover": 0.38486424,
+        "mean_gross_exposure_when_active": 0.55896948,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 23.47671835
+      },
+      "window_id": "w11"
+    },
+    {
+      "active_days": 22,
+      "end": "2025-02-27",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.11748947,
+        "annualized_volatility": 0.0228979,
+        "max_drawdown": -0.02980112,
+        "periods": 61,
+        "sharpe": -5.44569431,
+        "total_return": -0.02980112,
+        "win_rate": 0.09836066
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.20312172,
+        "annualized_volatility": 0.02910885,
+        "max_drawdown": -0.05347824,
+        "periods": 61,
+        "sharpe": -7.78226513,
+        "total_return": -0.05347824,
+        "win_rate": 0.04918033
+      },
+      "metrics_pre_cost": {
+        "annualized_return": -0.02277432,
+        "annualized_volatility": 0.0190908,
+        "max_drawdown": -0.01233578,
+        "periods": 61,
+        "sharpe": -1.19728755,
+        "total_return": -0.00556106,
+        "win_rate": 0.16393443
+      },
+      "periods": 61,
+      "start": "2024-11-27",
+      "turnover_proxy": {
+        "active_day_fraction": 0.36065574,
+        "mean_daily_roundtrip_turnover": 0.4041183,
+        "mean_gross_exposure_when_active": 0.56025491,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 24.65121604
+      },
+      "window_id": "w12"
+    },
+    {
+      "active_days": 24,
+      "end": "2025-05-07",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.06370927,
+        "annualized_volatility": 0.04747581,
+        "max_drawdown": -0.02391238,
+        "periods": 61,
+        "sharpe": -1.36298217,
+        "total_return": -0.01580857,
+        "win_rate": 0.14754098
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.17229239,
+        "annualized_volatility": 0.05085745,
+        "max_drawdown": -0.04532006,
+        "periods": 61,
+        "sharpe": -3.69159432,
+        "total_return": -0.04474129,
+        "win_rate": 0.1147541
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.05893701,
+        "annualized_volatility": 0.04632815,
+        "max_drawdown": -0.01343004,
+        "periods": 61,
+        "sharpe": 1.25901232,
+        "total_return": 0.01395843,
+        "win_rate": 0.24590164
+      },
+      "periods": 61,
+      "start": "2025-02-10",
+      "turnover_proxy": {
+        "active_day_fraction": 0.39344262,
+        "mean_daily_roundtrip_turnover": 0.48823965,
+        "mean_gross_exposure_when_active": 0.62047122,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 29.78261864
+      },
+      "window_id": "w13"
+    },
+    {
+      "active_days": 18,
+      "end": "2025-05-23",
+      "metrics_cost_adjusted_10bps": {
+        "annualized_return": -0.05731618,
+        "annualized_volatility": 0.0466288,
+        "max_drawdown": -0.01733898,
+        "periods": 61,
+        "sharpe": -1.24268057,
+        "total_return": -0.01418606,
+        "win_rate": 0.09836066
+      },
+      "metrics_cost_adjusted_20bps": {
+        "annualized_return": -0.143701,
+        "annualized_volatility": 0.0499464,
+        "max_drawdown": -0.03202167,
+        "periods": 61,
+        "sharpe": -3.0803769,
+        "total_return": -0.03685632,
+        "win_rate": 0.08196721
+      },
+      "metrics_pre_cost": {
+        "annualized_return": 0.03763776,
+        "annualized_volatility": 0.045427,
+        "max_drawdown": -0.01343004,
+        "periods": 61,
+        "sharpe": 0.83572213,
+        "total_return": 0.00898357,
+        "win_rate": 0.18032787
+      },
+      "periods": 61,
+      "start": "2025-02-27",
+      "turnover_proxy": {
+        "active_day_fraction": 0.29508197,
+        "mean_daily_roundtrip_turnover": 0.38059146,
+        "mean_gross_exposure_when_active": 0.64489109,
+        "median_daily_roundtrip_turnover": 0.0,
+        "total_roundtrip_turnover": 23.21607916
+      },
+      "window_id": "w14"
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "sanitized_command_provenance": "Configured Alpaca paper-data access was used with credential values redacted; evaluation used real market data, no CSV, no daemon, and no orders.",
+  "warnings": [
+    "Evaluation is bounded to available Alpaca 1Min ETF bars and uses compact custom intraday replay rather than retaining raw minute paths.",
+    "Opening-auction prints are approximated with Alpaca minute bars; true auction imbalance/order-book data was not available.",
+    "No native qfa cost/slippage model was applied; costs are external turnover haircuts."
+  ]
+}

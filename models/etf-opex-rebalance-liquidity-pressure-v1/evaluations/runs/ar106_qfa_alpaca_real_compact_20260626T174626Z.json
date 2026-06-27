@@ -1,0 +1,1225 @@
+{
+  "ablations": {
+    "all_include_tom": {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.0363901,
+          "annualized_return": -0.0169223,
+          "annualized_volatility": 0.02549391,
+          "event_days": 443,
+          "max_drawdown": -0.13849771,
+          "periods": 1374,
+          "sharpe": -0.65671608,
+          "total_return": -0.08885791,
+          "turnover": {
+            "annualized_one_way": 9.17030568,
+            "mean_daily": 0.0363901,
+            "total": 50.0
+          },
+          "win_rate": 0.01164483
+        },
+        "20bps": {
+          "activation_fraction": 0.0363901,
+          "annualized_return": -0.02590682,
+          "annualized_volatility": 0.02587296,
+          "event_days": 443,
+          "max_drawdown": -0.16981013,
+          "periods": 1374,
+          "sharpe": -1.00153082,
+          "total_return": -0.13334632,
+          "turnover": {
+            "annualized_one_way": 9.17030568,
+            "mean_daily": 0.0363901,
+            "total": 50.0
+          },
+          "win_rate": 0.00946143
+        },
+        "5bps": {
+          "activation_fraction": 0.0363901,
+          "annualized_return": -0.01240105,
+          "annualized_volatility": 0.02537879,
+          "event_days": 443,
+          "max_drawdown": -0.12566143,
+          "periods": 1374,
+          "sharpe": -0.47902615,
+          "total_return": -0.06577502,
+          "turnover": {
+            "annualized_one_way": 9.17030568,
+            "mean_daily": 0.0363901,
+            "total": 50.0
+          },
+          "win_rate": 0.01164483
+        }
+      },
+      "end": "2026-06-25",
+      "label": "all_include_tom",
+      "pre_cost": {
+        "activation_fraction": 0.0363901,
+        "annualized_return": -0.00786037,
+        "annualized_volatility": 0.02531429,
+        "event_days": 443,
+        "max_drawdown": -0.11263785,
+        "periods": 1374,
+        "sharpe": -0.29911777,
+        "total_return": -0.04211454,
+        "turnover": {
+          "annualized_one_way": 9.17030568,
+          "mean_daily": 0.0363901,
+          "total": 50.0
+        },
+        "win_rate": 0.01237263
+      },
+      "start": "2021-01-04"
+    },
+    "opex_only_ex_tom": {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.02183406,
+          "annualized_return": -0.01969865,
+          "annualized_volatility": 0.01886542,
+          "event_days": 443,
+          "max_drawdown": -0.12794174,
+          "periods": 1374,
+          "sharpe": -1.04511592,
+          "total_return": -0.10280005,
+          "turnover": {
+            "annualized_one_way": 5.50218341,
+            "mean_daily": 0.02183406,
+            "total": 30.0
+          },
+          "win_rate": 0.00436681
+        },
+        "20bps": {
+          "activation_fraction": 0.02183406,
+          "annualized_return": -0.02508957,
+          "annualized_volatility": 0.01946846,
+          "event_days": 443,
+          "max_drawdown": -0.14911881,
+          "periods": 1374,
+          "sharpe": -1.29536304,
+          "total_return": -0.12937441,
+          "turnover": {
+            "annualized_one_way": 5.50218341,
+            "mean_daily": 0.02183406,
+            "total": 30.0
+          },
+          "win_rate": 0.00363901
+        },
+        "5bps": {
+          "activation_fraction": 0.02183406,
+          "annualized_return": -0.01699328,
+          "annualized_volatility": 0.01862261,
+          "event_days": 443,
+          "max_drawdown": -0.11716145,
+          "periods": 1374,
+          "sharpe": -0.9110136,
+          "total_return": -0.08921656,
+          "turnover": {
+            "annualized_one_way": 5.50218341,
+            "mean_daily": 0.02183406,
+            "total": 30.0
+          },
+          "win_rate": 0.00436681
+        }
+      },
+      "end": "2026-06-25",
+      "label": "opex_only_ex_tom",
+      "pre_cost": {
+        "activation_fraction": 0.02183406,
+        "annualized_return": -0.01428128,
+        "annualized_volatility": 0.01842111,
+        "event_days": 443,
+        "max_drawdown": -0.10625132,
+        "periods": 1374,
+        "sharpe": -0.77163452,
+        "total_return": -0.07543171,
+        "turnover": {
+          "annualized_one_way": 5.50218341,
+          "mean_daily": 0.02183406,
+          "total": 30.0
+        },
+        "win_rate": 0.00509461
+      },
+      "start": "2021-01-04"
+    },
+    "quarterly_only_ex_tom": {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.01455604,
+          "annualized_return": 0.00283214,
+          "annualized_volatility": 0.01713388,
+          "event_days": 443,
+          "max_drawdown": -0.04117601,
+          "periods": 1374,
+          "sharpe": 0.17359101,
+          "total_return": 0.01553961,
+          "turnover": {
+            "annualized_one_way": 3.66812227,
+            "mean_daily": 0.01455604,
+            "total": 20.0
+          },
+          "win_rate": 0.00727802
+        },
+        "20bps": {
+          "activation_fraction": 0.01455604,
+          "annualized_return": -0.00083828,
+          "annualized_volatility": 0.01704488,
+          "event_days": 443,
+          "max_drawdown": -0.04880267,
+          "periods": 1374,
+          "sharpe": -0.0407064,
+          "total_return": -0.00456212,
+          "turnover": {
+            "annualized_one_way": 3.66812227,
+            "mean_daily": 0.01455604,
+            "total": 20.0
+          },
+          "win_rate": 0.00582242
+        },
+        "5bps": {
+          "activation_fraction": 0.01455604,
+          "annualized_return": 0.00467162,
+          "annualized_volatility": 0.01722305,
+          "event_days": 443,
+          "max_drawdown": -0.03756233,
+          "periods": 1374,
+          "sharpe": 0.27918092,
+          "total_return": 0.02573777,
+          "turnover": {
+            "annualized_one_way": 3.66812227,
+            "mean_daily": 0.01455604,
+            "total": 20.0
+          },
+          "win_rate": 0.00727802
+        }
+      },
+      "end": "2026-06-25",
+      "label": "quarterly_only_ex_tom",
+      "pre_cost": {
+        "activation_fraction": 0.01455604,
+        "annualized_return": 0.00651394,
+        "annualized_volatility": 0.01734146,
+        "event_days": 443,
+        "max_drawdown": -0.03393607,
+        "periods": 1374,
+        "sharpe": 0.38303641,
+        "total_return": 0.03603538,
+        "turnover": {
+          "annualized_one_way": 3.66812227,
+          "mean_daily": 0.01455604,
+          "total": 20.0
+        },
+        "win_rate": 0.00727802
+      },
+      "start": "2021-01-04"
+    }
+  },
+  "artifacts": {
+    "immutable_run_json": "models/etf-opex-rebalance-liquidity-pressure-v1/evaluations/runs/ar106_qfa_alpaca_real_compact_20260626T174626Z.json",
+    "latest_json": "models/etf-opex-rebalance-liquidity-pressure-v1/evaluations/latest.json",
+    "latest_md": "models/etf-opex-rebalance-liquidity-pressure-v1/evaluations/latest.md"
+  },
+  "controls": {
+    "no_csv_used": true,
+    "no_daemon": true,
+    "no_data_csv_argument_used": true,
+    "no_orders": true,
+    "raw_daily_paths_retained": false
+  },
+  "costs_slippage": {
+    "method": "daily return minus one-way turnover multiplied by basis-point rate",
+    "one_way_turnover_bps": [
+      5,
+      10,
+      20
+    ]
+  },
+  "coverage_rows_by_symbol": {
+    "DBA": 1482,
+    "DIA": 1485,
+    "GLD": 1485,
+    "HYG": 1485,
+    "IEF": 1485,
+    "IWD": 1485,
+    "IWF": 1485,
+    "IWM": 1485,
+    "LQD": 1485,
+    "MTUM": 1485,
+    "QQQ": 1485,
+    "QUAL": 1485,
+    "SHY": 1485,
+    "SLV": 1485,
+    "SPY": 1485,
+    "TLT": 1485,
+    "USMV": 1485,
+    "USO": 1486,
+    "VLUE": 1485,
+    "VTI": 1485,
+    "XLB": 1485,
+    "XLE": 1485,
+    "XLF": 1485,
+    "XLI": 1485,
+    "XLK": 1485,
+    "XLP": 1485,
+    "XLRE": 1485,
+    "XLU": 1485,
+    "XLV": 1485,
+    "XLY": 1485
+  },
+  "created_at": "2026-06-26T17:46:26Z",
+  "data_source": "Real daily market bars accessed through the project data gateway; no CSV fixtures or CSV arguments were used.",
+  "date_range": {
+    "fetch": {
+      "end": "2026-06-25",
+      "start": "2019-01-01"
+    },
+    "primary": {
+      "end": "2026-06-25",
+      "start": "2021-01-04"
+    }
+  },
+  "decision": "rejected",
+  "decision_reason": "At 10 bps the random-window median Sharpe is not robustly positive and p25/worst windows are materially negative; ex-turn-of-month event gating is sparse and noisy.",
+  "evaluation_status": "completed_compact_real_data_backtest",
+  "issue_id": "AR-106",
+  "model_name": "etf-opex-rebalance-liquidity-pressure-v1",
+  "orthogonality": {
+    "comparisons": [
+      {
+        "correlation": 0.00594334,
+        "name": "SPY daily returns"
+      },
+      {
+        "correlation": 0.00064623,
+        "name": "equal_weight_selected_universe"
+      },
+      {
+        "correlation": null,
+        "name": "turn_of_month_event_proxy"
+      },
+      {
+        "correlation": 0.42777153,
+        "name": "close_volume_reversal_proxy"
+      }
+    ],
+    "status": "proxy_checks_only_compact"
+  },
+  "primary": {
+    "costs": {
+      "10bps": {
+        "activation_fraction": 0.0363901,
+        "annualized_return": -0.0169223,
+        "annualized_volatility": 0.02549391,
+        "event_days": 443,
+        "max_drawdown": -0.13849771,
+        "periods": 1374,
+        "sharpe": -0.65671608,
+        "total_return": -0.08885791,
+        "turnover": {
+          "annualized_one_way": 9.17030568,
+          "mean_daily": 0.0363901,
+          "total": 50.0
+        },
+        "win_rate": 0.01164483
+      },
+      "20bps": {
+        "activation_fraction": 0.0363901,
+        "annualized_return": -0.02590682,
+        "annualized_volatility": 0.02587296,
+        "event_days": 443,
+        "max_drawdown": -0.16981013,
+        "periods": 1374,
+        "sharpe": -1.00153082,
+        "total_return": -0.13334632,
+        "turnover": {
+          "annualized_one_way": 9.17030568,
+          "mean_daily": 0.0363901,
+          "total": 50.0
+        },
+        "win_rate": 0.00946143
+      },
+      "5bps": {
+        "activation_fraction": 0.0363901,
+        "annualized_return": -0.01240105,
+        "annualized_volatility": 0.02537879,
+        "event_days": 443,
+        "max_drawdown": -0.12566143,
+        "periods": 1374,
+        "sharpe": -0.47902615,
+        "total_return": -0.06577502,
+        "turnover": {
+          "annualized_one_way": 9.17030568,
+          "mean_daily": 0.0363901,
+          "total": 50.0
+        },
+        "win_rate": 0.01164483
+      }
+    },
+    "end": "2026-06-25",
+    "label": "primary_2021_2026_ex_tom",
+    "pre_cost": {
+      "activation_fraction": 0.0363901,
+      "annualized_return": -0.00786037,
+      "annualized_volatility": 0.02531429,
+      "event_days": 443,
+      "max_drawdown": -0.11263785,
+      "periods": 1374,
+      "sharpe": -0.29911777,
+      "total_return": -0.04211454,
+      "turnover": {
+        "annualized_one_way": 9.17030568,
+        "mean_daily": 0.0363901,
+        "total": 50.0
+      },
+      "win_rate": 0.01237263
+    },
+    "start": "2021-01-04"
+  },
+  "qfa_smoke": {
+    "end": "2025-12-31",
+    "metrics": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "final_equity": 100000.0,
+      "initial_cash": 100000.0,
+      "max_drawdown": 0.0,
+      "periods": 248,
+      "sharpe": 0.0,
+      "total_return": 0.0,
+      "win_rate": 0.0
+    },
+    "start": "2025-01-02",
+    "status": "completed"
+  },
+  "random_summary_10bps": {
+    "count": 11,
+    "median_activation_fraction": 0.03162055,
+    "median_annualized_turnover": 7.96837945,
+    "median_sharpe": -0.63061012,
+    "p25_sharpe": -1.76213226,
+    "positive_window_rate": 0.36363636,
+    "worst_max_drawdown": -0.05686248,
+    "worst_sharpe": -2.36497534
+  },
+  "random_windows": [
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.01581028,
+          "annualized_return": 0.02956102,
+          "annualized_volatility": 0.02126153,
+          "event_days": 83,
+          "max_drawdown": -0.00446948,
+          "periods": 253,
+          "sharpe": 1.38077539,
+          "total_return": 0.02968005,
+          "turnover": {
+            "annualized_one_way": 3.98418972,
+            "mean_daily": 0.01581028,
+            "total": 4.0
+          },
+          "win_rate": 0.01185771
+        },
+        "20bps": {
+          "activation_fraction": 0.01581028,
+          "annualized_return": 0.02548103,
+          "annualized_volatility": 0.02062637,
+          "event_days": 83,
+          "max_drawdown": -0.00596426,
+          "periods": 253,
+          "sharpe": 1.23013385,
+          "total_return": 0.02558343,
+          "turnover": {
+            "annualized_one_way": 3.98418972,
+            "mean_daily": 0.01581028,
+            "total": 4.0
+          },
+          "win_rate": 0.01185771
+        },
+        "5bps": {
+          "activation_fraction": 0.01581028,
+          "annualized_return": 0.03160634,
+          "annualized_volatility": 0.02160573,
+          "event_days": 83,
+          "max_drawdown": -0.00372153,
+          "periods": 253,
+          "sharpe": 1.45098011,
+          "total_return": 0.03173373,
+          "turnover": {
+            "annualized_one_way": 3.98418972,
+            "mean_daily": 0.01581028,
+            "total": 4.0
+          },
+          "win_rate": 0.01185771
+        }
+      },
+      "end": "2021-07-26",
+      "label": "random_01_252d",
+      "pre_cost": {
+        "activation_fraction": 0.01581028,
+        "annualized_return": 0.03365521,
+        "annualized_volatility": 0.02196659,
+        "event_days": 83,
+        "max_drawdown": -0.0029732,
+        "periods": 253,
+        "sharpe": 1.51783135,
+        "total_return": 0.03379099,
+        "turnover": {
+          "annualized_one_way": 3.98418972,
+          "mean_daily": 0.01581028,
+          "total": 4.0
+        },
+        "win_rate": 0.01185771
+      },
+      "start": "2020-04-21"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.01581028,
+          "annualized_return": 0.02956102,
+          "annualized_volatility": 0.02126153,
+          "event_days": 82,
+          "max_drawdown": -0.00446948,
+          "periods": 253,
+          "sharpe": 1.38077539,
+          "total_return": 0.02968005,
+          "turnover": {
+            "annualized_one_way": 3.98418972,
+            "mean_daily": 0.01581028,
+            "total": 4.0
+          },
+          "win_rate": 0.01185771
+        },
+        "20bps": {
+          "activation_fraction": 0.01581028,
+          "annualized_return": 0.02548103,
+          "annualized_volatility": 0.02062637,
+          "event_days": 82,
+          "max_drawdown": -0.00596426,
+          "periods": 253,
+          "sharpe": 1.23013385,
+          "total_return": 0.02558343,
+          "turnover": {
+            "annualized_one_way": 3.98418972,
+            "mean_daily": 0.01581028,
+            "total": 4.0
+          },
+          "win_rate": 0.01185771
+        },
+        "5bps": {
+          "activation_fraction": 0.01581028,
+          "annualized_return": 0.03160634,
+          "annualized_volatility": 0.02160573,
+          "event_days": 82,
+          "max_drawdown": -0.00372153,
+          "periods": 253,
+          "sharpe": 1.45098011,
+          "total_return": 0.03173373,
+          "turnover": {
+            "annualized_one_way": 3.98418972,
+            "mean_daily": 0.01581028,
+            "total": 4.0
+          },
+          "win_rate": 0.01185771
+        }
+      },
+      "end": "2021-07-27",
+      "label": "random_02_252d",
+      "pre_cost": {
+        "activation_fraction": 0.01581028,
+        "annualized_return": 0.03365521,
+        "annualized_volatility": 0.02196659,
+        "event_days": 82,
+        "max_drawdown": -0.0029732,
+        "periods": 253,
+        "sharpe": 1.51783135,
+        "total_return": 0.03379099,
+        "turnover": {
+          "annualized_one_way": 3.98418972,
+          "mean_daily": 0.01581028,
+          "total": 4.0
+        },
+        "win_rate": 0.01185771
+      },
+      "start": "2020-07-27"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.03952569,
+          "annualized_return": 0.02670869,
+          "annualized_volatility": 0.02415979,
+          "event_days": 82,
+          "max_drawdown": -0.01585452,
+          "periods": 253,
+          "sharpe": 1.1030197,
+          "total_return": 0.02681608,
+          "turnover": {
+            "annualized_one_way": 9.96047431,
+            "mean_daily": 0.03952569,
+            "total": 10.0
+          },
+          "win_rate": 0.02371542
+        },
+        "20bps": {
+          "activation_fraction": 0.03952569,
+          "annualized_return": 0.01654202,
+          "annualized_volatility": 0.02380955,
+          "event_days": 82,
+          "max_drawdown": -0.01930332,
+          "periods": 253,
+          "sharpe": 0.70090557,
+          "total_return": 0.01660821,
+          "turnover": {
+            "annualized_one_way": 9.96047431,
+            "mean_daily": 0.03952569,
+            "total": 10.0
+          },
+          "win_rate": 0.02371542
+        },
+        "5bps": {
+          "activation_fraction": 0.03952569,
+          "annualized_return": 0.03182797,
+          "annualized_volatility": 0.02441156,
+          "event_days": 82,
+          "max_drawdown": -0.01412642,
+          "periods": 253,
+          "sharpe": 1.29565504,
+          "total_return": 0.03195626,
+          "turnover": {
+            "annualized_one_way": 9.96047431,
+            "mean_daily": 0.03952569,
+            "total": 10.0
+          },
+          "win_rate": 0.02371542
+        }
+      },
+      "end": "2022-01-31",
+      "label": "random_03_252d",
+      "pre_cost": {
+        "activation_fraction": 0.03952569,
+        "annualized_return": 0.03697136,
+        "annualized_volatility": 0.02471245,
+        "event_days": 82,
+        "max_drawdown": -0.01239583,
+        "periods": 253,
+        "sharpe": 1.48140669,
+        "total_return": 0.03712076,
+        "turnover": {
+          "annualized_one_way": 9.96047431,
+          "mean_daily": 0.03952569,
+          "total": 10.0
+        },
+        "win_rate": 0.02371542
+      },
+      "start": "2021-02-01"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.04347826,
+          "annualized_return": -0.00279458,
+          "annualized_volatility": 0.02471842,
+          "event_days": 80,
+          "max_drawdown": -0.01867585,
+          "periods": 253,
+          "sharpe": -0.10103114,
+          "total_return": -0.00280566,
+          "turnover": {
+            "annualized_one_way": 10.95652174,
+            "mean_daily": 0.04347826,
+            "total": 11.0
+          },
+          "win_rate": 0.01581028
+        },
+        "20bps": {
+          "activation_fraction": 0.04347826,
+          "annualized_return": -0.01365809,
+          "annualized_volatility": 0.02456895,
+          "event_days": 80,
+          "max_drawdown": -0.02699617,
+          "periods": 253,
+          "sharpe": -0.54759578,
+          "total_return": -0.01371192,
+          "turnover": {
+            "annualized_one_way": 10.95652174,
+            "mean_daily": 0.04347826,
+            "total": 11.0
+          },
+          "win_rate": 0.01185771
+        },
+        "5bps": {
+          "activation_fraction": 0.04347826,
+          "annualized_return": 0.00267934,
+          "annualized_volatility": 0.02489127,
+          "event_days": 80,
+          "max_drawdown": -0.014491,
+          "periods": 253,
+          "sharpe": 0.1197581,
+          "total_return": 0.00268999,
+          "turnover": {
+            "annualized_one_way": 10.95652174,
+            "mean_daily": 0.04347826,
+            "total": 11.0
+          },
+          "win_rate": 0.01581028
+        }
+      },
+      "end": "2022-10-03",
+      "label": "random_04_252d",
+      "pre_cost": {
+        "activation_fraction": 0.04347826,
+        "annualized_return": 0.00818157,
+        "annualized_volatility": 0.02512789,
+        "event_days": 80,
+        "max_drawdown": -0.01239583,
+        "periods": 253,
+        "sharpe": 0.33664553,
+        "total_return": 0.00821416,
+        "turnover": {
+          "annualized_one_way": 10.95652174,
+          "mean_daily": 0.04347826,
+          "total": 11.0
+        },
+        "win_rate": 0.01581028
+      },
+      "start": "2021-10-01"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": 0.00625942,
+          "annualized_volatility": 0.02266416,
+          "event_days": 80,
+          "max_drawdown": -0.00854886,
+          "periods": 253,
+          "sharpe": 0.28646852,
+          "total_return": 0.00628434,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.01185771
+        },
+        "20bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.00171729,
+          "annualized_volatility": 0.02221245,
+          "event_days": 80,
+          "max_drawdown": -0.01210053,
+          "periods": 253,
+          "sharpe": -0.06644074,
+          "total_return": -0.0017241,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.00790514
+        },
+        "5bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": 0.01026976,
+          "annualized_volatility": 0.02296432,
+          "event_days": 80,
+          "max_drawdown": -0.00680978,
+          "periods": 253,
+          "sharpe": 0.45621894,
+          "total_return": 0.01031073,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.01185771
+        }
+      },
+      "end": "2023-01-04",
+      "label": "random_05_252d",
+      "pre_cost": {
+        "activation_fraction": 0.03162055,
+        "annualized_return": 0.01429484,
+        "annualized_volatility": 0.02331157,
+        "event_days": 80,
+        "max_drawdown": -0.00546607,
+        "periods": 253,
+        "sharpe": 0.62033342,
+        "total_return": 0.01435197,
+        "turnover": {
+          "annualized_one_way": 7.96837945,
+          "mean_daily": 0.03162055,
+          "total": 8.0
+        },
+        "win_rate": 0.01185771
+      },
+      "start": "2022-01-03"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.01897866,
+          "annualized_volatility": 0.02968965,
+          "event_days": 81,
+          "max_drawdown": -0.03676353,
+          "periods": 253,
+          "sharpe": -0.63061012,
+          "total_return": -0.01905325,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.00790514
+        },
+        "20bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.02677136,
+          "annualized_volatility": 0.02987127,
+          "event_days": 81,
+          "max_drawdown": -0.04203051,
+          "periods": 253,
+          "sharpe": -0.89353312,
+          "total_return": -0.02687616,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.00395257
+        },
+        "5bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.01506096,
+          "annualized_volatility": 0.02966482,
+          "event_days": 81,
+          "max_drawdown": -0.03434202,
+          "periods": 253,
+          "sharpe": -0.49683101,
+          "total_return": -0.01512028,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.00790514
+        }
+      },
+      "end": "2023-06-02",
+      "label": "random_06_252d",
+      "pre_cost": {
+        "activation_fraction": 0.03162055,
+        "annualized_return": -0.01112897,
+        "annualized_volatility": 0.02968419,
+        "event_days": 81,
+        "max_drawdown": -0.03191517,
+        "periods": 253,
+        "sharpe": -0.36228749,
+        "total_return": -0.01117289,
+        "turnover": {
+          "annualized_one_way": 7.96837945,
+          "mean_daily": 0.03162055,
+          "total": 8.0
+        },
+        "win_rate": 0.00790514
+      },
+      "start": "2022-06-01"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.0386079,
+          "annualized_volatility": 0.02305405,
+          "event_days": 81,
+          "max_drawdown": -0.0387581,
+          "periods": 253,
+          "sharpe": -1.69615435,
+          "total_return": -0.0387581,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.00395257
+        },
+        "20bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.04626512,
+          "annualized_volatility": 0.02418217,
+          "event_days": 81,
+          "max_drawdown": -0.04644438,
+          "periods": 253,
+          "sharpe": -1.94654158,
+          "total_return": -0.04644438,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.00395257
+        },
+        "5bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.03475809,
+          "annualized_volatility": 0.02254784,
+          "event_days": 81,
+          "max_drawdown": -0.03489358,
+          "periods": 253,
+          "sharpe": -1.55753404,
+          "total_return": -0.03489358,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.00395257
+        }
+      },
+      "end": "2023-11-02",
+      "label": "random_07_252d",
+      "pre_cost": {
+        "activation_fraction": 0.03162055,
+        "annualized_return": -0.03089407,
+        "annualized_volatility": 0.02208381,
+        "event_days": 81,
+        "max_drawdown": -0.03101475,
+        "periods": 253,
+        "sharpe": -1.40984898,
+        "total_return": -0.03101475,
+        "turnover": {
+          "annualized_one_way": 7.96837945,
+          "mean_daily": 0.03162055,
+          "total": 8.0
+        },
+        "win_rate": 0.00395257
+      },
+      "start": "2022-11-01"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.02371542,
+          "annualized_return": -0.02410426,
+          "annualized_volatility": 0.01699997,
+          "event_days": 81,
+          "max_drawdown": -0.03193441,
+          "periods": 253,
+          "sharpe": -1.42671081,
+          "total_return": -0.02419875,
+          "turnover": {
+            "annualized_one_way": 5.97628458,
+            "mean_daily": 0.02371542,
+            "total": 6.0
+          },
+          "win_rate": 0.00395257
+        },
+        "20bps": {
+          "activation_fraction": 0.02371542,
+          "annualized_return": -0.02993508,
+          "annualized_volatility": 0.01790092,
+          "event_days": 81,
+          "max_drawdown": -0.03678216,
+          "periods": 253,
+          "sharpe": -1.68875835,
+          "total_return": -0.03005207,
+          "turnover": {
+            "annualized_one_way": 5.97628458,
+            "mean_daily": 0.02371542,
+            "total": 6.0
+          },
+          "win_rate": 0.00395257
+        },
+        "5bps": {
+          "activation_fraction": 0.02371542,
+          "annualized_return": -0.02117701,
+          "annualized_volatility": 0.01660709,
+          "event_days": 81,
+          "max_drawdown": -0.02950249,
+          "periods": 253,
+          "sharpe": -1.28053161,
+          "total_return": -0.02126015,
+          "turnover": {
+            "annualized_one_way": 5.97628458,
+            "mean_daily": 0.02371542,
+            "total": 6.0
+          },
+          "win_rate": 0.00395257
+        }
+      },
+      "end": "2024-04-04",
+      "label": "random_08_252d",
+      "pre_cost": {
+        "activation_fraction": 0.02371542,
+        "annualized_return": -0.01824184,
+        "annualized_volatility": 0.0162564,
+        "event_days": 81,
+        "max_drawdown": -0.0270652,
+        "periods": 253,
+        "sharpe": -1.12434232,
+        "total_return": -0.01831356,
+        "turnover": {
+          "annualized_one_way": 5.97628458,
+          "mean_daily": 0.02371542,
+          "total": 6.0
+        },
+        "win_rate": 0.00395257
+      },
+      "start": "2023-04-03"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.0461137,
+          "annualized_volatility": 0.01987683,
+          "event_days": 81,
+          "max_drawdown": -0.04629239,
+          "periods": 253,
+          "sharpe": -2.36497534,
+          "total_return": -0.04629239,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.0
+        },
+        "20bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.05371161,
+          "annualized_volatility": 0.02119124,
+          "event_days": 81,
+          "max_drawdown": -0.05391889,
+          "periods": 253,
+          "sharpe": -2.59430743,
+          "total_return": -0.05391889,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.0
+        },
+        "5bps": {
+          "activation_fraction": 0.03162055,
+          "annualized_return": -0.0422937,
+          "annualized_volatility": 0.01927845,
+          "event_days": 81,
+          "max_drawdown": -0.04245792,
+          "periods": 253,
+          "sharpe": -2.23171629,
+          "total_return": -0.04245792,
+          "turnover": {
+            "annualized_one_way": 7.96837945,
+            "mean_daily": 0.03162055,
+            "total": 8.0
+          },
+          "win_rate": 0.0
+        }
+      },
+      "end": "2024-10-02",
+      "label": "random_09_252d",
+      "pre_cost": {
+        "activation_fraction": 0.03162055,
+        "annualized_return": -0.0384596,
+        "annualized_volatility": 0.01872437,
+        "event_days": 81,
+        "max_drawdown": -0.03860924,
+        "periods": 253,
+        "sharpe": -2.08497413,
+        "total_return": -0.03860924,
+        "turnover": {
+          "annualized_one_way": 7.96837945,
+          "mean_daily": 0.03162055,
+          "total": 8.0
+        },
+        "win_rate": 0.00395257
+      },
+      "start": "2023-10-02"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.05533597,
+          "annualized_return": -0.05664422,
+          "annualized_volatility": 0.02666145,
+          "event_days": 81,
+          "max_drawdown": -0.05686248,
+          "periods": 253,
+          "sharpe": -2.17353009,
+          "total_return": -0.05686248,
+          "turnover": {
+            "annualized_one_way": 13.94466403,
+            "mean_daily": 0.05533597,
+            "total": 14.0
+          },
+          "win_rate": 0.00790514
+        },
+        "20bps": {
+          "activation_fraction": 0.05533597,
+          "annualized_return": -0.06974241,
+          "annualized_volatility": 0.02788778,
+          "event_days": 81,
+          "max_drawdown": -0.07000924,
+          "periods": 253,
+          "sharpe": -2.57798015,
+          "total_return": -0.07000924,
+          "turnover": {
+            "annualized_one_way": 13.94466403,
+            "mean_daily": 0.05533597,
+            "total": 14.0
+          },
+          "win_rate": 0.00395257
+        },
+        "5bps": {
+          "activation_fraction": 0.05533597,
+          "annualized_return": -0.05002933,
+          "annualized_volatility": 0.02614488,
+          "event_days": 81,
+          "max_drawdown": -0.05022279,
+          "periods": 253,
+          "sharpe": -1.9497946,
+          "total_return": -0.05022279,
+          "turnover": {
+            "annualized_one_way": 13.94466403,
+            "mean_daily": 0.05533597,
+            "total": 14.0
+          },
+          "win_rate": 0.00790514
+        }
+      },
+      "end": "2025-04-02",
+      "label": "random_10_252d",
+      "pre_cost": {
+        "activation_fraction": 0.05533597,
+        "annualized_return": -0.04337022,
+        "annualized_volatility": 0.02569803,
+        "event_days": 81,
+        "max_drawdown": -0.04374544,
+        "periods": 253,
+        "sharpe": -1.71238064,
+        "total_return": -0.04353852,
+        "turnover": {
+          "annualized_one_way": 13.94466403,
+          "mean_daily": 0.05533597,
+          "total": 14.0
+        },
+        "win_rate": 0.01185771
+      },
+      "start": "2024-04-01"
+    },
+    {
+      "costs": {
+        "10bps": {
+          "activation_fraction": 0.02766798,
+          "annualized_return": -0.04253945,
+          "annualized_volatility": 0.0236236,
+          "event_days": 80,
+          "max_drawdown": -0.0427046,
+          "periods": 253,
+          "sharpe": -1.82811016,
+          "total_return": -0.0427046,
+          "turnover": {
+            "annualized_one_way": 6.97233202,
+            "mean_daily": 0.02766798,
+            "total": 7.0
+          },
+          "win_rate": 0.01185771
+        },
+        "20bps": {
+          "activation_fraction": 0.02766798,
+          "annualized_return": -0.04921581,
+          "annualized_volatility": 0.02460174,
+          "event_days": 80,
+          "max_drawdown": -0.04940621,
+          "periods": 253,
+          "sharpe": -2.03883479,
+          "total_return": -0.04940621,
+          "turnover": {
+            "annualized_one_way": 6.97233202,
+            "mean_daily": 0.02766798,
+            "total": 7.0
+          },
+          "win_rate": 0.00395257
+        },
+        "5bps": {
+          "activation_fraction": 0.02766798,
+          "annualized_return": -0.03918533,
+          "annualized_volatility": 0.02318876,
+          "event_days": 80,
+          "max_drawdown": -0.03933773,
+          "periods": 253,
+          "sharpe": -1.71205236,
+          "total_return": -0.03933773,
+          "turnover": {
+            "annualized_one_way": 6.97233202,
+            "mean_daily": 0.02766798,
+            "total": 7.0
+          },
+          "win_rate": 0.01185771
+        }
+      },
+      "end": "2026-01-06",
+      "label": "random_11_252d",
+      "pre_cost": {
+        "activation_fraction": 0.02766798,
+        "annualized_return": -0.03582055,
+        "annualized_volatility": 0.0227929,
+        "event_days": 80,
+        "max_drawdown": -0.03604849,
+        "periods": 253,
+        "sharpe": -1.58883753,
+        "total_return": -0.03596011,
+        "turnover": {
+          "annualized_one_way": 6.97233202,
+          "mean_daily": 0.02766798,
+          "total": 7.0
+        },
+        "win_rate": 0.01185771
+      },
+      "start": "2025-01-02"
+    }
+  ],
+  "selected_universe": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "DIA",
+    "VTI",
+    "XLK",
+    "XLF",
+    "XLE",
+    "XLV",
+    "XLI",
+    "XLY",
+    "XLP",
+    "XLU",
+    "XLB",
+    "XLRE",
+    "IWF",
+    "IWD",
+    "MTUM",
+    "VLUE",
+    "QUAL",
+    "USMV",
+    "TLT",
+    "IEF",
+    "SHY",
+    "HYG",
+    "LQD",
+    "GLD",
+    "SLV",
+    "USO",
+    "DBA"
+  ],
+  "selection_rationale": "Fixed ex ante broad ETF pool across index, sector, style/factor, bond/credit, and commodity sleeves from the issue candidate list; symbols with adequate real-bar coverage retained without return ranking.",
+  "warnings": [
+    "Daily OHLCV is an imperfect proxy for option-expiry dealer flow, ETF creations/redemptions, and auction imbalances.",
+    "qfa daily backtester applies next-close returns; event timing is daily and cannot model intraday OPEX auction mechanics.",
+    "Orthogonality uses compact real-data proxies because retained alpha artifacts generally do not preserve daily return paths."
+  ]
+}

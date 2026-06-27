@@ -1,0 +1,16 @@
+id: AR-106
+model_name: etf-opex-rebalance-liquidity-pressure-v1
+family: event_calendar_liquidity_pressure
+status: researched
+created_at: '2026-06-26T17:45:00Z'
+researched_at: '2026-06-26T18:41:00Z'
+decision: rejected
+hypothesis: ETF OPEX/rebalance-window liquidity-pressure reversal ex-turn-of-month.
+data_source: qfa/Alpaca real daily market bars only
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+selected_universe_fixed_ex_ante: true
+selected_universe_size: 30
+artifacts_compact: true

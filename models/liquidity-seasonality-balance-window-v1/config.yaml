@@ -1,0 +1,47 @@
+model_name: liquidity-seasonality-balance-window-v1
+issue_id: AR-038
+family: liquidity_seasonality
+universe:
+  intended: ["AAPL", "MSFT", "NVDA", "AMZN", "META", "GOOGL", "AVGO", "JPM", "LLY", "XOM", "UNH", "COST"]
+data:
+  intended_source: Alpaca real market data through qfa AlpacaGateway
+  latest_real_data_backtest:
+    symbols: ["AAPL", "MSFT", "NVDA", "AMZN", "META", "GOOGL", "AVGO", "JPM", "LLY", "XOM", "UNH", "COST"]
+    fetch_start: '2019-01-01'
+    fetch_end: '2025-12-31'
+    main_start: '2024-01-01'
+    main_end: '2025-12-31'
+    timeframe: 1Day
+    data_csv_used: false
+parameters:
+  selected:
+    pre_month_end_business_days: 2
+    post_month_start_business_days: 2
+    pre_quarter_end_business_days: 4
+    post_quarter_start_business_days: 3
+    liquidity_window: 20
+    momentum_window: 60
+    vol_window: 20
+    top_n_month: 5
+    top_n_quarter: 6
+    max_abs_weight: 0.20
+    min_symbols: 4
+  search_space:
+    window: [turn_month, turn_quarter]
+    liquidity_window: [20, 60]
+    hold: [3d, 5d, 10d]
+    cost_bps: [5, 10]
+risk_constraints:
+  normalize_gross_exposure: 1.0
+  max_abs_weight_pre_engine: 0.20
+  live_trading: false
+evaluation:
+  latest:
+    type: real_data_qfa_alpaca_backtest_with_ex_post_costs
+    json: models/liquidity-seasonality-balance-window-v1/evaluations/latest.json
+    markdown: models/liquidity-seasonality-balance-window-v1/evaluations/latest.md
+    run_json: models/liquidity-seasonality-balance-window-v1/evaluations/runs/ar038_qfa_alpaca_real_20260626T091232Z.json
+    db_artifact_retained: false
+    qfa_run_ids: [1, 2, 3, 4, 5, 6, 7]
+    costs_applied: true
+    cost_note: 5 bps one-way turnover haircut applied ex-post; qfa native backtester has no transaction-cost hook.

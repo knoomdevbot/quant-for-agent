@@ -1,0 +1,11 @@
+alpha_id: "AR-116"
+model_name: "concentration-breadth-meanreversion-v1"
+status: "rejected"
+created_at_utc: "2026-06-27T01:00:00.682580+00:00"
+data_source: "configured paper-data access via qfa/Alpaca real daily OHLCV; credentials redacted"
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+decision_summary: "Rejected: random-window lower tail and/or redundancy/weak economics did not clear gates."

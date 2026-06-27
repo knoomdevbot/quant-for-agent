@@ -1,0 +1,18 @@
+name: etf-carry-defensive-allocation-v1
+issue_id: AR-037
+family: cross_asset_carry_defensive
+model_path: models/etf-carry-defensive-allocation-v1/model.py
+symbols: [SPY, QQQ, IWM, TLT, IEF, GLD, USO, FXE, FXY, UUP]
+timeframe: 1Day
+initial_cash: 100000
+parameters:
+  carry_window: 126
+  defensive_window: 60
+  vol_window: 60
+  short_vol_window: 20
+  equity_cap_risk_on: 0.50
+  equity_cap_risk_off: 0.25
+  max_single_weight: 0.30
+  cash_floor_risk_off: 0.10
+data_source: Alpaca real market data via qfa; no CSV; do not use --data-csv
+trading: research_backtest_only_no_daemon_no_live_trades

@@ -1,0 +1,18 @@
+alpha_id: AR-096
+parent_id: AR-084
+model_name: megacap-analyst-revision-dispersion-drift-v1
+family: analyst_revision_drift
+created_at_utc: '2026-06-26T16:15:39Z'
+research_status: blocked_data_unavailable
+suggested_decision: rejected
+lineage_note: >-
+  Divergent from AR-084. Because the required point-in-time analyst
+  revision/dispersion data is unavailable locally, no refinement or direct
+  extension is proposed.
+data_controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  db_artifact_retained: false
+  raw_daily_paths_retained: false

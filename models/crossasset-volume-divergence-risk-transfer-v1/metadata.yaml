@@ -1,0 +1,15 @@
+id: AR-081
+name: crossasset-volume-divergence-risk-transfer-v1
+title: Divergent from AR-073: cross-asset ETF volume-divergence risk-transfer allocator
+family: cross_asset_flow_regime
+created_at_utc: 2026-06-26T14:07:33Z
+parent_alpha: AR-073
+status: researched
+hypothesis: Cross-asset ETF dollar-volume divergence can identify short-horizon risk-transfer allocation regimes.
+provenance: Alpaca/qfa real OHLCV was used with credentials supplied externally; secret values and variable names are not stored here.
+artifacts:
+  model: model.py
+  config: config.yaml
+  evaluation: evaluations/latest.json
+  immutable_run: evaluations/runs/ar081_qfa_alpaca_real_20260626T140733Z.json
+decision: reject

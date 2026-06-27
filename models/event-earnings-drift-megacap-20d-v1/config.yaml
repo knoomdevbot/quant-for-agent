@@ -1,0 +1,31 @@
+model_name: event-earnings-drift-megacap-20d-v1
+issue_id: AR-014
+family: event_drift
+status: real_data_evaluated_rejected
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+timeframe: 1Day
+signal:
+  event_proxy: abnormal_overnight_gap_plus_volume
+  lookback_days: 80
+  hold_days: 20
+  min_abs_gap: 0.025
+  min_abs_close_to_close: 0.015
+  min_volume_multiple: 1.35
+position_sizing:
+  gross_exposure: 1.0
+  max_abs_weight: 0.25
+risk:
+  live_trading: prohibited
+  order_placement: none
+evaluation:
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  data_source: alpaca_market_data_no_data_csv
+  suggested_decision: rejected

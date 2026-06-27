@@ -1,0 +1,40 @@
+model_name: etf-convexity-stress-premium-v1
+issue_id: AR-050
+family: volatility_regime_rotation
+parent: AR-037
+type: divergent
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - IEF
+  - SHY
+  - GLD
+  - XLU
+  - VIXY
+timeframe: 1Day
+primary_backtest:
+  start: '2021-01-04'
+  end: '2025-12-15'
+  initial_cash: 100000
+risk:
+  long_only: true
+  max_single_weight: 0.34
+  max_vixy_weight: 0.09
+  min_gross: 0.72
+costs_slippage:
+  qfa_native_costs: false
+  post_cost_proxy: subtract 5 bps times one-way daily target-weight turnover
+parameters:
+  min_history: 150
+  fast_vol_window: 10
+  mid_vol_window: 21
+  slow_vol_window: 63
+  range_window: 63
+  drawdown_window: 42
+constraints:
+  data_source: Alpaca real OHLCV through qfa/AlpacaGateway only
+  no_data_csv: true
+  daemon_used: false
+  live_trading: false

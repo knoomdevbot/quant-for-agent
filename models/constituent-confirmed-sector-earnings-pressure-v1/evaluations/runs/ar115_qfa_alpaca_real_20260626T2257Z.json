@@ -1,0 +1,1392 @@
+{
+  "ablations_10bps": {
+    "continuation_only": {
+      "activation_days": 331,
+      "annualized_return": -0.103821,
+      "annualized_volatility": 0.08391,
+      "cumulative_return": -0.476516,
+      "max_drawdown": -0.49993,
+      "mean_daily_turnover": 0.366369,
+      "mean_gross_exposure": 0.222446,
+      "positive_days_rate": 0.101478,
+      "sharpe": -1.2639,
+      "trading_days": 1488
+    },
+    "generic_sector_momentum": {
+      "activation_days": 568,
+      "annualized_return": -0.100856,
+      "annualized_volatility": 0.088215,
+      "cumulative_return": -0.466208,
+      "max_drawdown": -0.500299,
+      "mean_daily_turnover": 0.344894,
+      "mean_gross_exposure": 0.38172,
+      "positive_days_rate": 0.171371,
+      "sharpe": -1.1607,
+      "trading_days": 1488
+    },
+    "generic_sector_reversal": {
+      "activation_days": 568,
+      "annualized_return": -0.072583,
+      "annualized_volatility": 0.088376,
+      "cumulative_return": -0.359133,
+      "max_drawdown": -0.363161,
+      "mean_daily_turnover": 0.344894,
+      "mean_gross_exposure": 0.38172,
+      "positive_days_rate": 0.171371,
+      "sharpe": -0.8083,
+      "trading_days": 1488
+    },
+    "no_abnormal_volume": {
+      "activation_days": 541,
+      "annualized_return": -0.156193,
+      "annualized_volatility": 0.095901,
+      "cumulative_return": -0.633155,
+      "max_drawdown": -0.654344,
+      "mean_daily_turnover": 0.561462,
+      "mean_gross_exposure": 0.363575,
+      "positive_days_rate": 0.145833,
+      "sharpe": -1.7221,
+      "trading_days": 1488
+    },
+    "no_calendar_gate": {
+      "activation_days": 759,
+      "annualized_return": -0.300588,
+      "annualized_volatility": 0.249425,
+      "cumulative_return": -0.878888,
+      "max_drawdown": -0.879347,
+      "mean_daily_turnover": 0.846848,
+      "mean_gross_exposure": 0.510081,
+      "positive_days_rate": 0.235215,
+      "sharpe": -1.2604,
+      "trading_days": 1488
+    },
+    "no_close_location_breadth": {
+      "activation_days": 439,
+      "annualized_return": -0.094256,
+      "annualized_volatility": 0.079592,
+      "cumulative_return": -0.442651,
+      "max_drawdown": -0.46749,
+      "mean_daily_turnover": 0.407081,
+      "mean_gross_exposure": 0.295027,
+      "positive_days_rate": 0.127016,
+      "sharpe": -1.2038,
+      "trading_days": 1488
+    },
+    "no_spy_residual": {
+      "activation_days": 350,
+      "annualized_return": -0.109351,
+      "annualized_volatility": 0.085212,
+      "cumulative_return": -0.495303,
+      "max_drawdown": -0.508125,
+      "mean_daily_turnover": 0.395811,
+      "mean_gross_exposure": 0.235215,
+      "positive_days_rate": 0.108871,
+      "sharpe": -1.3159,
+      "trading_days": 1488
+    },
+    "reversal_only": {
+      "activation_days": 331,
+      "annualized_return": -0.078803,
+      "annualized_volatility": 0.083371,
+      "cumulative_return": -0.384102,
+      "max_drawdown": -0.408304,
+      "mean_daily_turnover": 0.366369,
+      "mean_gross_exposure": 0.222446,
+      "positive_days_rate": 0.094758,
+      "sharpe": -0.9427,
+      "trading_days": 1488
+    },
+    "sector_etf_only": {
+      "activation_days": 568,
+      "annualized_return": -0.093109,
+      "annualized_volatility": 0.095009,
+      "cumulative_return": -0.43847,
+      "max_drawdown": -0.504625,
+      "mean_daily_turnover": 0.322028,
+      "mean_gross_exposure": 0.38172,
+      "positive_days_rate": 0.178763,
+      "sharpe": -0.9808,
+      "trading_days": 1488
+    }
+  },
+  "alpha_id": "AR-115",
+  "artifacts": {
+    "README": "models/constituent-confirmed-sector-earnings-pressure-v1/README.md",
+    "config": "models/constituent-confirmed-sector-earnings-pressure-v1/config.yaml",
+    "latest_json": "models/constituent-confirmed-sector-earnings-pressure-v1/evaluations/latest.json",
+    "latest_md": "models/constituent-confirmed-sector-earnings-pressure-v1/evaluations/latest.md",
+    "metadata": "models/constituent-confirmed-sector-earnings-pressure-v1/metadata.yaml",
+    "model": "models/constituent-confirmed-sector-earnings-pressure-v1/model.py",
+    "run_json": "models/constituent-confirmed-sector-earnings-pressure-v1/evaluations/runs/ar115_qfa_alpaca_real_20260626T2257Z.json"
+  },
+  "cost_sensitivity": {
+    "10bps": {
+      "activation_days": 331,
+      "annualized_return": -0.103821,
+      "annualized_volatility": 0.08391,
+      "cumulative_return": -0.476516,
+      "max_drawdown": -0.49993,
+      "mean_daily_turnover": 0.366369,
+      "mean_gross_exposure": 0.222446,
+      "positive_days_rate": 0.101478,
+      "sharpe": -1.2639,
+      "trading_days": 1488
+    },
+    "20bps": {
+      "activation_days": 331,
+      "annualized_return": -0.183048,
+      "annualized_volatility": 0.085901,
+      "cumulative_return": -0.696931,
+      "max_drawdown": -0.702702,
+      "mean_daily_turnover": 0.366369,
+      "mean_gross_exposure": 0.222446,
+      "positive_days_rate": 0.086694,
+      "sharpe": -2.3094,
+      "trading_days": 1488
+    },
+    "5bps": {
+      "activation_days": 331,
+      "annualized_return": -0.061417,
+      "annualized_volatility": 0.083337,
+      "cumulative_return": -0.312209,
+      "max_drawdown": -0.374463,
+      "mean_daily_turnover": 0.366369,
+      "mean_gross_exposure": 0.222446,
+      "positive_days_rate": 0.106855,
+      "sharpe": -0.7187,
+      "trading_days": 1488
+    }
+  },
+  "created_at_utc": "2026-06-26T22:57:30+00:00",
+  "credential_provenance": "Configured paper-data access was used with credential values redacted; evaluation used real market data, no CSV, no daemon, and no orders.",
+  "data": {
+    "availability_filters": [
+      "ETF >=800 daily bars and trailing median dollar volume >= 10mm",
+      "constituent >=800 daily bars and trailing median dollar volume >= 20mm",
+      "fixed economic sector mapping selected before performance review"
+    ],
+    "availability_summary": {
+      "AAPL": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 335983723.51
+      },
+      "ABBV": {
+        "bars": 1484,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 44781348.61
+      },
+      "AMD": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 193509514.51
+      },
+      "AMT": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 23074997.45
+      },
+      "AMZN": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 349640529.3
+      },
+      "AVGO": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 202466995.25
+      },
+      "BA": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 46235258.02
+      },
+      "BAC": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 106613605.84
+      },
+      "CAT": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 57127237.19
+      },
+      "CMCSA": {
+        "bars": 1487,
+        "first": "2018-12-21",
+        "last": "2026-06-25",
+        "median_dollar_volume": 43883526.8
+      },
+      "COP": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 32680068.61
+      },
+      "COST": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 55023815.73
+      },
+      "CRM": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 74521111.88
+      },
+      "CVX": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 44602509.73
+      },
+      "DIS": {
+        "bars": 1484,
+        "first": "2018-04-25",
+        "last": "2026-06-25",
+        "median_dollar_volume": 38912844.22
+      },
+      "EQIX": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 24219389.31
+      },
+      "FCX": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 49337266.56
+      },
+      "GE": {
+        "bars": 1484,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 53918507.95
+      },
+      "GOOGL": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 281579135.01
+      },
+      "GS": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 48362226.37
+      },
+      "HD": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 45371263.3
+      },
+      "HON": {
+        "bars": 1485,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 27115410.23
+      },
+      "JNJ": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 55419465.14
+      },
+      "JPM": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 63478102.66
+      },
+      "KO": {
+        "bars": 1484,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 59722457.74
+      },
+      "LIN": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 40001007.53
+      },
+      "LLY": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 104782608.91
+      },
+      "MA": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 66488017.59
+      },
+      "MDLZ": {
+        "bars": 1487,
+        "first": "2018-12-21",
+        "last": "2026-06-25",
+        "median_dollar_volume": 28911126.47
+      },
+      "META": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 236212602.12
+      },
+      "MRK": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 41417011.65
+      },
+      "MS": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 37578859.23
+      },
+      "MSFT": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 296760064.19
+      },
+      "NEE": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 34785223.78
+      },
+      "NEM": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 34702707.61
+      },
+      "NFLX": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 157989278.36
+      },
+      "NKE": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 44618347.5
+      },
+      "NVDA": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 695508358.35
+      },
+      "ORCL": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 120822555.32
+      },
+      "PEP": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 34057371.72
+      },
+      "PFE": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 46861163.59
+      },
+      "PG": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 44822338.88
+      },
+      "RTX": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 30257815.41
+      },
+      "SBUX": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 31806795.95
+      },
+      "SHW": {
+        "bars": 1484,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 26512419.26
+      },
+      "SHY": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 8567593.64
+      },
+      "SLB": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 37791635.84
+      },
+      "SO": {
+        "bars": 1484,
+        "first": "2019-11-11",
+        "last": "2026-06-25",
+        "median_dollar_volume": 23940829.15
+      },
+      "SPY": {
+        "bars": 1487,
+        "first": "2018-11-01",
+        "last": "2026-06-25",
+        "median_dollar_volume": 912504820.46
+      },
+      "TMUS": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 40976628.87
+      },
+      "TSLA": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 323605049.62
+      },
+      "UNH": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 75697120.56
+      },
+      "UNP": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 36500074.22
+      },
+      "V": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 78048434.93
+      },
+      "WELL": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 22908337.25
+      },
+      "WFC": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 65309534.27
+      },
+      "WMT": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 76647121.06
+      },
+      "XLB": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 31340190.85
+      },
+      "XLC": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 32308264.25
+      },
+      "XLE": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 90337327.74
+      },
+      "XLF": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 123131415.26
+      },
+      "XLI": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 74658442.19
+      },
+      "XLK": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 68650350.1
+      },
+      "XLP": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 68352855.19
+      },
+      "XLRE": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 16820308.71
+      },
+      "XLU": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 53318797.94
+      },
+      "XLV": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 98426661.2
+      },
+      "XLY": {
+        "bars": 1486,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 42333224.05
+      },
+      "XOM": {
+        "bars": 1483,
+        "first": "2020-07-27",
+        "last": "2026-06-25",
+        "median_dollar_volume": 83047022.59
+      }
+    },
+    "candidate_pool": [
+      "AAPL",
+      "ABBV",
+      "AEP",
+      "AMD",
+      "AMT",
+      "AMZN",
+      "APD",
+      "AVGO",
+      "BA",
+      "BAC",
+      "CAT",
+      "CMCSA",
+      "COP",
+      "COST",
+      "CRM",
+      "CVX",
+      "DIS",
+      "DUK",
+      "EOG",
+      "EQIX",
+      "EXC",
+      "FCX",
+      "GE",
+      "GOOGL",
+      "GS",
+      "HD",
+      "HON",
+      "ITB",
+      "IYR",
+      "IYT",
+      "JNJ",
+      "JPM",
+      "KO",
+      "KRE",
+      "LIN",
+      "LLY",
+      "MA",
+      "MDLZ",
+      "META",
+      "MRK",
+      "MS",
+      "MSFT",
+      "NEE",
+      "NEM",
+      "NFLX",
+      "NKE",
+      "NVDA",
+      "ORCL",
+      "PEP",
+      "PFE",
+      "PG",
+      "PLD",
+      "RTX",
+      "SBUX",
+      "SHW",
+      "SHY",
+      "SLB",
+      "SMH",
+      "SO",
+      "SPG",
+      "SPY",
+      "TMUS",
+      "TSLA",
+      "UNH",
+      "UNP",
+      "V",
+      "WELL",
+      "WFC",
+      "WMT",
+      "XBI",
+      "XHB",
+      "XLB",
+      "XLC",
+      "XLE",
+      "XLF",
+      "XLI",
+      "XLK",
+      "XLP",
+      "XLRE",
+      "XLU",
+      "XLV",
+      "XLY",
+      "XOM",
+      "XRT"
+    ],
+    "end": "2026-06-26",
+    "limitations": [
+      "No actual earnings calendar or fundamentals; fixed calendar reporting-season proxies only.",
+      "Fixed current mega-cap map; no historical index membership reconstruction.",
+      "Alpaca/qfa daily bars only; no intraday event timing."
+    ],
+    "selected_constituents": [
+      "AAPL",
+      "ABBV",
+      "AMD",
+      "AMT",
+      "AMZN",
+      "AVGO",
+      "BA",
+      "BAC",
+      "CAT",
+      "CMCSA",
+      "COP",
+      "COST",
+      "CRM",
+      "CVX",
+      "DIS",
+      "EQIX",
+      "FCX",
+      "GE",
+      "GOOGL",
+      "GS",
+      "HD",
+      "HON",
+      "JNJ",
+      "JPM",
+      "KO",
+      "LIN",
+      "LLY",
+      "MA",
+      "MDLZ",
+      "META",
+      "MRK",
+      "MS",
+      "MSFT",
+      "NEE",
+      "NEM",
+      "NFLX",
+      "NKE",
+      "NVDA",
+      "ORCL",
+      "PEP",
+      "PFE",
+      "PG",
+      "RTX",
+      "SBUX",
+      "SHW",
+      "SLB",
+      "SO",
+      "TMUS",
+      "TSLA",
+      "UNH",
+      "UNP",
+      "V",
+      "WELL",
+      "WFC",
+      "WMT",
+      "XOM"
+    ],
+    "selected_trade_etfs": [
+      "XLK",
+      "XLY",
+      "XLC",
+      "XLF",
+      "XLV",
+      "XLE",
+      "XLP",
+      "XLI",
+      "XLU",
+      "XLRE",
+      "XLB"
+    ],
+    "selected_universe": [
+      "AAPL",
+      "ABBV",
+      "AMD",
+      "AMT",
+      "AMZN",
+      "AVGO",
+      "BA",
+      "BAC",
+      "CAT",
+      "CMCSA",
+      "COP",
+      "COST",
+      "CRM",
+      "CVX",
+      "DIS",
+      "EQIX",
+      "FCX",
+      "GE",
+      "GOOGL",
+      "GS",
+      "HD",
+      "HON",
+      "JNJ",
+      "JPM",
+      "KO",
+      "LIN",
+      "LLY",
+      "MA",
+      "MDLZ",
+      "META",
+      "MRK",
+      "MS",
+      "MSFT",
+      "NEE",
+      "NEM",
+      "NFLX",
+      "NKE",
+      "NVDA",
+      "ORCL",
+      "PEP",
+      "PFE",
+      "PG",
+      "RTX",
+      "SBUX",
+      "SHW",
+      "SHY",
+      "SLB",
+      "SO",
+      "SPY",
+      "TMUS",
+      "TSLA",
+      "UNH",
+      "UNP",
+      "V",
+      "WELL",
+      "WFC",
+      "WMT",
+      "XLB",
+      "XLC",
+      "XLE",
+      "XLF",
+      "XLI",
+      "XLK",
+      "XLP",
+      "XLRE",
+      "XLU",
+      "XLV",
+      "XLY",
+      "XOM"
+    ],
+    "source": "qfa_alpaca_gateway_real_daily_ohlcv",
+    "start": "2018-01-01",
+    "timeframe": "1Day"
+  },
+  "diagnostics": {
+    "activation_dates_sample": [
+      {
+        "date": "2021-01-11",
+        "n": 2,
+        "top": "XLC"
+      },
+      {
+        "date": "2021-01-12",
+        "n": 2,
+        "top": "XLC"
+      },
+      {
+        "date": "2021-01-14",
+        "n": 2,
+        "top": "XLC"
+      },
+      {
+        "date": "2021-01-20",
+        "n": 2,
+        "top": "XLF"
+      },
+      {
+        "date": "2021-01-21",
+        "n": 2,
+        "top": "XLE"
+      },
+      {
+        "date": "2021-01-26",
+        "n": 4,
+        "top": "XLI"
+      },
+      {
+        "date": "2021-01-27",
+        "n": 3,
+        "top": "XLF"
+      },
+      {
+        "date": "2021-01-28",
+        "n": 2,
+        "top": "XLY"
+      },
+      {
+        "date": "2021-01-29",
+        "n": 1,
+        "top": "XLE"
+      },
+      {
+        "date": "2021-02-01",
+        "n": 2,
+        "top": "XLV"
+      }
+    ],
+    "average_gross_exposure": 0.222446,
+    "opportunity_count": 331
+  },
+  "evaluation_type": "compact_real_data_alpaca_ohlcv_transient_evaluator",
+  "model_name": "constituent-confirmed-sector-earnings-pressure-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "correlations_to_primary_10bps": {
+      "AR028_close_location_reversal_proxy": -0.2494,
+      "AR045_gap_liquidity_reversal_proxy": -0.1664,
+      "AR056_abnormal_volume_reversal_proxy": -0.0009,
+      "SPY": -0.0629,
+      "sector_equal_weight_proxy": -0.05,
+      "sector_momentum_proxy": -0.0093
+    },
+    "max_abs_correlation": 0.2494,
+    "method": "Proxy streams generated transiently from same real OHLCV; only correlations retained."
+  },
+  "parameters": {
+    "etf_lookback": 5,
+    "gross_target": 1.0,
+    "max_etfs": 4,
+    "min_breadth": 0.52,
+    "min_confirmation_score": 0.18,
+    "min_history": 90,
+    "resid_lookback": 63,
+    "volume_lookback": 40
+  },
+  "primary_10bps": {
+    "activation_days": 331,
+    "annualized_return": -0.103821,
+    "annualized_volatility": 0.08391,
+    "cumulative_return": -0.476516,
+    "max_drawdown": -0.49993,
+    "mean_daily_turnover": 0.366369,
+    "mean_gross_exposure": 0.222446,
+    "positive_days_rate": 0.101478,
+    "sharpe": -1.2639,
+    "trading_days": 1488
+  },
+  "raw_daily_paths_retained": false,
+  "run_id": "ar115_qfa_alpaca_real_20260626T2257Z",
+  "smoke_test": {
+    "latest_nonzero_signal_count": 0,
+    "latest_nonzero_signals": {},
+    "qfa_contract_generate_signals_called": true
+  },
+  "suggested_decision": "rejected",
+  "warnings": [
+    "Primary 10 bps Sharpe is not positive.",
+    "Random-window p25 Sharpe is below -0.10 gate.",
+    "Positive-window rate is below 55% gate.",
+    "Primary does not beat sector ETF-only baseline Sharpe.",
+    "20 bps cost sensitivity Sharpe is not positive."
+  ],
+  "window_summary_10bps": {
+    "count": 30,
+    "median_sharpe": -1.4435,
+    "p25_sharpe": -2.0952,
+    "positive_window_rate": 0.0667,
+    "worst_sharpe": -2.523
+  },
+  "windows_10bps": [
+    {
+      "activation_days": 33,
+      "annualized_return": -0.0435,
+      "annualized_volatility": 0.058431,
+      "cumulative_return": -0.0435,
+      "end": "2021-09-02",
+      "max_drawdown": -0.077358,
+      "mean_daily_turnover": 0.204084,
+      "mean_gross_exposure": 0.130952,
+      "name": "random_01",
+      "positive_days_rate": 0.059524,
+      "sharpe": -0.7319,
+      "start": "2020-09-03",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 49,
+      "annualized_return": -0.039722,
+      "annualized_volatility": 0.063114,
+      "cumulative_return": -0.039722,
+      "end": "2021-11-19",
+      "max_drawdown": -0.077358,
+      "mean_daily_turnover": 0.306778,
+      "mean_gross_exposure": 0.194444,
+      "name": "random_02",
+      "positive_days_rate": 0.09127,
+      "sharpe": -0.6107,
+      "start": "2020-11-20",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 51,
+      "annualized_return": 0.016804,
+      "annualized_volatility": 0.073554,
+      "cumulative_return": 0.016804,
+      "end": "2022-01-20",
+      "max_drawdown": -0.077358,
+      "mean_daily_turnover": 0.317874,
+      "mean_gross_exposure": 0.202381,
+      "name": "random_03",
+      "positive_days_rate": 0.103175,
+      "sharpe": 0.2631,
+      "start": "2021-01-22",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 62,
+      "annualized_return": -0.092577,
+      "annualized_volatility": 0.110463,
+      "cumulative_return": -0.092577,
+      "end": "2022-06-17",
+      "max_drawdown": -0.164707,
+      "mean_daily_turnover": 0.388109,
+      "mean_gross_exposure": 0.246032,
+      "name": "random_04",
+      "positive_days_rate": 0.126984,
+      "sharpe": -0.824,
+      "start": "2021-06-21",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 62,
+      "annualized_return": -0.092577,
+      "annualized_volatility": 0.110463,
+      "cumulative_return": -0.092577,
+      "end": "2022-06-23",
+      "max_drawdown": -0.164707,
+      "mean_daily_turnover": 0.388109,
+      "mean_gross_exposure": 0.246032,
+      "name": "random_05",
+      "positive_days_rate": 0.126984,
+      "sharpe": -0.824,
+      "start": "2021-06-24",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 60,
+      "annualized_return": -0.164377,
+      "annualized_volatility": 0.119405,
+      "cumulative_return": -0.164377,
+      "end": "2022-09-16",
+      "max_drawdown": -0.236475,
+      "mean_daily_turnover": 0.39169,
+      "mean_gross_exposure": 0.238095,
+      "name": "random_06",
+      "positive_days_rate": 0.119048,
+      "sharpe": -1.4435,
+      "start": "2021-09-17",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 60,
+      "annualized_return": -0.164377,
+      "annualized_volatility": 0.119405,
+      "cumulative_return": -0.164377,
+      "end": "2022-09-20",
+      "max_drawdown": -0.236475,
+      "mean_daily_turnover": 0.39169,
+      "mean_gross_exposure": 0.238095,
+      "name": "random_07",
+      "positive_days_rate": 0.119048,
+      "sharpe": -1.4435,
+      "start": "2021-09-21",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 60,
+      "annualized_return": -0.164377,
+      "annualized_volatility": 0.119405,
+      "cumulative_return": -0.164377,
+      "end": "2022-09-26",
+      "max_drawdown": -0.236475,
+      "mean_daily_turnover": 0.39169,
+      "mean_gross_exposure": 0.238095,
+      "name": "random_08",
+      "positive_days_rate": 0.119048,
+      "sharpe": -1.4435,
+      "start": "2021-09-27",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 61,
+      "annualized_return": -0.255082,
+      "annualized_volatility": 0.128272,
+      "cumulative_return": -0.255082,
+      "end": "2022-10-20",
+      "max_drawdown": -0.306746,
+      "mean_daily_turnover": 0.415077,
+      "mean_gross_exposure": 0.242063,
+      "name": "random_09",
+      "positive_days_rate": 0.115079,
+      "sharpe": -2.2299,
+      "start": "2021-10-21",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 63,
+      "annualized_return": -0.278256,
+      "annualized_volatility": 0.134858,
+      "cumulative_return": -0.278256,
+      "end": "2022-11-22",
+      "max_drawdown": -0.342818,
+      "mean_daily_turnover": 0.421348,
+      "mean_gross_exposure": 0.25,
+      "name": "random_10",
+      "positive_days_rate": 0.119048,
+      "sharpe": -2.3486,
+      "start": "2021-11-23",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 63,
+      "annualized_return": -0.278256,
+      "annualized_volatility": 0.134858,
+      "cumulative_return": -0.278256,
+      "end": "2022-12-14",
+      "max_drawdown": -0.342818,
+      "mean_daily_turnover": 0.421348,
+      "mean_gross_exposure": 0.25,
+      "name": "random_11",
+      "positive_days_rate": 0.119048,
+      "sharpe": -2.3486,
+      "start": "2021-12-15",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 62,
+      "annualized_return": -0.29223,
+      "annualized_volatility": 0.133352,
+      "cumulative_return": -0.29223,
+      "end": "2023-01-18",
+      "max_drawdown": -0.345576,
+      "mean_daily_turnover": 0.419378,
+      "mean_gross_exposure": 0.246032,
+      "name": "random_12",
+      "positive_days_rate": 0.115079,
+      "sharpe": -2.523,
+      "start": "2022-01-18",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 59,
+      "annualized_return": -0.242332,
+      "annualized_volatility": 0.12591,
+      "cumulative_return": -0.242332,
+      "end": "2023-02-28",
+      "max_drawdown": -0.325912,
+      "mean_daily_turnover": 0.394439,
+      "mean_gross_exposure": 0.234127,
+      "name": "random_13",
+      "positive_days_rate": 0.103175,
+      "sharpe": -2.1395,
+      "start": "2022-02-28",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 59,
+      "annualized_return": -0.242332,
+      "annualized_volatility": 0.12591,
+      "cumulative_return": -0.242332,
+      "end": "2023-03-14",
+      "max_drawdown": -0.325912,
+      "mean_daily_turnover": 0.394439,
+      "mean_gross_exposure": 0.234127,
+      "name": "random_14",
+      "positive_days_rate": 0.103175,
+      "sharpe": -2.1395,
+      "start": "2022-03-14",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 58,
+      "annualized_return": -0.246034,
+      "annualized_volatility": 0.119524,
+      "cumulative_return": -0.246034,
+      "end": "2023-04-28",
+      "max_drawdown": -0.293685,
+      "mean_daily_turnover": 0.391757,
+      "mean_gross_exposure": 0.230159,
+      "name": "random_15",
+      "positive_days_rate": 0.107143,
+      "sharpe": -2.3012,
+      "start": "2022-04-28",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 56,
+      "annualized_return": -0.17302,
+      "annualized_volatility": 0.105873,
+      "cumulative_return": -0.17302,
+      "end": "2023-07-18",
+      "max_drawdown": -0.229093,
+      "mean_daily_turnover": 0.373835,
+      "mean_gross_exposure": 0.222222,
+      "name": "random_16",
+      "positive_days_rate": 0.099206,
+      "sharpe": -1.7404,
+      "start": "2022-07-18",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 58,
+      "annualized_return": -0.052801,
+      "annualized_volatility": 0.08027,
+      "cumulative_return": -0.052801,
+      "end": "2023-11-09",
+      "max_drawdown": -0.14139,
+      "mean_daily_turnover": 0.384667,
+      "mean_gross_exposure": 0.230159,
+      "name": "random_17",
+      "positive_days_rate": 0.099206,
+      "sharpe": -0.6358,
+      "start": "2022-11-09",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 58,
+      "annualized_return": -0.046336,
+      "annualized_volatility": 0.079375,
+      "cumulative_return": -0.046336,
+      "end": "2023-11-13",
+      "max_drawdown": -0.14139,
+      "mean_daily_turnover": 0.388635,
+      "mean_gross_exposure": 0.230159,
+      "name": "random_18",
+      "positive_days_rate": 0.099206,
+      "sharpe": -0.5582,
+      "start": "2022-11-11",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 57,
+      "annualized_return": -0.0402,
+      "annualized_volatility": 0.078173,
+      "cumulative_return": -0.0402,
+      "end": "2023-12-06",
+      "max_drawdown": -0.14139,
+      "mean_daily_turnover": 0.388312,
+      "mean_gross_exposure": 0.22619,
+      "name": "random_19",
+      "positive_days_rate": 0.099206,
+      "sharpe": -0.4859,
+      "start": "2022-12-06",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 60,
+      "annualized_return": -0.098837,
+      "annualized_volatility": 0.068769,
+      "cumulative_return": -0.098837,
+      "end": "2024-04-12",
+      "max_drawdown": -0.14139,
+      "mean_daily_turnover": 0.405954,
+      "mean_gross_exposure": 0.238095,
+      "name": "random_20",
+      "positive_days_rate": 0.103175,
+      "sharpe": -1.4787,
+      "start": "2023-04-13",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 65,
+      "annualized_return": -0.091345,
+      "annualized_volatility": 0.069403,
+      "cumulative_return": -0.091345,
+      "end": "2024-04-26",
+      "max_drawdown": -0.14139,
+      "mean_daily_turnover": 0.427053,
+      "mean_gross_exposure": 0.257937,
+      "name": "random_21",
+      "positive_days_rate": 0.115079,
+      "sharpe": -1.3453,
+      "start": "2023-04-27",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 73,
+      "annualized_return": 0.020228,
+      "annualized_volatility": 0.072364,
+      "cumulative_return": 0.020228,
+      "end": "2025-01-17",
+      "max_drawdown": -0.066004,
+      "mean_daily_turnover": 0.439184,
+      "mean_gross_exposure": 0.289683,
+      "name": "random_22",
+      "positive_days_rate": 0.150794,
+      "sharpe": 0.3128,
+      "start": "2024-01-18",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 64,
+      "annualized_return": -0.079423,
+      "annualized_volatility": 0.076142,
+      "cumulative_return": -0.079423,
+      "end": "2025-06-30",
+      "max_drawdown": -0.119059,
+      "mean_daily_turnover": 0.428789,
+      "mean_gross_exposure": 0.253968,
+      "name": "random_23",
+      "positive_days_rate": 0.119048,
+      "sharpe": -1.0486,
+      "start": "2024-06-27",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 64,
+      "annualized_return": -0.079423,
+      "annualized_volatility": 0.076142,
+      "cumulative_return": -0.079423,
+      "end": "2025-07-11",
+      "max_drawdown": -0.119059,
+      "mean_daily_turnover": 0.428789,
+      "mean_gross_exposure": 0.253968,
+      "name": "random_24",
+      "positive_days_rate": 0.119048,
+      "sharpe": -1.0486,
+      "start": "2024-07-10",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 62,
+      "annualized_return": -0.079428,
+      "annualized_volatility": 0.072492,
+      "cumulative_return": -0.079428,
+      "end": "2025-11-12",
+      "max_drawdown": -0.147757,
+      "mean_daily_turnover": 0.40719,
+      "mean_gross_exposure": 0.246032,
+      "name": "random_25",
+      "positive_days_rate": 0.107143,
+      "sharpe": -1.1054,
+      "start": "2024-11-11",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 58,
+      "annualized_return": -0.126957,
+      "annualized_volatility": 0.072413,
+      "cumulative_return": -0.126957,
+      "end": "2025-12-08",
+      "max_drawdown": -0.160734,
+      "mean_daily_turnover": 0.397423,
+      "mean_gross_exposure": 0.230159,
+      "name": "random_26",
+      "positive_days_rate": 0.087302,
+      "sharpe": -1.8383,
+      "start": "2024-12-05",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 58,
+      "annualized_return": -0.126957,
+      "annualized_volatility": 0.072413,
+      "cumulative_return": -0.126957,
+      "end": "2026-01-07",
+      "max_drawdown": -0.160734,
+      "mean_daily_turnover": 0.397423,
+      "mean_gross_exposure": 0.230159,
+      "name": "random_27",
+      "positive_days_rate": 0.087302,
+      "sharpe": -1.8383,
+      "start": "2025-01-06",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 59,
+      "annualized_return": -0.119636,
+      "annualized_volatility": 0.072958,
+      "cumulative_return": -0.119636,
+      "end": "2026-01-13",
+      "max_drawdown": -0.160734,
+      "mean_daily_turnover": 0.401391,
+      "mean_gross_exposure": 0.234127,
+      "name": "random_28",
+      "positive_days_rate": 0.09127,
+      "sharpe": -1.7097,
+      "start": "2025-01-13",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 58,
+      "annualized_return": -0.155728,
+      "annualized_volatility": 0.068819,
+      "cumulative_return": -0.155728,
+      "end": "2026-01-20",
+      "max_drawdown": -0.153533,
+      "mean_daily_turnover": 0.406448,
+      "mean_gross_exposure": 0.230159,
+      "name": "random_29",
+      "positive_days_rate": 0.083333,
+      "sharpe": -2.4246,
+      "start": "2025-01-17",
+      "trading_days": 252
+    },
+    {
+      "activation_days": 67,
+      "annualized_return": -0.147193,
+      "annualized_volatility": 0.079508,
+      "cumulative_return": -0.147193,
+      "end": "2026-05-06",
+      "max_drawdown": -0.150653,
+      "mean_daily_turnover": 0.449555,
+      "mean_gross_exposure": 0.265873,
+      "name": "random_30",
+      "positive_days_rate": 0.115079,
+      "sharpe": -1.9622,
+      "start": "2025-05-06",
+      "trading_days": 252
+    }
+  ]
+}

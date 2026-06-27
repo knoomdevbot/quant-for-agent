@@ -1,0 +1,45 @@
+model_name: commodity-inflation-shock-crossasset-rotation-v1
+issue_id: AR-101
+family: commodity_macro_rotation
+status: research_evaluated
+created_at: 2026-06-26
+qfa_contract: generate_signals(context)
+data_source: Alpaca real market OHLCV via qfa only
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLE
+  - XLB
+  - XLI
+  - XLF
+  - XLV
+  - XLP
+  - XLU
+  - GLD
+  - SLV
+  - USO
+  - DBC
+  - DBA
+  - TIP
+  - TLT
+  - IEF
+  - SHY
+  - HYG
+  - LQD
+constraints:
+  gross_leverage_max: 1.0
+  long_only: true
+  no_orders: true
+  no_daemon: true
+  no_csv_used: true
+parameters:
+  fast_lookback_days: 5
+  medium_lookback_days: 21
+  slow_lookback_days: 63
+  long_lookback_days: 126
+  min_history_days: 150
+  max_single_weight: 0.25
+  target_gross: 0.98
+cost_proxy:
+  one_way_bps_tested: [5, 10, 20]

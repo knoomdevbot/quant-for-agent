@@ -1,0 +1,62 @@
+{
+  "costs": {
+    "applied": false,
+    "assumption_bps": 5,
+    "status": "documented_not_applied_current_qfa_backtest_cli_has_no_cost_or_slippage_parameter"
+  },
+  "created_at": "2026-06-26T06:21:20Z",
+  "data_source": "Alpaca real market data via qfa backtest (no --data-csv)",
+  "divergent_child_idea": "AR-005-D1 mega-cap tech intraday overnight-gap reversal using open-to-close residuals.",
+  "end": "2025-12-31",
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "alpaca_real_market_data_backtest",
+  "initial_cash": 100000.0,
+  "issue_id": "AR-005",
+  "metrics": {
+    "annualized_return": 0.07264733,
+    "annualized_volatility": 0.13752122,
+    "final_equity": 114929.2225,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.13227204,
+    "periods": 500,
+    "sharpe": 0.57877812,
+    "total_return": 0.14929222,
+    "win_rate": 0.346
+  },
+  "model_name": "pairs-residual-megacap-tech-5d-v1",
+  "model_path": "/Users/moonk/quant-for-agent/models/pairs-residual-megacap-tech-5d-v1/model.py",
+  "model_review": {
+    "notes": [
+      "model.py implements rolling log-price residual pair mean reversion over the AR-005 mega-cap tech universe.",
+      "No trading or daemon path was invoked."
+    ],
+    "status": "implemented"
+  },
+  "orthogonality": {
+    "reason": "No accepted alpha return-stream library was used in this pass.",
+    "status": "not_run"
+  },
+  "qfa_command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; uv run --with-editable . qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-megacap-tech-5d-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db /Users/moonk/quant-for-agent/models/pairs-residual-megacap-tech-5d-v1/evaluations/qfa_realdata.sqlite",
+  "qfa_run_id": 2,
+  "refinement_child_idea": "AR-005-R1 adaptive pair selection with rolling correlation/ADF filters and turnover/cost gate.",
+  "run_json_path": "/Users/moonk/quant-for-agent/models/pairs-residual-megacap-tech-5d-v1/evaluations/runs/qfa_realdata_20240101_20251231_run2.json",
+  "start": "2024-01-01",
+  "suggested_decision": "watchlist_refine_not_accept_for_live_trading",
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL"
+  ],
+  "timeframe": "1Day",
+  "warnings": [
+    "Metrics are pre-cost because current qfa backtest CLI has no costs/slippage parameter.",
+    "qfa created sqlite artifact evaluations/qfa_realdata.sqlite under the model folder.",
+    "Backtest starts with a warmup period with zero exposure until enough historical observations are available inside the requested window."
+  ],
+  "qfa_db_path_used_during_run": "/Users/moonk/quant-for-agent/models/pairs-residual-megacap-tech-5d-v1/evaluations/qfa_realdata.sqlite",
+  "db_artifact_retained": false,
+  "db_retention_note": "SQLite DB artifact removed before commit per alpha-model-management large artifact policy; compact JSON/Markdown summaries retained."
+}

@@ -1,0 +1,50 @@
+name: etf-realized-vol-term-breadth-allocator-v1
+issue_id: AR-065
+family: volatility_breadth_regime
+model_path: models/etf-realized-vol-term-breadth-allocator-v1/model.py
+data_source: Alpaca/qfa real market data
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+  - SHY
+timeframe: 1Day
+rebalance: daily_proxy
+positioning:
+  long_only: true
+  max_weight: 0.40
+  cash_proxy: SHY
+parameters:
+  vol_short: 10
+  vol_medium: 20
+  vol_slow: 60
+  breadth_threshold: 0.60
+  defensive_budget: 0.80
+  drawdown_window: 126
+  momentum_window: 60
+  downside_window: 20
+  turnover_brake_band: 0.06
+features:
+  - short_medium_realized_volatility_ratio
+  - medium_slow_realized_volatility_ratio
+  - cross_etf_volatility_compression_expansion_breadth
+  - downside_volatility_surprise
+  - SPY_drawdown_state
+  - defensive_asset_momentum_confirmation
+costs:
+  qfa_native_costs_applied: false
+  ex_post_one_way_turnover_bps: 5.0
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  alpaca_paper: true
+acceptance:
+  random_windows: 8
+  falsifier: median random-period Sharpe <= 0 after costs, materially negative p25 Sharpe, severe drawdowns, or max correlation > 0.60 to watchlist ETF regime alphas
+latest_evaluation: evaluations/latest.json

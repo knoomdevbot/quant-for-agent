@@ -1,0 +1,27 @@
+issue_id: AR-070
+model_name: event-curve-shock-reversal-bond-etf-v1
+family: event_macro_reversal
+universe: [SHY, IEF, TLT, TIP, LQD, HYG, GLD, SPY]
+data:
+  source: Alpaca real daily OHLCV via qfa
+  timeframe: 1Day
+  no_csv_used: true
+  no_data_csv_argument_used: true
+backtest:
+  start: '2022-01-03'
+  end: '2025-12-15'
+  initial_cash: 100000
+  temporary_db: /tmp/qfa-ar-070.sqlite3
+model_params:
+  event_hold_days: 5
+  shock_zscore_window: 126
+  event_windows_tested: [1, 3, 5]
+  gross_exposure_cap: 1.0
+  max_single_weight: 0.42
+  max_credit_sleeve: 0.18
+costs_slippage:
+  external_turnover_cost_proxy_one_way_bps: [5, 10]
+  qfa_native_costs_applied: false
+controls:
+  no_daemon: true
+  no_orders: true

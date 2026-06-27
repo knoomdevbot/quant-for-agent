@@ -1,0 +1,35 @@
+model:
+  name: xsec-etf-defensive-rotation-orthogonal-v1
+  issue_id: AR-051
+  parent: AR-039
+  family: regime_allocation
+  contract: qfa_generate_signals
+universe:
+  symbols: [SPY, QQQ, IWM, XLV, XLY, XLE, XLU, XLP, TLT, IEF, GLD, SHY]
+  notes: Liquid US-listed ETFs spanning broad equity beta, sectors, duration, gold, and cash-like Treasuries.
+parameters:
+  momentum_lookback: 126
+  secondary_lookback: 63
+  vol_window: 63
+  corr_window: 63
+  min_periods: 190
+  top_n: 2
+  corr_penalty: 0.50
+  target_vol: 0.10
+  max_abs_weight: 0.50
+  rebalance: monthly_calendar_proxy
+  risk_on_symbols: [SPY, QQQ, IWM, XLV, XLY, XLE]
+  defensive_symbols: [XLU, XLP, TLT, IEF, GLD, SHY]
+  tsmom_proxy_symbols: [SPY, QQQ, TLT, GLD]
+  carry_defensive_proxy_symbols: [IEF, TLT, GLD, XLP, XLU, SHY]
+search_space_considered:
+  lookback: [63, 126, 189]
+  top_n: [2, 3]
+  corr_penalty: [0.25, 0.50, 0.75]
+  cost_bps_one_way: [10, 20]
+evaluation:
+  data_source: Alpaca real market data through qfa AlpacaGateway only
+  no_data_csv: true
+  daemon_run: false
+  trading_performed: false
+  costs: external turnover haircut at 10 and 20 bps one-way; 10 bps primary

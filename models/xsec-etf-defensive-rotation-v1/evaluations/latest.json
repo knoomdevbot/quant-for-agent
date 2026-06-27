@@ -1,0 +1,207 @@
+{
+  "costs_slippage": {
+    "applied_in_qfa": false,
+    "note": "Repository qfa backtester currently has no transaction-cost/slippage/turnover arguments or calculations, so reported metrics are pre-cost. The alpha is daily re-evaluated and likely cost-sensitive; acceptance should require turnover-based cost haircut before capital allocation.",
+    "requested_assumption_bps": 5
+  },
+  "created_at_utc": "2026-06-26T07:20:36Z",
+  "data": {
+    "end": "2025-12-31",
+    "equity_curve_points": 750,
+    "price_adjustment_note": "qfa uses the repository AlpacaGateway stock bars request; no explicit adjusted-price flag is exposed in this repo version.",
+    "start": "2023-01-01",
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "XLV",
+      "XLY",
+      "XLE",
+      "XLU",
+      "XLP",
+      "TLT",
+      "IEF",
+      "GLD"
+    ],
+    "timeframe": "1Day"
+  },
+  "decision_rationale": "Main-window Sharpe is positive (0.9827) and random-window median Sharpe is positive (0.7390), so the AR-016 falsifier is not triggered; however, edge is moderate, costs are not modeled, and parent return correlation is not negligible.",
+  "divergent_child_idea": {
+    "id": "AR-040",
+    "title": "Yield-curve and credit-stress ETF allocation"
+  },
+  "evaluation_type": "real_data_qfa_alpaca_backtest_with_random_windows",
+  "issue_id": "AR-016",
+  "metrics": {
+    "annualized_return": 0.11323847,
+    "annualized_volatility": 0.11602649,
+    "final_equity": 137611.7054,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.10455149,
+    "periods": 750,
+    "sharpe": 0.98273672,
+    "total_return": 0.37611705,
+    "win_rate": 0.45733333
+  },
+  "model_name": "xsec-etf-defensive-rotation-v1",
+  "orthogonality_checks": {
+    "attempted": true,
+    "correlation": 0.62049013,
+    "interpretation": "moderate positive overlap with AR-003; mechanism is cross-sectional basket rotation rather than single-asset TSMOM, but return stream is not fully orthogonal.",
+    "method": "Pearson correlation of daily equity returns from retained qfa run JSON equity curves over overlapping timestamps.",
+    "overlap_periods": 499,
+    "parent_compared": "AR-003 tsmom-voltarget-liquid-etf-weekly-v1"
+  },
+  "parameters": {
+    "long_lookback": 126,
+    "max_abs_weight": 0.5,
+    "min_periods": 127,
+    "short_lookback": 63,
+    "target_vol": 0.1,
+    "top_n": 3,
+    "vol_window": 20
+  },
+  "qfa": {
+    "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run models/xsec-etf-defensive-rotation-v1/model.py --symbols SPY,QQQ,IWM,XLV,XLY,XLE,XLU,XLP,TLT,IEF,GLD --start 2023-01-01 --end 2025-12-31 --db /tmp/qfa-ar016-<pid>.sqlite3",
+    "daemon_run": false,
+    "data_source": "Alpaca real market data via qfa AlpacaGateway; no CSV; --data-csv was not used",
+    "db_artifact_retained": false,
+    "db_path_used_during_run": "/tmp/qfa-ar016-<pid>.sqlite3 and /tmp/qfa-ar016-random.sqlite3",
+    "db_retention_note": "Temporary SQLite DB files were removed after extracting JSON results; durable artifacts retain compact evaluation JSON/Markdown only.",
+    "random_window_command_template": "same qfa backtest run command with sampled --start/--end values and shared temporary /tmp/qfa-ar016-random.sqlite3 DB",
+    "random_window_run_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "run_id": 1,
+    "trading_performed": false
+  },
+  "random_period_protocol": {
+    "attempted": true,
+    "max_sharpe": 1.85552058,
+    "median_sharpe": 0.73896,
+    "median_total_return": 0.07706541,
+    "method": "Six deterministic pseudo-random subwindows sampled across 2023-2025, each run through qfa with Alpaca real market data and no --data-csv.",
+    "min_sharpe": 0.20026631,
+    "p25_sharpe": 0.34084797,
+    "positive_sharpe_windows": 6,
+    "positive_window_rate": 1.0,
+    "runs": [
+      {
+        "end": "2024-01-31",
+        "metrics": {
+          "annualized_return": 0.11285583,
+          "annualized_volatility": 0.08528187,
+          "final_equity": 111144.0094,
+          "max_drawdown": -0.06703868,
+          "periods": 249,
+          "sharpe": 1.29645081,
+          "total_return": 0.11144009,
+          "win_rate": 0.26506024
+        },
+        "qfa_run_id": 1,
+        "start": "2023-02-01"
+      },
+      {
+        "end": "2024-05-15",
+        "metrics": {
+          "annualized_return": 0.14800797,
+          "annualized_volatility": 0.07595331,
+          "final_equity": 114737.9344,
+          "max_drawdown": -0.05769146,
+          "periods": 251,
+          "sharpe": 1.85552058,
+          "total_return": 0.14737934,
+          "win_rate": 0.27888446
+        },
+        "qfa_run_id": 2,
+        "start": "2023-05-15"
+      },
+      {
+        "end": "2024-08-30",
+        "metrics": {
+          "annualized_return": 0.01313312,
+          "annualized_volatility": 0.0763324,
+          "final_equity": 101297.5764,
+          "max_drawdown": -0.05769146,
+          "periods": 249,
+          "sharpe": 0.20909245,
+          "total_return": 0.01297576,
+          "win_rate": 0.27710843
+        },
+        "qfa_run_id": 3,
+        "start": "2023-09-01"
+      },
+      {
+        "end": "2025-01-15",
+        "metrics": {
+          "annualized_return": 0.0674952,
+          "annualized_volatility": 0.09402022,
+          "final_equity": 106694.1987,
+          "max_drawdown": -0.06437031,
+          "periods": 250,
+          "sharpe": 0.74180548,
+          "total_return": 0.06694199,
+          "win_rate": 0.288
+        },
+        "qfa_run_id": 4,
+        "start": "2024-01-15"
+      },
+      {
+        "end": "2025-06-03",
+        "metrics": {
+          "annualized_return": 0.01684113,
+          "annualized_volatility": 0.11813826,
+          "final_equity": 101663.8979,
+          "max_drawdown": -0.10455149,
+          "periods": 249,
+          "sharpe": 0.20026631,
+          "total_return": 0.01663898,
+          "win_rate": 0.24096386
+        },
+        "qfa_run_id": 5,
+        "start": "2024-06-03"
+      },
+      {
+        "end": "2025-12-15",
+        "metrics": {
+          "annualized_return": 0.07249399,
+          "annualized_volatility": 0.10215203,
+          "final_equity": 108718.8828,
+          "max_drawdown": -0.05417583,
+          "periods": 301,
+          "sharpe": 0.73611451,
+          "total_return": 0.08718883,
+          "win_rate": 0.31893688
+        },
+        "qfa_run_id": 6,
+        "start": "2024-10-01"
+      }
+    ],
+    "window_count": 6,
+    "worst_max_drawdown": -0.10455149
+  },
+  "refinement_child_idea": {
+    "id": "AR-039",
+    "title": "Cost-aware monthly ETF defensive rotation"
+  },
+  "suggested_decision": "watchlist_continue_research_not_accept_until_costed_turnover_validation",
+  "turnover": {
+    "active_weight_days": 624,
+    "annualized_one_way_turnover": 22.3005,
+    "evaluated_days": 750,
+    "max_daily_one_way_turnover": 1.0,
+    "mean_daily_one_way_turnover": 0.08849406,
+    "median_daily_one_way_turnover": 0.01302022,
+    "method": "Ex-post target-weight turnover reconstructed by replaying generate_signals on Alpaca bars; one_way_turnover = 0.5 * sum(abs(w_t - w_{t-1})); qfa does not natively store trades/turnover."
+  },
+  "warnings": [
+    "Metrics are pre-cost because qfa lacks transaction-cost/slippage support in this repository version.",
+    "No trades were placed and no daemon was run.",
+    "This is research output, not investment advice."
+  ]
+}

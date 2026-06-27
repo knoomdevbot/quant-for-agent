@@ -1,0 +1,49 @@
+issue_id: AR-065
+name: etf-realized-vol-term-breadth-allocator-v1
+title: ETF realized-volatility term-state breadth allocator
+status: researched
+suggested_decision: rejected
+family: volatility_breadth_regime
+type: divergent
+parent_alpha: AR-052
+parent_status_context: rejected
+bad_result_policy:
+  refinement_child: null
+  direct_inversion_or_extension_child: null
+  divergent_child: null
+hypothesis: Cross-ETF realized-volatility term-state and breadth can identify defensive/risk-on allocation regimes without relying on the rejected AR-052 VIXY/TLT stress-carry sleeve.
+mechanism_summary: Long-only ETF allocator using realized-volatility term ratios and cross-ETF vol-compression/expansion breadth, with downside-volatility surprise, SPY drawdown state, and defensive momentum confirmation.
+created_at_utc: '2026-06-26T12:11:25Z'
+research_data_source: Alpaca/qfa real market data
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+primary_evaluation:
+  start: '2020-01-02'
+  end: '2025-12-15'
+  symbols: [SPY, QQQ, IWM, TLT, GLD, XLU, XLE, SHY]
+  qfa_run_id: 1
+  pre_cost_sharpe: 0.54771488
+  pre_cost_total_return: 0.38065111
+  pre_cost_max_drawdown: -0.19442805
+  after_cost_estimated_sharpe: 0.40444051
+random_window_summary:
+  count: 8
+  median_sharpe_after_cost_est: 0.91479255
+  p25_sharpe_after_cost_est: 0.58732363
+  positive_sharpe_rate_after_cost_est: 0.875
+orthogonality:
+  status: computed
+  max_abs_correlation: 0.63897729
+  pass_max_corr_0_60: false
+failure_modes:
+  - Max retained-model daily-equity-return correlation exceeded 0.60 threshold, indicating insufficient orthogonality despite favorable random-window performance.
+  - qfa has no native costs/slippage flag; costs are estimated ex post from target-weight turnover.
+artifacts:
+  model: model.py
+  config: config.yaml
+  readme: README.md
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md
+  immutable_run_json: evaluations/runs/ar065_qfa_alpaca_real_20260626T121125Z.json

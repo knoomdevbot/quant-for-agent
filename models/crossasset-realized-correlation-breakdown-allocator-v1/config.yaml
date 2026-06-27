@@ -1,0 +1,17 @@
+model_name: crossasset-realized-correlation-breakdown-allocator-v1
+issue_id: AR-080
+family: correlation_regime_allocation
+universe: [SPY, QQQ, TLT, IEF, GLD, XLU, XLP, XLV, HYG, LQD, SHY]
+timeframe: 1Day
+rebalance: weekly_wednesday
+min_history_days: 160
+max_gross_exposure: 1.0
+max_single_weight: 0.34
+signal_features:
+  - 21d stock/bond realized correlation and 126d z-score
+  - 21d credit/equity realized correlation and z-score
+  - 21d gold/equity realized correlation and z-score
+  - equity realized volatility/drawdown state
+  - ETF trend breadth confirmation
+cost_assumption: 5 bps one-way external turnover proxy
+research_only: true

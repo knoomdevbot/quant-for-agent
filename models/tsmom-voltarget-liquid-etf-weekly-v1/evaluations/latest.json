@@ -1,0 +1,87 @@
+{
+  "model_name": "tsmom-voltarget-liquid-etf-weekly-v1",
+  "issue_id": "AR-003",
+  "evaluation_type": "real_data_qfa_alpaca_backtest",
+  "created_at_utc": "2026-06-26T05:50:00Z",
+  "model_artifact_version_note": "model.py adjusted to require 127 daily bars before emitting 126-day momentum signals; prior CSV smoke latest is superseded/stale.",
+  "qfa": {
+    "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run models/tsmom-voltarget-liquid-etf-weekly-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,SLV,USO,FXE,FXY --start 2024-01-01 --end 2025-12-31 --db models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/qfa-real.sqlite3",
+    "run_id": 1,
+    "run_json_path": "models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/runs/qfa_real_alpaca_20260626T055000Z.json",
+    "data_source": "Alpaca market data via qfa AlpacaGateway; no --data-csv used",
+    "trading_performed": false,
+    "daemon_run": false,
+    "db_path_used_during_run": "models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/qfa-real.sqlite3",
+    "db_artifact_retained": false,
+    "db_retention_note": "SQLite DB artifact removed before commit per alpha-model-management large artifact policy; compact JSON/Markdown summaries retained."
+  },
+  "data": {
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "TLT",
+      "GLD",
+      "SLV",
+      "USO",
+      "FXE",
+      "FXY"
+    ],
+    "start": "2024-01-01",
+    "end": "2025-12-31",
+    "timeframe": "1Day",
+    "equity_curve_points": 500,
+    "price_adjustment_note": "qfa uses the repository AlpacaGateway stock bars request; no explicit adjusted-price flag is exposed in this repo version."
+  },
+  "parameters": {
+    "lookback_days": 126,
+    "vol_window": 20,
+    "target_vol": 0.1,
+    "max_abs_weight": 0.35,
+    "min_periods": 127
+  },
+  "metrics": {
+    "initial_cash": 100000.0,
+    "final_equity": 133163.4859,
+    "total_return": 0.33163486,
+    "annualized_return": 0.15528762,
+    "annualized_volatility": 0.12518939,
+    "sharpe": 1.21599641,
+    "max_drawdown": -0.09362303,
+    "win_rate": 0.426,
+    "periods": 500
+  },
+  "costs_slippage": {
+    "requested_assumption_bps": 5,
+    "applied_in_qfa": false,
+    "note": "Repository qfa backtester currently has no transaction-cost/slippage/turnover arguments or calculations, so metrics are pre-cost."
+  },
+  "random_period_protocol": {
+    "attempted": false,
+    "reason": "Task required at least one real-data qfa backtest; qfa CLI currently supports single requested windows but not built-in random-period protocol. Recommended child/refinement should implement scripted random windows and cost haircuts."
+  },
+  "orthogonality_checks": {
+    "attempted": false,
+    "reason": "No accepted/watchlist alpha library return streams were present in this model folder or qfa artifacts for comparison."
+  },
+  "stale_prior_results": [
+    {
+      "path": "models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/runs/qfa_smoke_20260626T012301Z.json",
+      "reason": "CSV fixture smoke test; superseded by Alpaca real-data evaluation and not alpha evidence."
+    },
+    {
+      "path": "models/tsmom-voltarget-liquid-etf-weekly-v1/evaluations/latest.json prior to 2026-06-26T05:50:00Z",
+      "reason": "Previous latest.json summarized the CSV fixture smoke test and has been overwritten by real-data results."
+    }
+  ],
+  "warnings": [
+    "Metrics are pre-cost because qfa lacks transaction-cost/slippage support in this repository version.",
+    "qfa rebalances/evaluates daily; the weekly model name is conceptual and not enforced by the current qfa backtester API.",
+    "No random-period protocol or orthogonality check was completed in this pass.",
+    "No trades were placed and no daemon was run.",
+    "This is research output, not investment advice."
+  ],
+  "suggested_decision": "watchlist_continue_research_not_accept_until_costed_random_window_validation",
+  "refinement_child_idea": "AR-003-R1: implement scripted random-window validation plus 5 bps turnover-based cost haircut and compare 63/126/252 lookbacks with 20/60 vol windows on the same ETF universe.",
+  "divergent_child_idea": "AR-003-D1: test cross-sectional ETF relative-strength/defensive-rotation model using macro/liquidity proxies instead of pure time-series momentum."
+}

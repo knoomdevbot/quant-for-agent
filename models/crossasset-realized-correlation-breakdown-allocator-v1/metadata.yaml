@@ -1,0 +1,9 @@
+issue_id: AR-080
+model_name: crossasset-realized-correlation-breakdown-allocator-v1
+status: researched
+created_at_utc: '2026-06-26T14:07:33Z'
+parent_alpha: AR-072
+hypothesis: Cross-asset realized-correlation breakdowns identify allocation regimes distinct from drawdown/beta constrained macro allocation.
+data_source: Alpaca real market data through qfa only; credential provenance redacted.
+trading_mode: research_only_no_orders
+artifact_version: 1

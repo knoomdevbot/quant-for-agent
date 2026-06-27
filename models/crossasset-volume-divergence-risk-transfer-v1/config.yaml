@@ -1,0 +1,38 @@
+name: crossasset-volume-divergence-risk-transfer-v1
+issue_id: AR-081
+family: cross_asset_flow_regime
+model_path: models/crossasset-volume-divergence-risk-transfer-v1/model.py
+data_source: Alpaca/qfa real market data
+universe: [SPY, QQQ, IWM, TLT, IEF, GLD, HYG, LQD, SHY, XLE, XLU, XLV]
+timeframe: 1Day
+rebalance: daily_proxy
+positioning:
+  long_only: true
+  gross_exposure_max: 1.0
+  max_weight: 0.35
+parameters:
+  volume_fast: 20
+  volume_slow: 60
+  trend_lookback: 20
+  vol_lookback: 20
+  spread_threshold: 1.0
+  credit_threshold: 0.45
+features:
+  - relative_dollar_volume_zscores
+  - risk_on_minus_defensive_volume_spread
+  - HYG_minus_LQD_credit_volume_imbalance
+  - realized_volatility_scaler
+  - short_trend_confirmation
+costs:
+  qfa_native_costs_applied: false
+  ex_post_one_way_turnover_bps: 5.0
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  alpaca_paper: true
+acceptance:
+  random_windows: 10
+  falsifier: median random-period Sharpe <= 0 after costs, materially negative p25 Sharpe, unacceptable drawdown, or high redundancy
+latest_evaluation: evaluations/latest.json

@@ -1,0 +1,12 @@
+model_name: xsec-etf-defensive-rotation-costmonthly-v1
+issue_id: AR-039
+created_at_utc: '2026-06-26T02:08:00Z'
+status: researched
+family: regime_allocation
+parent_alpha: AR-016
+hypothesis: AR-016 ETF defensive rotation may retain positive Sharpe with lower turnover using monthly/cost-aware rules.
+falsifier: Median random-period Sharpe <= 0 after documented/applied costs, severe lower-tail drawdowns, or high redundancy.
+research_only: true
+qfa_compatible: true
+trading_performed: false
+allowed_artifact_scope: models/xsec-etf-defensive-rotation-costmonthly-v1

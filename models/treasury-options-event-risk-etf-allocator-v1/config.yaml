@@ -1,0 +1,72 @@
+model_name: treasury-options-event-risk-etf-allocator-v1
+research_issue: AR-100
+family: option_implied_event_risk_proxy
+horizon: daily
+rebalance: daily
+holding_period: 1d
+universe:
+  candidate_pool_description: Liquid event-sensitive ETFs selected ex ante across Treasury duration, cash-like bills, credit, real assets, equities, defensive/cyclical sectors, and volatility proxies.
+  candidate_pool_size: 27
+  selected_symbols:
+    - BIL
+    - SHV
+    - SHY
+    - IEI
+    - IEF
+    - TLH
+    - TLT
+    - AGG
+    - LQD
+    - HYG
+    - EMB
+    - GLD
+    - SLV
+    - DBC
+    - USO
+    - SPY
+    - QQQ
+    - IWM
+    - DIA
+    - XLU
+    - XLP
+    - XLV
+    - XLE
+    - XLF
+    - XLK
+    - XLI
+    - VIXY
+  selected_universe_size: 27
+  selection_filters:
+    - qfa real-data availability
+    - liquidity
+    - economic exposure to rate and scheduled macro-event risk
+    - history through multiple Fed/inflation regimes
+    - no ex-post return selection
+parameters:
+  min_history_days: 150
+  fast_lookback_days: 5
+  medium_lookback_days: 21
+  slow_lookback_days: 63
+  long_lookback_days: 126
+  max_single_position_weight: 0.35
+  calendar_gate:
+    payroll_days: first_8_calendar_days
+    inflation_days: calendar_days_8_to_15
+    fomc_months: [1, 3, 5, 6, 7, 9, 11, 12]
+    fomc_day_range: calendar_days_14_to_23
+risk:
+  gross_exposure: 1.0
+  long_only: true
+  leverage: false
+  cash_like_fallback: [BIL, SHV, SHY]
+costs:
+  turnover_cost_bps_tested: [5, 10, 20]
+  model: one_way_turnover_bps_proxy
+execution_constraints:
+  no_daemon: true
+  no_orders: true
+  no_csv_used: true
+  no_data_csv_argument_used: true
+artifact_policy:
+  raw_daily_paths_retained: false
+  compact_artifact_note: Daily returns, weights, raw market data, and temporary DB files are not retained.

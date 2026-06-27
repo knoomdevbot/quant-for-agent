@@ -1,0 +1,38 @@
+model_name: stress-gap-reversal-etf-v1
+issue_id: AR-026
+family: stress_reversal
+type: divergent
+parent_alpha: AR-008
+status: evaluated_rejected
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+data_source: Alpaca real market data via qfa/AlpacaGateway; no CSV
+research_horizon: same_day_open_to_close stress-gap reversal, plus 1d/3d diagnostics
+qfa_model_horizon: lagged_daily_close_to_close_proxy
+parameters:
+  gap_z_window: 60
+  stress_z: -1.0
+  stress_gap_bps: -50.0
+  confirm_count: 2
+  max_abs_weight: 0.35
+  min_periods: 63
+random_window_protocol:
+  windows: 10
+  window_trading_days: 126
+  seed: 26026
+costs_slippage:
+  qfa_cli_costs_applied: false
+  research_harness_costs_applied: true
+  per_side_cost_bps: 5
+  round_trip_bps: 10
+  caveat: qfa current daily backtest CLI has no explicit transaction-cost/slippage parameter; direct Alpaca OHLC harness applies simple entry+exit bps to gross exposure.
+constraints:
+  no_data_csv: true
+  no_daemon: true
+  no_trades: true

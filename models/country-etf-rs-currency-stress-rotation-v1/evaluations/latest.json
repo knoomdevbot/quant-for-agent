@@ -1,0 +1,850 @@
+{
+  "alpha_id": "AR-112",
+  "artifact_paths": {
+    "config_path": "models/country-etf-rs-currency-stress-rotation-v1/config.yaml",
+    "latest_json_path": "models/country-etf-rs-currency-stress-rotation-v1/evaluations/latest.json",
+    "latest_md_path": "models/country-etf-rs-currency-stress-rotation-v1/evaluations/latest.md",
+    "metadata_path": "models/country-etf-rs-currency-stress-rotation-v1/metadata.yaml",
+    "model_path": "models/country-etf-rs-currency-stress-rotation-v1/model.py",
+    "readme_path": "models/country-etf-rs-currency-stress-rotation-v1/README.md",
+    "run_json_path": "models/country-etf-rs-currency-stress-rotation-v1/evaluations/runs/ar112_qfa_alpaca_real_20260626T204848Z.json"
+  },
+  "backtest": {
+    "engine": "custom vectorized research evaluator using qfa AlpacaGateway bars in memory; no qfa daemon; no orders",
+    "primary_cost_bps": 10,
+    "random_stress_windows": [
+      {
+        "cost": "10bps",
+        "end": "2020-12-31",
+        "metrics": {
+          "annualized_return": 0.0,
+          "annualized_volatility": 0.0,
+          "max_drawdown": 0.0,
+          "periods": 111,
+          "sharpe": 0.0,
+          "total_return": 0.0,
+          "win_rate": 0.0
+        },
+        "name": "covid_crash_recovery",
+        "start": "2020-02-03"
+      },
+      {
+        "cost": "10bps",
+        "end": "2022-12-30",
+        "metrics": {
+          "annualized_return": -0.16488551,
+          "annualized_volatility": 0.12246374,
+          "max_drawdown": -0.20406141,
+          "periods": 251,
+          "sharpe": -1.40977027,
+          "total_return": -0.16428817,
+          "win_rate": 0.39442231
+        },
+        "name": "usd_inflation_2022",
+        "start": "2022-01-03"
+      },
+      {
+        "cost": "10bps",
+        "end": "2026-06-24",
+        "metrics": {
+          "annualized_return": 0.11935378,
+          "annualized_volatility": 0.15610115,
+          "max_drawdown": -0.13094469,
+          "periods": 620,
+          "sharpe": 0.80083632,
+          "total_return": 0.31970017,
+          "win_rate": 0.55483871
+        },
+        "name": "recent_2024_2026",
+        "start": "2024-01-02"
+      },
+      {
+        "cost": "10bps",
+        "end": "2025-12-17",
+        "metrics": {
+          "annualized_return": 0.07874897,
+          "annualized_volatility": 0.14633309,
+          "max_drawdown": -0.13094469,
+          "periods": 505,
+          "sharpe": 0.59156789,
+          "total_return": 0.16404944,
+          "win_rate": 0.55049505
+        },
+        "name": "random_seed112_01",
+        "start": "2023-12-13"
+      },
+      {
+        "cost": "10bps",
+        "end": "2025-11-10",
+        "metrics": {
+          "annualized_return": 0.12898559,
+          "annualized_volatility": 0.15124292,
+          "max_drawdown": -0.13094469,
+          "periods": 379,
+          "sharpe": 0.87816359,
+          "total_return": 0.200167,
+          "win_rate": 0.55936675
+        },
+        "name": "random_seed112_02",
+        "start": "2024-05-08"
+      },
+      {
+        "cost": "10bps",
+        "end": "2025-08-20",
+        "metrics": {
+          "annualized_return": 0.07252477,
+          "annualized_volatility": 0.13751815,
+          "max_drawdown": -0.13094469,
+          "periods": 505,
+          "sharpe": 0.5782554,
+          "total_return": 0.15062902,
+          "win_rate": 0.52871287
+        },
+        "name": "random_seed112_03",
+        "start": "2023-08-16"
+      },
+      {
+        "cost": "10bps",
+        "end": "2024-10-08",
+        "metrics": {
+          "annualized_return": 0.01363688,
+          "annualized_volatility": 0.13069453,
+          "max_drawdown": -0.08446806,
+          "periods": 316,
+          "sharpe": 0.16954269,
+          "total_return": 0.01712972,
+          "win_rate": 0.51582278
+        },
+        "name": "random_seed112_04",
+        "start": "2023-07-10"
+      },
+      {
+        "cost": "10bps",
+        "end": "2026-02-10",
+        "metrics": {
+          "annualized_return": 0.23512932,
+          "annualized_volatility": 0.15389183,
+          "max_drawdown": -0.12171661,
+          "periods": 316,
+          "sharpe": 1.44964631,
+          "total_return": 0.30318021,
+          "win_rate": 0.57911392
+        },
+        "name": "random_seed112_05",
+        "start": "2024-11-05"
+      },
+      {
+        "cost": "10bps",
+        "end": "2022-09-02",
+        "metrics": {
+          "annualized_return": -0.05566346,
+          "annualized_volatility": 0.11217226,
+          "max_drawdown": -0.18576208,
+          "periods": 505,
+          "sharpe": -0.45444026,
+          "total_return": -0.10843114,
+          "win_rate": 0.37227723
+        },
+        "name": "random_seed112_06",
+        "start": "2020-09-02"
+      },
+      {
+        "cost": "10bps",
+        "end": "2024-12-27",
+        "metrics": {
+          "annualized_return": 0.03828616,
+          "annualized_volatility": 0.13372976,
+          "max_drawdown": -0.1183039,
+          "periods": 505,
+          "sharpe": 0.34818528,
+          "total_return": 0.07819889,
+          "win_rate": 0.50693069
+        },
+        "name": "random_seed112_07",
+        "start": "2022-12-23"
+      },
+      {
+        "cost": "10bps",
+        "end": "2025-07-16",
+        "metrics": {
+          "annualized_return": 0.06967258,
+          "annualized_volatility": 0.15073742,
+          "max_drawdown": -0.13094469,
+          "periods": 316,
+          "sharpe": 0.52247093,
+          "total_return": 0.08812717,
+          "win_rate": 0.54746835
+        },
+        "name": "random_seed112_08",
+        "start": "2024-04-11"
+      },
+      {
+        "cost": "10bps",
+        "end": "2023-08-22",
+        "metrics": {
+          "annualized_return": -0.02235016,
+          "annualized_volatility": 0.12744816,
+          "max_drawdown": -0.21862602,
+          "periods": 505,
+          "sharpe": -0.11366382,
+          "total_return": -0.04428651,
+          "win_rate": 0.46732673
+        },
+        "name": "random_seed112_09",
+        "start": "2021-08-19"
+      }
+    ],
+    "random_window_summary_10bps": {
+      "count": 12,
+      "median_sharpe": 0.4353281,
+      "p25_sharpe": -0.02841595,
+      "positive_window_rate": 0.66666667,
+      "worst_sharpe": -1.40977027
+    },
+    "run_id": "ar112_qfa_alpaca_real_20260626T204848Z",
+    "run_json_path": "models/country-etf-rs-currency-stress-rotation-v1/evaluations/runs/ar112_qfa_alpaca_real_20260626T204848Z.json"
+  },
+  "config_path": "models/country-etf-rs-currency-stress-rotation-v1/config.yaml",
+  "decision_rationale": "Rejected: 10 bps median random/stress-window Sharpe is positive and the hard 0.60 correlation gate narrowly passes, but robustness and incrementality are not strong enough for watchlist. The 2022 USD/inflation stress window is sharply negative, p25 Sharpe is only slightly below zero, worst-window Sharpe is deeply negative, and correlations to in-run AR-015-style TSMOM and AR-039/051-style defensive proxies are close to the hard gate while both proxies have materially higher 10 bps Sharpe. Diagnostics therefore suggest mostly generic ETF momentum/risk-on beta, not enough incremental country/currency content.",
+  "diagnostics": {
+    "acceptance_threshold_check": {
+      "corr_hard_gate_pass": true,
+      "p25_near_or_above_zero": true,
+      "positive_10bps_median_random_window_sharpe": true,
+      "preferred_corr_gate_pass": false,
+      "selected_universe_min_10_pass": true
+    },
+    "component_readout": "Pure country RS, USD-only, commodity-only, no-drawdown, monthly, broad TSMOM proxy, and defensive proxy diagnostics were evaluated at 10 bps. Main did not materially improve over generic broad ETF TSMOM and had weaker robustness."
+  },
+  "holding_period": "Weekly rebalance / next-day execution using strictly lagged daily features; monthly variant diagnostic included.",
+  "issue_id": "AR-112",
+  "metadata_path": "models/country-etf-rs-currency-stress-rotation-v1/metadata.yaml",
+  "metrics": {
+    "ablations": {
+      "ar015_style_broad_etf_tsmom_proxy": {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.10123374,
+            "annualized_volatility": 0.10900485,
+            "max_drawdown": -0.09878076,
+            "periods": 1484,
+            "sharpe": 0.93943994,
+            "total_return": 0.76450856,
+            "win_rate": 0.51078167
+          }
+        },
+        "label": "ar015_style_broad_etf_tsmom_proxy",
+        "pre_cost_metrics": {
+          "annualized_return": 0.10736691,
+          "annualized_volatility": 0.10903277,
+          "max_drawdown": -0.09750354,
+          "periods": 1484,
+          "sharpe": 0.99018428,
+          "total_return": 0.82317337,
+          "win_rate": 0.51145553
+        },
+        "turnover": {
+          "annualized_one_way": 5.55902634,
+          "average_daily_one_way": 0.02205963
+        }
+      },
+      "ar039_051_style_defensive_rotation_proxy": {
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.12453079,
+            "annualized_volatility": 0.10765384,
+            "max_drawdown": -0.12239067,
+            "periods": 1484,
+            "sharpe": 1.14428542,
+            "total_return": 0.99601883,
+            "win_rate": 0.5
+          }
+        },
+        "label": "ar039_051_style_defensive_rotation_proxy",
+        "pre_cost_metrics": {
+          "annualized_return": 0.13036792,
+          "annualized_volatility": 0.10765053,
+          "max_drawdown": -0.12151807,
+          "periods": 1484,
+          "sharpe": 1.19243229,
+          "total_return": 1.05781165,
+          "win_rate": 0.5
+        },
+        "turnover": {
+          "annualized_one_way": 5.17924528,
+          "average_daily_one_way": 0.02055256
+        }
+      },
+      "commodity_context_only": {
+        "activation_rate": 0.88544474,
+        "avg_gross_exposure": 0.88544474,
+        "avg_positions_when_active": 4.0,
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.03284259,
+            "annualized_volatility": 0.15934301,
+            "max_drawdown": -0.35115263,
+            "periods": 1484,
+            "sharpe": 0.28274377,
+            "total_return": 0.20961029,
+            "win_rate": 0.47439353
+          },
+          "5bps": {
+            "annualized_return": 0.03808117,
+            "annualized_volatility": 0.15933791,
+            "max_drawdown": -0.3483278,
+            "periods": 1484,
+            "sharpe": 0.31450231,
+            "total_return": 0.24619042,
+            "win_rate": 0.47506739
+          }
+        },
+        "end": "2026-06-23",
+        "label": "commodity_context_only",
+        "pre_cost_metrics": {
+          "annualized_return": 0.04334535,
+          "annualized_volatility": 0.15933805,
+          "max_drawdown": -0.34549127,
+          "periods": 1484,
+          "sharpe": 0.34625149,
+          "total_return": 0.2838697,
+          "win_rate": 0.47574124
+        },
+        "rebalance": "weekly",
+        "start": "2020-07-27",
+        "top_n": 4,
+        "top_weighted_symbols": {
+          "EWC": 176.5596,
+          "EWG": 99.548,
+          "EWL": 97.8222,
+          "EWQ": 80.3363,
+          "EWS": 88.9254,
+          "EWT": 84.4567,
+          "EWW": 103.4518,
+          "INDA": 145.8746
+        },
+        "turnover": {
+          "annualized_one_way": 10.11779389,
+          "average_daily_one_way": 0.04014998,
+          "total_one_way": 59.58256401
+        },
+        "variant": "commodity"
+      },
+      "monthly_rebalance_main": {
+        "activation_rate": 0.86927224,
+        "avg_gross_exposure": 0.7608996,
+        "avg_positions_when_active": 4.0,
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.04930713,
+            "annualized_volatility": 0.13701966,
+            "max_drawdown": -0.23852966,
+            "periods": 1484,
+            "sharpe": 0.42001008,
+            "total_return": 0.32767941,
+            "win_rate": 0.47237197
+          },
+          "5bps": {
+            "annualized_return": 0.05145484,
+            "annualized_volatility": 0.13703945,
+            "max_drawdown": -0.23687199,
+            "periods": 1484,
+            "sharpe": 0.43489159,
+            "total_return": 0.34376266,
+            "win_rate": 0.47237197
+          }
+        },
+        "end": "2026-06-23",
+        "label": "monthly_rebalance_main",
+        "pre_cost_metrics": {
+          "annualized_return": 0.05360645,
+          "annualized_volatility": 0.13706259,
+          "max_drawdown": -0.23521101,
+          "periods": 1484,
+          "sharpe": 0.44975781,
+          "total_return": 0.36003695,
+          "win_rate": 0.47304582
+        },
+        "rebalance": "monthly",
+        "start": "2020-07-27",
+        "top_n": 4,
+        "top_weighted_symbols": {
+          "EWC": 148.707,
+          "EWG": 87.1957,
+          "EWL": 101.9282,
+          "EWS": 85.9611,
+          "EWT": 67.2173,
+          "EWU": 64.5035,
+          "EWW": 75.3948,
+          "INDA": 124.2027
+        },
+        "turnover": {
+          "annualized_one_way": 4.09533044,
+          "average_daily_one_way": 0.01625131,
+          "total_one_way": 24.11694591
+        },
+        "variant": "main"
+      },
+      "no_drawdown_brake": {
+        "activation_rate": 0.88881402,
+        "avg_gross_exposure": 0.78402965,
+        "avg_positions_when_active": 4.0,
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.05554163,
+            "annualized_volatility": 0.14189808,
+            "max_drawdown": -0.21961238,
+            "periods": 1484,
+            "sharpe": 0.45222979,
+            "total_return": 0.37481361,
+            "win_rate": 0.47371968
+          },
+          "5bps": {
+            "annualized_return": 0.06047983,
+            "annualized_volatility": 0.14191444,
+            "max_drawdown": -0.21542364,
+            "periods": 1484,
+            "sharpe": 0.48508902,
+            "total_return": 0.41312595,
+            "win_rate": 0.47439353
+          }
+        },
+        "end": "2026-06-23",
+        "label": "no_drawdown_brake",
+        "pre_cost_metrics": {
+          "annualized_return": 0.06544027,
+          "annualized_volatility": 0.14193586,
+          "max_drawdown": -0.21121298,
+          "periods": 1484,
+          "sharpe": 0.51792222,
+          "total_return": 0.45249908,
+          "win_rate": 0.47574124
+        },
+        "rebalance": "weekly",
+        "start": "2020-07-27",
+        "top_n": 4,
+        "top_weighted_symbols": {
+          "EWC": 164.2275,
+          "EWG": 86.5915,
+          "EWL": 90.9941,
+          "EWQ": 72.6679,
+          "EWS": 82.0998,
+          "EWT": 75.8258,
+          "EWW": 82.0951,
+          "INDA": 126.6755
+        },
+        "turnover": {
+          "annualized_one_way": 9.34119586,
+          "average_daily_one_way": 0.03706824,
+          "total_one_way": 55.00926449
+        },
+        "variant": "no_dd"
+      },
+      "pure_country_relative_strength": {
+        "activation_rate": 0.88544474,
+        "avg_gross_exposure": 0.88544474,
+        "avg_positions_when_active": 4.0,
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.04005349,
+            "annualized_volatility": 0.16497339,
+            "max_drawdown": -0.34693623,
+            "periods": 1484,
+            "sharpe": 0.32086167,
+            "total_return": 0.26019858,
+            "win_rate": 0.47304582
+          },
+          "5bps": {
+            "annualized_return": 0.04530106,
+            "annualized_volatility": 0.16497458,
+            "max_drawdown": -0.34408736,
+            "periods": 1484,
+            "sharpe": 0.35137076,
+            "total_return": 0.29810674,
+            "win_rate": 0.47371968
+          }
+        },
+        "end": "2026-06-23",
+        "label": "pure_country_relative_strength",
+        "pre_cost_metrics": {
+          "annualized_return": 0.05057412,
+          "annualized_volatility": 0.16498081,
+          "max_drawdown": -0.34122673,
+          "periods": 1484,
+          "sharpe": 0.38186774,
+          "total_return": 0.33714789,
+          "win_rate": 0.47439353
+        },
+        "rebalance": "weekly",
+        "start": "2020-07-27",
+        "top_n": 4,
+        "top_weighted_symbols": {
+          "EWC": 165.2253,
+          "EWG": 94.5806,
+          "EWL": 96.8564,
+          "EWQ": 87.1699,
+          "EWS": 92.1741,
+          "EWT": 85.1089,
+          "EWW": 111.817,
+          "INDA": 150.174
+        },
+        "turnover": {
+          "annualized_one_way": 10.06721123,
+          "average_daily_one_way": 0.03994925,
+          "total_one_way": 59.28468837
+        },
+        "variant": "pure_rs"
+      },
+      "usd_stress_context_only": {
+        "activation_rate": 0.87196765,
+        "avg_gross_exposure": 0.77518531,
+        "avg_positions_when_active": 4.0,
+        "cost_adjusted_metrics": {
+          "10bps": {
+            "annualized_return": 0.0421919,
+            "annualized_volatility": 0.13410789,
+            "max_drawdown": -0.26522583,
+            "periods": 1484,
+            "sharpe": 0.37547553,
+            "total_return": 0.27553378,
+            "win_rate": 0.46428571
+          },
+          "5bps": {
+            "annualized_return": 0.04699295,
+            "annualized_volatility": 0.13410769,
+            "max_drawdown": -0.26089626,
+            "periods": 1484,
+            "sharpe": 0.40975248,
+            "total_return": 0.31052884,
+            "win_rate": 0.46495957
+          }
+        },
+        "end": "2026-06-23",
+        "label": "usd_stress_context_only",
+        "pre_cost_metrics": {
+          "annualized_return": 0.05181535,
+          "annualized_volatility": 0.13411242,
+          "max_drawdown": -0.25654176,
+          "periods": 1484,
+          "sharpe": 0.44401323,
+          "total_return": 0.34647811,
+          "win_rate": 0.46630728
+        },
+        "rebalance": "weekly",
+        "start": "2020-07-27",
+        "top_n": 4,
+        "top_weighted_symbols": {
+          "EWC": 151.2783,
+          "EWG": 90.7662,
+          "EWL": 91.9676,
+          "EWQ": 79.62,
+          "EWS": 81.0112,
+          "EWT": 78.8628,
+          "EWW": 90.6647,
+          "INDA": 131.373
+        },
+        "turnover": {
+          "annualized_one_way": 9.1934581,
+          "average_daily_one_way": 0.03648198,
+          "total_one_way": 54.13925328
+        },
+        "variant": "usd"
+      }
+    },
+    "main": {
+      "activation_rate": 0.88544474,
+      "avg_gross_exposure": 0.78226078,
+      "avg_positions_when_active": 4.0,
+      "cost_adjusted_metrics": {
+        "10bps": {
+          "annualized_return": 0.04783625,
+          "annualized_volatility": 0.13474251,
+          "max_drawdown": -0.22410403,
+          "periods": 1484,
+          "sharpe": 0.41443477,
+          "total_return": 0.31675713,
+          "win_rate": 0.47102426
+        },
+        "5bps": {
+          "annualized_return": 0.05271472,
+          "annualized_volatility": 0.13474905,
+          "max_drawdown": -0.21967993,
+          "periods": 1484,
+          "sharpe": 0.44889797,
+          "total_return": 0.35327234,
+          "win_rate": 0.47169811
+        }
+      },
+      "end": "2026-06-23",
+      "label": "main_currency_stress_commodity_drawdown",
+      "pre_cost_metrics": {
+        "annualized_return": 0.05761509,
+        "annualized_volatility": 0.13476067,
+        "max_drawdown": -0.21523119,
+        "periods": 1484,
+        "sharpe": 0.4833396,
+        "total_return": 0.39079384,
+        "win_rate": 0.47304582
+      },
+      "rebalance": "weekly",
+      "start": "2020-07-27",
+      "top_n": 4,
+      "top_weighted_symbols": {
+        "EWC": 163.5215,
+        "EWG": 90.6825,
+        "EWL": 91.8352,
+        "EWQ": 73.2067,
+        "EWS": 80.9298,
+        "EWT": 75.5604,
+        "EWW": 84.3299,
+        "INDA": 127.8734
+      },
+      "turnover": {
+        "annualized_one_way": 9.29318745,
+        "average_daily_one_way": 0.03687773,
+        "total_one_way": 54.72654831
+      },
+      "variant": "main"
+    }
+  },
+  "model_family": "international_country_rotation",
+  "model_path": "models/country-etf-rs-currency-stress-rotation-v1/model.py",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "notes": [
+    "No CSV or --data-csv used; no raw bars/equity curves/weights retained in repo.",
+    "Credential values were never printed or persisted; Alpaca paper-data access configured via environment with values redacted.",
+    "Rejected rather than watchlist because preferred orthogonality/incrementality and stress-robustness gates fail despite positive median random-window Sharpe."
+  ],
+  "orthogonality": {
+    "comparisons": [
+      {
+        "corr_daily_10bps": 0.59232144,
+        "source": "in-run proxy on same Alpaca bars",
+        "target": "ar015_style_broad_etf_tsmom_proxy"
+      },
+      {
+        "corr_daily_10bps": 0.57967455,
+        "source": "in-run proxy on same Alpaca bars",
+        "target": "ar039_051_style_defensive_rotation_proxy"
+      },
+      {
+        "artifact": "models/tsmom-voltarget-liquid-etf-randomcost-v1/evaluations/latest.json",
+        "corr_daily": 0.06582751,
+        "overlap_days": 499,
+        "source": "existing artifact",
+        "target": "AR-015"
+      },
+      {
+        "artifact": "models/etf-carry-defensive-allocation-v1/evaluations/latest.json",
+        "corr_daily": -0.01909294,
+        "overlap_days": 989,
+        "source": "existing artifact",
+        "target": "AR-037"
+      },
+      {
+        "artifact": "models/etf-carry-defensive-orthogonal-v1/evaluations/latest.json",
+        "corr_daily": -0.0221729,
+        "overlap_days": 989,
+        "source": "existing artifact",
+        "target": "AR-049"
+      },
+      {
+        "artifact": "models/commodity-inflation-shock-etf-rotation-v1/evaluations/latest.json",
+        "corr_daily": null,
+        "note": "no equity_curve retained in artifact",
+        "source": "existing artifact",
+        "target": "AR-097"
+      },
+      {
+        "artifact": "models/crossasset-commodity-inflation-impulse-allocator-v1/evaluations/latest.json",
+        "corr_daily": null,
+        "note": "no equity_curve retained in artifact",
+        "source": "existing artifact",
+        "target": "AR-101"
+      },
+      {
+        "artifact": "models/commodity-etf-realized-skewness-allocator-v1/evaluations/latest.json",
+        "corr_daily": null,
+        "note": "no equity_curve retained in artifact",
+        "source": "existing artifact",
+        "target": "AR-111"
+      },
+      {
+        "artifact": "models/crossasset-real-rate-shock-fade-etf-allocator-v1/evaluations/latest.json",
+        "corr_daily": null,
+        "note": "no equity_curve retained in artifact",
+        "source": "existing artifact",
+        "target": "AR-109"
+      }
+    ],
+    "conclusion": "Hard 0.60 gate narrowly passes, but preferred 0.50 gate fails versus same-data AR-015-style TSMOM and AR-039/051 defensive proxies; existing artifact correlations are low where curves are available.",
+    "hard_gate_max_abs_corr": 0.6,
+    "max_abs_corr_observed": 0.59232144,
+    "preferred_max_abs_corr": 0.5
+  },
+  "parameters": {
+    "costs_bps_one_way": [
+      5,
+      10
+    ],
+    "country_only_long_cash": true,
+    "drawdown_brake_126d": -0.2,
+    "lookbacks_days": [
+      63,
+      126
+    ],
+    "max_gross_exposure": 1.0,
+    "realized_vol_brake": 0.4,
+    "rebalance": "weekly",
+    "top_n": 4,
+    "usd_stress_thresholds": {
+      "hard_stress_uup_63d": 0.06,
+      "uup_126d": 0.05,
+      "uup_63d": 0.03
+    },
+    "vol_window_days": 63
+  },
+  "raw_daily_paths_retained": false,
+  "signal_definition": "Long/cash top-4 country ETF rotation scored by lagged 63d/126d risk-adjusted relative strength, throttled by lagged UUP USD-stress and SPY risk regime, commodity-exporter adjustment from DBC vs GLD, and 126d drawdown/63d realized-vol brakes. Context ETFs are not traded by final model.",
+  "status": "rejected",
+  "timeframe": {
+    "bar_timeframe": "1Day",
+    "data_end": "2026-06-24",
+    "data_start": "2020-07-27",
+    "evaluation_end": "2026-06-23",
+    "evaluation_start": "2020-07-27"
+  },
+  "universe": {
+    "availability_counts": {
+      "DBC": 1484,
+      "EEM": 1485,
+      "EFA": 1485,
+      "EWA": 1485,
+      "EWC": 1485,
+      "EWG": 1485,
+      "EWH": 1486,
+      "EWJ": 1485,
+      "EWL": 1485,
+      "EWQ": 1485,
+      "EWS": 1485,
+      "EWT": 1485,
+      "EWU": 1485,
+      "EWW": 1485,
+      "EWY": 1485,
+      "EWZ": 1485,
+      "EZA": 1480,
+      "FXI": 1485,
+      "GLD": 1485,
+      "INDA": 1485,
+      "MCHI": 1485,
+      "SPY": 1486,
+      "UUP": 1481
+    },
+    "candidate_pool_description": "19 broad international/country/region equity ETFs; UUP/GLD/DBC/SPY used only as context/risk controls.",
+    "candidate_pool_size": 19,
+    "candidate_symbols": [
+      "EFA",
+      "EEM",
+      "EWJ",
+      "EWU",
+      "EWG",
+      "EWQ",
+      "EWL",
+      "EWC",
+      "EWA",
+      "EWH",
+      "EWT",
+      "EWS",
+      "EWY",
+      "EWW",
+      "INDA",
+      "FXI",
+      "MCHI",
+      "EWZ",
+      "EZA"
+    ],
+    "first_bar": {
+      "DBC": "2020-07-27 04:00:00+00:00",
+      "EEM": "2020-07-27 04:00:00+00:00",
+      "EFA": "2020-07-27 04:00:00+00:00",
+      "EWA": "2020-07-27 04:00:00+00:00",
+      "EWC": "2020-07-27 04:00:00+00:00",
+      "EWG": "2020-07-27 04:00:00+00:00",
+      "EWH": "2019-08-14 04:00:00+00:00",
+      "EWJ": "2020-07-27 04:00:00+00:00",
+      "EWL": "2020-07-27 04:00:00+00:00",
+      "EWQ": "2020-07-27 04:00:00+00:00",
+      "EWS": "2020-07-27 04:00:00+00:00",
+      "EWT": "2020-07-27 04:00:00+00:00",
+      "EWU": "2020-07-27 04:00:00+00:00",
+      "EWW": "2020-07-27 04:00:00+00:00",
+      "EWY": "2020-07-27 04:00:00+00:00",
+      "EWZ": "2020-07-27 04:00:00+00:00",
+      "EZA": "2020-07-27 04:00:00+00:00",
+      "FXI": "2020-07-27 04:00:00+00:00",
+      "GLD": "2020-07-27 04:00:00+00:00",
+      "INDA": "2020-07-27 04:00:00+00:00",
+      "MCHI": "2020-07-27 04:00:00+00:00",
+      "SPY": "2018-11-01 04:00:00+00:00",
+      "UUP": "2020-07-27 04:00:00+00:00"
+    },
+    "last_bar": {
+      "DBC": "2026-06-24 04:00:00+00:00",
+      "EEM": "2026-06-24 04:00:00+00:00",
+      "EFA": "2026-06-24 04:00:00+00:00",
+      "EWA": "2026-06-24 04:00:00+00:00",
+      "EWC": "2026-06-24 04:00:00+00:00",
+      "EWG": "2026-06-24 04:00:00+00:00",
+      "EWH": "2026-06-24 04:00:00+00:00",
+      "EWJ": "2026-06-24 04:00:00+00:00",
+      "EWL": "2026-06-24 04:00:00+00:00",
+      "EWQ": "2026-06-24 04:00:00+00:00",
+      "EWS": "2026-06-24 04:00:00+00:00",
+      "EWT": "2026-06-24 04:00:00+00:00",
+      "EWU": "2026-06-24 04:00:00+00:00",
+      "EWW": "2026-06-24 04:00:00+00:00",
+      "EWY": "2026-06-24 04:00:00+00:00",
+      "EWZ": "2026-06-24 04:00:00+00:00",
+      "EZA": "2026-06-24 04:00:00+00:00",
+      "FXI": "2026-06-24 04:00:00+00:00",
+      "GLD": "2026-06-24 04:00:00+00:00",
+      "INDA": "2026-06-24 04:00:00+00:00",
+      "MCHI": "2026-06-24 04:00:00+00:00",
+      "SPY": "2026-06-24 04:00:00+00:00",
+      "UUP": "2026-06-24 04:00:00+00:00"
+    },
+    "limitations": "Alpaca IEX returned history beginning 2018-11 for this credential/feed, so 2018 full-year random windows could not be evaluated; dollar-volume statistics are not retained to keep artifacts compact.",
+    "selected_symbols": [
+      "EFA",
+      "EEM",
+      "EWJ",
+      "EWU",
+      "EWG",
+      "EWQ",
+      "EWL",
+      "EWC",
+      "EWA",
+      "EWH",
+      "EWT",
+      "EWS",
+      "EWY",
+      "EWW",
+      "INDA",
+      "FXI",
+      "MCHI",
+      "EWZ",
+      "EZA"
+    ],
+    "selected_universe_size": 19,
+    "selection_filters": {
+      "data_source": "Alpaca real daily bars via qfa AlpacaGateway; credentials configured for paper-data access with values redacted",
+      "liquidity_proxy": "daily volume availability checked; no performance screen used",
+      "min_daily_bars": 1400,
+      "must_have_recent_bar_on_or_after": "2026-06-20"
+    },
+    "selection_rationale": "All 19 candidate country/region ETFs had sufficient Alpaca IEX daily bars from 2018-11 onward and recent observations, satisfying the >=10 ETF requirement before performance evaluation."
+  }
+}

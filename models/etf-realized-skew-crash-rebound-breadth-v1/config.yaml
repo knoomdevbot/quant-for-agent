@@ -1,0 +1,36 @@
+issue_id: AR-071
+model_name: etf-realized-skew-crash-rebound-breadth-v1
+version: 1
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLV
+  - XLY
+  - XLE
+  - XLU
+  - XLP
+  - TLT
+  - IEF
+  - GLD
+  - HYG
+  - LQD
+  - SHY
+data_source: Alpaca/qfa real market data only
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+parameters:
+  skew_window: 63
+  fast_skew_window: 21
+  crash_threshold_sigma: 1.5
+  holding_days: 5
+  rebound_lookback: 3
+  reversal_lookback: 5
+  single_name_cap: 0.28
+  max_gross: 1.0
+costs_slippage:
+  external_one_way_bps_primary: 10
+  external_one_way_bps_secondary: 5
+  method: replay target weights and subtract turnover * bps / 10000 from daily returns

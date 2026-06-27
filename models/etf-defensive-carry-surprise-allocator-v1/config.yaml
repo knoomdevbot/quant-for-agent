@@ -1,0 +1,29 @@
+issue_id: AR-067
+model_name: etf-defensive-carry-surprise-allocator-v1
+family: defensive_carry_surprise
+version: 1
+data_source: Alpaca/qfa real daily OHLCV
+universe: [SPY, QQQ, IWM, TLT, IEF, SHY, GLD, XLU, XLE]
+timeframe: 1Day
+parameters:
+  return_windows: [20, 60]
+  downside_vol_windows: [20, 60]
+  equity_drawdown_window: 80
+  max_defensive_budget: 0.90
+  max_single_etf_weight: 0.35
+  rebalance_weekday: Wednesday
+risk_controls:
+  long_only: true
+  max_gross_exposure: 1.0
+  turnover_brake: weekly rebalance anchor
+  no_live_trading: true
+evaluation:
+  costs_one_way_bps: [5]
+  qfa_native_costs_applied: false
+  random_windows_target: 6
+  random_window_trading_days: 378
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

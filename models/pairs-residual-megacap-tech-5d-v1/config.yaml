@@ -1,0 +1,52 @@
+model_name: pairs-residual-megacap-tech-5d-v1
+issue_id: AR-005
+family: stat_arb
+status: real_data_evaluated_watchlist
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+timeframe: 1Day
+signal:
+  type: residual_pair_mean_reversion
+  pair_basket: all_pair_combinations_within_universe
+  formation_window: 126
+  z_window: 60
+  entry_z: 1.5
+  exit_z: 0.5
+  rebalance: daily
+position_sizing:
+  gross_exposure: 1.0
+  long_short: true
+  score_transform: aggregate_pair_residual_zscore_demeaned
+  max_abs_weight: 0.25
+  min_symbols: 4
+risk:
+  live_trading: prohibited
+  order_placement: none
+  concentration_cap_abs_weight: 0.25
+evaluation:
+  latest_status: completed_real_data_backtest
+  latest_data_source: alpaca_market_data_no_data_csv
+  latest_period_start: 2024-01-01
+  latest_period_end: 2025-12-31
+  latest_run_json: evaluations/runs/qfa_realdata_20240101_20251231_run2.json
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  qfa_db_path: evaluations/qfa_realdata.sqlite
+  qfa_run_id: 2
+  metrics_pre_cost:
+    final_equity: 114929.2225
+    total_return: 0.14929222
+    annualized_return: 0.07264733
+    annualized_volatility: 0.13752122
+    sharpe: 0.57877812
+    max_drawdown: -0.13227204
+    win_rate: 0.346
+    periods: 500
+  cost_assumption_bps: 5
+  cost_assumption_status: documented_not_applied_current_qfa_backtest_cli_has_no_cost_parameter
+suggested_decision: watchlist_refine_not_accept_for_live_trading

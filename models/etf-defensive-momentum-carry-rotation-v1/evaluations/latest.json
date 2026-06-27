@@ -1,0 +1,141 @@
+{
+  "artifacts": {
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/etf-defensive-momentum-carry-rotation-v1/evaluations/runs/ar059_qfa_alpaca_real_20260626T112909Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/etf-defensive-momentum-carry-rotation-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/etf-defensive-momentum-carry-rotation-v1/evaluations/latest.md"
+  },
+  "bad_result_policy": {
+    "divergent_child_if_rejected": {
+      "mechanism": "event-timing around scheduled macro announcement gap risk rather than slow ETF momentum/carry rotation",
+      "title": "ETF macro announcement gap-risk allocator"
+    },
+    "rejected_policy_followed": true
+  },
+  "costs_slippage": {
+    "external_turnover_haircut_applied": true,
+    "method": "daily target-weight one-way turnover times 5 bps subtracted from close-to-close return",
+    "one_way_bps": 5.0,
+    "qfa_native_costs_applied": false
+  },
+  "created_at_utc": "2026-06-26T11:29:09Z",
+  "data_source": "Alpaca real market data via qfa/AlpacaGateway only",
+  "date_range": {
+    "primary_end": "2025-12-31",
+    "primary_start": "2024-01-01",
+    "random_stress_data_end": "2025-12-31",
+    "random_stress_data_start": "2019-01-01",
+    "timeframe": "1Day"
+  },
+  "db_artifact_retained": false,
+  "decision_reason": "Rejected: retained-curve orthogonality check failed due to high correlation with ETF carry/defensive allocation watchlist stream (corr 0.7545773 vs AR-037), triggering AR-059 falsifier despite positive median random-window Sharpe.",
+  "evaluation_status": "completed_real_data_backtest",
+  "issue_id": "AR-059",
+  "metrics": {
+    "median_random_window_sharpe_after_cost": 0.65170638,
+    "p25_random_window_sharpe_after_cost": -0.4840311,
+    "positive_window_rate": 0.66666667,
+    "primary_drawdown": -0.10615933,
+    "primary_external_cost_adjusted_5bps_one_way": {
+      "annualized_return": 0.07793046,
+      "annualized_volatility": 0.09787223,
+      "final_equity": 116055.0862,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.10615933,
+      "periods": 500,
+      "sharpe": 0.81565891,
+      "total_return": 0.16055086,
+      "win_rate": 0.404
+    },
+    "primary_qfa_pre_cost": {
+      "annualized_return": 0.08160931,
+      "annualized_volatility": 0.09786995,
+      "final_equity": 116842.2832,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.10556519,
+      "periods": 500,
+      "sharpe": 0.85049833,
+      "total_return": 0.16842283,
+      "win_rate": 0.41
+    },
+    "primary_turnover_proxy": {
+      "active_day_fraction": 0.714,
+      "annualized_turnover_proxy": 6.81574498,
+      "max_daily_one_way_turnover": 1.0,
+      "mean_daily_one_way_turnover": 0.02704661,
+      "mean_gross_exposure": 0.714,
+      "median_daily_one_way_turnover": 0.0
+    },
+    "random_stress_summary": {
+      "count": 12,
+      "median_mean_daily_turnover": 0.01787984,
+      "median_sharpe": 0.65170638,
+      "p25_sharpe": -0.4840311,
+      "positive_window_rate": 0.66666667,
+      "worst_max_drawdown": -0.17871854,
+      "worst_sharpe": -1.00691431
+    },
+    "worst_random_window_drawdown_after_cost": -0.17871854,
+    "worst_random_window_sharpe_after_cost": -1.00691431
+  },
+  "model_name": "etf-defensive-momentum-carry-rotation-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "correlations": [
+      {
+        "correlation": 0.7545773,
+        "overlap_periods": 488,
+        "path": "/Users/moonk/quant-for-agent/models/etf-carry-defensive-allocation-v1/evaluations/runs/ar037_qfa_alpaca_real_20260626T083545Z.json"
+      },
+      {
+        "correlation": 0.3018837,
+        "overlap_periods": 488,
+        "path": "/Users/moonk/quant-for-agent/models/etf-carry-defensive-orthogonal-v1/evaluations/runs/ar049_qfa_alpaca_real_20260626T102842Z.json"
+      },
+      {
+        "correlation": 0.04479499,
+        "overlap_periods": 499,
+        "path": "/Users/moonk/quant-for-agent/models/closing-volume-reversal-orthogonalized-megacap-v1/evaluations/runs/ar056_qfa_alpaca_real_20260626T111336Z.json"
+      }
+    ],
+    "method": "Pearson correlation of overlapping daily equity returns from retained model run JSON artifacts",
+    "status": "high_correlation_failed"
+  },
+  "orthogonality_status": "high_correlation_failed",
+  "qfa_run_ids": {
+    "primary_cli_store_id": 1,
+    "primary_direct_qfa_engine": "direct_python_qfa_engine_primary",
+    "random_stress_direct_qfa_engine_windows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "sanitized_command_prose": "Credentials sourced from profile secret file (redacted); qfa backtest run model.py with configured symbols, requested date window, timeframe 1Day, initial cash 100000, and a temporary SQLite DB.",
+  "suggested_decision": "rejected",
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "TLT",
+    "GLD",
+    "HYG",
+    "LQD",
+    "XLU"
+  ],
+  "warnings": [
+    "qfa CLI has no native cost/slippage flag observed; 5 bps one-way costs applied externally.",
+    "Daily close-to-close backtest omits intraday fill timing, spread, and market impact."
+  ]
+}

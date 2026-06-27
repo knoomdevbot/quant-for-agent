@@ -1,0 +1,18 @@
+model_name: post-earnings-drift-megacap-v1
+issue_id: AR-024
+parent_issue_id: AR-007
+created_at_utc: '2026-06-26T00:00:00Z'
+family: event_drift
+mechanism: post-earnings-like information diffusion continuation using price/volume event proxy
+orthogonality_note: >
+  Designed to diverge from overnight-gap reversal by excluding overnight gap as
+  a trigger/direction input and waiting until after an abnormal close-to-close
+  information shock.
+earnings_dates_limitation: >
+  Real earnings-calendar dates were not available through qfa/Alpaca in this
+  repository; no earnings dates were fabricated. A documented OHLCV event proxy
+  was used instead.
+evaluation_artifacts:
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  immutable_run_dir: evaluations/runs

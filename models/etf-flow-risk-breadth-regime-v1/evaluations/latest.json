@@ -1,0 +1,248 @@
+{
+  "model_name": "etf-flow-risk-breadth-regime-v1",
+  "issue_id": "AR-022",
+  "parent_issue_id": "AR-006",
+  "evaluation_type": "real_data_qfa_alpaca_backtest_with_random_windows",
+  "created_at_utc": "2026-06-26T08:00:49Z",
+  "hypothesis": "Non-calendar ETF breadth plus abnormal dollar-volume pressure across risk-on versus defensive ETFs can capture allocation pressure independent of month-boundary seasonality.",
+  "data": {
+    "data_source": "Alpaca real market data via qfa AlpacaGateway; no CSV; --data-csv was not used",
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "XLF",
+      "XLY",
+      "XLI",
+      "SMH",
+      "HYG",
+      "TLT",
+      "IEF",
+      "GLD",
+      "XLU",
+      "XLP",
+      "XLV",
+      "LQD",
+      "SHY"
+    ],
+    "start": "2021-01-01",
+    "end": "2025-12-31",
+    "timeframe": "1Day",
+    "equity_curve_points": 1253,
+    "price_adjustment_note": "qfa uses the repository AlpacaGateway stock bars request; no explicit adjusted-price flag is exposed in this repo version."
+  },
+  "parameters": {
+    "risk_on": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "XLF",
+      "XLY",
+      "XLI",
+      "SMH",
+      "HYG"
+    ],
+    "defensive": [
+      "TLT",
+      "IEF",
+      "GLD",
+      "XLU",
+      "XLP",
+      "XLV",
+      "LQD",
+      "SHY"
+    ],
+    "min_periods": 126,
+    "breadth_lookback": 20,
+    "trend_lookback": 63,
+    "volume_lookback": 20,
+    "vol_window": 20,
+    "top_n": 4,
+    "max_abs_weight": 0.35,
+    "target_vol": 0.1,
+    "risk_on_threshold": 0.08,
+    "risk_off_threshold": -0.04
+  },
+  "qfa": {
+    "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run models/etf-flow-risk-breadth-regime-v1/model.py --symbols SPY,QQQ,IWM,XLF,XLY,XLI,SMH,HYG,TLT,IEF,GLD,XLU,XLP,XLV,LQD,SHY --start 2021-01-01 --end 2025-12-31 --db /tmp/qfa-ar022-primary-<pid>.sqlite3",
+    "run_id": 1,
+    "run_json_path": "models/etf-flow-risk-breadth-regime-v1/evaluations/runs/qfa_real_alpaca_ar022_20260626T080049Z.json",
+    "data_source": "Alpaca real market data via qfa AlpacaGateway; no CSV; --data-csv was not used",
+    "trading_performed": false,
+    "daemon_run": false,
+    "db_path_used_during_run": "/tmp/qfa-ar022-primary-<pid>.sqlite3 and /tmp/qfa-ar022-random-<pid>.sqlite3",
+    "db_artifact_retained": false,
+    "db_retention_note": "Temporary SQLite DB files were removed after extracting qfa JSON results; durable artifacts retain compact evaluation JSON/Markdown only.",
+    "random_window_command_template": "same qfa backtest run command with sampled --start/--end values and shared temporary /tmp/qfa-ar022-random-<pid>.sqlite3 DB",
+    "random_window_run_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "metrics": {
+    "annualized_return": -0.01109352,
+    "annualized_volatility": 0.12709744,
+    "final_equity": 94604.2579,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.35107743,
+    "periods": 1253,
+    "sharpe": -0.02423918,
+    "total_return": -0.05395742,
+    "win_rate": 0.47007183
+  },
+  "costs_slippage": {
+    "requested_assumption_bps": 5,
+    "applied_in_qfa": false,
+    "note": "Repository qfa backtester currently has no transaction-cost/slippage/turnover arguments or calculations, so reported metrics are pre-cost. Since gross performance is already negative, adding realistic ETF costs/slippage would only worsen results."
+  },
+  "random_period_protocol": {
+    "attempted": true,
+    "method": "Seven deterministic pseudo-random approximately one-year subwindows sampled across 2021-2025, each run through qfa with Alpaca real market data and no --data-csv.",
+    "window_count": 7,
+    "runs": [
+      {
+        "qfa_run_id": 1,
+        "start": "2021-03-01",
+        "end": "2022-03-01",
+        "metrics": {
+          "annualized_return": -0.02032207,
+          "annualized_volatility": 0.08883194,
+          "final_equity": 97967.7931,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09782321,
+          "periods": 252,
+          "sharpe": -0.18670423,
+          "total_return": -0.02032207,
+          "win_rate": 0.26587302
+        }
+      },
+      {
+        "qfa_run_id": 2,
+        "start": "2021-10-15",
+        "end": "2022-10-14",
+        "metrics": {
+          "annualized_return": -0.2275257,
+          "annualized_volatility": 0.09919231,
+          "final_equity": 77405.862,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.24149829,
+          "periods": 250,
+          "sharpe": -2.551455,
+          "total_return": -0.22594138,
+          "win_rate": 0.228
+        }
+      },
+      {
+        "qfa_run_id": 3,
+        "start": "2022-06-01",
+        "end": "2023-06-01",
+        "metrics": {
+          "annualized_return": 0.00963085,
+          "annualized_volatility": 0.10713483,
+          "final_equity": 100955.4046,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.09056809,
+          "periods": 250,
+          "sharpe": 0.14278971,
+          "total_return": 0.00955405,
+          "win_rate": 0.264
+        }
+      },
+      {
+        "qfa_run_id": 4,
+        "start": "2023-01-17",
+        "end": "2024-01-16",
+        "metrics": {
+          "annualized_return": -0.0810967,
+          "annualized_volatility": 0.07730158,
+          "final_equity": 91982.8949,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.13518446,
+          "periods": 249,
+          "sharpe": -1.05532059,
+          "total_return": -0.08017105,
+          "win_rate": 0.23293173
+        }
+      },
+      {
+        "qfa_run_id": 5,
+        "start": "2023-09-01",
+        "end": "2024-09-03",
+        "metrics": {
+          "annualized_return": 0.00681218,
+          "annualized_volatility": 0.07896589,
+          "final_equity": 100675.7929,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06283168,
+          "periods": 250,
+          "sharpe": 0.1254667,
+          "total_return": 0.00675793,
+          "win_rate": 0.288
+        }
+      },
+      {
+        "qfa_run_id": 6,
+        "start": "2024-06-03",
+        "end": "2025-06-03",
+        "metrics": {
+          "annualized_return": -0.04821107,
+          "annualized_volatility": 0.09018077,
+          "final_equity": 95234.8974,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.07735864,
+          "periods": 249,
+          "sharpe": -0.50273232,
+          "total_return": -0.04765103,
+          "win_rate": 0.23293173
+        }
+      },
+      {
+        "qfa_run_id": 7,
+        "start": "2024-11-01",
+        "end": "2025-12-15",
+        "metrics": {
+          "annualized_return": 0.0411434,
+          "annualized_volatility": 0.09634102,
+          "final_equity": 104548.3531,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.08250408,
+          "periods": 278,
+          "sharpe": 0.4667277,
+          "total_return": 0.04548353,
+          "win_rate": 0.30215827
+        }
+      }
+    ],
+    "median_sharpe": -0.18670423,
+    "min_sharpe": -2.551455,
+    "max_sharpe": 0.4667277,
+    "p25_sharpe": -0.77902646,
+    "positive_sharpe_windows": 3,
+    "positive_window_rate": 0.42857143,
+    "median_total_return": -0.02032207,
+    "worst_max_drawdown": -0.24149829
+  },
+  "orthogonality_checks": {
+    "attempted": true,
+    "comparison": "AR-006 turn-month-liquid-etf-seasonality-v1",
+    "method": "Pearson correlation of daily equity-curve returns over overlapping qfa run timestamps versus retained AR-006 run JSON.",
+    "correlation": 0.27767407,
+    "overlap_periods": 499,
+    "parent_run_json_path": "models/turn-month-liquid-etf-seasonality-v1/evaluations/runs/qfa_real_alpaca_20260626T062022Z.json",
+    "interpretation": "Correlation is only a diagnostic; AR-022 is rejected on standalone and random-window performance regardless of parent overlap."
+  },
+  "decision_rationale": "Rejected: main-window Sharpe is negative and total return is negative; random-window median Sharpe is also negative with only 3/7 positive-Sharpe windows, triggering the AR-022 falsifier. Do not refine, invert, or extend this failed mechanism.",
+  "suggested_decision": "reject_do_not_extend_failed_hypothesis",
+  "refinement_child_idea": null,
+  "divergent_child_idea": null,
+  "warnings": [
+    "Metrics are pre-cost because qfa lacks transaction-cost/slippage support in this repository version.",
+    "No trades were placed and no qfa daemon was run.",
+    "This is research output, not investment advice."
+  ]
+}

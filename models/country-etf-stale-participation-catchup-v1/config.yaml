@@ -1,0 +1,31 @@
+alpha_id: AR-117
+model_name: country-etf-stale-participation-catchup-v1
+data_source: qfa_alpaca_real_daily_ohlcv_only
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+universe:
+  candidate_pool: ['EWJ', 'EWU', 'EWG', 'EWQ', 'EWA', 'EWC', 'EWH', 'EWS', 'EWT', 'EEM', 'FXI', 'INDA', 'EWZ', 'EWW', 'EZA', 'EPI', 'THD', 'TUR', 'ILF', 'VGK', 'FEZ', 'MCHI', 'KWEB', 'EWL', 'EWY', 'EIDO', 'EPOL', 'EWP', 'EWN', 'EWI']
+  selected_symbols: ['EEM', 'FXI', 'EWZ', 'KWEB', 'EWJ', 'MCHI', 'INDA', 'EWY', 'VGK', 'EWT']
+  context_symbols: ['SPY', 'EFA', 'EEM', 'UUP', 'GLD', 'TLT', 'XLU', 'XLP', 'QQQ']
+selection_filters:
+  coverage_2018_2026_min: 0.90
+  median_dollar_volume_2021_2026_min_usd: 4000000
+  first_bar_not_after: '2020-08-31'
+signal:
+  beta_window_days: 63
+  vol_window_days: 20
+  longs: 3
+  shorts: 3
+  gross_exposure: 0.9
+  long_gross_share: 0.55
+  short_gross_share: 0.45
+  min_dollar_volume_usd: 5000000
+evaluation:
+  start: '2018-01-01'
+  end: '2026-06-26'
+  primary_cost_bps: 5
+  stress_cost_bps: [10, 20]
+  random_windows: 60

@@ -1,0 +1,45 @@
+model_name: etf-relief-rally-exhaustion-reversal-v1
+issue_id: AR-073
+family: cross_sectional_reversal
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLE
+  - XLY
+  - XLV
+  - XLP
+  - XLU
+  - TLT
+  - IEF
+  - GLD
+  - HYG
+  - LQD
+  - SHY
+data_source: qfa_alpaca_real_market_data_only
+qfa_contract: generate_signals(context) -> dict[str, float]
+parameters:
+  min_history: 170
+  stress_lookback: 63
+  recovery_lookback: 10
+  short_stretch_window: 21
+  vol_window: 21
+  vol_z_window: 126
+  broad_drawdown_trigger: -0.055
+  recovery_trigger: 0.030
+  risk_def_spread_trigger: 0.018
+  min_relief_breadth: 0.42
+  top_short_n: 3
+  top_long_n: 3
+  max_gross: 1.0
+  net_bias: -0.10
+  single_name_cap: 0.24
+  cash_symbol: SHY
+risk_controls:
+  no_live_trading: true
+  no_daemon: true
+  no_orders: true
+  no_csv: true
+  gross_exposure_cap: 1.0
+  single_name_cap: 0.24
+  external_cost_proxy_bps: [5, 10]

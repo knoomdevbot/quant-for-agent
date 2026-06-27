@@ -1,0 +1,348 @@
+{
+  "costs_slippage": {
+    "applied_externally": true,
+    "applied_natively_in_qfa": false,
+    "method": "Subtract one_way_turnover * 10 bps from replayed daily portfolio returns.",
+    "one_way_cost_bps": 10
+  },
+  "created_at_utc": "2026-06-26T02:08:00Z",
+  "data": {
+    "end": "2025-12-31",
+    "no_csv_used": true,
+    "price_adjustment_note": "qfa AlpacaGateway stock bars request; no explicit adjusted-price flag exposed.",
+    "source": "Alpaca real market data via qfa AlpacaGateway",
+    "start": "2023-01-01",
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "XLV",
+      "XLY",
+      "XLE",
+      "XLU",
+      "XLP",
+      "TLT",
+      "IEF",
+      "GLD"
+    ],
+    "timeframe": "1Day"
+  },
+  "decision_rationale": "Median random-window Sharpe remains positive after 10 bps one-way turnover costs, but lower-tail windows are weak and mechanism remains close to AR-016, so this is watchlist rather than accepted.",
+  "divergent_child_idea": {
+    "rationale": "Genuinely different mechanism using volatility-term-structure/stress premia rather than price momentum-vol ranks.",
+    "title": "ETF option-implied stress carry rotation"
+  },
+  "evaluation_type": "real_data_qfa_alpaca_backtest_with_external_cost_haircut_and_random_windows",
+  "issue_id": "AR-039",
+  "metrics": {
+    "cost_adjusted": {
+      "annualized_return": 0.07849529,
+      "annualized_volatility": 0.12972812,
+      "final_equity": 125219.9054,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.16898362,
+      "periods": 750,
+      "sharpe": 0.64744015,
+      "total_return": 0.25219905,
+      "win_rate": 0.43333333
+    },
+    "pre_cost_qfa": {
+      "annualized_return": 0.08325691,
+      "annualized_volatility": 0.12965275,
+      "final_equity": 126872.4894,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.16791601,
+      "periods": 750,
+      "sharpe": 0.68172794,
+      "total_return": 0.26872489,
+      "win_rate": 0.43333333
+    }
+  },
+  "model_name": "xsec-etf-defensive-rotation-costmonthly-v1",
+  "orthogonality_checks": {
+    "attempted": true,
+    "available_parent_sharpe": 0.98273672,
+    "interpretation": "Mechanism is intentionally similar to AR-016 but lower-frequency/cost-aware; treat redundancy as moderate-to-high until controller can compare full retained return streams.",
+    "parent_compared": "AR-016 xsec-etf-defensive-rotation-v1",
+    "status": "limited_parent_artifact_no_equity_curve"
+  },
+  "parameters": {
+    "max_abs_weight": 0.5,
+    "min_periods": 127,
+    "momentum_lookback": 126,
+    "rebalance": "monthly calendar proxy",
+    "secondary_lookback": 63,
+    "target_vol": 0.1,
+    "top_n": 3,
+    "vol_window": 63
+  },
+  "qfa": {
+    "daemon_run": false,
+    "db_artifact_retained": false,
+    "db_path_used_during_run": "/tmp/qfa_ar039_<pid>.sqlite3",
+    "db_retention_note": "Temporary SQLite DB was removed; no raw data/cache artifacts retained.",
+    "random_window_command_template": "same qfa backtest run command with sampled --start/--end values and temporary /tmp/qfa_ar039_<pid>.sqlite3 DB",
+    "random_window_run_ids": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "run_id": 1,
+    "sanitized_command": "/Users/moonk/quant-for-agent/.venv/bin/qfa backtest run models/xsec-etf-defensive-rotation-costmonthly-v1/model.py --symbols SPY,QQQ,IWM,XLV,XLY,XLE,XLU,XLP,TLT,IEF,GLD --start 2023-01-01 --end 2025-12-31 --db /tmp/qfa_ar039_<pid>.sqlite3",
+    "trading_performed": false
+  },
+  "random_period_protocol": {
+    "attempted": true,
+    "max_cost_adjusted_sharpe": 1.41262918,
+    "median_cost_adjusted_sharpe": 0.73857723,
+    "method": "Six deterministic pseudo-random subwindows across 2023-2025; each run through qfa with Alpaca data and no --data-csv, then externally cost-adjusted at 10 bps one-way.",
+    "min_cost_adjusted_sharpe": -0.13435479,
+    "p25_cost_adjusted_sharpe": 0.631339,
+    "positive_cost_adjusted_sharpe_windows": 5,
+    "positive_window_rate": 0.83333333,
+    "runs": [
+      {
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.04778052,
+          "annualized_volatility": 0.08275977,
+          "final_equity": 104719.8485,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.10372117,
+          "periods": 249,
+          "sharpe": 0.60522977,
+          "total_return": 0.04719849,
+          "win_rate": 0.22088353
+        },
+        "end": "2024-01-31",
+        "pre_cost_metrics": {
+          "annualized_return": 0.05115924,
+          "annualized_volatility": 0.08270792,
+          "final_equity": 105053.5068,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.10329377,
+          "periods": 249,
+          "sharpe": 0.64448756,
+          "total_return": 0.05053507,
+          "win_rate": 0.22088353
+        },
+        "qfa_run_id": 2,
+        "start": "2023-02-01",
+        "turnover": {
+          "active_weight_days": 102,
+          "annualized_one_way_turnover": 3.21554542,
+          "evaluated_days": 249,
+          "max_daily_one_way_turnover": 1.0,
+          "mean_daily_one_way_turnover": 0.0127601,
+          "median_daily_one_way_turnover": 0.0,
+          "method": "Ex-post target-weight replay; one_way_turnover = 0.5 * sum(abs(w_t - w_t-1)); daily cost = turnover * 10 bps subtracted from portfolio return.",
+          "total_one_way_turnover": 3.17726512
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.11432213,
+          "annualized_volatility": 0.0788333,
+          "final_equity": 111384.3573,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06011756,
+          "periods": 251,
+          "sharpe": 1.41262918,
+          "total_return": 0.11384357,
+          "win_rate": 0.24302789
+        },
+        "end": "2024-05-15",
+        "pre_cost_metrics": {
+          "annualized_return": 0.11548938,
+          "annualized_volatility": 0.07878902,
+          "final_equity": 111500.5691,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06011756,
+          "periods": 251,
+          "sharpe": 1.42667203,
+          "total_return": 0.11500569,
+          "win_rate": 0.24302789
+        },
+        "qfa_run_id": 3,
+        "start": "2023-05-15",
+        "turnover": {
+          "active_weight_days": 112,
+          "annualized_one_way_turnover": 1.04386196,
+          "evaluated_days": 251,
+          "max_daily_one_way_turnover": 0.5,
+          "mean_daily_one_way_turnover": 0.00414231,
+          "median_daily_one_way_turnover": 0.0,
+          "method": "Ex-post target-weight replay; one_way_turnover = 0.5 * sum(abs(w_t - w_t-1)); daily cost = turnover * 10 bps subtracted from portfolio return.",
+          "total_one_way_turnover": 1.03971965
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.05606129,
+          "annualized_volatility": 0.0815429,
+          "final_equity": 105537.5749,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.05743609,
+          "periods": 249,
+          "sharpe": 0.70966668,
+          "total_return": 0.05537575,
+          "win_rate": 0.23293173
+        },
+        "end": "2024-08-30",
+        "pre_cost_metrics": {
+          "annualized_return": 0.05887049,
+          "annualized_volatility": 0.08124112,
+          "final_equity": 105814.9663,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.05695972,
+          "periods": 249,
+          "sharpe": 0.74470398,
+          "total_return": 0.05814966,
+          "win_rate": 0.23293173
+        },
+        "qfa_run_id": 4,
+        "start": "2023-09-01",
+        "turnover": {
+          "active_weight_days": 105,
+          "annualized_one_way_turnover": 2.63230253,
+          "evaluated_days": 249,
+          "max_daily_one_way_turnover": 1.0,
+          "mean_daily_one_way_turnover": 0.01044564,
+          "median_daily_one_way_turnover": 0.0,
+          "method": "Ex-post target-weight replay; one_way_turnover = 0.5 * sum(abs(w_t - w_t-1)); daily cost = turnover * 10 bps subtracted from portfolio return.",
+          "total_one_way_turnover": 2.6009656
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.07280978,
+          "annualized_volatility": 0.09781823,
+          "final_equity": 107221.1545,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06044431,
+          "periods": 250,
+          "sharpe": 0.76748778,
+          "total_return": 0.07221154,
+          "win_rate": 0.244
+        },
+        "end": "2025-01-15",
+        "pre_cost_metrics": {
+          "annualized_return": 0.07618078,
+          "annualized_volatility": 0.0977622,
+          "final_equity": 107555.3886,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06020519,
+          "periods": 250,
+          "sharpe": 0.79996991,
+          "total_return": 0.07555389,
+          "win_rate": 0.244
+        },
+        "qfa_run_id": 5,
+        "start": "2024-01-15",
+        "turnover": {
+          "active_weight_days": 113,
+          "annualized_one_way_turnover": 3.13252508,
+          "evaluated_days": 250,
+          "max_daily_one_way_turnover": 1.0,
+          "mean_daily_one_way_turnover": 0.01243066,
+          "median_daily_one_way_turnover": 0.0,
+          "method": "Ex-post target-weight replay; one_way_turnover = 0.5 * sum(abs(w_t - w_t-1)); daily cost = turnover * 10 bps subtracted from portfolio return.",
+          "total_one_way_turnover": 3.10766377
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "annualized_return": -0.02647529,
+          "annualized_volatility": 0.13359207,
+          "final_equity": 97383.5729,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.15711998,
+          "periods": 249,
+          "sharpe": -0.13435479,
+          "total_return": -0.02616427,
+          "win_rate": 0.20481928
+        },
+        "end": "2025-06-03",
+        "pre_cost_metrics": {
+          "annualized_return": -0.02450438,
+          "annualized_volatility": 0.13366192,
+          "final_equity": 97578.3776,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.15625187,
+          "periods": 249,
+          "sharpe": -0.11908592,
+          "total_return": -0.02421622,
+          "win_rate": 0.20481928
+        },
+        "qfa_run_id": 6,
+        "start": "2024-06-03",
+        "turnover": {
+          "active_weight_days": 102,
+          "annualized_one_way_turnover": 2.03148234,
+          "evaluated_days": 249,
+          "max_daily_one_way_turnover": 1.0,
+          "mean_daily_one_way_turnover": 0.00806144,
+          "median_daily_one_way_turnover": 0.0,
+          "method": "Ex-post target-weight replay; one_way_turnover = 0.5 * sum(abs(w_t - w_t-1)); daily cost = turnover * 10 bps subtracted from portfolio return.",
+          "total_one_way_turnover": 2.00729803
+        }
+      },
+      {
+        "cost_adjusted_metrics": {
+          "annualized_return": 0.07037017,
+          "annualized_volatility": 0.09271713,
+          "final_equity": 108461.7784,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06266922,
+          "periods": 301,
+          "sharpe": 0.77985715,
+          "total_return": 0.08461778,
+          "win_rate": 0.28903654
+        },
+        "end": "2025-12-15",
+        "pre_cost_metrics": {
+          "annualized_return": 0.07383686,
+          "annualized_volatility": 0.09267805,
+          "final_equity": 108881.4979,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.06235144,
+          "periods": 301,
+          "sharpe": 0.81504569,
+          "total_return": 0.08881498,
+          "win_rate": 0.28903654
+        },
+        "qfa_run_id": 7,
+        "start": "2024-10-01",
+        "turnover": {
+          "active_weight_days": 156,
+          "annualized_one_way_turnover": 3.23072446,
+          "evaluated_days": 301,
+          "max_daily_one_way_turnover": 1.0,
+          "mean_daily_one_way_turnover": 0.01282034,
+          "median_daily_one_way_turnover": 0.0,
+          "method": "Ex-post target-weight replay; one_way_turnover = 0.5 * sum(abs(w_t - w_t-1)); daily cost = turnover * 10 bps subtracted from portfolio return.",
+          "total_one_way_turnover": 3.85892088
+        }
+      }
+    ],
+    "window_count": 6,
+    "worst_cost_adjusted_max_drawdown": -0.15711998
+  },
+  "refinement_child_idea": {
+    "rationale": "Single refinement: reduce weak lower-tail windows and drawdown without increasing turnover.",
+    "title": "Add explicit cash/T-bill state and volatility brake to monthly defensive rotation"
+  },
+  "suggested_decision": "watchlist_continue_research",
+  "turnover": {
+    "active_weight_days": 606,
+    "annualized_one_way_turnover": 4.3967101,
+    "evaluated_days": 750,
+    "max_daily_one_way_turnover": 1.0,
+    "mean_daily_one_way_turnover": 0.01744726,
+    "median_daily_one_way_turnover": 0.0,
+    "method": "Ex-post target-weight replay; one_way_turnover = 0.5 * sum(abs(w_t - w_t-1)); daily cost = turnover * 10 bps subtracted from portfolio return.",
+    "total_one_way_turnover": 13.08544672
+  }
+}

@@ -1,0 +1,52 @@
+issue_id: AR-055
+model_name: etf-stress-recovery-halflife-v1
+status: completed_rejected
+parent_alpha: AR-043
+family: stress_recovery_decay
+created_at_utc: '2026-06-26T11:12:06Z'
+summary: >
+  Daily ETF volume-normalized range stress recovery/half-life proxy allocator.
+  It allocates toward risk ETFs when 2/5/10-session stress has decayed quickly
+  and toward defensive ETFs when stress persists.
+data_source: Alpaca real OHLCV through qfa/AlpacaGateway only; no CSV input.
+qfa:
+  daemon_used: false
+  live_orders: false
+  temporary_db_pattern: /tmp/qfa_ar055_*.sqlite3
+  temporary_dbs_removed: true
+metrics:
+  primary_window: 2021-01-04_to_2025-12-15
+  primary_pre_cost_sharpe: 0.43258961
+  primary_post_cost_sharpe: 0.27749142
+  primary_post_cost_annualized_return: 0.0303924
+  primary_post_cost_annualized_volatility: 0.14891902
+  primary_post_cost_max_drawdown: -0.17356821
+  random_window_median_post_cost_sharpe: 0.6543798
+  random_window_p25_post_cost_sharpe: -0.12145677
+  random_window_positive_rate: 0.66666667
+  random_window_worst_post_cost_sharpe: -0.41830409
+costs:
+  assumption: 5 bps one-way turnover haircut, ex-post because qfa lacks native costs.
+  mean_daily_one_way_turnover: 0.18346247
+orthogonality:
+  computed: true
+  max_abs_correlation: 0.98065061
+  failed_threshold_reason: correlation_to_AR043_above_0.60
+suggested_decision: reject
+rejection_reason: >
+  Despite positive median random-window Sharpe, lower-tail random-window Sharpe
+  was negative and daily return correlation to AR-043 was 0.98065061, violating
+  the falsifier/acceptance threshold.
+next_child_if_any:
+  type: divergent_not_extension
+  title: ETF options-implied stress term-structure carry allocator
+  rationale: >
+    Use option/volatility term-structure or external implied-vol stress premia
+    rather than OHLCV stress decay, so it is not a direct extension of the
+    rejected volume-normalized range half-life hypothesis.
+artifacts:
+  model: models/etf-stress-recovery-halflife-v1/model.py
+  config: models/etf-stress-recovery-halflife-v1/config.yaml
+  evaluation_latest_json: models/etf-stress-recovery-halflife-v1/evaluations/latest.json
+  evaluation_latest_md: models/etf-stress-recovery-halflife-v1/evaluations/latest.md
+  immutable_run_json: models/etf-stress-recovery-halflife-v1/evaluations/runs/ar055_qfa_alpaca_real_20260626T111206Z.json

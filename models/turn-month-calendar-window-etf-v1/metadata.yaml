@@ -1,0 +1,33 @@
+model_name: turn-month-calendar-window-etf-v1
+issue_id: AR-021
+status: completed_watchlist_non_rejected
+created_at_utc: '2026-06-26T07:58:53Z'
+updated_at_utc: '2026-06-26T07:58:53Z'
+parent_alpha: AR-006
+family: seasonality
+hypothesis: Exchange-session-aware turn-of-month ETF window can improve AR-006 seasonality robustness after a modest turnover cost haircut.
+model_contract: qfa-compatible generate_signals(context)
+data_source: Alpaca real market data via qfa AlpacaGateway only; no --data-csv; no CSV fixtures.
+primary_backtest:
+  symbols: [SPY, QQQ, IWM, TLT, GLD]
+  start: '2021-01-01'
+  end: '2025-12-31'
+  timeframe: 1Day
+  qfa_run_id: 1
+  db_used: /tmp/qfa_ar021.sqlite3
+  db_artifact_retained: false
+costs_slippage:
+  native_qfa_costs_applied: false
+  ex_post_haircut_applied: true
+  bps_per_gross_turnover: 5.0
+random_window_validation:
+  seed: 21021
+  windows: 8
+  qfa_run_ids: [2, 3, 4, 5, 6, 7, 8, 9]
+orthogonality:
+  comparison: turn-month-liquid-etf-seasonality-v1
+  correlation: 0.50325754
+suggested_decision: watchlist_continue_research_non_rejected_random_median_positive_but_regime_fragile_not_production
+children:
+  refinement: AR-041
+  divergent: AR-042

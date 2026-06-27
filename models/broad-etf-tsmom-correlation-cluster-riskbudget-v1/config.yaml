@@ -1,0 +1,82 @@
+model:
+  name: broad-etf-tsmom-correlation-cluster-riskbudget-v1
+  issue_id: AR-104
+  family: time_series_momentum
+  entrypoint: model.py:generate_signals
+  qfa_compatible: true
+
+universe:
+  symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - DIA
+    - XLK
+    - XLY
+    - XLI
+    - XLF
+    - XLE
+    - XLB
+    - XLV
+    - XLP
+    - XLU
+    - XLRE
+    - TLT
+    - IEF
+    - SHY
+    - TIP
+    - LQD
+    - HYG
+    - GLD
+    - SLV
+    - USO
+    - DBC
+    - DBA
+    - UUP
+    - FXE
+    - FXY
+  selection_rationale: >-
+    Ex-ante liquid ETF basket spanning broad equity, sectors, rates/duration,
+    TIPS, credit, commodities, precious metals, and currency/defensive proxies
+    available through the real-data qfa path.
+
+signal:
+  lookbacks_days: [63, 126, 189]
+  momentum_weights: [0.50, 0.35, 0.15]
+  long_only: true
+  positive_momentum_only: true
+  target_volatility: 0.10
+  volatility_window_days: 63
+  rolling_correlation_window_days: 126
+  correlation_link_threshold: 0.72
+  max_single_pre_qfa_normalization: 0.16
+  max_gross_pre_qfa_normalization: 0.98
+  drawdown_taper:
+    proxy: SPY
+    lookback_days: 126
+    levels:
+      - drawdown_below: -0.18
+        gross_multiplier: 0.55
+      - drawdown_below: -0.10
+        gross_multiplier: 0.75
+
+cluster_caps:
+  risk_on_equity: 0.34
+  defensive_equity: 0.22
+  rates_credit: 0.34
+  real_assets: 0.28
+  currency_defensive: 0.20
+  uncategorized: 0.18
+
+research_controls:
+  data_source: Alpaca real market data via qfa
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+  evaluation_cost_bps_one_way: [5, 10, 20]
+  note: >-
+    qfa normalizes nonzero model outputs to gross 1.0 in the repository
+    backtester, so pre-normalization gross/taper controls are interpreted as
+    ranking and cap inputs in qfa backtests rather than persistent cash holds.

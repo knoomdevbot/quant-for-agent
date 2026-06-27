@@ -1,0 +1,48 @@
+model_name: low-vol-quality-coststable-megacap-v1
+issue_id: AR-029
+parent_issue_id: AR-010
+family: defensive_factor
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+  - JNJ
+  - PG
+  - KO
+  - PEP
+  - WMT
+parameters:
+  vol_window: 126
+  momentum_window: 126
+  momentum_filter: true
+  top_n: 6
+  max_abs_weight: 0.20
+  min_symbols: 5
+  gross_exposure: 1.0
+  rebalance_proxy: monthly
+risk:
+  long_only: true
+  no_live_trading: true
+  no_qfa_daemon: true
+  no_order_placement: true
+evaluation:
+  latest_data_source: alpaca_real_market_data_no_data_csv
+  primary_period: 2021-01-04_to_2025-12-15
+  random_window_seed: 29029
+  random_windows: 10
+  parameter_stability: tiny_pre_specified_neighbor_check_no_grid_search
+  latest_json: models/low-vol-quality-coststable-megacap-v1/evaluations/latest.json
+  latest_markdown: models/low-vol-quality-coststable-megacap-v1/evaluations/latest.md
+  run_json: models/low-vol-quality-coststable-megacap-v1/evaluations/runs/ar029_qfa_alpaca_real_20260626T082319Z.json
+  qfa_db_path_used: temporary_sqlite_db_removed
+  qfa_db_retained: false
+costs:
+  assumption_bps_one_way: 5
+  applied_by_qfa: false
+  applied_ex_post_in_direct_qfa_engine_replay: true
+  caveat: current qfa backtest CLI has no native cost/slippage parameter
+suggested_decision: rejected

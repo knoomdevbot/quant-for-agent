@@ -1,0 +1,150 @@
+{
+  "bad_result_policy": "rejected result: no refinement, direct inversion, or other extension of the overnight gap-reversal hypothesis should be created",
+  "child_ideas": {
+    "divergent": {
+      "hypothesis": "Use volatility regime allocation and cross-asset breadth, not overnight gap reversal/continuation; this is a different return driver from the rejected AR-012 hypothesis.",
+      "id": "AR-035",
+      "title": "Cross-asset ETF volatility-risk rotation"
+    }
+  },
+  "commands": {
+    "credentials": "source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; map ALPACA_KEY_ID to ALPACA_API_KEY; do not print secrets",
+    "open_to_close_research_harness": "PYTHONPATH=/Users/moonk/quant-for-agent/src /Users/moonk/quant-for-agent/.venv/bin/python /tmp/evaluate_ar012.py",
+    "qfa_realdata_proxy": "PYTHONPATH=/Users/moonk/quant-for-agent/src /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run models/overnight-gap-reversal-liquid-etf-v1/model.py --symbols SPY,QQQ,IWM,TLT,GLD,SLV,XLF,XLK,XLE,XLV --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db /tmp/ar012-qfa-<mktemp>.sqlite3"
+  },
+  "costs_slippage": {
+    "cost_model": "direct open-to-close harness subtracts 2 * per_side_cost_bps * gross / 10000 each event day; qfa CLI proxy has no cost parameter and is gross/pre-cost",
+    "selected_per_side_bps": 5,
+    "sensitivity_per_side_bps": [
+      0,
+      5,
+      10,
+      20
+    ]
+  },
+  "created_at": "2026-06-26T06:41:17Z",
+  "data_source": {
+    "access": "quant_for_agent.alpaca_client.AlpacaGateway.get_bars and qfa CLI without --data-csv",
+    "bar_counts": {
+      "GLD": 1373,
+      "IWM": 1373,
+      "QQQ": 1373,
+      "SLV": 1373,
+      "SPY": 1373,
+      "TLT": 1373,
+      "XLE": 1373,
+      "XLF": 1373,
+      "XLK": 1373,
+      "XLV": 1373
+    },
+    "csv_used": false,
+    "end": "2026-06-24",
+    "provider": "Alpaca real market data",
+    "start": "2021-01-01",
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "TLT",
+      "GLD",
+      "SLV",
+      "XLF",
+      "XLK",
+      "XLE",
+      "XLV"
+    ],
+    "timeframe": "1Day",
+    "trades_placed": false
+  },
+  "db_used_during_run": {
+    "db_artifact_retained": false,
+    "db_path_used_during_run": "/tmp/ar012-qfa-<mktemp>.sqlite3",
+    "db_retention_note": "Temporary SQLite DB was removed after extracting compact qfa run metrics. No SQLite DB is retained in the model artifacts."
+  },
+  "decision": {
+    "rationale": "The intended open-to-close strategy fails after realistic 5 bps per-side costs: Sharpe -0.813, annualized return -8.98%, total return -38.72%, and median random-window Sharpe -0.374. Gross open-to-close Sharpe is approximately flat, so the positive qfa close-to-close proxy is likely an engine/horizon artifact.",
+    "status": "rejected",
+    "suggested_decision": "Do not promote to production; keep as research reference only."
+  },
+  "evaluator_limitation": {
+    "impact": "qfa proxy smoke metrics are directionally useful for integration only and should not override the open-to-close research metrics.",
+    "qfa_compatible_approximation": "model.py implements a lagged close-to-close proxy using the latest completed daily bar's normalized overnight gap; the direct research harness evaluates the intended same-day open-to-close return from Alpaca OHLC bars.",
+    "status": "qfa_daily_engine_cannot_exactly_enter_at_current_open_and_exit_same_close"
+  },
+  "issue_id": "AR-012",
+  "metrics": {
+    "open_to_close_gross_0bps": {
+      "annualized_return": -0.005429766989822227,
+      "annualized_volatility": 0.10814075262013302,
+      "avg_daily_turnover": 0.7027439024390244,
+      "event_days": 461,
+      "final_equity": 97205.16969581899,
+      "instrument_events": 746,
+      "max_drawdown": -0.22925975501686036,
+      "periods": 1312,
+      "sharpe": 0.004259402758252761,
+      "total_return": -0.027948303041810174,
+      "win_rate": 0.1760670731707317
+    },
+    "primary_open_to_close_cost_adjusted_5bps": {
+      "annualized_return": -0.08975913981790506,
+      "annualized_volatility": 0.10840341987102908,
+      "avg_daily_turnover": 0.7027439024390244,
+      "event_days": 461,
+      "final_equity": 61284.913101501574,
+      "instrument_events": 746,
+      "max_drawdown": -0.4342703576473883,
+      "periods": 1312,
+      "sharpe": -0.812567691979875,
+      "total_return": -0.3871508689849843,
+      "win_rate": 0.15548780487804878
+    },
+    "qfa_close_to_close_proxy_gross": {
+      "annualized_return": 0.08304294,
+      "annualized_volatility": 0.10288008,
+      "final_equity": 117149.7637,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.09971496,
+      "periods": 500,
+      "sharpe": 0.8262944,
+      "total_return": 0.17149764,
+      "win_rate": 0.166
+    },
+    "random_windows_open_to_close_5bps": {
+      "annualized_return_mean": -0.07276589849813514,
+      "annualized_return_median": -0.04113054471533073,
+      "event_days_median": 43.0,
+      "instrument_events_median": 66.0,
+      "max_drawdown_mean": -0.08548322334214016,
+      "max_drawdown_median": -0.07733155629531996,
+      "seed": 12012,
+      "sharpe_mean": -0.7012261183314291,
+      "sharpe_median": -0.3742744820611995,
+      "win_rate_mean": 0.16005291005291009,
+      "win_rate_median": 0.16269841269841268,
+      "window_trading_days": 126,
+      "windows": 30
+    }
+  },
+  "model_name": "overnight-gap-reversal-liquid-etf-v1",
+  "model_path": "/Users/moonk/quant-for-agent/models/overnight-gap-reversal-liquid-etf-v1/model.py",
+  "orthogonality": {
+    "reason": "No retained parent AR-002 return stream or common factor library was available in the repo artifacts for correlation/orthogonality measurement; hypothesis is qualitatively distinct by horizon/open-to-close driver and liquid ETF universe.",
+    "status": "unavailable"
+  },
+  "run_ids": {
+    "immutable_artifact": "evaluations/runs/ar012_alpaca_open_to_close_and_qfa_proxy_20260626T064117Z.json",
+    "open_to_close_research_harness": "alpaca_open_to_close_20260626T063708Z",
+    "qfa_cli_proxy": 1
+  },
+  "selected_parameters": {
+    "entry_z": 1.5,
+    "gap_z_window": 60,
+    "market_filter": true
+  },
+  "warnings": [
+    "qfa daily close-to-close engine cannot exactly evaluate same-day open-to-close execution.",
+    "Open auction fills/slippage can be materially worse than the simple 5 bps per-side model.",
+    "No SQLite DB artifact is retained; rerun qfa with a temporary --db if run-level database inspection is needed."
+  ]
+}

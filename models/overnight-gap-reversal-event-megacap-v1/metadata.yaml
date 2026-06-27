@@ -1,0 +1,18 @@
+id: AR-018
+name: overnight-gap-reversal-event-megacap-v1
+status: evaluated
+parent: AR-004
+parent_status: rejected
+created_at: '2026-06-26T00:00:00Z'
+family: mean_reversion
+mechanism: event-liquidity overnight gap reversal, not volatility breakout continuation
+data_source: Alpaca real OHLCV only through qfa/AlpacaGateway; no CSV fixtures
+research_constraints:
+  no_csv: true
+  no_data_csv: true
+  no_daemon: true
+  no_trades: true
+artifacts:
+  model: models/overnight-gap-reversal-event-megacap-v1/model.py
+  config: models/overnight-gap-reversal-event-megacap-v1/config.yaml
+  evaluation_latest_json: models/overnight-gap-reversal-event-megacap-v1/evaluations/latest.json

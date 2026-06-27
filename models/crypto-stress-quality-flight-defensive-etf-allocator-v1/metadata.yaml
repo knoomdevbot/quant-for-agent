@@ -1,0 +1,17 @@
+alpha_id: AR-093
+name: crypto-stress-quality-flight-defensive-etf-allocator-v1
+family: crypto_stress_defensive_allocator
+status: rejected
+created_at_utc: '2026-06-26T15:56:58Z'
+model_path: models/crypto-stress-quality-flight-defensive-etf-allocator-v1/model.py
+config_path: models/crypto-stress-quality-flight-defensive-etf-allocator-v1/config.yaml
+evaluation_latest: models/crypto-stress-quality-flight-defensive-etf-allocator-v1/evaluations/latest.json
+hypothesis: Extreme BTC/ETH downside volatility and correlation spikes may foreshadow quality-flight demand into duration, gold, defensive sectors, and cash-like ETFs.
+falsifier_result: Rejected because 10 bps random-window p25 Sharpe was materially negative and available orthogonality check exceeded threshold.
+data_sources:
+  market_prices: Alpaca real daily OHLCV via qfa AlpacaGateway
+  external_crypto: Coinbase Exchange public candles API JSON for BTC-USD and ETH-USD, compact derived events only retained
+artifact_policy:
+  raw_daily_paths_retained: false
+  sqlite_db_retained: false
+  bytecode_retained: false

@@ -1,0 +1,34 @@
+issue_id: AR-049
+model_name: etf-carry-defensive-orthogonal-v1
+family: cross_asset_carry_defensive
+type: refinement
+parent: AR-037
+qfa_contract: generate_signals(context) -> dict[str, float]
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - IEF
+  - GLD
+  - USO
+  - FXE
+  - FXY
+  - UUP
+timeframe: 1Day
+research_only: true
+live_trading: false
+data_source: Alpaca real market data through qfa; no CSV
+parameters:
+  min_history: 150
+  carry_window: 126
+  defensive_window: 63
+  vol_window: 63
+  fast_window: 21
+  max_single_weight: 0.28
+  max_equity_budget: 0.10
+  max_commodity_budget: 0.10
+  cash_budget_base: 0.16
+costs_slippage:
+  qfa_native_costs_applied: false
+  evaluation_assumption: 5 bps one-way cost times daily target-weight turnover

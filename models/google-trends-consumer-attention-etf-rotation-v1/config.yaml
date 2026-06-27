@@ -1,0 +1,23 @@
+alpha_id: AR-090
+model_name: google-trends-consumer-attention-etf-rotation-v1
+universe: ['XLY', 'XRT', 'JETS', 'PEJ', 'ITB', 'IYT', 'QQQ', 'SPY', 'IWM', 'XLP', 'XLU', 'SHY', 'GLD', 'XLE']
+timeframe: 1Day
+market_data: Alpaca real daily OHLCV via qfa
+external_signal:
+  provider: pytrends unofficial Google Trends endpoint
+  geo: US
+  timeframe: "2020-01-01 2025-12-15"
+  query_terms: ['travel', 'restaurant', 'buy car', 'luxury', 'retail sales']
+  raw_rows_observed: 72
+  raw_range: 2020-01-01 to 2025-12-01
+  retained: compact derived monthly z-score features embedded in model.py only
+  lag_convention: month M feature usable from first day of month M+1
+risk:
+  gross_exposure_max: 1.0
+  max_weight: 0.30
+  long_only: true
+constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

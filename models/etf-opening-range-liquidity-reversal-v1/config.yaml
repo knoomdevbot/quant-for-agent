@@ -1,0 +1,36 @@
+model_name: etf-opening-range-liquidity-reversal-v1
+issue_id: AR-085
+family: intraday_liquidity_reversal
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - IEF
+  - GLD
+  - XLU
+  - XLE
+  - XLV
+data:
+  source: Alpaca real 1Min OHLCV through qfa AlpacaGateway
+  timeframe: 1Min
+  csv_allowed: false
+  daily_proxy_allowed: false
+parameters:
+  open_range_minutes: 60
+  min_gap_abs: 0.0075
+  strong_gap_abs: 0.015
+  max_extension: 0.0025
+  shock_breadth_min: 0.33
+  max_gross: 1.0
+  max_single_symbol_weight: 0.25
+costs:
+  primary_one_way_bps: 10
+  stress_one_way_bps: 20
+  method: external turnover-cost proxy including entry and same-day flattening
+risk_controls:
+  regular_session_only: true
+  decision_window_ny: "10:30-15:45"
+  same_day_flattening: true
+  no_leverage: true
+  no_live_trading: true

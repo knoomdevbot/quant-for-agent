@@ -1,0 +1,20 @@
+issue_id: AR-052
+model_name: vixy-tlt-stress-carry-etf-v1
+title: 'Divergent from AR-039: VIXY/TLT stress-carry ETF allocation'
+family: volatility_stress_carry
+type: divergent
+parent: AR-039
+created_by: hermes-agent scheduled alpha research subagent
+created_at_utc: '2026-06-26T10:44:04Z'
+hypothesis: >-
+  A volatility-stress/carry proxy using liquid ETFs can produce a return stream
+  different from AR-039 price-momentum defensive rotation by combining VIXY
+  stress/carry signals, TLT/IEF duration behavior, SPY stress, and SHY fallback.
+falsifier: >-
+  Median random-period post-cost Sharpe <= 0, severe lower-tail drawdowns,
+  parameter/regime fragility, or high redundancy without improvement.
+implementation: qfa-compatible Python model exposing generate_signals(context)
+data_source: Alpaca real OHLCV via qfa/AlpacaGateway; --data-csv not used
+trading: research-only; no daemon; no live orders
+status: researched
+suggested_decision: rejected

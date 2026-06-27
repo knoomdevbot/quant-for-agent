@@ -1,0 +1,24 @@
+issue_id: AR-066
+model_name: etf-realized-vol-carry-macrostress-v1
+title: ETF realized-volatility carry rotation after macro-stress regimes
+status: researched
+parent_alpha: AR-053
+parent_status: rejected
+created_at_utc: '2026-06-26T10:47:52Z'
+researched_at_utc: '2026-06-26T05:07:00-05:00'
+artifact_paths:
+  model: models/etf-realized-vol-carry-macrostress-v1/model.py
+  config: models/etf-realized-vol-carry-macrostress-v1/config.yaml
+  evaluation_latest_json: models/etf-realized-vol-carry-macrostress-v1/evaluations/latest.json
+  evaluation_latest_md: models/etf-realized-vol-carry-macrostress-v1/evaluations/latest.md
+hypothesis: >-
+  A realized-volatility carry/defensive rotation after broad macro-stress regimes
+  may be more robust than AR-053's rejected next-day laggard reversal proxy.
+implementation_summary: >-
+  Long-only weekly-anchored ETF allocation using 20/60 day downside-volatility,
+  return-per-downside-volatility, cross-ETF stress breadth, drawdown recovery,
+  and SHY/TLT/GLD defensive carry proxies. No macro calendars and no CSV data.
+bad_result_policy: >-
+  If rejected, do not create or suggest a refinement, direct inversion, or direct
+  extension. At most suggest one genuinely divergent child only if the mechanism
+  clearly differs.

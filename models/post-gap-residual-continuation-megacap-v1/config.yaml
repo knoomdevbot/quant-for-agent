@@ -1,0 +1,62 @@
+model_name: post-gap-residual-continuation-megacap-v1
+issue_id: AR-069
+family: residual_momentum
+status: research_completed
+qfa_contract: generate_signals(context)
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - AVGO
+  - TSLA
+  - JPM
+  - LLY
+data:
+  source: Alpaca real daily OHLCV via qfa/AlpacaGateway
+  timeframe: 1Day
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  raw_daily_paths_retained: false
+safety:
+  no_daemon: true
+  no_orders: true
+  temporary_sqlite_db_under_tmp: true
+signal:
+  hypothesis: post-gap idiosyncratic residual continuation reflects information diffusion distinct from close-location reversal
+  features:
+    - overnight_gap_proxy_open_over_previous_close
+    - residual_gap_vs_equal_weight_universe_gap
+    - prior_window_residual_gap_zscore
+    - abnormal_volume_confirmation
+    - three_to_five_day_decay
+    - inverse_volatility_scaling
+    - high_basket_volatility_brake
+parameters:
+  gap_z_window: 60
+  volume_z_window: 60
+  volatility_window: 20
+  entry_residual_gap_z: 1.15
+  min_abs_residual_gap: 0.003
+  abnormal_volume_z: 0.20
+  hold_decay: [1.00, 0.75, 0.55, 0.35, 0.20]
+  max_abs_weight: 0.24
+  high_market_vol_brake: 0.82
+costs_slippage:
+  external_cost_postprocess_applied: true
+  assumption_one_way_bps: 5.0
+  method: cost_return = gross_return - sum(abs(delta_weight))*0.0005
+evaluation:
+  primary_start: '2024-01-01'
+  primary_end: '2025-12-31'
+  random_window_count: 8
+  qfa_run_ids:
+    primary_cli: 1
+    primary_direct_stored_temp_db: 1
+    random_windows_direct_stored_temp_db: [2, 3, 4, 5, 6, 7, 8, 9]
+artifacts:
+  model: models/post-gap-residual-continuation-megacap-v1/model.py
+  latest_json: models/post-gap-residual-continuation-megacap-v1/evaluations/latest.json
+  latest_md: models/post-gap-residual-continuation-megacap-v1/evaluations/latest.md

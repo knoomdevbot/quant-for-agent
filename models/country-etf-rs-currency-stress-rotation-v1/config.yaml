@@ -1,0 +1,65 @@
+alpha_id: "AR-112"
+model_name: "country-etf-rs-currency-stress-rotation-v1"
+model_family: "international_country_rotation"
+data_source: "qfa/Alpaca real daily OHLCV; paper-data credentials configured with values redacted"
+candidate_country_etfs:
+  - "EFA"
+  - "EEM"
+  - "EWJ"
+  - "EWU"
+  - "EWG"
+  - "EWQ"
+  - "EWL"
+  - "EWC"
+  - "EWA"
+  - "EWH"
+  - "EWT"
+  - "EWS"
+  - "EWY"
+  - "EWW"
+  - "INDA"
+  - "FXI"
+  - "MCHI"
+  - "EWZ"
+  - "EZA"
+selected_country_etfs:
+  - "EFA"
+  - "EEM"
+  - "EWJ"
+  - "EWU"
+  - "EWG"
+  - "EWQ"
+  - "EWL"
+  - "EWC"
+  - "EWA"
+  - "EWH"
+  - "EWT"
+  - "EWS"
+  - "EWY"
+  - "EWW"
+  - "INDA"
+  - "FXI"
+  - "MCHI"
+  - "EWZ"
+  - "EZA"
+context_only_symbols:
+  - "UUP"
+  - "GLD"
+  - "DBC"
+  - "SPY"
+rebalance: "weekly"
+lookbacks_days:
+  - 63
+  - 126
+vol_window_days: 63
+top_n: 4
+costs_bps_one_way:
+  - 5
+  - 10
+constraints:
+  country_etfs_only_traded: true
+  context_symbols_not_traded: true
+  gross_exposure_max: 1.0
+  no_csv: true
+  no_daemon: true
+  no_orders: true

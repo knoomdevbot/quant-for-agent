@@ -1,0 +1,17 @@
+model_name: pairs-residual-megacap-tech-5d-v1
+issue_id: AR-005
+title: Residual mean reversion among mega-cap tech pairs
+created_at: 2026-06-26T06:21:20Z
+updated_at: 2026-06-26T06:21:20Z
+researcher: hermes-agent-subagent
+implementation_path: model.py
+config_path: config.yaml
+latest_evaluation: evaluations/latest.json
+data_source: Alpaca real market data via qfa, no --data-csv
+trading_scope: research_only_no_orders_no_daemon
+artifact_notes:
+  - qfa created sqlite artifact evaluations/qfa_realdata.sqlite; controller may remove before commit.
+  - latest metrics are pre-cost because current qfa backtest CLI exposes no costs/slippage argument.
+children:
+  refinement: AR-005-R1 adaptive pair selection with rolling correlation/ADF filters and turnover/cost gate
+  divergent: AR-005-D1 mega-cap tech intraday overnight-gap reversal using open-to-close residuals

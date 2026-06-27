@@ -1,0 +1,27 @@
+model_name: turn-month-vol-gated-etf-v1
+issue_id: AR-041
+parent_alpha: AR-021
+universe: [SPY, QQQ, IWM, TLT, GLD]
+timeframe: 1Day
+data_source: qfa_alpaca_real_ohlcv_only_no_csv
+positioning: long_equal_weight_when_turn_month_and_vol_gate_open_else_flat
+parameters:
+  pre_month_end_observed_sessions: 1
+  post_month_start_observed_sessions: 4
+  realized_vol_window: 20
+  baseline_vol_window: 60
+  trend_window: 100
+  drawdown_window: 60
+  max_realized_vol: 0.25
+  max_vol_ratio: 1.25
+  max_drawdown_from_rolling_high: -0.08
+  min_observations: 120
+  max_abs_weight: 0.25
+risk_controls:
+  normalize_gross_when_active: 1.0
+  flat_when_gate_closed: true
+  no_live_trading: true
+  no_daemon: true
+costs_slippage:
+  native_qfa_costs: false
+  ex_post_one_way_turnover_haircut_bps: 5

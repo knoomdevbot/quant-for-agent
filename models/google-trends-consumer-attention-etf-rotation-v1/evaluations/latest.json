@@ -1,0 +1,327 @@
+{
+  "alpha_id": "AR-090",
+  "artifacts": {
+    "README_path": "/Users/moonk/quant-for-agent/models/google-trends-consumer-attention-etf-rotation-v1/README.md",
+    "config_path": "/Users/moonk/quant-for-agent/models/google-trends-consumer-attention-etf-rotation-v1/config.yaml",
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/google-trends-consumer-attention-etf-rotation-v1/evaluations/runs/ar090_qfa_alpaca_pytrends_real_20260626T153000Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/google-trends-consumer-attention-etf-rotation-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/google-trends-consumer-attention-etf-rotation-v1/evaluations/latest.md",
+    "metadata_path": "/Users/moonk/quant-for-agent/models/google-trends-consumer-attention-etf-rotation-v1/metadata.yaml",
+    "model_path": "/Users/moonk/quant-for-agent/models/google-trends-consumer-attention-etf-rotation-v1/model.py"
+  },
+  "bad_result_policy": {
+    "divergent_child": {
+      "mechanism": "Different external signal and return driver: real card-spending or retail-sales surprise data mapped to consumer sector revisions rather than Google search attention.",
+      "title": "card-network-spending-surprise-sector-rotation"
+    },
+    "if_rejected_no_refinement_or_direct_extension": true,
+    "refinement_child": null
+  },
+  "costs_slippage": {
+    "assumption": "5-10 bps one-way turnover cost would be required for any live-like interpretation; because pre-cost qfa results already fail, no post-hoc cost-adjusted promotion was attempted. Costs would further reduce Sharpe/return.",
+    "external_turnover_haircut_applied": false,
+    "qfa_native_costs_applied": false
+  },
+  "created_at_utc": "2026-06-26T15:30:00Z",
+  "data_sources": {
+    "external_signal": {
+      "availability": "available",
+      "derived_feature_rows_retained": 66,
+      "endpoints": [
+        "Google Trends interest_over_time via pytrends TrendReq.build_payload/interest_over_time"
+      ],
+      "external_data_unavailable_reason": null,
+      "fetch_time_utc": "2026-06-26T15:25:26Z",
+      "geo": "US",
+      "observed_raw_range": {
+        "end": "2025-12-01",
+        "start": "2020-01-01"
+      },
+      "observed_raw_rows": 72,
+      "provider": "pytrends unofficial client for Google Trends explore/interest_over_time endpoint",
+      "query_terms": [
+        "travel",
+        "restaurant",
+        "buy car",
+        "luxury",
+        "retail sales"
+      ],
+      "requested_timeframe": "2020-01-01 2025-12-15",
+      "retention": "raw Google Trends values not retained; compact derived monthly z-score features embedded in model.py",
+      "timestamp_lag_convention": "month M Google Trends feature is first usable from the first calendar day of month M+1; current-month feature is never used"
+    },
+    "market_data": {
+      "evaluated_range": {
+        "end": "2025-12-15",
+        "start": "2021-01-04"
+      },
+      "source": "Alpaca real daily OHLCV through qfa AlpacaGateway",
+      "symbols": [
+        "XLY",
+        "XRT",
+        "JETS",
+        "PEJ",
+        "ITB",
+        "IYT",
+        "QQQ",
+        "SPY",
+        "IWM",
+        "XLP",
+        "XLU",
+        "SHY",
+        "GLD",
+        "XLE"
+      ],
+      "timeframe": "1Day"
+    }
+  },
+  "db_artifact_retained": false,
+  "decision_reason": "Real Google Trends signal was available and evaluated on Alpaca/qfa daily OHLCV, but primary Sharpe was negative, p25 random-window Sharpe was materially negative, and drawdown was large; fails issue falsifier after before-cost qfa metrics, before any transaction-cost haircut.",
+  "model_name": "google-trends-consumer-attention-etf-rotation-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "rationale": "Mechanism is external Google Trends attention, but realized ETF allocation overlaps broad risk-on/defensive rotation. Formal library correlation was not necessary for rejection after negative primary and random-window p25 Sharpe.",
+    "status": "not_promoted_due_to_failed_performance"
+  },
+  "primary_metrics": {
+    "after_cost": null,
+    "qfa_pre_cost": {
+      "annualized_return": -0.01428726,
+      "annualized_volatility": 0.14788752,
+      "final_equity": 93153.3,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.30383707,
+      "periods": 1242,
+      "sharpe": -0.02279294,
+      "total_return": -0.068467,
+      "win_rate": 0.52173913
+    },
+    "turnover_proxy": {
+      "available": false,
+      "reason": "qfa CLI/database retained metrics and equity curve only; no raw weights retained. Costs documented as assumption, not applied."
+    }
+  },
+  "provenance": {
+    "db_artifact_retained": false,
+    "no_csv_used": true,
+    "no_daemon": true,
+    "no_data_csv_argument_used": true,
+    "no_orders": true,
+    "qfa_command_template": ".venv/bin/qfa backtest run <model.py> --symbols XLY,XRT,JETS,PEJ,ITB,IYT,QQQ,SPY,IWM,XLP,XLU,SHY,GLD,XLE --start <start> --end <end> --timeframe 1Day --initial-cash 100000 --db /tmp/qfa_ar090_<pid>.sqlite3",
+    "raw_daily_paths_retained": false,
+    "raw_external_data_retained": false,
+    "sanitized_command": "Loaded credentials privately, mapped the provider key variable to the qfa-expected key variable without printing secrets, set paper mode, installed/used pytrends, fetched Google Trends features, and ran qfa backtest run on a temporary SQLite database for primary and 8 random windows; omitted CSV input and deleted the database afterward."
+  },
+  "qfa_run_ids": {
+    "primary": 1,
+    "random_windows": [
+      {
+        "end": "2021-12-31",
+        "label": "random_1",
+        "run_id": 2,
+        "start": "2021-01-04"
+      },
+      {
+        "end": "2022-12-30",
+        "label": "random_2",
+        "run_id": 3,
+        "start": "2022-01-03"
+      },
+      {
+        "end": "2023-12-29",
+        "label": "random_3",
+        "run_id": 4,
+        "start": "2023-01-03"
+      },
+      {
+        "end": "2024-12-31",
+        "label": "random_4",
+        "run_id": 5,
+        "start": "2024-01-02"
+      },
+      {
+        "end": "2025-12-15",
+        "label": "random_5",
+        "run_id": 6,
+        "start": "2025-01-02"
+      },
+      {
+        "end": "2023-06-30",
+        "label": "random_6",
+        "run_id": 7,
+        "start": "2021-07-01"
+      },
+      {
+        "end": "2024-06-28",
+        "label": "random_7",
+        "run_id": 8,
+        "start": "2022-07-01"
+      },
+      {
+        "end": "2025-06-30",
+        "label": "random_8",
+        "run_id": 9,
+        "start": "2023-07-03"
+      }
+    ],
+    "temporary_db_deleted": true
+  },
+  "random_window_summary_metrics": {
+    "count": 8,
+    "median_sharpe": -0.04776364,
+    "p25_sharpe": -0.4833305,
+    "positive_window_rate": 0.5,
+    "sharpe_values": [
+      0.60864255,
+      -0.96684423,
+      -0.82065606,
+      0.18661805,
+      0.14382928,
+      -0.37088865,
+      -0.23935657,
+      0.2996251
+    ],
+    "worst_max_drawdown": -0.28397681,
+    "worst_period_sharpe": -0.96684423
+  },
+  "random_windows": [
+    {
+      "end": "2021-12-31",
+      "label": "random_1",
+      "metrics": {
+        "annualized_return": 0.08222667,
+        "annualized_volatility": 0.14772015,
+        "final_equity": 108154.817,
+        "max_drawdown": -0.08133837,
+        "periods": 250,
+        "sharpe": 0.60864255,
+        "total_return": 0.08154817,
+        "win_rate": 0.492
+      },
+      "qfa_run_id": 2,
+      "start": "2021-01-04"
+    },
+    {
+      "end": "2022-12-30",
+      "label": "random_2",
+      "metrics": {
+        "annualized_return": -0.15179474,
+        "annualized_volatility": 0.15737214,
+        "final_equity": 84986.93,
+        "max_drawdown": -0.25725923,
+        "periods": 249,
+        "sharpe": -0.96684423,
+        "total_return": -0.1501307,
+        "win_rate": 0.52208835
+      },
+      "qfa_run_id": 3,
+      "start": "2022-01-03"
+    },
+    {
+      "end": "2023-12-29",
+      "label": "random_3",
+      "metrics": {
+        "annualized_return": -0.08543654,
+        "annualized_volatility": 0.10242992,
+        "final_equity": 91586.0863,
+        "max_drawdown": -0.17078104,
+        "periods": 248,
+        "sharpe": -0.82065606,
+        "total_return": -0.08413914,
+        "win_rate": 0.50806452
+      },
+      "qfa_run_id": 4,
+      "start": "2023-01-03"
+    },
+    {
+      "end": "2024-12-31",
+      "label": "random_4",
+      "metrics": {
+        "annualized_return": 0.016397,
+        "annualized_volatility": 0.13831537,
+        "final_equity": 101626.5817,
+        "max_drawdown": -0.10870819,
+        "periods": 250,
+        "sharpe": 0.18661805,
+        "total_return": 0.01626582,
+        "win_rate": 0.516
+      },
+      "qfa_run_id": 5,
+      "start": "2024-01-02"
+    },
+    {
+      "end": "2025-12-15",
+      "label": "random_5",
+      "metrics": {
+        "annualized_return": 0.00902082,
+        "annualized_volatility": 0.19030765,
+        "final_equity": 100848.1592,
+        "max_drawdown": -0.13299452,
+        "periods": 237,
+        "sharpe": 0.14382928,
+        "total_return": 0.00848159,
+        "win_rate": 0.53164557
+      },
+      "qfa_run_id": 6,
+      "start": "2025-01-02"
+    },
+    {
+      "end": "2023-06-30",
+      "label": "random_6",
+      "metrics": {
+        "annualized_return": -0.05857622,
+        "annualized_volatility": 0.13726659,
+        "final_equity": 88691.5843,
+        "max_drawdown": -0.25725923,
+        "periods": 501,
+        "sharpe": -0.37088865,
+        "total_return": -0.11308416,
+        "win_rate": 0.52095808
+      },
+      "qfa_run_id": 7,
+      "start": "2021-07-01"
+    },
+    {
+      "end": "2024-06-28",
+      "label": "random_7",
+      "metrics": {
+        "annualized_return": -0.04079392,
+        "annualized_volatility": 0.13557513,
+        "final_equity": 92083.695,
+        "max_drawdown": -0.28397681,
+        "periods": 499,
+        "sharpe": -0.23935657,
+        "total_return": -0.07916305,
+        "win_rate": 0.52104208
+      },
+      "qfa_run_id": 8,
+      "start": "2022-07-01"
+    },
+    {
+      "end": "2025-06-30",
+      "label": "random_8",
+      "metrics": {
+        "annualized_return": 0.03145294,
+        "annualized_volatility": 0.13275151,
+        "final_equity": 106311.1008,
+        "max_drawdown": -0.15708792,
+        "periods": 498,
+        "sharpe": 0.2996251,
+        "total_return": 0.06311101,
+        "win_rate": 0.52008032
+      },
+      "qfa_run_id": 9,
+      "start": "2023-07-03"
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "suggested_decision": "rejected",
+  "warnings": [
+    "Google Trends values are normalized/revisable and pytrends is an unofficial access path; timestamp discipline handled by one-month feature lag.",
+    "Raw Google Trends series, raw Alpaca bars, qfa equity_curve, weights_tail, and SQLite DB are not retained.",
+    "qfa metrics are pre-cost; transaction costs would worsen already-failing results."
+  ]
+}

@@ -1,0 +1,14 @@
+alpha_id: AR-092
+name: crypto-risk-appetite-spillover-etf-rotation-v1
+family: crypto_crossasset_risk_appetite
+status: rejected
+created_at_utc: 2026-06-26T15:59:25Z
+model_path: /Users/moonk/quant-for-agent/models/crypto-risk-appetite-spillover-etf-rotation-v1/model.py
+config_path: /Users/moonk/quant-for-agent/models/crypto-risk-appetite-spillover-etf-rotation-v1/config.yaml
+evaluation_path: /Users/moonk/quant-for-agent/models/crypto-risk-appetite-spillover-etf-rotation-v1/evaluations/latest.json
+data_source: Alpaca real ETF OHLCV and Alpaca real BTC/ETH crypto daily bars
+raw_data_retained: false
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true

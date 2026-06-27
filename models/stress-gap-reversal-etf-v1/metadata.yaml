@@ -1,0 +1,17 @@
+id: AR-026
+model_name: stress-gap-reversal-etf-v1
+type: divergent
+parent_alpha: AR-008
+status: evaluated_rejected
+family: stress_reversal
+created_at: '2026-06-26T06:40:00Z'
+evaluated_at: '2026-06-26T08:09:19Z'
+hypothesis: After broad overnight risk-off stress, liquid risk ETFs may reverse intraday or over 1-3 days.
+data_source: Alpaca real market data only via qfa/AlpacaGateway; no CSV
+suggested_decision: reject_do_not_promote
+primary_metric: open_to_close_after_5bps_per_side
+primary_sharpe: -0.20187640834062562
+primary_total_return: -0.0835691834679031
+primary_max_drawdown: -0.15981153406545978
+random_window_median_sharpe: -0.5746989134938384
+bad_result_policy: no refinement, direct inversion, or extension of failed stress-gap reversal hypothesis

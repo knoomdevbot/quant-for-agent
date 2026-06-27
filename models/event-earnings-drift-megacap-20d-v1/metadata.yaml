@@ -1,0 +1,9 @@
+model_name: event-earnings-drift-megacap-20d-v1
+issue_id: AR-014
+created_at_utc: 2026-06-26T07:25:11Z
+model_contract: generate_signals(context)
+data_source: Alpaca real market data only via qfa
+live_trading: false
+daemon_run: false
+suggested_decision: rejected
+latest_evaluation: evaluations/latest.json

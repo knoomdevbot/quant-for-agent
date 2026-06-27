@@ -1,0 +1,29 @@
+alpha_id: AR-054
+model_name: etf-stress-liquidity-beta-reduced-v1
+version: 1
+status: researched_rejected
+created_at_utc: '2026-06-26T10:43:24Z'
+parent_alpha: AR-043
+hypothesis: >-
+  AR-043 stress-liquidity allocation may improve if equity beta exposure and
+  AR-008 redundancy are reduced via SPY drawdown/trend brake and stronger
+  defensive allocation.
+data_source: Alpaca real OHLCV via qfa/AlpacaGateway
+csv_used: false
+daemon_used: false
+live_trades: false
+db_artifact_retained: false
+evaluation:
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  immutable_run_json: evaluations/runs/ar054_qfa_alpaca_real_20260626T104324Z.json
+summary_metrics:
+  primary_post_cost_sharpe: 0.27230672
+  primary_post_cost_annualized_return: 0.02607036
+  primary_post_cost_max_drawdown: -0.1893238
+  random_window_median_post_cost_sharpe: 0.36767384
+  random_window_p25_post_cost_sharpe: -0.31652669
+  random_window_worst_post_cost_sharpe: -0.37918828
+  random_window_worst_post_cost_max_drawdown: -0.1567204
+orthogonality_status: fails_available_model_threshold_high_correlation_to_AR043; AR008_unavailable
+suggested_decision: reject

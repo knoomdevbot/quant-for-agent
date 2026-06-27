@@ -1,0 +1,37 @@
+model_name: post-drawdown-residual-defensive-leadership-v1
+issue_id: AR-107
+status: rejected_research_artifact
+qfa_contract: generate_signals(context)
+data_source: qfa_alpaca_real_market_data_only
+timeframe: 1Day
+research_controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  compact_artifacts_only: true
+universe:
+  construction: fixed_ex_ante_large_cap_single_names_plus_spy_and_sector_etf_proxies
+  single_name_count: 119
+  total_symbol_count: 131
+  sector_proxies: [XLB, XLC, XLE, XLF, XLI, XLK, XLP, XLRE, XLU, XLV, XLY]
+  market_proxy: SPY
+signal:
+  activation: SPY_126d_drawdown_below_3p5pct_and_10d_drawdown_low_not_worsening
+  rebalance: weekly
+  residualization: single_name_return_minus_0p45_SPY_minus_0p55_sector_ETF
+  primary_rank_inputs: [20d_residual_momentum, 60d_residual_momentum, 20d_residual_breadth, relative_volume]
+  defensive_controls: [realized_beta_brake, realized_volatility_brake, beta_vol_eligibility_filter]
+  max_gross_exposure: 0.95
+  max_name_weight: 0.09
+  sector_cap_target: 0.28
+evaluation:
+  primary_start: '2020-01-01'
+  primary_end: '2026-06-18'
+  data_start: '2019-01-01'
+  data_end: '2026-06-20'
+  turnover_cost_bps: [5, 10, 20]
+  random_window_count: 12
+decision:
+  recommended: rejected
+  reason: 10_bps_random_window_median_and_p25_sharpe_failed_and_20_bps_primary_sharpe_non_positive

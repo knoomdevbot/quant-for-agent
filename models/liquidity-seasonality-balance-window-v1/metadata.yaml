@@ -1,0 +1,18 @@
+issue_id: AR-038
+model_name: liquidity-seasonality-balance-window-v1
+family: liquidity_seasonality
+status: researched
+created_at_utc: '2026-06-26T09:12:38Z'
+hypothesis: Mega-cap liquidity and seasonality effects around balance-sheet/reporting windows may create a return stream distinct from price/volume event-drift proxies.
+falsifier: Median random-period Sharpe <= 0 after documented/applied costs, severe lower-tail drawdowns, or high redundancy.
+suggested_decision: rejected
+no_csv_used: true
+data_source: Alpaca real daily market data via qfa AlpacaGateway
+costs_slippage: 5 bps one-way ex-post turnover haircut
+orthogonality_status: not_high_by_design; quantitative library return correlation unavailable in retained artifacts
+artifacts:
+  model: models/liquidity-seasonality-balance-window-v1/model.py
+  config: models/liquidity-seasonality-balance-window-v1/config.yaml
+  latest_json: models/liquidity-seasonality-balance-window-v1/evaluations/latest.json
+  latest_md: models/liquidity-seasonality-balance-window-v1/evaluations/latest.md
+  immutable_run: models/liquidity-seasonality-balance-window-v1/evaluations/runs/ar038_qfa_alpaca_real_20260626T091232Z.json

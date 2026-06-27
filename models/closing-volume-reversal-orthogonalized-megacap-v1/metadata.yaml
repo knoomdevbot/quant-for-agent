@@ -1,0 +1,14 @@
+model_name: closing-volume-reversal-orthogonalized-megacap-v1
+issue_id: AR-056
+status: completed_watchlist
+created_at: 2026-06-26T10:03:41Z
+parent_alpha: AR-045
+family: liquidity_reversal
+hypothesis: >-
+  AR-045 close-location/abnormal-volume reversal can be made less redundant with
+  market and AR-028 by requiring idiosyncratic residual confirmation and beta/dollar
+  neutralizing the signal vector.
+data_source: Alpaca/qfa real market data only; no CSV and no --data-csv.
+notes:
+  - Daily Alpaca bars do not include true closing-auction volume/imbalance.
+  - qfa CLI has no native transaction-cost flag; evaluation applies a 5 bps one-way turnover haircut externally.

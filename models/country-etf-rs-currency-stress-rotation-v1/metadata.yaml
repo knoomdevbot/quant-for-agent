@@ -1,0 +1,14 @@
+alpha_id: "AR-112"
+issue_id: "AR-112"
+status: "rejected"
+created_utc: "2026-06-26T20:48:48.571407+00:00"
+model_path: "models/country-etf-rs-currency-stress-rotation-v1/model.py"
+latest_evaluation: "models/country-etf-rs-currency-stress-rotation-v1/evaluations/latest.json"
+decision: "Rejected: positive median 10 bps window Sharpe, but weak 2022/worst-window robustness and marginal/high similarity to stronger same-data ETF TSMOM/defensive proxies mean the signal does not clear incremental watchlist quality."
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+  credentials: "Alpaca paper-data access configured; values redacted and not persisted."

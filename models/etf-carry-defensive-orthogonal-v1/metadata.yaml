@@ -1,0 +1,34 @@
+issue_id: AR-049
+model_name: etf-carry-defensive-orthogonal-v1
+family: cross_asset_carry_defensive
+type: refinement
+parent: AR-037
+status_suggestion: watchlist_not_accepted
+created_by: scheduled AlphaEvolve qfa research subagent
+created_at_utc: 2026-06-26T10:28:42Z
+qfa_contract: generate_signals(context) -> dict[str, float]
+data_source: Alpaca real market data via qfa AlpacaGateway
+no_csv_used: true
+daemon_used: false
+live_trades: false
+hypothesis: Reduce correlation to AR-015 while preserving positive standalone carry/defensive ETF allocation performance.
+falsifier: Median random-period Sharpe <= 0 after costs, unacceptable drawdown, or high redundancy with stronger watchlist alphas.
+summary: Orthogonality-constrained carry/defensive ETF allocator with small equity sleeve, larger duration/haven/cash budgets, and explicit trend-beta penalty.
+evaluation:
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md
+  immutable_run_json: evaluations/runs/ar049_qfa_alpaca_real_20260626T102842Z.json
+  primary_qfa_run_id: 1
+  random_window_count: 8
+  median_costed_random_sharpe: 0.33637069
+  p25_costed_random_sharpe: 0.06529506
+  worst_costed_random_sharpe: -0.40745962
+  positive_costed_window_rate: 0.75
+  worst_max_drawdown_costed: -0.079501
+orthogonality:
+  ar015_corr: 0.50633334
+  parent_ar037_corr: 0.63994784
+warnings:
+  - qfa CLI has no native transaction-cost model; costs are ex-post turnover haircuts.
+  - Correlation to parent AR-037 remains moderate-high despite improvement.
+  - Random-window Sharpe is positive but modest, with negative worst window.

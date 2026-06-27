@@ -1,0 +1,13 @@
+alpha_id: AR-082
+issue_title: ETF volume-drought trend persistence allocator
+model_name: etf-volume-drought-trend-persistence-v1
+parent_id: AR-074
+status: evaluated
+created_at: '2026-06-26'
+hypothesis: Low-liquidity / volume-drought regimes following quiet consolidation can produce trend persistence across liquid ETFs.
+falsifier: Median random-period Sharpe <= 0 after costs, materially negative p25 Sharpe, severe drawdown, or high correlation with ETF TSMOM/defensive rotation alphas.
+qfa_contract: generate_signals(context) returns target weights by symbol.
+real_data_only: true
+no_csv_used: true
+no_daemon: true
+no_orders: true

@@ -1,0 +1,45 @@
+model_name: low-vol-quality-coststable-megacap-v1
+issue_id: AR-029
+parent_issue_id: AR-010
+family: defensive_factor
+status: rejected
+created_at_utc: 2026-06-26T08:23:19Z
+research_summary: >-
+  Cost-aware refinement of AR-010 using qfa/Alpaca real market data only.
+  Monthly rebalance proxy reduced estimated turnover, but 10 random one-year
+  windows had negative median cost-adjusted Sharpe, failing the AR-029 falsifier.
+data_source: Alpaca real market data via qfa AlpacaGateway; no CSV; --data-csv not used
+primary_period: 2021-01-04_to_2025-12-15
+primary_metrics_pre_cost:
+  sharpe: 0.16835842
+  total_return: 0.06914755
+  max_drawdown: -0.31564793
+  win_rate: 0.39291465
+  periods: 1242
+primary_metrics_cost_adjusted_5bps:
+  sharpe: 0.1175992
+  total_return: 0.03150276
+  max_drawdown: -0.32177734
+random_windows:
+  count: 10
+  seed: 29029
+  median_cost_adjusted_sharpe: -0.79262501
+  positive_cost_adjusted_sharpe_fraction: 0.4
+costs_slippage:
+  qfa_applied: false
+  ex_post_one_way_bps: 5
+  mean_daily_one_way_turnover: 0.05768768
+  annualized_cost_drag_estimate: 0.00726865
+orthogonality:
+  status: computed
+  max_abs_correlation_observed: 0.14264357
+artifacts:
+  model: models/low-vol-quality-coststable-megacap-v1/model.py
+  config: models/low-vol-quality-coststable-megacap-v1/config.yaml
+  latest_json: models/low-vol-quality-coststable-megacap-v1/evaluations/latest.json
+  latest_md: models/low-vol-quality-coststable-megacap-v1/evaluations/latest.md
+  immutable_run_json: models/low-vol-quality-coststable-megacap-v1/evaluations/runs/ar029_qfa_alpaca_real_20260626T082319Z.json
+bad_result_policy:
+  rejected: true
+  refinement_child_created: false
+  divergent_child_created: false

@@ -1,0 +1,31 @@
+model_name: credit-spread-compression-breadth-risk-allocator-v1
+issue_id: AR-102
+family: credit_breadth_regime
+universe: [HYG, JNK, LQD, VCIT, TIP, TLT, IEF, SHY, SPY, QQQ, IWM, XLF, XLI, XLE, XLU, XLP, XLV, GLD]
+timeframe: 1Day
+rebalance_proxy: daily targets from 20/60/126-day credit-ratio breadth and regime features
+initial_cash: 100000
+parameters:
+  fast_lookback: 20
+  mid_lookback: 60
+  slow_lookback: 126
+  z_window: 126
+  vol_window: 20
+  compression_breadth_threshold: 0.60
+  expansion_breadth_threshold: 0.40
+  max_single_weight: 0.35
+costs:
+  primary_one_way_turnover_bps: 5
+  stress_one_way_turnover_bps: [10, 20]
+risk_controls:
+  long_only: true
+  gross_target: 1.0
+  no_leverage: true
+  shy_fallback: true
+  credit_ratio_state: [HYG/LQD, HYG/IEF]
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

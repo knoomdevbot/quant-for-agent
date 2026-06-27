@@ -1,0 +1,20 @@
+model_name: broad-close-volume-dislocation-reversal-v1
+issue_id: AR-103
+status: research_evaluated
+suggested_decision: rejected
+created_at: '2026-06-26'
+family: liquidity_reversal
+parent_alpha: AR-045
+hypothesis: Broad liquid-universe abnormal daily volume plus extreme close-location events may reverse over the next session when turnover and volatility are throttled.
+data_source: Real Alpaca market bars through qfa-compatible data access; no CSV-backed research.
+artifacts:
+  model: models/broad-close-volume-dislocation-reversal-v1/model.py
+  config: models/broad-close-volume-dislocation-reversal-v1/config.yaml
+  evaluation_latest_json: models/broad-close-volume-dislocation-reversal-v1/evaluations/latest.json
+  evaluation_latest_md: models/broad-close-volume-dislocation-reversal-v1/evaluations/latest.md
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

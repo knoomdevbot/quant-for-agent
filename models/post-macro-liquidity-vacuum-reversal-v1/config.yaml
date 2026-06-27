@@ -1,0 +1,43 @@
+alpha_id: AR-053
+model_name: post-macro-liquidity-vacuum-reversal-v1
+model_family: intraday_or_next_day_liquidity_reversal
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+timeframe: 1Day
+holding_period: 1_to_3_sessions
+rebalance: daily
+position_sizing: sparse_long_only_laggard_reversal
+parameters:
+  min_history: 90
+  range_lookback: 60
+  vol_lookback: 40
+  holding_decay_sessions: [1.0, 0.55, 0.25]
+  max_single_name: 0.50
+  min_event_range_z: 0.85
+  min_core_range_multiple: 1.18
+costs:
+  native_qfa_costs_applied: false
+  one_way_bps_assumption: 5.0
+  method: ex_post_turnover_haircut
+backtest:
+  data_source: Alpaca real OHLCV via qfa/AlpacaGateway
+  csv_used: false
+  fetch_start: '2019-01-01'
+  fetch_end: '2025-12-31'
+  primary_start: '2021-01-04'
+  primary_end: '2025-12-15'
+  random_windows: 8
+  temporary_db_pattern: /tmp/qfa-AR-053-*.sqlite3
+risk_controls:
+  no_daemon: true
+  no_trades: true
+acceptance_threshold:
+  median_random_sharpe_after_costs: '> 0'
+  p25_random_sharpe_after_costs: '> 0'
+  redundancy: not_highly_redundant_to_AR021_AR042_AR043_or_watchlist_etf_models

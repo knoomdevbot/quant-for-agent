@@ -1,0 +1,29 @@
+issue_id: AR-072
+model_name: macro-drawdown-beta-redundancy-constrained-v1
+family: macro_regime_allocation
+universe: [SPY, QQQ, TLT, IEF, GLD, XLU, XLP, XLV, HYG, LQD, SHY]
+data_source: Alpaca real daily market data via qfa; no CSV; no --data-csv
+primary_window:
+  start: '2023-01-01'
+  end: '2025-12-31'
+  timeframe: 1Day
+parameters:
+  beta_cap: 0.30
+  beta_cap_grid_considered: [0.30, 0.50]
+  turnover_brake_days: 10
+  turnover_brake_grid_considered: [5, 10]
+  correlation_threshold_target: 0.55
+  correlation_threshold_grid_considered: [0.45, 0.55]
+  shock_window_days: 126
+  shock_window_grid_considered: [63, 126]
+  gross_exposure_cap: 1.0
+costs_slippage:
+  qfa_native_costs_applied: false
+  external_one_way_turnover_cost_bps: 5.0
+  stress_one_way_turnover_cost_bps: 20.0
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  temporary_db_only: true

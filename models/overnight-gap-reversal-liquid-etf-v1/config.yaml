@@ -1,0 +1,38 @@
+model_name: overnight-gap-reversal-liquid-etf-v1
+issue_id: AR-012
+family: intraday_or_overnight_reversal
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - SLV
+  - XLF
+  - XLK
+  - XLE
+  - XLV
+data_source: Alpaca real market data via quant_for_agent.alpaca_client.AlpacaGateway
+research_horizon: same_day_open_to_close
+qfa_model_horizon: lagged_daily_close_to_close_proxy
+parameters:
+  gap_z_window: 60
+  entry_z: 1.5
+  market_filter: true
+  max_abs_weight: 0.25
+  min_symbols: 5
+  gross_exposure_target: 1.0
+parameter_search_space:
+  gap_z_window: [20, 60]
+  entry_z: [1.0, 1.5, 2.0]
+  market_filter: [false, true]
+random_window_protocol:
+  windows: 30
+  window_trading_days: 126
+  seed: 12012
+costs_slippage:
+  qfa_cli_costs_applied: false
+  research_harness_costs_applied: true
+  round_trip_cost_bps: 5
+  sensitivity_bps: [0, 5, 10, 20]
+  caveat: qfa current backtest CLI has no explicit transaction-cost/slippage parameter; direct research harness applies simple same-day entry+exit bps to gross exposure.

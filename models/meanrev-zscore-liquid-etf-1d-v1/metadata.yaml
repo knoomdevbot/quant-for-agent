@@ -1,0 +1,35 @@
+name: meanrev-zscore-liquid-etf-1d-v1
+issue_id: AR-002
+status: real_data_tested_rejected_current_form
+created_at: 2026-06-26T01:23:15Z
+updated_at: 2026-06-26T05:46:38Z
+created_by: hermes-agent-subagent
+updated_by: hermes-agent-subagent
+repository: /Users/moonk/quant-for-agent
+model_path: models/meanrev-zscore-liquid-etf-1d-v1/model.py
+config_path: models/meanrev-zscore-liquid-etf-1d-v1/config.yaml
+evaluation_latest_json: models/meanrev-zscore-liquid-etf-1d-v1/evaluations/latest.json
+evaluation_latest_md: models/meanrev-zscore-liquid-etf-1d-v1/evaluations/latest.md
+latest_run_json: models/meanrev-zscore-liquid-etf-1d-v1/evaluations/runs/qfa_realdata_20260626T054638Z.json
+qfa_db: models/meanrev-zscore-liquid-etf-1d-v1/evaluations/qfa_realdata.sqlite3
+no_live_trading: true
+no_daemon: true
+orders_placed: false
+no_secrets: true
+raw_data_stored: false
+latest_data_source: Alpaca market data via qfa, no --data-csv
+latest_metrics:
+  periods: 500
+  final_equity: 79763.4397
+  total_return: -0.2023656
+  annualized_return: -0.10770358
+  annualized_volatility: 0.14567079
+  sharpe: -0.70937156
+  max_drawdown: -0.35148562
+  win_rate: 0.434
+suggested_decision: reject_or_refine_watchlist_only_not_accepted
+research_notes:
+  - Implements qfa generate_signals(context) contract.
+  - Updated signal to match AR-002 title: mean reversion after stretched trailing 3-day ETF moves.
+  - qfa backtest engine currently has no transaction-cost/slippage parameter, so 5 bps assumption is documented but not applied.
+  - Previous CSV fixture smoke artifacts are marked stale in evaluations/STALE_CSV_RESULTS.md.

@@ -1,0 +1,70 @@
+alpha_id: AR-093
+model_name: crypto-stress-quality-flight-defensive-etf-allocator-v1
+model_path: models/crypto-stress-quality-flight-defensive-etf-allocator-v1/model.py
+universe:
+  candidate_pool:
+    - SPY
+    - QQQ
+    - IWM
+    - DIA
+    - VTI
+    - XLK
+    - XLY
+    - XLF
+    - XLI
+    - XLE
+    - SMH
+    - ARKK
+    - TLT
+    - IEF
+    - SHY
+    - BIL
+    - SGOV
+    - GLD
+    - IAU
+    - SLV
+    - DBC
+    - UUP
+    - HYG
+    - LQD
+    - JNK
+    - VCIT
+    - BND
+    - MUB
+    - TIP
+    - XLU
+    - XLP
+    - XLV
+    - USMV
+    - QUAL
+    - VNQ
+    - COIN
+    - MSTR
+    - MARA
+    - RIOT
+    - SQ
+    - PYPL
+  selected_symbols: [SPY, QQQ, IWM, TLT, IEF, SHY, GLD, HYG, LQD, XLU, XLP, XLV, USMV, QUAL]
+data:
+  market_prices: Alpaca real daily OHLCV via qfa AlpacaGateway; never --data-csv
+  external_crypto_provider: Coinbase Exchange public candles API JSON
+  external_assets: [BTC-USD, ETH-USD]
+  timestamp_lag_convention: ETF signal date D uses BTC/ETH daily features shifted one completed UTC day through D-1; qfa applies weights to next ETF bar.
+parameters:
+  crypto_feature_threshold: 1.35
+  post_trigger_hold_days: 5
+  min_history_days: 126
+  max_single_weight: 0.32
+  gross_exposure_cap: 1.0
+risk_controls:
+  no_leverage: true
+  long_only: true
+  cash_like_fallback: SHY
+costs:
+  primary_one_way_bps: 10.0
+  secondary_one_way_bps: 5.0
+compliance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true

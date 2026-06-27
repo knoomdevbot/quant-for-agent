@@ -1,0 +1,56 @@
+model_name: sector-etf-volume-exhaustion-reversal-v1
+alpha_id: AR-095
+parent_id: AR-083
+family: sector_liquidity_reversal
+status: research_completed
+suggested_decision: rejected
+qfa_contract: generate_signals(context)
+data_source: qfa_alpaca_real_ohlcv_only
+no_csv_used: true
+no_daemon: true
+no_orders: true
+candidate_pool:
+  - SPY
+  - QQQ
+  - IWM
+  - XLF
+  - XLK
+  - XLE
+  - XLU
+  - XLV
+  - XLI
+  - XLP
+selected_universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLF
+  - XLK
+  - XLE
+  - XLU
+  - XLV
+  - XLI
+  - XLP
+parameters:
+  volume_short: 20
+  volume_long: 60
+  range_lookback: 20
+  min_history: 90
+  vol_z_threshold: 1.25
+  range_z_threshold: 1.00
+  event_return_threshold: 0.004
+  close_location_extreme: 0.72
+  failed_followthrough_threshold: 0.001
+  sector_cap: 0.35
+  max_names: 4
+  market_beta_brake_lookback: 10
+  market_beta_brake_ret: 0.035
+  spy_hedge_fraction: 0.35
+evaluation:
+  timeframe: 1Day
+  data_start: '2019-01-01'
+  data_end: '2025-12-15'
+  primary_start: '2024-01-02'
+  primary_end: '2025-12-15'
+  initial_cash: 100000
+  cost_one_way_bps: 5.0

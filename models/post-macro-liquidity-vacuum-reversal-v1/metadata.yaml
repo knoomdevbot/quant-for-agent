@@ -1,0 +1,13 @@
+alpha_id: AR-053
+model_name: post-macro-liquidity-vacuum-reversal-v1
+status: reject_or_park_do_not_refine
+created_at_utc: '2026-06-26T10:43:58Z'
+parent_alpha: AR-042
+hypothesis: after large same-day range expansion around deterministic scheduled-macro proxy dates, lagging/liquidity-stressed ETFs may mean-revert over next 1-3 sessions
+data_source: Alpaca real daily OHLCV via qfa AlpacaGateway
+no_csv_used: true
+daemon_used: false
+live_trades: false
+db_artifact_retained: false
+suggested_decision: reject_or_park_do_not_refine
+latest_evaluation: evaluations/latest.json

@@ -1,0 +1,932 @@
+{
+  "ablations_and_baselines": {
+    "equal_weight_broad_equity_etf": {
+      "activation": 1.0,
+      "annualized_return": 0.158,
+      "annualized_volatility": 0.1799,
+      "max_drawdown": -0.274,
+      "mean_daily_return": 0.0006,
+      "periods": 1488,
+      "sharpe": 0.9053,
+      "turnover": 0.0
+    },
+    "equal_weight_defensive_etf": {
+      "activation": 1.0,
+      "annualized_return": -0.0066,
+      "annualized_volatility": 0.0822,
+      "max_drawdown": -0.2543,
+      "mean_daily_return": -0.0,
+      "periods": 1488,
+      "sharpe": -0.0401,
+      "turnover": 0.0
+    }
+  },
+  "artifacts": {
+    "immutable_run_json": "models/megacap-liquidity-exhaustion-etf-recovery-v1/evaluations/runs/ar119_qfa_alpaca_real_20260627T033919Z.json",
+    "latest_json": "models/megacap-liquidity-exhaustion-etf-recovery-v1/evaluations/latest.json",
+    "latest_md": "models/megacap-liquidity-exhaustion-etf-recovery-v1/evaluations/latest.md"
+  },
+  "config_path": "models/megacap-liquidity-exhaustion-etf-recovery-v1/config.yaml",
+  "data": {
+    "candidate_pool_description": "60 liquid US mega-cap equities for signal breadth; 20 liquid ETFs/cash-like products for tradable expression, selected ex ante by coverage/liquidity/exposure diversity.",
+    "candidate_pool_size": 80,
+    "coverage_summary": {
+      "by_symbol": {
+        "AAPL": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 203.1
+        },
+        "ABBV": {
+          "bars": 1484,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 29.5
+        },
+        "ABT": {
+          "bars": 1484,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 21.1
+        },
+        "ACN": {
+          "bars": 1484,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 31.4
+        },
+        "ADBE": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 54.0
+        },
+        "AMAT": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 32.9
+        },
+        "AMD": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 90.9
+        },
+        "AMZN": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 244.3
+        },
+        "AVGO": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 76.7
+        },
+        "BAC": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 44.0
+        },
+        "BRK.B": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 39.6
+        },
+        "CAT": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 26.9
+        },
+        "COST": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 40.8
+        },
+        "CRM": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 57.7
+        },
+        "CSCO": {
+          "bars": 1487,
+          "first": "2018-05-22",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 29.9
+        },
+        "CVX": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 32.2
+        },
+        "DHR": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 31.7
+        },
+        "DIA": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 15.0
+        },
+        "DIS": {
+          "bars": 1484,
+          "first": "2018-04-25",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 32.3
+        },
+        "GE": {
+          "bars": 1484,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 24.1
+        },
+        "GLD": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 16.1
+        },
+        "GOOG": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 90.4
+        },
+        "GOOGL": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 144.5
+        },
+        "GS": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 34.3
+        },
+        "HD": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 42.4
+        },
+        "HON": {
+          "bars": 1485,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 21.8
+        },
+        "IBM": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 22.1
+        },
+        "IEF": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 13.6
+        },
+        "INTU": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 39.3
+        },
+        "ISRG": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 27.1
+        },
+        "IWM": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 101.4
+        },
+        "JNJ": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 36.9
+        },
+        "JPM": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 45.3
+        },
+        "KO": {
+          "bars": 1484,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 25.6
+        },
+        "LIN": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 27.8
+        },
+        "LLY": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 54.0
+        },
+        "LOW": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 25.9
+        },
+        "MA": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 54.4
+        },
+        "MCD": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 27.3
+        },
+        "META": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 159.3
+        },
+        "MRK": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 28.8
+        },
+        "MSFT": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 171.4
+        },
+        "NEE": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 21.6
+        },
+        "NFLX": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 83.9
+        },
+        "NOW": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 46.1
+        },
+        "NVDA": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 244.2
+        },
+        "ORCL": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 30.4
+        },
+        "PEP": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 24.4
+        },
+        "PFE": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 30.1
+        },
+        "PG": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 31.9
+        },
+        "PM": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 17.5
+        },
+        "QCOM": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 35.4
+        },
+        "QQQ": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 231.4
+        },
+        "QUAL": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 1.7
+        },
+        "RTX": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 18.2
+        },
+        "SHY": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 5.4
+        },
+        "SPGI": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 28.0
+        },
+        "SPY": {
+          "bars": 1487,
+          "first": "2018-11-01",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 531.7
+        },
+        "TLT": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 54.8
+        },
+        "TMO": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 43.6
+        },
+        "TSLA": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 270.9
+        },
+        "TXN": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 32.7
+        },
+        "UBER": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 32.4
+        },
+        "UNH": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 65.1
+        },
+        "USMV": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 2.6
+        },
+        "V": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 59.6
+        },
+        "VZ": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 26.4
+        },
+        "WFC": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 30.7
+        },
+        "WMT": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 33.2
+        },
+        "XLB": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 10.4
+        },
+        "XLE": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 37.6
+        },
+        "XLF": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 49.7
+        },
+        "XLI": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 27.1
+        },
+        "XLK": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 18.7
+        },
+        "XLP": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 23.2
+        },
+        "XLRE": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 4.0
+        },
+        "XLU": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 19.6
+        },
+        "XLV": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 26.0
+        },
+        "XLY": {
+          "bars": 1486,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 12.0
+        },
+        "XOM": {
+          "bars": 1483,
+          "first": "2020-07-27",
+          "last": "2026-06-25",
+          "median_dollar_volume_millions": 40.9
+        }
+      },
+      "failed_symbols": {},
+      "symbols_with_bars": 80
+    },
+    "end": "2026-06-26",
+    "paper_data_access": true,
+    "signal_universe_size": 60,
+    "source": "qfa_alpaca_real_daily_ohlcv",
+    "start": "2018-01-01",
+    "survivorship_bias_checked": false,
+    "tradable_universe_size": 20,
+    "universe_selection_filters": [
+      "Alpaca daily coverage",
+      "large dollar-volume/liquidity",
+      "sector diversity",
+      "ETF tradability",
+      "economic exposure mapping"
+    ]
+  },
+  "decision": {
+    "rationale": [
+      "Failed robustness thresholds after costs or had insufficient positive random-window breadth.",
+      "High correlation to a relevant benchmark/library proxy limits standalone novelty."
+    ],
+    "status": "rejected"
+  },
+  "evaluated_at": "2026-06-27T03:41:09Z",
+  "evaluator": "transient_qfa_alpaca_replay",
+  "full_period_metrics_by_cost_bps": {
+    "0": {
+      "activation": 0.664651,
+      "annualized_return": 0.02261,
+      "annualized_volatility": 0.103584,
+      "max_drawdown": -0.200446,
+      "mean_daily_return": 0.00011,
+      "periods": 1488,
+      "sharpe": 0.267966,
+      "turnover": 0.198669
+    },
+    "10": {
+      "activation": 0.664651,
+      "annualized_return": -0.02734,
+      "annualized_volatility": 0.103698,
+      "max_drawdown": -0.286565,
+      "mean_daily_return": -8.9e-05,
+      "periods": 1488,
+      "sharpe": -0.21512,
+      "turnover": 0.198669
+    },
+    "20": {
+      "activation": 0.664651,
+      "annualized_return": -0.074868,
+      "annualized_volatility": 0.103913,
+      "max_drawdown": -0.420999,
+      "mean_daily_return": -0.000287,
+      "periods": 1488,
+      "sharpe": -0.696467,
+      "turnover": 0.198669
+    },
+    "5": {
+      "activation": 0.664651,
+      "annualized_return": -0.002675,
+      "annualized_volatility": 0.103628,
+      "max_drawdown": -0.24113,
+      "mean_daily_return": 1.1e-05,
+      "periods": 1488,
+      "sharpe": 0.026294,
+      "turnover": 0.198669
+    }
+  },
+  "metrics": {
+    "activation": 0.664651,
+    "annualized_return": -0.02734,
+    "annualized_volatility": 0.103698,
+    "max_drawdown": -0.286565,
+    "mean_sharpe": -0.388157,
+    "median_sharpe": -0.5372,
+    "p25_sharpe": -1.0768,
+    "positive_window_rate": 0.3,
+    "turnover": 0.198669,
+    "window_count": 30,
+    "window_length_trading_days": 252,
+    "worst_period_sharpe": -1.766
+  },
+  "model_name": "megacap-liquidity-exhaustion-etf-recovery-v1",
+  "model_path": "models/megacap-liquidity-exhaustion-etf-recovery-v1/model.py",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "cointegration_min_pvalue": null,
+    "compared_to_library_snapshot": "available replay/proxy benchmarks only; raw retained library streams generally unavailable",
+    "correlations": {
+      "AR-043_replayed_proxy": 0.7606,
+      "GLD": 0.1666,
+      "IWM": 0.6579,
+      "QQQ": 0.651,
+      "SPY": 0.6551,
+      "TLT": 0.1465,
+      "equal_weight_megacap_proxy": 0.6512
+    },
+    "max_abs_corr_to_relevant_proxy": 0.7606,
+    "redundancy_penalty": "high"
+  },
+  "protocol": {
+    "compact_artifact_note": "No raw bars, daily return paths, equity curves, or weight tails retained.",
+    "cost_sensitivity_bps": [
+      0,
+      5,
+      10,
+      20
+    ],
+    "execution_assumption": "signals at close, next daily close-to-close return approximation",
+    "primary_cost_bps": 10,
+    "random_periods_requested": 30,
+    "random_seed": 119,
+    "timeframe": "1Day",
+    "smoke_contract_test": {
+      "result": "passed",
+      "tool": "qfa backtest run",
+      "data_source": "configured real daily market data",
+      "date_range": "2025-01-02 to 2025-03-31",
+      "periods": 58,
+      "temp_db_retained": false,
+      "note": "Flat result expected because the short smoke window is below model warmup; used only to verify qfa contract/data path without CSV."
+    },
+    "transient_evaluator_outside_repo": true,
+    "warmup_days": 170,
+    "window_length_trading_days": 252
+  },
+  "random_windows_10bps": [
+    {
+      "activation": 0.2579,
+      "annualized_return": 0.0326,
+      "end": "2021-08-26",
+      "max_drawdown": -0.0283,
+      "sharpe": 0.7147,
+      "start": "2020-08-27",
+      "turnover": 0.108
+    },
+    {
+      "activation": 0.2857,
+      "annualized_return": 0.0198,
+      "end": "2021-09-15",
+      "max_drawdown": -0.0283,
+      "sharpe": 0.4376,
+      "start": "2020-09-16",
+      "turnover": 0.1262
+    },
+    {
+      "activation": 0.5675,
+      "annualized_return": -0.0097,
+      "end": "2022-01-18",
+      "max_drawdown": -0.0623,
+      "sharpe": -0.0904,
+      "start": "2021-01-20",
+      "turnover": 0.1925
+    },
+    {
+      "activation": 0.7143,
+      "annualized_return": -0.0748,
+      "end": "2022-03-11",
+      "max_drawdown": -0.1239,
+      "sharpe": -0.7632,
+      "start": "2021-03-15",
+      "turnover": 0.2135
+    },
+    {
+      "activation": 0.7976,
+      "annualized_return": -0.1551,
+      "end": "2022-06-03",
+      "max_drawdown": -0.2122,
+      "sharpe": -1.2634,
+      "start": "2021-06-07",
+      "turnover": 0.2195
+    },
+    {
+      "activation": 0.8016,
+      "annualized_return": -0.1646,
+      "end": "2022-06-07",
+      "max_drawdown": -0.2122,
+      "sharpe": -1.3467,
+      "start": "2021-06-09",
+      "turnover": 0.2195
+    },
+    {
+      "activation": 0.7897,
+      "annualized_return": -0.1145,
+      "end": "2022-08-11",
+      "max_drawdown": -0.2122,
+      "sharpe": -0.8461,
+      "start": "2021-08-12",
+      "turnover": 0.2266
+    },
+    {
+      "activation": 0.7222,
+      "annualized_return": -0.2323,
+      "end": "2022-12-30",
+      "max_drawdown": -0.2323,
+      "sharpe": -1.766,
+      "start": "2021-12-31",
+      "turnover": 0.2461
+    },
+    {
+      "activation": 0.7262,
+      "annualized_return": -0.2088,
+      "end": "2023-01-05",
+      "max_drawdown": -0.2236,
+      "sharpe": -1.5401,
+      "start": "2022-01-05",
+      "turnover": 0.245
+    },
+    {
+      "activation": 0.6667,
+      "annualized_return": -0.166,
+      "end": "2023-03-31",
+      "max_drawdown": -0.1892,
+      "sharpe": -1.2455,
+      "start": "2022-03-31",
+      "turnover": 0.2666
+    },
+    {
+      "activation": 0.6706,
+      "annualized_return": -0.1617,
+      "end": "2023-04-06",
+      "max_drawdown": -0.1843,
+      "sharpe": -1.2107,
+      "start": "2022-04-06",
+      "turnover": 0.2647
+    },
+    {
+      "activation": 0.6667,
+      "annualized_return": -0.0805,
+      "end": "2023-07-14",
+      "max_drawdown": -0.1545,
+      "sharpe": -0.7117,
+      "start": "2022-07-14",
+      "turnover": 0.2721
+    },
+    {
+      "activation": 0.6746,
+      "annualized_return": -0.1142,
+      "end": "2023-08-11",
+      "max_drawdown": -0.1475,
+      "sharpe": -1.0834,
+      "start": "2022-08-11",
+      "turnover": 0.2645
+    },
+    {
+      "activation": 0.6706,
+      "annualized_return": -0.1112,
+      "end": "2023-08-21",
+      "max_drawdown": -0.1298,
+      "sharpe": -1.057,
+      "start": "2022-08-19",
+      "turnover": 0.2604
+    },
+    {
+      "activation": 0.7024,
+      "annualized_return": -0.0993,
+      "end": "2023-10-25",
+      "max_drawdown": -0.0979,
+      "sharpe": -1.1016,
+      "start": "2022-10-25",
+      "turnover": 0.2635
+    },
+    {
+      "activation": 0.7024,
+      "annualized_return": -0.0188,
+      "end": "2023-11-15",
+      "max_drawdown": -0.1027,
+      "sharpe": -0.1608,
+      "start": "2022-11-15",
+      "turnover": 0.2596
+    },
+    {
+      "activation": 0.7421,
+      "annualized_return": 0.0776,
+      "end": "2024-04-25",
+      "max_drawdown": -0.1019,
+      "sharpe": 0.9586,
+      "start": "2023-04-26",
+      "turnover": 0.2335
+    },
+    {
+      "activation": 0.7817,
+      "annualized_return": 0.1103,
+      "end": "2024-11-06",
+      "max_drawdown": -0.0554,
+      "sharpe": 1.2716,
+      "start": "2023-11-07",
+      "turnover": 0.215
+    },
+    {
+      "activation": 0.8016,
+      "annualized_return": 0.0843,
+      "end": "2024-12-09",
+      "max_drawdown": -0.0554,
+      "sharpe": 0.9927,
+      "start": "2023-12-08",
+      "turnover": 0.2048
+    },
+    {
+      "activation": 0.7937,
+      "annualized_return": 0.0363,
+      "end": "2025-01-15",
+      "max_drawdown": -0.079,
+      "sharpe": 0.4493,
+      "start": "2024-01-16",
+      "turnover": 0.2135
+    },
+    {
+      "activation": 0.7976,
+      "annualized_return": 0.0408,
+      "end": "2025-01-23",
+      "max_drawdown": -0.079,
+      "sharpe": 0.4982,
+      "start": "2024-01-23",
+      "turnover": 0.2123
+    },
+    {
+      "activation": 0.7937,
+      "annualized_return": 0.0242,
+      "end": "2025-01-30",
+      "max_drawdown": -0.079,
+      "sharpe": 0.3166,
+      "start": "2024-01-30",
+      "turnover": 0.2134
+    },
+    {
+      "activation": 0.8135,
+      "annualized_return": -0.0559,
+      "end": "2025-04-25",
+      "max_drawdown": -0.1622,
+      "sharpe": -0.4263,
+      "start": "2024-04-24",
+      "turnover": 0.2126
+    },
+    {
+      "activation": 0.8095,
+      "annualized_return": -0.0845,
+      "end": "2025-05-22",
+      "max_drawdown": -0.1622,
+      "sharpe": -0.6873,
+      "start": "2024-05-21",
+      "turnover": 0.2197
+    },
+    {
+      "activation": 0.7659,
+      "annualized_return": -0.0796,
+      "end": "2025-07-29",
+      "max_drawdown": -0.1595,
+      "sharpe": -0.6481,
+      "start": "2024-07-26",
+      "turnover": 0.2315
+    },
+    {
+      "activation": 0.7619,
+      "annualized_return": -0.036,
+      "end": "2025-10-13",
+      "max_drawdown": -0.1515,
+      "sharpe": -0.2673,
+      "start": "2024-10-10",
+      "turnover": 0.2178
+    },
+    {
+      "activation": 0.7619,
+      "annualized_return": -0.0433,
+      "end": "2025-10-16",
+      "max_drawdown": -0.1515,
+      "sharpe": -0.3357,
+      "start": "2024-10-15",
+      "turnover": 0.2177
+    },
+    {
+      "activation": 0.7857,
+      "annualized_return": -0.1017,
+      "end": "2025-12-10",
+      "max_drawdown": -0.1445,
+      "sharpe": -0.7137,
+      "start": "2024-12-09",
+      "turnover": 0.2118
+    },
+    {
+      "activation": 0.7937,
+      "annualized_return": -0.0639,
+      "end": "2026-01-26",
+      "max_drawdown": -0.1292,
+      "sharpe": -0.4247,
+      "start": "2025-01-24",
+      "turnover": 0.1983
+    },
+    {
+      "activation": 0.7659,
+      "annualized_return": 0.039,
+      "end": "2026-04-23",
+      "max_drawdown": -0.0877,
+      "sharpe": 0.4057,
+      "start": "2025-04-23",
+      "turnover": 0.195
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "reproducibility": {
+    "command": "Transient evaluator used configured real market data, no CSV, no daemon, and no orders; credential values redacted.",
+    "environment": "local qfa editable checkout with configured paper-data access",
+    "git_commit": null,
+    "qfa_db": null,
+    "qfa_run_id": null
+  },
+  "run_id": "ar119_qfa_alpaca_real_20260627T033919Z",
+  "warnings": [
+    "Fixed current mega-cap signal universe has survivorship bias.",
+    "BRK.B or other ticker coverage may be unavailable depending on Alpaca symbol support; failed symbols are summarized by count/name only.",
+    "Daily close-to-next-close replay is an approximation, not live-executable intraday liquidity capture."
+  ]
+}

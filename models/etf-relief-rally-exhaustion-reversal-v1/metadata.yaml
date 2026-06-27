@@ -1,0 +1,17 @@
+model_name: etf-relief-rally-exhaustion-reversal-v1
+issue_id: AR-073
+status: researched
+created_by: hermes-agent
+created_at_utc: '2026-06-26T00:00:00Z'
+hypothesis: Post-stress risk-on ETF relief rallies can overshoot and reverse over short horizons versus defensive/lagging ETFs.
+model_type: rule_based_cross_sectional_long_short_etf_reversal
+qfa_compatible: true
+entry_point: model.py:generate_signals
+universe: [SPY, QQQ, IWM, XLE, XLY, XLV, XLP, XLU, TLT, IEF, GLD, HYG, LQD, SHY]
+data_source: Alpaca real market data through qfa AlpacaGateway; no CSV.
+constraints:
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+falsifier: Median random-period Sharpe <= 0 after costs, severe drawdown, or high correlation with existing liquidity reversal alphas.

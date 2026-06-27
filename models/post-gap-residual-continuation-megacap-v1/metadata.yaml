@@ -1,0 +1,41 @@
+model_name: post-gap-residual-continuation-megacap-v1
+issue_id: AR-069
+created_at: '2026-06-26T12:41:27Z'
+research_status: completed_real_data_backtest
+suggested_decision: rejected
+summary: >-
+  Mega-cap residual overnight gap continuation basket using Alpaca daily OHLCV.
+  The signal was orthogonal to AR-056/AR-045/AR-028 but failed performance
+  falsifiers after a 5 bps one-way turnover haircut.
+metrics:
+  primary_sharpe_cost_adjusted: -0.74000176
+  median_random_sharpe_cost_adjusted: -0.276384
+  p25_random_sharpe_cost_adjusted: -1.02040891
+  worst_period_sharpe_cost_adjusted: -1.83149207
+  annualized_return_cost_adjusted: -0.11150302
+  annualized_volatility_cost_adjusted: 0.14549055
+  max_drawdown_cost_adjusted: -0.28235795
+  annualized_turnover_proxy: 90.48612144
+  positive_window_rate: 0.375
+orthogonality:
+  status: computed_same_alpaca_bars
+  max_peer_abs_correlation: 0.05883407
+  ar056_correlation: 0.02547882
+  ar045_correlation: 0.05883407
+  ar028_correlation: -0.03539139
+  spy_correlation: -0.08581583
+  equal_weight_correlation: -0.0476674
+data_controls:
+  data_source: Alpaca real daily OHLCV
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+  db_artifact_retained: false
+artifacts:
+  model: models/post-gap-residual-continuation-megacap-v1/model.py
+  config: models/post-gap-residual-continuation-megacap-v1/config.yaml
+  latest_json: models/post-gap-residual-continuation-megacap-v1/evaluations/latest.json
+  latest_md: models/post-gap-residual-continuation-megacap-v1/evaluations/latest.md
+  immutable_run_json: models/post-gap-residual-continuation-megacap-v1/evaluations/runs/ar069_qfa_alpaca_real_20260626T124127Z.json

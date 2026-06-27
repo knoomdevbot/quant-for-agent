@@ -1,0 +1,227 @@
+{
+  "bad_result_policy": "Rejected result: no refinement, direct inversion, or extension of this failed adaptive pair residual hypothesis is proposed. One optional divergent child only uses a different mechanism.",
+  "child_ideas": {
+    "divergent": {
+      "hypothesis": "Use slow cross-sectional risk/quality proxies and regime allocation rather than residual pair mean reversion, correlation gates, cointegration filters, or direct inversion.",
+      "title": "Mega-cap tech cross-sectional quality/low-vol defensive rotation"
+    }
+  },
+  "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+  "commands": {
+    "primary": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "random1": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2021-03-01 --end 2022-03-01 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "random2": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2021-11-15 --end 2022-11-15 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "random3": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2022-07-01 --end 2023-07-01 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "random4": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2023-02-01 --end 2024-02-01 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "random5": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2024-06-01 --end 2025-06-01 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>",
+    "random6": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run /Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL --start 2025-01-15 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db <temporary-sqlite-db>"
+  },
+  "costs_slippage_handling": {
+    "decision_uses_precost_metrics": "Rejected despite pre-cost qfa results, so applying costs would not improve decision.",
+    "documented_assumption": "5 bps one-way slippage/commission per traded notional would further reduce reported pre-cost results.",
+    "qfa_costs_applied": false,
+    "qfa_limitation": "Current qfa backtest CLI has no native commission/slippage/turnover-cost parameter."
+  },
+  "created_at": "2026-06-26T07:46:21Z",
+  "data_source": {
+    "csv_used": false,
+    "daemon_used": false,
+    "data_csv_used": false,
+    "primary_end": "2025-12-31",
+    "primary_start": "2024-01-01",
+    "provider": "Alpaca real market data via qfa AlpacaGateway",
+    "statement": "Alpaca real market data only; qfa CLI was run without --data-csv.",
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "META",
+      "GOOGL"
+    ],
+    "timeframe": "1Day",
+    "trades_placed": false
+  },
+  "db_used": {
+    "db_artifact_retained": false,
+    "db_path_used_during_run": "/var/folders/_5/pc0mst9956sdt25yf5hxh4vr0000gn/T/ar019-qfa-XXXXXX.sqlite3.MReGvgoxcP",
+    "db_retention_note": "Temporary SQLite DB was removed after extracting qfa JSON results."
+  },
+  "decision": {
+    "rationale": "Primary qfa Sharpe -0.26783072, total return -0.04554243, max drawdown -0.12406996; six-window median Sharpe -0.03281383 is non-positive pre-cost.",
+    "status": "rejected",
+    "suggested_decision": "reject_do_not_promote_to_watchlist_or_live_trading"
+  },
+  "end": "2025-12-31",
+  "evaluation_status": "completed_real_data_backtest_rejected",
+  "evaluation_type": "qfa_alpaca_real_market_data_primary_plus_6_random_windows",
+  "initial_cash": 100000.0,
+  "issue_id": "AR-019",
+  "metrics": {
+    "annualized_return": -0.02321869,
+    "annualized_volatility": 0.07674504,
+    "final_equity": 95445.7574,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.12406996,
+    "periods": 500,
+    "sharpe": -0.26783072,
+    "total_return": -0.04554243,
+    "win_rate": 0.174
+  },
+  "model_name": "pairs-residual-adaptive-coint-megacap-tech-v1",
+  "model_review": {
+    "notes": [
+      "model.py exposes generate_signals(context).",
+      "Adaptive pair selection uses rolling correlation plus residual AR(1) persistence, half-life, and zero-crossing filters.",
+      "No broker order path, daemon, or trading command was invoked."
+    ],
+    "status": "implemented_qfa_compatible"
+  },
+  "orthogonality": {
+    "benchmark": "AR-005 pairs-residual-megacap-tech-5d-v1",
+    "daily_return_correlation": 0.36679045,
+    "overlap_periods": 499,
+    "status": "computed_parent_watchlist_only"
+  },
+  "qfa_run_ids": {
+    "primary": 1,
+    "random1": 2,
+    "random2": 3,
+    "random3": 4,
+    "random4": 5,
+    "random5": 6,
+    "random6": 7
+  },
+  "random_window_results": {
+    "count": 6,
+    "mean_max_drawdown": -0.08063359,
+    "mean_sharpe": 0.0311809,
+    "mean_total_return": -0.01735203,
+    "mean_win_rate": 0.11352962,
+    "median_max_drawdown": -0.0520986,
+    "median_sharpe": -0.03281383,
+    "median_total_return": -0.00219042,
+    "median_win_rate": 0.11953969,
+    "seed": "fixed_reproducible_manual_windows_covering_2021_2025",
+    "windows": [
+      {
+        "end": "2022-03-01",
+        "label": "random1",
+        "metrics": {
+          "annualized_return": 0.01068311,
+          "annualized_volatility": 0.05537355,
+          "final_equity": 101068.3107,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.05514561,
+          "periods": 252,
+          "sharpe": 0.21936391,
+          "total_return": 0.01068311,
+          "win_rate": 0.11507937
+        },
+        "qfa_run_id": 2,
+        "start": "2021-03-01"
+      },
+      {
+        "end": "2022-11-15",
+        "label": "random2",
+        "metrics": {
+          "annualized_return": -0.19657512,
+          "annualized_volatility": 0.2006345,
+          "final_equity": 80412.2986,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.22464363,
+          "periods": 251,
+          "sharpe": -0.98200321,
+          "total_return": -0.19587701,
+          "win_rate": 0.14342629
+        },
+        "qfa_run_id": 3,
+        "start": "2021-11-15"
+      },
+      {
+        "end": "2023-07-01",
+        "label": "random3",
+        "metrics": {
+          "annualized_return": 0.13876332,
+          "annualized_volatility": 0.07095289,
+          "final_equity": 113758.9531,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.04046068,
+          "periods": 250,
+          "sharpe": 1.86695856,
+          "total_return": 0.13758953,
+          "win_rate": 0.148
+        },
+        "qfa_run_id": 4,
+        "start": "2022-07-01"
+      },
+      {
+        "end": "2024-02-01",
+        "label": "random4",
+        "metrics": {
+          "annualized_return": -0.00046003,
+          "annualized_volatility": 0.04717802,
+          "final_equity": 99954.3624,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.0490516,
+          "periods": 250,
+          "sharpe": 0.0137858,
+          "total_return": -0.00045638,
+          "win_rate": 0.124
+        },
+        "qfa_run_id": 5,
+        "start": "2023-02-01"
+      },
+      {
+        "end": "2025-06-01",
+        "label": "random5",
+        "metrics": {
+          "annualized_return": -0.05294504,
+          "annualized_volatility": 0.06163699,
+          "final_equity": 94787.3063,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.08193028,
+          "periods": 248,
+          "sharpe": -0.85160622,
+          "total_return": -0.05212694,
+          "win_rate": 0.10483871
+        },
+        "qfa_run_id": 6,
+        "start": "2024-06-01"
+      },
+      {
+        "end": "2025-12-31",
+        "label": "random6",
+        "metrics": {
+          "annualized_return": -0.00412027,
+          "annualized_volatility": 0.04129682,
+          "final_equity": 99607.5544,
+          "initial_cash": 100000.0,
+          "max_drawdown": -0.03256973,
+          "periods": 240,
+          "sharpe": -0.07941347,
+          "total_return": -0.00392446,
+          "win_rate": 0.04583333
+        },
+        "qfa_run_id": 7,
+        "start": "2025-01-15"
+      }
+    ]
+  },
+  "run_json_path": "/Users/moonk/quant-for-agent/models/pairs-residual-adaptive-coint-megacap-tech-v1/evaluations/runs/ar019_qfa_real_alpaca_primary_plus_random6_20260626T074621Z.json",
+  "start": "2024-01-01",
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL"
+  ],
+  "timeframe": "1Day",
+  "warnings": [
+    "All qfa metrics are pre-cost because qfa has no cost/slippage option.",
+    "Random windows were intentionally limited to six for efficient issue completion.",
+    "Warmup periods may have zero exposure until rolling lookbacks are populated."
+  ]
+}

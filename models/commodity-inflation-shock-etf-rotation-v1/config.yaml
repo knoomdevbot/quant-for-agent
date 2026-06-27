@@ -1,0 +1,37 @@
+issue_id: AR-097
+model_name: commodity-inflation-shock-etf-rotation-v1
+family: commodity_macro_rotation
+version: 1
+parent_alpha: AR-085
+parent_status: rejected
+research_type: divergent
+hypothesis: Commodity, inflation-sensitive, and defensive ETFs may rotate after broad inflation/risk shocks using daily trend, realized-volatility, and cross-asset confirmation.
+data_source: Alpaca/qfa real daily OHLCV only
+universe: [GLD, USO, DBC, XLE, TIP, TLT, IEF, SPY, XLP, XLU]
+timeframe: 1Day
+parameters:
+  return_windows: [20, 60]
+  volatility_windows: [20, 60]
+  rebalance_anchor: Wednesday
+  min_history: 90
+  max_single_weight: 0.30
+  target_gross_normal: 0.95
+  target_gross_stress: 0.85
+risk_controls:
+  long_only: true
+  max_gross_exposure: 1.0
+  no_leverage: true
+  cash_allowed: true
+  no_external_macro_data: true
+  no_intraday_opening_range_terms: true
+evaluation:
+  primary_window: [2021-01-04, 2025-12-15]
+  random_windows_requested: 10
+  random_window_trading_days: 252
+  costs_one_way_bps: [5, 10, 20]
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

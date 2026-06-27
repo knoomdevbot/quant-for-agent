@@ -1,0 +1,53 @@
+model_name: megacap-liquidity-exhaustion-etf-recovery-v1
+research_issue: AR-119
+family: liquidity_reversal_breadth
+horizon: daily_3_to_10_sessions
+rebalance: daily
+universe:
+  signal_universe_type: liquid_us_mega_cap_equities
+  signal_universe_size: 60
+  tradable_universe_type: liquid_us_etfs_or_cash
+  tradable_universe_size: 20
+  tradable_symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - DIA
+    - XLK
+    - XLF
+    - XLE
+    - XLV
+    - XLY
+    - XLI
+    - XLP
+    - XLU
+    - XLB
+    - XLRE
+    - TLT
+    - IEF
+    - SHY
+    - GLD
+    - USMV
+    - QUAL
+parameters:
+  min_history_days: 155
+  baseline_window_days: 120
+  recovery_window_days: 3
+  trend_window_days: 63
+  volatility_window_days: 42
+  max_single_weight: 0.30
+  max_gross_exposure: 0.95
+  min_activation_threshold: 0.12
+risk:
+  long_only: true
+  cash_fallback: true
+  trades_etfs_only: true
+  uses_single_names_for_signal_only: true
+costs:
+  primary_turnover_cost_bps: 10
+  sensitivity_bps: [5, 10, 20]
+data_controls:
+  source: qfa_alpaca_real_daily_ohlcv
+  no_csv: true
+  no_daemon: true
+  no_orders: true

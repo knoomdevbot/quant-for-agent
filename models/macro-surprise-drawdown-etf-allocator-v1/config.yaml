@@ -1,0 +1,32 @@
+issue_id: AR-063
+model_name: macro-surprise-drawdown-etf-allocator-v1
+family: macro_regime_allocation
+universe:
+  - SPY
+  - QQQ
+  - TLT
+  - IEF
+  - GLD
+  - XLU
+  - XLP
+  - XLV
+  - HYG
+  - LQD
+  - SHY
+data_source: Alpaca real market data via qfa only
+forbidden:
+  data_csv: true
+  daemon: true
+  orders: true
+parameters:
+  drawdown_lookbacks: [126, 252]
+  shock_z_window: 63
+  realized_vol_window: 10
+  recovery_lookback: 20
+  stress_threshold: 1.0
+  partial_stress_threshold: 0.35
+  concentration_cap: 0.35
+costs_slippage_proxy:
+  one_way_bps: 5.0
+  method: external daily target-weight turnover haircut; qfa CLI has no native cost flag
+rebalance: daily evaluation with state thresholds; turnover controlled by persistent regimes and capped weights

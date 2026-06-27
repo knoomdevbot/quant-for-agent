@@ -1,0 +1,64 @@
+model_name: risk-off-crossasset-switch-v1
+issue_id: AR-008
+family: regime_allocation
+status: real_data_evaluated_watchlist
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - TLT
+  - GLD
+  - XLU
+  - XLE
+timeframe: 1Day
+signal:
+  equity_lookback: 60
+  stress_lookback: 20
+  volatility_window: 20
+  min_periods: 61
+  regime_features:
+    - equity_trend_spy_60d
+    - equity_breadth_spy_qqq_iwm_xle_60d
+    - spy_realized_volatility_20d
+    - defensive_relative_strength_tlt_gld_vs_spy_20d
+  risk_on_condition: breadth >= 0.50 and SPY 60d momentum > 0 and SPY 20d realized vol < 22% and defensive relative stress < 4%
+position_sizing:
+  gross_exposure: 1.0
+  long_short: false
+  risk_on_bucket:
+    - SPY
+    - QQQ
+    - IWM
+    - XLE
+  risk_off_bucket:
+    - TLT
+    - GLD
+    - XLU
+  bucket_weighting: positive_momentum_times_inverse_volatility
+  max_abs_weight: 0.45
+risk:
+  live_trading: prohibited
+  order_placement: none
+  concentration_cap_abs_weight: 0.45
+evaluation:
+  latest_status: completed_real_data_backtest
+  latest_data_source: alpaca_market_data_no_data_csv
+  latest_period_start: 2024-01-01
+  latest_period_end: 2025-12-31
+  latest_run_json: evaluations/runs/qfa_realdata_20240101_20251231_run1.json
+  latest_json: evaluations/latest.json
+  latest_markdown: evaluations/latest.md
+  qfa_db_path: evaluations/qfa_realdata.sqlite
+  qfa_run_id: 1
+  metrics_pre_cost:
+    final_equity: 125110.0083
+    total_return: 0.25110008
+    annualized_return: 0.1195286
+    annualized_volatility: 0.15982935
+    sharpe: 0.78756489
+    max_drawdown: -0.18723612
+    win_rate: 0.488
+    periods: 500
+  cost_assumption_bps: 5
+  cost_assumption_status: documented_not_applied_current_qfa_backtest_cli_has_no_cost_parameter
+suggested_decision: watchlist_or_refine_before_acceptance

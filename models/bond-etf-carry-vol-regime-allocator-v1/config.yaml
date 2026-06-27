@@ -1,0 +1,22 @@
+model_name: bond-etf-carry-vol-regime-allocator-v1
+issue_id: AR-086
+family: fixed_income_carry_regime
+universe: [SHY, IEF, TLT, TIP, LQD, HYG, GLD, SPY]
+timeframe: 1Day
+rebalance_proxy: daily target with slow features; intended daily/weekly low-turnover allocator
+initial_cash: 100000
+costs:
+  primary_one_way_turnover_bps: 5
+  stress_one_way_turnover_bps: 10
+risk_controls:
+  max_single_weight: 0.38
+  long_only: true
+  gross_target: 1.0
+  volatility_regime_brake: true
+  drawdown_brake: true
+controls:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

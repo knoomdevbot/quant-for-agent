@@ -1,0 +1,37 @@
+model_name: turn-month-calendar-window-etf-v1
+issue_id: AR-021
+parent_alpha: AR-006
+family: seasonality
+universe:
+  intended: [SPY, QQQ, IWM, TLT, GLD]
+data:
+  intended_source: Alpaca real market data through qfa AlpacaGateway
+  csv_used: false
+  latest_real_data_backtest:
+    symbols: [SPY, QQQ, IWM, TLT, GLD]
+    start: '2021-01-01'
+    end: '2025-12-31'
+    timeframe: 1Day
+parameters:
+  selected:
+    pre_month_end_sessions: 1
+    post_month_start_sessions: 4
+    max_abs_weight: 0.25
+    min_observations: 20
+  calendar_method: actual observed Alpaca/qfa sessions from context prices; exchange-holiday aware through bar availability
+risk_constraints:
+  normalize_gross_exposure: 1.0
+  max_abs_weight_pre_engine: 0.25
+  live_trading: false
+evaluation:
+  latest:
+    type: real_data_qfa_alpaca_backtest_with_random_windows_and_cost_haircut
+    json: models/turn-month-calendar-window-etf-v1/evaluations/latest.json
+    markdown: models/turn-month-calendar-window-etf-v1/evaluations/latest.md
+    run_json: models/turn-month-calendar-window-etf-v1/evaluations/runs/qfa_real_alpaca_ar021_20260626T075853Z.json
+    db_used: /tmp/qfa_ar021.sqlite3
+    db_artifact_retained: false
+    primary_run_id: 1
+    random_window_run_ids: [2, 3, 4, 5, 6, 7, 8, 9]
+    costs_native_qfa: false
+    costs_haircut_bps_per_gross_turnover: 5.0

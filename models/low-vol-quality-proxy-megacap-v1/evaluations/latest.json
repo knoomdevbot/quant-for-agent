@@ -1,0 +1,143 @@
+{
+  "costs": {
+    "applied": false,
+    "assumption_bps": 5,
+    "caveat": "Current qfa backtest CLI has no cost/slippage parameter; qfa metrics are pre-cost. A 5 bps turnover haircut would be research-estimate only, not an applied qfa result.",
+    "rough_annual_drag_estimate_from_turnover": 0.01577504,
+    "status": "documented_not_applied_current_qfa_backtest_cli_has_no_cost_or_slippage_parameter"
+  },
+  "created_at": "2026-06-26T06:35:44Z",
+  "data_source": "Alpaca real market data via qfa backtest and AlpacaGateway random-window retrieval; no --data-csv; no CSV fixtures",
+  "decision_rationale": "Full-period Sharpe is positive but modest; median random-window Sharpe is positive and lower-tail windows are not catastrophic. Keep on watchlist pending cost-aware and parameter-stability validation.",
+  "divergent_child_idea": "AR-030: mega-cap earnings-quality drift proxy",
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "alpaca_real_market_data_qfa_backtest",
+  "issue_id": "AR-010",
+  "metrics_pre_cost": {
+    "annualized_return": 0.03414158,
+    "annualized_volatility": 0.11257841,
+    "final_equity": 106887.9073,
+    "initial_cash": 100000.0,
+    "max_drawdown": -0.16939658,
+    "periods": 500,
+    "sharpe": 0.35445852,
+    "total_return": 0.06887907,
+    "win_rate": 0.362
+  },
+  "model_name": "low-vol-quality-proxy-megacap-v1",
+  "model_parameters": {
+    "gross_exposure": 1.0,
+    "max_abs_weight": 0.2,
+    "min_symbols": 5,
+    "momentum_filter": true,
+    "momentum_window": 126,
+    "top_n": 6,
+    "vol_window": 126
+  },
+  "orthogonality": {
+    "correlations": [
+      {
+        "daily_return_correlation": null,
+        "issue_id": "AR-003",
+        "model_name": "tsmom-voltarget-liquid-etf-weekly-v1",
+        "overlap_days": 0
+      },
+      {
+        "daily_return_correlation": null,
+        "issue_id": "AR-005",
+        "model_name": "pairs-residual-megacap-tech-5d-v1",
+        "overlap_days": 0
+      },
+      {
+        "daily_return_correlation": null,
+        "issue_id": "AR-006",
+        "model_name": "turn-month-liquid-etf-seasonality-v1",
+        "overlap_days": 0
+      },
+      {
+        "daily_return_correlation": null,
+        "issue_id": "AR-008",
+        "model_name": "risk-off-crossasset-switch-v1",
+        "overlap_days": 0
+      }
+    ],
+    "status": "unavailable_no_comparable_equity_curves"
+  },
+  "period": {
+    "end": "2025-12-31",
+    "periods": 500,
+    "start": "2024-01-01",
+    "timeframe": "1Day"
+  },
+  "qfa": {
+    "command": "set -a; source /Users/moonk/.hermes/profiles/alphaaoi/secrets/alpaca.env; set +a; export ALPACA_API_KEY=\"${ALPACA_API_KEY:-${ALPACA_KEY_ID:-}}\"; export ALPACA_PAPER=true; /Users/moonk/quant-for-agent/.venv/bin/python -m py_compile models/low-vol-quality-proxy-megacap-v1/model.py && /Users/moonk/quant-for-agent/.venv/bin/qfa backtest run models/low-vol-quality-proxy-megacap-v1/model.py --symbols AAPL,MSFT,NVDA,AMZN,META,GOOGL,TSLA,JNJ,PG,KO,PEP,WMT --start 2024-01-01 --end 2025-12-31 --timeframe 1Day --initial-cash 100000 --db models/low-vol-quality-proxy-megacap-v1/evaluations/qfa_realdata.sqlite3",
+    "db_artifact_retained": false,
+    "db_path_used_during_run": "/Users/moonk/quant-for-agent/models/low-vol-quality-proxy-megacap-v1/evaluations/qfa_realdata.sqlite3",
+    "db_retention_note": "SQLite DB created during qfa execution but not retained as a required research artifact; JSON/Markdown summaries retained.",
+    "run_id": 1,
+    "run_json_path": "/Users/moonk/quant-for-agent/models/low-vol-quality-proxy-megacap-v1/evaluations/runs/qfa_real_alpaca_20260626T063544Z.json"
+  },
+  "random_window_protocol": {
+    "annualized_return": {
+      "count": 30,
+      "max": 0.19994411,
+      "median": 0.00350583,
+      "min": -0.23681265,
+      "p25": -0.07501056,
+      "p75": 0.05585385
+    },
+    "available_data_end": "2025-12-30",
+    "available_data_start": "2021-01-04",
+    "completed_windows": 30,
+    "max_drawdown": {
+      "count": 30,
+      "max": -0.02264021,
+      "median": -0.11839984,
+      "min": -0.23599374,
+      "p25": -0.1552801,
+      "p75": -0.07050634
+    },
+    "positive_sharpe_fraction": 0.5,
+    "requested_windows": 30,
+    "seed": 10010,
+    "sharpe": {
+      "count": 30,
+      "max": 2.42535025,
+      "median": 0.08598409,
+      "min": -1.86587634,
+      "p25": -0.69008777,
+      "p75": 0.52516002
+    },
+    "source": "Alpaca real market data via quant_for_agent.AlpacaGateway, no CSV fixtures",
+    "window_length_trading_days": 252
+  },
+  "refinement_child_idea": "AR-029: cost-aware parameter stability for low-vol quality proxy",
+  "suggested_decision": "watchlist",
+  "turnover_proxy": {
+    "annualized_turnover_proxy": 31.55008319,
+    "mean_daily_turnover": 0.12519874,
+    "mean_gross_exposure": 0.702,
+    "median_daily_turnover": 0.00178036,
+    "median_gross_exposure": 1.0
+  },
+  "universe": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA",
+    "JNJ",
+    "PG",
+    "KO",
+    "PEP",
+    "WMT"
+  ],
+  "warnings": [
+    "Costs/slippage were not applied by qfa; all qfa metrics are pre-cost.",
+    "Random windows used direct AlpacaGateway retrieval through quant_for_agent, not CSV fixtures.",
+    "Orthogonality was unavailable because comparable watchlist equity curves had no overlapping timestamped returns in retained latest.json files.",
+    "No trades were placed; qfa daemon was not run."
+  ]
+}

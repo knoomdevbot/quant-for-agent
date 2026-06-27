@@ -1,0 +1,41 @@
+model_name: range-compression-breakout-megacap-v1
+issue_id: AR-057
+parent_issue_id: AR-045
+family: volatility_breakout
+universe:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - AVGO
+  - TSLA
+  - JPM
+  - LLY
+data:
+  source: alpaca_qfa_daily_ohlcv
+  timeframe: 1Day
+  csv_allowed: false
+  data_csv_allowed: false
+risk:
+  gross_exposure: 1.0
+  max_abs_weight: 0.20
+  market_trend_gate: true
+parameters:
+  compression_lookback: 15
+  compression_rank_window: 90
+  compression_quantile_max: 0.35
+  breakout_lookback: 40
+  recent_breakout_days: 3
+  volume_z_window: 60
+  volume_z_min: 0.75
+  vol_window: 20
+  market_trend_window: 50
+evaluation:
+  primary_start: '2024-01-01'
+  primary_end: '2025-12-31'
+  random_windows: 8
+  turnover_cost_bps: 5
+  no_daemon: true
+  no_trades: true

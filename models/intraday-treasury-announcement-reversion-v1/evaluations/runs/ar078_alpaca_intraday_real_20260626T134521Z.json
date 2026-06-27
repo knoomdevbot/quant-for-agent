@@ -1,0 +1,321 @@
+{
+  "alpha_id": "AR-078",
+  "child_suggestions": [
+    {
+      "rationale": "If pursued, use a genuinely different microstructure/volume-confirmed continuation mechanism; do not refine, invert, or extend this rejected reversal rule.",
+      "title": "Treasury ETF announcement liquidity continuation using depth/volume imbalance rather than price reversal",
+      "type": "divergent"
+    }
+  ],
+  "commands_sanitized": {
+    "custom_event_evaluation": "Python evaluator loaded Alpaca credentials, fetched Alpaca 1Min OHLCV around explicit FOMC/CPI timestamps, applied model with event metadata, wrote compact summaries only",
+    "qfa_intraday_probe": "qfa backtest run <model.py> with Alpaca credentials loaded, symbols universe, 2025-01-13 to 2025-01-16, 1Min timeframe, temporary SQLite database, no CSV option"
+  },
+  "costs_slippage": {
+    "cost_formula": "net event return = weighted signal-to-exit return - 2 * one_way_bps * gross exposure",
+    "primary_one_way_bps": 10.0,
+    "qfa_native_costs_applied": false,
+    "rationale": "5-20 bps one-way external turnover-cost proxy for intraday ETF execution sensitivity",
+    "tested_one_way_bps": [
+      5.0,
+      10.0,
+      20.0
+    ]
+  },
+  "created_at_utc": "2026-06-26T13:45:21Z",
+  "data_source": "Alpaca real 1Min OHLCV via qfa AlpacaGateway and qfa intraday probe; no CSV used",
+  "date_range": {
+    "end": "2025-12-10",
+    "start": "2023-01-12",
+    "timeframe": "1Min"
+  },
+  "db_artifact_retained": false,
+  "decision_rationale": "Rejected: Alpaca real 1Min event evaluation across 59 explicit FOMC/CPI timestamps produced negative net Sharpe at 5, 10, and 20 bps one-way costs. 10 bps primary Sharpe was -3.81194312, win rate 8.47%, and all event types/years were negative. Random pseudo-event median Sharpe was also <= 0 (-4.08343036), satisfying the falsifier.",
+  "event_timestamp_verification": {
+    "events_configured": 59,
+    "events_evaluated": 59,
+    "status": "verified_by_explicit_public_calendar_policy",
+    "timestamp_policy": "FOMC 14:00 America/New_York; CPI 08:30 America/New_York, converted to UTC; explicit hard-coded public schedule",
+    "warnings_count": 0,
+    "warnings_sample": []
+  },
+  "falsifier_assessment": {
+    "intraday_event_timestamps_unverifiable_without_leakage": false,
+    "isolated_to_one_event_type_or_year": false,
+    "median_random_event_sharpe_after_costs_le_0": true,
+    "primary_cost_adjusted_sharpe_positive": false
+  },
+  "metrics": {
+    "active_events_10bps": 50,
+    "by_type_10bps": {
+      "CPI": {
+        "max_drawdown": -0.05868138,
+        "mean": -0.00180123,
+        "n": 35,
+        "sharpe": -4.34527958,
+        "total_return_sum": -0.06304294,
+        "win_rate": 0.02857143
+      },
+      "FOMC": {
+        "max_drawdown": -0.03569221,
+        "mean": -0.00130609,
+        "n": 24,
+        "sharpe": -3.04621617,
+        "total_return_sum": -0.03134615,
+        "win_rate": 0.16666667
+      }
+    },
+    "by_year_10bps": {
+      "2023": {
+        "max_drawdown": -0.03075121,
+        "mean": -0.00169164,
+        "n": 20,
+        "sharpe": -3.07907331,
+        "total_return_sum": -0.03383285,
+        "win_rate": 0.15
+      },
+      "2024": {
+        "max_drawdown": -0.03282579,
+        "mean": -0.00176594,
+        "n": 20,
+        "sharpe": -4.56952001,
+        "total_return_sum": -0.03531875,
+        "win_rate": 0.05
+      },
+      "2025": {
+        "max_drawdown": -0.02415913,
+        "mean": -0.00132829,
+        "n": 19,
+        "sharpe": -4.51947728,
+        "total_return_sum": -0.0252375,
+        "win_rate": 0.05263158
+      }
+    },
+    "high_cost_20bps": {
+      "max_drawdown": -0.15910611,
+      "mean": -0.00300538,
+      "n": 59,
+      "sharpe": -6.12762232,
+      "total_return_sum": -0.17731721,
+      "win_rate": 0.05084746
+    },
+    "low_cost_5bps": {
+      "max_drawdown": -0.05092323,
+      "mean": -0.00089703,
+      "n": 59,
+      "sharpe": -2.25277568,
+      "total_return_sum": -0.05292503,
+      "win_rate": 0.20338983
+    },
+    "primary_10bps": {
+      "max_drawdown": -0.08781501,
+      "mean": -0.00159982,
+      "n": 59,
+      "sharpe": -3.81194312,
+      "total_return_sum": -0.09438909,
+      "win_rate": 0.08474576
+    }
+  },
+  "model_name": "intraday-treasury-announcement-reversion-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality_status": {
+    "retained_curve_correlation": "not_computed_event_level_intraday_returns_not_directly_comparable_to_daily_retained_curves",
+    "status": "distinct_but_rejected",
+    "vs_AR_070": "Mechanism and data horizon are divergent from AR-070 daily event-gated curve-shock logic; qfa native event metadata is unsupported, and custom intraday event returns are negative, so orthogonality does not rescue the alpha."
+  },
+  "qfa_intraday_support": {
+    "interpretation": "qfa can retrieve/run 1Min bars, but CLI has no event-calendar/metadata argument; model intentionally returns zero weights without explicit event metadata.",
+    "native_event_metadata_supported_by_cli": false,
+    "native_timeframe_supported": true,
+    "probe_run": {
+      "end": "2025-01-16",
+      "metrics": {
+        "periods": 2449,
+        "sharpe": 0.0,
+        "total_return": 0.0
+      },
+      "start": "2025-01-13",
+      "symbols": [
+        "SHY",
+        "IEF",
+        "TLT",
+        "TIP",
+        "LQD",
+        "HYG",
+        "GLD",
+        "SPY"
+      ],
+      "temporary_db_run_id": 1,
+      "timeframe": "1Min"
+    }
+  },
+  "random_windows": {
+    "candidate_random_dates": 171,
+    "protocol": "20 deterministic random pseudo-event schedules, matching FOMC/CPI local release times on non-event Alpaca trading dates, same 60-minute shock and 60-minute hold, 10 bps one-way costs",
+    "runs": [
+      {
+        "mean_10bps": -0.00094545,
+        "n": 59,
+        "seed": 1,
+        "sharpe_10bps": -4.3209123,
+        "win_rate_10bps": 0.05084746
+      },
+      {
+        "mean_10bps": -0.00118754,
+        "n": 59,
+        "seed": 2,
+        "sharpe_10bps": -3.59844754,
+        "win_rate_10bps": 0.05084746
+      },
+      {
+        "mean_10bps": -0.00075896,
+        "n": 59,
+        "seed": 3,
+        "sharpe_10bps": -3.84301771,
+        "win_rate_10bps": 0.08474576
+      },
+      {
+        "mean_10bps": -0.00097454,
+        "n": 59,
+        "seed": 4,
+        "sharpe_10bps": -5.22626445,
+        "win_rate_10bps": 0.03389831
+      },
+      {
+        "mean_10bps": -0.00108269,
+        "n": 59,
+        "seed": 5,
+        "sharpe_10bps": -3.7563046,
+        "win_rate_10bps": 0.08474576
+      },
+      {
+        "mean_10bps": -0.00106485,
+        "n": 59,
+        "seed": 6,
+        "sharpe_10bps": -4.37131211,
+        "win_rate_10bps": 0.05084746
+      },
+      {
+        "mean_10bps": -0.001031,
+        "n": 59,
+        "seed": 7,
+        "sharpe_10bps": -3.41153714,
+        "win_rate_10bps": 0.05084746
+      },
+      {
+        "mean_10bps": -0.00111046,
+        "n": 59,
+        "seed": 8,
+        "sharpe_10bps": -4.95292071,
+        "win_rate_10bps": 0.08474576
+      },
+      {
+        "mean_10bps": -0.00112857,
+        "n": 59,
+        "seed": 9,
+        "sharpe_10bps": -4.83581398,
+        "win_rate_10bps": 0.03389831
+      },
+      {
+        "mean_10bps": -0.00088232,
+        "n": 59,
+        "seed": 10,
+        "sharpe_10bps": -3.84594843,
+        "win_rate_10bps": 0.08474576
+      },
+      {
+        "mean_10bps": -0.00125213,
+        "n": 59,
+        "seed": 11,
+        "sharpe_10bps": -4.90676605,
+        "win_rate_10bps": 0.03389831
+      },
+      {
+        "mean_10bps": -0.00100933,
+        "n": 59,
+        "seed": 12,
+        "sharpe_10bps": -3.52558034,
+        "win_rate_10bps": 0.05084746
+      },
+      {
+        "mean_10bps": -0.00101338,
+        "n": 59,
+        "seed": 13,
+        "sharpe_10bps": -4.58628417,
+        "win_rate_10bps": 0.05084746
+      },
+      {
+        "mean_10bps": -0.00085328,
+        "n": 59,
+        "seed": 14,
+        "sharpe_10bps": -3.07485067,
+        "win_rate_10bps": 0.06779661
+      },
+      {
+        "mean_10bps": -0.00123349,
+        "n": 59,
+        "seed": 15,
+        "sharpe_10bps": -3.72225054,
+        "win_rate_10bps": 0.08474576
+      },
+      {
+        "mean_10bps": -0.00109506,
+        "n": 59,
+        "seed": 16,
+        "sharpe_10bps": -4.33260433,
+        "win_rate_10bps": 0.06779661
+      },
+      {
+        "mean_10bps": -0.00097387,
+        "n": 59,
+        "seed": 17,
+        "sharpe_10bps": -4.89596168,
+        "win_rate_10bps": 0.01694915
+      },
+      {
+        "mean_10bps": -0.00099385,
+        "n": 59,
+        "seed": 18,
+        "sharpe_10bps": -4.45369904,
+        "win_rate_10bps": 0.06779661
+      },
+      {
+        "mean_10bps": -0.00086822,
+        "n": 59,
+        "seed": 19,
+        "sharpe_10bps": -2.55204397,
+        "win_rate_10bps": 0.06779661
+      },
+      {
+        "mean_10bps": -0.00098264,
+        "n": 59,
+        "seed": 20,
+        "sharpe_10bps": -3.18652358,
+        "win_rate_10bps": 0.05084746
+      }
+    ],
+    "summary": {
+      "count": 20,
+      "median_sharpe_10bps": -4.08343036,
+      "p25_sharpe_10bps": -4.64866662,
+      "positive_rate": 0.0,
+      "worst_sharpe_10bps": -5.22626445
+    }
+  },
+  "raw_daily_paths_retained": false,
+  "status": "rejected",
+  "suggested_decision": "reject",
+  "symbols": [
+    "SHY",
+    "IEF",
+    "TLT",
+    "TIP",
+    "LQD",
+    "HYG",
+    "GLD",
+    "SPY"
+  ]
+}

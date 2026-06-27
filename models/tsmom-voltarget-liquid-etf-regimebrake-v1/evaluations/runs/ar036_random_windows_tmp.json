@@ -1,0 +1,116 @@
+[
+  {
+    "window_id": 1,
+    "start": "2020-06-01",
+    "end": "2021-05-28",
+    "run_json_path": "/Users/moonk/quant-for-agent/models/tsmom-voltarget-liquid-etf-regimebrake-v1/evaluations/runs/ar036_qfa_alpaca_real_win1_2020-06-01_2021-05-28.json",
+    "metrics": {
+      "annualized_return": 0.18762094,
+      "annualized_volatility": 0.11136542,
+      "final_equity": 118600.1302,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.06624212,
+      "periods": 250,
+      "sharpe": 1.600256,
+      "total_return": 0.1860013,
+      "win_rate": 0.296
+    },
+    "qfa_run_id": 1,
+    "db_artifact_retained": false
+  },
+  {
+    "window_id": 2,
+    "start": "2021-03-01",
+    "end": "2022-02-25",
+    "run_json_path": "/Users/moonk/quant-for-agent/models/tsmom-voltarget-liquid-etf-regimebrake-v1/evaluations/runs/ar036_qfa_alpaca_real_win2_2021-03-01_2022-02-25.json",
+    "metrics": {
+      "annualized_return": 0.03362188,
+      "annualized_volatility": 0.09137322,
+      "final_equity": 103335.0638,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.06774476,
+      "periods": 250,
+      "sharpe": 0.40758486,
+      "total_return": 0.03335064,
+      "win_rate": 0.272
+    },
+    "qfa_run_id": 1,
+    "db_artifact_retained": false
+  },
+  {
+    "window_id": 3,
+    "start": "2021-11-01",
+    "end": "2022-10-31",
+    "run_json_path": "/Users/moonk/quant-for-agent/models/tsmom-voltarget-liquid-etf-regimebrake-v1/evaluations/runs/ar036_qfa_alpaca_real_win3_2021-11-01_2022-10-31.json",
+    "metrics": {
+      "annualized_return": -0.07186008,
+      "annualized_volatility": 0.17434572,
+      "final_equity": 92868.9397,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.2355496,
+      "periods": 250,
+      "sharpe": -0.34024858,
+      "total_return": -0.0713106,
+      "win_rate": 0.252
+    },
+    "qfa_run_id": 1,
+    "db_artifact_retained": false
+  },
+  {
+    "window_id": 4,
+    "start": "2022-06-01",
+    "end": "2023-05-31",
+    "run_json_path": "/Users/moonk/quant-for-agent/models/tsmom-voltarget-liquid-etf-regimebrake-v1/evaluations/runs/ar036_qfa_alpaca_real_win4_2022-06-01_2023-05-31.json",
+    "metrics": {
+      "annualized_return": -0.00792365,
+      "annualized_volatility": 0.08842433,
+      "final_equity": 99217.0311,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.09074702,
+      "periods": 249,
+      "sharpe": -0.045855,
+      "total_return": -0.00782969,
+      "win_rate": 0.2248996
+    },
+    "qfa_run_id": 1,
+    "db_artifact_retained": false
+  },
+  {
+    "window_id": 5,
+    "start": "2023-01-03",
+    "end": "2023-12-29",
+    "run_json_path": "/Users/moonk/quant-for-agent/models/tsmom-voltarget-liquid-etf-regimebrake-v1/evaluations/runs/ar036_qfa_alpaca_real_win5_2023-01-03_2023-12-29.json",
+    "metrics": {
+      "annualized_return": 0.01631662,
+      "annualized_volatility": 0.0839504,
+      "final_equity": 101605.5556,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.09266229,
+      "periods": 248,
+      "sharpe": 0.23456443,
+      "total_return": 0.01605556,
+      "win_rate": 0.26209677
+    },
+    "qfa_run_id": 1,
+    "db_artifact_retained": false
+  },
+  {
+    "window_id": 6,
+    "start": "2024-06-03",
+    "end": "2025-05-30",
+    "run_json_path": "/Users/moonk/quant-for-agent/models/tsmom-voltarget-liquid-etf-regimebrake-v1/evaluations/runs/ar036_qfa_alpaca_real_win6_2024-06-03_2025-05-30.json",
+    "metrics": {
+      "annualized_return": 0.01247025,
+      "annualized_volatility": 0.12858868,
+      "final_equity": 101222.1319,
+      "initial_cash": 100000.0,
+      "max_drawdown": -0.11391811,
+      "periods": 247,
+      "sharpe": 0.16068658,
+      "total_return": 0.01222132,
+      "win_rate": 0.26315789
+    },
+    "qfa_run_id": 1,
+    "db_artifact_retained": false
+  }
+]
