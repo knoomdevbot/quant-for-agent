@@ -7,8 +7,15 @@ from quant_for_agent.storage import Store
 
 
 class FakeAlpacaGateway:
+    def __init__(self, positions=None):
+        self.positions = positions or {}
+        self.submitted_orders = []
+
     def account_equity(self):
         return 1000.0
+
+    def position_market_values(self, symbols):
+        return {symbol: self.positions.get(symbol, 0.0) for symbol in symbols}
 
     def get_bars(self, symbols, start, end):
         return pd.DataFrame(
@@ -27,6 +34,7 @@ class FakeAlpacaGateway:
         )
 
     def submit_notional_order(self, symbol, side, notional):
+        self.submitted_orders.append({"symbol": symbol, "side": side, "notional": notional})
         if symbol == "LLY":
             raise RuntimeError("fractional orders cannot be sold short")
         return {"id": "accepted-order", "symbol": symbol, "side": side, "notional": notional}
@@ -69,3 +77,27 @@ def test_daemon_records_order_errors_and_continues_processing_symbols(tmp_path):
     assert [row["symbol"] for row in rows] == ["LLY", "MSFT"]
     assert rows[0]["dry_run"] == 0
     assert json.loads(rows[0]["response_json"])["status"] == "error"
+
+
+def test_daemon_submits_only_delta_between_current_and_target_position(tmp_path):
+    model_path = tmp_path / "target_weight_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'AAPL': 0.6, 'MSFT': 0.4}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("rebalance_model", str(model_path), 1.0, ["AAPL", "MSFT"])
+    alpaca = FakeAlpacaGateway(positions={"AAPL": 600.0, "MSFT": 100.0})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True),
+    ).tick()
+
+    assert len(events) == 1
+    assert events[0]["symbol"] == "MSFT"
+    assert events[0]["side"] == "buy"
+    assert events[0]["notional"] == 300.0
+    assert alpaca.submitted_orders == [{"symbol": "MSFT", "side": "buy", "notional": 300.0}]

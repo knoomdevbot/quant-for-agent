@@ -45,11 +45,15 @@ class TradingDaemon:
             raw = load_alpha_function(model["model_path"])(context) or {}
             weights = normalize_weights(raw, model["symbols"])
             sleeve_notional = equity * float(model["allocation"])
+            current_values = self.alpaca.position_market_values(model["symbols"])
             for symbol, weight in weights.items():
-                notional = abs(sleeve_notional * weight)
+                target_notional = sleeve_notional * weight
+                current_notional = current_values.get(symbol, 0.0)
+                delta_notional = target_notional - current_notional
+                notional = abs(delta_notional)
                 if notional < 1.0:
                     continue
-                side = "buy" if weight >= 0 else "sell"
+                side = "buy" if delta_notional >= 0 else "sell"
                 response = {"dry_run": True, "symbol": symbol, "side": side, "notional": notional}
                 if not self.config.dry_run:
                     try:
