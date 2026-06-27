@@ -1,0 +1,20 @@
+alpha_id: AR-117
+name: country-etf-stale-participation-catchup-v1
+family: international_country_stale_participation
+status: rejected
+created_at_utc: 2026-06-27T02:55:24.677524Z
+source: qfa_alpaca_real_daily_ohlcv_only
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+selected_symbols: ['EEM', 'FXI', 'EWZ', 'KWEB', 'EWJ', 'MCHI', 'INDA', 'EWY', 'VGK', 'EWT']
+latest_evaluation: models/country-etf-stale-participation-catchup-v1/evaluations/latest.json
+run_json: models/country-etf-stale-participation-catchup-v1/evaluations/runs/ar117_qfa_alpaca_real_20260627T025416Z.json
+summary:
+  sharpe_5bps: -1.039437
+  random_median_sharpe_5bps: -0.901032
+  random_p25_sharpe_5bps: -1.442698
+  positive_window_rate_5bps: 0.066667
+  max_drawdown_5bps: -0.362578

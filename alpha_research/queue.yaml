@@ -868,11 +868,16 @@ issues:
   priority: completed_realdata
   family: breadth_concentration_mean_reversion
   issue_path: alpha_research/issues/AR-116.md
+- id: AR-117
+  title: 'Price-only non-synchronous country ETF stale-participation catch-up proxy'
+  model_name: country-etf-stale-participation-catchup-v1
+  status: rejected
+  priority: completed_realdata
+  family: international_country_stale_participation
+  issue_path: alpha_research/issues/AR-117.md
 active_batch: []
 last_realdata_batch:
-- AR-114
-- AR-115
-- AR-116
-updated_at: '2026-06-27T01:00:00Z'
+- AR-117
+updated_at: '2026-06-27T02:55:24Z'
 target_tried_ideas: 100
-tried_ideas_count: 107
+tried_ideas_count: 108
