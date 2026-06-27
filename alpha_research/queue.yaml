@@ -1,6 +1,5 @@
 created_at: '2026-06-26T01:19:53Z'
-objective: Seed evolutionary alpha research queue; prioritize robust random-period Sharpe
-  and low redundancy to accepted alphas.
+objective: Seed evolutionary alpha research queue; prioritize robust random-period Sharpe and low redundancy to accepted alphas.
 issues:
 - id: AR-001
   title: Cross-sectional intermediate momentum on liquid mega-cap equities
@@ -233,8 +232,7 @@ issues:
   issue_path: alpha_research/issues/AR-030.md
   parent: AR-010
 - id: AR-032
-  title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after macro shock
-    days'
+  title: 'Divergent from AR-011: cross-sectional ETF dispersion convergence after macro shock days'
   model_name: etf-dispersion-convergence-macroshock-v1
   status: rejected
   priority: completed_realdata
@@ -474,8 +472,7 @@ issues:
   issue_path: alpha_research/issues/AR-065.md
   parent: AR-052
 - id: AR-066
-  title: 'Divergent from AR-053: ETF realized-volatility carry rotation after macro-stress
-    regimes'
+  title: 'Divergent from AR-053: ETF realized-volatility carry rotation after macro-stress regimes'
   model_name: etf-realized-vol-carry-macrostress-v1
   status: rejected
   priority: completed_realdata
@@ -627,8 +624,7 @@ issues:
   issue_path: alpha_research/issues/AR-084.md
   parent: AR-076
 - id: AR-085
-  title: 'Divergent from AR-077: ETF opening-range liquidity reversal after index futures
-    shock'
+  title: 'Divergent from AR-077: ETF opening-range liquidity reversal after index futures shock'
   model_name: etf-opening-range-liquidity-reversal-v1
   status: rejected
   priority: completed_realdata
@@ -668,28 +664,28 @@ issues:
   issue_path: alpha_research/issues/AR-089.md
   parent: AR-081
 - id: AR-090
-  title: 'Google Trends consumer-attention discretionary ETF rotation'
+  title: Google Trends consumer-attention discretionary ETF rotation
   model_name: google-trends-consumer-attention-etf-rotation-v1
   status: rejected
   priority: completed_realdata
   family: external_attention_rotation
   issue_path: alpha_research/issues/AR-090.md
 - id: AR-091
-  title: 'Prediction-market macro probability shock ETF allocator'
+  title: Prediction-market macro probability shock ETF allocator
   model_name: polymarket-macro-probability-shock-etf-allocator-v1
   status: rejected
   priority: external_signal
   family: prediction_market_macro_regime
   issue_path: alpha_research/issues/AR-091.md
 - id: AR-092
-  title: 'Crypto risk-appetite spillover Nasdaq and ETF rotation'
+  title: Crypto risk-appetite spillover Nasdaq and ETF rotation
   model_name: crypto-risk-appetite-spillover-etf-rotation-v1
   status: rejected
   priority: external_signal
   family: crypto_crossasset_risk_appetite
   issue_path: alpha_research/issues/AR-092.md
 - id: AR-093
-  title: 'Crypto stress-to-quality flight defensive ETF allocator'
+  title: Crypto stress-to-quality flight defensive ETF allocator
   model_name: crypto-stress-quality-flight-defensive-etf-allocator-v1
   status: rejected
   priority: external_signal
@@ -792,134 +788,149 @@ issues:
   issue_path: alpha_research/issues/AR-105.md
   parent: AR-063
 - id: AR-106
-  title: 'ETF option-expiry and rebalance-week liquidity pressure reversal, ex-ToM controlled'
+  title: ETF option-expiry and rebalance-week liquidity pressure reversal, ex-ToM controlled
   model_name: etf-opex-rebalance-liquidity-pressure-v1
   status: rejected
   priority: completed_realdata
   family: event_calendar_liquidity_pressure
   issue_path: alpha_research/issues/AR-106.md
 - id: AR-107
-  title: 'Post-drawdown stabilized single-name sector-residual defensive leadership'
+  title: Post-drawdown stabilized single-name sector-residual defensive leadership
   model_name: post-drawdown-residual-defensive-leadership-v1
   status: rejected
   priority: completed_realdata
   family: single_name_residual_momentum
   issue_path: alpha_research/issues/AR-107.md
 - id: AR-108
-  title: 'Treasury auction-week duration concession reversal ETF allocator'
+  title: Treasury auction-week duration concession reversal ETF allocator
   model_name: treasury-auction-week-duration-concession-reversal-v1
   status: rejected
   priority: completed_realdata
   family: event_calendar_fixed_income_reversal
   issue_path: alpha_research/issues/AR-108.md
 - id: AR-109
-  title: 'Cross-asset real-rate shock fade gold-duration-equity ETF allocator'
+  title: Cross-asset real-rate shock fade gold-duration-equity ETF allocator
   model_name: crossasset-real-rate-shock-fade-etf-allocator-v1
   status: rejected
   priority: completed_realdata
   family: cross_asset_real_rate_shock_reversal
   issue_path: alpha_research/issues/AR-109.md
 - id: AR-110
-  title: 'Payday and semi-monthly contribution-flow equity ETF timing'
+  title: Payday and semi-monthly contribution-flow equity ETF timing
   model_name: payday-semimonthly-equity-etf-timing-v1
   status: rejected
   priority: completed_realdata
   family: seasonality_contribution_flow
   issue_path: alpha_research/issues/AR-110.md
 - id: AR-111
-  title: 'Commodity ETF realized-skewness cross-sectional allocator'
+  title: Commodity ETF realized-skewness cross-sectional allocator
   model_name: commodity-etf-realized-skewness-allocator-v1
   status: rejected
   priority: completed_realdata
   family: commodity_cross_sectional_skewness
   issue_path: alpha_research/issues/AR-111.md
 - id: AR-112
-  title: 'International country ETF relative-strength and currency-stress rotation'
+  title: International country ETF relative-strength and currency-stress rotation
   model_name: country-etf-rs-currency-stress-rotation-v1
   status: rejected
   priority: completed_realdata
   family: international_country_rotation
   issue_path: alpha_research/issues/AR-112.md
 - id: AR-113
-  title: 'Single-name mega-cap idiosyncratic volatility normalization after failed range expansion'
+  title: Single-name mega-cap idiosyncratic volatility normalization after failed range expansion
   model_name: megacap-idiosyncratic-vol-normalization-v1
   status: rejected
   priority: completed_realdata
   family: single_name_idiosyncratic_volatility_reversal
   issue_path: alpha_research/issues/AR-113.md
 - id: AR-114
-  title: 'Municipal bond ETF tax-calendar flow reversal and January reinvestment allocator'
+  title: Municipal bond ETF tax-calendar flow reversal and January reinvestment allocator
   model_name: municipal-tax-flow-calendar-reversal-v1
   status: rejected
   priority: completed_realdata
   family: municipal_tax_calendar_flow
   issue_path: alpha_research/issues/AR-114.md
 - id: AR-115
-  title: 'Constituent-confirmed sector ETF post-earnings pressure allocator'
+  title: Constituent-confirmed sector ETF post-earnings pressure allocator
   model_name: constituent-confirmed-sector-earnings-pressure-v1
   status: rejected
   priority: completed_realdata
   family: constituent_confirmed_sector_pressure
   issue_path: alpha_research/issues/AR-115.md
 - id: AR-116
-  title: 'Large-cap concentration breadth mean reversion using cap-weight vs equal-weight proxy'
+  title: Large-cap concentration breadth mean reversion using cap-weight vs equal-weight proxy
   model_name: concentration-breadth-meanreversion-v1
   status: rejected
   priority: completed_realdata
   family: breadth_concentration_mean_reversion
   issue_path: alpha_research/issues/AR-116.md
 - id: AR-117
-  title: 'Price-only non-synchronous country ETF stale-participation catch-up proxy'
+  title: Price-only non-synchronous country ETF stale-participation catch-up proxy
   model_name: country-etf-stale-participation-catchup-v1
   status: rejected
   priority: completed_realdata
   family: international_country_stale_participation
   issue_path: alpha_research/issues/AR-117.md
 - id: AR-118
-  title: 'Defensive carry pullback recovery allocator with anti-redundancy baselines'
+  title: Defensive carry pullback recovery allocator with anti-redundancy baselines
   model_name: defensive-carry-pullback-recovery-allocator-v1
   status: rejected
   priority: completed_realdata
   family: cross_asset_carry_defensive_pullback_recovery
   issue_path: alpha_research/issues/AR-118.md
 - id: AR-119
-  title: 'Liquidity-exhaustion recovery breadth across mega-caps and ETFs'
+  title: Liquidity-exhaustion recovery breadth across mega-caps and ETFs
   model_name: megacap-liquidity-exhaustion-etf-recovery-v1
   status: rejected
   priority: completed_realdata
   family: liquidity_reversal_breadth
   issue_path: alpha_research/issues/AR-119.md
 - id: AR-120
-  title: 'Timestamp-safe ETF distribution ex-date drift and reversal allocator'
+  title: Timestamp-safe ETF distribution ex-date drift and reversal allocator
   model_name: etf-distribution-exdate-reversal-allocator-v1
   status: rejected
   priority: completed_realdata
   family: etf_distribution_exdiv_event_timing
   issue_path: alpha_research/issues/AR-120.md
 - id: AR-121
-  title: 'ETF family-relative OHLCV liquidity-pressure proxy allocator'
+  title: ETF family-relative OHLCV liquidity-pressure proxy allocator
   model_name: etf-family-relative-ohlcv-liquidity-pressure-v1
   status: rejected
   priority: completed_realdata
   family: etf_liquidity_pressure_mean_reversion
   issue_path: alpha_research/issues/AR-121.md
 - id: AR-122
-  title: 'Macro-shock defensive-sector relative stabilization event-study'
+  title: Macro-shock defensive-sector relative stabilization event-study
   model_name: macro-shock-defensive-relative-stabilization-v1
   status: rejected
   priority: completed_realdata
   family: macro_shock_sector_relative_stabilization
   issue_path: alpha_research/issues/AR-122.md
 - id: AR-123
-  title: 'Treasury coupon/principal payment-day duration ETF reinvestment drift'
+  title: Treasury coupon/principal payment-day duration ETF reinvestment drift
   model_name: treasury-payment-day-duration-etf-reinvestment-drift-v1
   status: rejected
   priority: completed_realdata
   family: event_calendar_fixed_income_reinvestment_flow
   issue_path: alpha_research/issues/AR-123.md
+- id: AR-124
+  title: Post-split effective-date liquidity/attention drift in liquid US equities
+  model_name: post-split-effective-date-liquidity-attention-drift-v1
+  status: rejected
+  priority: completed_realdata
+  family: corporate_action_split_event_timing
+  issue_path: alpha_research/issues/AR-124.md
+- id: AR-125
+  title: Liquid common-stock ex-dividend post-date rebound/drift
+  model_name: common-stock-exdividend-postdate-rebound-drift-v1
+  status: rejected
+  priority: completed_realdata
+  family: corporate_action_cash_dividend_event_timing
+  issue_path: alpha_research/issues/AR-125.md
 active_batch: []
 last_realdata_batch:
-- AR-123
-updated_at: '2026-06-27T18:05:00Z'
+- AR-124
+- AR-125
+updated_at: '2026-06-27T20:35:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 114
+tried_ideas_count: 116

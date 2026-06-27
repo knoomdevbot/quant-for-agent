@@ -1,0 +1,57 @@
+alpha_id: AR-124
+parent_id: null
+model_path: models/post-split-effective-date-liquidity-attention-drift-v1/model.py
+config_path: models/post-split-effective-date-liquidity-attention-drift-v1/config.yaml
+model_family: corporate_action_split_event_timing
+universe:
+  candidate_pool_description: Broad Alpaca corporate-action split-event pool of liquid U.S. equity-like symbols, filtered before performance review by real daily OHLCV availability and liquidity.
+  candidate_pool_size: 74
+  selected_symbols: [AAON, AIV, AMZN, ANET, APG, APH, AVGO, BEPC, BKNG, BN, CELH, CHDN]
+  selected_universe_size: 12
+  selection_filters:
+    - Alpaca forward_split corporate action with event date fields available
+    - alphabetic symbol length <=5
+    - ">=80 pre-event daily bars"
+    - first trade date strictly after event date available
+    - pre-event 60-day median venue dollar volume >= $1M
+    - pre-event close >= $10
+    - common-stock-like asset name
+  selection_rationale: Broad idea-specific split-event pool; selected universe is every symbol passing timestamp-safe forward split and liquidity filters, with no realized-return selection.
+  limitations:
+    - Sparse primary liquid forward split events after filters.
+    - Corporate-action records do not provide announcement timestamps, so the model trades only after the event date.
+    - Daily bar adjustment semantics can affect cross-split price levels; returns use only post-event entry/exit closes.
+timeframe: daily
+holding_period: 5d primary; 1d/3d/10d diagnostics
+signal_definition: Post-effective-date forward-split drift event study; reverse and unit splits are diagnostics only.
+parameters:
+  holding_days: 5
+  costs_bps_primary: 10
+  costs_bps_sensitivity: [5, 10, 20]
+  min_history_days: 80
+backtest:
+  data_source: Alpaca real daily OHLCV and corporate-action split records
+  random_periods: event-year diagnostics and placebo/event-window diagnostics
+  train_test_split: random/event windows and leave-year diagnostics
+  costs_bps: 10
+metrics:
+  median_sharpe: 0.24051245571111418
+  mean_sharpe: 0.4297084633382376
+  p25_sharpe: 0.12262135153774519
+  worst_period_sharpe: -0.49001945396489555
+  annualized_return: 0.025014617856995148
+  annualized_volatility: 0.1040054985220427
+  max_drawdown: -0.18825879818752334
+  turnover: 0.01880456682337139
+  positive_window_rate: 0.5
+orthogonality:
+  max_corr_to_library: null
+  avg_corr_to_top_alphas: null
+  cointegration_pvalue_min: null
+  redundancy_penalty: null
+  status: deferred_due_rejection
+  beta_proxy_correlation_to_spy_same_window: 0.7013477491924412
+status: rejected
+notes:
+  - Rejected because event count was sparse, hit/positive-window rate was below 55%, and p25 event return was materially negative.
+  - No direct children should be spawned from this rejected hypothesis.

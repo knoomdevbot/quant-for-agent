@@ -1,0 +1,30 @@
+model:
+  name: common-stock-exdividend-postdate-rebound-drift-v1
+  issue_id: AR-125
+  entry_rule: first Alpaca daily bar strictly after max(ex_date, process_date)
+  holding_days: 5
+  gross_exposure: 1.0
+  max_symbol_weight: 0.02
+  min_history_days: 40
+  min_price: 10.0
+  min_pre60_dollar_volume: 1000000.0
+universe:
+  primary: broad liquid US common stocks with Alpaca cash-dividend corporate actions and real Alpaca daily OHLCV
+  excludes:
+    - ETFs/ETNs/funds
+    - preferreds/BDCs/CEFs
+    - ambiguous ADRs/ADS
+    - LPs/units/warrants/rights
+    - REITs from primary sleeve
+    - special and foreign dividends from primary sleeve
+data:
+  source: Alpaca corporate actions cash_dividend plus Alpaca StockHistoricalDataClient daily OHLCV
+  csv_used: false
+  data_csv_argument_used: false
+  daemon: false
+  orders: false
+research:
+  windows: [1, 3, 5, 10]
+  costs_bps: [5, 10, 20]
+  primary_window: 5
+  primary_cost_bps: 10
