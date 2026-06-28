@@ -962,9 +962,17 @@ issues:
   priority: completed_realdata
   family: public_filing_calendar_single_name_residual_reversal
   issue_path: alpha_research/issues/AR-130.md
-active_batch: []
+- id: AR-131
+  title: CPI/PPI release-morning cross-asset reaction dispersion
+  model_name: cpi-ppi-release-morning-crossasset-dispersion-v1
+  status: queued
+  priority: preflight_queue
+  family: macro_release_reaction_crossasset_dispersion
+  issue_path: alpha_research/issues/AR-131.md
+active_batch:
+- AR-131
 last_realdata_batch:
 - AR-130
-updated_at: '2026-06-27T23:52:23Z'
+updated_at: '2026-06-28T00:32:37Z'
 target_tried_ideas: 100
 tried_ideas_count: 121
