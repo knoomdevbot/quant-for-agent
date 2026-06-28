@@ -990,9 +990,17 @@ issues:
   priority: blocked_event_source_no_realdata
   family: public_filing_insider_purchase_event_drift
   issue_path: alpha_research/issues/AR-134.md
-active_batch: []
+- id: AR-135
+  title: CFTC COT positioning extreme-unwind ETF allocator
+  model_name: cftc-cot-positioning-extreme-unwind-etf-v1
+  status: queued
+  priority: preflight_queue
+  family: external_positioning_crowding
+  issue_path: alpha_research/issues/AR-135.md
+active_batch:
+- AR-135
 last_realdata_batch:
 - AR-134
-updated_at: '2026-06-28T03:14:11Z'
+updated_at: '2026-06-28T03:52:17Z'
 target_tried_ideas: 100
-tried_ideas_count: 127
+tried_ideas_count: 128
