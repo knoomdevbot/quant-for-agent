@@ -1,0 +1,75 @@
+model_name: sponsor-exposure-etf-residual-dispersion-convergence-v1
+issue_id: AR-132
+timeframe: 1Day
+data_source: qfa_alpaca_real_daily_ohlcv
+no_csv: true
+no_data_csv_argument: true
+no_daemon: true
+no_orders: true
+universe:
+  selected_symbols:
+    - SPY
+    - SPLG
+    - SPYG
+    - SPYV
+    - MDY
+    - SPMD
+    - SLY
+    - SPSM
+    - IVV
+    - IWB
+    - IVE
+    - IVW
+    - IUSV
+    - IUSG
+    - IJH
+    - IWR
+    - IJR
+    - IWM
+    - VOO
+    - VTI
+    - VV
+    - VTV
+    - VUG
+    - VO
+    - VOE
+    - VOT
+    - VB
+    - VBR
+    - VBK
+clusters:
+  spdr_large_core: [SPY, SPLG]
+  spdr_large_style: [SPYG, SPYV]
+  spdr_mid_core: [MDY, SPMD]
+  spdr_small_core: [SLY, SPSM]
+  ishares_large_core: [IVV, IWB]
+  ishares_large_style: [IVE, IVW, IUSV, IUSG]
+  ishares_mid_core: [IJH, IWR]
+  ishares_small_core: [IJR, IWM]
+  vanguard_large_core: [VOO, VTI, VV]
+  vanguard_large_style: [VTV, VUG]
+  vanguard_mid_style: [VO, VOE, VOT]
+  vanguard_small_style: [VB, VBR, VBK]
+exposure_proxies:
+  large_core: SPY
+  large_style: SPY
+  mid_core: IJH
+  mid_style: IJH
+  small_core: IWM
+  small_style: IWM
+parameters:
+  beta_window: 126
+  residual_lookback: 3
+  dispersion_window: 126
+  stress_window: 20
+  min_history: 275
+  dispersion_z_entry: 1.0
+  residual_z_entry: 0.65
+  stress_return_threshold: -0.012
+  stress_vol_z_threshold: 0.35
+  max_gross: 1.0
+  symbol_cap: 0.18
+  cluster_cap: 0.34
+costs:
+  primary_bps: 10
+  sensitivity_bps: 20

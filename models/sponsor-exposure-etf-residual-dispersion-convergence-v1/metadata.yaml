@@ -1,0 +1,27 @@
+issue_id: AR-132
+model_name: sponsor-exposure-etf-residual-dispersion-convergence-v1
+status: rejected
+family: etf_residual_dispersion_convergence
+created_at_utc: '2026-06-28T02:11:31Z'
+research_summary: >-
+  Fixed sponsor-and-exposure ETF clusters were tested as ex-ante group labels only.
+  The model fades lagged residual-return outliers after an exposure stress or
+  dispersion gate using qfa/Alpaca real daily OHLCV. Real-data random-window
+  evaluation was decisively negative after 10 bps and 20 bps turnover haircuts.
+data_policy:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+selected_universe_count: 29
+evaluation:
+  latest_json: evaluations/latest.json
+  latest_md: evaluations/latest.md
+  immutable_run_json: evaluations/runs/ar132_qfa_alpaca_real_20260628T021131Z.json
+  primary_10bps_sharpe: -0.97685593
+  random_window_median_sharpe: -1.0045856
+  random_window_p25_sharpe: -1.60790097
+  random_window_positive_rate: 0.2
+  sensitivity_20bps_sharpe: -2.67529997
+orthogonality: deferred_due_rejection

@@ -972,14 +972,13 @@ issues:
 - id: AR-132
   title: Sponsor/exposure-matched ETF residual-dispersion convergence
   model_name: sponsor-exposure-etf-residual-dispersion-convergence-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: etf_residual_dispersion_convergence
   issue_path: alpha_research/issues/AR-132.md
-active_batch:
-- AR-132
+active_batch: []
 last_realdata_batch:
-- AR-131
-updated_at: '2026-06-28T01:05:00Z'
+- AR-132
+updated_at: '2026-06-28T02:12:47Z'
 target_tried_ideas: 100
-tried_ideas_count: 123
+tried_ideas_count: 124

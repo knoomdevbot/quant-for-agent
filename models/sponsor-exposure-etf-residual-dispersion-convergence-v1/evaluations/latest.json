@@ -1,0 +1,954 @@
+{
+  "ablations_placebos": {
+    "ar015_tsmom_style_baseline": {
+      "activation_rate": 0.93351064,
+      "annualized_return": -0.04889551,
+      "annualized_turnover": 12.66039111,
+      "annualized_volatility": 0.18296556,
+      "hit_rate": 0.49680851,
+      "max_drawdown": -0.4775016,
+      "mean_daily_turnover": 0.05023965,
+      "periods": 1880,
+      "sharpe": -0.18229491,
+      "total_return": -0.31202017
+    },
+    "no_sponsor_exposure_matched_placebo": {
+      "activation_rate": 0.15744681,
+      "annualized_return": -0.01431952,
+      "annualized_turnover": 29.56481569,
+      "annualized_volatility": 0.03329392,
+      "hit_rate": 0.07180851,
+      "max_drawdown": -0.16002464,
+      "mean_daily_turnover": 0.1173207,
+      "periods": 1880,
+      "sharpe": -0.41656773,
+      "total_return": -0.10201363
+    },
+    "no_stress_gate": {
+      "activation_rate": 0.51223404,
+      "annualized_return": -0.06884313,
+      "annualized_turnover": 98.35551245,
+      "annualized_volatility": 0.04027845,
+      "hit_rate": 0.18723404,
+      "max_drawdown": -0.41327193,
+      "mean_daily_turnover": 0.39029965,
+      "periods": 1880,
+      "sharpe": -1.75054846,
+      "total_return": -0.41264505
+    },
+    "simple_etf_reversal": {
+      "activation_rate": 0.99840426,
+      "annualized_return": -0.13035596,
+      "annualized_turnover": 130.9892285,
+      "annualized_volatility": 0.11109747,
+      "hit_rate": 0.45053191,
+      "max_drawdown": -0.65190039,
+      "mean_daily_turnover": 0.51979853,
+      "periods": 1880,
+      "sharpe": -1.20079063,
+      "total_return": -0.64724879
+    },
+    "sponsor_label_placebo": {
+      "activation_rate": 0.12234043,
+      "annualized_return": -0.01638262,
+      "annualized_turnover": 23.29268874,
+      "annualized_volatility": 0.02887933,
+      "hit_rate": 0.05531915,
+      "max_drawdown": -0.11941606,
+      "mean_daily_turnover": 0.0924313,
+      "periods": 1880,
+      "sharpe": -0.55753305,
+      "total_return": -0.11594122
+    }
+  },
+  "artifacts": {
+    "config_yaml": "/Users/moonk/quant-for-agent/models/sponsor-exposure-etf-residual-dispersion-convergence-v1/config.yaml",
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/sponsor-exposure-etf-residual-dispersion-convergence-v1/evaluations/runs/ar132_qfa_alpaca_real_20260628T021131Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/sponsor-exposure-etf-residual-dispersion-convergence-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/sponsor-exposure-etf-residual-dispersion-convergence-v1/evaluations/latest.md",
+    "metadata_yaml": "/Users/moonk/quant-for-agent/models/sponsor-exposure-etf-residual-dispersion-convergence-v1/metadata.yaml",
+    "model_py": "/Users/moonk/quant-for-agent/models/sponsor-exposure-etf-residual-dispersion-convergence-v1/model.py",
+    "readme_md": "/Users/moonk/quant-for-agent/models/sponsor-exposure-etf-residual-dispersion-convergence-v1/README.md"
+  },
+  "costs": {
+    "method": "One-way turnover haircut subtracted from next-bar portfolio returns.",
+    "primary_bps": 10,
+    "sensitivity_bps": 20
+  },
+  "created_at_utc": "2026-06-28T02:11:31.127280+00:00",
+  "data_source": "configured paper-data access through qfa/Alpaca real daily OHLCV; values redacted",
+  "decision": {
+    "rationale": "Rejected if median random-window Sharpe <=0, p25 materially negative, positive-window rate <55%, 20 bps cost collapse, or insufficient activation. Result failed these fast-falsification gates.",
+    "suggested_decision": "rejected"
+  },
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "qfa_alpaca_real_daily_random_windows_compact_replay",
+  "issue_id": "AR-132",
+  "metrics": {
+    "primary_10bps_full": {
+      "activation_rate": 0.29787234,
+      "annualized_return": -0.03287934,
+      "annualized_turnover": 59.51290782,
+      "annualized_volatility": 0.03364555,
+      "hit_rate": 0.1143617,
+      "max_drawdown": -0.22866726,
+      "mean_daily_turnover": 0.23616233,
+      "periods": 1880,
+      "sharpe": -0.97685593,
+      "total_return": -0.22074226
+    },
+    "random_windows_10bps": {
+      "count": 20,
+      "mean_sharpe": -0.97360902,
+      "median_sharpe": -1.0045856,
+      "p25_sharpe": -1.60790097,
+      "positive_window_rate": 0.2,
+      "windows": [
+        {
+          "activation_rate": 0.38339921,
+          "annualized_return": -0.0145299,
+          "annualized_turnover": 80.31751371,
+          "annualized_volatility": 0.03531542,
+          "end": "2023-05-11",
+          "hit_rate": 0.16205534,
+          "max_drawdown": -0.03768857,
+          "mean_daily_turnover": 0.31872029,
+          "periods": 253,
+          "sharpe": -0.39694234,
+          "start": "2022-05-10",
+          "total_return": -0.01458713
+        },
+        {
+          "activation_rate": 0.28458498,
+          "annualized_return": 0.0075554,
+          "annualized_turnover": 53.91642555,
+          "annualized_volatility": 0.04481424,
+          "end": "2021-04-12",
+          "hit_rate": 0.12252964,
+          "max_drawdown": -0.03094606,
+          "mean_daily_turnover": 0.21395407,
+          "periods": 253,
+          "sharpe": 0.19015377,
+          "start": "2020-04-09",
+          "total_return": 0.00758549
+        },
+        {
+          "activation_rate": 0.40316206,
+          "annualized_return": -0.02221697,
+          "annualized_turnover": 84.56731608,
+          "annualized_volatility": 0.03617144,
+          "end": "2023-04-28",
+          "hit_rate": 0.16600791,
+          "max_drawdown": -0.03588622,
+          "mean_daily_turnover": 0.33558459,
+          "periods": 253,
+          "sharpe": -0.60318374,
+          "start": "2022-04-27",
+          "total_return": -0.02230415
+        },
+        {
+          "activation_rate": 0.24901186,
+          "annualized_return": -0.02446582,
+          "annualized_turnover": 43.54501668,
+          "annualized_volatility": 0.03283732,
+          "end": "2020-07-07",
+          "hit_rate": 0.12252964,
+          "max_drawdown": -0.03383618,
+          "mean_daily_turnover": 0.17279769,
+          "periods": 253,
+          "sharpe": -0.73790449,
+          "start": "2019-07-08",
+          "total_return": -0.02456171
+        },
+        {
+          "activation_rate": 0.21343874,
+          "annualized_return": 0.00162593,
+          "annualized_turnover": 42.19237222,
+          "annualized_volatility": 0.03947785,
+          "end": "2021-05-25",
+          "hit_rate": 0.07905138,
+          "max_drawdown": -0.03094606,
+          "mean_daily_turnover": 0.16743005,
+          "periods": 253,
+          "sharpe": 0.06066398,
+          "start": "2020-05-26",
+          "total_return": 0.00163239
+        },
+        {
+          "activation_rate": 0.2055336,
+          "annualized_return": -0.0150979,
+          "annualized_turnover": 34.49391773,
+          "annualized_volatility": 0.03010598,
+          "end": "2020-05-05",
+          "hit_rate": 0.1027668,
+          "max_drawdown": -0.03383618,
+          "mean_daily_turnover": 0.13688063,
+          "periods": 253,
+          "sharpe": -0.49027783,
+          "start": "2019-05-06",
+          "total_return": -0.01515736
+        },
+        {
+          "activation_rate": 0.46245059,
+          "annualized_return": -0.04146179,
+          "annualized_turnover": 95.52151867,
+          "annualized_volatility": 0.04160986,
+          "end": "2022-07-01",
+          "hit_rate": 0.16205534,
+          "max_drawdown": -0.06452126,
+          "mean_daily_turnover": 0.37905365,
+          "periods": 253,
+          "sharpe": -0.99694755,
+          "start": "2021-07-01",
+          "total_return": -0.04162284
+        },
+        {
+          "activation_rate": 0.32806324,
+          "annualized_return": 0.00726064,
+          "annualized_turnover": 56.42513593,
+          "annualized_volatility": 0.04548111,
+          "end": "2020-12-30",
+          "hit_rate": 0.15019763,
+          "max_drawdown": -0.03383618,
+          "mean_daily_turnover": 0.22390927,
+          "periods": 253,
+          "sharpe": 0.18160976,
+          "start": "2019-12-31",
+          "total_return": 0.00728955
+        },
+        {
+          "activation_rate": 0.28458498,
+          "annualized_return": -0.03024433,
+          "annualized_turnover": 57.42083262,
+          "annualized_volatility": 0.02396831,
+          "end": "2026-05-04",
+          "hit_rate": 0.13043478,
+          "max_drawdown": -0.03915885,
+          "mean_daily_turnover": 0.22786045,
+          "periods": 253,
+          "sharpe": -1.26931436,
+          "start": "2025-05-01",
+          "total_return": -0.03036251
+        },
+        {
+          "activation_rate": 0.30434783,
+          "annualized_return": -0.03984314,
+          "annualized_turnover": 61.26257202,
+          "annualized_volatility": 0.02520635,
+          "end": "2026-06-22",
+          "hit_rate": 0.13438735,
+          "max_drawdown": -0.04813617,
+          "mean_daily_turnover": 0.24310544,
+          "periods": 253,
+          "sharpe": -1.60035098,
+          "start": "2025-06-18",
+          "total_return": -0.03999804
+        },
+        {
+          "activation_rate": 0.32806324,
+          "annualized_return": -0.0519334,
+          "annualized_turnover": 65.84675003,
+          "annualized_volatility": 0.02671236,
+          "end": "2024-06-14",
+          "hit_rate": 0.11067194,
+          "max_drawdown": -0.07015075,
+          "mean_daily_turnover": 0.26129663,
+          "periods": 253,
+          "sharpe": -1.98296469,
+          "start": "2023-06-14",
+          "total_return": -0.05213402
+        },
+        {
+          "activation_rate": 0.09486166,
+          "annualized_return": -0.01673602,
+          "annualized_turnover": 14.86860416,
+          "annualized_volatility": 0.01653855,
+          "end": "2020-03-18",
+          "hit_rate": 0.03952569,
+          "max_drawdown": -0.02512535,
+          "mean_daily_turnover": 0.0590024,
+          "periods": 253,
+          "sharpe": -1.01222366,
+          "start": "2019-03-19",
+          "total_return": -0.01680187
+        },
+        {
+          "activation_rate": 0.28853755,
+          "annualized_return": -0.05000169,
+          "annualized_turnover": 62.23008902,
+          "annualized_volatility": 0.03115881,
+          "end": "2022-01-07",
+          "hit_rate": 0.1027668,
+          "max_drawdown": -0.05019504,
+          "mean_daily_turnover": 0.2469448,
+          "periods": 253,
+          "sharpe": -1.63055096,
+          "start": "2021-01-08",
+          "total_return": -0.05019504
+        },
+        {
+          "activation_rate": 0.34387352,
+          "annualized_return": -0.04331735,
+          "annualized_turnover": 71.55180124,
+          "annualized_volatility": 0.02689334,
+          "end": "2023-08-31",
+          "hit_rate": 0.13833992,
+          "max_drawdown": -0.04831547,
+          "mean_daily_turnover": 0.28393572,
+          "periods": 253,
+          "sharpe": -1.6330847,
+          "start": "2022-08-30",
+          "total_return": -0.04348545
+        },
+        {
+          "activation_rate": 0.3201581,
+          "annualized_return": -0.04927549,
+          "annualized_turnover": 69.07601345,
+          "annualized_volatility": 0.03305677,
+          "end": "2022-02-10",
+          "hit_rate": 0.12252964,
+          "max_drawdown": -0.05894845,
+          "mean_daily_turnover": 0.27411116,
+          "periods": 253,
+          "sharpe": -1.51198334,
+          "start": "2021-02-11",
+          "total_return": -0.04946611
+        },
+        {
+          "activation_rate": 0.19367589,
+          "annualized_return": -0.007636,
+          "annualized_turnover": 37.56786629,
+          "annualized_volatility": 0.03790469,
+          "end": "2021-08-26",
+          "hit_rate": 0.07114625,
+          "max_drawdown": -0.03094606,
+          "mean_daily_turnover": 0.14907883,
+          "periods": 253,
+          "sharpe": -0.18348866,
+          "start": "2020-08-26",
+          "total_return": -0.00766619
+        },
+        {
+          "activation_rate": 0.35177866,
+          "annualized_return": -0.04653053,
+          "annualized_turnover": 72.54784867,
+          "annualized_volatility": 0.02709057,
+          "end": "2023-09-11",
+          "hit_rate": 0.14229249,
+          "max_drawdown": -0.04879798,
+          "mean_daily_turnover": 0.28788829,
+          "periods": 253,
+          "sharpe": -1.7451644,
+          "start": "2022-09-08",
+          "total_return": -0.04671079
+        },
+        {
+          "activation_rate": 0.21343874,
+          "annualized_return": 0.00162593,
+          "annualized_turnover": 42.19237222,
+          "annualized_volatility": 0.03947785,
+          "end": "2021-05-24",
+          "hit_rate": 0.07905138,
+          "max_drawdown": -0.03094606,
+          "mean_daily_turnover": 0.16743005,
+          "periods": 253,
+          "sharpe": 0.06066398,
+          "start": "2020-05-22",
+          "total_return": 0.00163239
+        },
+        {
+          "activation_rate": 0.35968379,
+          "annualized_return": -0.05601116,
+          "annualized_turnover": 69.34189288,
+          "annualized_volatility": 0.04605647,
+          "end": "2025-05-15",
+          "hit_rate": 0.12252964,
+          "max_drawdown": -0.06877164,
+          "mean_daily_turnover": 0.27516624,
+          "periods": 253,
+          "sharpe": -1.2287231,
+          "start": "2024-05-13",
+          "total_return": -0.05622705
+        },
+        {
+          "activation_rate": 0.33201581,
+          "annualized_return": -0.06831381,
+          "annualized_turnover": 68.47403763,
+          "annualized_volatility": 0.02394948,
+          "end": "2024-09-13",
+          "hit_rate": 0.1027668,
+          "max_drawdown": -0.07165522,
+          "mean_daily_turnover": 0.27172237,
+          "periods": 253,
+          "sharpe": -2.94216707,
+          "start": "2023-09-13",
+          "total_return": -0.06857539
+        }
+      ],
+      "worst_sharpe": -2.94216707
+    },
+    "sensitivity_20bps_full": {
+      "activation_rate": 0.29787234,
+      "annualized_return": -0.08879789,
+      "annualized_turnover": 59.51290782,
+      "annualized_volatility": 0.03453062,
+      "hit_rate": 0.09148936,
+      "max_drawdown": -0.50029584,
+      "mean_daily_turnover": 0.23616233,
+      "periods": 1880,
+      "sharpe": -2.67529997,
+      "total_return": -0.50029584
+    }
+  },
+  "model_constraints": {
+    "excluded_features": [
+      "primary abnormal volume",
+      "close-location",
+      "range",
+      "gap/close residual",
+      "liquidity-pressure composite"
+    ],
+    "sponsor_label_ex_ante_cluster_only": true,
+    "timestamp_safety": "Signals at completed close are applied to next daily close return by qfa-style replay; no same-close return is used.",
+    "uses_only_lagged_daily_ohlcv_returns": true
+  },
+  "model_name": "sponsor-exposure-etf-residual-dispersion-convergence-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "rationale": "Primary falsifiers were decisive before expensive alpha-library orthogonality; no child spawned.",
+    "status": "deferred_due_rejection"
+  },
+  "raw_daily_paths_retained": false,
+  "smoke_test": {
+    "period": "2024-01-01..2024-06-30",
+    "primary_10bps": {
+      "activation_rate": 0.0,
+      "annualized_return": 0.0,
+      "annualized_turnover": 0.0,
+      "annualized_volatility": 0.0,
+      "hit_rate": 0.0,
+      "max_drawdown": 0.0,
+      "mean_daily_turnover": 0.0,
+      "periods": 123,
+      "sharpe": 0.0,
+      "total_return": 0.0
+    }
+  },
+  "universe": {
+    "candidate_pool": [
+      "SPY",
+      "SPLG",
+      "SPYG",
+      "SPYV",
+      "MDY",
+      "SPMD",
+      "SLY",
+      "SPSM",
+      "XLB",
+      "XLE",
+      "XLF",
+      "XLI",
+      "XLK",
+      "XLP",
+      "XLU",
+      "XLV",
+      "XLY",
+      "XLRE",
+      "XLC",
+      "IVV",
+      "IWB",
+      "IVE",
+      "IVW",
+      "IUSV",
+      "IUSG",
+      "IJH",
+      "IWR",
+      "IJR",
+      "IWM",
+      "IYW",
+      "IYF",
+      "IYE",
+      "IYH",
+      "IYK",
+      "IYC",
+      "IYZ",
+      "IYR",
+      "VOO",
+      "VTI",
+      "VV",
+      "VTV",
+      "VUG",
+      "VO",
+      "VOE",
+      "VOT",
+      "VB",
+      "VBR",
+      "VBK",
+      "VFH",
+      "VGT",
+      "VDE",
+      "VHT",
+      "VDC",
+      "VCR",
+      "VOX",
+      "VAW",
+      "VPU",
+      "VNQ"
+    ],
+    "coverage_liquidity_summary": [
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 318.77,
+        "symbol": "IJH"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 379.896,
+        "symbol": "IJR"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 43.655,
+        "symbol": "IUSG"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 39.172,
+        "symbol": "IUSV"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 103.722,
+        "symbol": "IVE"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 1871.194,
+        "symbol": "IVV"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 141.615,
+        "symbol": "IVW"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 187.993,
+        "symbol": "IWB"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 5132.559,
+        "symbol": "IWM"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 96.638,
+        "symbol": "IWR"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 5.506,
+        "symbol": "IYC"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 27.822,
+        "symbol": "IYE"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 22.402,
+        "symbol": "IYF"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 12.52,
+        "symbol": "IYH"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 5.729,
+        "symbol": "IYK"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 598.56,
+        "symbol": "IYR"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 50.908,
+        "symbol": "IYW"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 10.595,
+        "symbol": "IYZ"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 401.437,
+        "symbol": "MDY"
+      },
+      {
+        "bars": 1369,
+        "first": "2018-01-02",
+        "last": "2023-06-09",
+        "median_dollar_volume_m": 4.949,
+        "symbol": "SLY"
+      },
+      {
+        "bars": 1969,
+        "first": "2018-01-02",
+        "last": "2025-10-30",
+        "median_dollar_volume_m": 138.974,
+        "symbol": "SPLG"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 33.3,
+        "symbol": "SPMD"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 27.114,
+        "symbol": "SPSM"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 30599.139,
+        "symbol": "SPY"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 113.722,
+        "symbol": "SPYG"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 84.409,
+        "symbol": "SPYV"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 10.91,
+        "symbol": "VAW"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 126.733,
+        "symbol": "VB"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 49.07,
+        "symbol": "VBK"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 66.026,
+        "symbol": "VBR"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 17.455,
+        "symbol": "VCR"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 20.285,
+        "symbol": "VDC"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 53.416,
+        "symbol": "VDE"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 40.986,
+        "symbol": "VFH"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 202.761,
+        "symbol": "VGT"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 45.289,
+        "symbol": "VHT"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 408.024,
+        "symbol": "VNQ"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 130.512,
+        "symbol": "VO"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 43.261,
+        "symbol": "VOE"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 1605.138,
+        "symbol": "VOO"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 30.624,
+        "symbol": "VOT"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 17.736,
+        "symbol": "VOX"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 27.092,
+        "symbol": "VPU"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 707.506,
+        "symbol": "VTI"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 310.329,
+        "symbol": "VTV"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 246.325,
+        "symbol": "VUG"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 48.097,
+        "symbol": "VV"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 445.16,
+        "symbol": "XLB"
+      },
+      {
+        "bars": 2016,
+        "first": "2018-06-19",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 319.583,
+        "symbol": "XLC"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 1362.243,
+        "symbol": "XLE"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 1650.449,
+        "symbol": "XLF"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 1052.681,
+        "symbol": "XLI"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 1106.767,
+        "symbol": "XLK"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 834.624,
+        "symbol": "XLP"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 197.408,
+        "symbol": "XLRE"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 899.274,
+        "symbol": "XLU"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 1116.125,
+        "symbol": "XLV"
+      },
+      {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume_m": 709.97,
+        "symbol": "XLY"
+      }
+    ],
+    "filters": [
+      "Alpaca/qfa daily bar coverage available",
+      ">=900 daily bars",
+      ">=USD 2m median dollar volume",
+      "fixed ex-ante sponsor/exposure mapping with cluster size >=2"
+    ],
+    "limitations": "Sector/factor sleeves mostly did not form same-sponsor exposure-matched clusters of size >=2 under the strict design, so selected universe emphasizes broad/size/style sleeves.",
+    "rationale": "Started from broad SPDR, iShares, and Vanguard broad/style/sector/factor ETF sleeves; final traded set restricted to sponsor/exposure clusters with liquid Alpaca coverage and duplicate/similar products for residual dispersion tests.",
+    "selected_symbols": [
+      "SPY",
+      "SPLG",
+      "SPYG",
+      "SPYV",
+      "MDY",
+      "SPMD",
+      "SLY",
+      "SPSM",
+      "IVV",
+      "IWB",
+      "IVE",
+      "IVW",
+      "IUSV",
+      "IUSG",
+      "IJH",
+      "IWR",
+      "IJR",
+      "IWM",
+      "VOO",
+      "VTI",
+      "VV",
+      "VTV",
+      "VUG",
+      "VO",
+      "VOE",
+      "VOT",
+      "VB",
+      "VBR",
+      "VBK"
+    ]
+  },
+  "warnings": [
+    "External turnover haircut used because native transaction-cost modeling is minimal in this repository.",
+    "AlpacaGateway in this repository does not expose adjusted-price controls.",
+    "No raw bars, daily returns, weights, caches, databases, or secrets retained."
+  ]
+}
