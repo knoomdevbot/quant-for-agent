@@ -1,0 +1,942 @@
+{
+  "ablations_10bps": {
+    "exclude_GOOGL_GOOG": {
+      "activation_rate": 0.9432457786116323,
+      "ann_return": -0.005082224357879761,
+      "ann_vol": 0.014744467200832254,
+      "annual_turnover": 21.989712320200123,
+      "avg_daily_turnover": 0.08726076317539731,
+      "avg_gross": 0.744861061476915,
+      "hit_rate": 0.4620075046904315,
+      "max_drawdown": -0.0573926715798212,
+      "n": 2132,
+      "sharpe": -0.34468687736596504,
+      "total_return": -0.0429669620859352
+    },
+    "exclude_top_contributing_pair_LEN_LEN.B": {
+      "activation_rate": 0.9437148217636022,
+      "ann_return": -0.005404843180449907,
+      "ann_vol": 0.013858667389508682,
+      "annual_turnover": 22.85481550969356,
+      "avg_daily_turnover": 0.0906937123400538,
+      "avg_gross": 0.7327727150897883,
+      "hit_rate": 0.45590994371482174,
+      "max_drawdown": -0.053758848404966364,
+      "n": 2132,
+      "sharpe": -0.3899973228696933,
+      "total_return": -0.04547326948343833
+    },
+    "generic_same_universe_mom3": {
+      "activation_rate": 0.9985928705440901,
+      "ann_return": -0.0015554889493050671,
+      "ann_vol": 0.0011322284370980482,
+      "annual_turnover": 1.5333299916581722,
+      "avg_daily_turnover": 0.006084642824040366,
+      "avg_gross": 0.021008527569416735,
+      "hit_rate": 0.3794559099437148,
+      "max_drawdown": -0.013102521954100332,
+      "n": 2132,
+      "sharpe": -1.3738296074702507,
+      "total_return": -0.013079110025863483
+    },
+    "generic_same_universe_mr1": {
+      "activation_rate": 0.9995309568480301,
+      "ann_return": -0.0010657636577693665,
+      "ann_vol": 0.00047761696138847663,
+      "annual_turnover": 0.8649173286844324,
+      "avg_daily_turnover": 0.0034322116217636207,
+      "avg_gross": 0.008342659909492123,
+      "hit_rate": 0.28893058161350843,
+      "max_drawdown": -0.008993235873894445,
+      "n": 2132,
+      "sharpe": -2.231419199751812,
+      "total_return": -0.008977145763475858
+    },
+    "generic_same_universe_mr3": {
+      "activation_rate": 0.9985928705440901,
+      "ann_return": -0.0015111710340112775,
+      "ann_vol": 0.0011264326926043937,
+      "annual_turnover": 1.5333299916581722,
+      "avg_daily_turnover": 0.006084642824040366,
+      "avg_gross": 0.021008527569416735,
+      "hit_rate": 0.3395872420262664,
+      "max_drawdown": -0.012853241769255397,
+      "n": 2132,
+      "sharpe": -1.3415546653900297,
+      "total_return": -0.012708942344085483
+    },
+    "generic_same_universe_mr5": {
+      "activation_rate": 0.9976547842401501,
+      "ann_return": -0.0014156842870339296,
+      "ann_vol": 0.0016647669670400438,
+      "annual_turnover": 1.5354827844503909,
+      "avg_daily_turnover": 0.0060931856525809165,
+      "avg_gross": 0.0294456429713234,
+      "hit_rate": 0.3878986866791745,
+      "max_drawdown": -0.012076324123206028,
+      "n": 2132,
+      "sharpe": -0.8503798519927487,
+      "total_return": -0.011917317744437717
+    },
+    "hold_10d": {
+      "activation_rate": 0.9437148217636022,
+      "ann_return": 0.003231726709231452,
+      "ann_vol": 0.009356577161218666,
+      "annual_turnover": 7.712248422309398,
+      "avg_daily_turnover": 0.030604160405989674,
+      "avg_gross": 0.5717026587910735,
+      "hit_rate": 0.48686679174484054,
+      "max_drawdown": -0.02114817049245654,
+      "n": 2132,
+      "sharpe": 0.34539625479992614,
+      "total_return": 0.02733801576631012
+    },
+    "hold_1d": {
+      "activation_rate": 0.9432457786116323,
+      "ann_return": -0.03873751373998896,
+      "ann_vol": 0.018298460612999955,
+      "annual_turnover": 60.22603189493432,
+      "avg_daily_turnover": 0.2389921900592632,
+      "avg_gross": 0.9432457786116323,
+      "hit_rate": 0.41416510318949346,
+      "max_drawdown": -0.28084785935433954,
+      "n": 2132,
+      "sharpe": -2.116982109001469,
+      "total_return": -0.2804819943647615
+    },
+    "hold_3d": {
+      "activation_rate": 0.9437148217636022,
+      "ann_return": -0.006975342933500312,
+      "ann_vol": 0.013234862650267378,
+      "annual_turnover": 22.362367104440274,
+      "avg_daily_turnover": 0.08873955200174712,
+      "avg_gross": 0.7388302584948927,
+      "hit_rate": 0.4549718574108818,
+      "max_drawdown": -0.06265045019276394,
+      "n": 2132,
+      "sharpe": -0.5270430920081661,
+      "total_return": -0.05800507861023063
+    },
+    "hold_5d": {
+      "activation_rate": 0.9437148217636022,
+      "ann_return": -0.0008458324808194191,
+      "ann_vol": 0.011388150624275542,
+      "annual_turnover": 13.806320143271364,
+      "avg_daily_turnover": 0.05478698469552128,
+      "avg_gross": 0.6619167181057425,
+      "hit_rate": 0.4704502814258912,
+      "max_drawdown": -0.03284484170855961,
+      "n": 2132,
+      "sharpe": -0.07427303244623416,
+      "total_return": -0.0076749526397607015
+    },
+    "long_only_diagnostic": {
+      "activation_rate": 0.9437148217636022,
+      "ann_return": 0.03717553535278904,
+      "ann_vol": 0.11764997671843254,
+      "annual_turnover": 13.684638836772985,
+      "avg_daily_turnover": 0.054304122368146766,
+      "avg_gross": 0.4718574108818011,
+      "hit_rate": 0.4906191369606004,
+      "max_drawdown": -0.2546684203954185,
+      "n": 2132,
+      "sharpe": 0.31598421342453736,
+      "total_return": 0.2913963583083279
+    },
+    "raw_ratio_no_zscore": {
+      "activation_rate": 0.9437148217636022,
+      "ann_return": 0.0014570724005928814,
+      "ann_vol": 0.010646520945152076,
+      "annual_turnover": 11.330217749729943,
+      "avg_daily_turnover": 0.044961181546547394,
+      "avg_gross": 0.8418515991686725,
+      "hit_rate": 0.48405253283302063,
+      "max_drawdown": -0.02758141562682681,
+      "n": 2132,
+      "sharpe": 0.13685901789883423,
+      "total_return": 0.011918258094234968
+    },
+    "zscore_120d": {
+      "activation_rate": 0.9437148217636022,
+      "ann_return": -0.006975342933500312,
+      "ann_vol": 0.013234862650267378,
+      "annual_turnover": 22.362367104440274,
+      "avg_daily_turnover": 0.08873955200174712,
+      "avg_gross": 0.7388302584948927,
+      "hit_rate": 0.4549718574108818,
+      "max_drawdown": -0.06265045019276394,
+      "n": 2132,
+      "sharpe": -0.5270430920081661,
+      "total_return": -0.05800507861023063
+    },
+    "zscore_252d": {
+      "activation_rate": 0.8818011257035647,
+      "ann_return": -0.0025989030750574976,
+      "ann_vol": 0.01322503662663549,
+      "annual_turnover": 17.979377736085056,
+      "avg_daily_turnover": 0.07134673704795656,
+      "avg_gross": 0.7274088095734438,
+      "hit_rate": 0.43902439024390244,
+      "max_drawdown": -0.043808053919286105,
+      "n": 2132,
+      "sharpe": -0.19651386596716522,
+      "total_return": -0.02247139355796146
+    }
+  },
+  "artifact_policy": {
+    "helper_evaluator_retained": false,
+    "no_equity_curves_retained": true,
+    "no_raw_bars_retained": true,
+    "no_sqlite_db_retained": true
+  },
+  "candidate_pairs": [
+    {
+      "description": "Alphabet Class A/Class C",
+      "pair": [
+        "GOOGL",
+        "GOOG"
+      ]
+    },
+    {
+      "description": "Fox Corp Class A/Class B",
+      "pair": [
+        "FOXA",
+        "FOX"
+      ]
+    },
+    {
+      "description": "News Corp Class A/Class B",
+      "pair": [
+        "NWSA",
+        "NWS"
+      ]
+    },
+    {
+      "description": "Atlanta Braves Holdings Class A/Class C",
+      "pair": [
+        "BATRA",
+        "BATRK"
+      ]
+    },
+    {
+      "description": "Liberty Broadband Class A/Class C",
+      "pair": [
+        "LBRDA",
+        "LBRDK"
+      ]
+    },
+    {
+      "description": "Liberty Formula One Class A/Class C",
+      "pair": [
+        "FWONA",
+        "FWONK"
+      ]
+    },
+    {
+      "description": "Liberty SiriusXM Class A/Class C (legacy)",
+      "pair": [
+        "LSXMA",
+        "LSXMK"
+      ]
+    },
+    {
+      "description": "Liberty Latin America Class A/Class C",
+      "pair": [
+        "LILA",
+        "LILAK"
+      ]
+    },
+    {
+      "description": "Lennar Class A/Class B",
+      "pair": [
+        "LEN",
+        "LEN.B"
+      ]
+    },
+    {
+      "description": "HEICO Class A/common",
+      "pair": [
+        "HEI",
+        "HEI.A"
+      ]
+    },
+    {
+      "description": "U-Haul non-voting/voting",
+      "pair": [
+        "UHAL",
+        "UHAL.B"
+      ]
+    },
+    {
+      "description": "Brown-Forman Class A/Class B",
+      "pair": [
+        "BF.A",
+        "BF.B"
+      ]
+    },
+    {
+      "description": "Berkshire Hathaway Class A/Class B",
+      "pair": [
+        "BRK.A",
+        "BRK.B"
+      ]
+    }
+  ],
+  "children_spawned": "none",
+  "created_at": "2026-06-28T01:22:17Z",
+  "data_source": "Alpaca/qfa real daily OHLCV via AlpacaGateway; configured paper-data access used with credential values redacted",
+  "decision_gates": {
+    "beats_generic_mr_momentum_baselines": true,
+    "beats_raw_ratio_baseline": false,
+    "low_proxy_redundancy": true,
+    "not_dominated_by_one_pair": true,
+    "p25_not_materially_negative": false,
+    "positive_median_random_window_sharpe_after_10bps": false,
+    "positive_window_rate_ge_55pct": false
+  },
+  "diagnostics": {
+    "pair_cumulative_contributions": {
+      "BATRA/BATRK": -0.003179971468982029,
+      "BF.A/BF.B": -0.006391602648862179,
+      "FOXA/FOX": -0.007812554874807831,
+      "FWONA/FWONK": 0.015638660798597555,
+      "GOOGL/GOOG": -0.016493259518588675,
+      "HEI/HEI.A": -0.0052311137818239,
+      "LBRDA/LBRDK": -0.0067408966348382685,
+      "LEN/LEN.B": -0.02385128406631412,
+      "LILA/LILAK": -0.002513074903690736,
+      "NWSA/NWS": -0.004687235759216028,
+      "UHAL/UHAL.B": 0.002248717246531522
+    },
+    "selected_pair_count": 11,
+    "top_pair_contribution_share_abs": 0.25162668835830676
+  },
+  "end": "2026-06-28",
+  "evaluation_type": "qfa_alpaca_real_daily_compact_pair_rv_evaluator_with_qfa_cli_smoke",
+  "excluded_pairs": [
+    {
+      "description": "Liberty SiriusXM Class A/Class C (legacy)",
+      "min_median_dollar_volume": 26835873.384999998,
+      "overlap_days": 1682,
+      "pair": [
+        "LSXMA",
+        "LSXMK"
+      ],
+      "reason": "legacy Liberty SiriusXM share-class tracking-stock structure/listing continuity unsuitable if coverage sparse"
+    },
+    {
+      "description": "Berkshire Hathaway Class A/Class B",
+      "min_median_dollar_volume": 386072300.0,
+      "overlap_days": 2132,
+      "pair": [
+        "BRK.A",
+        "BRK.B"
+      ],
+      "reason": "excluded ex ante: extreme price level and sizing/friction impractical for compact qfa share-class RV test"
+    }
+  ],
+  "full_sample_metrics_10bps": {
+    "activation_rate": 0.9437148217636022,
+    "ann_return": -0.006975342933500312,
+    "ann_vol": 0.013234862650267378,
+    "annual_turnover": 22.362367104440274,
+    "avg_daily_turnover": 0.08873955200174712,
+    "avg_gross": 0.7388302584948927,
+    "hit_rate": 0.4549718574108818,
+    "max_drawdown": -0.06265045019276394,
+    "n": 2132,
+    "sharpe": -0.5270430920081661,
+    "total_return": -0.05800507861023063
+  },
+  "full_sample_metrics_5bps": {
+    "activation_rate": 0.9437148217636022,
+    "ann_return": 0.004205840618719825,
+    "ann_vol": 0.013195429299299689,
+    "annual_turnover": 22.362367104440274,
+    "avg_daily_turnover": 0.08873955200174712,
+    "avg_gross": 0.7388302584948927,
+    "hit_rate": 0.4901500938086304,
+    "max_drawdown": -0.03014850322021645,
+    "n": 2132,
+    "sharpe": 0.3187346560178257,
+    "total_return": 0.0354602043902823
+  },
+  "issue_id": "AR-132",
+  "model_name": "shareclass-pair-relative-value-meanreversion-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality_proxy_correlations": {
+    "IWM_daily_return_proxy": 0.04918966970836825,
+    "QQQ_daily_return_proxy": 0.06401168085189368,
+    "SPY_daily_return_proxy": 0.06809804184859093,
+    "generic_same_universe_mom3": -0.002583982517855493,
+    "generic_same_universe_mr3": 0.0026843650334017893
+  },
+  "primary_parameters": {
+    "cost_bps_one_way": 10,
+    "decay_holding_days": 3,
+    "entry_z": 1.0,
+    "gross_normalized_across_active_pairs": true,
+    "zscore_window_days": 120
+  },
+  "qfa_cli_smoke_test": {
+    "metrics": {
+      "annualized_return": -0.00125914,
+      "annualized_volatility": 0.00897879,
+      "max_drawdown": -0.00928792,
+      "periods": 250,
+      "sharpe": -0.13585127,
+      "total_return": -0.00124916,
+      "win_rate": 0.252
+    },
+    "no_daemon": true,
+    "no_data_csv_argument_used": true,
+    "no_orders": true,
+    "period": "2024-01-01 to 2024-12-31",
+    "status": "passed",
+    "symbols": "selected_pairs",
+    "temporary_sqlite_removed": true,
+    "timeframe": "1Day"
+  },
+  "random_window_summary_10bps": {
+    "count": 40,
+    "median_sharpe": -0.533827500361948,
+    "p25_sharpe": -0.8497892475152883,
+    "positive_window_rate": 0.05,
+    "worst_sharpe": -1.3803111375734833
+  },
+  "random_windows_10bps": [
+    {
+      "ann_return": -0.00694765272036589,
+      "days": 463,
+      "end": "2021-02-09",
+      "hit_rate": 0.46004319654427644,
+      "max_drawdown": -0.030062968812918478,
+      "sharpe": -0.4028489801007064,
+      "start": "2019-04-10",
+      "window": 0
+    },
+    {
+      "ann_return": -0.006560754432747817,
+      "days": 460,
+      "end": "2020-05-01",
+      "hit_rate": 0.48043478260869565,
+      "max_drawdown": -0.03368634514969926,
+      "sharpe": -0.4398212226990683,
+      "start": "2018-07-05",
+      "window": 1
+    },
+    {
+      "ann_return": -0.004760906033191112,
+      "days": 711,
+      "end": "2022-03-18",
+      "hit_rate": 0.47960618846694797,
+      "max_drawdown": -0.02955758868932945,
+      "sharpe": -0.28953399890684967,
+      "start": "2019-05-24",
+      "window": 2
+    },
+    {
+      "ann_return": -0.008349312843283416,
+      "days": 711,
+      "end": "2021-03-01",
+      "hit_rate": 0.4430379746835443,
+      "max_drawdown": -0.03431349673589301,
+      "sharpe": -0.5329058247917514,
+      "start": "2018-05-03",
+      "window": 3
+    },
+    {
+      "ann_return": -0.000787450142667619,
+      "days": 409,
+      "end": "2020-08-13",
+      "hit_rate": 0.4767726161369193,
+      "max_drawdown": -0.0300629688129187,
+      "sharpe": -0.04747136528826523,
+      "start": "2018-12-31",
+      "window": 4
+    },
+    {
+      "ann_return": -0.01469327633874392,
+      "days": 686,
+      "end": "2025-03-07",
+      "hit_rate": 0.47230320699708456,
+      "max_drawdown": -0.047745244152432864,
+      "sharpe": -1.3778972620873786,
+      "start": "2022-06-13",
+      "window": 5
+    },
+    {
+      "ann_return": -0.008706471928504858,
+      "days": 264,
+      "end": "2021-01-26",
+      "hit_rate": 0.4659090909090909,
+      "max_drawdown": -0.027595794769789794,
+      "sharpe": -0.4264319236773428,
+      "start": "2020-01-09",
+      "window": 6
+    },
+    {
+      "ann_return": -0.00902756253855303,
+      "days": 753,
+      "end": "2024-08-27",
+      "hit_rate": 0.4847277556440903,
+      "max_drawdown": -0.044624491758050944,
+      "sharpe": -0.7894460330235527,
+      "start": "2021-08-30",
+      "window": 7
+    },
+    {
+      "ann_return": -0.008360158253705086,
+      "days": 384,
+      "end": "2021-03-05",
+      "hit_rate": 0.4609375,
+      "max_drawdown": -0.027595794769789905,
+      "sharpe": -0.4552644665565888,
+      "start": "2019-08-27",
+      "window": 8
+    },
+    {
+      "ann_return": -0.008848781290654171,
+      "days": 661,
+      "end": "2024-04-24",
+      "hit_rate": 0.491679273827534,
+      "max_drawdown": -0.0446244917580505,
+      "sharpe": -0.7651053538009042,
+      "start": "2021-09-08",
+      "window": 9
+    },
+    {
+      "ann_return": -0.005531815409610336,
+      "days": 339,
+      "end": "2024-09-16",
+      "hit_rate": 0.4778761061946903,
+      "max_drawdown": -0.0148294899240079,
+      "sharpe": -0.5429054044556021,
+      "start": "2023-05-11",
+      "window": 10
+    },
+    {
+      "ann_return": -0.009752327931487682,
+      "days": 547,
+      "end": "2023-06-08",
+      "hit_rate": 0.489945155393053,
+      "max_drawdown": -0.033767140303264775,
+      "sharpe": -0.7691867939219311,
+      "start": "2021-04-08",
+      "window": 11
+    },
+    {
+      "ann_return": -0.00544212517559229,
+      "days": 378,
+      "end": "2025-02-13",
+      "hit_rate": 0.48412698412698413,
+      "max_drawdown": -0.01973556885398753,
+      "sharpe": -0.5347491759321447,
+      "start": "2023-08-14",
+      "window": 12
+    },
+    {
+      "ann_return": -0.013002614135935347,
+      "days": 590,
+      "end": "2024-05-22",
+      "hit_rate": 0.4847457627118644,
+      "max_drawdown": -0.0417309281268573,
+      "sharpe": -1.2296333468451852,
+      "start": "2022-01-18",
+      "window": 13
+    },
+    {
+      "ann_return": -0.008018520562137841,
+      "days": 677,
+      "end": "2025-09-29",
+      "hit_rate": 0.465288035450517,
+      "max_drawdown": -0.031782294846363635,
+      "sharpe": -0.687697799818395,
+      "start": "2023-01-18",
+      "window": 14
+    },
+    {
+      "ann_return": -0.01472744578906112,
+      "days": 660,
+      "end": "2024-12-12",
+      "hit_rate": 0.4712121212121212,
+      "max_drawdown": -0.042447250080176246,
+      "sharpe": -1.3803111375734833,
+      "start": "2022-04-29",
+      "window": 15
+    },
+    {
+      "ann_return": -0.006893625465407652,
+      "days": 701,
+      "end": "2025-11-06",
+      "hit_rate": 0.47218259629101283,
+      "max_drawdown": -0.031782294846361636,
+      "sharpe": -0.5941827105261023,
+      "start": "2023-01-24",
+      "window": 16
+    },
+    {
+      "ann_return": -0.006809036202031807,
+      "days": 538,
+      "end": "2023-03-08",
+      "hit_rate": 0.5,
+      "max_drawdown": -0.024857977567161016,
+      "sharpe": -0.5130617196681477,
+      "start": "2021-01-19",
+      "window": 17
+    },
+    {
+      "ann_return": -0.009633196668052813,
+      "days": 447,
+      "end": "2024-07-30",
+      "hit_rate": 0.4697986577181208,
+      "max_drawdown": -0.027416016496886964,
+      "sharpe": -0.9663139655411795,
+      "start": "2022-10-18",
+      "window": 18
+    },
+    {
+      "ann_return": -0.013128553099221984,
+      "days": 707,
+      "end": "2023-07-12",
+      "hit_rate": 0.4893917963224894,
+      "max_drawdown": -0.03725993195207955,
+      "sharpe": -0.9605854270167059,
+      "start": "2020-09-18",
+      "window": 19
+    },
+    {
+      "ann_return": -0.0005657116622743635,
+      "days": 352,
+      "end": "2025-01-02",
+      "hit_rate": 0.48863636363636365,
+      "max_drawdown": -0.014281739284154438,
+      "sharpe": -0.05469415426116391,
+      "start": "2023-08-10",
+      "window": 20
+    },
+    {
+      "ann_return": -0.007780072040292571,
+      "days": 659,
+      "end": "2021-02-18",
+      "hit_rate": 0.46889226100151743,
+      "max_drawdown": -0.033686345149698926,
+      "sharpe": -0.4814620688100255,
+      "start": "2018-07-09",
+      "window": 21
+    },
+    {
+      "ann_return": -0.005118053002083413,
+      "days": 532,
+      "end": "2020-06-11",
+      "hit_rate": 0.44360902255639095,
+      "max_drawdown": -0.03431349673589301,
+      "sharpe": -0.34891252722467736,
+      "start": "2018-05-02",
+      "window": 22
+    },
+    {
+      "ann_return": -0.007042750640773847,
+      "days": 561,
+      "end": "2023-02-08",
+      "hit_rate": 0.5062388591800356,
+      "max_drawdown": -0.022192074044009802,
+      "sharpe": -0.4841126339187857,
+      "start": "2020-11-16",
+      "window": 23
+    },
+    {
+      "ann_return": -0.012855228719685583,
+      "days": 596,
+      "end": "2024-09-10",
+      "hit_rate": 0.4748322147651007,
+      "max_drawdown": -0.041730928126857525,
+      "sharpe": -1.2128924347383718,
+      "start": "2022-04-27",
+      "window": 24
+    },
+    {
+      "ann_return": -0.00882659803005872,
+      "days": 594,
+      "end": "2021-02-03",
+      "hit_rate": 0.4612794612794613,
+      "max_drawdown": -0.033530746761728514,
+      "sharpe": -0.5352444842069515,
+      "start": "2018-09-25",
+      "window": 25
+    },
+    {
+      "ann_return": -0.01027542405355904,
+      "days": 703,
+      "end": "2025-08-12",
+      "hit_rate": 0.465149359886202,
+      "max_drawdown": -0.03352017618427705,
+      "sharpe": -0.9771360302767765,
+      "start": "2022-10-21",
+      "window": 26
+    },
+    {
+      "ann_return": 0.0007832159708030935,
+      "days": 329,
+      "end": "2022-03-23",
+      "hit_rate": 0.5197568389057751,
+      "max_drawdown": -0.013192356135815486,
+      "sharpe": 0.047797078087414166,
+      "start": "2020-12-02",
+      "window": 27
+    },
+    {
+      "ann_return": 0.007299147455191988,
+      "days": 286,
+      "end": "2026-04-08",
+      "hit_rate": 0.5,
+      "max_drawdown": -0.008494352677102857,
+      "sharpe": 0.5536382508539958,
+      "start": "2025-02-18",
+      "window": 28
+    },
+    {
+      "ann_return": -0.003232350068879629,
+      "days": 398,
+      "end": "2021-09-02",
+      "hit_rate": 0.4824120603015075,
+      "max_drawdown": -0.027595794769790793,
+      "sharpe": -0.1729023646079131,
+      "start": "2020-02-06",
+      "window": 29
+    },
+    {
+      "ann_return": -0.004501203388933779,
+      "days": 435,
+      "end": "2026-03-04",
+      "hit_rate": 0.4781609195402299,
+      "max_drawdown": -0.018178072387308286,
+      "sharpe": -0.3560847838217684,
+      "start": "2024-06-07",
+      "window": 30
+    },
+    {
+      "ann_return": -0.009085325536924826,
+      "days": 319,
+      "end": "2024-06-18",
+      "hit_rate": 0.4702194357366771,
+      "max_drawdown": -0.020172506623385544,
+      "sharpe": -0.9415709551484168,
+      "start": "2023-03-14",
+      "window": 31
+    },
+    {
+      "ann_return": -0.013658516740274483,
+      "days": 273,
+      "end": "2025-02-25",
+      "hit_rate": 0.45787545787545786,
+      "max_drawdown": -0.019735568853986418,
+      "sharpe": -1.2783956716215215,
+      "start": "2024-01-24",
+      "window": 32
+    },
+    {
+      "ann_return": -0.0020497920984112496,
+      "days": 499,
+      "end": "2021-11-12",
+      "hit_rate": 0.48697394789579157,
+      "max_drawdown": -0.027595794769789794,
+      "sharpe": -0.11570564302077202,
+      "start": "2019-11-21",
+      "window": 33
+    },
+    {
+      "ann_return": -0.00740623273784967,
+      "days": 650,
+      "end": "2021-06-04",
+      "hit_rate": 0.46923076923076923,
+      "max_drawdown": -0.03229941923169344,
+      "sharpe": -0.45622979165508426,
+      "start": "2018-11-02",
+      "window": 34
+    },
+    {
+      "ann_return": -0.011841360806380945,
+      "days": 485,
+      "end": "2020-12-09",
+      "hit_rate": 0.4577319587628866,
+      "max_drawdown": -0.030062968812918478,
+      "sharpe": -0.7149601564818574,
+      "start": "2019-01-09",
+      "window": 35
+    },
+    {
+      "ann_return": -0.002097061310000928,
+      "days": 698,
+      "end": "2022-05-19",
+      "hit_rate": 0.4885386819484241,
+      "max_drawdown": -0.027595794769789905,
+      "sharpe": -0.12663628748720146,
+      "start": "2019-08-14",
+      "window": 36
+    },
+    {
+      "ann_return": -0.012039895676504573,
+      "days": 553,
+      "end": "2024-12-02",
+      "hit_rate": 0.46835443037974683,
+      "max_drawdown": -0.02866599560356098,
+      "sharpe": -1.1924564095451176,
+      "start": "2022-09-21",
+      "window": 37
+    },
+    {
+      "ann_return": -0.008076117060544974,
+      "days": 705,
+      "end": "2021-04-20",
+      "hit_rate": 0.4723404255319149,
+      "max_drawdown": -0.03368634514969915,
+      "sharpe": -0.5053351824099049,
+      "start": "2018-07-02",
+      "window": 38
+    },
+    {
+      "ann_return": -0.011935303032887996,
+      "days": 684,
+      "end": "2023-04-19",
+      "hit_rate": 0.4824561403508772,
+      "max_drawdown": -0.03907708918828923,
+      "sharpe": -0.8191953449709121,
+      "start": "2020-07-31",
+      "window": 39
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "selected_pairs": [
+    {
+      "description": "Alphabet Class A/Class C",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 2854306195.01,
+      "overlap_days": 2132,
+      "pair": [
+        "GOOGL",
+        "GOOG"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "Fox Corp Class A/Class B",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 47326961.89999999,
+      "overlap_days": 2132,
+      "pair": [
+        "FOXA",
+        "FOX"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "News Corp Class A/Class B",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 13856786.53,
+      "overlap_days": 2132,
+      "pair": [
+        "NWSA",
+        "NWS"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "Atlanta Braves Holdings Class A/Class C",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 1505702.4849999999,
+      "overlap_days": 2132,
+      "pair": [
+        "BATRA",
+        "BATRK"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "Liberty Broadband Class A/Class C",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 12043172.850000001,
+      "overlap_days": 2132,
+      "pair": [
+        "LBRDA",
+        "LBRDK"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "Liberty Formula One Class A/Class C",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 6416218.0600000005,
+      "overlap_days": 2132,
+      "pair": [
+        "FWONA",
+        "FWONK"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "Liberty Latin America Class A/Class C",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 2737621.33,
+      "overlap_days": 2132,
+      "pair": [
+        "LILA",
+        "LILAK"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "Lennar Class A/Class B",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 5146183.71,
+      "overlap_days": 2132,
+      "pair": [
+        "LEN",
+        "LEN.B"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "HEICO Class A/common",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 29453531.03,
+      "overlap_days": 2132,
+      "pair": [
+        "HEI",
+        "HEI.A"
+      ],
+      "start": "2018-01-02"
+    },
+    {
+      "description": "U-Haul non-voting/voting",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 7701890.21,
+      "overlap_days": 882,
+      "pair": [
+        "UHAL",
+        "UHAL.B"
+      ],
+      "start": "2022-12-19"
+    },
+    {
+      "description": "Brown-Forman Class A/Class B",
+      "end": "2026-06-26",
+      "min_median_dollar_volume": 2559565.0700000003,
+      "overlap_days": 2132,
+      "pair": [
+        "BF.A",
+        "BF.B"
+      ],
+      "start": "2018-01-02"
+    }
+  ],
+  "start": "2018-01-01",
+  "suggested_decision": "reject",
+  "unavailable_metrics": [
+    "Exact AR-005/AR-019/AR-045/AR-056/AR-015 daily return stream correlations unavailable in compact artifact workflow; reported same-universe generic MR/momentum and SPY/QQQ/IWM proxies only.",
+    "Borrow availability and short fees unavailable from qfa/Alpaca daily bars."
+  ]
+}

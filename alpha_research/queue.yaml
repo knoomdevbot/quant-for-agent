@@ -972,14 +972,21 @@ issues:
 - id: AR-132
   title: U.S. share-class pair relative-value mean reversion
   model_name: shareclass-pair-relative-value-meanreversion-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: share_class_pair_stat_arb
   issue_path: alpha_research/issues/AR-132.md
+- id: AR-133
+  title: Same-exposure ETF close-ratio residual mean reversion
+  model_name: same-exposure-etf-close-ratio-residual-v1
+  status: queued
+  priority: preflight_queue
+  family: etf_pair_residual_stat_arb
+  issue_path: alpha_research/issues/AR-133.md
 active_batch:
-- AR-132
+- AR-133
 last_realdata_batch:
-- AR-131
-updated_at: '2026-06-28T01:18:43Z'
+- AR-132
+updated_at: '2026-06-28T01:28:18Z'
 target_tried_ideas: 100
-tried_ideas_count: 122
+tried_ideas_count: 123

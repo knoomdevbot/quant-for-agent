@@ -1,0 +1,38 @@
+model_name: shareclass-pair-relative-value-meanreversion-v1
+issue_id: AR-132
+family: share_class_pair_stat_arb
+status: research_rejected
+universe:
+  selected_pairs:
+    - [GOOGL, GOOG]
+    - [FOXA, FOX]
+    - [NWSA, NWS]
+    - [BATRA, BATRK]
+    - [LBRDA, LBRDK]
+    - [FWONA, FWONK]
+    - [LILA, LILAK]
+    - [LEN, LEN.B]
+    - [HEI, HEI.A]
+    - [UHAL, UHAL.B]
+    - [BF.A, BF.B]
+  excluded_pairs:
+    - pair: [LSXMA, LSXMK]
+      reason: legacy tracking-stock structure/listing continuity unsuitable for fixed share-class equivalence test
+    - pair: [BRK.A, BRK.B]
+      reason: extreme price level and sizing/friction impractical for compact qfa test
+parameters:
+  zscore_window_days: 120
+  entry_z: 1.0
+  decay_holding_days: 3
+  max_symbol_abs_weight: 0.25
+  gross_normalize_across_active_pairs: true
+costs:
+  primary_one_way_bps: 10
+  sensitivity_one_way_bps: 5
+data:
+  source: Alpaca/qfa real daily OHLCV
+  provenance: configured paper-data access used with credential values redacted
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
