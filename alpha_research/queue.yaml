@@ -1004,11 +1004,19 @@ issues:
   priority: completed_realdata
   family: external_weather_energy_demand
   issue_path: alpha_research/issues/AR-136.md
-active_batch: []
+- id: AR-137
+  title: Non-levered commodity ETF term-structure/roll-proxy allocator
+  model_name: commodity-etf-roll-proxy-allocator-v1
+  status: queued
+  priority: preflight_queue
+  family: commodity_carry_roll_proxy
+  issue_path: alpha_research/issues/AR-137.md
+active_batch:
+- AR-137
 last_realdata_batch:
 - AR-134
 - AR-135
 - AR-136
-updated_at: '2026-06-28T04:12:49Z'
+updated_at: '2026-06-28T05:00:00Z'
 target_tried_ideas: 100
 tried_ideas_count: 129
