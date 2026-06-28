@@ -1,0 +1,11 @@
+{
+  "alpha_id": "AR-140",
+  "model_name": "finra-short-volume-pressure-reversal-v1",
+  "model_family": "public_microstructure_short_sale_pressure",
+  "timeframe": "daily",
+  "holding_period": "3d primary; 1-5d diagnostics intended",
+  "data_source": "FINRA Reg SHO daily short-sale volume files plus configured Alpaca/qfa real daily OHLCV",
+  "costs_bps_one_way": 10,
+  "primary_signal": "High own-history short-volume-share z-score plus negative residual price pressure with next-session lag",
+  "runtime_note": "Model uses precomputed timestamp-safe event weights from context.metadata when supplied; otherwise returns cash."
+}

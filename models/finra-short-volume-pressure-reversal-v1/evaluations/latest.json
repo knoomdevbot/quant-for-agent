@@ -1,0 +1,432 @@
+{
+  "artifact_policy": "compact: no raw bars, FINRA daily records, paths, daily return series, weights tails, caches, DBs, pyc, credentials, or helper scripts retained",
+  "child_ideas": [],
+  "concentration": {
+    "events_by_year": {
+      "2023": 0,
+      "2024": 0,
+      "2025": 0,
+      "2026": 0
+    },
+    "max_year_event_share": null,
+    "top10_event_symbols": {},
+    "top_symbol_event_share": null
+  },
+  "controls": {
+    "correlations_to_primary": {
+      "generic_residual_reversal": null,
+      "same_weekday_random_events": null,
+      "shifted_finra_date_placebo": null,
+      "shuffled_short_volume_labels_liquidity_buckets": null
+    },
+    "generic_residual_reversal_10bps": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "max_drawdown": null,
+      "periods": 866,
+      "sharpe": null
+    },
+    "max_abs_corr_to_controls": null,
+    "meme_exclusion_primary_10bps": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "max_drawdown": null,
+      "periods": 866,
+      "sharpe": null
+    },
+    "same_weekday_random_events_10bps": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "max_drawdown": null,
+      "periods": 866,
+      "sharpe": null
+    },
+    "shifted_finra_date_placebo_10bps": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "max_drawdown": null,
+      "periods": 866,
+      "sharpe": null
+    },
+    "shuffled_short_volume_labels_liquidity_buckets_10bps": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "max_drawdown": null,
+      "periods": 866,
+      "sharpe": null
+    }
+  },
+  "cost_sensitivity": {
+    "20bps": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "max_drawdown": null,
+      "periods": 866,
+      "sharpe": null
+    },
+    "30bps": {
+      "annualized_return": 0.0,
+      "annualized_volatility": 0.0,
+      "max_drawdown": null,
+      "periods": 866,
+      "sharpe": null
+    }
+  },
+  "created_utc": "2026-06-28T05:46:27Z",
+  "data_provenance": {
+    "end": "2026-06-18",
+    "finra": "FINRA CDN Reg SHO CNMS daily short-sale-volume text files downloaded in memory",
+    "finra_files_missing_or_nontrading": 35,
+    "finra_files_ok": 868,
+    "market_data": "Alpaca/qfa StockHistoricalDataClient daily OHLCV, credentials sourced transiently from profile env and not stored/printed",
+    "start": "2023-01-03"
+  },
+  "decision": "rejected",
+  "issue": "AR-140",
+  "model": "finra-short-volume-pressure-reversal-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "primary_metrics_10bps": {
+    "annualized_return": 0.0,
+    "annualized_volatility": 0.0,
+    "max_drawdown": null,
+    "periods": 866,
+    "sharpe": null
+  },
+  "random_windows": {
+    "count": 40,
+    "length_trading_days": 126,
+    "median_sharpe": null,
+    "p25_sharpe": null,
+    "positive_window_rate": null,
+    "windows": [
+      {
+        "annualized_return": 0.0,
+        "end": "2023-07-26",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-01-25"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2023-07-31",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-01-30"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2023-08-16",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-02-15"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2023-09-14",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-03-16"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2023-09-20",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-03-22"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2023-09-25",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-03-27"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2023-11-20",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-05-23"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-01-22",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-07-24"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-02-05",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-08-07"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-03-14",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-09-14"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-03-19",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-09-19"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-04-11",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-10-11"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-04-30",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-10-30"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-06-04",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-12-04"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-06-10",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2023-12-08"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-08-05",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-02-05"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-09-10",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-03-12"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2024-10-08",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-04-10"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-01-23",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-07-24"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-02-03",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-08-02"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-02-13",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-08-14"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-03-07",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-09-05"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-03-26",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-09-24"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-04-23",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-10-21"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-04-25",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2024-10-23"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-07-08",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-01-03"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-08-11",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-02-10"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-09-04",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-03-06"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-09-18",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-03-20"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-10-06",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-04-07"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-10-15",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-04-16"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2025-12-18",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-06-23"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2026-02-06",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-08-08"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2026-03-10",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-09-09"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2026-03-23",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-09-22"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2026-04-13",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-10-10"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2026-05-05",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-11-03"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2026-05-21",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-11-19"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2026-05-26",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-11-21"
+      },
+      {
+        "annualized_return": 0.0,
+        "end": "2026-06-15",
+        "max_drawdown": null,
+        "sharpe": null,
+        "start": "2025-12-12"
+      }
+    ],
+    "worst_sharpe": null
+  },
+  "raw_daily_paths_retained": false,
+  "reason": "Primary FINRA short-sale-volume reversal did not meet acceptance after costs: negative full/random-window Sharpe and weak positive-window rate; controls show no robust incremental edge.",
+  "signal": {
+    "active_signal_days": 0,
+    "event_count": 0,
+    "minimum_event_gate_passed": false,
+    "minimum_universe_gate_passed": false,
+    "parameters": {
+      "hold_days": 3,
+      "min_finra_total_volume": 100000,
+      "residual_return_max": -0.004,
+      "short_share_z": 0.75,
+      "volume_z_min": null
+    },
+    "timestamp_lag": "FINRA file date D signals are not tradable until next Alpaca trading session; returns start from next-session close-to-close path"
+  },
+  "status": "rejected",
+  "turnover": {
+    "annualized_turnover": 0.0,
+    "average_daily_turnover": 0.0,
+    "nonzero_turnover_days": 0
+  },
+  "universe": {
+    "alpaca_active_tradable_common_filter_symbols": 0,
+    "candidate_finra_symbols_days_ge_400": 9861,
+    "filters": [
+      "Alpaca active/tradable US equity metadata",
+      "regex exclusion of ETF/fund/trust/ADR/preferred/unit/warrant/rights/ETN/SPAC/leveraged names",
+      "plain 1-5 letter common-stock-like tickers",
+      "FINRA CNMS coverage >=400 file dates",
+      "Alpaca daily bars >=500 observations",
+      "latest-252d median price >= $5",
+      "latest-252d median dollar volume >= $20mm",
+      "meme diagnostic exclusion list removed before primary"
+    ],
+    "limitations": [
+      "regex/name-based common-stock classification is imperfect",
+      "no point-in-time delisting/survivorship correction",
+      "sector identifiers not available for all single names, SPY residual used as primary residual control"
+    ],
+    "preselected_by_finra_median_volume": 0,
+    "selected_liquid_common_stocks": 0,
+    "symbols": []
+  }
+}

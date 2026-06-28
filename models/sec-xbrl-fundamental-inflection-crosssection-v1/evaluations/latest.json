@@ -1,0 +1,119 @@
+{
+  "concentration": {
+    "max_name_weight": 0.0,
+    "max_sector_weight": 0.0,
+    "note": "Zero-weight blocked runtime model."
+  },
+  "controls_orthogonality": {
+    "ar010_quality_proxy": null,
+    "low_vol": null,
+    "max_corr": null,
+    "no_filing_calendar_baseline": null,
+    "note": "Not evaluated; no accepted alpha return stream.",
+    "price_momentum": null,
+    "randomized_or_shifted_filing_date_placebo": null,
+    "single_feature_variants": null,
+    "value_size_liquidity_buckets": null
+  },
+  "cost_sensitivity": {
+    "10bps": null,
+    "20bps": null,
+    "5bps": null
+  },
+  "created_utc": "2026-06-28T05:39:00Z",
+  "data_sources": {
+    "market_data": "not_fetched_blocked_before_qfa_Alpaca_evaluation",
+    "sec_company_tickers": "public_SEC_endpoint_reachable",
+    "sec_companyfacts": "public_SEC_endpoint_reachable_current_compiled_view"
+  },
+  "decision": "rejected",
+  "issue": "AR-139",
+  "name": "sec-xbrl-fundamental-inflection-crosssection-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "primary_metrics": {
+    "activation_rate": 0.0,
+    "annualized_return": null,
+    "annualized_volatility": null,
+    "avg_daily_turnover": null,
+    "filing_count": 0,
+    "max_drawdown": null,
+    "median_random_window_sharpe": null,
+    "p25_random_window_sharpe": null,
+    "positive_window_rate": null,
+    "sharpe": null,
+    "universe_count": 0,
+    "worst_random_window_sharpe": null
+  },
+  "random_windows": {
+    "count": 0,
+    "median_sharpe": null,
+    "note": "Not run because PIT prerequisite failed.",
+    "p25_sharpe": null,
+    "positive_window_rate": null,
+    "worst_sharpe": null
+  },
+  "raw_daily_paths_retained": false,
+  "rejection_reason": "point_in_time_reconstruction_unsafe_current_sec_companyfacts_non_as_of_compiled_view_with_restatements_amendments",
+  "runtime_behavior": "generate_signals returns normalized externally supplied ar139_pit_signals only if already PIT-safe; otherwise zero weights.",
+  "status": "rejected",
+  "suggested_decision": "reject_no_children_until_as_filed_or_pit_fundamental_store_available",
+  "timestamp_safety": {
+    "accepted": false,
+    "examples": [
+      {
+        "filed_accessions": [
+          "2010-03-18 0001045810-10-000006",
+          "2011-03-16 0001045810-11-000015"
+        ],
+        "key": "Revenues/USD/FY2010/2009-01-25",
+        "ticker": "NVDA"
+      },
+      {
+        "filed_accessions": [
+          "2020-03-05 0001108524-20-000014",
+          "2021-03-17 0001108524-21-000014"
+        ],
+        "key": "RevenueFromContractWithCustomerExcludingAssessedTax/USD/FY2020/2019-01-31",
+        "ticker": "CRM"
+      },
+      {
+        "filed_accessions": [
+          "2014-08-01 0000732717-14-000110",
+          "2014-11-10 0000732717-14-000129"
+        ],
+        "key": "Revenues/USD/Q2-2014/2013-06-30",
+        "ticker": "T"
+      },
+      {
+        "filed_accessions": [
+          "2022-02-09 0001744489-22-000059",
+          "2022-05-11 0001744489-22-000100",
+          "2022-08-10 0001744489-22-000161",
+          "2022-11-29 0001744489-22-000213"
+        ],
+        "key": "Assets/USD/FY2022/2021-10-02",
+        "ticker": "DIS"
+      }
+    ],
+    "reason": "Companyfacts supplies filed dates but not a historical as-of endpoint. Today's compiled endpoint can include later amendments/restatements for prior periods; using it to rank old post-filing signals would risk hindsight."
+  },
+  "universe": {
+    "current_endpoint_sample_fact_entries_not_pit": 50029,
+    "filters_rationale": "Intended broad CIK/ticker common-stock overlap with qfa/Alpaca liquidity filters; stopped before selection because accepted timestamp-safe facts were unavailable.",
+    "limitations": "SEC company_tickers lacks full security-type metadata; rough name filters are only a candidate-pool probe.",
+    "liquid_mapped_common_stocks": null,
+    "rough_common_like_after_name_filter": 9213,
+    "sample_liquid_common_tickers_fetched": 40,
+    "sample_with_8plus_quarter_keys": 40,
+    "sec_company_tickers_rows": 10433,
+    "selected_universe_size": 0,
+    "usable_timestamp_safe_filing_observations": 0
+  },
+  "warnings": [
+    "Do not backtest current companyfacts as if it were historical as-of data.",
+    "Current-endpoint observation counts are not accepted timestamp-safe filing observations."
+  ]
+}

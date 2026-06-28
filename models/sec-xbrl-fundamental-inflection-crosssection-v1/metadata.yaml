@@ -1,0 +1,45 @@
+name: sec-xbrl-fundamental-inflection-crosssection-v1
+issue: AR-139
+family: public_filing_fundamental_inflection
+status: blocked_rejected
+created_utc: '2026-06-28T05:39:00Z'
+model:
+  type: zero_weight_safety_stub
+  refresh: none
+  reason: >-
+    SEC companyfacts was reachable and broad, but the endpoint available to this
+    research run is a current compiled/non-as-of view. Per-fact filed dates help,
+    yet current endpoint reconstruction can contain later restatements or amended
+    prior-period facts and can omit what was visible at the original filing date.
+    The issue explicitly requires blocking rather than fabricating point-in-time
+    fundamentals when reconstruction is unsafe.
+universe:
+  candidate_source: SEC company_tickers mapping plus intended qfa/Alpaca daily OHLCV overlap
+  sec_company_tickers_rows: 10433
+  rough_common_like_after_name_filter: 9213
+  selected_universe_size: 0
+  rationale: no selected trading universe because timestamp-safe fundamentals were not accepted
+filters:
+  intended:
+    - U.S. common-stock-like issuers with unambiguous CIK/ticker mapping
+    - exclude ETFs/funds/preferreds/warrants/ADRs where identifiable
+    - minimum price and dollar-volume thresholds using real qfa/Alpaca OHLCV
+    - at least 8 recent quarterly observations for key XBRL tags
+  applied_for_blocking_probe:
+    - SEC company_tickers name/ticker exclusion regex for obvious non-common products
+    - 40 liquid major common-stock tickers sampled for companyfacts structure
+artifact_contract:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+data_provenance: >-
+  Public SEC company_tickers and companyfacts endpoints were queried with a generic
+  research User-Agent. No credentials were printed or persisted. Alpaca/qfa OHLCV
+  was not fetched because the alpha was blocked before market-data evaluation.
+decision_summary: >-
+  Rejected/blocked before backtest. Current SEC companyfacts does not provide a
+  sufficient historical as-of snapshot for the requested timestamp-safe quarterly
+  fundamental inflection allocator. Do not create refinement children unless a
+  genuine as-filed archive or accepted point-in-time fundamental store is added.

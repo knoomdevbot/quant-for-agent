@@ -1,0 +1,11 @@
+{
+  "alpha_id": "AR-138",
+  "model_name": "sec-ftd-crowding-relief-squeeze-v1",
+  "model_family": "external_settlement_failure_crowding",
+  "timeframe": "daily",
+  "holding_period": "10d primary; 5d/15d diagnostics intended",
+  "data_source": "SEC official fails-to-deliver archives plus configured Alpaca/qfa real daily OHLCV",
+  "costs_bps_one_way": 10,
+  "primary_threshold": "97th percentile FTD/volume ratio with trailing 10d return <= -5%",
+  "runtime_note": "Model uses precomputed timestamp-safe event weights from context.metadata when supplied; otherwise returns cash."
+}

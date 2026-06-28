@@ -1,0 +1,12 @@
+alpha_id: AR-140
+model_name: finra-short-volume-pressure-reversal-v1
+model_family: public_microstructure_short_sale_pressure
+status: rejected
+parent_id: null
+issue_path: alpha_research/issues/AR-140.md
+model_path: models/finra-short-volume-pressure-reversal-v1/model.py
+config_path: models/finra-short-volume-pressure-reversal-v1/config.yaml
+evaluation_latest: models/finra-short-volume-pressure-reversal-v1/evaluations/latest.json
+notes:
+  - Rejected/blocked because the selected liquid common-stock universe and timestamp-safe event count collapsed to zero under the recorded filters.
+  - Runtime wrapper stays in cash unless external timestamp-safe event weights are supplied.

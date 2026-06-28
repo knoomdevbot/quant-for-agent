@@ -1,0 +1,81 @@
+{
+  "acceptance_threshold_result": "fail_reject",
+  "controls": {
+    "ftd_only_sharpe": 0.7711292312200141,
+    "pre_return_only_sample_sharpe": 0.6760986627670705,
+    "random_matched_non_event_sharpe": -0.4576507518113073,
+    "shifted_plus60d_sharpe": 0.5086436546595984
+  },
+  "created_utc": "2026-06-28T05:47:04Z",
+  "data_provenance": "SEC official FTD archives plus configured paper-data Alpaca real daily OHLCV. No CSV market data, no --data-csv, no qfa daemon, no orders. Credentials were sourced transiently and not printed or persisted.",
+  "decision": "rejected",
+  "events": {
+    "active_days": 984,
+    "date_range": [
+      "2019-05-06",
+      "2026-01-30"
+    ],
+    "feature_event_records": 108060,
+    "selected_event_count": 508,
+    "threshold_used": "q97_ftd_vol_ratio_and_ret10_le_-5pct",
+    "threshold_value": 2.8216556979694656,
+    "year_event_fraction": {
+      "2020": 0.023622047244094488,
+      "2021": 0.21456692913385828,
+      "2022": 0.328740157480315,
+      "2023": 0.17519685039370078,
+      "2024": 0.12598425196850394,
+      "2025": 0.13188976377952755
+    }
+  },
+  "hypothesis": "SEC FTD spikes after price weakness predict 10d rebound/squeeze relief drift.",
+  "issue": "AR-138",
+  "leave_year_sharpe": {
+    "2019": 0.0,
+    "2020": -0.47030544744679165,
+    "2021": 0.5516535840075503,
+    "2022": -1.185570567496748,
+    "2023": -1.265247524977247,
+    "2024": 1.0802440263682045,
+    "2025": 1.2021903304284356
+  },
+  "model": "sec-ftd-crowding-relief-squeeze-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "primary": {
+    "annualized_return": 1.2556085213068688,
+    "annualized_volatility": 6.840706902265754,
+    "max_drawdown": -0.47598601848067257,
+    "positive_day_rate": 0.32926829268292684,
+    "sharpe": 0.5086436546595984,
+    "turnover": 0.2074826400750002
+  },
+  "random_windows": {
+    "median_window_sharpe": -0.01586759652080984,
+    "p25_window_sharpe": -0.856086629948047,
+    "positive_window_rate": 0.46,
+    "worst_window_sharpe": -1.246906349534959
+  },
+  "raw_daily_paths_retained": false,
+  "run_id": "ar138_sec_ftd_20260628T054704Z",
+  "sec_metadata": {
+    "raw_records_clean_symbol": 7226540,
+    "sec_files_missing_or_failed": 36,
+    "sec_files_parsed": 132
+  },
+  "selected_universe": {
+    "count": 97,
+    "filters": "SEC FTD clean 1-5 letter symbols; Alpaca real daily bar coverage; price >= $5; trailing/current median dollar volume >= $5M; top FTD-frequency symbols fetched to bound API calls; no OTC/preferred/warrant/unit suffixes where identifiable by symbol regex.",
+    "limitations": "Uses SEC-reported symbol field rather than separate historical CUSIP/ticker master; active/liquid Alpaca coverage introduces survivorship; SEC publication time approximated by settlement date +20 calendar days then next trading day.",
+    "liquid_broad_universe_count": 178
+  },
+  "status": "rejected",
+  "warnings": [
+    "SEC FTD publication date was approximated conservatively, not verified per file HTTP release timestamp.",
+    "Symbol/CUSIP mapping is fragile; old delisted/ticker-change names may be lost by active Alpaca coverage.",
+    "Threshold selected from full sample distribution for fast falsification; requires PIT rolling threshold before production.",
+    "No durable raw bars/events retained."
+  ]
+}

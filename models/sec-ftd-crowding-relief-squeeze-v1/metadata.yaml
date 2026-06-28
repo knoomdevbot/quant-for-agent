@@ -1,0 +1,12 @@
+alpha_id: AR-138
+model_name: sec-ftd-crowding-relief-squeeze-v1
+model_family: external_settlement_failure_crowding
+status: rejected
+parent_id: null
+issue_path: alpha_research/issues/AR-138.md
+model_path: models/sec-ftd-crowding-relief-squeeze-v1/model.py
+config_path: models/sec-ftd-crowding-relief-squeeze-v1/config.yaml
+evaluation_latest: models/sec-ftd-crowding-relief-squeeze-v1/evaluations/latest.json
+notes:
+  - Rejected because selected universe missed the >=100-symbol gate and random-window Sharpe distribution was negative after costs.
+  - Runtime wrapper stays in cash unless external timestamp-safe event weights are supplied.

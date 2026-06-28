@@ -1,0 +1,27 @@
+issue: AR-139
+name: sec-xbrl-fundamental-inflection-crosssection-v1
+status: blocked_rejected
+mode: zero_weight_safety_stub
+refresh: none
+costs:
+  primary_one_way_bps: 10
+  sensitivity_one_way_bps: [5, 20]
+features_intended:
+  - operating_cash_flow_minus_net_income_accrual_quality_scaled_by_assets
+  - revenue_growth_acceleration
+  - gross_or_operating_margin_change
+  - inventory_and_receivables_growth_vs_revenue
+  - diluted_share_count_reduction
+blocking_checks:
+  min_liquid_mapped_common_stocks: 150
+  min_usable_timestamp_safe_filing_observations: 500
+  result: failed_timestamp_safety
+runtime_behavior:
+  if_context_metadata_ar139_pit_signals_present: normalize_and_return
+  otherwise: zero_weights
+artifact_contract:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
