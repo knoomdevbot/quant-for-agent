@@ -191,6 +191,32 @@ def test_daemon_skips_opposite_side_submission_when_open_order_is_pending(tmp_pa
     assert alpaca.submitted_orders == []
 
 
+def test_daemon_caps_near_full_position_sell_to_avoid_fractional_availability_rejection(tmp_path):
+    model_path = tmp_path / "target_weight_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'TLT': 0.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("rebalance_model", str(model_path), 1.0, ["TLT"])
+    alpaca = FakeAlpacaGateway(positions={"TLT": 3234.4673283})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True),
+    ).tick()
+
+    assert len(events) == 1
+    assert events[0]["symbol"] == "TLT"
+    assert events[0]["side"] == "sell"
+    assert events[0]["notional"] == 3218.2949916585003
+    assert alpaca.submitted_orders == [
+        {"symbol": "TLT", "side": "sell", "notional": 3218.2949916585003}
+    ]
+
+
 def test_daemon_skips_duplicate_submission_when_same_side_order_is_pending(tmp_path):
     model_path = tmp_path / "target_weight_model.py"
     model_path.write_text(
