@@ -24,11 +24,15 @@ class AlpacaGateway:
     def get_bars(
         self, symbols: list[str], start: datetime | str, end: datetime | str, timeframe: str = "1Day"
     ) -> pd.DataFrame:
+        from alpaca.data.enums import DataFeed
         from alpaca.data.requests import StockBarsRequest
         from alpaca.data.timeframe import TimeFrame
 
         tf = TimeFrame.Day if timeframe in {"1Day", "day", "daily"} else TimeFrame.Minute
-        request = StockBarsRequest(symbol_or_symbols=symbols, timeframe=tf, start=start, end=end)
+        feed = DataFeed(self.config.data_feed) if self.config.data_feed else None
+        request = StockBarsRequest(
+            symbol_or_symbols=symbols, timeframe=tf, start=start, end=end, feed=feed
+        )
         bars = self.data_client.get_stock_bars(request).df.reset_index()
         rename = {"symbol": "symbol", "timestamp": "timestamp"}
         bars = bars.rename(columns=rename)
