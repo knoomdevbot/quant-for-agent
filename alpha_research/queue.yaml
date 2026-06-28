@@ -1007,16 +1007,39 @@ issues:
 - id: AR-137
   title: Non-levered commodity ETF term-structure/roll-proxy allocator
   model_name: commodity-etf-roll-proxy-allocator-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: commodity_carry_roll_proxy
   issue_path: alpha_research/issues/AR-137.md
+- id: AR-138
+  title: SEC fails-to-deliver crowding relief/squeeze allocator
+  model_name: sec-ftd-crowding-relief-squeeze-v1
+  status: queued
+  priority: preflight_queue
+  family: external_settlement_failure_crowding
+  issue_path: alpha_research/issues/AR-138.md
+- id: AR-139
+  title: SEC XBRL quarterly fundamental inflection cross-sectional allocator
+  model_name: sec-xbrl-fundamental-inflection-crosssection-v1
+  status: queued
+  priority: preflight_queue
+  family: public_filing_fundamental_inflection
+  issue_path: alpha_research/issues/AR-139.md
+- id: AR-140
+  title: FINRA short-sale volume pressure reversal in liquid U.S. common stocks
+  model_name: finra-short-volume-pressure-reversal-v1
+  status: queued
+  priority: preflight_queue
+  family: public_microstructure_short_sale_pressure
+  issue_path: alpha_research/issues/AR-140.md
 active_batch:
-- AR-137
+- AR-138
+- AR-139
+- AR-140
 last_realdata_batch:
-- AR-134
 - AR-135
 - AR-136
-updated_at: '2026-06-28T05:00:00Z'
+- AR-137
+updated_at: '2026-06-28T05:10:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 129
+tried_ideas_count: 130

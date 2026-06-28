@@ -1,0 +1,20 @@
+{
+  "model_name": "commodity-etf-roll-proxy-allocator-v1",
+  "issue_id": "AR-137",
+  "family": "commodity_carry_roll_proxy",
+  "status": "rejected",
+  "priority": "completed_realdata",
+  "created_at_utc": "2026-06-28T04:56:21Z",
+  "data_source": "qfa AlpacaGateway real daily OHLCV",
+  "alpaca_access": "configured paper-data access; credential values redacted",
+  "description": "Strict fast-falsification allocator for non-levered commodity ETFs using lagged within-family relative-return ranks as a noisy roll/term-structure proxy, requiring trend confirmation and volatility/cap sizing.",
+  "primary_evaluation": "models/commodity-etf-roll-proxy-allocator-v1/evaluations/latest.json",
+  "decision_reason": "Rejected: positive standalone median window Sharpe but did not beat equal-weight, GLD, USO, trend/TSMOM controls and had high control correlations.",
+  "artifact_booleans": {
+    "no_csv_used": true,
+    "no_data_csv_argument_used": true,
+    "no_daemon": true,
+    "no_orders": true,
+    "raw_daily_paths_retained": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "model_name": "commodity-etf-roll-proxy-allocator-v1",
+  "issue_id": "AR-137",
+  "version": 1,
+  "decision": "rejected",
+  "universe": ["USO", "USL", "BNO", "UNG", "UNL", "GLD", "IAU", "SLV", "CPER", "DBB", "DBA", "CORN", "WEAT", "SOYB", "DBC", "PDBC", "COMT", "GSG"],
+  "families": {
+    "oil_gas": ["USO", "USL", "BNO", "UNG", "UNL"],
+    "metals": ["GLD", "IAU", "SLV", "CPER", "DBB"],
+    "agriculture": ["DBA", "CORN", "WEAT", "SOYB"],
+    "broad": ["DBC", "PDBC", "COMT", "GSG"]
+  },
+  "rebalance": "weekly_friday",
+  "feature_lags": {
+    "relative_family_return_days": 120,
+    "trend_days": [60, 120],
+    "volatility_days": 60
+  },
+  "weights": {
+    "long_only": true,
+    "gross_cap": 1.0,
+    "symbol_cap": 0.15,
+    "sleeve_cap": 0.35,
+    "cash_allowed": true
+  },
+  "evaluation": {
+    "data_source": "qfa AlpacaGateway real daily OHLCV",
+    "alpaca_access": "configured paper-data access; credential values redacted",
+    "one_way_cost_bps": 10,
+    "random_windows": 40,
+    "no_csv_used": true,
+    "no_data_csv_argument_used": true,
+    "no_daemon": true,
+    "no_orders": true,
+    "raw_daily_paths_retained": false
+  }
+}
