@@ -51,9 +51,11 @@ class TradingDaemon:
                 target_values[symbol] = target_values.get(symbol, 0.0) + (sleeve_notional * weight)
                 target_model_names.setdefault(symbol, []).append(model["name"])
 
-        current_values = self.alpaca.position_market_values(list(target_values))
+        symbols = list(target_values)
+        current_values = self.alpaca.position_market_values(symbols)
+        open_order_values = self.alpaca.open_order_notional_values(symbols)
         for symbol, target_notional in target_values.items():
-            current_notional = current_values.get(symbol, 0.0)
+            current_notional = current_values.get(symbol, 0.0) + open_order_values.get(symbol, 0.0)
             delta_notional = target_notional - current_notional
             notional = abs(delta_notional)
             if notional < 1.0:
