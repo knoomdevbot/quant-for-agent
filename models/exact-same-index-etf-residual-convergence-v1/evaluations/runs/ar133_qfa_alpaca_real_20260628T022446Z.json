@@ -1,0 +1,671 @@
+{
+  "ablations_placebos": {
+    "ar002_011_style_short_etf_mean_reversion": {
+      "activation_rate": 0.07891061,
+      "annualized_return": -0.00345481,
+      "annualized_turnover": 3.55692379,
+      "annualized_volatility": 0.00432423,
+      "hit_rate": 0.42477876,
+      "max_drawdown": -0.02074083,
+      "mean_daily_turnover": 0.01411478,
+      "periods": 1432,
+      "residual_diagnostics": {
+        "entry_count": 0,
+        "entry_log_residual_amp_median": null,
+        "entry_log_residual_amp_p25": null,
+        "entry_log_residual_amp_p90": null,
+        "entry_z_median_abs": null,
+        "entry_z_p90_abs": null
+      },
+      "sharpe": -0.79815827,
+      "total_return": -0.01947395
+    },
+    "ar005_019_style_residual_pair": {
+      "activation_rate": 0.33170391,
+      "annualized_return": -0.01332816,
+      "annualized_turnover": 20.08960894,
+      "annualized_volatility": 0.002707,
+      "hit_rate": 0.35789474,
+      "max_drawdown": -0.07341272,
+      "mean_daily_turnover": 0.07972067,
+      "periods": 1432,
+      "residual_diagnostics": {
+        "entry_count": 716,
+        "entry_log_residual_amp_median": 0.00230493,
+        "entry_log_residual_amp_p25": 0.0010133,
+        "entry_log_residual_amp_p90": 0.00406319,
+        "entry_z_median_abs": 2.18555262,
+        "entry_z_p90_abs": 3.69321717
+      },
+      "sharpe": -4.95520501,
+      "total_return": -0.07341272
+    },
+    "ar121_liquidity_pressure_proxy_placebo": {
+      "activation_rate": 0.07891061,
+      "annualized_return": -0.00345481,
+      "annualized_turnover": 3.55692379,
+      "annualized_volatility": 0.00432423,
+      "hit_rate": 0.42477876,
+      "max_drawdown": -0.02074083,
+      "mean_daily_turnover": 0.01411478,
+      "periods": 1432,
+      "residual_diagnostics": {
+        "entry_count": 0,
+        "entry_log_residual_amp_median": null,
+        "entry_log_residual_amp_p25": null,
+        "entry_log_residual_amp_p90": null,
+        "entry_z_median_abs": null,
+        "entry_z_p90_abs": null
+      },
+      "sharpe": -0.79815827,
+      "total_return": -0.01947395
+    },
+    "ar132_sponsor_exposure_dispersion_proxy": {
+      "activation_rate": 0.81005587,
+      "annualized_return": -0.01941787,
+      "annualized_turnover": 31.22577473,
+      "annualized_volatility": 0.00618408,
+      "hit_rate": 0.37586207,
+      "max_drawdown": -0.10840282,
+      "mean_daily_turnover": 0.1239118,
+      "periods": 1432,
+      "residual_diagnostics": {
+        "entry_count": 5290,
+        "entry_log_residual_amp_median": 0.00087828,
+        "entry_log_residual_amp_p25": 0.0004202,
+        "entry_log_residual_amp_p90": 0.16065148,
+        "entry_z_median_abs": 1.04379913,
+        "entry_z_p90_abs": 2.99336824
+      },
+      "sharpe": -3.16765054,
+      "total_return": -0.1054444
+    },
+    "raw_pair_zscore": {
+      "activation_rate": 0.21368715,
+      "annualized_return": -0.00970122,
+      "annualized_turnover": 15.99284916,
+      "annualized_volatility": 0.00232008,
+      "hit_rate": 0.31372549,
+      "max_drawdown": -0.05389026,
+      "mean_daily_turnover": 0.06346369,
+      "periods": 1432,
+      "residual_diagnostics": {
+        "entry_count": 464,
+        "entry_log_residual_amp_median": 0.00258852,
+        "entry_log_residual_amp_p25": 0.0013328,
+        "entry_log_residual_amp_p90": 0.00446178,
+        "entry_z_median_abs": 2.88296725,
+        "entry_z_p90_abs": 4.18298975
+      },
+      "sharpe": -4.20058401,
+      "total_return": -0.05389026
+    },
+    "simple_etf_reversal": {
+      "activation_rate": 0.07891061,
+      "annualized_return": -0.00345481,
+      "annualized_turnover": 3.55692379,
+      "annualized_volatility": 0.00432423,
+      "hit_rate": 0.42477876,
+      "max_drawdown": -0.02074083,
+      "mean_daily_turnover": 0.01411478,
+      "periods": 1432,
+      "residual_diagnostics": {
+        "entry_count": 0,
+        "entry_log_residual_amp_median": null,
+        "entry_log_residual_amp_p25": null,
+        "entry_log_residual_amp_p90": null,
+        "entry_z_median_abs": null,
+        "entry_z_p90_abs": null
+      },
+      "sharpe": -0.79815827,
+      "total_return": -0.01947395
+    }
+  },
+  "artifacts": {
+    "config_yaml": "/Users/moonk/quant-for-agent/models/exact-same-index-etf-residual-convergence-v1/config.yaml",
+    "immutable_run_json": "/Users/moonk/quant-for-agent/models/exact-same-index-etf-residual-convergence-v1/evaluations/runs/ar133_qfa_alpaca_real_20260628T022446Z.json",
+    "latest_json": "/Users/moonk/quant-for-agent/models/exact-same-index-etf-residual-convergence-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/quant-for-agent/models/exact-same-index-etf-residual-convergence-v1/evaluations/latest.md",
+    "metadata_yaml": "/Users/moonk/quant-for-agent/models/exact-same-index-etf-residual-convergence-v1/metadata.yaml",
+    "model_py": "/Users/moonk/quant-for-agent/models/exact-same-index-etf-residual-convergence-v1/model.py",
+    "readme_md": "/Users/moonk/quant-for-agent/models/exact-same-index-etf-residual-convergence-v1/README.md"
+  },
+  "costs": {
+    "diagnostic_bps": 5,
+    "method": "One-way turnover haircut subtracted from next-bar portfolio returns.",
+    "primary_bps": 10,
+    "sensitivity_bps": 20
+  },
+  "created_at_utc": "2026-06-28T02:24:46.192171+0000",
+  "data_source": "configured paper-data access through qfa/Alpaca real daily OHLCV; values redacted",
+  "decision": {
+    "rationale": "Fast-falsified: median/p25 random-window Sharpe and positive-window rate/cost sensitivity failed strict gates; lagged residual deviations were only a few bps while turnover/costs dominated.",
+    "suggested_decision": "rejected"
+  },
+  "evaluation_status": "completed_real_data_backtest",
+  "evaluation_type": "qfa_alpaca_real_daily_random_windows_compact_replay",
+  "issue_id": "AR-133",
+  "metrics": {
+    "diagnostic_5bps_full": {
+      "activation_rate": 0.86592179,
+      "annualized_return": -0.00087122,
+      "annualized_turnover": 48.75571734,
+      "annualized_volatility": 0.02554479,
+      "hit_rate": 0.33225806,
+      "max_drawdown": -0.05744097,
+      "mean_daily_turnover": 0.19347507,
+      "periods": 1432,
+      "sharpe": -0.02181341,
+      "total_return": -0.00494065
+    },
+    "primary_10bps_full": {
+      "activation_rate": 0.86592179,
+      "annualized_return": -0.02493936,
+      "annualized_turnover": 48.75571734,
+      "annualized_volatility": 0.02573681,
+      "hit_rate": 0.27903226,
+      "max_drawdown": -0.1654233,
+      "mean_daily_turnover": 0.19347507,
+      "periods": 1432,
+      "sharpe": -0.96884879,
+      "total_return": -0.1336931
+    },
+    "random_windows_10bps": {
+      "count": 20,
+      "mean_sharpe": -7.39695695,
+      "median_sharpe": -7.57522066,
+      "p25_sharpe": -11.26252897,
+      "positive_window_rate": 0.2,
+      "windows": [
+        {
+          "activation_rate": 0.53174603,
+          "annualized_return": -0.01297485,
+          "annualized_turnover": 17.67700336,
+          "annualized_volatility": 0.00251144,
+          "end": "2021-10-29",
+          "hit_rate": 0.31343284,
+          "max_drawdown": -0.01306022,
+          "mean_daily_turnover": 0.07014684,
+          "periods": 252,
+          "sharpe": -5.19871305,
+          "start": "2020-10-30",
+          "total_return": -0.01297485
+        },
+        {
+          "activation_rate": 0.53571429,
+          "annualized_return": -0.01311454,
+          "annualized_turnover": 17.80148842,
+          "annualized_volatility": 0.0025125,
+          "end": "2021-11-01",
+          "hit_rate": 0.31111111,
+          "max_drawdown": -0.0131999,
+          "mean_daily_turnover": 0.07064083,
+          "periods": 252,
+          "sharpe": -5.25285696,
+          "start": "2020-11-02",
+          "total_return": -0.01311454
+        },
+        {
+          "activation_rate": 0.72222222,
+          "annualized_return": -0.02044989,
+          "annualized_turnover": 28.12466441,
+          "annualized_volatility": 0.00297556,
+          "end": "2022-01-14",
+          "hit_rate": 0.31318681,
+          "max_drawdown": -0.02053462,
+          "mean_daily_turnover": 0.11160581,
+          "periods": 252,
+          "sharpe": -6.94208857,
+          "start": "2021-01-19",
+          "total_return": -0.02044989
+        },
+        {
+          "activation_rate": 0.97222222,
+          "annualized_return": 0.03277559,
+          "annualized_turnover": 33.74685935,
+          "annualized_volatility": 0.05939484,
+          "end": "2022-06-08",
+          "hit_rate": 0.32244898,
+          "max_drawdown": -0.02227316,
+          "mean_daily_turnover": 0.13391611,
+          "periods": 252,
+          "sharpe": 0.57147822,
+          "start": "2021-06-10",
+          "total_return": 0.03277559
+        },
+        {
+          "activation_rate": 0.97222222,
+          "annualized_return": 0.03406361,
+          "annualized_turnover": 32.47196767,
+          "annualized_volatility": 0.0594046,
+          "end": "2022-07-07",
+          "hit_rate": 0.34285714,
+          "max_drawdown": -0.01926396,
+          "mean_daily_turnover": 0.12885701,
+          "periods": 252,
+          "sharpe": 0.59237778,
+          "start": "2021-07-08",
+          "total_return": 0.03406361
+        },
+        {
+          "activation_rate": 0.99206349,
+          "annualized_return": 0.02130152,
+          "annualized_turnover": 48.69107167,
+          "annualized_volatility": 0.05950012,
+          "end": "2022-12-29",
+          "hit_rate": 0.284,
+          "max_drawdown": -0.0323565,
+          "mean_daily_turnover": 0.19321854,
+          "periods": 252,
+          "sharpe": 0.3827844,
+          "start": "2021-12-30",
+          "total_return": 0.02130152
+        },
+        {
+          "activation_rate": 0.99206349,
+          "annualized_return": 0.01657555,
+          "annualized_turnover": 54.29827597,
+          "annualized_volatility": 0.05952492,
+          "end": "2023-01-26",
+          "hit_rate": 0.26,
+          "max_drawdown": -0.03855809,
+          "mean_daily_turnover": 0.21546935,
+          "periods": 252,
+          "sharpe": 0.30472406,
+          "start": "2022-01-26",
+          "total_return": 0.01657555
+        },
+        {
+          "activation_rate": 0.95634921,
+          "annualized_return": -0.05402593,
+          "annualized_turnover": 73.95485026,
+          "annualized_volatility": 0.00417252,
+          "end": "2023-07-25",
+          "hit_rate": 0.18672199,
+          "max_drawdown": -0.05413011,
+          "mean_daily_turnover": 0.29347163,
+          "periods": 252,
+          "sharpe": -13.30738737,
+          "start": "2022-07-25",
+          "total_return": -0.05402593
+        },
+        {
+          "activation_rate": 0.92460317,
+          "annualized_return": -0.04471486,
+          "annualized_turnover": 62.25486929,
+          "annualized_volatility": 0.00432039,
+          "end": "2023-12-05",
+          "hit_rate": 0.24463519,
+          "max_drawdown": -0.04486966,
+          "mean_daily_turnover": 0.24704313,
+          "periods": 252,
+          "sharpe": -10.58514445,
+          "start": "2022-12-05",
+          "total_return": -0.04471486
+        },
+        {
+          "activation_rate": 0.92857143,
+          "annualized_return": -0.04337055,
+          "annualized_turnover": 61.25407305,
+          "annualized_volatility": 0.00435783,
+          "end": "2024-01-29",
+          "hit_rate": 0.25213675,
+          "max_drawdown": -0.04344696,
+          "mean_daily_turnover": 0.24307172,
+          "periods": 252,
+          "sharpe": -10.17153659,
+          "start": "2023-01-27",
+          "total_return": -0.04337055
+        },
+        {
+          "activation_rate": 0.92857143,
+          "annualized_return": -0.04530116,
+          "annualized_turnover": 62.90215775,
+          "annualized_volatility": 0.00446374,
+          "end": "2024-02-09",
+          "hit_rate": 0.25213675,
+          "max_drawdown": -0.04490658,
+          "mean_daily_turnover": 0.24961174,
+          "periods": 252,
+          "sharpe": -10.3825865,
+          "start": "2023-02-09",
+          "total_return": -0.04530116
+        },
+        {
+          "activation_rate": 0.95634921,
+          "annualized_return": -0.04805196,
+          "annualized_turnover": 66.65420529,
+          "annualized_volatility": 0.00448677,
+          "end": "2024-05-29",
+          "hit_rate": 0.21576763,
+          "max_drawdown": -0.04806144,
+          "mean_daily_turnover": 0.26450081,
+          "periods": 252,
+          "sharpe": -10.97224476,
+          "start": "2023-05-30",
+          "total_return": -0.04805196
+        },
+        {
+          "activation_rate": 0.95634921,
+          "annualized_return": -0.05406071,
+          "annualized_turnover": 72.56952409,
+          "annualized_volatility": 0.00448486,
+          "end": "2024-07-17",
+          "hit_rate": 0.18672199,
+          "max_drawdown": -0.05384003,
+          "mean_daily_turnover": 0.2879743,
+          "periods": 252,
+          "sharpe": -12.38851327,
+          "start": "2023-07-18",
+          "total_return": -0.05406071
+        },
+        {
+          "activation_rate": 0.96031746,
+          "annualized_return": -0.05928607,
+          "annualized_turnover": 78.49310056,
+          "annualized_volatility": 0.00451552,
+          "end": "2024-08-30",
+          "hit_rate": 0.14876033,
+          "max_drawdown": -0.05923233,
+          "mean_daily_turnover": 0.31148056,
+          "periods": 252,
+          "sharpe": -13.53081941,
+          "start": "2023-08-31",
+          "total_return": -0.05928607
+        },
+        {
+          "activation_rate": 0.93253968,
+          "annualized_return": -0.05808569,
+          "annualized_turnover": 75.41610097,
+          "annualized_volatility": 0.00381203,
+          "end": "2024-11-05",
+          "hit_rate": 0.15319149,
+          "max_drawdown": -0.05802673,
+          "mean_daily_turnover": 0.29927024,
+          "periods": 252,
+          "sharpe": -15.69415071,
+          "start": "2023-11-06",
+          "total_return": -0.05808569
+        },
+        {
+          "activation_rate": 0.96428571,
+          "annualized_return": -0.04266012,
+          "annualized_turnover": 53.21469275,
+          "annualized_volatility": 0.00359229,
+          "end": "2025-03-26",
+          "hit_rate": 0.23868313,
+          "max_drawdown": -0.0425286,
+          "mean_daily_turnover": 0.21116942,
+          "periods": 252,
+          "sharpe": -12.13338159,
+          "start": "2024-03-25",
+          "total_return": -0.04266012
+        },
+        {
+          "activation_rate": 0.94444444,
+          "annualized_return": -0.02587577,
+          "annualized_turnover": 35.78301264,
+          "annualized_volatility": 0.00329391,
+          "end": "2025-09-18",
+          "hit_rate": 0.33613445,
+          "max_drawdown": -0.02566362,
+          "mean_daily_turnover": 0.14199608,
+          "periods": 252,
+          "sharpe": -7.95701556,
+          "start": "2024-09-17",
+          "total_return": -0.02587577
+        },
+        {
+          "activation_rate": 0.92460317,
+          "annualized_return": -0.02464194,
+          "annualized_turnover": 35.32725412,
+          "annualized_volatility": 0.00346753,
+          "end": "2025-10-22",
+          "hit_rate": 0.34334764,
+          "max_drawdown": -0.02467642,
+          "mean_daily_turnover": 0.14018752,
+          "periods": 252,
+          "sharpe": -7.19342576,
+          "start": "2024-10-21",
+          "total_return": -0.02464194
+        },
+        {
+          "activation_rate": 0.9047619,
+          "annualized_return": -0.02702785,
+          "annualized_turnover": 38.58188654,
+          "annualized_volatility": 0.00533204,
+          "end": "2025-11-19",
+          "hit_rate": 0.32017544,
+          "max_drawdown": -0.02705156,
+          "mean_daily_turnover": 0.15310272,
+          "periods": 252,
+          "sharpe": -5.13577518,
+          "start": "2024-11-18",
+          "total_return": -0.02702785
+        },
+        {
+          "activation_rate": 0.8968254,
+          "annualized_return": -0.02795653,
+          "annualized_turnover": 53.05734428,
+          "annualized_volatility": 0.00961238,
+          "end": "2026-03-25",
+          "hit_rate": 0.34513274,
+          "max_drawdown": -0.02751941,
+          "mean_daily_turnover": 0.21054502,
+          "periods": 252,
+          "sharpe": -2.94486381,
+          "start": "2025-03-25",
+          "total_return": -0.02795653
+        }
+      ],
+      "worst_sharpe": -15.69415071
+    },
+    "residual_amplitude_diagnostics": {
+      "entry_count": 6244,
+      "entry_log_residual_amp_median": 0.00066969,
+      "entry_log_residual_amp_p25": 0.00035024,
+      "entry_log_residual_amp_p90": 0.1285066,
+      "entry_z_median_abs": 0.93045545,
+      "entry_z_p90_abs": 2.78452373
+    },
+    "sensitivity_20bps_full": {
+      "activation_rate": 0.86592179,
+      "annualized_return": -0.07136565,
+      "annualized_turnover": 48.75571734,
+      "annualized_volatility": 0.02647684,
+      "hit_rate": 0.24032258,
+      "max_drawdown": -0.34730975,
+      "mean_daily_turnover": 0.19347507,
+      "periods": 1432,
+      "sharpe": -2.78321666,
+      "total_return": -0.34343687
+    },
+    "smoke_10bps_recent": {
+      "activation_rate": 0.49166667,
+      "annualized_return": -0.0174568,
+      "annualized_turnover": 31.18418527,
+      "annualized_volatility": 0.01099035,
+      "hit_rate": 0.37853107,
+      "max_drawdown": -0.0281997,
+      "mean_daily_turnover": 0.12374677,
+      "periods": 360,
+      "sharpe": -1.59686854,
+      "total_return": -0.02484469
+    }
+  },
+  "model_name": "exact-same-index-etf-residual-convergence-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": "deferred_due_rejection: primary gates failed, so watchlist/strong-alpha orthogonality was not run.",
+  "parameters": {
+    "amplitude_floor_log": 0.001,
+    "cluster_cap": 0.24,
+    "entry_z": 2.0,
+    "execution": "signals from completed close; returns start on next close-to-close daily bar; no same-close leakage",
+    "exit_z": 0.35,
+    "hold_days": 5,
+    "lookback": 126,
+    "symbol_cap": 0.12
+  },
+  "raw_daily_paths_retained": false,
+  "universe": {
+    "candidate_clusters": {
+      "aggregate_bonds": [
+        "AGG",
+        "BND"
+      ],
+      "nasdaq100": [
+        "QQQ",
+        "QQQM"
+      ],
+      "russell2000": [
+        "IWM",
+        "VTWO"
+      ],
+      "sp500": [
+        "SPY",
+        "IVV",
+        "VOO",
+        "SPLG"
+      ],
+      "total_us_market": [
+        "VTI",
+        "ITOT",
+        "SCHB"
+      ]
+    },
+    "coverage": {
+      "AGG": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 698199856.915
+      },
+      "BND": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 409818241.99
+      },
+      "ITOT": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 135650857.89
+      },
+      "IVV": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 1871194410.36
+      },
+      "IWM": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 5132558513.975
+      },
+      "QQQ": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 14939593857.439999
+      },
+      "QQQM": {
+        "bars": 1432,
+        "first": "2020-10-13",
+        "last": "2026-06-26",
+        "median_dollar_volume": 188954433.64499998
+      },
+      "SCHB": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 56801245.125
+      },
+      "SPLG": {
+        "bars": 1969,
+        "first": "2018-01-02",
+        "last": "2025-10-30",
+        "median_dollar_volume": 138974233.32
+      },
+      "SPY": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 30599139456.545
+      },
+      "VOO": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 1605138370.47
+      },
+      "VTI": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 707506139.03
+      },
+      "VTWO": {
+        "bars": 2132,
+        "first": "2018-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 76445990.17500001
+      }
+    },
+    "exclusions": "Excluded EFA/IEFA, EEM/IEMG, LQD/VCIT, and non-identical duration/credit/country/style/sector/factor substitutes from primary.",
+    "selected_clusters": {
+      "aggregate_bond_near_substitutes": {
+        "benchmark_rationale": "documented exact/near-identical broad ETF substitute cluster; primary excludes duration/credit/country/style/sector/factor mismatches",
+        "members": [
+          "AGG",
+          "BND"
+        ],
+        "overlap_bars": 2132
+      },
+      "nasdaq100_exact_substitutes": {
+        "benchmark_rationale": "documented exact/near-identical broad ETF substitute cluster; primary excludes duration/credit/country/style/sector/factor mismatches",
+        "members": [
+          "QQQ",
+          "QQQM"
+        ],
+        "overlap_bars": 1432
+      },
+      "russell2000_near_substitutes": {
+        "benchmark_rationale": "documented exact/near-identical broad ETF substitute cluster; primary excludes duration/credit/country/style/sector/factor mismatches",
+        "members": [
+          "IWM",
+          "VTWO"
+        ],
+        "overlap_bars": 2132
+      },
+      "sp500_exact_substitutes": {
+        "benchmark_rationale": "documented exact/near-identical broad ETF substitute cluster; primary excludes duration/credit/country/style/sector/factor mismatches",
+        "members": [
+          "SPY",
+          "IVV",
+          "VOO",
+          "SPLG"
+        ],
+        "overlap_bars": 1969
+      },
+      "total_us_market_near_substitutes": {
+        "benchmark_rationale": "documented exact/near-identical broad ETF substitute cluster; primary excludes duration/credit/country/style/sector/factor mismatches",
+        "members": [
+          "VTI",
+          "ITOT",
+          "SCHB"
+        ],
+        "overlap_bars": 2132
+      }
+    }
+  },
+  "warnings": [
+    "External cost model is a one-way turnover haircut in compact replay.",
+    "AlpacaGateway in this repository does not expose adjusted-price controls.",
+    "Daily ETF residual amplitudes are log-close deviations only; no NAV, premium, flow, or order-book claims are made."
+  ]
+}

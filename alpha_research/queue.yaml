@@ -979,14 +979,13 @@ issues:
 - id: AR-133
   title: Exact same-index ETF pair/triplet residual convergence
   model_name: exact-same-index-etf-residual-convergence-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: exact_same_index_etf_residual_convergence
   issue_path: alpha_research/issues/AR-133.md
-active_batch:
-- AR-133
+active_batch: []
 last_realdata_batch:
-- AR-132
-updated_at: '2026-06-28T02:30:00Z'
+- AR-133
+updated_at: '2026-06-28T02:24:46Z'
 target_tried_ideas: 100
-tried_ideas_count: 125
+tried_ideas_count: 126

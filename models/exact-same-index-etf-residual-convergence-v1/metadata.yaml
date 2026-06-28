@@ -1,0 +1,10 @@
+issue_id: AR-133
+model_name: exact-same-index-etf-residual-convergence-v1
+status: rejected
+created_at_utc: "2026-06-28T02:24:46.192171+0000"
+data_source: qfa_alpaca_real_daily_ohlcv
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

@@ -1,0 +1,22 @@
+model_name: exact-same-index-etf-residual-convergence-v1
+issue_id: AR-133
+universe:
+  sp500_exact_substitutes: [SPY, IVV, VOO, SPLG]
+  nasdaq100_exact_substitutes: [QQQ, QQQM]
+  russell2000_near_substitutes: [IWM, VTWO]
+  total_us_market_near_substitutes: [VTI, ITOT, SCHB]
+  aggregate_bond_near_substitutes: [AGG, BND]
+parameters:
+  lookback: 126
+  entry_z: 2.0
+  exit_z: 0.35
+  hold_days: 5
+  amplitude_floor_log: 0.001
+  cluster_cap: 0.24
+  symbol_cap: 0.12
+execution: next daily bar/next close only; completed bars only
+risk_controls:
+  max_gross: 1.0
+  primary_cost_bps: 10
+  diagnostic_cost_bps: 5
+  sensitivity_cost_bps: 20
