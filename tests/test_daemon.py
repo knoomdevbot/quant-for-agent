@@ -194,3 +194,23 @@ def test_alpaca_gateway_counts_only_remaining_open_order_notional():
     values = gateway.open_order_notional_values(["AAPL"])
 
     assert values == {"AAPL": 20.0}
+
+
+def test_alpaca_gateway_values_qty_only_open_sell_orders_from_position_price():
+    class FakeTradingClient:
+        def get_orders(self, filter=None):
+            return [
+                SimpleNamespace(
+                    symbol="AAPL", side="sell", notional=None, qty="3", filled_qty="1", limit_price=None
+                )
+            ]
+
+        def get_all_positions(self):
+            return [SimpleNamespace(symbol="AAPL", qty="10", market_value="1500.00")]
+
+    gateway = object.__new__(AlpacaGateway)
+    gateway.trading_client = FakeTradingClient()
+
+    values = gateway.open_order_notional_values(["AAPL"])
+
+    assert values == {"AAPL": -300.0}

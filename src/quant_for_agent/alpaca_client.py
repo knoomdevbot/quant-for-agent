@@ -14,6 +14,19 @@ def _optional_float(value: Any) -> float | None:
     return float(value)
 
 
+def _position_unit_prices(positions: Any, symbols: set[str]) -> dict[str, float]:
+    prices: dict[str, float] = {}
+    for position in positions:
+        symbol = getattr(position, "symbol", None)
+        if symbol not in symbols:
+            continue
+        qty = _optional_float(getattr(position, "qty", None))
+        market_value = _optional_float(getattr(position, "market_value", None))
+        if qty and market_value is not None:
+            prices[str(symbol)] = abs(market_value) / abs(qty)
+    return prices
+
+
 class AlpacaGateway:
     def __init__(self, config: AlpacaConfig | None = None):
         self.config = config or AlpacaConfig.from_env()
@@ -63,6 +76,7 @@ class AlpacaGateway:
 
         allowed = set(symbols)
         values: dict[str, float] = {symbol: 0.0 for symbol in symbols}
+        position_prices: dict[str, float] | None = None
         for order in self.trading_client.get_orders(
             filter=GetOrdersRequest(status=QueryOrderStatus.OPEN)
         ):
@@ -75,6 +89,12 @@ class AlpacaGateway:
             remaining_qty = max(qty - filled_qty, 0.0) if qty is not None else None
             if notional is None:
                 price = _optional_float(getattr(order, "limit_price", None))
+                if price is None and remaining_qty is not None:
+                    if position_prices is None:
+                        position_prices = _position_unit_prices(
+                            self.trading_client.get_all_positions(), allowed
+                        )
+                    price = position_prices.get(str(symbol))
                 if remaining_qty is None or price is None:
                     continue
                 signed_notional = remaining_qty * price
