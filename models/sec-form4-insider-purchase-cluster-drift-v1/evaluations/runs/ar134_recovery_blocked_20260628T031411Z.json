@@ -1,0 +1,47 @@
+{
+  "issue": "AR-134",
+  "model": "sec-form4-insider-purchase-cluster-drift-v1",
+  "run_id": "ar134_recovery_blocked_20260628T031411Z",
+  "created_utc": "2026-06-28T03:14:11Z",
+  "status": "blocked_rejected",
+  "decision": "rejected",
+  "evaluation_type": "bounded_recovery_fast_falsification",
+  "reason": "SEC Form 4 PIT event table construction timed out / was not completed in bounded recovery run.",
+  "data_source_attempted": [
+    "SEC EDGAR public company_tickers.json quick reachability probe",
+    "SEC Form 4 XML event construction planned but not completed",
+    "qfa/Alpaca real daily OHLCV not reached because event-source feasibility gate failed"
+  ],
+  "sec_feasibility_probe": {
+    "company_tickers_head_fetch": "ok",
+    "bytes_read": 2048,
+    "raw_filings_retained": false
+  },
+  "selected_universe_status": "unavailable_due_event_source_construction_failure",
+  "performance_metrics_available": false,
+  "metrics": {
+    "median_sharpe": null,
+    "p25_sharpe": null,
+    "worst_window_sharpe": null,
+    "annualized_return": null,
+    "annualized_volatility": null,
+    "max_drawdown": null,
+    "turnover": null,
+    "hit_rate": null,
+    "positive_window_rate": null,
+    "event_count": null,
+    "orthogonality": null
+  },
+  "guardrails": {
+    "no_csv_used": true,
+    "no_data_csv_argument_used": true,
+    "no_daemon": true,
+    "no_orders": true,
+    "raw_daily_paths_retained": false
+  },
+  "raw_daily_paths_retained": false,
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true
+}

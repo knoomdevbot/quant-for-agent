@@ -1,0 +1,35 @@
+model: sec-form4-insider-purchase-cluster-drift-v1
+issue: AR-134
+status: blocked_rejected
+decision: rejected
+start: null
+end: null
+timeframe: 1Day
+data_source_attempted:
+  - SEC EDGAR public company_tickers.json quick reachability probe
+  - SEC Form 4 XML filing event construction planned but not completed in bounded recovery run
+  - qfa/Alpaca real daily OHLCV planned only after event-source feasibility gate
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+signal:
+  form: inert_recovery_stub
+  hypothesis: clustered open-market insider purchases disclosed on SEC Form 4 may drift after public filing acceptance time
+  cluster_threshold_distinct_insiders: 2
+  cluster_window_trading_days: 5
+  holding_periods_trading_days: [5, 10, 20]
+  primary_cost_one_way_bps: 10
+universe:
+  selected_count: 0
+  selected_symbols: []
+  selected_universe_status: unavailable_due_event_source_construction_failure
+  rationale: >-
+    Universe selection requires timestamp-safe SEC Form 4 filing events, reliable CIK/ticker mapping,
+    officer/director and transaction-code parsing, and qfa/Alpaca coverage checks. These were not
+    completed within the bounded recovery run.
+evaluation:
+  status: blocked_rejected
+  reason: SEC Form 4 PIT event table construction timed out / was not completed in bounded run.
+  performance_metrics_available: false

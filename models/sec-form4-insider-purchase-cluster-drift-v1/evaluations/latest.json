@@ -1,0 +1,70 @@
+{
+  "issue": "AR-134",
+  "model": "sec-form4-insider-purchase-cluster-drift-v1",
+  "run_id": "ar134_recovery_blocked_20260628T031411Z",
+  "created_utc": "2026-06-28T03:14:11Z",
+  "status": "blocked_rejected",
+  "decision": "rejected",
+  "reason": "SEC Form 4 PIT event table construction timed out / was not completed in bounded recovery run.",
+  "hypothesis": "Clustered open-market insider purchases disclosed on SEC Form 4 may produce post-filing drift over 5-20 trading days.",
+  "data_source_attempted": [
+    "SEC EDGAR public company_tickers.json quick reachability probe",
+    "SEC Form 4 XML event construction planned but not completed",
+    "qfa/Alpaca real daily OHLCV not reached because event-source feasibility gate failed"
+  ],
+  "sec_feasibility_probe": {
+    "company_tickers_head_fetch": "ok",
+    "bytes_read": 2048,
+    "raw_filings_retained": false
+  },
+  "selected_universe": {
+    "status": "unavailable_due_event_source_construction_failure",
+    "selected_count": 0,
+    "symbols": []
+  },
+  "performance_metrics_available": false,
+  "primary": {
+    "sharpe": null,
+    "sortino": null,
+    "annualized_return": null,
+    "annualized_volatility": null,
+    "max_drawdown": null,
+    "turnover": null,
+    "hit_rate": null,
+    "positive_window_rate": null,
+    "event_count": null,
+    "activation_rate": null
+  },
+  "random_windows": {
+    "median_window_sharpe": null,
+    "p25_window_sharpe": null,
+    "worst_window_sharpe": null,
+    "positive_window_rate": null
+  },
+  "cost_sensitivity": {
+    "5bps": null,
+    "10bps": null,
+    "20bps": null
+  },
+  "ablations": {
+    "cluster_vs_single_purchase": null,
+    "shifted_filing_date_placebo": null,
+    "random_matched_non_event": null,
+    "small_value_momentum_reversal_baselines": null
+  },
+  "orthogonality": {
+    "status": "deferred_due_rejection_and_missing_return_stream",
+    "max_correlation": null
+  },
+  "acceptance_threshold_result": "not_evaluable_event_source_missing",
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "notes": [
+    "No large SEC scrape was attempted in recovery.",
+    "No raw filings or market bars were retained.",
+    "No Sharpe or event performance was fabricated."
+  ]
+}

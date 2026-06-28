@@ -1,0 +1,19 @@
+name: sec-form4-insider-purchase-cluster-drift-v1
+issue: AR-134
+family: public_filing_insider_purchase_event_drift
+status: blocked_rejected
+created_utc: '2026-06-28T03:14:11Z'
+decision: rejected
+data_source: SEC EDGAR public filings/API attempted for feasibility; qfa/Alpaca market data not reached because event-source gate failed
+artifact_contract:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+selected_universe: unavailable_due_event_source_construction_failure
+decision_summary: >-
+  Blocked/rejected recovery completion. A full timestamp-safe SEC Form 4 point-in-time event table
+  was not constructed within the bounded run after the prior timeout, so no performance metrics were
+  computed and no Sharpe or event performance is reported. The model is an inert generate_signals
+  stub returning no positions until a validated filing/event source exists.
