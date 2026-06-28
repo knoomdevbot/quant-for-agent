@@ -8,6 +8,12 @@ import pandas as pd
 from .config import AlpacaConfig
 
 
+def _optional_float(value: Any) -> float | None:
+    if value is None:
+        return None
+    return float(value)
+
+
 class AlpacaGateway:
     def __init__(self, config: AlpacaConfig | None = None):
         self.config = config or AlpacaConfig.from_env()
@@ -49,6 +55,37 @@ class AlpacaGateway:
             if symbol not in allowed:
                 continue
             values[str(symbol)] = float(getattr(position, "market_value", 0.0) or 0.0)
+        return values
+
+    def open_order_notional_values(self, symbols: list[str]) -> dict[str, float]:
+        from alpaca.trading.enums import QueryOrderStatus
+        from alpaca.trading.requests import GetOrdersRequest
+
+        allowed = set(symbols)
+        values: dict[str, float] = {symbol: 0.0 for symbol in symbols}
+        for order in self.trading_client.get_orders(
+            filter=GetOrdersRequest(status=QueryOrderStatus.OPEN)
+        ):
+            symbol = getattr(order, "symbol", None)
+            if symbol not in allowed:
+                continue
+            notional = getattr(order, "notional", None)
+            qty = _optional_float(getattr(order, "qty", None))
+            filled_qty = _optional_float(getattr(order, "filled_qty", None)) or 0.0
+            remaining_qty = max(qty - filled_qty, 0.0) if qty is not None else None
+            if notional is None:
+                price = _optional_float(getattr(order, "limit_price", None))
+                if remaining_qty is None or price is None:
+                    continue
+                signed_notional = remaining_qty * price
+            else:
+                signed_notional = float(notional)
+                if remaining_qty is not None and qty and qty > 0:
+                    signed_notional *= remaining_qty / qty
+            side = getattr(order, "side", "")
+            if str(side).lower().endswith("sell"):
+                signed_notional *= -1.0
+            values[str(symbol)] += signed_notional
         return values
 
     def submit_notional_order(self, symbol: str, side: str, notional: float) -> dict[str, Any]:
