@@ -976,9 +976,17 @@ issues:
   priority: completed_realdata
   family: etf_residual_dispersion_convergence
   issue_path: alpha_research/issues/AR-132.md
-active_batch: []
+- id: AR-133
+  title: Exact same-index ETF pair/triplet residual convergence
+  model_name: exact-same-index-etf-residual-convergence-v1
+  status: queued
+  priority: preflight_queue
+  family: exact_same_index_etf_residual_convergence
+  issue_path: alpha_research/issues/AR-133.md
+active_batch:
+- AR-133
 last_realdata_batch:
 - AR-132
-updated_at: '2026-06-28T02:12:47Z'
+updated_at: '2026-06-28T02:30:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 124
+tried_ideas_count: 125
