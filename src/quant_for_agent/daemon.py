@@ -8,6 +8,12 @@ from .alpaca_client import AlpacaGateway
 from .storage import Store
 
 
+# Alpaca converts notional sell orders to fractional share quantities at submission time.
+# Keep a small liquidation buffer so price/availability drift does not oversell.
+SELL_NOTIONAL_POSITION_BUFFER = 0.995
+NEAR_FULL_POSITION_SELL_THRESHOLD = 0.95
+
+
 @dataclass(frozen=True)
 class DaemonConfig:
     interval_seconds: int = 300
@@ -83,18 +89,27 @@ class TradingDaemon:
                     "notional": notional,
                     "open_order_sides": sorted(pending_sides),
                 }
-            elif not self.config.dry_run:
-                try:
-                    response = self.alpaca.submit_notional_order(symbol, side, notional)
-                except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
-                    response = {
-                        "status": "error",
-                        "error_type": type(exc).__name__,
-                        "message": str(exc),
-                        "symbol": symbol,
-                        "side": side,
-                        "notional": notional,
-                    }
+            else:
+                current_position_notional = current_values.get(symbol, 0.0)
+                if (
+                    side == "sell"
+                    and current_position_notional > 0
+                    and notional >= current_position_notional * NEAR_FULL_POSITION_SELL_THRESHOLD
+                ):
+                    notional = min(notional, current_position_notional * SELL_NOTIONAL_POSITION_BUFFER)
+                    response["notional"] = notional
+                if not self.config.dry_run:
+                    try:
+                        response = self.alpaca.submit_notional_order(symbol, side, notional)
+                    except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
+                        response = {
+                            "status": "error",
+                            "error_type": type(exc).__name__,
+                            "message": str(exc),
+                            "symbol": symbol,
+                            "side": side,
+                            "notional": notional,
+                        }
             event = {
                 "model_name": ",".join(target_model_names.get(symbol, [])),
                 "symbol": symbol,
