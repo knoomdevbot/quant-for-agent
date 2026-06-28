@@ -1,0 +1,14 @@
+model_name: cpi-ppi-release-morning-crossasset-dispersion-v1
+alpha_id: AR-131
+universe: ['TIP', 'SCHP', 'TLT', 'IEF', 'SHY', 'UUP', 'GLD', 'DBC', 'USO', 'XLE', 'XLRE', 'SPY', 'QQQ']
+primary_direction: fade
+gap_z_lookback_days: 120
+holding_days: 2
+dispersion_threshold_z: 0.75
+cost_bps_one_way_primary: 10
+cost_bps_one_way_sensitivity: 5
+data_source: qfa/Alpaca real daily OHLCV
+no_csv: true
+no_data_csv_argument: true
+no_daemon: true
+no_orders: true

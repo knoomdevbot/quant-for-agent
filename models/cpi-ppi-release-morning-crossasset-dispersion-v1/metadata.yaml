@@ -1,0 +1,7 @@
+alpha_id: AR-131
+status: rejected
+created_by: Hermes Agent scheduled research subagent
+created_at_utc: 20260628T004057Z
+model_family: macro_release_reaction_crossasset_dispersion
+artifact_run: evaluations/runs/ar131_qfa_alpaca_real_20260628T004057Z.json
+provenance: configured paper-data Alpaca access; real market data; no CSV/no daemon/no orders

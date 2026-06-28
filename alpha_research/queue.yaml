@@ -965,14 +965,13 @@ issues:
 - id: AR-131
   title: CPI/PPI release-morning cross-asset reaction dispersion
   model_name: cpi-ppi-release-morning-crossasset-dispersion-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: macro_release_reaction_crossasset_dispersion
   issue_path: alpha_research/issues/AR-131.md
-active_batch:
-- AR-131
+active_batch: []
 last_realdata_batch:
-- AR-130
-updated_at: '2026-06-28T00:32:37Z'
+- AR-131
+updated_at: '2026-06-28T00:43:44Z'
 target_tried_ideas: 100
-tried_ideas_count: 121
+tried_ideas_count: 122
