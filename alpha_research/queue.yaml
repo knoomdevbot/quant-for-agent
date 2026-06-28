@@ -993,14 +993,22 @@ issues:
 - id: AR-135
   title: CFTC COT positioning extreme-unwind ETF allocator
   model_name: cftc-cot-positioning-extreme-unwind-etf-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: external_positioning_crowding
   issue_path: alpha_research/issues/AR-135.md
+- id: AR-136
+  title: NOAA/CPC degree-day demand-shock energy and utility ETF allocator
+  model_name: noaa-cpc-degree-day-demand-shock-etf-v1
+  status: queued
+  priority: preflight_queue
+  family: external_weather_energy_demand
+  issue_path: alpha_research/issues/AR-136.md
 active_batch:
-- AR-135
+- AR-136
 last_realdata_batch:
 - AR-134
-updated_at: '2026-06-28T03:52:17Z'
+- AR-135
+updated_at: '2026-06-28T04:05:45Z'
 target_tried_ideas: 100
-tried_ideas_count: 128
+tried_ideas_count: 129

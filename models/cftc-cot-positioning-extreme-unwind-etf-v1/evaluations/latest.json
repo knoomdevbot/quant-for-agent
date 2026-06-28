@@ -1,0 +1,700 @@
+{
+  "artifact_policy": {
+    "compact_only": true,
+    "no_equity_curves_or_weight_tails_retained": true,
+    "no_raw_cot_tables_retained": true,
+    "no_raw_daily_bars_retained": true
+  },
+  "config_path": "models/cftc-cot-positioning-extreme-unwind-etf-v1/config.yaml",
+  "controls_ablations": {
+    "lagged_release": {
+      "activation_rate": 0.57782516,
+      "annualized_return": -0.01192768,
+      "annualized_turnover": 7.7050757,
+      "annualized_volatility": 0.05245422,
+      "max_drawdown": -0.14941121,
+      "mean_daily_turnover": 0.0305757,
+      "sharpe": -0.20255672,
+      "win_rate": 0.27132196
+    },
+    "position_only": {
+      "activation_rate": 0.67590618,
+      "annualized_return": 0.00607932,
+      "annualized_turnover": 4.89940952,
+      "annualized_volatility": 0.06430094,
+      "max_drawdown": -0.1304226,
+      "mean_daily_turnover": 0.0194421,
+      "sharpe": 0.12635442,
+      "win_rate": 0.32995736
+    },
+    "price_only": {
+      "activation_rate": 0.98240938,
+      "annualized_return": -0.00057214,
+      "annualized_turnover": 39.10029851,
+      "annualized_volatility": 0.34502087,
+      "max_drawdown": -0.392835,
+      "mean_daily_turnover": 0.15515991,
+      "sharpe": 0.1166586,
+      "win_rate": 0.46855011
+    },
+    "same_weekday_placebo": {
+      "activation_rate": 0.60341151,
+      "annualized_return": 0.04282814,
+      "annualized_turnover": 18.43768583,
+      "annualized_volatility": 0.19381908,
+      "max_drawdown": -0.15853852,
+      "mean_daily_turnover": 0.07316542,
+      "sharpe": 0.29078605,
+      "win_rate": 0.29690832
+    },
+    "shifted_release": {
+      "activation_rate": 0.56929638,
+      "annualized_return": -0.02847746,
+      "annualized_turnover": 8.25054858,
+      "annualized_volatility": 0.04835662,
+      "max_drawdown": -0.21574397,
+      "mean_daily_turnover": 0.03274027,
+      "sharpe": -0.57325892,
+      "win_rate": 0.26066098
+    }
+  },
+  "costs_slippage": {
+    "method": "Daily portfolio return less one-way turnover times cost_bps/10000.",
+    "primary_one_way_cost_bps": 10,
+    "sensitivity_bps": [
+      5,
+      20
+    ]
+  },
+  "created_at_utc": "2026-06-28T03:57:56Z",
+  "data": {
+    "candidate_pool": [
+      "GLD",
+      "SLV",
+      "USO",
+      "UNG",
+      "DBA",
+      "DBC",
+      "PDBC",
+      "GSG",
+      "TLT",
+      "IEF",
+      "SHY",
+      "TIP",
+      "UUP",
+      "FXE",
+      "FXY",
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA"
+    ],
+    "candidate_pool_summary": "19 ex-ante ETFs from commodities/metals/energy/agriculture, rates/TIPS, dollar/currency, and equity index proxies from the issue.",
+    "cftc_mappings": {
+      "GLD": {
+        "market": "GOLD - COMMODITY EXCHANGE INC.",
+        "report_type": "legacy"
+      },
+      "IEF": {
+        "market": "UST 10Y NOTE - CHICAGO BOARD OF TRADE",
+        "report_type": "financial"
+      },
+      "IWM": {
+        "market": "RUSSELL E-MINI - CHICAGO MERCANTILE EXCHANGE",
+        "report_type": "financial"
+      },
+      "QQQ": {
+        "market": "NASDAQ MINI - CHICAGO MERCANTILE EXCHANGE",
+        "report_type": "financial"
+      },
+      "SLV": {
+        "market": "SILVER - COMMODITY EXCHANGE INC.",
+        "report_type": "legacy"
+      },
+      "SPY": {
+        "market": "E-MINI S&P 500 - CHICAGO MERCANTILE EXCHANGE",
+        "report_type": "financial"
+      },
+      "TLT": {
+        "market": "UST BOND - CHICAGO BOARD OF TRADE",
+        "report_type": "financial"
+      },
+      "UNG": {
+        "market": "HENRY HUB - NEW YORK MERCANTILE EXCHANGE",
+        "report_type": "legacy"
+      },
+      "USO": {
+        "market": "WTI-PHYSICAL - NEW YORK MERCANTILE EXCHANGE",
+        "report_type": "legacy"
+      },
+      "UUP": {
+        "market": "USD INDEX - ICE FUTURES U.S.",
+        "report_type": "financial"
+      }
+    },
+    "cftc_missing_mapping_diagnostics": [],
+    "cftc_release_lag_rule": "Tuesday report date plus three calendar days to public Friday release, traded no earlier than next business day.",
+    "cftc_source": "Official CFTC annual historical zipped text files fetched from cftc.gov, parsed in memory only; raw tables not retained.",
+    "cftc_year_urls_count": 18,
+    "coverage_summary": {
+      "DBA": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 10157810.19
+      },
+      "DBC": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 24220239.964999996
+      },
+      "DIA": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 1234565975.315
+      },
+      "FXE": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 8572793.184999999
+      },
+      "FXY": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 5703824.105
+      },
+      "GLD": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 1485696695.0900002
+      },
+      "GSG": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 10394365.05
+      },
+      "IEF": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 674100366.22
+      },
+      "IWM": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 5436679033.63
+      },
+      "PDBC": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 48308489.295
+      },
+      "QQQ": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 16163126012.99
+      },
+      "SHY": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 303066960.28
+      },
+      "SLV": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 463129681.235
+      },
+      "SPY": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 31373540997.72
+      },
+      "TIP": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 263820127.07500002
+      },
+      "TLT": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 2359925520.96
+      },
+      "UNG": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 98881599.5
+      },
+      "USO": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 275731753.78999996
+      },
+      "UUP": {
+        "bars": 1876,
+        "first": "2019-01-02",
+        "last": "2026-06-18",
+        "median_dollar_volume": 29215202.77
+      }
+    },
+    "end": "2026-06-18",
+    "price_source": "real ETF daily bars via qfa AlpacaGateway configured paper-data access",
+    "removed_or_diagnostic_only": [
+      "DBA",
+      "DBC",
+      "PDBC",
+      "GSG",
+      "SHY",
+      "TIP",
+      "FXE",
+      "FXY",
+      "DIA"
+    ],
+    "selected_universe": [
+      "GLD",
+      "SLV",
+      "USO",
+      "UNG",
+      "TLT",
+      "IEF",
+      "UUP",
+      "SPY",
+      "QQQ",
+      "IWM"
+    ],
+    "start": "2019-01-02",
+    "timeframe": "1Day"
+  },
+  "decision": {
+    "gate_pass": false,
+    "rationale": "Watchlist only if all gates pass; otherwise reject. Result status computed from random-window median/p25/positive rate, controls, and available correlations.",
+    "status": "rejected"
+  },
+  "hypothesis": {
+    "claim": "Weekly CFTC COT positioning extremes and four-week changes, used only after public release, identify crowded futures exposures that unwind over the next 5-20 trading days in related U.S.-listed ETFs.",
+    "falsifier": "Reject if stale/noisy signal fails costed random-window Sharpe and lower-tail gates, is explained by position-only or price-only controls/placebos, is too concentrated, or is redundant with existing alpha artifacts."
+  },
+  "issue_id": "AR-135",
+  "metadata_path": "models/cftc-cot-positioning-extreme-unwind-etf-v1/metadata.yaml",
+  "model_name": "cftc-cot-positioning-extreme-unwind-etf-v1",
+  "model_path": "models/cftc-cot-positioning-extreme-unwind-etf-v1/model.py",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "attempted": true,
+    "comparison_count": 10,
+    "max_abs_correlation_available": 0.1060069,
+    "method": "Pearson correlation of retained compact equity-curve returns when available; many prior artifacts intentionally omit curves.",
+    "top_comparisons": [
+      {
+        "artifact": "models/etf-carry-defensive-orthogonal-v1/evaluations/latest.json",
+        "correlation": 0.1060069,
+        "model": "etf-carry-defensive-orthogonal-v1",
+        "overlap_days": 989
+      },
+      {
+        "artifact": "models/tsmom-voltarget-liquid-etf-regimebrake-v1/evaluations/latest.json",
+        "correlation": -0.09824162,
+        "model": "tsmom-voltarget-liquid-etf-regimebrake-v1",
+        "overlap_days": 499
+      },
+      {
+        "artifact": "models/etf-vol-risk-rotation-v1/evaluations/latest.json",
+        "correlation": 0.09081518,
+        "model": "etf-vol-risk-rotation-v1",
+        "overlap_days": 1241
+      },
+      {
+        "artifact": "models/tsmom-voltarget-liquid-etf-randomcost-v1/evaluations/latest.json",
+        "correlation": -0.07817356,
+        "model": "tsmom-voltarget-liquid-etf-randomcost-v1",
+        "overlap_days": 499
+      },
+      {
+        "artifact": "models/crosssec-momentum-liquid-megacap-daily-v1/evaluations/latest.json",
+        "correlation": -0.05849146,
+        "model": "crosssec-momentum-liquid-megacap-daily-v1",
+        "overlap_days": 499
+      },
+      {
+        "artifact": "models/risk-off-crossasset-switch-v1/evaluations/latest.json",
+        "correlation": 0.04635007,
+        "model": "risk-off-crossasset-switch-v1",
+        "overlap_days": 499
+      },
+      {
+        "artifact": "models/risk-off-crossasset-randomcost-v1/evaluations/latest.json",
+        "correlation": 0.04412851,
+        "model": "risk-off-crossasset-randomcost-v1",
+        "overlap_days": 1241
+      },
+      {
+        "artifact": "models/post-earnings-drift-megacap-v1/evaluations/latest.json",
+        "correlation": 0.0420688,
+        "model": "post-earnings-drift-megacap-v1",
+        "overlap_days": 989
+      },
+      {
+        "artifact": "models/earnings-quality-drift-megacap-v1/evaluations/latest.json",
+        "correlation": 0.0332198,
+        "model": "earnings-quality-drift-megacap-v1",
+        "overlap_days": 989
+      },
+      {
+        "artifact": "models/etf-stress-liquidity-beta-reduced-v1/evaluations/latest.json",
+        "correlation": 0.02643527,
+        "model": "etf-stress-liquidity-beta-reduced-v1",
+        "overlap_days": 1241
+      }
+    ],
+    "unavailable_reason": null
+  },
+  "parameters": {
+    "cot_delta_lookback_weeks": 4,
+    "cot_extreme_z": 1.5,
+    "cot_z_lookback_weeks": 156,
+    "gross_cap": 1.0,
+    "max_symbol_weight": 0.2,
+    "price_momentum_stall_lookback_days": 20,
+    "rebalance": "daily using latest released weekly COT"
+  },
+  "primary_metrics": {
+    "cost_adjusted_10bps": {
+      "activation_rate": 0.57089552,
+      "annualized_return": -0.00980925,
+      "annualized_turnover": 8.32206808,
+      "annualized_volatility": 0.0505092,
+      "max_drawdown": -0.15513308,
+      "mean_daily_turnover": 0.03302408,
+      "sharpe": -0.16993545,
+      "win_rate": 0.27345416
+    },
+    "cost_adjusted_20bps": {
+      "activation_rate": 0.57089552,
+      "annualized_return": -0.01802744,
+      "annualized_turnover": 8.32206808,
+      "annualized_volatility": 0.05073746,
+      "max_drawdown": -0.16253281,
+      "mean_daily_turnover": 0.03302408,
+      "sharpe": -0.33319309,
+      "win_rate": 0.26918977
+    },
+    "cost_adjusted_5bps": {
+      "activation_rate": 0.57089552,
+      "annualized_return": -0.00567515,
+      "annualized_turnover": 8.32206808,
+      "annualized_volatility": 0.05040744,
+      "max_drawdown": -0.15140932,
+      "mean_daily_turnover": 0.03302408,
+      "sharpe": -0.08773047,
+      "win_rate": 0.27665245
+    }
+  },
+  "random_period_protocol": {
+    "attempted": true,
+    "median_annualized_turnover": 12.91714019,
+    "median_sharpe_10bps": 0.0,
+    "method": "Thirty deterministic pseudo-random 126-504 business-day subwindows over available overlap using real Alpaca bars and CFTC features.",
+    "p25_sharpe_10bps": -0.59399091,
+    "positive_window_rate": 0.46666667,
+    "runs": [
+      {
+        "activation_rate": 0.61983471,
+        "annualized_turnover": 6.25691601,
+        "end": "2024-06-04",
+        "max_drawdown_10bps": -0.01597924,
+        "sharpe_10bps": 0.61372777,
+        "start": "2023-12-11",
+        "trading_days": 121
+      },
+      {
+        "activation_rate": 0.89130435,
+        "annualized_turnover": 18.9834268,
+        "end": "2023-11-24",
+        "max_drawdown_10bps": -0.09003237,
+        "sharpe_10bps": -0.57952725,
+        "start": "2023-03-06",
+        "trading_days": 184
+      },
+      {
+        "activation_rate": 0.66666667,
+        "annualized_turnover": 9.48606651,
+        "end": "2025-07-24",
+        "max_drawdown_10bps": -0.03206501,
+        "sharpe_10bps": 0.62270824,
+        "start": "2024-11-01",
+        "trading_days": 180
+      },
+      {
+        "activation_rate": 0.81917808,
+        "annualized_turnover": 13.7938101,
+        "end": "2024-10-04",
+        "max_drawdown_10bps": -0.09003237,
+        "sharpe_10bps": -0.72894401,
+        "start": "2023-04-25",
+        "trading_days": 365
+      },
+      {
+        "activation_rate": 0.67145791,
+        "annualized_turnover": 11.65620391,
+        "end": "2023-11-21",
+        "max_drawdown_10bps": -0.10442133,
+        "sharpe_10bps": 0.01661408,
+        "start": "2021-12-15",
+        "trading_days": 487
+      },
+      {
+        "activation_rate": 1.0,
+        "annualized_turnover": 14.27451786,
+        "end": "2025-01-15",
+        "max_drawdown_10bps": -0.03522064,
+        "sharpe_10bps": -1.08973007,
+        "start": "2024-07-23",
+        "trading_days": 122
+      },
+      {
+        "activation_rate": 0.90983607,
+        "annualized_turnover": 19.40624507,
+        "end": "2023-09-18",
+        "max_drawdown_10bps": -0.06683161,
+        "sharpe_10bps": -0.89459679,
+        "start": "2023-03-24",
+        "trading_days": 122
+      },
+      {
+        "activation_rate": 0.07103825,
+        "annualized_turnover": 2.07951984,
+        "end": "2022-07-19",
+        "max_drawdown_10bps": -0.03544754,
+        "sharpe_10bps": -1.01670148,
+        "start": "2021-02-04",
+        "trading_days": 366
+      },
+      {
+        "activation_rate": 0.75068493,
+        "annualized_turnover": 12.88764159,
+        "end": "2023-08-28",
+        "max_drawdown_10bps": -0.10442133,
+        "sharpe_10bps": 0.14543643,
+        "start": "2022-03-16",
+        "trading_days": 365
+      },
+      {
+        "activation_rate": 0.81147541,
+        "annualized_turnover": 12.06297986,
+        "end": "2024-11-26",
+        "max_drawdown_10bps": -0.03533143,
+        "sharpe_10bps": 0.02488343,
+        "start": "2023-12-08",
+        "trading_days": 244
+      },
+      {
+        "activation_rate": 0.90217391,
+        "annualized_turnover": 18.73359175,
+        "end": "2023-10-23",
+        "max_drawdown_10bps": -0.07488279,
+        "sharpe_10bps": -0.08149171,
+        "start": "2023-01-31",
+        "trading_days": 184
+      },
+      {
+        "activation_rate": 0.58677686,
+        "annualized_turnover": 5.4954041,
+        "end": "2024-04-29",
+        "max_drawdown_10bps": -0.01588856,
+        "sharpe_10bps": 3.00289231,
+        "start": "2023-11-03",
+        "trading_days": 121
+      },
+      {
+        "activation_rate": 0.69945355,
+        "annualized_turnover": 9.52402266,
+        "end": "2024-06-11",
+        "max_drawdown_10bps": -0.02823803,
+        "sharpe_10bps": 0.27161968,
+        "start": "2023-09-20",
+        "trading_days": 183
+      },
+      {
+        "activation_rate": 0.7295082,
+        "annualized_turnover": 11.725683,
+        "end": "2024-05-23",
+        "max_drawdown_10bps": -0.05842625,
+        "sharpe_10bps": -0.59490523,
+        "start": "2023-06-06",
+        "trading_days": 244
+      },
+      {
+        "activation_rate": 0.88108108,
+        "annualized_turnover": 18.87896564,
+        "end": "2023-11-13",
+        "max_drawdown_10bps": -0.09003237,
+        "sharpe_10bps": -0.77345836,
+        "start": "2023-02-21",
+        "trading_days": 185
+      },
+      {
+        "activation_rate": 0.89130435,
+        "annualized_turnover": 16.8825215,
+        "end": "2023-12-08",
+        "max_drawdown_10bps": -0.09003237,
+        "sharpe_10bps": -0.59124796,
+        "start": "2023-03-20",
+        "trading_days": 184
+      },
+      {
+        "activation_rate": 0.79395604,
+        "annualized_turnover": 13.28122672,
+        "end": "2024-06-24",
+        "max_drawdown_10bps": -0.09003237,
+        "sharpe_10bps": 0.42646302,
+        "start": "2023-01-11",
+        "trading_days": 364
+      },
+      {
+        "activation_rate": 0.83298969,
+        "annualized_turnover": 13.68060602,
+        "end": "2025-02-10",
+        "max_drawdown_10bps": -0.09003237,
+        "sharpe_10bps": -0.32566997,
+        "start": "2023-03-07",
+        "trading_days": 485
+      },
+      {
+        "activation_rate": 0.0,
+        "annualized_turnover": 0.0,
+        "end": "2021-12-23",
+        "max_drawdown_10bps": 0.0,
+        "sharpe_10bps": 0.0,
+        "start": "2021-04-02",
+        "trading_days": 185
+      },
+      {
+        "activation_rate": 0.87704918,
+        "annualized_turnover": 13.60084206,
+        "end": "2023-06-27",
+        "max_drawdown_10bps": -0.07481028,
+        "sharpe_10bps": 0.55872661,
+        "start": "2022-07-08",
+        "trading_days": 244
+      },
+      {
+        "activation_rate": 0.0,
+        "annualized_turnover": 0.0,
+        "end": "2021-12-28",
+        "max_drawdown_10bps": 0.0,
+        "sharpe_10bps": 0.0,
+        "start": "2021-01-08",
+        "trading_days": 245
+      },
+      {
+        "activation_rate": 0.90909091,
+        "annualized_turnover": 16.8256511,
+        "end": "2023-06-21",
+        "max_drawdown_10bps": -0.05865403,
+        "sharpe_10bps": 1.68635314,
+        "start": "2022-12-27",
+        "trading_days": 121
+      },
+      {
+        "activation_rate": 0.75,
+        "annualized_turnover": 14.43383976,
+        "end": "2025-10-31",
+        "max_drawdown_10bps": -0.01925689,
+        "sharpe_10bps": 0.47082446,
+        "start": "2025-02-10",
+        "trading_days": 184
+      },
+      {
+        "activation_rate": 0.14754098,
+        "annualized_turnover": 3.69838045,
+        "end": "2022-08-08",
+        "max_drawdown_10bps": -0.05991362,
+        "sharpe_10bps": -1.60632906,
+        "start": "2021-08-19",
+        "trading_days": 244
+      },
+      {
+        "activation_rate": 0.90243902,
+        "annualized_turnover": 18.87048253,
+        "end": "2023-10-23",
+        "max_drawdown_10bps": -0.07488279,
+        "sharpe_10bps": -1.70693742,
+        "start": "2023-04-28",
+        "trading_days": 123
+      },
+      {
+        "activation_rate": 0.90217391,
+        "annualized_turnover": 18.30159632,
+        "end": "2023-10-19",
+        "max_drawdown_10bps": -0.07488279,
+        "sharpe_10bps": 0.05710431,
+        "start": "2023-01-27",
+        "trading_days": 184
+      },
+      {
+        "activation_rate": 0.70165746,
+        "annualized_turnover": 9.24089967,
+        "end": "2024-07-09",
+        "max_drawdown_10bps": -0.02565605,
+        "sharpe_10bps": 0.29838255,
+        "start": "2023-10-18",
+        "trading_days": 181
+      },
+      {
+        "activation_rate": 0.78512397,
+        "annualized_turnover": 10.58286639,
+        "end": "2025-02-21",
+        "max_drawdown_10bps": -0.03533143,
+        "sharpe_10bps": -0.17195335,
+        "start": "2023-09-12",
+        "trading_days": 363
+      },
+      {
+        "activation_rate": 0.0,
+        "annualized_turnover": 0.0,
+        "end": "2022-02-03",
+        "max_drawdown_10bps": 0.0,
+        "sharpe_10bps": 0.0,
+        "start": "2021-08-11",
+        "trading_days": 123
+      },
+      {
+        "activation_rate": 0.77961433,
+        "annualized_turnover": 12.94663879,
+        "end": "2024-04-04",
+        "max_drawdown_10bps": -0.09003237,
+        "sharpe_10bps": 1.07021428,
+        "start": "2022-10-24",
+        "trading_days": 363
+      }
+    ],
+    "window_count": 30,
+    "worst_max_drawdown_10bps": -0.15513308,
+    "worst_sharpe_10bps": -1.70693742
+  },
+  "raw_daily_paths_retained": false,
+  "warnings": [
+    "ETF mappings are proxies for futures contracts; commodity ETF roll/issuer effects and unadjusted Alpaca bars can weaken mapping.",
+    "External cost model is a turnover haircut, not exchange-specific slippage.",
+    "Currency/agriculture/basket candidates were not selected when clean single CFTC mapping or liquidity/history was weaker.",
+    "CFTC public files were parsed in memory; SSL certificate validation was bypassed for this runtime due local CA verification failure, but URLs are official cftc.gov."
+  ]
+}

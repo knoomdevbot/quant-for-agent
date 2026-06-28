@@ -1,0 +1,29 @@
+model_name: cftc-cot-positioning-extreme-unwind-etf-v1
+issue_id: AR-135
+family: external_positioning_crowding
+type: divergent
+created_at_utc: '2026-06-28T03:57:56Z'
+research_status: rejected
+decision: rejected
+summary: >-
+  Rule-based ETF allocator using CFTC COT positioning extremes and four-week
+  changes with a conservative Friday-release/next-business-day lag. Evaluated on
+  qfa/Alpaca real ETF daily bars and official CFTC public files parsed in memory.
+  Rejected because random-window lower tail and control/placebo tests failed.
+inputs:
+  price_bars: qfa_alpaca_real_market_daily_bars
+  external_positioning: official_cftc_public_historical_cot_files_compact_in_memory_parse
+outputs:
+  signal_contract: generate_signals(context) -> dict[str, float]
+  selected_universe: [GLD, SLV, USO, UNG, TLT, IEF, UUP, SPY, QQQ, IWM]
+evaluation:
+  latest_json: models/cftc-cot-positioning-extreme-unwind-etf-v1/evaluations/latest.json
+  latest_md: models/cftc-cot-positioning-extreme-unwind-etf-v1/evaluations/latest.md
+  immutable_run: models/cftc-cot-positioning-extreme-unwind-etf-v1/evaluations/runs/ar135_qfa_alpaca_cftc_real_20260628T035756Z.json
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+  secrets_stored: false

@@ -1,0 +1,30 @@
+model_name: cftc-cot-positioning-extreme-unwind-etf-v1
+issue_id: AR-135
+status: rejected
+universe:
+  selected: [GLD, SLV, USO, UNG, TLT, IEF, UUP, SPY, QQQ, IWM]
+  candidates: [GLD, SLV, USO, UNG, DBA, DBC, PDBC, GSG, TLT, IEF, SHY, TIP, UUP, FXE, FXY, SPY, QQQ, IWM, DIA]
+parameters:
+  cot_z_lookback_weeks: 156
+  cot_extreme_z: 1.5
+  cot_delta_lookback_weeks: 4
+  price_momentum_stall_lookback_days: 20
+  price_momentum_confirm_threshold: 0.015
+  max_symbol_weight: 0.20
+  gross_cap: 1.00
+  rebalance: daily_using_latest_released_weekly_cot
+release_lag_rule:
+  report_date: Tuesday CFTC report date
+  public_release: Friday after report date
+  trading_effective: next_business_day_after_public_release
+costs:
+  primary_one_way_bps: 10
+  sensitivities_bps: [5, 20]
+data_policy:
+  etf_prices: qfa_alpaca_real_daily_bars_only
+  csv_price_data_used: false
+  data_csv_argument_used: false
+  daemon_used: false
+  orders_placed: false
+  raw_daily_paths_retained: false
+  raw_cot_tables_retained: false
