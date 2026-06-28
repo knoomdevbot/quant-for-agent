@@ -1032,11 +1032,19 @@ issues:
   priority: completed_realdata
   family: public_microstructure_short_sale_pressure
   issue_path: alpha_research/issues/AR-140.md
-active_batch: []
+- id: AR-141
+  title: Timestamp-safe index addition/deletion announcement drift in liquid U.S. large-cap common stocks
+  model_name: index-add-delete-announcement-drift-v1
+  status: queued
+  priority: preflight_queue
+  family: public_index_membership_event_flow
+  issue_path: alpha_research/issues/AR-141.md
+active_batch:
+- AR-141
 last_realdata_batch:
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-28T05:49:54Z'
+updated_at: '2026-06-28T05:55:14Z'
 target_tried_ideas: 100
 tried_ideas_count: 133
