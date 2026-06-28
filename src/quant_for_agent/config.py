@@ -14,6 +14,7 @@ class AlpacaConfig:
     api_key: str
     secret_key: str
     paper: bool = True
+    data_feed: str | None = None
 
     @classmethod
     def from_env(cls) -> "AlpacaConfig":
@@ -22,4 +23,10 @@ class AlpacaConfig:
         if not api_key or not secret_key:
             raise RuntimeError("ALPACA_API_KEY and ALPACA_SECRET_KEY are required")
         paper = os.environ.get("ALPACA_PAPER", "true").lower() not in {"0", "false", "no"}
-        return cls(api_key=api_key, secret_key=secret_key, paper=paper)
+        data_feed = os.environ.get("ALPACA_DATA_FEED")
+        return cls(
+            api_key=api_key,
+            secret_key=secret_key,
+            paper=paper,
+            data_feed=data_feed.lower() if data_feed else None,
+        )

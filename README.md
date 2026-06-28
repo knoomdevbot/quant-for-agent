@@ -74,6 +74,8 @@ Set these environment variables for Alpaca access:
 export ALPACA_API_KEY=...
 export ALPACA_SECRET_KEY=...
 export ALPACA_PAPER=true
+# Optional: use IEX data for accounts without recent SIP entitlement.
+export ALPACA_DATA_FEED=iex
 ```
 
 Order placement requires passing `--submit-orders` to the daemon. With `ALPACA_PAPER=true`, orders go to the Alpaca paper account. With `ALPACA_PAPER=false`, live brokerage orders also require `--allow-live-brokerage`. Use paper trading first.
