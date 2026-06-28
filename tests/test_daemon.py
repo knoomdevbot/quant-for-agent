@@ -9,9 +9,10 @@ from quant_for_agent.storage import Store
 
 
 class FakeAlpacaGateway:
-    def __init__(self, positions=None, open_orders=None):
+    def __init__(self, positions=None, open_orders=None, open_order_sides=None):
         self.positions = positions or {}
         self.open_orders = open_orders or {}
+        self._open_order_sides = open_order_sides or {}
         self.submitted_orders = []
 
     def account_equity(self):
@@ -22,6 +23,9 @@ class FakeAlpacaGateway:
 
     def open_order_notional_values(self, symbols):
         return {symbol: self.open_orders.get(symbol, 0.0) for symbol in symbols}
+
+    def open_order_sides(self, symbols):
+        return {symbol: set(self._open_order_sides.get(symbol, set())) for symbol in symbols}
 
     def get_bars(self, symbols, start, end):
         return pd.DataFrame(
@@ -150,6 +154,59 @@ def test_daemon_rebalances_against_pending_open_orders(tmp_path):
 
     assert events == []
     assert alpaca.submitted_orders == []
+
+
+def test_daemon_skips_opposite_side_submission_when_open_order_is_pending(tmp_path):
+    model_path = tmp_path / "target_weight_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'AAPL': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("rebalance_model", str(model_path), 0.4, ["AAPL"])
+    alpaca = FakeAlpacaGateway(
+        positions={"AAPL": 100.0},
+        open_orders={"AAPL": 500.0},
+        open_order_sides={"AAPL": {"buy"}},
+    )
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True),
+    ).tick()
+
+    assert len(events) == 1
+    assert events[0]["symbol"] == "AAPL"
+    assert events[0]["side"] == "sell"
+    assert events[0]["response"] == {
+        "status": "skipped",
+        "reason": "conflicting_open_order",
+        "symbol": "AAPL",
+        "side": "sell",
+        "notional": 200.0,
+        "open_order_sides": ["buy"],
+    }
+    assert alpaca.submitted_orders == []
+
+
+def test_alpaca_gateway_reports_open_order_sides():
+    class FakeTradingClient:
+        def get_orders(self, filter=None):
+            return [
+                SimpleNamespace(symbol="AAPL", side="buy"),
+                SimpleNamespace(symbol="AAPL", side="sell"),
+                SimpleNamespace(symbol="MSFT", side="sell"),
+                SimpleNamespace(symbol="TSLA", side="buy"),
+            ]
+
+    gateway = object.__new__(AlpacaGateway)
+    gateway.trading_client = FakeTradingClient()
+
+    sides = gateway.open_order_sides(["AAPL", "MSFT"])
+
+    assert sides == {"AAPL": {"buy", "sell"}, "MSFT": {"sell"}}
 
 
 def test_alpaca_gateway_sums_signed_open_order_notional_values():

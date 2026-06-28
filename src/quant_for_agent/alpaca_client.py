@@ -70,16 +70,31 @@ class AlpacaGateway:
             values[str(symbol)] = float(getattr(position, "market_value", 0.0) or 0.0)
         return values
 
-    def open_order_notional_values(self, symbols: list[str]) -> dict[str, float]:
+    def _open_orders(self):
         from alpaca.trading.enums import QueryOrderStatus
         from alpaca.trading.requests import GetOrdersRequest
 
+        return self.trading_client.get_orders(filter=GetOrdersRequest(status=QueryOrderStatus.OPEN))
+
+    def open_order_sides(self, symbols: list[str]) -> dict[str, set[str]]:
+        allowed = set(symbols)
+        sides: dict[str, set[str]] = {symbol: set() for symbol in symbols}
+        for order in self._open_orders():
+            symbol = getattr(order, "symbol", None)
+            if symbol not in allowed:
+                continue
+            side = str(getattr(order, "side", "")).lower()
+            if side.endswith("buy"):
+                sides[str(symbol)].add("buy")
+            elif side.endswith("sell"):
+                sides[str(symbol)].add("sell")
+        return sides
+
+    def open_order_notional_values(self, symbols: list[str]) -> dict[str, float]:
         allowed = set(symbols)
         values: dict[str, float] = {symbol: 0.0 for symbol in symbols}
         position_prices: dict[str, float] | None = None
-        for order in self.trading_client.get_orders(
-            filter=GetOrdersRequest(status=QueryOrderStatus.OPEN)
-        ):
+        for order in self._open_orders():
             symbol = getattr(order, "symbol", None)
             if symbol not in allowed:
                 continue
