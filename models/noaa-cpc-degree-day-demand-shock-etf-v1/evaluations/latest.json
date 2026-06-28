@@ -1,0 +1,358 @@
+{
+  "artifact_policy": {
+    "compact_only": true,
+    "no_equity_curves_or_weight_tails_retained": true,
+    "no_raw_daily_bars_retained": true,
+    "no_raw_weather_tables_retained": true
+  },
+  "controls_ablations": {
+    "energy_63d_reversal_control": {
+      "activation_rate": 0.8301886792452831,
+      "annualized_return": 0.023683180080690255,
+      "annualized_turnover": 21.444743935309972,
+      "annualized_volatility": 0.19039798756797108,
+      "event_count": 75,
+      "max_drawdown": -0.18849406731549945,
+      "mean_daily_turnover": 0.08509819021948402,
+      "sharpe": 0.12438776471960075,
+      "total_return": 0.009212577491906071,
+      "win_rate": 0.3638814016172507
+    },
+    "energy_63d_tsmom_control": {
+      "activation_rate": 0.8301886792452831,
+      "annualized_return": -0.023683180080690255,
+      "annualized_turnover": 21.444743935309972,
+      "annualized_volatility": 0.19039798756797108,
+      "event_count": 75,
+      "max_drawdown": -0.22038525894228356,
+      "mean_daily_turnover": 0.08509819021948402,
+      "sharpe": -0.12438776471960075,
+      "total_return": -0.060688752050818584,
+      "win_rate": 0.46630727762803237
+    },
+    "inverted_weather": {
+      "activation_rate": 0.25336927223719674,
+      "annualized_return": 0.060609401884197146,
+      "annualized_turnover": 12.19299191374663,
+      "annualized_volatility": 0.0818836021478122,
+      "event_count": 23,
+      "max_drawdown": -0.061534451817746305,
+      "mean_daily_turnover": 0.04838488854661361,
+      "sharpe": 0.7401897363380285,
+      "total_return": 0.08801072058837467,
+      "win_rate": 0.12668463611859837
+    },
+    "same_weekday_placebo": {
+      "activation_rate": 0.24528301886792453,
+      "annualized_return": -0.009512555580594448,
+      "annualized_turnover": 11.702964959568735,
+      "annualized_volatility": 0.06410660467104061,
+      "event_count": 23,
+      "max_drawdown": -0.08242414833011613,
+      "mean_daily_turnover": 0.046440337141145774,
+      "sharpe": -0.14838651382969953,
+      "total_return": -0.016879475645833253,
+      "win_rate": 0.09973045822102426
+    },
+    "seasonality_month_only": {
+      "activation_rate": 0.3045822102425876,
+      "annualized_return": -0.004994666449132418,
+      "annualized_turnover": 6.113207547169811,
+      "annualized_volatility": 0.0753827299827554,
+      "event_count": 23,
+      "max_drawdown": -0.10044222418606097,
+      "mean_daily_turnover": 0.02425876010781671,
+      "sharpe": -0.06625743655443363,
+      "total_return": -0.011458674341741304,
+      "win_rate": 0.1509433962264151
+    },
+    "shifted_release_labels": {
+      "activation_rate": 0.2371967654986523,
+      "annualized_return": 0.03445938722155765,
+      "annualized_turnover": 11.212938005390836,
+      "annualized_volatility": 0.09486546424292708,
+      "event_count": 23,
+      "max_drawdown": -0.0682494798438884,
+      "mean_daily_turnover": 0.04449578573567792,
+      "sharpe": 0.36324480670136866,
+      "total_return": 0.04523859556193566,
+      "win_rate": 0.10512129380053908
+    }
+  },
+  "cost_sensitivity": {
+    "20bps": {
+      "activation_rate": 0.25336927223719674,
+      "annualized_return": -0.09718837762543701,
+      "annualized_turnover": 12.19299191374663,
+      "annualized_volatility": 0.08353233197086783,
+      "event_count": 23,
+      "max_drawdown": -0.18405401538110133,
+      "mean_daily_turnover": 0.04838488854661361,
+      "sharpe": -1.1634821551412184,
+      "total_return": -0.13782562742092463,
+      "win_rate": 0.0889487870619946
+    },
+    "5bps": {
+      "activation_rate": 0.25336927223719674,
+      "annualized_return": -0.07889888975481707,
+      "annualized_turnover": 12.19299191374663,
+      "annualized_volatility": 0.08260603911370665,
+      "event_count": 23,
+      "max_drawdown": -0.16881908025401937,
+      "mean_daily_turnover": 0.04838488854661361,
+      "sharpe": -0.9551225382712429,
+      "total_return": -0.11418385776765894,
+      "win_rate": 0.0889487870619946
+    }
+  },
+  "created_at_utc": "2026-06-28T04:12:49Z",
+  "data": {
+    "active_event_count": 23,
+    "candidate_pool": [
+      "UNG",
+      "USO",
+      "XLE",
+      "XOP",
+      "XLU",
+      "ICLN",
+      "TAN",
+      "KOL",
+      "DBE",
+      "GSG",
+      "DBC",
+      "PDBC",
+      "XLRE",
+      "SPY"
+    ],
+    "coverage_summary": {
+      "DBC": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 17768081.759999998
+      },
+      "DBE": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 318850.7
+      },
+      "GSG": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 11756909.12
+      },
+      "ICLN": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 49727363.4
+      },
+      "PDBC": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 70678299.64999999
+      },
+      "SPY": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 43344454900.229996
+      },
+      "TAN": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 39511356.58
+      },
+      "UNG": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 126237564.8
+      },
+      "USO": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 396796531.59999996
+      },
+      "XLE": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 1511656743.1
+      },
+      "XLRE": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 250756684.93999997
+      },
+      "XLU": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 907178708.48
+      },
+      "XOP": {
+        "bars": 371,
+        "first": "2025-01-02",
+        "last": "2026-06-26",
+        "median_dollar_volume": 441832891.5
+      }
+    },
+    "end": "2026-06-27",
+    "first_event": {
+      "active": true,
+      "cdd_archive_modified_visible": "2025-03-18T15:08",
+      "cdd_url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Cooling%20Degree%20Days/weekly%20cooling%20degree%20days%20state/2025/Jan%2004,%202025.txt",
+      "cdd_week_dev_from_norm": 0,
+      "demand_shock": -1.3928571428571428,
+      "hdd_archive_modified_visible": "2025-03-18T15:08",
+      "hdd_url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/weekly%20states/2025/Jan%2004,%202025.txt",
+      "hdd_week_dev_from_norm": -39,
+      "period_end": "2025-01-04",
+      "public_timestamp_basis": "Apache-style archive Last modified in directory listing; timezone not stated; trade delayed to next calendar-day regular session.",
+      "release_timestamp_safe": true,
+      "signal_trade_date": "2025-03-19"
+    },
+    "last_event": {
+      "active": false,
+      "cdd_archive_modified_visible": "2026-06-23T17:26",
+      "cdd_url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Cooling%20Degree%20Days/weekly%20cooling%20degree%20days%20state/2026/Jun%2020,%202026.txt",
+      "cdd_week_dev_from_norm": -1,
+      "demand_shock": -0.08412698412698413,
+      "hdd_archive_modified_visible": "2026-06-23T17:26",
+      "hdd_url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/weekly%20states/2026/Jun%2020,%202026.txt",
+      "hdd_week_dev_from_norm": -2,
+      "period_end": "2026-06-20",
+      "public_timestamp_basis": "Apache-style archive Last modified in directory listing; timezone not stated; trade delayed to next calendar-day regular session.",
+      "release_timestamp_safe": true,
+      "signal_trade_date": "2026-06-24"
+    },
+    "noaa_sample_records": [
+      {
+        "kind": "cdd",
+        "modified": "2025-04-14T06:59",
+        "period_end": "2025-04-12",
+        "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Cooling%20Degree%20Days/weekly%20cooling%20degree%20days%20state/2025/Apr%2012,%202025.txt",
+        "week_dev_from_norm": 1
+      },
+      {
+        "kind": "cdd",
+        "modified": "2025-04-21T06:59",
+        "period_end": "2025-04-19",
+        "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Cooling%20Degree%20Days/weekly%20cooling%20degree%20days%20state/2025/Apr%2019,%202025.txt",
+        "week_dev_from_norm": 2
+      },
+      {
+        "kind": "cdd",
+        "modified": "2025-04-28T06:59",
+        "period_end": "2025-04-26",
+        "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Cooling%20Degree%20Days/weekly%20cooling%20degree%20days%20state/2025/Apr%2026,%202025.txt",
+        "week_dev_from_norm": 5
+      },
+      {
+        "kind": "cdd",
+        "modified": "2025-08-04T06:59",
+        "period_end": "2025-08-02",
+        "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Cooling%20Degree%20Days/weekly%20cooling%20degree%20days%20state/2025/Aug%2002,%202025.txt",
+        "week_dev_from_norm": 9
+      },
+      {
+        "kind": "cdd",
+        "modified": "2025-08-11T06:59",
+        "period_end": "2025-08-09",
+        "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Cooling%20Degree%20Days/weekly%20cooling%20degree%20days%20state/2025/Aug%2009,%202025.txt",
+        "week_dev_from_norm": -5
+      },
+      {
+        "kind": "cdd",
+        "modified": "2025-08-18T06:59",
+        "period_end": "2025-08-16",
+        "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Cooling%20Degree%20Days/weekly%20cooling%20degree%20days%20state/2025/Aug%2016,%202025.txt",
+        "week_dev_from_norm": 18
+      }
+    ],
+    "noaa_source": "Official NOAA/CPC archived weekly population-weighted state degree-day text files under ftp.cpc.ncep.noaa.gov htdocs archive; parsed in memory only.",
+    "price_source": "real ETF daily bars via qfa AlpacaGateway configured paper-data access",
+    "selected_universe": [
+      "UNG",
+      "USO",
+      "XLE",
+      "XOP",
+      "XLU",
+      "ICLN",
+      "TAN"
+    ],
+    "start": "2025-01-01",
+    "timeframe": "1Day",
+    "timestamp_rule": "Visible archive modified timestamps from directory listings; because timezone semantics are not stated, signals trade no earlier than the next regular session after the modified calendar date. Pre-2025 files in archive have bulk 2025 modified stamps and were not used for timely evaluation.",
+    "timestamp_safe_event_count": 75,
+    "universe_selection": "Selected before performance for Alpaca coverage/liquidity and direct weather-demand exposure: natural gas/oil/producers/utilities/renewables. KOL unavailable; DBE/GSG/DBC/PDBC/XLRE/SPY retained only as diagnostics/beta controls, not final weather sleeve."
+  },
+  "decision": {
+    "gate_pass": false,
+    "rationale": "Rejected unless costed random-window median/p25/positive-rate, drawdown, and same-weekday/shifted/seasonality/energy-momentum controls pass.",
+    "status": "rejected"
+  },
+  "event_window_metrics": {
+    "active_event_count": 23,
+    "median_5session_event_return": 0.004024754885168614,
+    "positive_event_rate": 0.5217391304347826,
+    "worst_5session_event_return": -0.029379340188480815
+  },
+  "issue_id": "AR-136",
+  "limitations": [
+    "Timestamp archive timezone not stated; used conservative next-calendar-day regular-session lag.",
+    "Only 2025-2026 archive files have contemporaneous-looking modified timestamps; older annual archives were bulk-updated in 2025 and excluded for timely tests, limiting sample length.",
+    "EIA/storage release timing controlled only indirectly via weekday/shifted labels and energy momentum/reversal; no official EIA storage series ingested.",
+    "ETF proxies have roll/issuer/theme effects and may underrepresent physical weather load."
+  ],
+  "model_name": "noaa-cpc-degree-day-demand-shock-etf-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "reason": "No retained daily equity/weight paths are available for many accepted/watchlist artifacts; no raw daily path retained here by artifact policy. Compared conceptually and by controls against nearby energy/commodity momentum, reversal, seasonality/month, same-weekday and shifted-release labels.",
+    "status": "limited"
+  },
+  "paths": {
+    "config_path": "models/noaa-cpc-degree-day-demand-shock-etf-v1/config.yaml",
+    "latest_json": "models/noaa-cpc-degree-day-demand-shock-etf-v1/evaluations/latest.json",
+    "latest_md": "models/noaa-cpc-degree-day-demand-shock-etf-v1/evaluations/latest.md",
+    "metadata_path": "models/noaa-cpc-degree-day-demand-shock-etf-v1/metadata.yaml",
+    "model_path": "models/noaa-cpc-degree-day-demand-shock-etf-v1/model.py",
+    "run_json": "models/noaa-cpc-degree-day-demand-shock-etf-v1/evaluations/runs/20260628T041249Z.json"
+  },
+  "primary_metrics": {
+    "activation_rate": 0.25336927223719674,
+    "annualized_return": -0.08499538571169038,
+    "annualized_turnover": 12.19299191374663,
+    "annualized_volatility": 0.08289245928224193,
+    "event_count": 23,
+    "max_drawdown": -0.17392687933492457,
+    "mean_daily_turnover": 0.04838488854661361,
+    "sharpe": -1.0253693333224456,
+    "total_return": -0.12213288042751713,
+    "win_rate": 0.0889487870619946
+  },
+  "random_window_metrics": {
+    "count": 80,
+    "length_sessions": 63,
+    "median_sharpe": -0.5580347382345027,
+    "p25_sharpe": -2.321350290618612,
+    "positive_window_rate": 0.3375,
+    "worst_sharpe": -4.233163564236414
+  },
+  "raw_daily_paths_retained": false,
+  "signal": {
+    "hold_sessions": 5,
+    "primary_cost_bps": 10,
+    "rule": "Compute national weekly CDD/HDD deviation from normal from official CPC weekly files. Warm months emphasize CDD, cool months HDD; active when abs(combined demand shock)>=0.75; hold 5 sessions; demand-up long UNG/USO/XLE/XOP and short XLU/ICLN/TAN, inverted for demand-down; cap gross <=1."
+  }
+}

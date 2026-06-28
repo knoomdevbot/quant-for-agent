@@ -1000,15 +1000,15 @@ issues:
 - id: AR-136
   title: NOAA/CPC degree-day demand-shock energy and utility ETF allocator
   model_name: noaa-cpc-degree-day-demand-shock-etf-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: external_weather_energy_demand
   issue_path: alpha_research/issues/AR-136.md
-active_batch:
-- AR-136
+active_batch: []
 last_realdata_batch:
 - AR-134
 - AR-135
-updated_at: '2026-06-28T04:05:45Z'
+- AR-136
+updated_at: '2026-06-28T04:12:49Z'
 target_tried_ideas: 100
 tried_ideas_count: 129

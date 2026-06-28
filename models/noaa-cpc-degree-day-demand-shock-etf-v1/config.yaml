@@ -1,0 +1,17 @@
+issue_id: AR-136
+model_name: noaa-cpc-degree-day-demand-shock-etf-v1
+research_only: true
+selected_universe: [UNG, USO, XLE, XOP, XLU, ICLN, TAN]
+qfa_runtime_behavior: uses_supplied_timestamp_safe_degree_day_features_else_flat
+evaluation_rule:
+  source: official NOAA/CPC archived weekly degree-day state files
+  timestamp_lag: next regular session after visible archive modified calendar date
+  hold_sessions: 5
+  active_threshold_abs_demand_shock: 0.75
+  primary_cost_bps: 10
+  gross_cap: 1.0
+artifact_policy:
+  compact_only: true
+  no_raw_weather_tables: true
+  no_raw_bars: true
+  no_daily_equity_or_weights: true

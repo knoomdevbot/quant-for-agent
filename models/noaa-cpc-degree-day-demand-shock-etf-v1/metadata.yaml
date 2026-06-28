@@ -1,0 +1,14 @@
+issue_id: AR-136
+model_name: noaa-cpc-degree-day-demand-shock-etf-v1
+status: rejected
+created_at_utc: 2026-06-28T04:12:49Z
+data_sources:
+  prices: qfa AlpacaGateway configured paper-data access
+  weather: official NOAA/CPC archived weekly degree-day files with visible archive modified timestamps
+compliance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+latest_evaluation: evaluations/latest.json
