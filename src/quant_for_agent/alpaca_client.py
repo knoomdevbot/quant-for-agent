@@ -14,6 +14,19 @@ def _optional_float(value: Any) -> float | None:
     return float(value)
 
 
+def _position_unit_prices(positions: Any, symbols: set[str]) -> dict[str, float]:
+    prices: dict[str, float] = {}
+    for position in positions:
+        symbol = getattr(position, "symbol", None)
+        if symbol not in symbols:
+            continue
+        qty = _optional_float(getattr(position, "qty", None))
+        market_value = _optional_float(getattr(position, "market_value", None))
+        if qty and market_value is not None:
+            prices[str(symbol)] = abs(market_value) / abs(qty)
+    return prices
+
+
 class AlpacaGateway:
     def __init__(self, config: AlpacaConfig | None = None):
         self.config = config or AlpacaConfig.from_env()
@@ -57,15 +70,31 @@ class AlpacaGateway:
             values[str(symbol)] = float(getattr(position, "market_value", 0.0) or 0.0)
         return values
 
-    def open_order_notional_values(self, symbols: list[str]) -> dict[str, float]:
+    def _open_orders(self):
         from alpaca.trading.enums import QueryOrderStatus
         from alpaca.trading.requests import GetOrdersRequest
 
+        return self.trading_client.get_orders(filter=GetOrdersRequest(status=QueryOrderStatus.OPEN))
+
+    def open_order_sides(self, symbols: list[str]) -> dict[str, set[str]]:
+        allowed = set(symbols)
+        sides: dict[str, set[str]] = {symbol: set() for symbol in symbols}
+        for order in self._open_orders():
+            symbol = getattr(order, "symbol", None)
+            if symbol not in allowed:
+                continue
+            side = str(getattr(order, "side", "")).lower()
+            if side.endswith("buy"):
+                sides[str(symbol)].add("buy")
+            elif side.endswith("sell"):
+                sides[str(symbol)].add("sell")
+        return sides
+
+    def open_order_notional_values(self, symbols: list[str]) -> dict[str, float]:
         allowed = set(symbols)
         values: dict[str, float] = {symbol: 0.0 for symbol in symbols}
-        for order in self.trading_client.get_orders(
-            filter=GetOrdersRequest(status=QueryOrderStatus.OPEN)
-        ):
+        position_prices: dict[str, float] | None = None
+        for order in self._open_orders():
             symbol = getattr(order, "symbol", None)
             if symbol not in allowed:
                 continue
@@ -75,6 +104,12 @@ class AlpacaGateway:
             remaining_qty = max(qty - filled_qty, 0.0) if qty is not None else None
             if notional is None:
                 price = _optional_float(getattr(order, "limit_price", None))
+                if price is None and remaining_qty is not None:
+                    if position_prices is None:
+                        position_prices = _position_unit_prices(
+                            self.trading_client.get_all_positions(), allowed
+                        )
+                    price = position_prices.get(str(symbol))
                 if remaining_qty is None or price is None:
                     continue
                 signed_notional = remaining_qty * price

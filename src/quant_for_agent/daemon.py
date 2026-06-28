@@ -54,6 +54,7 @@ class TradingDaemon:
         symbols = list(target_values)
         current_values = self.alpaca.position_market_values(symbols)
         open_order_values = self.alpaca.open_order_notional_values(symbols)
+        open_order_sides = self.alpaca.open_order_sides(symbols)
         for symbol, target_notional in target_values.items():
             current_notional = current_values.get(symbol, 0.0) + open_order_values.get(symbol, 0.0)
             delta_notional = target_notional - current_notional
@@ -61,8 +62,19 @@ class TradingDaemon:
             if notional < 1.0:
                 continue
             side = "buy" if delta_notional >= 0 else "sell"
+            pending_sides = open_order_sides.get(symbol, set())
+            opposite_side = "sell" if side == "buy" else "buy"
             response = {"dry_run": True, "symbol": symbol, "side": side, "notional": notional}
-            if not self.config.dry_run:
+            if opposite_side in pending_sides:
+                response = {
+                    "status": "skipped",
+                    "reason": "conflicting_open_order",
+                    "symbol": symbol,
+                    "side": side,
+                    "notional": notional,
+                    "open_order_sides": sorted(pending_sides),
+                }
+            elif not self.config.dry_run:
                 try:
                     response = self.alpaca.submit_notional_order(symbol, side, notional)
                 except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
