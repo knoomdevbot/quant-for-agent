@@ -74,6 +74,15 @@ class TradingDaemon:
                     "notional": notional,
                     "open_order_sides": sorted(pending_sides),
                 }
+            elif side in pending_sides:
+                response = {
+                    "status": "skipped",
+                    "reason": "pending_same_side_order",
+                    "symbol": symbol,
+                    "side": side,
+                    "notional": notional,
+                    "open_order_sides": sorted(pending_sides),
+                }
             elif not self.config.dry_run:
                 try:
                     response = self.alpaca.submit_notional_order(symbol, side, notional)

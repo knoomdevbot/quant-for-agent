@@ -191,6 +191,41 @@ def test_daemon_skips_opposite_side_submission_when_open_order_is_pending(tmp_pa
     assert alpaca.submitted_orders == []
 
 
+def test_daemon_skips_duplicate_submission_when_same_side_order_is_pending(tmp_path):
+    model_path = tmp_path / "target_weight_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'TLT': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("rebalance_model", str(model_path), 0.2, ["TLT"])
+    alpaca = FakeAlpacaGateway(
+        positions={"TLT": 305.0},
+        open_orders={"TLT": -100.0},
+        open_order_sides={"TLT": {"sell"}},
+    )
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True),
+    ).tick()
+
+    assert len(events) == 1
+    assert events[0]["symbol"] == "TLT"
+    assert events[0]["side"] == "sell"
+    assert events[0]["response"] == {
+        "status": "skipped",
+        "reason": "pending_same_side_order",
+        "symbol": "TLT",
+        "side": "sell",
+        "notional": 5.0,
+        "open_order_sides": ["sell"],
+    }
+    assert alpaca.submitted_orders == []
+
+
 def test_alpaca_gateway_reports_open_order_sides():
     class FakeTradingClient:
         def get_orders(self, filter=None):
