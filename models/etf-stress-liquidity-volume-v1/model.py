@@ -120,16 +120,16 @@ def generate_signals(context) -> dict[str, float]:
     for s in available:
         c = close[s].dropna()
         h = high[s].reindex(c.index).ffill()
-        l = low[s].reindex(c.index).ffill()
+        lows = low[s].reindex(c.index).ffill()
         v = volume[s].reindex(c.index).ffill()
         if len(c) < MIN_HISTORY:
             continue
-        hl_range = ((h - l) / c.shift(1)).replace([math.inf, -math.inf], pd.NA).dropna()
+        hl_range = ((h - lows) / c.shift(1)).replace([math.inf, -math.inf], pd.NA).dropna()
         dollar_vol = (c * v).replace([math.inf, -math.inf], pd.NA).dropna()
         range_z = _zscore(_safe_float(hl_range.iloc[-1]), hl_range.iloc[-BASELINE_WINDOW - 1 : -1])
         dvol_z = _zscore(_safe_float(math.log(max(dollar_vol.iloc[-1], 1.0))), dollar_vol.apply(lambda x: math.log(max(float(x), 1.0))).iloc[-BASELINE_WINDOW - 1 : -1])
-        denom = max(_safe_float(h.iloc[-1] - l.iloc[-1]), 1e-9)
-        close_location = _clip(_safe_float((c.iloc[-1] - l.iloc[-1]) / denom), 0.0, 1.0)
+        denom = max(_safe_float(h.iloc[-1] - lows.iloc[-1]), 1e-9)
+        close_location = _clip(_safe_float((c.iloc[-1] - lows.iloc[-1]) / denom), 0.0, 1.0)
         poor_close = 1.0 - close_location
         # Stress rises with abnormal trading demand and wide ranges, especially if
         # shares close near the day's low.  This deliberately ignores open/gap data.
