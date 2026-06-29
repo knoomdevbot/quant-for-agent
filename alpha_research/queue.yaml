@@ -1039,12 +1039,41 @@ issues:
   priority: preflight_queue
   family: public_index_membership_event_flow
   issue_path: alpha_research/issues/AR-141.md
+- id: AR-142
+  title: Timestamp-safe crypto perp funding carry with OI deceleration feasibility scout
+  model_name: crypto-perp-funding-oi-deceleration-scout-v1
+  status: queued
+  priority: preflight_queue_crypto_feasibility
+  family: crypto_perp_funding_carry
+  asset_bucket: crypto
+  crypto_label: true
+  issue_path: alpha_research/issues/AR-142.md
+- id: AR-143
+  title: Timestamp-safe crypto perp liquidation-exhaustion reversal event-study scout
+  model_name: crypto-perp-liquidation-exhaustion-reversal-scout-v1
+  status: queued
+  priority: preflight_queue_crypto_feasibility
+  family: crypto_liquidation_microstructure_reversal
+  asset_bucket: crypto
+  crypto_label: true
+  issue_path: alpha_research/issues/AR-143.md
+- id: AR-144
+  title: Timestamp-safe BTC/ETH exchange-netflow pressure fast-falsification scout
+  model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
+  status: queued
+  priority: preflight_queue_crypto_feasibility
+  family: crypto_onchain_exchange_flow_pressure
+  asset_bucket: crypto
+  crypto_label: true
+  issue_path: alpha_research/issues/AR-144.md
 active_batch:
 - AR-141
+- AR-142
+- AR-143
 last_realdata_batch:
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-28T05:55:14Z'
+updated_at: '2026-06-29T01:51:07Z'
 target_tried_ideas: 100
 tried_ideas_count: 133
