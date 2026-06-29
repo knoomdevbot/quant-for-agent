@@ -1,0 +1,109 @@
+{
+  "issue_id": "AR-143",
+  "model_name": "crypto-perp-liquidation-exhaustion-reversal-scout-v1",
+  "created_at_utc": "2026-06-29T02:01:49Z",
+  "decision": "blocked_infra_data_depth_evaluator",
+  "decision_rationale": "A timestamp-safe liquidation-exhaustion event study is not immediately feasible in current qfa. OKX public API shape checks show timestamped BTC-USDT-SWAP liquidation prints plus trades and 1m candles are reachable, so the core event data is plausible. However, historical tradable depth/spread data required for stressed execution was not proven from public APIs, Binance derivative APIs are restricted from this host, Bybit is country-blocked, and current qfa has no crypto-perp liquidation/depth ingestion or event-study cost evaluator. Any performance claim now would fabricate missing depth, slippage, venue coverage, or same-bar timing assumptions.",
+  "asset_bucket": "crypto",
+  "crypto_label": true,
+  "research_type": "feasibility_event_study_scout",
+  "performance_evaluation_run": false,
+  "performance_metrics": null,
+  "fee_model": {
+    "maker_bps": 2.0,
+    "taker_bps": 5.0,
+    "fill_mix": {
+      "maker": 0.25,
+      "taker": 0.75
+    },
+    "applied_to_performance": false,
+    "notes": "Liquidation-exhaustion entries are assumed mostly taker/urgent until proven otherwise; fee model documented only because no event-study performance was run."
+  },
+  "data_feasibility_findings": {
+    "overall_immediate_feasibility": "blocked",
+    "future_feasibility": "plausible_after_dedicated_crypto_derivatives_ingestion_and_historical_depth_or_conservative_spread_proxy",
+    "timestamp_safe_liquidation_prints": "plausible_on_okx_public_api_for_recent_or_paginated_history; not proven cross-venue without vendor or authorized exchange access",
+    "tradable_price_history": "plausible via OKX trades/history-candles and Binance data archives where accessible; must align contract identifiers and event timestamps",
+    "historical_depth_or_spread_history": "not_proven_from_public_lightweight_checks; Binance public data archive has bookDepth files but Binance liquidation API was restricted and OKX public check only proved current book endpoint",
+    "current_repo_support": {
+      "native_crypto_perp_liquidation_ingestion": false,
+      "native_historical_order_book_depth_ingestion": false,
+      "native_event_study_evaluator": false,
+      "qfa_backtest_price_only": true,
+      "qfa_backtest_liquidation_features": false,
+      "qfa_backtest_maker_taker_slippage_depth_model": false,
+      "timestamp_safe_without_new_ingestion": false
+    },
+    "minimum_needed_before_performance": [
+      "Connector for timestamped liquidation prints with side, size/notional, venue, symbol, contract metadata, pagination bounds, and raw-to-normalized schema tests.",
+      "Same-venue BTC/ETH perpetual trades or 1m-or-finer tradable prices with conservative event availability lag and no same-bar lookahead.",
+      "Historical bid/ask spread and depth snapshots, or a documented conservative proxy calibrated from real order-book history, retained outside git.",
+      "Event labeling that uses only liquidation intensity observed at or before the decision timestamp, including deceleration/exhaustion and price-impact-stall features.",
+      "Cost/slippage evaluator with maker/taker/fill-mix, stressed spread/depth assumptions, clustered-event controls, and matched non-event/shifted-timestamp controls."
+    ]
+  },
+  "source_options_checked": [
+    {
+      "source": "OKX public API",
+      "status": "partially_accessible_promising_primary_source",
+      "evidence": "HTTP 200 shape checks for /api/v5/public/liquidation-orders with state=filled on BTC-USDT SWAP returned details containing ts, time, side, posSide, sz and bankruptcy price; /market/history-trades, /market/history-candles?bar=1m and current /market/books were also reachable. Raw payloads were not retained.",
+      "timestamp_safety_notes": "Most promising no-credential path for liquidation prints plus prices. Still needs pagination-window proof, timestamp semantics, publication-lag policy, contract metadata, and historical depth/spread source before evaluation."
+    },
+    {
+      "source": "Binance USD-M public API and Binance Data Vision",
+      "status": "mixed_restricted_api_but_price_depth_archives_partly_reachable",
+      "evidence": "fapi forceOrders, klines and depth API checks returned HTTP 451 restricted-location responses from this host. Binance Data Vision direct HEAD checks found BTCUSDT 1m kline and bookDepth daily ZIP files for 2024-01-01, but a same-pattern liquidationSnapshot file returned 404. No archives were downloaded or retained.",
+      "timestamp_safety_notes": "Useful only if authorized API access or a verified liquidation archive/vendor feed is available; cannot combine accessible price/depth archives with unavailable liquidation prints without a separate timestamp-safe event source."
+    },
+    {
+      "source": "Bybit public API",
+      "status": "not_accessible_from_research_host",
+      "evidence": "v5 market recent-trade and kline checks returned HTTP 403 CloudFront country-block responses.",
+      "timestamp_safety_notes": "Do not assume availability for this infrastructure; possible only from authorized location or licensed vendor data."
+    },
+    {
+      "source": "Kraken Futures public API",
+      "status": "partially_accessible_contract_reference_only",
+      "evidence": "Derivatives instruments endpoint returned HTTP 200, proving basic reachability, but historical liquidation/depth coverage was not proven in this scout.",
+      "timestamp_safety_notes": "Potential supplementary venue only after endpoint-level proof for forced-liquidation events and tradable depth/prices."
+    },
+    {
+      "source": "CoinGlass open API",
+      "status": "requires_credentials_or_license",
+      "evidence": "Liquidation-history endpoint shape check returned application JSON with code 401 / API key missing, indicating credentials are required. No key was used and no vendor data was retained.",
+      "timestamp_safety_notes": "Plausible vendor route if licensed fields include exchange timestamp, side, size/notional, symbol mapping, and enough history."
+    },
+    {
+      "source": "Kaiko, Amberdata, Coin Metrics or equivalent vendors",
+      "status": "plausible_but_unchecked_without_credentials_or_license",
+      "evidence": "No credentials, raw dumps, or caches were used. These vendors are candidates for normalized historical liquidations/trades/order-book data if licensed.",
+      "timestamp_safety_notes": "Best path for robust cross-venue event studies if point-in-time fields, retention policy, and redistribution limits are documented."
+    }
+  ],
+  "acceptance_gate_result": {
+    "data_coverage_gate": "not_passed",
+    "timestamp_discipline_gate": "not_passed_without_new_ingestion_and_depth_source",
+    "costed_performance_gate": "not_run",
+    "children_recommended": []
+  },
+  "artifacts": {
+    "readme": "models/crypto-perp-liquidation-exhaustion-reversal-scout-v1/README.md",
+    "config": "models/crypto-perp-liquidation-exhaustion-reversal-scout-v1/config.yaml",
+    "metadata": "models/crypto-perp-liquidation-exhaustion-reversal-scout-v1/metadata.yaml",
+    "latest_json": "models/crypto-perp-liquidation-exhaustion-reversal-scout-v1/evaluations/latest.json",
+    "latest_md": "models/crypto-perp-liquidation-exhaustion-reversal-scout-v1/evaluations/latest.md",
+    "run_json": "models/crypto-perp-liquidation-exhaustion-reversal-scout-v1/evaluations/runs/20260629T020149Z.json"
+  },
+  "verification": {
+    "json_parses": true,
+    "model_py_created": false,
+    "generate_signals_required": false,
+    "raw_data_committed": false,
+    "staged_secret_scan": "passed"
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}

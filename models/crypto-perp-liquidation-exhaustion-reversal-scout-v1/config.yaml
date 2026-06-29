@@ -1,0 +1,61 @@
+issue_id: AR-143
+model_name: crypto-perp-liquidation-exhaustion-reversal-scout-v1
+asset_bucket: crypto
+crypto_label: true
+mode: feasibility_event_study_scout
+performance_evaluation_run: false
+universe:
+  primary_symbols:
+    - BTC-USDT-SWAP
+    - ETH-USDT-SWAP
+  expansion_symbols:
+    - SOL-USDT-SWAP
+  venue_priority:
+    - OKX
+    - Binance USD-M if authorized and liquidation history is available
+    - Bybit if authorized
+    - licensed vendors
+required_data:
+  liquidation_prints:
+    fields:
+      - venue
+      - instrument_id
+      - exchange_timestamp
+      - side
+      - position_side
+      - size_or_notional
+      - liquidation_or_bankruptcy_price
+    timestamp_policy: decision features may use only prints observed at or before entry timestamp with documented publication lag
+  tradable_prices:
+    minimum_frequency: 1m_or_finer
+    acceptable_types:
+      - trades
+      - mark/index/last-price candles with documented semantics
+  depth_or_spread:
+    requirement: historical bid/ask spread and top-of-book/depth snapshots or conservative real-data-calibrated proxy
+candidate_features:
+  - liquidation_notional_percentile
+  - side_specific_liquidation_intensity
+  - liquidation_intensity_deceleration
+  - price_impact_stall
+  - liquidity_depth_filter
+  - clustered_event_cooldown
+controls:
+  - simple_short_horizon_reversal
+  - volatility_spike
+  - volume_spike
+  - shifted_liquidation_timestamps
+  - matched_non_event_windows
+  - continuation_leg
+fee_model:
+  maker_bps: 2.0
+  taker_bps: 5.0
+  fill_mix:
+    maker: 0.25
+    taker: 0.75
+constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
