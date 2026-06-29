@@ -1,0 +1,22 @@
+model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
+issue_id: AR-144
+title: Timestamp-safe BTC/ETH exchange-netflow pressure fast-falsification scout
+created_at_utc: '2026-06-29T16:18:24Z'
+status: hold
+decision: hold
+asset_bucket: crypto
+crypto_label: true
+family: crypto_onchain_exchange_flow_pressure
+performance_evaluation_run: false
+performance_metrics: null
+hold_reason: external_timestamp_safe_provider_access_unavailable
+blocked_component: point_in_time_exchange_flow_provider_or_qfa_ingestion
+external_issue_url_or_id: provider_access_required_coin_metrics_or_glassnode_or_cryptoquant_or_nansen
+last_checked_at: '2026-06-29T16:18:24Z'
+next_check_at: '2026-07-29T16:18:43Z'
+unblock_condition: Licensed or credential-free provider/API with BTC/ETH exchange inflow/outflow/netflow/balance, as-of timestamps or revision history, publication-lag policy, and qfa ingestion support.
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

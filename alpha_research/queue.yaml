@@ -1060,18 +1060,25 @@ issues:
 - id: AR-144
   title: Timestamp-safe BTC/ETH exchange-netflow pressure fast-falsification scout
   model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
-  status: queued
-  priority: preflight_queue_crypto_feasibility
+  status: hold
+  priority: completed_crypto_feasibility_hold
   family: crypto_onchain_exchange_flow_pressure
   asset_bucket: crypto
   crypto_label: true
   issue_path: alpha_research/issues/AR-144.md
+  hold_reason: external_timestamp_safe_provider_access_unavailable
+  external_issue_url_or_id: provider_access_required_coin_metrics_or_glassnode_or_cryptoquant_or_nansen
+  blocked_component: point_in_time_exchange_flow_provider_or_qfa_ingestion
+  last_checked_at: '2026-06-29T16:18:24Z'
+  next_check_at: '2026-07-29T16:18:43Z'
+  unblock_condition: Licensed or credential-free provider/API with BTC/ETH exchange inflow/outflow/netflow/balance, as-of timestamps or revision history, publication-lag policy, and qfa ingestion support.
 active_batch: []
 last_realdata_batch:
+- AR-144
 - AR-141
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-29T16:11:51Z'
+updated_at: '2026-06-29T16:18:24Z'
 target_tried_ideas: 100
 tried_ideas_count: 133

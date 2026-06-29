@@ -1,0 +1,37 @@
+model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
+issue_id: AR-144
+asset_bucket: crypto
+crypto_label: true
+research_type: crypto_native_source_feasibility_scout
+status: hold
+universe:
+  assets: [BTC, ETH]
+  venues: [major_spot_and_perp_exchanges]
+required_provider_metrics:
+  - exchange_inflow
+  - exchange_outflow
+  - exchange_netflow
+  - exchange_balance
+required_timestamp_policy:
+  point_in_time_or_revision_history: true
+  publication_lag_documented: true
+  label_revision_policy_documented: true
+  latest_revised_only_allowed_for_performance: false
+forbidden_evaluation_inputs:
+  - OHLCV_flow_proxy
+  - CSV_fixture
+  - user_supplied_data_csv
+fee_model:
+  maker_bps: 2.0
+  taker_bps: 5.0
+  fill_mix:
+    maker: 0.5
+    taker: 0.5
+  funding_evaluated: false
+  notes: Spot/mixed execution assumption documented only; no performance run.
+hold:
+  hold_reason: external_timestamp_safe_provider_access_unavailable
+  blocked_component: point_in_time_exchange_flow_provider_or_qfa_ingestion
+  last_checked_at: '2026-06-29T16:18:24Z'
+  next_check_at: '2026-07-29T16:18:43Z'
+  unblock_condition: Licensed or credential-free provider/API with BTC/ETH exchange inflow/outflow/netflow/balance, as-of timestamps or revision history, publication-lag policy, and qfa ingestion support.
