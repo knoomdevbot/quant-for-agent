@@ -96,3 +96,47 @@ def test_get_bars_rejects_unknown_asset_class():
         assert "Unsupported asset_class" in str(exc)
     else:  # pragma: no cover - defensive; this test should fail if no exception is raised
         raise AssertionError("expected unsupported asset_class to fail")
+
+
+def test_alpaca_gateway_uses_gtc_time_in_force_for_crypto_orders():
+    submitted = []
+
+    class FakeTradingClient:
+        def submit_order(self, order):
+            submitted.append(order)
+            return {"id": "order"}
+
+    gateway = object.__new__(AlpacaGateway)
+    gateway.trading_client = FakeTradingClient()
+
+    response = gateway.submit_notional_order("BTC/USD", "buy", 25.0, asset_class="crypto")
+
+    assert response == {"id": "order"}
+    order = submitted[0]
+    assert order.symbol == "BTC/USD"
+    assert float(order.notional) == 25.0
+    assert getattr(order.time_in_force, "value", order.time_in_force) == "gtc"
+
+
+def test_alpaca_gateway_rejects_crypto_order_without_slash_symbol():
+    gateway = object.__new__(AlpacaGateway)
+
+    try:
+        gateway.submit_notional_order("BTCUSD", "buy", 25.0, asset_class="crypto")
+    except ValueError as exc:
+        assert "slash-delimited" in str(exc)
+    else:  # pragma: no cover - defensive; this test should fail if no exception is raised
+        raise AssertionError("expected unsupported crypto symbol to fail")
+
+
+def test_alpaca_gateway_rejects_malformed_crypto_bar_symbols():
+    gateway = object.__new__(AlpacaGateway)
+    gateway.config = AlpacaConfig("paper-key", "paper-secret")
+
+    for symbol in ["BTCUSD", "BTC/", "/USD", "BTC/USD/EXTRA", "btc/usd"]:
+        try:
+            gateway.get_bars([symbol], "2024-01-01", "2024-01-03", asset_class="crypto")
+        except ValueError as exc:
+            assert "BASE/QUOTE" in str(exc)
+        else:  # pragma: no cover - defensive; this test should fail if no exception is raised
+            raise AssertionError(f"expected malformed crypto symbol {symbol} to fail")

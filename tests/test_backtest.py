@@ -1,3 +1,4 @@
+import sqlite3
 from pathlib import Path
 
 import pytest
@@ -157,3 +158,42 @@ def test_model_registry_persists_crypto_asset_class(tmp_path):
     assert models[0]["name"] == "crypto-momo"
     assert models[0]["symbols"] == ["BTC/USD"]
     assert models[0]["asset_class"] == "crypto"
+    assert models[0]["asset_bucket"] == "crypto"
+
+
+def test_model_registry_can_filter_by_asset_class(tmp_path):
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("equity-momo", "/tmp/equity.py", 0.10, ["AAPL"], asset_class="equity")
+    store.upsert_model("crypto-momo", "/tmp/crypto.py", 0.05, ["BTC/USD"], asset_class="crypto")
+
+    assert [model["name"] for model in store.list_models(asset_class="crypto")] == ["crypto-momo"]
+    assert [model["name"] for model in store.list_models(asset_class="equity")] == ["equity-momo"]
+
+
+def test_model_registry_migration_backfills_crypto_asset_bucket(tmp_path):
+    db_path = tmp_path / "qfa.sqlite3"
+    conn = sqlite3.connect(db_path)
+    conn.executescript(
+        """
+        CREATE TABLE alpha_models (
+          name TEXT PRIMARY KEY,
+          model_path TEXT NOT NULL,
+          allocation REAL NOT NULL CHECK (allocation >= 0 AND allocation <= 1),
+          symbols TEXT NOT NULL,
+          asset_class TEXT NOT NULL DEFAULT 'equity',
+          active INTEGER NOT NULL DEFAULT 1,
+          updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
+        """
+    )
+    conn.execute(
+        "INSERT INTO alpha_models (name, model_path, allocation, symbols, asset_class) VALUES (?, ?, ?, ?, ?)",
+        ("crypto-momo", "/tmp/model.py", 0.05, '["BTC/USD"]', "crypto"),
+    )
+    conn.commit()
+    conn.close()
+
+    models = Store(db_path).list_models()
+
+    assert models[0]["asset_class"] == "crypto"
+    assert models[0]["asset_bucket"] == "crypto"

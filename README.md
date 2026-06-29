@@ -101,4 +101,11 @@ Crypto backtest results include `asset_class: crypto`, `asset_bucket: crypto`, `
 
 Order placement requires passing `--submit-orders` to the daemon. With `ALPACA_PAPER=true`, orders go to the Alpaca paper account. With `ALPACA_PAPER=false`, live brokerage orders also require `--allow-live-brokerage`. Use paper trading first.
 
-Crypto order submission remains guarded by the existing no-submit default and should be treated as a later hardening slice: validate time-in-force, min notional/qty, fractional behavior, account eligibility, 24/7 session semantics, and maker/taker fee assumptions before enabling production crypto trading.
+Daemon runs include the active registered asset classes in startup output without printing credentials. Crypto models use the same default simulation/no-submit behavior as equity models, request 24/7 Alpaca crypto bars through `CryptoHistoricalDataClient`, and submit paper/live crypto market orders only behind the existing order interlocks. Crypto order requests validate Alpaca's slash-delimited symbol format and use `TimeInForce.GTC`; equity orders continue to use `TimeInForce.DAY`. qfa skips a symbol if active models disagree on its asset class, preventing a crypto symbol from being silently treated as an equity order.
+
+List registered models by asset class when separating crypto from equities/ETFs:
+
+```bash
+qfa models list --asset-class crypto
+qfa models list --asset-class equity
+```

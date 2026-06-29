@@ -2,6 +2,7 @@ import pytest
 from typer.testing import CliRunner
 
 from quant_for_agent import cli
+from quant_for_agent.storage import Store
 
 
 class CapturingDaemon:
@@ -129,3 +130,34 @@ def test_daemon_submit_orders_allows_live_brokerage_with_explicit_interlock(monk
     assert result.exit_code == 0
     assert CapturingDaemon.configs[-1].dry_run is False
     assert "Submitting orders to Alpaca live brokerage account" in result.output
+
+
+def test_daemon_run_logs_active_crypto_asset_class_without_submitting(tmp_path):
+    db_path = tmp_path / "qfa.sqlite3"
+    model_path = tmp_path / "crypto_model.py"
+    model_path.write_text("def generate_signals(context):\n    return {'BTC/USD': 1.0}\n")
+    Store(db_path).upsert_model("crypto", str(model_path), 0.05, ["BTC/USD"], asset_class="crypto")
+
+    result = CliRunner().invoke(cli.app, ["daemon", "run", "--once", "--db", str(db_path)])
+
+    assert result.exit_code == 0
+    assert CapturingDaemon.configs[-1].dry_run is True
+    assert "active_asset_classes=crypto" in result.output
+
+
+def test_daemon_submit_orders_logs_paper_and_active_crypto_asset_class(monkeypatch, tmp_path):
+    monkeypatch.setenv("ALPACA_PAPER", "true")
+    db_path = tmp_path / "qfa.sqlite3"
+    model_path = tmp_path / "crypto_model.py"
+    model_path.write_text("def generate_signals(context):\n    return {'BTC/USD': 1.0}\n")
+    Store(db_path).upsert_model("crypto", str(model_path), 0.05, ["BTC/USD"], asset_class="crypto")
+
+    result = CliRunner().invoke(
+        cli.app,
+        ["daemon", "run", "--submit-orders", "--once", "--db", str(db_path)],
+    )
+
+    assert result.exit_code == 0
+    assert CapturingDaemon.configs[-1].dry_run is False
+    assert "Submitting orders to Alpaca paper account" in result.output
+    assert "active_asset_classes=crypto" in result.output
