@@ -1093,9 +1093,25 @@ issues:
   priority: completed_realdata
   family: macro_liquidity_balance_sheet
   issue_path: alpha_research/issues/AR-147.md
-active_batch: []
+- id: AR-148
+  title: CBOE aggregate put-call pressure ETF reversal/risk-regime feasibility scout
+  model_name: cboe-put-call-pressure-etf-reversal-scout-v1
+  status: queued
+  priority: preflight_queue
+  family: public_options_sentiment_pressure
+  issue_path: alpha_research/issues/AR-148.md
+- id: AR-149
+  title: NY Fed primary dealer Treasury financing-pressure duration ETF scout
+  model_name: nyfed-primary-dealer-treasury-financing-pressure-etf-v1
+  status: queued
+  priority: preflight_queue
+  family: public_dealer_positioning_financing_pressure
+  issue_path: alpha_research/issues/AR-149.md
+active_batch:
+- AR-148
+- AR-149
 last_realdata_batch:
 - AR-147
-updated_at: '2026-06-29T20:35:01Z'
+updated_at: '2026-06-29T20:45:33Z'
 target_tried_ideas: 100
 tried_ideas_count: 135
