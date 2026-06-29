@@ -7,11 +7,26 @@ import pandas as pd
 
 from .config import AlpacaConfig
 
+SUPPORTED_ASSET_CLASSES = {"equity", "crypto"}
+
 
 def _optional_float(value: Any) -> float | None:
     if value is None:
         return None
     return float(value)
+
+
+def _normalize_asset_class(asset_class: str) -> str:
+    normalized = asset_class.strip().lower()
+    if normalized not in SUPPORTED_ASSET_CLASSES:
+        supported = ", ".join(sorted(SUPPORTED_ASSET_CLASSES))
+        raise ValueError(f"Unsupported asset_class {asset_class!r}; expected one of: {supported}")
+    return normalized
+
+
+def _ohlcv_frame(bars: pd.DataFrame) -> pd.DataFrame:
+    bars = bars.rename(columns={"symbol": "symbol", "timestamp": "timestamp"})
+    return bars[["timestamp", "symbol", "open", "high", "low", "close", "volume"]]
 
 
 def _position_unit_prices(positions: Any, symbols: set[str]) -> dict[str, float]:
@@ -31,31 +46,44 @@ class AlpacaGateway:
     def __init__(self, config: AlpacaConfig | None = None):
         self.config = config or AlpacaConfig.from_env()
         try:
-            from alpaca.data.historical import StockHistoricalDataClient
+            from alpaca.data.historical import CryptoHistoricalDataClient, StockHistoricalDataClient
             from alpaca.trading.client import TradingClient
         except ImportError as exc:  # pragma: no cover - exercised only when dependency missing
             raise RuntimeError("Install alpaca-py to use Alpaca integration") from exc
         self.data_client = StockHistoricalDataClient(self.config.api_key, self.config.secret_key)
+        self.crypto_data_client = CryptoHistoricalDataClient(
+            self.config.api_key, self.config.secret_key
+        )
         self.trading_client = TradingClient(
             self.config.api_key, self.config.secret_key, paper=self.config.paper
         )
 
     def get_bars(
-        self, symbols: list[str], start: datetime | str, end: datetime | str, timeframe: str = "1Day"
+        self,
+        symbols: list[str],
+        start: datetime | str,
+        end: datetime | str,
+        timeframe: str = "1Day",
+        asset_class: str = "equity",
     ) -> pd.DataFrame:
         from alpaca.data.enums import DataFeed
-        from alpaca.data.requests import StockBarsRequest
+        from alpaca.data.requests import CryptoBarsRequest, StockBarsRequest
         from alpaca.data.timeframe import TimeFrame
 
+        normalized_asset_class = _normalize_asset_class(asset_class)
         tf = TimeFrame.Day if timeframe in {"1Day", "day", "daily"} else TimeFrame.Minute
-        feed = DataFeed(self.config.data_feed) if self.config.data_feed else None
-        request = StockBarsRequest(
-            symbol_or_symbols=symbols, timeframe=tf, start=start, end=end, feed=feed
-        )
-        bars = self.data_client.get_stock_bars(request).df.reset_index()
-        rename = {"symbol": "symbol", "timestamp": "timestamp"}
-        bars = bars.rename(columns=rename)
-        return bars[["timestamp", "symbol", "open", "high", "low", "close", "volume"]]
+        if normalized_asset_class == "crypto":
+            request = CryptoBarsRequest(
+                symbol_or_symbols=symbols, timeframe=tf, start=start, end=end
+            )
+            bars = self.crypto_data_client.get_crypto_bars(request).df.reset_index()
+        else:
+            feed = DataFeed(self.config.data_feed) if self.config.data_feed else None
+            request = StockBarsRequest(
+                symbol_or_symbols=symbols, timeframe=tf, start=start, end=end, feed=feed
+            )
+            bars = self.data_client.get_stock_bars(request).df.reset_index()
+        return _ohlcv_frame(bars)
 
     def account_equity(self) -> float:
         return float(self.trading_client.get_account().equity)

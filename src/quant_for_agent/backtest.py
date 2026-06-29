@@ -8,6 +8,8 @@ import pandas as pd
 
 from .alpha import AlphaContext, load_alpha_function, normalize_weights
 
+SUPPORTED_BACKTEST_ASSET_CLASSES = {"equity", "crypto"}
+
 
 @dataclass(frozen=True)
 class BacktestConfig:
@@ -17,9 +19,19 @@ class BacktestConfig:
     end: str
     timeframe: str = "1Day"
     initial_cash: float = 100_000.0
+    asset_class: str = "equity"
+
+
+def _normalize_asset_class(asset_class: str) -> str:
+    normalized = asset_class.strip().lower()
+    if normalized not in SUPPORTED_BACKTEST_ASSET_CLASSES:
+        supported = ", ".join(sorted(SUPPORTED_BACKTEST_ASSET_CLASSES))
+        raise ValueError(f"Unsupported asset_class {asset_class!r}; expected one of: {supported}")
+    return normalized
 
 
 def run_backtest(config: BacktestConfig, prices: pd.DataFrame) -> dict:
+    asset_class = _normalize_asset_class(config.asset_class)
     model_fn = load_alpha_function(config.model_path)
     prices = prices.copy()
     prices["timestamp"] = pd.to_datetime(prices["timestamp"], utc=True)
@@ -58,6 +70,9 @@ def run_backtest(config: BacktestConfig, prices: pd.DataFrame) -> dict:
     return {
         "model_path": str(Path(config.model_path).expanduser().resolve()),
         "symbols": config.symbols,
+        "asset_class": asset_class,
+        "asset_bucket": "crypto" if asset_class == "crypto" else "equity",
+        "crypto_label": asset_class == "crypto",
         "start": config.start,
         "end": config.end,
         "timeframe": config.timeframe,
