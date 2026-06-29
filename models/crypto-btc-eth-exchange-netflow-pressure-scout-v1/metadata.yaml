@@ -1,0 +1,28 @@
+model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
+issue_id: AR-144
+status: hold
+asset_bucket: crypto
+crypto_label: true
+family: crypto_onchain_exchange_flow_pressure
+research_type: feasibility_scout
+created_at_utc: '2026-06-29T15:24:02Z'
+config_path: models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/config.yaml
+evaluation_latest_json: models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/evaluations/latest.json
+evaluation_latest_md: models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/evaluations/latest.md
+run_json: models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/evaluations/runs/20260629T152402Z.json
+decision: hold
+hold_reason: timestamp_safe_exchange_netflow_provider_access_coverage_and_qfa_onchain_evaluator_missing
+blocked_component: external_onchain_exchange_netflow_provider_and_crypto_flow_evaluator
+external_issue_url_or_id: none
+last_checked_at: '2026-06-29T15:24:02Z'
+next_check_at: '2026-07-13T15:24:02Z'
+unblock_condition: Provide licensed/API access or an approved connector for PIT/timestamp-safe BTC and ETH exchange inflow/outflow/netflow data with publication lag and label revision policy, plus qfa evaluator support for crypto spot/perp maker/taker fees and perp funding if perps are used.
+fee_model_documented: true
+performance_evaluation_run: false
+children_spawned: []
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
