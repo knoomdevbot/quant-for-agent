@@ -1,0 +1,86 @@
+{
+  "run_id": "ar145_feasibility_20260629T171241Z",
+  "issue_id": "AR-145",
+  "model_name": "sec-8k-item-specific-event-drift-reversal-scout-v1",
+  "created_at": "2026-06-29T17:12:41Z",
+  "status": "blocked",
+  "decision": "feasibility_blocked_no_performance_backtest",
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "data_source": "SEC public company tickers and submissions metadata only; no market backtest",
+  "network_policy": {
+    "sec_user_agent_used": true,
+    "per_request_timeout_seconds": 5,
+    "fetch_pull_used": false,
+    "raw_event_tables_retained": false
+  },
+  "candidate_product_pool": "U.S. exchange-listed common-stock issuers with SEC submissions 8-K filings over qfa/Alpaca overlap; primary sleeve Item 2.02; diagnostics may include Items 7.01 and 8.01 only after feasibility is proven.",
+  "selected_universe": null,
+  "attempted_sample": [
+    {"symbol": "AAPL", "cik": "0000320193", "recent_filings_returned": 1000, "recent_8k_count": 104, "recent_8k_with_items_count": 104, "recent_8k_with_acceptance_datetime_count": 104, "recent_8k_item_2_02_count": 45},
+    {"symbol": "MSFT", "cik": "0000789019", "recent_filings_returned": 1002, "recent_8k_count": 65, "recent_8k_with_items_count": 65, "recent_8k_with_acceptance_datetime_count": 65, "recent_8k_item_2_02_count": 25},
+    {"symbol": "AMZN", "cik": "0001018724", "recent_filings_returned": 1004, "recent_8k_count": 64, "recent_8k_with_items_count": 64, "recent_8k_with_acceptance_datetime_count": 64, "recent_8k_item_2_02_count": 24},
+    {"symbol": "NVDA", "cik": "0001045810", "recent_filings_returned": 1002, "recent_8k_count": 60, "recent_8k_with_items_count": 60, "recent_8k_with_acceptance_datetime_count": 60, "recent_8k_item_2_02_count": 26},
+    {"symbol": "META", "cik": "0001326801", "recent_filings_returned": 1001, "recent_8k_count": 22, "recent_8k_with_items_count": 22, "recent_8k_with_acceptance_datetime_count": 22, "recent_8k_item_2_02_count": 8},
+    {"symbol": "GOOGL", "cik": "0001652044", "recent_filings_returned": 1000, "recent_8k_count": 40, "recent_8k_with_items_count": 40, "recent_8k_with_acceptance_datetime_count": 40, "recent_8k_item_2_02_count": 12},
+    {"symbol": "JPM", "cik": "0000019617", "recent_filings_returned": 25282, "recent_8k_count": 27, "recent_8k_with_items_count": 27, "recent_8k_with_acceptance_datetime_count": 27, "recent_8k_item_2_02_count": 4},
+    {"symbol": "XOM", "cik": "0000034088", "recent_filings_returned": 1004, "recent_8k_count": 106, "recent_8k_with_items_count": 106, "recent_8k_with_acceptance_datetime_count": 106, "recent_8k_item_2_02_count": 26},
+    {"symbol": "WMT", "cik": "0000104169", "recent_filings_returned": 1008, "recent_8k_count": 45, "recent_8k_with_items_count": 45, "recent_8k_with_acceptance_datetime_count": 45, "recent_8k_item_2_02_count": 13},
+    {"symbol": "UNH", "cik": "0000731766", "recent_filings_returned": 1000, "recent_8k_count": 91, "recent_8k_with_items_count": 91, "recent_8k_with_acceptance_datetime_count": 91, "recent_8k_item_2_02_count": 22},
+    {"symbol": "BRK-B", "cik": "0001067983", "recent_filings_returned": 1001, "recent_8k_count": 73, "recent_8k_with_items_count": 73, "recent_8k_with_acceptance_datetime_count": 73, "recent_8k_item_2_02_count": 34},
+    {"symbol": "LLY", "cik": "0000059478", "recent_filings_returned": 1001, "recent_8k_count": 46, "recent_8k_with_items_count": 46, "recent_8k_with_acceptance_datetime_count": 46, "recent_8k_item_2_02_count": 23}
+  ],
+  "selection_filters": [
+    "SEC company-tickers CIK mapping present",
+    "SEC submissions recent form equals 8-K",
+    "non-missing acceptanceDateTime",
+    "non-missing items field",
+    "primary count requires items contains 2.02",
+    "intended future market filter: qfa/Alpaca daily-bar coverage and common-stock-like instrument only"
+  ],
+  "feasibility_counts": {
+    "company_tickers_count": 10433,
+    "symbols_requested": 12,
+    "symbols_with_submission_metadata": 12,
+    "submission_fetch_errors": 0,
+    "recent_filings_total_returned": 36305,
+    "recent_8k_count": 743,
+    "recent_8k_with_items_count": 743,
+    "recent_8k_with_acceptance_datetime_count": 743,
+    "recent_8k_item_2_02_count": 262,
+    "target_liquid_item_2_02_events": 300,
+    "target_passed": false
+  },
+  "top_8k_item_tokens": [["9.01", 485], ["2.02", 262], ["8.01", 185], ["7.01", 135], ["5.02", 130], ["5.07", 70], ["5.03", 35], ["1.01", 13], ["2.03", 6], ["3.03", 5]],
+  "market_backtest": {
+    "run": false,
+    "reason": "Feasibility gate failed in bounded recovery: broad timestamp-safe liquid Item 2.02 event table was not implemented or demonstrated; only 262 Item 2.02 events found in deterministic 12-issuer metadata sample versus target >=300 liquid events."
+  },
+  "performance_metrics": {
+    "annualized_return": null,
+    "annualized_volatility": null,
+    "sharpe": null,
+    "max_drawdown": null,
+    "turnover": null,
+    "hit_rate": null,
+    "median_random_window_sharpe": null,
+    "p25_random_window_sharpe": null,
+    "worst_random_window_sharpe": null,
+    "positive_window_rate": null
+  },
+  "orthogonality": {
+    "status": "deferred_due_feasibility_gate",
+    "checks_deferred": ["AR-130 filing-calendar controls", "generic post-earnings drift", "single-name momentum/reversal", "sector/beta residuals", "matched non-event filing days", "shifted event labels"]
+  },
+  "limitations": [
+    "No point-in-time common-stock universe, historical ticker mapping, or delisting coverage was built.",
+    "Current SEC ticker mapping can create survivorship and ticker-change bias.",
+    "SEC submissions recent arrays are issuer-dependent and not a full normalized event database.",
+    "No raw event table was retained, by design; only compact aggregate counts are stored.",
+    "No performance backtest is valid until timestamp-safe event-table and liquid-market-data gates pass."
+  ],
+  "children_created": false
+}

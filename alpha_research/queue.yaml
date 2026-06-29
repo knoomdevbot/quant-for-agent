@@ -1075,18 +1075,36 @@ issues:
 - id: AR-145
   title: SEC 8-K item-specific event drift/reversal feasibility scout
   model_name: sec-8k-item-specific-event-drift-reversal-scout-v1
-  status: queued
-  priority: preflight_queue
+  status: blocked
+  priority: completed_feasibility_blocked
   family: public_filing_item_specific_event_drift
   issue_path: alpha_research/issues/AR-145.md
+  blocked_component: timestamp_safe_sec_8k_item_2_02_event_table_with_point_in_time_ticker_mapping_and_liquid_bar_coverage
+  last_checked_at: '2026-06-29T17:12:41Z'
+  unblock_condition: Build validated broad timestamp-safe liquid 8-K Item 2.02 event table with at least 300 non-dominated events before performance testing.
+- id: AR-146
+  title: SEC 13D/13G blockholder initiation feasibility scout
+  model_name: sec-13d-13g-blockholder-initiation-feasibility-scout-v1
+  status: queued
+  priority: preflight_queue
+  family: public_filing_blockholder_event_drift
+  issue_path: alpha_research/issues/AR-146.md
+- id: AR-147
+  title: CBOE put/call pressure ETF allocator feasibility scout
+  model_name: cboe-putcall-pressure-etf-allocator-feasibility-scout-v1
+  status: queued
+  priority: preflight_queue
+  family: external_option_flow_regime_allocation
+  issue_path: alpha_research/issues/AR-147.md
 active_batch:
-- AR-145
+- AR-146
+- AR-147
 last_realdata_batch:
 - AR-144
 - AR-141
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-29T16:27:13Z'
+updated_at: '2026-06-29T17:26:30Z'
 target_tried_ideas: 100
 tried_ideas_count: 133
