@@ -1082,8 +1082,8 @@ issues:
 - id: AR-146
   title: SEC 13D/13G blockholder initiation drift/reversal feasibility scout
   model_name: sec-13dg-blockholder-initiation-drift-reversal-scout-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_feasibility_rejected
   family: public_filing_blockholder_event_drift
   issue_path: alpha_research/issues/AR-146.md
 - id: AR-147
@@ -1093,10 +1093,9 @@ issues:
   priority: completed_realdata
   family: macro_liquidity_balance_sheet
   issue_path: alpha_research/issues/AR-147.md
-active_batch:
-- AR-146
+active_batch: []
 last_realdata_batch:
 - AR-147
-updated_at: '2026-06-29T19:44:02Z'
+updated_at: '2026-06-29T20:35:01Z'
 target_tried_ideas: 100
 tried_ideas_count: 135

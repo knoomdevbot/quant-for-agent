@@ -1,0 +1,72 @@
+{
+  "issue_id": "AR-146",
+  "model_name": "sec-13dg-blockholder-initiation-drift-reversal-scout-v1",
+  "run_id": "ar146_sec_13dg_feasibility_20260629T203501Z",
+  "created_at": "2026-06-29T20:35:01Z",
+  "decision": {
+    "status": "rejected",
+    "queue_status": "completed_feasibility_rejected",
+    "rationale": "SEC public submissions metadata was reachable and exposed recent Schedule 13D/13G-family filings with acceptance timestamps/accessions in a bounded sample, but the required parser-safe event table, initial-vs-amendment validation, historical ticker mapping, common-stock/liquidity filters, concentration diagnostics, and performance controls were not safely completed. This remains source-gate evidence only, not alpha evidence."
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "data": {
+    "source": "SEC public submissions metadata",
+    "endpoints": [
+      "https://www.sec.gov/files/company_tickers.json",
+      "https://data.sec.gov/submissions/CIK##########.json"
+    ],
+    "user_agent": "qfa-ar146-feasibility-scout/1.0 contact: research@example.com",
+    "endpoint_status": "ok",
+    "performance_market_data_source": null,
+    "raw_filings_retained": false,
+    "raw_event_tables_retained": false,
+    "raw_bars_retained": false
+  },
+  "candidate_pool": {
+    "description": "SEC company_tickers current mapping entries with bounded submissions JSON probes; no historical ticker-change, delisting, common-stock-only, or liquidity reconstruction.",
+    "company_tickers_entries": 10433,
+    "sample_method": "first 100 entries from SEC company_tickers.json sorted by numeric key",
+    "sample_size": 100,
+    "submissions_attempted": 100,
+    "submissions_errors": 0
+  },
+  "selected_universe": [],
+  "feasibility_counts": {
+    "recent_13dg_family_filings": 2711,
+    "recent_initial_13d_13g_filings": 482,
+    "recent_amendment_13d_13g_filings": 2229,
+    "recent_13dg_with_acceptanceDateTime": 2711,
+    "recent_13dg_with_accession": 2711,
+    "recent_13dg_with_primary_document": 2699,
+    "issuers_with_recent_13dg": 87,
+    "issuers_with_initial_13dg": 72,
+    "form_counts": {
+      "SC 13D": 60,
+      "SC 13D/A": 327,
+      "SC 13G": 422,
+      "SC 13G/A": 1902
+    }
+  },
+  "source_gate": {
+    "passed": false,
+    "required_initial_events": 300,
+    "required_issuers": 150,
+    "reason": "Aggregate recent metadata counts in the bounded sample exceed a small event-count smell test but do not satisfy the required parsed, timestamp-safe, survivorship-aware, liquid common-stock event-table gate."
+  },
+  "metrics": null,
+  "performance_run": {
+    "run": false,
+    "reason": "Bounded recovery was source-gate feasibility-only; no Alpaca/qfa bars, returns, equity curves, controls, or orders were generated."
+  },
+  "limitations": [
+    "SEC company_tickers is a current CIK-to-ticker mapping and may introduce survivorship and ticker-change bias.",
+    "Submissions metadata identifies form types and timestamps but does not by itself provide validated subject issuer/filer type, ownership percentage, share count, security class, or group status.",
+    "The bounded sample was not independently screened for exchange-listed liquid common stocks and did not retain raw filings or event rows.",
+    "No matched non-event, shifted-label, generic filing-day, momentum/reversal, AR-130, AR-134, or AR-145 control was run."
+  ],
+  "status_rationale": "Rejected for alpha-research purposes in this cycle: the SEC source appears reachable, but AR-146 did not pass the full source/event-table feasibility gate and no children should be created."
+}

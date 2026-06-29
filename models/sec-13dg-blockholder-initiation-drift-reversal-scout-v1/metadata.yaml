@@ -1,0 +1,14 @@
+model_name: sec-13dg-blockholder-initiation-drift-reversal-scout-v1
+issue_id: AR-146
+family: public_filing_blockholder_event_drift
+status: rejected
+created_at: '2026-06-29T20:35:01Z'
+updated_at: '2026-06-29T20:35:01Z'
+summary: >-
+  Feasibility-only SEC Schedule 13D/13G source-gate scout. SEC submissions
+  metadata was reachable and exposed compact aggregate form/timestamp/accession
+  counts in a bounded sample, but no raw event table, issuer/filer parser,
+  ticker-history mapping, concentration validation, or performance backtest was
+  safely completed.
+signal_enabled: false
+decision: rejected
