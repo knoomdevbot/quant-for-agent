@@ -1103,15 +1103,35 @@ issues:
 - id: AR-149
   title: NY Fed primary dealer Treasury financing-pressure duration ETF scout
   model_name: nyfed-primary-dealer-treasury-financing-pressure-etf-v1
-  status: queued
-  priority: preflight_queue
+  status: hold
+  priority: source_gated_hold
   family: public_dealer_positioning_financing_pressure
   issue_path: alpha_research/issues/AR-149.md
+  hold_reason: nyfed_primary_dealer_revision_vintage_safety_unproven
+  external_issue_url_or_id: ny_fed_primary_dealer_statistics_no_pit_vintage_endpoint_identified
+  blocked_component: nyfed_primary_dealer_statistics_revision_vintage_safety
+  last_checked_at: '2026-06-29T21:24:03Z'
+  next_check_at: '2026-09-30T00:00:00Z'
+  unblock_condition: Machine-readable point-in-time/vintage snapshots or documented revision policy sufficient to avoid revised-history lookahead.
+- id: AR-150
+  title: Treasury TIC foreign Treasury-flow pressure duration/currency ETF scout
+  model_name: tic-foreign-treasury-flow-pressure-etf-scout-v1
+  status: queued
+  priority: preflight_queue
+  family: public_foreign_treasury_demand_flow_pressure
+  issue_path: alpha_research/issues/AR-150.md
+- id: AR-151
+  title: DOL/ETA unemployment-claims labor-stress ETF allocator scout
+  model_name: dol-eta-claims-labor-stress-etf-scout-v1
+  status: queued
+  priority: preflight_queue
+  family: public_labor_stress_macro_release
+  issue_path: alpha_research/issues/AR-151.md
 active_batch:
-- AR-148
-- AR-149
+- AR-150
+- AR-151
 last_realdata_batch:
-- AR-147
-updated_at: '2026-06-29T20:45:33Z'
+- AR-148
+updated_at: '2026-06-29T21:50:00Z'
 target_tried_ideas: 100
-tried_ideas_count: 135
+tried_ideas_count: 136

@@ -1,0 +1,114 @@
+{
+  "alpha_id": "AR-149",
+  "model_name": "nyfed-primary-dealer-treasury-financing-pressure-etf-v1",
+  "asset_bucket": "non-crypto",
+  "decision": "hold",
+  "status": "source_gated_hold",
+  "created_at": "2026-06-29T21:24:03Z",
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "candidate_pool": [
+    "TLT",
+    "IEF",
+    "IEI",
+    "SHY",
+    "GOVT",
+    "TIP",
+    "EDV",
+    "ZROZ",
+    "LQD",
+    "HYG"
+  ],
+  "selected_universe": [
+    "TLT",
+    "IEF",
+    "IEI",
+    "SHY",
+    "GOVT"
+  ],
+  "costs": {
+    "primary_bps": 10,
+    "sensitivity_bps": [
+      5,
+      20
+    ]
+  },
+  "source_gate": {
+    "passed": false,
+    "timing_documented": true,
+    "revision_vintage_safety_documented": false,
+    "decision": "hold",
+    "reason": "Publication timing is documented, but the NY Fed API/docs checked in this scout did not provide machine-readable point-in-time vintages, release timestamps per observation, or an explicit no-revision/revision-history policy adequate for historical trading research.",
+    "documents_checked": [
+      {
+        "url": "https://www.newyorkfed.org/markets/counterparties/primary-dealers-statistics",
+        "finding": "Page states Primary Dealer time-series data are updated on Thursdays at approximately 4:15 p.m. with previous week's statistics; data from January 28, 1998 to present are available and split into periods due to data-structure changes."
+      },
+      {
+        "url": "https://markets.newyorkfed.org/static/docs/markets-api.yml",
+        "finding": "API documentation exposes list/timeseries, list/asof, list/seriesbreaks, get/asof/{date}, get/{timeseries}, and all-surveys endpoints, but no vintage-as-of or revision-history endpoint was identified."
+      },
+      {
+        "url": "https://markets.newyorkfed.org/api/pd/list/seriesbreaks.json",
+        "finding": "Series breaks returned: SBP2001, SBP2013, SBN2013, SBN2015, SBN2022, SBN2024, confirming structural-break handling is necessary."
+      },
+      {
+        "url": "https://markets.newyorkfed.org/api/pd/list/asof.json",
+        "finding": "As-of dates are available with series-break labels, but release timestamps and historical vintages are not included."
+      }
+    ],
+    "nyfed_series_examples_checked": [
+      "PDPOSGST-TOT",
+      "PDPOSGSC-G21",
+      "PDSORA-UTSETTOT",
+      "PDSIRRA-UTSETTOT",
+      "PDSIOSB-UTSETTOT",
+      "PDSOOS-UTSETTOT",
+      "PDFTR-USTET",
+      "PDFTD-USTET"
+    ]
+  },
+  "data_provenance": {
+    "nyfed_api_reachable": true,
+    "alpaca_qfa_daily_ohlcv_used": false,
+    "market_data_storage": "none retained",
+    "market_data_block_reason": "Source-vintage gate failed before performance evaluation; configured market-data access was not used for a successful OHLCV request."
+  },
+  "metrics": null,
+  "orthogonality": {
+    "duration_tsmom_carry": null,
+    "simple_tlt_ief_shy_trend": null,
+    "ar147_h41": null,
+    "ar123_treasury_calendar": null,
+    "ar130_fomc_rate_calendar": null,
+    "shifted_inverted_labels": null,
+    "crisis_qe_qt_regimes": null,
+    "max_relevant_corr": null,
+    "deferred_reason": "Performance/controls intentionally not run because source-vintage safety failed first."
+  },
+  "acceptance_gates": {
+    "post_cost_median_random_window_sharpe_gt_0": null,
+    "p25_not_materially_negative": null,
+    "positive_window_rate_gte_55pct": null,
+    "controls_not_dominating": null,
+    "max_corr_lte_0_60": null,
+    "not_evaluated_reason": "source-vintage gate failed"
+  },
+  "warnings": [
+    "Do not trade from current NY Fed historical dealer-statistics API output without point-in-time/vintage treatment.",
+    "No direct children proposed because this is source-gated/hold.",
+    "Primary Dealer Statistics are voluntary and NY Fed page notes the Bank does not audit dealer-reported data."
+  ],
+  "artifacts": {
+    "model_py": "models/nyfed-primary-dealer-treasury-financing-pressure-etf-v1/model.py",
+    "config_yaml": "models/nyfed-primary-dealer-treasury-financing-pressure-etf-v1/config.yaml",
+    "metadata_yaml": "models/nyfed-primary-dealer-treasury-financing-pressure-etf-v1/metadata.yaml",
+    "readme_md": "models/nyfed-primary-dealer-treasury-financing-pressure-etf-v1/README.md",
+    "latest_json": "models/nyfed-primary-dealer-treasury-financing-pressure-etf-v1/evaluations/latest.json",
+    "latest_md": "models/nyfed-primary-dealer-treasury-financing-pressure-etf-v1/evaluations/latest.md",
+    "immutable_run_json": "models/nyfed-primary-dealer-treasury-financing-pressure-etf-v1/evaluations/runs/ar149_source_gate_20260629T212403Z.json"
+  }
+}

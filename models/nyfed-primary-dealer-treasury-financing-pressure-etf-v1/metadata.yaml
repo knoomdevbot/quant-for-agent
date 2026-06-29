@@ -1,0 +1,16 @@
+alpha_id: AR-149
+model_name: nyfed-primary-dealer-treasury-financing-pressure-etf-v1
+family: public_dealer_positioning_financing_pressure
+asset_bucket: non-crypto
+decision: hold
+created_at: '2026-06-29T21:24:03Z'
+source_gate: failed_revision_vintage_safety
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+summary: >-
+  NY Fed Primary Dealer Statistics endpoints and publication lag were reachable/documented,
+  but the scout could not document revision/vintage safety sufficient for historical
+  alpha testing; model emits flat weights until point-in-time source treatment is resolved.
