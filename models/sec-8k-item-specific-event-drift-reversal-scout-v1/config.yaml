@@ -1,0 +1,20 @@
+model_name: sec-8k-item-specific-event-drift-reversal-scout-v1
+issue_id: AR-145
+mode: feasibility_only
+status: rejected
+signal_enabled: false
+universe: []
+data:
+  source: SEC public submissions metadata
+  endpoints:
+    - https://www.sec.gov/files/company_tickers.json
+    - https://data.sec.gov/submissions/CIK##########.json
+  user_agent: "qfa-ar145-feasibility-scout/1.0 contact: research@example.com"
+probe:
+  sample_method: first 100 entries from SEC company_tickers.json sorted by numeric key
+  item_filter: "8-K items includes 2.02"
+  performance_backtest_run: false
+risk_controls:
+  no_daemon: true
+  no_orders: true
+  no_csv: true

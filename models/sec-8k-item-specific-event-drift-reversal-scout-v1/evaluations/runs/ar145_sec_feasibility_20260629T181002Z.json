@@ -1,0 +1,58 @@
+{
+  "issue_id": "AR-145",
+  "model_name": "sec-8k-item-specific-event-drift-reversal-scout-v1",
+  "run_id": "ar145_sec_feasibility_20260629T181002Z",
+  "created_at": "2026-06-29T18:10:02Z",
+  "decision": {
+    "status": "rejected",
+    "queue_status": "completed_feasibility_rejected",
+    "rationale": "SEC public submissions metadata was reachable and includes timestamped Item 2.02 8-K fields in the bounded sample, but no qfa/Alpaca performance run, matched-control test, shifted-label test, or full tradable-universe breadth/concentration validation was performed. This is metadata-only feasibility evidence, not alpha evidence."
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "data": {
+    "source": "SEC public submissions metadata",
+    "endpoints": [
+      "https://www.sec.gov/files/company_tickers.json",
+      "https://data.sec.gov/submissions/CIK##########.json"
+    ],
+    "user_agent": "qfa-ar145-feasibility-scout/1.0 contact: research@example.com",
+    "endpoint_status": "ok",
+    "performance_market_data_source": null,
+    "raw_filings_retained": false,
+    "raw_bars_retained": false
+  },
+  "candidate_pool": {
+    "description": "SEC company_tickers mapping entries with bounded submissions JSON probes; current mapping only, no historical ticker-change or delisting reconstruction.",
+    "company_tickers_entries": 10433,
+    "sample_method": "first 100 entries from SEC company_tickers.json sorted by numeric key; predominantly liquid large/mega-cap common-stock-like tickers but not independently screened",
+    "sample_size": 100,
+    "submissions_attempted": 100,
+    "submissions_errors": 0
+  },
+  "selected_universe": [],
+  "feasibility_counts": {
+    "recent_8k_filings": 6967,
+    "recent_8k_with_items": 6967,
+    "recent_8k_with_acceptanceDateTime": 6967,
+    "recent_8k_with_items_acceptance_accession_primaryDocument": 6967,
+    "item_2_02_8k_filings": 2248,
+    "issuers_with_recent_8k": 77,
+    "issuers_with_item_2_02": 77
+  },
+  "metrics": null,
+  "performance_run": {
+    "run": false,
+    "reason": "Bounded recovery was feasibility-only; no Alpaca/qfa bars were fetched and no returns, equity curves, or orders were generated."
+  },
+  "limitations": [
+    "SEC company_tickers is a current CIK-to-ticker mapping and may introduce survivorship and ticker-change bias.",
+    "The bounded sample was not fully validated as common-stock-only and may include share classes or non-standard listings.",
+    "Only recent submissions metadata counts were aggregated; no raw filings, raw daily bars, or event-level table was retained.",
+    "No performance conclusion is made because timestamp-safe qfa/Alpaca market data and control tests were not run."
+  ],
+  "status_rationale": "Rejected for alpha-research purposes in this cycle: metadata feasibility is positive, but evidence is insufficient for watchlist/acceptance and no children should be created."
+}
