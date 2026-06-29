@@ -1116,8 +1116,8 @@ issues:
 - id: AR-150
   title: Treasury TIC foreign Treasury-flow pressure duration/currency ETF scout
   model_name: tic-foreign-treasury-flow-pressure-etf-scout-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata_public_price_rejection
   family: public_foreign_treasury_demand_flow_pressure
   issue_path: alpha_research/issues/AR-150.md
 - id: AR-151
@@ -1128,10 +1128,9 @@ issues:
   family: public_labor_stress_macro_release
   issue_path: alpha_research/issues/AR-151.md
 active_batch:
-- AR-150
 - AR-151
 last_realdata_batch:
-- AR-148
-updated_at: '2026-06-29T21:50:00Z'
+- AR-150
+updated_at: '2026-06-29T22:25:32Z'
 target_tried_ideas: 100
-tried_ideas_count: 136
+tried_ideas_count: 137
