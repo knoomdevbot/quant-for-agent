@@ -4,7 +4,7 @@
   "created_at_utc": "2026-06-29T15:36:10Z",
   "decision": "hold",
   "status": "hold",
-  "hold_reason": "CBOE public daily-history endpoints for VIX, VIX3M, VIX9D, and VVIX were reachable, but Alpaca/qfa real ETF daily bars could not be accessed because ALPACA_API_KEY and ALPACA_SECRET_KEY were not configured. A CSV-backed ETF price backtest is forbidden, so no performance evaluation was run.",
+  "hold_reason": "Superseded by the later real-data evaluation. The earlier source check reached CBOE public daily-history endpoints, but market-data access was not available in that execution environment. A CSV-backed ETF price backtest was forbidden, so no performance evaluation was run in that earlier check.",
   "blocked_component": "alpaca_qfa_real_etf_daily_bar_access_for_performance_evaluation",
   "external_issue_url_or_id": "none",
   "last_checked_at": "2026-06-29T15:36:10Z",
@@ -19,7 +19,7 @@
     "overall_immediate_feasibility": "hold",
     "cboe_public_history_source_access": "passed_lightweight_endpoint_check",
     "cboe_timestamp_discipline": "plausible_if_features_are_lagged_one_full_trading_session_before_scoring",
-    "qfa_alpaca_real_etf_market_data_access": "not_passed_missing_credentials",
+    "qfa_real_etf_market_data_access": "not_passed_in_earlier_execution_environment",
     "csv_market_price_backtest_used": false,
     "raw_external_history_retained": false,
     "minimum_needed_before_performance": [
@@ -55,16 +55,16 @@
       "timestamp_safety_notes": "Use only after one full trading-session lag; raw response not retained."
     },
     {
-      "source": "qfa AlpacaGateway real ETF daily bars",
-      "status": "not_accessible_missing_alpaca_credentials",
-      "evidence": "PYTHONPATH=src AlpacaGateway().get_bars(['SPY','TLT'], '2024-01-01', '2024-01-10') returned RuntimeError: ALPACA_API_KEY and ALPACA_SECRET_KEY are required.",
+      "source": "qfa real ETF daily bars",
+      "status": "not_accessible_in_earlier_execution_environment",
+      "evidence": "Provider daily-bar access check was blocked in the earlier execution environment; superseded by later real-data evaluation.",
       "timestamp_safety_notes": "No ETF market-price data was downloaded; no CSV fallback was used."
     }
   ],
   "acceptance_gate_result": {
     "external_cboe_source_access_gate": "passed_lightweight_check",
     "timestamp_discipline_gate": "conditional_pass_requires_one_session_lag_in_evaluator",
-    "real_market_data_gate": "not_passed_missing_alpaca_credentials",
+    "real_market_data_gate": "not_passed_in_earlier_execution_environment",
     "costed_performance_gate": "not_run",
     "children_recommended": []
   },

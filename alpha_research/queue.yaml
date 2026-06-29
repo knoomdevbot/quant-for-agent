@@ -1081,16 +1081,15 @@ issues:
 - id: AR-145
   title: CBOE volatility term-structure stress/normalization ETF allocator
   model_name: cboe-vol-termstructure-stress-normalization-etf-v1
-  status: hold
-  priority: hold_real_market_data_access
+  status: rejected
+  priority: completed_realdata
   family: external_volatility_term_structure_regime_allocation
   issue_path: alpha_research/issues/AR-145.md
-  hold_reason: cboe_public_histories_reachable_but_alpaca_qfa_real_etf_daily_bars_unavailable_missing_credentials
-  blocked_component: alpaca_qfa_real_etf_daily_bar_access_for_performance_evaluation
+  decision: rejected_realdata_failed_acceptance_gates
+  blocked_component: none
   external_issue_url_or_id: none
-  last_checked_at: '2026-06-29T15:36:10Z'
-  next_check_at: '2026-07-13T15:36:14Z'
-  unblock_condition: Configure approved Alpaca/qfa real ETF daily bar access, then rerun with no --data-csv, one-session-lagged CBOE features, costs, controls, and compact artifacts only.
+  last_checked_at: '2026-06-29T15:43:28Z'
+  summary: qfa real ETF daily bars and transient one-session-lagged CBOE histories evaluated; primary 10 bps Sharpe 0.011, p25 random-window Sharpe -0.165, failed controls.
 - id: AR-146
   title: SEC 8-K restructuring and impairment item event drift/reversal feasibility scout
   model_name: sec-8k-restructuring-impairment-event-scout-v1
@@ -1104,6 +1103,6 @@ last_realdata_batch:
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-29T15:36:10Z'
+updated_at: '2026-06-29T15:43:28Z'
 target_tried_ideas: 100
 tried_ideas_count: 133

@@ -1,17 +1,11 @@
-# AR-145 latest evaluation
+# AR-145 evaluation latest
 
-Decision: **hold**
+Decision: rejected.
 
-CBOE public daily-history endpoints for VIX, VIX3M, VIX9D, and VVIX returned HTTP 200 CSV samples, and no raw CBOE files were retained. Timestamp-safe use remains conditional on applying at least one completed trading-session lag before scoring ETF returns.
+Primary 10 bps metrics: Sharpe 0.011, annual return -0.33%, annual vol 9.30%, max drawdown -27.80%, annual turnover 48.96.
 
-The qfa/Alpaca market-data gate failed in this environment: `ALPACA_API_KEY` and `ALPACA_SECRET_KEY` were not configured, and `AlpacaGateway().get_bars(...)` raised the expected missing-credentials error. Because CSV-backed ETF market-price backtests are forbidden, no performance run was attempted.
+Random windows: n=48, median Sharpe 0.214, p25 Sharpe -0.165, worst Sharpe -2.162, positive rate 64.6%.
 
-Required unblock condition: configure approved Alpaca/qfa real ETF daily bar access and rerun with no `--data-csv`, no daemon, no orders, 10 bps primary turnover cost, 5/20 bps sensitivity, required controls, and compact artifacts only.
+Controls: simple VIX, term-slope-only, no-vol-of-vol, ETF momentum/reversal, and shifted external-feature controls are recorded in latest.json. The primary did not satisfy acceptance gates, so no children were spawned.
 
-Required booleans:
-
-- no_csv_used: true
-- no_data_csv_argument_used: true
-- no_daemon: true
-- no_orders: true
-- raw_daily_paths_retained: false
+Provenance: public CBOE volatility histories were fetched transiently and transformed into one-session-lagged compact features. ETF prices came from qfa real provider daily bars. No CSV-backed ETF prices, daemon, or orders were used; no raw histories or equity curves were retained.
