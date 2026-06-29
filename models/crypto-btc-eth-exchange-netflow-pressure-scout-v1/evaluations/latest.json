@@ -92,7 +92,7 @@
     "json_parses": true,
     "model_py_ast_ok": true,
     "raw_data_committed": false,
-    "staged_secret_scan": "pending_before_commit"
+    "staged_secret_scan": "passed"
   },
   "no_csv_used": true,
   "no_data_csv_argument_used": true,
