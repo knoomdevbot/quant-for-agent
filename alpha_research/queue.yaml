@@ -1072,13 +1072,21 @@ issues:
   last_checked_at: '2026-06-29T16:18:24Z'
   next_check_at: '2026-07-29T16:18:43Z'
   unblock_condition: Licensed or credential-free provider/API with BTC/ETH exchange inflow/outflow/netflow/balance, as-of timestamps or revision history, publication-lag policy, and qfa ingestion support.
-active_batch: []
+- id: AR-145
+  title: SEC 8-K item-specific event drift/reversal feasibility scout
+  model_name: sec-8k-item-specific-event-drift-reversal-scout-v1
+  status: queued
+  priority: preflight_queue
+  family: public_filing_item_specific_event_drift
+  issue_path: alpha_research/issues/AR-145.md
+active_batch:
+- AR-145
 last_realdata_batch:
 - AR-144
 - AR-141
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-29T16:18:24Z'
+updated_at: '2026-06-29T16:27:13Z'
 target_tried_ideas: 100
 tried_ideas_count: 133
