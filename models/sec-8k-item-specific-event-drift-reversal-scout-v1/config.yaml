@@ -1,0 +1,39 @@
+model_name: sec-8k-item-specific-event-drift-reversal-scout-v1
+issue_id: AR-145
+status: blocked
+decision: feasibility_blocked_no_performance_backtest
+signal_state: cash_only_until_timestamp_safe_event_table
+candidate_product_pool: U.S. exchange-listed common-stock issuers with SEC submissions 8-K metadata, starting with liquid large caps and Item 2.02 filings
+attempted_sample:
+- AAPL
+- MSFT
+- AMZN
+- NVDA
+- META
+- GOOGL
+- JPM
+- XOM
+- WMT
+- UNH
+- BRK-B
+- LLY
+selection_filters:
+- SEC company tickers mapping available
+- SEC submissions recent form equals 8-K
+- non-missing acceptanceDateTime
+- non-missing items field
+- items include 2.02 for primary feasibility count
+- intended common-stock and liquid daily-bar coverage, not evaluated because feasibility gate failed
+feasibility_gate:
+  target_liquid_item_2_02_events: 300
+  bounded_sample_item_2_02_events: 262
+  bounded_sample_8k_events: 743
+  passed: false
+data_source: SEC public company tickers and submissions metadata only; no market backtest
+market_backtest: not_run_feasibility_gate_failed
+root_booleans:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
