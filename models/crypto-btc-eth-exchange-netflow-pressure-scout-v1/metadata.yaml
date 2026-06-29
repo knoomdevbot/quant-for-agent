@@ -1,0 +1,22 @@
+schema_version: 1
+issue_id: AR-144
+model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
+family: crypto_onchain_exchange_flow_pressure
+asset_bucket: crypto
+crypto_label: true
+status: hold
+decision: hold
+created_at: '2026-06-29T15:25:08Z'
+last_checked_at: '2026-06-29T15:25:08Z'
+next_check_at: '2026-07-13T15:25:08Z'
+hold_reason: Timestamp-safe BTC/ETH exchange netflow provider access and qfa on-chain ingestion support were not available in this checkout/environment.
+blocked_component: external_onchain_provider_access_and_qfa_onchain_adapter
+external_issue_url_or_id: provider_access_required:Glassnode_or_CryptoQuant_or_CoinMetrics_or_Nansen
+unblock_condition: Provide reproducible API access and documented publication lag/revision policy for BTC/ETH exchange inflow/outflow/netflow; add/enable qfa ingestion without CSV fixtures.
+performance_metrics_available: false
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+no_performance_backtest: true

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "issue_id": "AR-144",
+  "model_name": "crypto-btc-eth-exchange-netflow-pressure-scout-v1",
+  "run_id": "ar144_hold_20260629T152508Z",
+  "created_at": "2026-06-29T15:25:08Z",
+  "decision": "hold",
+  "status": "hold",
+  "asset_bucket": "crypto",
+  "crypto_label": true,
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "no_performance_backtest": true,
+  "hold": {
+    "hold_reason": "Timestamp-safe BTC/ETH exchange netflow provider access and qfa on-chain ingestion support were not available in this checkout/environment; the hypothesis remains valid but externally blocked.",
+    "blocked_component": "external_onchain_provider_access_and_qfa_onchain_adapter",
+    "external_issue_url_or_id": "provider_access_required:Glassnode_or_CryptoQuant_or_CoinMetrics_or_Nansen",
+    "last_checked_at": "2026-06-29T15:25:08Z",
+    "next_check_at": "2026-07-13T15:25:08Z",
+    "unblock_condition": "Provide reproducible real-provider API access and documented publication lag/revision policy for BTC/ETH exchange inflow/outflow/netflow; add/enable qfa ingestion without CSV fixtures or OHLCV proxies."
+  },
+  "source_provider_checks": [
+    {
+      "check": "qfa_source_search",
+      "result": "No Glassnode, CryptoQuant, Coin Metrics, Nansen, on-chain, or exchange-netflow adapter support found; qfa supports crypto OHLCV bars via Alpaca only, which is prohibited as a flow proxy for AR-144."
+    },
+    {
+      "check": "provider_environment_variables",
+      "result": "No environment variables with names containing GLASSNODE, CRYPTOQUANT, COINMETRICS, COIN_METRICS, NANSEN, SANTIMENT, or INTOTHEBLOCK were present."
+    },
+    {
+      "check": "provider_sdks",
+      "result": "Python import checks: glassnode=false, coinmetrics=false, nansen=false; requests and pandas available but no credentials/access endpoint was available."
+    }
+  ],
+  "data_source_provenance": {
+    "required_source_type": "real on-chain provider data only",
+    "allowed_providers": ["Glassnode", "CryptoQuant", "Coin Metrics", "Nansen", "equivalent timestamp-safe on-chain provider"],
+    "actual_provider_data_acquired": false,
+    "provider_metric_availability_confirmed": false,
+    "timestamp_discipline_confirmed": false,
+    "reason": "No credentialed/API-accessible source and no qfa on-chain ingestion adapter were available; no provider payloads were downloaded or retained."
+  },
+  "candidate_pool": {
+    "assets": ["BTC", "ETH"],
+    "products": ["spot", "perpetuals"],
+    "expansion": "No expansion beyond BTC/ETH until exchange-label coverage, timestamp discipline, and liquidity gates pass."
+  },
+  "selected_universe": {
+    "assets": ["BTC", "ETH"],
+    "status": "planned_only_not_backtested",
+    "reason": "Provider data gate failed before signal/evaluation construction."
+  },
+  "maker_taker_fees": {
+    "spot": {"maker_bps": 10, "taker_bps": 20, "applied": false},
+    "perpetuals": {"maker_bps": 2, "taker_bps": 5, "funding_required": true, "applied": false},
+    "stress_multipliers": [1, 2, 3]
+  },
+  "planned_signal": {
+    "features": ["exchange_netflow", "exchange_inflow", "exchange_outflow", "exchange_balance_change"],
+    "lookbacks_days": [7, 14, 30, 60],
+    "conservative_publication_lag_days": [1, 2, 3],
+    "missing_or_late_metrics_behavior": "flat"
+  },
+  "random_regime_protocol": {
+    "available": false,
+    "planned": "Daily/weekly random windows across bull, bear, chop, high-vol, and low-vol crypto regimes after provider gate passes.",
+    "reason_unavailable": "No timestamp-safe exchange netflow observations were available."
+  },
+  "metrics": {
+    "available": false,
+    "sharpe": null,
+    "annualized_return": null,
+    "annualized_volatility": null,
+    "max_drawdown": null,
+    "hit_rate": null,
+    "turnover": null,
+    "positive_window_rate": null,
+    "btc_leg_diagnostics": null,
+    "eth_leg_diagnostics": null
+  },
+  "orthogonality_controls": {
+    "available": false,
+    "planned_controls": [
+      "BTC/ETH 1/7/30d momentum",
+      "reversal",
+      "realized volatility",
+      "drawdown",
+      "stablecoin liquidity",
+      "macro/risk beta",
+      "shifted-flow labels",
+      "inverted flow direction"
+    ],
+    "reason_unavailable": "No timestamp-safe flow series, returns alignment, or provider publication lag sample was available."
+  },
+  "decision_rationale": "Hold rather than reject: the hypothesis was not tested and the required real on-chain data source was not proven unusable; external provider access/tool support is the blocker.",
+  "warnings": [
+    "Do not substitute BTC/ETH OHLCV, volume, or price-only data for exchange netflow.",
+    "Do not use --data-csv or CSV-backed qfa backtests for this issue.",
+    "Perpetual implementation must include funding when unblocked."
+  ]
+}

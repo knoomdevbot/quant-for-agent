@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "issue_id": "AR-141",
+  "model_name": "index-add-delete-announcement-drift-v1",
+  "run_id": "ar141_source_gate_20260629T151851Z",
+  "created_at": "2026-06-29T15:18:51Z",
+  "decision": "blocked",
+  "status": "blocked_event_source",
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "source_gate": {
+    "required_min_timestamp_safe_events": 150,
+    "timestamp_safe_events_acquired": 0,
+    "passed": false,
+    "reason": "No sufficiently broad public event archive with separate announcement timestamps was acquired; available public tables are effective-date/current-constituent records or blocked."
+  },
+  "candidate_pool": {
+    "index_families": ["S&P 500", "Nasdaq-100", "Russell 1000 / large-cap equivalent"],
+    "event_types": ["addition", "deletion"],
+    "asset_filter": "U.S. common-stock-like, liquid large-cap, qfa/Alpaca daily bars required only after source gate"
+  },
+  "source_scout": [
+    {
+      "source": "Wikipedia List of S&P 500 companies",
+      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "http_status": 200,
+      "parsed_tables": 3,
+      "effective_date_change_rows_observed": 400,
+      "announcement_timestamp_column": false,
+      "timestamp_safe_events_counted": 0
+    },
+    {
+      "source": "Wikipedia Nasdaq-100",
+      "url": "https://en.wikipedia.org/wiki/Nasdaq-100",
+      "http_status": 200,
+      "parsed_tables": 20,
+      "effective_date_change_rows_observed": 225,
+      "announcement_timestamp_column": false,
+      "timestamp_safe_events_counted": 0
+    },
+    {
+      "source": "Wikipedia Russell 1000 Index",
+      "url": "https://en.wikipedia.org/wiki/Russell_1000_Index",
+      "http_status": 200,
+      "parsed_tables": 15,
+      "historical_change_rows_observed": 0,
+      "announcement_timestamp_column": false,
+      "timestamp_safe_events_counted": 0
+    },
+    {
+      "source": "S&P Global public index page/news area",
+      "url": "https://www.spglobal.com/spdji/en/indices/equity/sp-500/#news-research",
+      "http_status": 403,
+      "parsed_tables": 0,
+      "announcement_timestamp_column": false,
+      "timestamp_safe_events_counted": 0
+    }
+  ],
+  "market_data": {
+    "queried": false,
+    "reason": "Blocked before Alpaca/qfa OHLCV because event-source gate failed."
+  },
+  "costs": {
+    "primary_one_way_bps": 10,
+    "sensitivity_one_way_bps": [5, 20],
+    "applied": false
+  },
+  "random_regime_protocol": {
+    "random_event_containing_windows": "not run; source gate failed",
+    "leave_year_out": "not run; source gate failed"
+  },
+  "metrics": {
+    "available": false,
+    "median_sharpe_post_cost": null,
+    "p25_sharpe_post_cost": null,
+    "positive_window_rate": null,
+    "event_count": 0
+  },
+  "orthogonality_controls": {
+    "available": false,
+    "reason": "No timestamp-safe event sample to compare with momentum/reversal/calendar/rebalance controls or matched non-events."
+  },
+  "warnings": [
+    "Do not substitute effective-date constituent-change rows for announcement timestamps; that would violate AR-141 timestamp discipline.",
+    "S&P Global public page returned HTTP 403 from this environment; a licensed or archived announcement feed may be needed."
+  ]
+}
