@@ -1,0 +1,17 @@
+model_name: cboe-vol-termstructure-stress-normalization-etf-v1
+issue_id: AR-145
+family: external_volatility_term_structure_regime_allocation
+status: hold
+decision: hold
+created_at_utc: '2026-06-29T15:36:10Z'
+last_checked_at: '2026-06-29T15:36:10Z'
+next_check_at: '2026-07-13T15:36:14Z'
+hold_reason: CBOE public history endpoints were reachable, but Alpaca/qfa real ETF daily bars could not be accessed in this environment because ALPACA_API_KEY and ALPACA_SECRET_KEY were not configured; therefore no real-data market-price performance evaluation was run.
+blocked_component: alpaca_qfa_real_etf_daily_bar_access_for_performance_evaluation
+external_issue_url_or_id: none
+unblock_condition: Configure approved Alpaca/qfa real ETF daily bar access, then rerun AR-145 with no --data-csv, one-session-lagged CBOE features, 10 bps primary turnover cost, 5/20 bps sensitivities, controls, and compact artifacts only.
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
