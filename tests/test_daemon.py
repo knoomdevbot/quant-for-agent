@@ -27,7 +27,7 @@ class FakeAlpacaGateway:
     def open_order_sides(self, symbols):
         return {symbol: set(self._open_order_sides.get(symbol, set())) for symbol in symbols}
 
-    def get_bars(self, symbols, start, end):
+    def get_bars(self, symbols, start, end, asset_class="equity"):
         return pd.DataFrame(
             [
                 {

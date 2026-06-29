@@ -37,19 +37,22 @@ def _print_json(payload) -> None:
 @backtest_app.command("run")
 def backtest_run(
     model_path: Path = typer.Argument(..., help="Python alpha model file"),
-    symbols: str = typer.Option(..., help="Comma-separated symbols, e.g. AAPL,MSFT"),
+    symbols: str = typer.Option(..., help="Comma-separated symbols, e.g. AAPL,MSFT or BTC/USD,ETH/USD"),
     start: str = typer.Option(..., help="Start date YYYY-MM-DD"),
     end: str = typer.Option(..., help="End date YYYY-MM-DD"),
     data_csv: Optional[Path] = typer.Option(None, help="Local OHLCV CSV; omit to use Alpaca"),
     timeframe: str = typer.Option("1Day"),
     initial_cash: float = typer.Option(100_000.0),
+    asset_class: str = typer.Option("equity", help="Asset class for Alpaca data/metadata: equity or crypto"),
     db: Optional[Path] = typer.Option(None, help="SQLite database path"),
 ):
     symbol_list = _symbols(symbols)
     if data_csv:
         prices = load_price_csv(data_csv)
     else:
-        prices = AlpacaGateway().get_bars(symbol_list, start=start, end=end, timeframe=timeframe)
+        prices = AlpacaGateway().get_bars(
+            symbol_list, start=start, end=end, timeframe=timeframe, asset_class=asset_class
+        )
     config = BacktestConfig(
         model_path=str(model_path),
         symbols=symbol_list,
@@ -57,6 +60,7 @@ def backtest_run(
         end=end,
         timeframe=timeframe,
         initial_cash=initial_cash,
+        asset_class=asset_class,
     )
     result = run_backtest(config, prices)
     store = _store(db)
@@ -84,10 +88,13 @@ def model_add(
     name: str = typer.Option(...),
     allocation: float = typer.Option(..., min=0.0, max=1.0),
     symbols: str = typer.Option(...),
+    asset_class: str = typer.Option("equity", help="Asset class for this model: equity or crypto"),
     db: Optional[Path] = None,
 ):
-    _store(db).upsert_model(name, str(model_path.expanduser().resolve()), allocation, _symbols(symbols))
-    _print_json({"status": "ok", "name": name})
+    _store(db).upsert_model(
+        name, str(model_path.expanduser().resolve()), allocation, _symbols(symbols), asset_class=asset_class
+    )
+    _print_json({"status": "ok", "name": name, "asset_class": asset_class})
 
 
 @models_app.command("update")
@@ -96,10 +103,13 @@ def model_update(
     model_path: Path,
     allocation: float = typer.Option(..., min=0.0, max=1.0),
     symbols: str = typer.Option(...),
+    asset_class: str = typer.Option("equity", help="Asset class for this model: equity or crypto"),
     db: Optional[Path] = None,
 ):
-    _store(db).upsert_model(name, str(model_path.expanduser().resolve()), allocation, _symbols(symbols))
-    _print_json({"status": "ok", "name": name})
+    _store(db).upsert_model(
+        name, str(model_path.expanduser().resolve()), allocation, _symbols(symbols), asset_class=asset_class
+    )
+    _print_json({"status": "ok", "name": name, "asset_class": asset_class})
 
 
 @models_app.command("remove")

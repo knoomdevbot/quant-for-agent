@@ -48,7 +48,12 @@ class TradingDaemon:
         target_values: dict[str, float] = {}
         target_model_names: dict[str, list[str]] = {}
         for model in models:
-            prices = self.alpaca.get_bars(model["symbols"], start=start.to_pydatetime(), end=now.to_pydatetime())
+            prices = self.alpaca.get_bars(
+                model["symbols"],
+                start=start.to_pydatetime(),
+                end=now.to_pydatetime(),
+                asset_class=model.get("asset_class", "equity"),
+            )
             context = AlphaContext(symbols=model["symbols"], prices=prices, as_of=now)
             raw = load_alpha_function(model["model_path"])(context) or {}
             weights = normalize_weights(raw, model["symbols"])
