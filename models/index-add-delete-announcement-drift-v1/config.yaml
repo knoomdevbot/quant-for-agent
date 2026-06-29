@@ -1,0 +1,28 @@
+model_name: index-add-delete-announcement-drift-v1
+issue_id: AR-141
+status: hold
+research_type: source_gate
+primary_hold_reason: timestamp_safe_index_announcement_event_source_unavailable
+blocked_component: external_index_membership_announcement_event_source
+required_event_gate: 150
+accepted_timestamp_safe_tradable_events: 0
+performance_evaluation_run: false
+market_data_policy:
+  real_market_data_only: true
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+costs_if_unblocked:
+  primary_one_way_bps: 10
+  sensitivity_one_way_bps: [5, 20]
+entry_policy_if_unblocked: next_session_after_conservative_announcement_lag
+hold_diagnostics_if_unblocked: [1d, 5d, 10d, 20d]
+predeclared_primary_if_unblocked: 10d_post_announcement_add_delete_separate
+unblock_condition: >-
+  Provide or implement a reproducible point-in-time source of public S&P 500,
+  Nasdaq-100 and/or Russell large-cap common-stock addition/deletion
+  announcements with announcement date/time or conservative availability lag,
+  identifier mapping, exclusion flags, and >=150 liquid tradable common-stock
+  events after Alpaca/qfa coverage and liquidity filters.

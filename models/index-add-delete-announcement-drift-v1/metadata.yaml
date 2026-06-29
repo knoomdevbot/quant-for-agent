@@ -1,0 +1,23 @@
+issue_id: AR-141
+model_name: index-add-delete-announcement-drift-v1
+family: public_index_membership_event_flow
+status: hold
+decision: hold
+created_at_utc: '2026-06-29T15:18:22Z'
+last_checked_at: '2026-06-29T15:18:22Z'
+next_check_at: '2026-07-13T15:18:22Z'
+blocked_component: external_index_membership_announcement_event_source
+external_issue_url_or_id: none
+hold_reason: >-
+  The source gate could not be passed without fabricating event data: the clean
+  worktree contains no timestamp-safe index-membership announcement event table,
+  S&P DJI announcement page returned HTTP 403 from the research host, Nasdaq and
+  LSEG pages checked were informational HTML rather than a verified historical
+  addition/deletion event feed, and no vendor/source credentials or PIT archive
+  were available.
+unblock_condition: >-
+  A reproducible public or licensed point-in-time event source must provide exact
+  announcement timestamps or conservative availability dates, add/delete side,
+  index family, identifiers/symbol mappings and enough common-stock events to
+  leave >=150 liquid tradable Alpaca/qfa-covered events after filters.
+children_spawned: []
