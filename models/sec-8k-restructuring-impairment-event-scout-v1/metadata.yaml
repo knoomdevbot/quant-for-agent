@@ -1,0 +1,17 @@
+alpha_id: sec-8k-restructuring-impairment-event-scout-v1
+issue_id: AR-146
+asset_bucket: equity
+crypto_label: false
+model_family: public_filing_restructuring_impairment_event_drift
+status: hold
+decision: hold_external_event_source_construction_timeout
+created_at_utc: '2026-06-29T16:13:33Z'
+universe:
+  candidate_pool_description: All liquid U.S. common-stock issuers with timestamped SEC 8-K/8-K/A Item 2.05/2.06 filings and qfa/Alpaca real daily bars.
+  selected_symbols: []
+  selected_universe_size: 0
+  limitations:
+    - Source gate did not complete; no performance universe selected.
+notes:
+  - Two fresh subagents timed out before constructing a timestamp-safe event table.
+  - Held rather than rejected because the alpha hypothesis was not performance-tested.

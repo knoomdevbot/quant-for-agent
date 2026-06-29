@@ -1,0 +1,59 @@
+{
+  "issue_id": "AR-146",
+  "model_name": "sec-8k-restructuring-impairment-event-scout-v1",
+  "created_at_utc": "2026-06-29T16:13:33Z",
+  "status": "hold",
+  "decision": "hold_external_event_source_construction_timeout",
+  "asset_bucket": "equity",
+  "crypto_label": false,
+  "research_type": "source_feasibility_scout",
+  "source_gate_result": {
+    "passed": false,
+    "required_timestamp_safe_liquid_common_stock_events": 200,
+    "timestamp_safe_liquid_common_stock_events_verified": null,
+    "candidate_filings_attempted": null,
+    "item_code_parse_rate": null,
+    "text_fetch_parse_rate": null,
+    "cik_ticker_mapping_success": null,
+    "qfa_alpaca_bar_coverage_checked": false,
+    "reason": "Two fresh research subagents timed out before constructing/verifying a timestamp-safe SEC 8-K Item 2.05/2.06 event table. The source gate was not proven, so no performance backtest was run.",
+    "unblock_condition": "Complete a bounded, reproducible EDGAR Item 2.05/2.06 event-table builder with acceptance timestamps, CIK/ticker mapping, common-stock/liquidity filters, and qfa/Alpaca daily-bar coverage for at least 200 events."
+  },
+  "data_provenance": {
+    "sec_public_edgar": "intended_source_only_not_verified_this_run",
+    "market_data": "qfa/Alpaca real daily bars required but not checked because source gate did not complete",
+    "csv_prices_used": false,
+    "deterministic_filing_calendar_used": false,
+    "companyfacts_pit_fundamentals_used": false,
+    "fabricated_event_proxy_used": false
+  },
+  "evaluation_window": null,
+  "performance_evaluation_run": false,
+  "primary_metrics_10bps": null,
+  "cost_sensitivity_metrics": null,
+  "random_window_summary": null,
+  "control_metrics_10bps": null,
+  "orthogonality": null,
+  "hold_metadata": {
+    "hold_reason": "SEC Item 2.05/2.06 event-source construction timed out twice before timestamp-safe event count and qfa/Alpaca coverage could be verified.",
+    "blocked_component": "timestamp_safe_sec_8k_item_event_table_and_issuer_ticker_market_data_coverage_builder",
+    "external_issue_url_or_id": "none",
+    "last_checked_at": "2026-06-29T16:13:33Z",
+    "next_check_at": "2026-07-13T16:13:33Z",
+    "unblock_condition": "A completed/reliable EDGAR event-source builder proves >=200 timestamp-safe liquid common-stock events with qfa/Alpaca real daily-bar coverage."
+  },
+  "verification": {
+    "subagent_attempts": 2,
+    "subagent_statuses": [
+      "timeout",
+      "timeout"
+    ],
+    "controller_synthesized_hold_artifact": true,
+    "no_children_spawned": true
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}
