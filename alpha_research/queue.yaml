@@ -1089,15 +1089,14 @@ issues:
 - id: AR-147
   title: Fed H.4.1 weekly liquidity impulse ETF allocator
   model_name: fed-h41-liquidity-impulse-etf-allocator-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: macro_liquidity_balance_sheet
   issue_path: alpha_research/issues/AR-147.md
 active_batch:
 - AR-146
-- AR-147
 last_realdata_batch:
-- AR-145
-updated_at: '2026-06-29T18:17:59Z'
+- AR-147
+updated_at: '2026-06-29T19:44:02Z'
 target_tried_ideas: 100
 tried_ideas_count: 134

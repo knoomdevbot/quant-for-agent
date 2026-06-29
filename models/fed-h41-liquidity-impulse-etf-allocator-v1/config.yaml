@@ -1,0 +1,25 @@
+model_name: fed-h41-liquidity-impulse-etf-allocator-v1
+issue_id: AR-147
+universe: ['SPY', 'QQQ', 'IWM', 'HYG', 'LQD', 'TLT', 'IEF', 'SHY', 'GLD', 'UUP']
+rebalance: weekly_after_h41_release_next_trading_session
+macro_features:
+  source_series: [WALCL, WRESBAL, WTREGEN, RRPONTSYD]
+  impulse_formula: z(dWALCL) + z(dWRESBAL) - z(dWTREGEN) - z(dRRPONTSYD), divided by 2
+  z_window_weeks: 52
+  min_z_weeks: 26
+thresholds:
+  risk_on_z: 0.75
+  risk_off_z: -0.75
+risk_limits:
+  gross_exposure_max: 1.0
+  single_etf_weight_max: 0.25
+  fallback_symbol: SHY
+costs:
+  primary_one_way_bps: 10
+  sensitivities_bps: [5, 20]
+provenance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
