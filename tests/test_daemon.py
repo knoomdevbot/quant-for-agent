@@ -9,12 +9,16 @@ from quant_for_agent.storage import Store
 
 
 class FakeAlpacaGateway:
-    def __init__(self, positions=None, open_orders=None, open_order_sides=None):
+    def __init__(self, positions=None, open_orders=None, open_order_sides=None, market_open=True):
         self.positions = positions or {}
         self.open_orders = open_orders or {}
         self._open_order_sides = open_order_sides or {}
+        self.market_open = market_open
         self.submitted_orders = []
         self.bar_requests = []
+
+    def is_market_open(self):
+        return self.market_open
 
     def account_equity(self):
         return 1000.0
@@ -122,6 +126,44 @@ def test_daemon_submits_only_delta_between_current_and_target_position(tmp_path)
     assert events[0]["side"] == "buy"
     assert events[0]["notional"] == 300.0
     assert alpaca.submitted_orders == [{"symbol": "MSFT", "side": "buy", "notional": 300.0, "asset_class": "equity"}]
+
+
+def test_daemon_skips_equity_order_submission_when_market_is_closed(tmp_path):
+    model_path = tmp_path / "target_weight_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'AAPL': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("rebalance_model", str(model_path), 1.0, ["AAPL"])
+    alpaca = FakeAlpacaGateway(market_open=False)
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True),
+    ).tick()
+
+    assert alpaca.submitted_orders == []
+    assert events == [
+        {
+            "model_name": "rebalance_model",
+            "symbol": "AAPL",
+            "side": "buy",
+            "notional": 1000.0,
+            "asset_class": "equity",
+            "dry_run": False,
+            "response": {
+                "status": "skipped",
+                "reason": "market_closed",
+                "symbol": "AAPL",
+                "side": "buy",
+                "notional": 1000.0,
+                "asset_class": "equity",
+            },
+        }
+    ]
 
 
 def test_daemon_rebalances_shared_symbols_against_aggregate_target(tmp_path):
