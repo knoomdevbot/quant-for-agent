@@ -1,0 +1,40 @@
+alpha_id: AR-149
+model_name: nyfed-primary-dealer-treasury-financing-pressure-etf-v1
+status: hold
+asset_bucket: non-crypto
+candidate_pool:
+  - TLT
+  - IEF
+  - IEI
+  - SHY
+  - GOVT
+  - TIP
+  - EDV
+  - ZROZ
+  - LQD
+  - HYG
+selected_universe:
+  - TLT
+  - IEF
+  - IEI
+  - SHY
+  - GOVT
+signal_source:
+  provider: Federal Reserve Bank of New York Markets Data API
+  product: Primary Dealer Statistics
+  endpoints_checked:
+    - https://markets.newyorkfed.org/api/pd/list/timeseries.json
+    - https://markets.newyorkfed.org/api/pd/list/seriesbreaks.json
+    - https://markets.newyorkfed.org/api/pd/list/asof.json
+    - https://markets.newyorkfed.org/api/pd/get/{timeseries}.json
+publication_lag:
+  documented_update: Thursdays approximately 4:15 p.m. ET with previous week's statistics
+  proposed_earliest_trade: next trading session after Thursday publication
+costs_bps:
+  primary: 10
+  sensitivity:
+    - 5
+    - 20
+source_gate:
+  passed: false
+  reason: No machine-readable point-in-time vintage/revision history or explicit revision-safety policy was found in the NY Fed API/docs during this scout.

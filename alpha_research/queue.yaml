@@ -1103,15 +1103,14 @@ issues:
 - id: AR-149
   title: NY Fed primary dealer Treasury financing-pressure duration ETF scout
   model_name: nyfed-primary-dealer-treasury-financing-pressure-etf-v1
-  status: queued
-  priority: preflight_queue
+  status: hold
+  priority: source_gated_hold
   family: public_dealer_positioning_financing_pressure
   issue_path: alpha_research/issues/AR-149.md
 active_batch:
 - AR-148
-- AR-149
 last_realdata_batch:
 - AR-147
-updated_at: '2026-06-29T20:45:33Z'
+updated_at: '2026-06-29T21:24:03Z'
 target_tried_ideas: 100
 tried_ideas_count: 135
