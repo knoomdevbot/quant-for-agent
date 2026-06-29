@@ -1,0 +1,93 @@
+{
+  "issue_id": "AR-141",
+  "model_name": "index-add-delete-announcement-drift-v1",
+  "created_at_utc": "2026-06-29T15:18:22Z",
+  "decision": "hold",
+  "status": "hold",
+  "hold_reason": "Timestamp-safe public index addition/deletion announcement event source was unavailable/incomplete; the mandatory >=150 surviving liquid tradable common-stock event gate could not be verified without fabricating event data.",
+  "blocked_component": "external_index_membership_announcement_event_source",
+  "external_issue_url_or_id": "none",
+  "last_checked_at": "2026-06-29T15:18:22Z",
+  "next_check_at": "2026-07-13T15:18:22Z",
+  "unblock_condition": "Provide or implement a reproducible point-in-time/public-availability source for S&P 500, Nasdaq-100 and/or Russell large-cap common-stock additions/deletions with announcement timestamp or conservative lag, add/delete side, index family, identifier mapping, exclusion flags, and >=150 liquid tradable Alpaca/qfa-covered events after filters.",
+  "research_type": "source_gate",
+  "performance_evaluation_run": false,
+  "event_source_gate": {
+    "required_timestamp_safe_tradable_events": 150,
+    "accepted_timestamp_safe_tradable_events": 0,
+    "gate_passed": false,
+    "reason": "No complete timestamp-safe historical event source was available in the clean worktree or proven by lightweight public endpoint checks."
+  },
+  "source_options_checked": [
+    {
+      "source": "repository contents",
+      "status": "no_event_table_found",
+      "evidence": "Content/name searches found no reusable timestamp-safe index-addition/deletion source table; no raw source files retained."
+    },
+    {
+      "source": "S&P DJI index announcements page",
+      "url": "https://www.spglobal.com/spdji/en/index-announcements/",
+      "status": "not_accessible_from_research_host",
+      "evidence": "HTTP 403 Forbidden during lightweight source-gate check."
+    },
+    {
+      "source": "Nasdaq Trader index data page",
+      "url": "https://www.nasdaqtrader.com/Trader.aspx?id=IndexData",
+      "status": "reachable_but_not_verified_event_feed",
+      "evidence": "HTTP 200 HTML page; checked content did not establish a historical timestamp-safe Nasdaq-100 add/delete announcement feed."
+    },
+    {
+      "source": "LSEG/FTSE Russell reconstitution pages",
+      "url": "https://www.lseg.com/en/ftse-russell/russell-reconstitution",
+      "status": "reachable_but_not_verified_event_feed",
+      "evidence": "HTTP 200 HTML page for one URL and HTTP 404 for a checked resources URL; no complete timestamp-safe historical add/delete feed established."
+    },
+    {
+      "source": "licensed/vendor point-in-time index membership archives",
+      "status": "not_available_in_this_run",
+      "evidence": "No credentials, licensed dump, or PIT archive was available or used."
+    }
+  ],
+  "metrics": {
+    "primary_after_cost_sharpe_10bps": null,
+    "random_window_median_sharpe": null,
+    "random_window_p25_sharpe": null,
+    "random_window_positive_rate": null,
+    "max_drawdown": null,
+    "turnover": null,
+    "cost_sensitivity_5bps": null,
+    "cost_sensitivity_20bps": null,
+    "event_window_metrics": null,
+    "reason_not_run": "source_gate_failed"
+  },
+  "controls": {
+    "matched_non_events": "deferred_due_hold",
+    "generic_momentum_reversal": "deferred_due_hold",
+    "calendar_controls": "deferred_due_hold",
+    "shifted_announcement_dates": "deferred_due_hold",
+    "orthogonality": "deferred_due_hold",
+    "reason": "No accepted event set or return stream exists."
+  },
+  "decision_rationale": "Hold, not performance rejection. AR-141's core data source is an external point-in-time announcement dependency. Running a qfa/Alpaca backtest now would require inferred calendar or OHLCV proxies and would violate the issue's real-data/timestamp-safe constraints.",
+  "children_recommended": [],
+  "artifacts": {
+    "model_py": "models/index-add-delete-announcement-drift-v1/model.py",
+    "config": "models/index-add-delete-announcement-drift-v1/config.yaml",
+    "metadata": "models/index-add-delete-announcement-drift-v1/metadata.yaml",
+    "readme": "models/index-add-delete-announcement-drift-v1/README.md",
+    "latest_json": "models/index-add-delete-announcement-drift-v1/evaluations/latest.json",
+    "latest_md": "models/index-add-delete-announcement-drift-v1/evaluations/latest.md",
+    "run_json": "models/index-add-delete-announcement-drift-v1/evaluations/runs/ar141_source_gate_hold_20260629T151822Z.json"
+  },
+  "verification": {
+    "json_parses": true,
+    "performance_not_run_because_source_gate_failed": true,
+    "raw_data_committed": false,
+    "stage_secret_scan": "passed"
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}
