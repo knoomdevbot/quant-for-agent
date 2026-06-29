@@ -1,0 +1,48 @@
+alpha_id: AR-148
+model_name: cboe-put-call-pressure-etf-reversal-scout-v1
+status: rejected
+asset_bucket: non-crypto ETF
+family: public_options_sentiment_pressure
+selected_universe:
+  - SPY
+  - QQQ
+  - IWM
+  - DIA
+  - XLK
+  - XLF
+  - XLE
+  - XLU
+  - TLT
+  - IEF
+  - SHY
+source:
+  cboe_url_template: "https://www.cboe.com/markets/us/options/market-statistics/daily?mkt=all&dt=YYYY-MM-DD"
+  source_gate_start: "2019-10-07"
+  source_gate_end: "2026-06-26"
+  publication_lag_primary_trading_days: 1
+features:
+  ratios:
+    - total_pcr
+    - index_pcr
+    - etp_pcr
+    - equity_pcr
+    - vix_pcr
+    - spx_spxw_pcr
+  volume_pressure_categories:
+    - all
+    - index
+    - etp
+    - equity
+    - vix
+    - spx_spxw
+research_parameters:
+  lookbacks_trading_days: [20, 63, 126]
+  extreme_quantiles: [0.80, 0.90, 0.95]
+  primary_selected_after_scout:
+    lookback_trading_days: 126
+    quantile: 0.95
+    lag_trading_days: 1
+costs_bps:
+  primary_one_way: 10
+  sensitivity_one_way: [5, 20]
+runtime_behavior: neutral_weights_rejected_research

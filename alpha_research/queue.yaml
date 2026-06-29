@@ -1096,8 +1096,8 @@ issues:
 - id: AR-148
   title: CBOE aggregate put-call pressure ETF reversal/risk-regime feasibility scout
   model_name: cboe-put-call-pressure-etf-reversal-scout-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_realdata
   family: public_options_sentiment_pressure
   issue_path: alpha_research/issues/AR-148.md
 - id: AR-149

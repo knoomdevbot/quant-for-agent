@@ -1,0 +1,15 @@
+alpha_id: AR-148
+model_name: cboe-put-call-pressure-etf-reversal-scout-v1
+title: CBOE aggregate put-call pressure ETF reversal/risk-regime feasibility scout
+status: rejected
+decision_date: "2026-06-29"
+asset_bucket: non-crypto ETF
+horizon: short-horizon daily ETF allocation/reversal
+research_branch: research/ar-148-cboe-put-call-scout
+source_gate: passed
+performance_gate: failed
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

@@ -1,0 +1,321 @@
+{
+  "alpha_id": "AR-148",
+  "asset_bucket": "non-crypto ETF",
+  "candidate_pool": [
+    "CBOE aggregate options market statistics: total/equity/index/ETP/VIX/SPX+SPXW put-call ratios plus volume/open-interest pressure",
+    "SPY",
+    "QQQ",
+    "IWM",
+    "DIA",
+    "XLK",
+    "XLF",
+    "XLE",
+    "XLU",
+    "TLT",
+    "IEF",
+    "SHY"
+  ],
+  "children": null,
+  "costs": {
+    "primary_one_way_bps": 10,
+    "sensitivity_one_way_bps": [
+      5,
+      20
+    ]
+  },
+  "created_at": "2026-06-29T21:29:06.460043+00:00",
+  "decision": {
+    "acceptance_gates": {
+      "max_relevant_corr_le_0_60": true,
+      "median_random_window_sharpe_gt_0": false,
+      "p25_not_materially_negative": false,
+      "positive_window_rate_ge_55pct": false
+    },
+    "status": "rejected"
+  },
+  "metrics": {
+    "controls": {
+      "drawdown_defensive": {
+        "corr_to_primary": 0.05179701399879137,
+        "sharpe": -0.5279260722222877
+      },
+      "inverted_signal": {
+        "corr_to_primary": -1.0,
+        "sharpe": -0.3578774568965921
+      },
+      "reversal_spy_5d_down3pct": {
+        "corr_to_primary": 0.25051190033192333,
+        "sharpe": 0.28213350062798637
+      },
+      "shifted_signal_5d": {
+        "corr_to_primary": 0.05614278129301658,
+        "sharpe": 0.48640400507421366
+      },
+      "spy_buyhold": {
+        "corr_to_primary": 0.2755130704613447,
+        "sharpe": 0.7880668527451115
+      },
+      "tsmom_spy_63d": {
+        "corr_to_primary": 0.14649009730235318,
+        "sharpe": 0.7794345433518286
+      }
+    },
+    "cost_sensitivity_bps": {
+      "10": {
+        "activation_rate": 0.09656398104265403,
+        "ann_return": -0.01946464882022325,
+        "ann_vol": 0.05516395218981023,
+        "avg_daily_turnover": 0.15580568720379148,
+        "hit_rate": 0.04561611374407583,
+        "max_drawdown": -0.13331449351167046,
+        "sharpe": -0.35631626032414665,
+        "total_return": -0.13208660581141696
+      },
+      "20": {
+        "activation_rate": 0.09656398104265403,
+        "ann_return": -0.057223218272933196,
+        "ann_vol": 0.05614210492874537,
+        "avg_daily_turnover": 0.15580568720379148,
+        "hit_rate": 0.03850710900473934,
+        "max_drawdown": -0.3330748902600066,
+        "sharpe": -1.0494591608046668,
+        "total_return": -0.3330748902600066
+      },
+      "5": {
+        "activation_rate": 0.09656398104265403,
+        "ann_return": -2.4296267319035003e-05,
+        "ann_vol": 0.05489928549776655,
+        "avg_daily_turnover": 0.15580568720379148,
+        "hit_rate": 0.04976303317535545,
+        "max_drawdown": -0.08346576266324024,
+        "sharpe": -0.0004425660748620251,
+        "total_return": -0.010006242141310184
+      }
+    },
+    "orthogonality": {
+      "ar_015_ar_043_ar_063_direct_signal_corr": "deferred: compact durable artifacts for those alphas do not expose synchronized daily signal series; compared with implementable SPY buy-hold, 63d TSMOM, 5d reversal, and drawdown-defensive controls.",
+      "inverted_signal_corr": -1.0,
+      "inverted_signal_sharpe": -0.3578774568965921,
+      "max_abs_corr_to_price_controls_ex_inverted": 0.2755130704613447,
+      "shifted_signal_5d_corr": 0.05614278129301658
+    },
+    "primary": {
+      "lag": 1,
+      "lookback": 126,
+      "metrics_10bps": {
+        "activation_rate": 0.09656398104265403,
+        "ann_return": -0.01946464882022325,
+        "ann_vol": 0.05516395218981023,
+        "avg_daily_turnover": 0.15580568720379148,
+        "hit_rate": 0.04561611374407583,
+        "max_drawdown": -0.13331449351167046,
+        "sharpe": -0.35631626032414665,
+        "total_return": -0.13208660581141696
+      },
+      "quantile": 0.95
+    },
+    "random_windows": {
+      "count": 12,
+      "median_sharpe": -0.3592081112650954,
+      "p25_sharpe": -1.3800963906465173,
+      "positive_window_rate": 0.4166666666666667,
+      "windows": [
+        {
+          "activation_rate": 0.03968253968253968,
+          "ann_return": -0.053518346892339475,
+          "ann_vol": 0.0363110470445453,
+          "avg_daily_turnover": 0.06349206349206349,
+          "end": "2020-12-30",
+          "hit_rate": 0.007936507936507936,
+          "max_drawdown": -0.054156747775319425,
+          "sharpe": -1.5146269407374386,
+          "start": "2020-01-02",
+          "total_return": -0.054156747775319425
+        },
+        {
+          "activation_rate": 0.07539682539682539,
+          "ann_return": -0.060985506284969904,
+          "ann_vol": 0.047119545971816,
+          "avg_daily_turnover": 0.11904761904761904,
+          "end": "2021-06-30",
+          "hit_rate": 0.027777777777777776,
+          "max_drawdown": -0.06204234970395317,
+          "sharpe": -1.3352528739495437,
+          "start": "2020-07-01",
+          "total_return": -0.06204234970395317
+        },
+        {
+          "activation_rate": 0.11904761904761904,
+          "ann_return": 0.018403156827676348,
+          "ann_vol": 0.05554701984252514,
+          "avg_daily_turnover": 0.1984126984126984,
+          "end": "2021-12-31",
+          "hit_rate": 0.06746031746031746,
+          "max_drawdown": -0.039071882215027665,
+          "sharpe": 0.32830794398397156,
+          "start": "2021-01-04",
+          "total_return": 0.01683629163851519
+        },
+        {
+          "activation_rate": 0.1349206349206349,
+          "ann_return": -0.02903134899774218,
+          "ann_vol": 0.0574132324836942,
+          "avg_daily_turnover": 0.23809523809523808,
+          "end": "2022-06-30",
+          "hit_rate": 0.07142857142857142,
+          "max_drawdown": -0.07418933582635501,
+          "sharpe": -0.5131112313300988,
+          "start": "2021-07-01",
+          "total_return": -0.03063305868518662
+        },
+        {
+          "activation_rate": 0.1111111111111111,
+          "ann_return": -0.08546585197128098,
+          "ann_vol": 0.04106037780564801,
+          "avg_daily_turnover": 0.19444444444444445,
+          "end": "2023-01-03",
+          "hit_rate": 0.047619047619047616,
+          "max_drawdown": -0.09070351054081138,
+          "sharpe": -2.175446040515739,
+          "start": "2022-01-03",
+          "total_return": -0.08624292073085282
+        },
+        {
+          "activation_rate": 0.10317460317460317,
+          "ann_return": -0.00760077027222672,
+          "ann_vol": 0.0371627001795288,
+          "avg_daily_turnover": 0.1865079365079365,
+          "end": "2023-07-03",
+          "hit_rate": 0.05555555555555555,
+          "max_drawdown": -0.04945367402451206,
+          "sharpe": -0.20530499120009194,
+          "start": "2022-07-01",
+          "total_return": -0.00828293683350012
+        },
+        {
+          "activation_rate": 0.1349206349206349,
+          "ann_return": 0.030622065270071053,
+          "ann_vol": 0.04435874583217237,
+          "avg_daily_turnover": 0.2222222222222222,
+          "end": "2024-01-03",
+          "hit_rate": 0.09523809523809523,
+          "max_drawdown": -0.03500583644950217,
+          "sharpe": 0.6800095771252742,
+          "start": "2023-01-03",
+          "total_return": 0.02961106281179049
+        },
+        {
+          "activation_rate": 0.12698412698412698,
+          "ann_return": -0.02634774364250947,
+          "ann_vol": 0.036836132620638805,
+          "avg_daily_turnover": 0.20634920634920634,
+          "end": "2024-07-02",
+          "hit_rate": 0.07539682539682539,
+          "max_drawdown": -0.04291877519171117,
+          "sharpe": -0.7248223140972583,
+          "start": "2023-07-03",
+          "total_return": -0.027009609373123022
+        },
+        {
+          "activation_rate": 0.06746031746031746,
+          "ann_return": 0.010914434589523792,
+          "ann_vol": 0.039355007914099883,
+          "avg_daily_turnover": 0.11904761904761904,
+          "end": "2024-12-31",
+          "hit_rate": 0.031746031746031744,
+          "max_drawdown": -0.037063201407896984,
+          "sharpe": 0.27583619997464154,
+          "start": "2024-01-02",
+          "total_return": 0.010143791241550737
+        },
+        {
+          "activation_rate": 0.0873015873015873,
+          "ann_return": 0.06324398517039276,
+          "ann_vol": 0.10566310469045187,
+          "avg_daily_turnover": 0.09523809523809523,
+          "end": "2025-07-02",
+          "hit_rate": 0.031746031746031744,
+          "max_drawdown": -0.03862557495264196,
+          "sharpe": 0.5804491607224666,
+          "start": "2024-07-01",
+          "total_return": 0.05755352653034951
+        },
+        {
+          "activation_rate": 0.0992063492063492,
+          "ann_return": 0.017362653756349156,
+          "ann_vol": 0.10037365039374699,
+          "avg_daily_turnover": 0.1349206349206349,
+          "end": "2026-01-05",
+          "hit_rate": 0.031746031746031744,
+          "max_drawdown": -0.05700879166474471,
+          "sharpe": 0.1715015152073806,
+          "start": "2025-01-02",
+          "total_return": 0.012457425718889636
+        },
+        {
+          "activation_rate": 0.12096774193548387,
+          "ann_return": -0.06419801439657402,
+          "ann_vol": 0.030692002639632426,
+          "avg_daily_turnover": 0.1975806451612903,
+          "end": "2026-06-25",
+          "hit_rate": 0.04435483870967742,
+          "max_drawdown": -0.06364803759725324,
+          "sharpe": -2.161561275208862,
+          "start": "2025-07-01",
+          "total_return": -0.06364803759725324
+        }
+      ]
+    }
+  },
+  "model_name": "cboe-put-call-pressure-etf-reversal-scout-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "orthogonality": {
+    "ar_015_ar_043_ar_063_direct_signal_corr": "deferred: compact durable artifacts for those alphas do not expose synchronized daily signal series; compared with implementable SPY buy-hold, 63d TSMOM, 5d reversal, and drawdown-defensive controls.",
+    "inverted_signal_corr": -1.0,
+    "inverted_signal_sharpe": -0.3578774568965921,
+    "max_abs_corr_to_price_controls_ex_inverted": 0.2755130704613447,
+    "shifted_signal_5d_corr": 0.05614278129301658
+  },
+  "raw_daily_paths_retained": false,
+  "run_id": "ar148_cboe_alpaca_real_20260629T212906Z",
+  "selected_universe": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "DIA",
+    "XLK",
+    "XLF",
+    "XLE",
+    "XLU",
+    "TLT",
+    "IEF",
+    "SHY"
+  ],
+  "source_gate": {
+    "alpaca_trading_dates": 1689,
+    "cboe_parsed_dates": 1689,
+    "error_count": 0,
+    "missing_dates_count": 0,
+    "publication_lag_diagnostic_trading_days": 2,
+    "publication_lag_primary_trading_days": 1,
+    "requested_end": "2026-06-26",
+    "requested_start": "2019-10-07",
+    "required_field_nonnull": {
+      "equity_pcr": 1.0,
+      "etp_pcr": 1.0,
+      "index_pcr": 1.0,
+      "spx_spxw_pcr": 1.0,
+      "total_pcr": 1.0,
+      "vix_pcr": 1.0
+    },
+    "sample_errors": [],
+    "source_pass": true,
+    "source_url_template": "https://www.cboe.com/markets/us/options/market-statistics/daily?mkt=all&dt=YYYY-MM-DD"
+  },
+  "warnings": [
+    "performance/robustness gates failed despite source pass"
+  ]
+}
