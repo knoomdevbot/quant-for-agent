@@ -1035,8 +1035,8 @@ issues:
 - id: AR-141
   title: Timestamp-safe index addition/deletion announcement drift in liquid U.S. large-cap common stocks
   model_name: index-add-delete-announcement-drift-v1
-  status: queued
-  priority: preflight_queue
+  status: blocked_event_source
+  priority: completed_event_source_blocked
   family: public_index_membership_event_flow
   issue_path: alpha_research/issues/AR-141.md
 - id: AR-142
@@ -1060,18 +1060,42 @@ issues:
 - id: AR-144
   title: Timestamp-safe BTC/ETH exchange-netflow pressure fast-falsification scout
   model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
-  status: queued
-  priority: preflight_queue_crypto_feasibility
+  status: hold
+  priority: completed_crypto_feasibility_hold
   family: crypto_onchain_exchange_flow_pressure
   asset_bucket: crypto
   crypto_label: true
   issue_path: alpha_research/issues/AR-144.md
+  hold_reason: Timestamp-safe BTC/ETH exchange netflow provider access and qfa on-chain ingestion support unavailable; hypothesis remains valid but externally blocked.
+  external_issue_url_or_id: provider_access_required:Glassnode_or_CryptoQuant_or_CoinMetrics_or_Nansen
+  blocked_component: external_onchain_provider_access_and_qfa_onchain_adapter
+  last_checked_at: '2026-06-29T15:25:08Z'
+  next_check_at: '2026-07-13T15:25:08Z'
+  unblock_condition: Provide reproducible real-provider API access and documented publication lag/revision policy for BTC/ETH exchange inflow/outflow/netflow; add/enable qfa ingestion without CSV fixtures or OHLCV proxies.
+- id: AR-145
+  title: Native crypto spot momentum/reversal allocator with maker-taker cost stress
+  model_name: crypto-spot-majors-tsmom-reversal-coststress-v1
+  status: queued
+  priority: preflight_queue_crypto_realdata
+  family: crypto_spot_time_series_momentum
+  asset_bucket: crypto
+  crypto_label: true
+  issue_path: alpha_research/issues/AR-145.md
+- id: AR-146
+  title: SEC 8-K item-specific timestamped event drift/reversal scout
+  model_name: sec-8k-item-event-drift-reversal-scout-v1
+  status: queued
+  priority: preflight_queue_external_event
+  family: public_filing_content_event_drift
+  issue_path: alpha_research/issues/AR-146.md
 active_batch:
-- AR-141
+- AR-145
+- AR-146
 last_realdata_batch:
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-29T02:01:49Z'
+- AR-141
+updated_at: '2026-06-29T15:33:18Z'
 target_tried_ideas: 100
 tried_ideas_count: 133

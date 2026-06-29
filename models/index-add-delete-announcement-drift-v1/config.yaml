@@ -1,0 +1,29 @@
+model_name: index-add-delete-announcement-drift-v1
+issue_id: AR-141
+status: blocked_event_source
+family: public_index_membership_event_flow
+signal_enabled: false
+reason: >-
+  Required source gate failed: fewer than 150 timestamp-safe, reproducible,
+  liquid common-stock index addition/deletion announcement records were acquired.
+required_event_source:
+  event_types:
+    - index_addition_announcement
+    - index_deletion_announcement
+  index_families:
+    - S&P 500
+    - Nasdaq-100
+    - Russell 1000 / large-cap equivalent
+  required_min_events: 150
+  timestamp_policy: next-session entry after conservative public announcement lag
+costs:
+  primary_one_way_bps: 10
+  sensitivity_one_way_bps: [5, 20]
+evaluation:
+  attempted: false
+  blocked_before_market_backtest: true
+  holds_days: [1, 5, 10, 20]
+risk_controls:
+  no_same_day_lookahead: true
+  no_effective_date_proxy_without_announcement_timestamp: true
+  no_single_family_or_year_dominance_required: true

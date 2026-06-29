@@ -1,0 +1,44 @@
+schema_version: 1
+issue_id: AR-144
+model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
+status: hold
+asset_bucket: crypto
+crypto_label: true
+candidate_pool:
+  assets: [BTC, ETH]
+  venues: [spot, perpetuals]
+  expansion_gate: only after timestamp-safe provider coverage and liquidity pass for BTC/ETH
+required_data:
+  source_type: real_onchain_provider
+  providers_allowed: [Glassnode, CryptoQuant, Coin Metrics, Nansen, equivalent]
+  metrics:
+    - exchange_netflow
+    - exchange_inflow
+    - exchange_outflow
+    - exchange_balance_change
+  prohibited_substitutes:
+    - OHLCV flow proxy
+    - CSV fixtures
+    - qfa --data-csv backtests
+execution_costs:
+  spot:
+    maker_fee_bps: 10
+    taker_fee_bps: 20
+    slippage_stress_multiplier: [1, 2, 3]
+  perpetuals:
+    maker_fee_bps: 2
+    taker_fee_bps: 5
+    funding_included_when_available: true
+signal_plan:
+  lookbacks_days: [7, 14, 30, 60]
+  conservative_publication_lag_days: [1, 2, 3]
+  missing_data_behavior: flat
+controls_required:
+  - BTC_ETH_momentum_1_7_30d
+  - reversal
+  - realized_volatility
+  - drawdown
+  - stablecoin_liquidity
+  - macro_beta
+  - shifted_flow_labels
+  - inverted_flow_direction

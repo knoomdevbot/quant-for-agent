@@ -1,0 +1,27 @@
+model_name: index-add-delete-announcement-drift-v1
+issue_id: AR-141
+decision: blocked
+blocked_reason: event_source_gate_failed
+created_at: '2026-06-29T15:18:51Z'
+updated_at: '2026-06-29T15:18:51Z'
+data_provenance:
+  market_data: not queried; source gate failed before Alpaca/qfa OHLCV scoring
+  event_source_scout:
+    - source: Wikipedia List of S&P 500 companies
+      url: https://en.wikipedia.org/wiki/List_of_S%26P_500_companies
+      finding: effective-date change table found, no announcement timestamp column
+    - source: Wikipedia Nasdaq-100
+      url: https://en.wikipedia.org/wiki/Nasdaq-100
+      finding: effective-date change table found, no announcement timestamp column
+    - source: Wikipedia Russell 1000 Index
+      url: https://en.wikipedia.org/wiki/Russell_1000_Index
+      finding: current constituents found, no historical addition/deletion announcement table
+    - source: S&P Global public website
+      url: https://www.spglobal.com/spdji/en/indices/equity/sp-500/#news-research
+      finding: public scrape returned HTTP 403 during source scout
+compliance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
