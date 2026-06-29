@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+import re
 from typing import Any
 
 import pandas as pd
@@ -8,6 +9,7 @@ import pandas as pd
 from .config import AlpacaConfig
 
 SUPPORTED_ASSET_CLASSES = {"equity", "crypto"}
+CRYPTO_SYMBOL_PATTERN = re.compile(r"^[A-Z0-9]+/[A-Z0-9]+$")
 
 
 def _optional_float(value: Any) -> float | None:
@@ -27,6 +29,15 @@ def _normalize_asset_class(asset_class: str) -> str:
 def _ohlcv_frame(bars: pd.DataFrame) -> pd.DataFrame:
     bars = bars.rename(columns={"symbol": "symbol", "timestamp": "timestamp"})
     return bars[["timestamp", "symbol", "open", "high", "low", "close", "volume"]]
+
+
+def _validate_crypto_symbols(symbols: list[str]) -> None:
+    invalid = [symbol for symbol in symbols if not CRYPTO_SYMBOL_PATTERN.fullmatch(symbol)]
+    if invalid:
+        raise ValueError(
+            "Crypto symbols must use Alpaca slash-delimited BASE/QUOTE format, "
+            f"for example BTC/USD. Invalid: {', '.join(invalid)}"
+        )
 
 
 def _position_unit_prices(positions: Any, symbols: set[str]) -> dict[str, float]:
@@ -73,6 +84,7 @@ class AlpacaGateway:
         normalized_asset_class = _normalize_asset_class(asset_class)
         tf = TimeFrame.Day if timeframe in {"1Day", "day", "daily"} else TimeFrame.Minute
         if normalized_asset_class == "crypto":
+            _validate_crypto_symbols(symbols)
             request = CryptoBarsRequest(
                 symbol_or_symbols=symbols, timeframe=tf, start=start, end=end
             )
@@ -151,16 +163,22 @@ class AlpacaGateway:
             values[str(symbol)] += signed_notional
         return values
 
-    def submit_notional_order(self, symbol: str, side: str, notional: float) -> dict[str, Any]:
+    def submit_notional_order(
+        self, symbol: str, side: str, notional: float, asset_class: str = "equity"
+    ) -> dict[str, Any]:
         from alpaca.trading.enums import OrderSide, TimeInForce
         from alpaca.trading.requests import MarketOrderRequest
 
+        normalized_asset_class = _normalize_asset_class(asset_class)
+        if normalized_asset_class == "crypto":
+            _validate_crypto_symbols([symbol])
+        time_in_force = TimeInForce.GTC if normalized_asset_class == "crypto" else TimeInForce.DAY
         order = self.trading_client.submit_order(
             MarketOrderRequest(
                 symbol=symbol,
                 notional=round(float(notional), 2),
                 side=OrderSide.BUY if side == "buy" else OrderSide.SELL,
-                time_in_force=TimeInForce.DAY,
+                time_in_force=time_in_force,
             )
         )
         return order.model_dump(mode="json") if hasattr(order, "model_dump") else dict(order)

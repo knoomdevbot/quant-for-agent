@@ -125,8 +125,11 @@ def model_remove(name: str, db: Optional[Path] = None):
 
 
 @models_app.command("list")
-def model_list(db: Optional[Path] = None):
-    _print_json(_store(db).list_models())
+def model_list(
+    asset_class: Optional[str] = typer.Option(None, help="Filter by asset class: equity or crypto"),
+    db: Optional[Path] = None,
+):
+    _print_json(_store(db).list_models(asset_class=asset_class))
 
 
 @daemon_app.command("run")
@@ -153,9 +156,16 @@ def daemon_run(
     db: Optional[Path] = None,
 ):
     effective_dry_run = not submit_orders
+    store = _store(db)
+    active_asset_classes = sorted(
+        {model.get("asset_class", "equity") for model in store.list_models(active_only=True)}
+    )
+    asset_class_summary = ",".join(active_asset_classes) if active_asset_classes else "none"
 
     if effective_dry_run:
-        typer.echo("SIMULATION ONLY: no Alpaca orders will be submitted.")
+        typer.echo(
+            f"SIMULATION ONLY: no Alpaca orders will be submitted. active_asset_classes={asset_class_summary}"
+        )
     else:
         alpaca_config = AlpacaConfig.from_env()
         if not alpaca_config.paper and not allow_live_brokerage:
@@ -166,10 +176,12 @@ def daemon_run(
             )
             raise typer.Exit(code=1)
         account_mode = "paper" if alpaca_config.paper else "live brokerage"
-        typer.echo(f"Submitting orders to Alpaca {account_mode} account.")
+        typer.echo(
+            f"Submitting orders to Alpaca {account_mode} account. active_asset_classes={asset_class_summary}"
+        )
 
     daemon = TradingDaemon(
-        store=_store(db),
+        store=store,
         alpaca=AlpacaGateway(),
         config=DaemonConfig(interval_seconds=interval_seconds, dry_run=effective_dry_run, once=once),
     )

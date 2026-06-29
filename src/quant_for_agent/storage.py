@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS alpha_models (
   allocation REAL NOT NULL CHECK (allocation >= 0 AND allocation <= 1),
   symbols TEXT NOT NULL,
   asset_class TEXT NOT NULL DEFAULT 'equity',
+  asset_bucket TEXT NOT NULL DEFAULT 'equity',
   active INTEGER NOT NULL DEFAULT 1,
   updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -40,6 +41,7 @@ CREATE TABLE IF NOT EXISTS trade_events (
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
   model_name TEXT,
   symbol TEXT NOT NULL,
+  asset_class TEXT NOT NULL DEFAULT 'equity',
   side TEXT NOT NULL,
   notional REAL NOT NULL,
   dry_run INTEGER NOT NULL,
@@ -74,6 +76,12 @@ class Store:
         self._add_column_if_missing("backtest_runs", "crypto_label", "INTEGER NOT NULL DEFAULT 0")
         self._add_column_if_missing("backtest_runs", "fee_model_json", "TEXT NOT NULL DEFAULT '{}'")
         self._add_column_if_missing("alpha_models", "asset_class", "TEXT NOT NULL DEFAULT 'equity'")
+        self._add_column_if_missing("alpha_models", "asset_bucket", "TEXT NOT NULL DEFAULT 'equity'")
+        self.conn.execute(
+            "UPDATE alpha_models SET asset_bucket = 'crypto' "
+            "WHERE asset_class = 'crypto' AND asset_bucket = 'equity'"
+        )
+        self._add_column_if_missing("trade_events", "asset_class", "TEXT NOT NULL DEFAULT 'equity'")
 
     def _add_column_if_missing(self, table: str, column: str, definition: str) -> None:
         columns = {row["name"] for row in self.conn.execute(f"PRAGMA table_info({table})")}
@@ -130,19 +138,21 @@ class Store:
         asset_class: str = "equity",
     ) -> None:
         normalized_asset_class = _normalize_asset_class(asset_class)
+        asset_bucket = "crypto" if normalized_asset_class == "crypto" else "equity"
         self.conn.execute(
             """
-            INSERT INTO alpha_models (name, model_path, allocation, symbols, asset_class, active, updated_at)
-            VALUES (?, ?, ?, ?, ?, 1, CURRENT_TIMESTAMP)
+            INSERT INTO alpha_models (name, model_path, allocation, symbols, asset_class, asset_bucket, active, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, 1, CURRENT_TIMESTAMP)
             ON CONFLICT(name) DO UPDATE SET
               model_path=excluded.model_path,
               allocation=excluded.allocation,
               symbols=excluded.symbols,
               asset_class=excluded.asset_class,
+              asset_bucket=excluded.asset_bucket,
               active=1,
               updated_at=CURRENT_TIMESTAMP
             """,
-            (name, model_path, allocation, json.dumps(symbols), normalized_asset_class),
+            (name, model_path, allocation, json.dumps(symbols), normalized_asset_class, asset_bucket),
         )
         self.conn.commit()
 
@@ -150,12 +160,21 @@ class Store:
         self.conn.execute("DELETE FROM alpha_models WHERE name = ?", (name,))
         self.conn.commit()
 
-    def list_models(self, active_only: bool = False) -> list[dict[str, Any]]:
+    def list_models(
+        self, active_only: bool = False, asset_class: str | None = None
+    ) -> list[dict[str, Any]]:
         sql = "SELECT * FROM alpha_models"
+        filters = []
+        params: list[Any] = []
         if active_only:
-            sql += " WHERE active = 1"
+            filters.append("active = 1")
+        if asset_class is not None:
+            filters.append("asset_class = ?")
+            params.append(_normalize_asset_class(asset_class))
+        if filters:
+            sql += " WHERE " + " AND ".join(filters)
         sql += " ORDER BY name"
-        return [self._decode_model(row) for row in self.conn.execute(sql).fetchall()]
+        return [self._decode_model(row) for row in self.conn.execute(sql, params).fetchall()]
 
     def set_model_active(self, name: str, active: bool) -> None:
         self.conn.execute(
@@ -167,12 +186,15 @@ class Store:
     def save_trade_event(self, event: dict[str, Any]) -> int:
         cur = self.conn.execute(
             """
-            INSERT INTO trade_events (model_name, symbol, side, notional, dry_run, response_json)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO trade_events (model_name, symbol, asset_class, side, notional, dry_run, response_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 event.get("model_name"),
                 event["symbol"],
+                _normalize_asset_class(event.get("asset_class", "equity"))
+                if event.get("asset_class", "equity") != "mixed"
+                else "mixed",
                 event["side"],
                 event["notional"],
                 1 if event.get("dry_run", True) else 0,
@@ -197,5 +219,8 @@ class Store:
         data = dict(row)
         data["symbols"] = json.loads(data["symbols"])
         data["asset_class"] = data.get("asset_class") or "equity"
+        data["asset_bucket"] = data.get("asset_bucket") or (
+            "crypto" if data["asset_class"] == "crypto" else "equity"
+        )
         data["active"] = bool(data["active"])
         return data

@@ -14,6 +14,7 @@ class FakeAlpacaGateway:
         self.open_orders = open_orders or {}
         self._open_order_sides = open_order_sides or {}
         self.submitted_orders = []
+        self.bar_requests = []
 
     def account_equity(self):
         return 1000.0
@@ -28,6 +29,7 @@ class FakeAlpacaGateway:
         return {symbol: set(self._open_order_sides.get(symbol, set())) for symbol in symbols}
 
     def get_bars(self, symbols, start, end, asset_class="equity"):
+        self.bar_requests.append({"symbols": symbols, "asset_class": asset_class})
         return pd.DataFrame(
             [
                 {
@@ -43,11 +45,19 @@ class FakeAlpacaGateway:
             ]
         )
 
-    def submit_notional_order(self, symbol, side, notional):
-        self.submitted_orders.append({"symbol": symbol, "side": side, "notional": notional})
+    def submit_notional_order(self, symbol, side, notional, asset_class="equity"):
+        self.submitted_orders.append(
+            {"symbol": symbol, "side": side, "notional": notional, "asset_class": asset_class}
+        )
         if symbol == "LLY":
             raise RuntimeError("fractional orders cannot be sold short")
-        return {"id": "accepted-order", "symbol": symbol, "side": side, "notional": notional}
+        return {
+            "id": "accepted-order",
+            "symbol": symbol,
+            "side": side,
+            "notional": notional,
+            "asset_class": asset_class,
+        }
 
 
 def test_daemon_records_order_errors_and_continues_processing_symbols(tmp_path):
@@ -77,6 +87,7 @@ def test_daemon_records_order_errors_and_continues_processing_symbols(tmp_path):
         "symbol": "LLY",
         "side": "sell",
         "notional": 500.0,
+        "asset_class": "equity",
     }
     assert accepted["symbol"] == "MSFT"
     assert accepted["response"]["id"] == "accepted-order"
@@ -110,7 +121,7 @@ def test_daemon_submits_only_delta_between_current_and_target_position(tmp_path)
     assert events[0]["symbol"] == "MSFT"
     assert events[0]["side"] == "buy"
     assert events[0]["notional"] == 300.0
-    assert alpaca.submitted_orders == [{"symbol": "MSFT", "side": "buy", "notional": 300.0}]
+    assert alpaca.submitted_orders == [{"symbol": "MSFT", "side": "buy", "notional": 300.0, "asset_class": "equity"}]
 
 
 def test_daemon_rebalances_shared_symbols_against_aggregate_target(tmp_path):
@@ -186,6 +197,7 @@ def test_daemon_skips_opposite_side_submission_when_open_order_is_pending(tmp_pa
         "symbol": "AAPL",
         "side": "sell",
         "notional": 200.0,
+        "asset_class": "equity",
         "open_order_sides": ["buy"],
     }
     assert alpaca.submitted_orders == []
@@ -213,7 +225,7 @@ def test_daemon_caps_near_full_position_sell_to_avoid_fractional_availability_re
     assert events[0]["side"] == "sell"
     assert events[0]["notional"] == 3218.2949916585003
     assert alpaca.submitted_orders == [
-        {"symbol": "TLT", "side": "sell", "notional": 3218.2949916585003}
+        {"symbol": "TLT", "side": "sell", "notional": 3218.2949916585003, "asset_class": "equity"}
     ]
 
 
@@ -247,6 +259,7 @@ def test_daemon_skips_duplicate_submission_when_same_side_order_is_pending(tmp_p
         "symbol": "TLT",
         "side": "sell",
         "notional": 5.0,
+        "asset_class": "equity",
         "open_order_sides": ["sell"],
     }
     assert alpaca.submitted_orders == []
@@ -332,3 +345,82 @@ def test_alpaca_gateway_values_qty_only_open_sell_orders_from_position_price():
     values = gateway.open_order_notional_values(["AAPL"])
 
     assert values == {"AAPL": -300.0}
+
+
+def test_daemon_dry_run_supports_registered_crypto_model_without_submitting_orders(tmp_path):
+    model_path = tmp_path / "crypto_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'BTC/USD': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("crypto_model", str(model_path), 0.1, ["BTC/USD"], asset_class="crypto")
+    alpaca = FakeAlpacaGateway()
+
+    events = TradingDaemon(store, alpaca, DaemonConfig(dry_run=True, once=True)).tick()
+
+    assert alpaca.bar_requests == [{"symbols": ["BTC/USD"], "asset_class": "crypto"}]
+    assert alpaca.submitted_orders == []
+    assert events == [
+        {
+            "model_name": "crypto_model",
+            "symbol": "BTC/USD",
+            "side": "buy",
+            "notional": 100.0,
+            "asset_class": "crypto",
+            "dry_run": True,
+            "response": {
+                "dry_run": True,
+                "symbol": "BTC/USD",
+                "side": "buy",
+                "notional": 100.0,
+                "asset_class": "crypto",
+            },
+        }
+    ]
+
+
+def test_daemon_paper_submission_passes_crypto_asset_class_to_order_gateway(tmp_path):
+    model_path = tmp_path / "crypto_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'BTC/USD': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("crypto_model", str(model_path), 0.1, ["BTC/USD"], asset_class="crypto")
+    alpaca = FakeAlpacaGateway()
+
+    events = TradingDaemon(store, alpaca, DaemonConfig(dry_run=False, once=True)).tick()
+
+    assert alpaca.submitted_orders == [
+        {"symbol": "BTC/USD", "side": "buy", "notional": 100.0, "asset_class": "crypto"}
+    ]
+    assert events[0]["asset_class"] == "crypto"
+    assert events[0]["response"]["asset_class"] == "crypto"
+
+
+def test_daemon_skips_symbol_with_conflicting_registered_asset_classes(tmp_path):
+    model_path = tmp_path / "shared_symbol_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'BTC/USD': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("crypto_model", str(model_path), 0.1, ["BTC/USD"], asset_class="crypto")
+    store.upsert_model("bad_equity_model", str(model_path), 0.1, ["BTC/USD"], asset_class="equity")
+    alpaca = FakeAlpacaGateway()
+
+    events = TradingDaemon(store, alpaca, DaemonConfig(dry_run=False, once=True)).tick()
+
+    assert alpaca.submitted_orders == []
+    assert alpaca.bar_requests == []
+    assert len(events) == 1
+    assert events[0]["response"] == {
+        "status": "skipped",
+        "reason": "conflicting_asset_classes",
+        "symbol": "BTC/USD",
+        "asset_classes": ["crypto", "equity"],
+    }
