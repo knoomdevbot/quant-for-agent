@@ -1,0 +1,130 @@
+{
+  "issue_id": "AR-144",
+  "model_name": "crypto-btc-eth-exchange-netflow-pressure-scout-v1",
+  "created_at_utc": "2026-06-29T15:24:02Z",
+  "decision": "hold",
+  "status": "hold",
+  "hold_reason": "Timestamp-safe provider access and coverage for BTC/ETH exchange inflow/outflow/netflow could not be confirmed without API credentials/licensing or a dedicated connector; current qfa also lacks an on-chain flow evaluator with crypto spot/perp maker/taker costs and perp funding accounting.",
+  "blocked_component": "external_onchain_exchange_netflow_provider_and_crypto_flow_evaluator",
+  "external_issue_url_or_id": "none",
+  "last_checked_at": "2026-06-29T15:24:02Z",
+  "next_check_at": "2026-07-13T15:24:02Z",
+  "unblock_condition": "Provide licensed/API access or an approved connector for point-in-time BTC and ETH exchange inflow/outflow/netflow metrics from Glassnode, CryptoQuant, Coin Metrics, Nansen, or equivalent, including publication/availability lag and exchange-label revision policy; add qfa evaluator support for crypto spot/perp execution costs and perp funding if perps are traded.",
+  "asset_bucket": "crypto",
+  "crypto_label": true,
+  "research_type": "feasibility_scout",
+  "performance_evaluation_run": false,
+  "performance_metrics": null,
+  "fee_model": {
+    "spot": {
+      "maker_bps": 10.0,
+      "taker_bps": 20.0,
+      "fill_mix": {
+        "maker": 0.5,
+        "taker": 0.5
+      },
+      "applied_to_performance": false,
+      "notes": "Conservative generic centralized-exchange spot fee assumption for future BTC/ETH implementation; not applied because performance was not run."
+    },
+    "perp_optional_later": {
+      "maker_bps": 2.0,
+      "taker_bps": 5.0,
+      "fill_mix": {
+        "maker": 0.5,
+        "taker": 0.5
+      },
+      "funding_included_if_perps": true,
+      "applied_to_performance": false,
+      "notes": "Perp fee/funding model documented for optional later implementation only."
+    }
+  },
+  "data_feasibility_findings": {
+    "overall_immediate_feasibility": "hold",
+    "future_feasibility": "plausible_after_provider_access_and_dedicated_onchain_crypto_evaluator",
+    "real_onchain_provider_data_only": true,
+    "no_ohlcv_flow_proxy_used": true,
+    "current_repo_support": {
+      "native_onchain_exchange_netflow_ingestion": false,
+      "native_provider_publication_lag_tracking": false,
+      "native_exchange_label_revision_policy_tracking": false,
+      "native_crypto_spot_perp_fee_fill_evaluator": false,
+      "native_perp_funding_accounting": false,
+      "qfa_backtest_price_only": true,
+      "timestamp_safe_without_new_provider_access": false
+    },
+    "minimum_needed_before_performance": [
+      "Credentialed or licensed provider connector for BTC and ETH exchange inflow, outflow, netflow and/or exchange balance-change metrics with exact metric timestamps and documented publication/availability lag.",
+      "Provider documentation or archived PIT snapshots proving exchange address labels and entity clustering are point-in-time safe or conservatively lagged despite revisions.",
+      "Coverage diagnostics for BTC and ETH across spot/perp tradable history, missingness, provider outages, and provider metric definition changes.",
+      "Crypto evaluator that joins flow observations to BTC/ETH spot/perp prices only after the conservative lag, applies maker/taker fill mix and slippage, and accounts for funding if perps are used.",
+      "Control framework versus BTC/ETH momentum, reversal, volatility/drawdown, stablecoin-liquidity, macro/risk beta, shifted-flow labels and inverted-flow direction."
+    ]
+  },
+  "source_options_checked": [
+    {
+      "source": "repository contents",
+      "status": "no_native_onchain_exchange_netflow_connector_or_evaluator_found",
+      "evidence": "Searches found qfa crypto asset-class plumbing and Alpaca crypto bars, but no Glassnode/CryptoQuant/Coin Metrics/Nansen connector, exchange-label revision handling, on-chain netflow schema, or spot/perp maker-taker/funding evaluator for this signal.",
+      "timestamp_safety_notes": "Cannot infer exchange netflows from OHLCV or fixtures under AR-144 constraints."
+    },
+    {
+      "source": "Glassnode API",
+      "status": "requires_credentials",
+      "evidence": "Lightweight endpoint checks for metrics metadata and BTC exchange-net-volume candidate returned HTTP 401 Authorization Required; no API key was used and no raw payloads were retained.",
+      "timestamp_safety_notes": "Plausible route only after credentials and documentation for publication lag and label/entity revision/PIT policy."
+    },
+    {
+      "source": "CryptoQuant API",
+      "status": "requires_credentials",
+      "evidence": "Lightweight exchange-flow endpoint check returned HTTP 401 unauthorized / bearer token missing; no token was used and no raw payloads were retained.",
+      "timestamp_safety_notes": "Plausible route only after licensed access and timestamp/label revision documentation."
+    },
+    {
+      "source": "Coin Metrics community API",
+      "status": "catalog_accessible_but_exchange_flow_metrics_forbidden_without_credentials",
+      "evidence": "Catalog endpoint returned HTTP 200, but BTC exchange-flow metric request returned HTTP 403: requested FlowInExInclUSD/FlowOutExInclUSD unavailable with supplied credentials.",
+      "timestamp_safety_notes": "Plausible via paid/API access if exchange-flow metrics and definitions include timestamp-safe availability and revision policy."
+    },
+    {
+      "source": "Nansen API",
+      "status": "requires_api_key_or_license",
+      "evidence": "API root check returned HTTP 401 / API key required; no key was used and no raw data retained.",
+      "timestamp_safety_notes": "Plausible only if licensed BTC/ETH exchange-flow metrics include PIT label/revision treatment and publication lag."
+    },
+    {
+      "source": "equivalent licensed on-chain providers",
+      "status": "plausible_but_unchecked_without_credentials_or_license",
+      "evidence": "No vendor credentials, dumps, CSVs, caches, or raw data were used.",
+      "timestamp_safety_notes": "Must satisfy real provider data, timestamp-safety, lag, coverage, and redistribution constraints before any performance test."
+    }
+  ],
+  "acceptance_gate_result": {
+    "provider_access_coverage_gate": "not_passed",
+    "timestamp_discipline_gate": "not_passed_without_provider_documentation_or_pit_snapshots",
+    "current_qfa_evaluator_gate": "not_passed",
+    "costed_performance_gate": "not_run",
+    "children_recommended": []
+  },
+  "artifacts": {
+    "readme": "models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/README.md",
+    "config": "models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/config.yaml",
+    "metadata": "models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/metadata.yaml",
+    "latest_json": "models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/evaluations/latest.json",
+    "latest_md": "models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/evaluations/latest.md",
+    "run_json": "models/crypto-btc-eth-exchange-netflow-pressure-scout-v1/evaluations/runs/20260629T152402Z.json"
+  },
+  "verification": {
+    "json_parses": true,
+    "model_py_created": false,
+    "generate_signals_required": false,
+    "raw_data_committed": false,
+    "provider_raw_payloads_retained": false,
+    "performance_not_run_because_source_and_evaluator_gates_failed": true,
+    "staged_secret_scan": "passed"
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}

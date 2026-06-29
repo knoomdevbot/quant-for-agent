@@ -1,0 +1,61 @@
+# AR-144 feasibility scout configuration (hold; no performance model run)
+model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
+asset_bucket: crypto
+crypto_label: true
+family: crypto_onchain_exchange_flow_pressure
+status: hold
+research_type: feasibility_scout
+created_at_utc: '2026-06-29T15:24:02Z'
+selected_universe: [BTC, ETH]
+implementation_scope:
+  spot: true
+  perps_optional_later: true
+  expansion_assets: [SOL, BNB, XRP]
+  expansion_condition: provider_label_coverage_and_liquidity_gates_pass
+provider_requirements:
+  real_onchain_provider_data_only: true
+  allowed_examples: [Glassnode, CryptoQuant, Coin Metrics, Nansen, equivalent_licensed_onchain_provider]
+  forbidden: [OHLCV_flow_proxy, fabricated_netflow_data, CSV_fixtures]
+  required_fields:
+    - exchange_inflow
+    - exchange_outflow
+    - exchange_netflow_or_balance_change
+    - asset
+    - metric_timestamp
+    - publication_or_availability_lag_policy
+    - exchange_label_revision_policy
+  timestamp_discipline:
+    conservative_daily_lag_sessions: 1
+    no_same_bar_flow_use: true
+    no_revised_labels_without_pit_policy: true
+fee_model:
+  spot:
+    maker_bps: 10.0
+    taker_bps: 20.0
+    fill_mix: {maker: 0.5, taker: 0.5}
+    applied_to_performance: false
+  perp_optional_later:
+    maker_bps: 2.0
+    taker_bps: 5.0
+    fill_mix: {maker: 0.5, taker: 0.5}
+    funding_included_if_perps: true
+    applied_to_performance: false
+controls_required_later:
+  - BTC_ETH_1d_7d_30d_momentum
+  - BTC_ETH_reversal
+  - realized_volatility_drawdown
+  - stablecoin_liquidity
+  - macro_risk_beta
+  - shifted_flow_labels
+  - inverted_flow_direction
+acceptance_gates:
+  provider_access_coverage_gate: not_passed
+  timestamp_safe_label_lag_gate: not_passed
+  current_qfa_evaluator_gate: not_passed_for_onchain_flows_spot_perp_costs_funding
+  costed_performance_gate: not_run
+safety:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
