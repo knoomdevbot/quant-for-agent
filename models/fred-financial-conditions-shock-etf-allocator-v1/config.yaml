@@ -1,0 +1,17 @@
+model_name: fred-financial-conditions-shock-etf-allocator-v1
+issue_id: AR-147
+primary_series: NFCI
+primary_source: FRED / Chicago Fed National Financial Conditions Index
+predeclared_direction: positive NFCI 4-week shock = tightening/risk-off; negative shock = easing/relief
+release_lag_convention: observation_date + 7 calendar days, trade only on/after qfa trading close
+threshold_z: 0.75
+hold_trading_days: 10
+costs_bps_primary: 10
+costs_bps_sensitivity: [5, 20]
+universe: [SPY, QQQ, IWM, DIA, XLK, XLI, XLF, XLV, XLP, XLU, XLE, XLB, TLT, IEF, TIP, LQD, HYG, SHY, GLD, DBC, UUP, FXE, FXY, VNQ, USMV, QUAL, MTUM]
+controls: [etf_tsmom, price_only_stress, shifted_release_labels, same_weekday_placebo, inverted_direction]
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

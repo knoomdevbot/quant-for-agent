@@ -1,0 +1,632 @@
+{
+  "controls": {
+    "etf_tsmom": {
+      "activation_frequency": 0.94073377,
+      "annualized_return": 0.02483345,
+      "annualized_turnover": 50.50667921,
+      "annualized_volatility": 0.14776261,
+      "bps": 10,
+      "max_drawdown": -0.28435452,
+      "mean_daily_turnover": 0.20042333,
+      "name": "etf_tsmom",
+      "periods": 2126,
+      "sharpe": 0.24051167,
+      "sleeve_day_share": {
+        "cash": 0.059266,
+        "def": 0.057855,
+        "risk": 0.882879
+      },
+      "top_symbol_by_abs_weight": "XLK",
+      "top_symbol_weight_share": 0.09078081,
+      "total_return": 0.22991925,
+      "win_rate": 0.53010348
+    },
+    "inverted_direction": {
+      "activation_frequency": 0.5098777,
+      "annualized_return": -0.01253717,
+      "annualized_turnover": 11.20131703,
+      "annualized_volatility": 0.14038495,
+      "bps": 10,
+      "max_drawdown": -0.3557558,
+      "mean_daily_turnover": 0.04444967,
+      "name": "inverted_direction",
+      "periods": 2126,
+      "sharpe": -0.01937873,
+      "sleeve_day_share": {
+        "cash": 0.490122,
+        "relief": 0.244591,
+        "stress": 0.265287
+      },
+      "top_symbol_by_abs_weight": "SHY",
+      "top_symbol_weight_share": 0.55644403,
+      "total_return": -0.10096969,
+      "win_rate": 0.49764817
+    },
+    "price_only_stress": {
+      "activation_frequency": 0.5028222,
+      "annualized_return": -0.00772524,
+      "annualized_turnover": 63.82972719,
+      "annualized_volatility": 0.0780858,
+      "bps": 10,
+      "max_drawdown": -0.31355455,
+      "mean_daily_turnover": 0.25329257,
+      "name": "price_only_stress",
+      "periods": 2126,
+      "sharpe": -0.0601405,
+      "sleeve_day_share": {
+        "cash": 0.497178,
+        "relief": 0.293979,
+        "stress": 0.208843
+      },
+      "top_symbol_by_abs_weight": "SHY",
+      "top_symbol_weight_share": 0.54938852,
+      "total_return": -0.06333264,
+      "win_rate": 0.47883349
+    },
+    "same_weekday_placebo": {
+      "activation_frequency": 0.47365945,
+      "annualized_return": 0.01340484,
+      "annualized_turnover": 9.95672625,
+      "annualized_volatility": 0.11396568,
+      "bps": 10,
+      "max_drawdown": -0.32491762,
+      "mean_daily_turnover": 0.03951082,
+      "name": "same_weekday_placebo",
+      "periods": 2126,
+      "sharpe": 0.17436637,
+      "sleeve_day_share": {
+        "cash": 0.526341,
+        "relief": 0.25588,
+        "stress": 0.21778
+      },
+      "top_symbol_by_abs_weight": "SHY",
+      "top_symbol_weight_share": 0.58078551,
+      "total_return": 0.11889186,
+      "win_rate": 0.4943556
+    },
+    "shifted_release_labels": {
+      "activation_frequency": 0.50517404,
+      "annualized_return": -0.00502595,
+      "annualized_turnover": 11.1420508,
+      "annualized_volatility": 0.11103328,
+      "bps": 10,
+      "max_drawdown": -0.33392549,
+      "mean_daily_turnover": 0.04421449,
+      "name": "shifted_release_labels",
+      "periods": 2126,
+      "sharpe": 0.0110116,
+      "sleeve_day_share": {
+        "cash": 0.494826,
+        "relief": 0.261524,
+        "stress": 0.24365
+      },
+      "top_symbol_by_abs_weight": "SHY",
+      "top_symbol_weight_share": 0.55573848,
+      "total_return": -0.04161758,
+      "win_rate": 0.51411101
+    }
+  },
+  "correlations": {
+    "etf_tsmom": 0.44868989,
+    "inverted_direction": 0.24664604,
+    "price_only_stress": 0.55882736,
+    "same_weekday_placebo": 0.27279414,
+    "shifted_release_labels": 0.52605909
+  },
+  "coverage": {
+    "bar_counts": {
+      "DBC": 2127,
+      "DIA": 2127,
+      "FXE": 2127,
+      "FXY": 2127,
+      "GLD": 2127,
+      "HYG": 2127,
+      "IEF": 2127,
+      "IWM": 2127,
+      "LQD": 2127,
+      "MTUM": 2127,
+      "QQQ": 2127,
+      "QUAL": 2127,
+      "SHY": 2127,
+      "SPY": 2127,
+      "TIP": 2127,
+      "TLT": 2127,
+      "USMV": 2127,
+      "UUP": 2127,
+      "VNQ": 2127,
+      "XLB": 2127,
+      "XLE": 2127,
+      "XLF": 2127,
+      "XLI": 2127,
+      "XLK": 2127,
+      "XLP": 2127,
+      "XLU": 2127,
+      "XLV": 2127
+    },
+    "daily_rows_compact_count": 2127,
+    "end": "2026-06-18",
+    "min_selected_bars": 2127,
+    "start": "2018-01-02",
+    "symbols_requested": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA",
+      "XLK",
+      "XLI",
+      "XLF",
+      "XLV",
+      "XLP",
+      "XLU",
+      "XLE",
+      "XLB",
+      "TLT",
+      "IEF",
+      "TIP",
+      "LQD",
+      "HYG",
+      "SHY",
+      "GLD",
+      "DBC",
+      "UUP",
+      "FXE",
+      "FXY",
+      "VNQ",
+      "USMV",
+      "QUAL",
+      "MTUM"
+    ],
+    "symbols_selected": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA",
+      "XLK",
+      "XLI",
+      "XLF",
+      "XLV",
+      "XLP",
+      "XLU",
+      "XLE",
+      "XLB",
+      "TLT",
+      "IEF",
+      "TIP",
+      "LQD",
+      "HYG",
+      "SHY",
+      "GLD",
+      "DBC",
+      "UUP",
+      "FXE",
+      "FXY",
+      "VNQ",
+      "USMV",
+      "QUAL",
+      "MTUM"
+    ]
+  },
+  "created_at": "2026-06-29T16:25:30Z",
+  "decision": "rejected",
+  "feature_records_retained_in_model_py": "compact thresholded release-date shock z records from 2017 onward only; no raw FRED observations or daily market arrays retained",
+  "issue_id": "AR-147",
+  "model_name": "fred-financial-conditions-shock-etf-allocator-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "paths": {
+    "README_path": "/Users/moonk/.hermes/worktrees/ar-141-qfa/models/fred-financial-conditions-shock-etf-allocator-v1/README.md",
+    "config_path": "/Users/moonk/.hermes/worktrees/ar-141-qfa/models/fred-financial-conditions-shock-etf-allocator-v1/config.yaml",
+    "immutable_run_json": "/Users/moonk/.hermes/worktrees/ar-141-qfa/models/fred-financial-conditions-shock-etf-allocator-v1/evaluations/runs/ar147_qfa_alpaca_real_20260629T162530Z.json",
+    "latest_json": "/Users/moonk/.hermes/worktrees/ar-141-qfa/models/fred-financial-conditions-shock-etf-allocator-v1/evaluations/latest.json",
+    "latest_md": "/Users/moonk/.hermes/worktrees/ar-141-qfa/models/fred-financial-conditions-shock-etf-allocator-v1/evaluations/latest.md",
+    "metadata_path": "/Users/moonk/.hermes/worktrees/ar-141-qfa/models/fred-financial-conditions-shock-etf-allocator-v1/metadata.yaml",
+    "model_path": "/Users/moonk/.hermes/worktrees/ar-141-qfa/models/fred-financial-conditions-shock-etf-allocator-v1/model.py"
+  },
+  "primary": {
+    "primary_10bps": {
+      "activation_frequency": 0.5098777,
+      "annualized_return": 0.05914958,
+      "annualized_turnover": 11.37911571,
+      "annualized_volatility": 0.08360936,
+      "bps": 10,
+      "max_drawdown": -0.19600201,
+      "mean_daily_turnover": 0.04515522,
+      "name": "primary",
+      "periods": 2126,
+      "sharpe": 0.72927206,
+      "sleeve_day_share": {
+        "cash": 0.490122,
+        "relief": 0.265287,
+        "stress": 0.244591
+      },
+      "top_symbol_by_abs_weight": "SHY",
+      "top_symbol_weight_share": 0.55126999,
+      "total_return": 0.62387446,
+      "win_rate": 0.51411101
+    },
+    "primary_20bps": {
+      "activation_frequency": 0.5098777,
+      "annualized_return": 0.04713344,
+      "annualized_turnover": 11.37911571,
+      "annualized_volatility": 0.08400345,
+      "bps": 20,
+      "max_drawdown": -0.20842781,
+      "mean_daily_turnover": 0.04515522,
+      "name": "primary",
+      "periods": 2126,
+      "sharpe": 0.59039067,
+      "sleeve_day_share": {
+        "cash": 0.490122,
+        "relief": 0.265287,
+        "stress": 0.244591
+      },
+      "top_symbol_by_abs_weight": "SHY",
+      "top_symbol_weight_share": 0.55126999,
+      "total_return": 0.47484801,
+      "win_rate": 0.51128881
+    },
+    "primary_5bps": {
+      "activation_frequency": 0.5098777,
+      "annualized_return": 0.06520096,
+      "annualized_turnover": 11.37911571,
+      "annualized_volatility": 0.08350229,
+      "bps": 5,
+      "max_drawdown": -0.18972452,
+      "mean_daily_turnover": 0.04515522,
+      "name": "primary",
+      "periods": 2126,
+      "sharpe": 0.79834372,
+      "sleeve_day_share": {
+        "cash": 0.490122,
+        "relief": 0.265287,
+        "stress": 0.244591
+      },
+      "top_symbol_by_abs_weight": "SHY",
+      "top_symbol_weight_share": 0.55126999,
+      "total_return": 0.70383091,
+      "win_rate": 0.51599247
+    }
+  },
+  "random_summary": {
+    "count": 12,
+    "median_sharpe": 0.68214063,
+    "p25_sharpe": 0.02402053,
+    "positive_sharpe_rate": 0.75,
+    "worst_sharpe": -2.18022236
+  },
+  "random_windows": [
+    {
+      "end": "2020-03-20",
+      "metrics": {
+        "activation_frequency": 0.52380952,
+        "annualized_return": 0.01094702,
+        "annualized_turnover": 17.0,
+        "annualized_volatility": 0.07914741,
+        "bps": 10,
+        "max_drawdown": -0.08073831,
+        "mean_daily_turnover": 0.06746032,
+        "name": "random_1",
+        "periods": 252,
+        "sharpe": 0.1771621,
+        "sleeve_day_share": {
+          "cash": 0.47619,
+          "relief": 0.246032,
+          "stress": 0.277778
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.54563492,
+        "total_return": 0.01094702,
+        "win_rate": 0.56349206
+      },
+      "name": "random_1",
+      "start": "2019-03-21"
+    },
+    {
+      "end": "2020-06-30",
+      "metrics": {
+        "activation_frequency": 0.67063492,
+        "annualized_return": 0.13378064,
+        "annualized_turnover": 15.5,
+        "annualized_volatility": 0.12909313,
+        "bps": 10,
+        "max_drawdown": -0.08073831,
+        "mean_daily_turnover": 0.06150794,
+        "name": "random_2",
+        "periods": 252,
+        "sharpe": 1.03755258,
+        "sleeve_day_share": {
+          "cash": 0.329365,
+          "relief": 0.353175,
+          "stress": 0.31746
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.40873016,
+        "total_return": 0.13378064,
+        "win_rate": 0.54365079
+      },
+      "name": "random_2",
+      "start": "2019-07-01"
+    },
+    {
+      "end": "2022-03-18",
+      "metrics": {
+        "activation_frequency": 0.01587302,
+        "annualized_return": -0.03375393,
+        "annualized_turnover": 2.5,
+        "annualized_volatility": 0.01569167,
+        "bps": 10,
+        "max_drawdown": -0.03629637,
+        "mean_daily_turnover": 0.00992063,
+        "name": "random_3",
+        "periods": 252,
+        "sharpe": -2.18022236,
+        "sleeve_day_share": {
+          "cash": 0.984127,
+          "stress": 0.015873
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.98809524,
+        "total_return": -0.03375393,
+        "win_rate": 0.3968254
+      },
+      "name": "random_3",
+      "start": "2021-03-19"
+    },
+    {
+      "end": "2022-08-02",
+      "metrics": {
+        "activation_frequency": 0.31349206,
+        "annualized_return": -0.05201128,
+        "annualized_turnover": 7.5,
+        "annualized_volatility": 0.04857304,
+        "bps": 10,
+        "max_drawdown": -0.08556828,
+        "mean_daily_turnover": 0.0297619,
+        "name": "random_4",
+        "periods": 252,
+        "sharpe": -1.07527462,
+        "sleeve_day_share": {
+          "cash": 0.686508,
+          "relief": 0.003968,
+          "stress": 0.309524
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.76388889,
+        "total_return": -0.05201128,
+        "win_rate": 0.39285714
+      },
+      "name": "random_4",
+      "start": "2021-08-02"
+    },
+    {
+      "end": "2022-08-26",
+      "metrics": {
+        "activation_frequency": 0.38492063,
+        "annualized_return": -0.0307628,
+        "annualized_turnover": 7.5,
+        "annualized_volatility": 0.06667513,
+        "bps": 10,
+        "max_drawdown": -0.08445442,
+        "mean_daily_turnover": 0.0297619,
+        "name": "random_5",
+        "periods": 252,
+        "sharpe": -0.43540419,
+        "sleeve_day_share": {
+          "cash": 0.615079,
+          "relief": 0.075397,
+          "stress": 0.309524
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.69246032,
+        "total_return": -0.0307628,
+        "win_rate": 0.42063492
+      },
+      "name": "random_5",
+      "start": "2021-08-26"
+    },
+    {
+      "end": "2023-12-06",
+      "metrics": {
+        "activation_frequency": 0.6984127,
+        "annualized_return": 0.03929588,
+        "annualized_turnover": 16.0,
+        "annualized_volatility": 0.11386804,
+        "bps": 10,
+        "max_drawdown": -0.07912411,
+        "mean_daily_turnover": 0.06349206,
+        "name": "random_6",
+        "periods": 252,
+        "sharpe": 0.39521777,
+        "sleeve_day_share": {
+          "cash": 0.301587,
+          "relief": 0.575397,
+          "stress": 0.123016
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.33234127,
+        "total_return": 0.03929588,
+        "win_rate": 0.51190476
+      },
+      "name": "random_6",
+      "start": "2022-12-05"
+    },
+    {
+      "end": "2024-01-02",
+      "metrics": {
+        "activation_frequency": 0.6984127,
+        "annualized_return": 0.17686522,
+        "annualized_turnover": 16.0,
+        "annualized_volatility": 0.10597129,
+        "bps": 10,
+        "max_drawdown": -0.06373644,
+        "mean_daily_turnover": 0.06349206,
+        "name": "random_7",
+        "periods": 252,
+        "sharpe": 1.58996573,
+        "sleeve_day_share": {
+          "cash": 0.301587,
+          "relief": 0.575397,
+          "stress": 0.123016
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.33234127,
+        "total_return": 0.17686522,
+        "win_rate": 0.53571429
+      },
+      "name": "random_7",
+      "start": "2022-12-29"
+    },
+    {
+      "end": "2024-02-08",
+      "metrics": {
+        "activation_frequency": 0.67460317,
+        "annualized_return": 0.08632442,
+        "annualized_turnover": 18.0,
+        "annualized_volatility": 0.09471887,
+        "bps": 10,
+        "max_drawdown": -0.06373644,
+        "mean_daily_turnover": 0.07142857,
+        "name": "random_8",
+        "periods": 252,
+        "sharpe": 0.92145777,
+        "sleeve_day_share": {
+          "cash": 0.325397,
+          "relief": 0.551587,
+          "stress": 0.123016
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.35615079,
+        "total_return": 0.08632442,
+        "win_rate": 0.52380952
+      },
+      "name": "random_8",
+      "start": "2023-02-07"
+    },
+    {
+      "end": "2024-03-27",
+      "metrics": {
+        "activation_frequency": 0.55555556,
+        "annualized_return": 0.07846502,
+        "annualized_turnover": 14.5,
+        "annualized_volatility": 0.0816701,
+        "bps": 10,
+        "max_drawdown": -0.06373644,
+        "mean_daily_turnover": 0.05753968,
+        "name": "random_9",
+        "periods": 252,
+        "sharpe": 0.96568138,
+        "sleeve_day_share": {
+          "cash": 0.444444,
+          "relief": 0.472222,
+          "stress": 0.083333
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.46527778,
+        "total_return": 0.07846502,
+        "win_rate": 0.51984127
+      },
+      "name": "random_9",
+      "start": "2023-03-27"
+    },
+    {
+      "end": "2025-01-02",
+      "metrics": {
+        "activation_frequency": 0.24603175,
+        "annualized_return": 0.07561914,
+        "annualized_turnover": 10.0,
+        "annualized_volatility": 0.04940841,
+        "bps": 10,
+        "max_drawdown": -0.02272624,
+        "mean_daily_turnover": 0.03968254,
+        "name": "random_10",
+        "periods": 252,
+        "sharpe": 1.50013156,
+        "sleeve_day_share": {
+          "cash": 0.753968,
+          "relief": 0.162698,
+          "stress": 0.083333
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.77480159,
+        "total_return": 0.07561914,
+        "win_rate": 0.53174603
+      },
+      "name": "random_10",
+      "start": "2024-01-02"
+    },
+    {
+      "end": "2026-02-24",
+      "metrics": {
+        "activation_frequency": 0.51587302,
+        "annualized_return": 0.07471577,
+        "annualized_turnover": 15.0,
+        "annualized_volatility": 0.07217586,
+        "bps": 10,
+        "max_drawdown": -0.04002352,
+        "mean_daily_turnover": 0.05952381,
+        "name": "random_11",
+        "periods": 252,
+        "sharpe": 1.0344196,
+        "sleeve_day_share": {
+          "cash": 0.484127,
+          "relief": 0.27381,
+          "stress": 0.242063
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.54464286,
+        "total_return": 0.07471577,
+        "win_rate": 0.56349206
+      },
+      "name": "random_11",
+      "start": "2025-02-21"
+    },
+    {
+      "end": "2026-03-19",
+      "metrics": {
+        "activation_frequency": 0.55952381,
+        "annualized_return": 0.03087607,
+        "annualized_turnover": 13.5,
+        "annualized_volatility": 0.0750012,
+        "bps": 10,
+        "max_drawdown": -0.05234231,
+        "mean_daily_turnover": 0.05357143,
+        "name": "random_12",
+        "periods": 252,
+        "sharpe": 0.4428235,
+        "sleeve_day_share": {
+          "cash": 0.440476,
+          "relief": 0.27381,
+          "stress": 0.285714
+        },
+        "top_symbol_by_abs_weight": "SHY",
+        "top_symbol_weight_share": 0.51190476,
+        "total_return": 0.03087607,
+        "win_rate": 0.53571429
+      },
+      "name": "random_12",
+      "start": "2025-03-18"
+    }
+  ],
+  "raw_daily_paths_retained": false,
+  "source_feasibility": {
+    "first_observation": "1971-01-08",
+    "fred_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI",
+    "last_observation": "2026-06-19",
+    "official_source": "Chicago Fed National Financial Conditions Index via FRED CSV",
+    "primary_series": "NFCI",
+    "release_lag_convention": "conservative observation_date + 7 calendar days; trade only on/after qfa trading close, earning following daily return",
+    "relief_events": 512,
+    "rows_fetched": 2894,
+    "shock_event_count_abs_z_ge_0_75": 1109,
+    "stress_events": 597,
+    "vintage_policy": "latest FRED vintage used; no ALFRED point-in-time vintage file retained, so historical revision leakage risk remains and acceptance is barred unless independently vintaged."
+  },
+  "warnings": [
+    "Uses latest FRED vintage, not ALFRED point-in-time vintages; revision leakage risk bars acceptance despite conservative release lag.",
+    "Signal keeps a large SHY cash-like sleeve; top absolute weight share is SHY 55.1%.",
+    "Worst 1-year random window Sharpe is strongly negative (-2.18), so robustness gate fails."
+  ],
+  "status": "rejected"
+}

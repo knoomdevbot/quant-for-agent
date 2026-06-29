@@ -1106,24 +1106,21 @@ issues:
 - id: AR-147
   title: FRED weekly financial-conditions shock ETF allocator
   model_name: fred-financial-conditions-shock-etf-allocator-v1
-  status: queued
-  priority: preflight_queue_strict_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: external_financial_conditions_stress_allocation
   issue_path: alpha_research/issues/AR-147.md
 - id: AR-148
   title: Treasury auction-result demand shock duration ETF scout
   model_name: treasury-auction-result-demand-shock-duration-etf-v1
-  status: queued
-  priority: preflight_queue_after_revision_strict_fast_falsification
+  status: rejected
+  priority: completed_realdata
   family: treasury_auction_result_demand_shock_duration_allocation
   issue_path: alpha_research/issues/AR-148.md
-active_batch:
+active_batch: []
+last_realdata_batch:
 - AR-147
 - AR-148
-last_realdata_batch:
-- AR-138
-- AR-139
-- AR-140
-updated_at: '2026-06-29T16:13:33Z'
+updated_at: '2026-06-29T16:27:13Z'
 target_tried_ideas: 100
-tried_ideas_count: 133
+tried_ideas_count: 135

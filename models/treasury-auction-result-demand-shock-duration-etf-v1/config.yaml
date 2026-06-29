@@ -1,0 +1,18 @@
+model_name: treasury-auction-result-demand-shock-duration-etf-v1
+issue_id: AR-148
+symbols: [SHY, IEI, IEF, TLT, GOVT, EDV, ZROZ, TIP, SCHP, LQD, HYG, MBB, AGG, BND, XLF, KRE, XLU, XLRE, SPY, QQQ]
+start: 2020-01-02
+end: 2026-06-18
+timeframe: 1Day
+asset_class: equity
+entry_rule: conservative_next_regular_session_close
+hold_sessions: 5
+primary_cost_bps: 10
+sensitivity_cost_bps: [5, 20]
+external_source: https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/auctions_query
+market_data_source: qfa/Alpaca real daily bars
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

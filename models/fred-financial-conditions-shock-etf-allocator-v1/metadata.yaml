@@ -1,0 +1,18 @@
+name: fred-financial-conditions-shock-etf-allocator-v1
+issue_id: AR-147
+status: rejected
+family: external_financial_conditions_stress_allocation
+decision: rejected
+created_at: '2026-06-29T16:25:30Z'
+source: FRED / Chicago Fed NFCI weekly series
+market_data: qfa/Alpaca real daily bars
+root_booleans:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+warnings:
+  - Latest FRED vintage used; no PIT ALFRED vintage retained, so revision leakage risk bars acceptance.
+  - Worst random window Sharpe was -2.18022236.
+  - SHY cash-like sleeve dominates absolute weight share at 0.55126999.

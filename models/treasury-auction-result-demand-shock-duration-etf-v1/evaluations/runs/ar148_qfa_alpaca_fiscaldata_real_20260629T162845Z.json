@@ -1,0 +1,531 @@
+{
+  "children_suggested": [],
+  "controls": {
+    "ar108_auction_week_calendar_baseline_10bps": {
+      "activation_fraction": 0.7946979,
+      "annualized_return": -0.05934759,
+      "annualized_volatility": 0.13494433,
+      "max_drawdown": -0.54858822,
+      "periods": 1622,
+      "positive_day_rate": 0.39642417,
+      "sharpe": -0.38599012,
+      "total_return": -0.32550821,
+      "turnover": {
+        "annualized_one_way": 31.84956843,
+        "mean_daily": 0.12638718,
+        "total": 205.0
+      }
+    },
+    "ar109_real_rate_shock_proxy_10bps": {
+      "activation_fraction": 0.72996301,
+      "annualized_return": -0.0485909,
+      "annualized_volatility": 0.08776616,
+      "max_drawdown": -0.28904936,
+      "periods": 1622,
+      "positive_day_rate": 0.36559803,
+      "sharpe": -0.52367035,
+      "total_return": -0.27429358,
+      "turnover": {
+        "annualized_one_way": 96.48088779,
+        "mean_daily": 0.38286067,
+        "total": 621.0
+      }
+    },
+    "ar123_treasury_payment_day_proxy_10bps": {
+      "activation_fraction": 0.1134402,
+      "annualized_return": -0.07117531,
+      "annualized_volatility": 0.0363885,
+      "max_drawdown": -0.3782718,
+      "periods": 1622,
+      "positive_day_rate": 0.04500617,
+      "sharpe": -2.01046305,
+      "total_return": -0.37826496,
+      "turnover": {
+        "annualized_one_way": 43.65721332,
+        "mean_daily": 0.17324291,
+        "total": 281.0
+      }
+    },
+    "etf_reversal_63d_10bps": {
+      "activation_fraction": 0.96115906,
+      "annualized_return": -0.0102075,
+      "annualized_volatility": 0.09014358,
+      "max_drawdown": -0.26025331,
+      "periods": 1622,
+      "positive_day_rate": 0.48027127,
+      "sharpe": -0.06878502,
+      "total_return": -0.06390498,
+      "turnover": {
+        "annualized_one_way": 25.94574599,
+        "mean_daily": 0.10295931,
+        "total": 167.0
+      }
+    },
+    "etf_tsmom_63d_10bps": {
+      "activation_fraction": 0.96115906,
+      "annualized_return": -0.0485296,
+      "annualized_volatility": 0.09000525,
+      "max_drawdown": -0.33884525,
+      "periods": 1622,
+      "positive_day_rate": 0.46917386,
+      "sharpe": -0.50764776,
+      "total_return": -0.27399257,
+      "turnover": {
+        "annualized_one_way": 25.94574599,
+        "mean_daily": 0.10295931,
+        "total": 167.0
+      }
+    },
+    "ex_coarse_fomc_cpi_payroll_dates_10bps": {
+      "activation_fraction": 0.31504316,
+      "annualized_return": -0.06351597,
+      "annualized_volatility": 0.0614753,
+      "max_drawdown": -0.39499533,
+      "periods": 1622,
+      "positive_day_rate": 0.14549938,
+      "sharpe": -1.03658495,
+      "total_return": -0.34451622,
+      "turnover": {
+        "annualized_one_way": 49.56103576,
+        "mean_daily": 0.19667078,
+        "total": 319.0
+      }
+    },
+    "inverted_signal_10bps": {
+      "activation_fraction": 0.40505549,
+      "annualized_return": -0.04266305,
+      "annualized_volatility": 0.06844126,
+      "max_drawdown": -0.28075952,
+      "periods": 1622,
+      "positive_day_rate": 0.19667078,
+      "sharpe": -0.60277114,
+      "total_return": -0.24469287,
+      "turnover": {
+        "annualized_one_way": 46.14303329,
+        "mean_daily": 0.18310727,
+        "total": 297.0
+      }
+    },
+    "matched_non_auction_days_10bps": {
+      "activation_fraction": 0.39519112,
+      "annualized_return": -0.0661376,
+      "annualized_volatility": 0.06379573,
+      "max_drawdown": -0.41485375,
+      "periods": 1622,
+      "positive_day_rate": 0.18249075,
+      "sharpe": -1.04058528,
+      "total_return": -0.35623765,
+      "turnover": {
+        "annualized_one_way": 45.36621455,
+        "mean_daily": 0.18002466,
+        "total": 292.0
+      }
+    },
+    "shifted_auction_dates_21d_10bps": {
+      "activation_fraction": 0.39642417,
+      "annualized_return": -0.07872411,
+      "annualized_volatility": 0.07136395,
+      "max_drawdown": -0.45174924,
+      "periods": 1622,
+      "positive_day_rate": 0.17632552,
+      "sharpe": -1.11316418,
+      "total_return": -0.41007871,
+      "turnover": {
+        "annualized_one_way": 45.05548705,
+        "mean_daily": 0.17879162,
+        "total": 290.0
+      }
+    }
+  },
+  "cost_sensitivity": {
+    "10bps": {
+      "activation_fraction": 0.40505549,
+      "annualized_return": -0.05197724,
+      "annualized_volatility": 0.06840636,
+      "max_drawdown": -0.34537805,
+      "periods": 1622,
+      "positive_day_rate": 0.19420469,
+      "sharpe": -0.74600738,
+      "total_return": -0.29075908,
+      "turnover": {
+        "annualized_one_way": 46.14303329,
+        "mean_daily": 0.18310727,
+        "total": 297.0
+      }
+    },
+    "20bps": {
+      "activation_fraction": 0.40505549,
+      "annualized_return": -0.09479636,
+      "annualized_volatility": 0.0692853,
+      "max_drawdown": -0.51139168,
+      "periods": 1622,
+      "positive_day_rate": 0.19112207,
+      "sharpe": -1.40252951,
+      "total_return": -0.47325894,
+      "turnover": {
+        "annualized_one_way": 46.14303329,
+        "mean_daily": 0.18310727,
+        "total": 297.0
+      }
+    },
+    "5bps": {
+      "activation_fraction": 0.40505549,
+      "annualized_return": -0.0298321,
+      "annualized_volatility": 0.06818923,
+      "max_drawdown": -0.26795683,
+      "periods": 1622,
+      "positive_day_rate": 0.19605425,
+      "sharpe": -0.41003735,
+      "total_return": -0.17711343,
+      "turnover": {
+        "annualized_one_way": 46.14303329,
+        "mean_daily": 0.18310727,
+        "total": 297.0
+      }
+    }
+  },
+  "coverage_rows": {
+    "AGG": 1623,
+    "BND": 1623,
+    "EDV": 1623,
+    "GOVT": 1623,
+    "HYG": 1623,
+    "IEF": 1623,
+    "IEI": 1623,
+    "KRE": 1623,
+    "LQD": 1623,
+    "MBB": 1623,
+    "QQQ": 1623,
+    "SCHP": 1623,
+    "SHY": 1623,
+    "SPY": 1623,
+    "TIP": 1623,
+    "TLT": 1623,
+    "XLF": 1623,
+    "XLRE": 1623,
+    "XLU": 1623,
+    "ZROZ": 1623
+  },
+  "created_at": "2026-06-29T16:28:45Z",
+  "decision": "rejected",
+  "event_signal_count": 210,
+  "issue_id": "AR-148",
+  "median_dollar_volume_tail252": {
+    "AGG": 808061434.38,
+    "BND": 544167348.55,
+    "EDV": 66576638.92,
+    "GOVT": 145797380.51,
+    "HYG": 2973477904.04,
+    "IEF": 739304530.6,
+    "IEI": 196095205.28,
+    "KRE": 993939349.95,
+    "LQD": 3299974526.36,
+    "MBB": 233749610.11,
+    "QQQ": 30332569635.04,
+    "SCHP": 87212122.62,
+    "SHY": 301438509.89,
+    "SPY": 46388932325.03,
+    "TIP": 269345985.64,
+    "TLT": 2837659758.73,
+    "XLF": 2071684544.46,
+    "XLRE": 274840117.6,
+    "XLU": 954623345.47,
+    "ZROZ": 24529326.76
+  },
+  "model_name": "treasury-auction-result-demand-shock-duration-etf-v1",
+  "no_csv_used": true,
+  "no_daemon": true,
+  "no_data_csv_argument_used": true,
+  "no_orders": true,
+  "provenance": {
+    "entry_rule": "next regular session close; no result timestamp used",
+    "market_data": "qfa/AlpacaGateway real daily bars only",
+    "no_qfa_data_csv": true,
+    "no_wi_tail_claim": true,
+    "treasury_source_url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/auctions_query"
+  },
+  "random_windows": [
+    {
+      "activation_fraction": 0.40674603,
+      "annualized_return": -0.12605332,
+      "annualized_volatility": 0.06861861,
+      "end": "2025-04-17",
+      "max_drawdown": -0.2547893,
+      "periods": 504,
+      "positive_day_rate": 0.17857143,
+      "sharpe": -1.92872396,
+      "start": "2023-04-14",
+      "total_return": -0.2362172,
+      "turnover": {
+        "annualized_one_way": 43.5,
+        "mean_daily": 0.17261905,
+        "total": 87.0
+      }
+    },
+    {
+      "activation_fraction": 0.43452381,
+      "annualized_return": -0.02523165,
+      "annualized_volatility": 0.07344902,
+      "end": "2022-04-26",
+      "max_drawdown": -0.10640503,
+      "periods": 504,
+      "positive_day_rate": 0.21825397,
+      "sharpe": -0.31125248,
+      "start": "2020-04-27",
+      "total_return": -0.04982666,
+      "turnover": {
+        "annualized_one_way": 54.5,
+        "mean_daily": 0.21626984,
+        "total": 109.0
+      }
+    },
+    {
+      "activation_fraction": 0.40674603,
+      "annualized_return": -0.1264904,
+      "annualized_volatility": 0.06861842,
+      "end": "2025-04-25",
+      "max_drawdown": -0.2547893,
+      "periods": 504,
+      "positive_day_rate": 0.17857143,
+      "sharpe": -1.936016,
+      "start": "2023-04-21",
+      "total_return": -0.23698098,
+      "turnover": {
+        "annualized_one_way": 44.0,
+        "mean_daily": 0.17460317,
+        "total": 88.0
+      }
+    },
+    {
+      "activation_fraction": 0.43253968,
+      "annualized_return": -0.12953527,
+      "annualized_volatility": 0.0749236,
+      "end": "2024-11-06",
+      "max_drawdown": -0.24323369,
+      "periods": 504,
+      "positive_day_rate": 0.19047619,
+      "sharpe": -1.81364089,
+      "start": "2022-11-03",
+      "total_return": -0.24229116,
+      "turnover": {
+        "annualized_one_way": 40.5,
+        "mean_daily": 0.16071429,
+        "total": 81.0
+      }
+    },
+    {
+      "activation_fraction": 0.38888889,
+      "annualized_return": -0.09472769,
+      "annualized_volatility": 0.07525879,
+      "end": "2024-04-25",
+      "max_drawdown": -0.19312588,
+      "periods": 504,
+      "positive_day_rate": 0.17063492,
+      "sharpe": -1.28452131,
+      "start": "2022-04-22",
+      "total_return": -0.18048204,
+      "turnover": {
+        "annualized_one_way": 41.5,
+        "mean_daily": 0.16468254,
+        "total": 83.0
+      }
+    },
+    {
+      "activation_fraction": 0.38492063,
+      "annualized_return": -0.08661231,
+      "annualized_volatility": 0.07623184,
+      "end": "2024-03-22",
+      "max_drawdown": -0.19312588,
+      "periods": 504,
+      "positive_day_rate": 0.17063492,
+      "sharpe": -1.15013293,
+      "start": "2022-03-21",
+      "total_return": -0.16572292,
+      "turnover": {
+        "annualized_one_way": 41.5,
+        "mean_daily": 0.16468254,
+        "total": 83.0
+      }
+    },
+    {
+      "activation_fraction": 0.40277778,
+      "annualized_return": -0.0040411,
+      "annualized_volatility": 0.07443303,
+      "end": "2022-11-10",
+      "max_drawdown": -0.12869807,
+      "periods": 504,
+      "positive_day_rate": 0.1984127,
+      "sharpe": -0.01727742,
+      "start": "2020-11-10",
+      "total_return": -0.00806586,
+      "turnover": {
+        "annualized_one_way": 52.0,
+        "mean_daily": 0.20634921,
+        "total": 104.0
+      }
+    },
+    {
+      "activation_fraction": 0.42063492,
+      "annualized_return": -0.04082846,
+      "annualized_volatility": 0.07748583,
+      "end": "2023-08-02",
+      "max_drawdown": -0.11417076,
+      "periods": 504,
+      "positive_day_rate": 0.20039683,
+      "sharpe": -0.49925032,
+      "start": "2021-07-30",
+      "total_return": -0.07998995,
+      "turnover": {
+        "annualized_one_way": 42.0,
+        "mean_daily": 0.16666667,
+        "total": 84.0
+      }
+    },
+    {
+      "activation_fraction": 0.42261905,
+      "annualized_return": -0.08865968,
+      "annualized_volatility": 0.05790891,
+      "end": "2026-01-26",
+      "max_drawdown": -0.17884495,
+      "periods": 504,
+      "positive_day_rate": 0.1984127,
+      "sharpe": -1.57394098,
+      "start": "2024-01-22",
+      "total_return": -0.16945882,
+      "turnover": {
+        "annualized_one_way": 45.5,
+        "mean_daily": 0.18055556,
+        "total": 91.0
+      }
+    },
+    {
+      "activation_fraction": 0.42063492,
+      "annualized_return": -0.02194773,
+      "annualized_volatility": 0.07464016,
+      "end": "2022-08-18",
+      "max_drawdown": -0.1202065,
+      "periods": 504,
+      "positive_day_rate": 0.21031746,
+      "sharpe": -0.26005759,
+      "start": "2020-08-18",
+      "total_return": -0.04341376,
+      "turnover": {
+        "annualized_one_way": 52.0,
+        "mean_daily": 0.20634921,
+        "total": 104.0
+      }
+    },
+    {
+      "activation_fraction": 0.38293651,
+      "annualized_return": -0.0673776,
+      "annualized_volatility": 0.07835579,
+      "end": "2024-01-24",
+      "max_drawdown": -0.139172,
+      "periods": 504,
+      "positive_day_rate": 0.17460317,
+      "sharpe": -0.85100475,
+      "start": "2022-01-20",
+      "total_return": -0.13021546,
+      "turnover": {
+        "annualized_one_way": 39.0,
+        "mean_daily": 0.1547619,
+        "total": 78.0
+      }
+    },
+    {
+      "activation_fraction": 0.40873016,
+      "annualized_return": -0.05951397,
+      "annualized_volatility": 0.05507638,
+      "end": "2026-05-12",
+      "max_drawdown": -0.11794353,
+      "periods": 504,
+      "positive_day_rate": 0.20436508,
+      "sharpe": -1.08639428,
+      "start": "2024-05-07",
+      "total_return": -0.11548602,
+      "turnover": {
+        "annualized_one_way": 45.0,
+        "mean_daily": 0.17857143,
+        "total": 90.0
+      }
+    }
+  ],
+  "random_windows_summary": {
+    "count": 12,
+    "median_sharpe": -1.11826361,
+    "p25_sharpe": -1.63386596,
+    "positive_window_rate": 0.0,
+    "worst_sharpe": -1.936016
+  },
+  "rate_beta_controls": {
+    "corr_shy": 0.021089,
+    "corr_tlt": -0.00371,
+    "ols_beta_shy": 0.115876,
+    "ols_beta_tlt": -0.009057
+  },
+  "raw_daily_paths_retained": false,
+  "root_booleans": {
+    "no_csv_used": true,
+    "no_daemon": true,
+    "no_data_csv_argument_used": true,
+    "no_orders": true,
+    "raw_daily_paths_retained": false
+  },
+  "scheduled_signal_days": 745,
+  "selected_universe": [
+    "SHY",
+    "IEI",
+    "IEF",
+    "TLT",
+    "GOVT",
+    "EDV",
+    "ZROZ",
+    "TIP",
+    "SCHP",
+    "LQD",
+    "HYG",
+    "MBB",
+    "AGG",
+    "BND",
+    "XLF",
+    "KRE",
+    "XLU",
+    "XLRE",
+    "SPY",
+    "QQQ"
+  ],
+  "source_gate": {
+    "evaluation_rows_2020_2026": 697,
+    "fields": [
+      "record_date",
+      "cusip",
+      "security_type",
+      "security_term",
+      "auction_date",
+      "issue_date",
+      "maturity_date",
+      "high_yield",
+      "avg_med_yield",
+      "bid_to_cover_ratio",
+      "offering_amt",
+      "total_accepted",
+      "comp_accepted",
+      "direct_bidder_accepted",
+      "indirect_bidder_accepted",
+      "primary_dealer_accepted",
+      "soma_accepted",
+      "closing_time_comp",
+      "closing_time_noncomp"
+    ],
+    "nominal_note_bond_rows_since_2010": 1612,
+    "official_source": "Treasury FiscalData auctions_query",
+    "passed": true,
+    "required_field_and_alpaca_coverage_count": 612
+  },
+  "warnings": [
+    "No timestamp-safe when-issued source used; high-yield/award-rate surprise is trailing same-type/term auction history z-score only, not true WI tail.",
+    "Conservative next-regular-session close entry used because FiscalData rows do not document machine-readable result-publication timestamps in this evaluation.",
+    "FOMC/CPI/payroll diagnostic uses coarse calendar-rule exclusion only; no official macro calendar retained."
+  ],
+  "status": "rejected"
+}
