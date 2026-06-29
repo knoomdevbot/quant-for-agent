@@ -44,6 +44,9 @@ def backtest_run(
     timeframe: str = typer.Option("1Day"),
     initial_cash: float = typer.Option(100_000.0),
     asset_class: str = typer.Option("equity", help="Asset class for Alpaca data/metadata: equity or crypto"),
+    fee_maker_bps: float = typer.Option(0.0, help="Maker fee assumption in basis points"),
+    fee_taker_bps: float = typer.Option(0.0, help="Taker fee assumption in basis points"),
+    fill_mix: str = typer.Option("unknown", help="Fee fill assumption: maker, taker, mixed, or unknown"),
     db: Optional[Path] = typer.Option(None, help="SQLite database path"),
 ):
     symbol_list = _symbols(symbols)
@@ -61,6 +64,9 @@ def backtest_run(
         timeframe=timeframe,
         initial_cash=initial_cash,
         asset_class=asset_class,
+        fee_maker_bps=fee_maker_bps,
+        fee_taker_bps=fee_taker_bps,
+        fill_mix=fill_mix,
     )
     result = run_backtest(config, prices)
     store = _store(db)
