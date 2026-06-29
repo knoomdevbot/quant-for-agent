@@ -170,20 +170,30 @@ class TradingDaemon:
                     notional = min(notional, current_position_notional * SELL_NOTIONAL_POSITION_BUFFER)
                     response["notional"] = notional
                 if not self.config.dry_run:
-                    try:
-                        response = self.alpaca.submit_notional_order(
-                            symbol, side, notional, asset_class=asset_class
-                        )
-                    except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
+                    if asset_class == "equity" and not self.alpaca.is_market_open():
                         response = {
-                            "status": "error",
-                            "error_type": type(exc).__name__,
-                            "message": str(exc),
+                            "status": "skipped",
+                            "reason": "market_closed",
                             "symbol": symbol,
                             "side": side,
                             "notional": notional,
                             "asset_class": asset_class,
                         }
+                    else:
+                        try:
+                            response = self.alpaca.submit_notional_order(
+                                symbol, side, notional, asset_class=asset_class
+                            )
+                        except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
+                            response = {
+                                "status": "error",
+                                "error_type": type(exc).__name__,
+                                "message": str(exc),
+                                "symbol": symbol,
+                                "side": side,
+                                "notional": notional,
+                                "asset_class": asset_class,
+                            }
             event = {
                 "model_name": ",".join(target_model_names.get(symbol, [])),
                 "symbol": symbol,

@@ -100,6 +100,9 @@ class AlpacaGateway:
     def account_equity(self) -> float:
         return float(self.trading_client.get_account().equity)
 
+    def is_market_open(self) -> bool:
+        return bool(getattr(self.trading_client.get_clock(), "is_open"))
+
     def position_market_values(self, symbols: list[str]) -> dict[str, float]:
         allowed = set(symbols)
         values: dict[str, float] = {symbol: 0.0 for symbol in symbols}
