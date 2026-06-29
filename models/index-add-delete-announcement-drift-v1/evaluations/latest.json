@@ -1,0 +1,100 @@
+{
+  "issue_id": "AR-141",
+  "model_name": "index-add-delete-announcement-drift-v1",
+  "status": "rejected",
+  "recommendation": "rejected_blocked_source_gate",
+  "created_at_utc": "2026-06-29T16:11:51Z",
+  "evaluation_type": "timestamp_safe_public_index_announcement_source_gate",
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "source_provenance": "Public web source-gate discovery only; no market-bar backtest was run because the timestamp-safe event-source prerequisite failed. No credentials, daemon, orders, CSV market data, raw bars, caches, or sensitive local paths are stored.",
+  "candidate_pool_preperformance": [
+    "S&P 500 public additions/deletions",
+    "Nasdaq-100 public additions/deletions",
+    "Russell 1000 or equivalent large-cap Russell public additions/deletions"
+  ],
+  "source_gate": {
+    "required_timestamp_safe_tradable_events": 150,
+    "surviving_timestamp_safe_events": 0,
+    "passed": false,
+    "fixed_universe_before_scoring": true,
+    "performance_scoring_attempted": false,
+    "reason": "Could not obtain a reproducible corpus of at least 150 timestamp-safe tradable liquid large-cap common-stock index addition/deletion announcement events with announcement date/time or a conservative next-session lag. Available public sources either expose effective dates without announcement timestamps, only current-year lists, sparse annual Nasdaq-100 press releases, or blocked/paywalled/index-notice pages that cannot be used as a durable reproducible event file. Per AR-141, no OHLCV/effective-date inference was allowed."
+  },
+  "source_coverage_findings": [
+    {
+      "source": "Wikipedia List of S&P 500 companies, selected changes table",
+      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "reachable": true,
+      "observed_records": 400,
+      "timestamp_safe_records": 0,
+      "finding": "The selected-changes table is broad and machine-readable but its event date is an effective date. It does not provide announcement date/time or a durable as-of timestamp for each addition/deletion, so using it would violate the source gate."
+    },
+    {
+      "source": "Nasdaq public annual Nasdaq-100 reconstitution press releases",
+      "url_examples": [
+        "https://www.nasdaq.com/press-release/annual-changes-nasdaq-100-indexr-2025-12-13",
+        "https://www.nasdaq.com/press-release/annual-changes-nasdaq-100-indexr-2024-12-13",
+        "https://www.nasdaq.com/press-release/annual-changes-to-the-nasdaq-100-indexr-2023-12-08",
+        "https://www.nasdaq.com/press-release/annual-changes-to-the-nasdaq-100-indexr-2021-12-10-0"
+      ],
+      "reachable": true,
+      "observed_recent_add_delete_names": 42,
+      "timestamp_safe_records": 42,
+      "finding": "Recent annual press releases include public announcement dates, effective dates before market open, and named adds/removes, but the durable accessible sample found during the gate was sparse and far below 150 by itself. It also covers only one index family and would not satisfy breadth/no-dominance requirements."
+    },
+    {
+      "source": "LSEG/FTSE Russell reconstitution public page",
+      "url": "https://www.lseg.com/en/ftse-russell/russell-reconstitution",
+      "reachable": true,
+      "observed_records": "current-year broad Russell 3000/Microcap final PDF links and calendar text",
+      "timestamp_safe_records": 0,
+      "finding": "The public page gives current-year reconstitution calendar and final broad-index PDFs, not a durable historical large-cap event corpus with per-security announcement timestamps. Current-year broad Russell 3000 files are not a fixed liquid large-cap common-stock universe and cannot support random-window/leave-year evaluation."
+    },
+    {
+      "source": "S&P Dow Jones Indices index-news/press pages",
+      "url": "https://www.spglobal.com/spdji/",
+      "reachable": "partially",
+      "observed_records": 0,
+      "timestamp_safe_records": 0,
+      "finding": "Direct public index-news discovery was not reproducibly accessible from this environment; the accessible S&P coverage found was effective-date oriented, not an event-timestamp corpus."
+    }
+  ],
+  "performance_metrics": {
+    "backtest_run": false,
+    "reason_not_run": "timestamp_safe_event_source_gate_failed",
+    "primary_sharpe_10bps": null,
+    "random_median_sharpe_10bps": null,
+    "random_p25_sharpe_10bps": null,
+    "worst_window_sharpe_10bps": null,
+    "positive_window_rate_10bps": null,
+    "annualized_return_10bps": null,
+    "annualized_volatility_10bps": null,
+    "max_drawdown_10bps": null,
+    "turnover": null,
+    "activation_event_count": 0,
+    "cost_sensitivity_5_10_20bps": null,
+    "controls": "not_evaluated_because_source_gate_failed",
+    "orthogonality": "not_evaluated_because_source_gate_failed",
+    "max_relevant_correlation": null
+  },
+  "decision": {
+    "accepted": false,
+    "rejected": true,
+    "blocked": true,
+    "children_spawned": false,
+    "rationale": "Hard source gate required >=150 timestamp-safe tradable large-cap common-stock index addition/deletion announcement events before any return scoring. The gate failed, so null metrics are reported honestly and no child issue is proposed."
+  },
+  "artifacts": {
+    "model_py": "models/index-add-delete-announcement-drift-v1/model.py",
+    "config_yaml": "models/index-add-delete-announcement-drift-v1/config.yaml",
+    "metadata_yaml": "models/index-add-delete-announcement-drift-v1/metadata.yaml",
+    "readme_md": "models/index-add-delete-announcement-drift-v1/README.md",
+    "latest_json": "models/index-add-delete-announcement-drift-v1/evaluations/latest.json",
+    "latest_md": "models/index-add-delete-announcement-drift-v1/evaluations/latest.md",
+    "immutable_run_json": "models/index-add-delete-announcement-drift-v1/evaluations/runs/ar141_source_gate_blocked_20260629T161151Z.json"
+  }
+}

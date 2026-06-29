@@ -1,0 +1,20 @@
+model_name: index-add-delete-announcement-drift-v1
+issue_id: AR-141
+status: rejected
+recommendation: rejected_blocked_source_gate
+signal_active: false
+candidate_pool_predeclared:
+  - S&P 500 additions/deletions
+  - Nasdaq-100 additions/deletions
+  - Russell 1000 or equivalent large-cap Russell additions/deletions
+source_gate:
+  required_timestamp_safe_tradable_events: 150
+  surviving_timestamp_safe_events: 0
+  decision: fail
+market_data_policy:
+  real_market_bars_only: true
+  csv_backed_backtests_allowed: false
+  qfa_daemon_allowed: false
+  order_submission_allowed: false
+primary_cost_bps_one_way: 10
+cost_sensitivity_bps_one_way: [5, 20]

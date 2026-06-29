@@ -1035,8 +1035,8 @@ issues:
 - id: AR-141
   title: Timestamp-safe index addition/deletion announcement drift in liquid U.S. large-cap common stocks
   model_name: index-add-delete-announcement-drift-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_source_gate_blocked
   family: public_index_membership_event_flow
   issue_path: alpha_research/issues/AR-141.md
 - id: AR-142
@@ -1066,12 +1066,12 @@ issues:
   asset_bucket: crypto
   crypto_label: true
   issue_path: alpha_research/issues/AR-144.md
-active_batch:
-- AR-141
+active_batch: []
 last_realdata_batch:
+- AR-141
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-29T02:01:49Z'
+updated_at: '2026-06-29T16:11:51Z'
 target_tried_ideas: 100
 tried_ideas_count: 133

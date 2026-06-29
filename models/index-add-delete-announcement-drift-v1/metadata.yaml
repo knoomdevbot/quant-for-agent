@@ -1,0 +1,22 @@
+model_name: index-add-delete-announcement-drift-v1
+issue_id: AR-141
+issue_title: Timestamp-safe index addition/deletion announcement drift in liquid U.S. large-cap common stocks
+family: public_index_membership_event_flow
+status: rejected
+recommendation: rejected_blocked_source_gate
+created_at_utc: '2026-06-29T16:11:51Z'
+artifacts:
+  model: models/index-add-delete-announcement-drift-v1/model.py
+  config: models/index-add-delete-announcement-drift-v1/config.yaml
+  metadata: models/index-add-delete-announcement-drift-v1/metadata.yaml
+  readme: models/index-add-delete-announcement-drift-v1/README.md
+  latest_json: models/index-add-delete-announcement-drift-v1/evaluations/latest.json
+  latest_md: models/index-add-delete-announcement-drift-v1/evaluations/latest.md
+  run_json: models/index-add-delete-announcement-drift-v1/evaluations/runs/ar141_source_gate_blocked_20260629T161151Z.json
+provenance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false
+  source_summary: Public web source-gate discovery only; no market-bar performance test was run after gate failure.
