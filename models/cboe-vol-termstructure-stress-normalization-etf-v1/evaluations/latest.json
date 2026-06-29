@@ -1,0 +1,271 @@
+{
+  "issue_id": "AR-145",
+  "model_name": "cboe-vol-termstructure-stress-normalization-etf-v1",
+  "created_at_utc": "2026-06-29T15:43:28Z",
+  "decision": "rejected",
+  "status": "rejected",
+  "asset_bucket": "equity",
+  "crypto_label": false,
+  "research_type": "external_signal_realdata_evaluation",
+  "performance_evaluation_run": true,
+  "evaluation_window": {
+    "start": "2020-07-27",
+    "end": "2026-06-24",
+    "n_sessions": 1485,
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "HYG",
+      "LQD",
+      "TLT",
+      "IEF",
+      "GLD",
+      "SHY"
+    ]
+  },
+  "data_provenance": {
+    "external_signal": "Public CBOE daily volatility-index histories fetched transiently and transformed to one-session-lagged compact features; raw histories not retained.",
+    "market_prices": "qfa real ETF daily bars through configured market-data provider; no CSV-backed ETF prices.",
+    "timestamp_discipline": "CBOE features shifted by one completed trading session before weight formation; returns are next-session close-to-close."
+  },
+  "primary_metrics_10bps": {
+    "label": "primary_10bps",
+    "n_days": 1485,
+    "annual_return": -0.003295700456138251,
+    "annual_volatility": 0.09303924220725247,
+    "sharpe": 0.011110053361164001,
+    "max_drawdown": -0.27799757037446726,
+    "mean_daily_return": 4.101868831765225e-06,
+    "annual_turnover": 48.95757575757575,
+    "activation_rate_non_shy": 1.0
+  },
+  "cost_sensitivity_metrics": {
+    "5": {
+      "label": "primary_5bps",
+      "n_days": 1485,
+      "annual_return": 0.02141922093656512,
+      "annual_volatility": 0.09286851412459982,
+      "sharpe": 0.2747159149134566,
+      "max_drawdown": -0.25221871344913716,
+      "mean_daily_return": 0.00010123991596981233,
+      "annual_turnover": 48.95757575757575,
+      "activation_rate_non_shy": 1.0
+    },
+    "10": {
+      "label": "primary_10bps",
+      "n_days": 1485,
+      "annual_return": -0.003295700456138251,
+      "annual_volatility": 0.09303924220725247,
+      "sharpe": 0.011110053361164001,
+      "max_drawdown": -0.27799757037446726,
+      "mean_daily_return": 4.101868831765225e-06,
+      "annual_turnover": 48.95757575757575,
+      "activation_rate_non_shy": 1.0
+    },
+    "20": {
+      "label": "primary_20bps",
+      "n_days": 1485,
+      "annual_return": -0.05098514078771632,
+      "annual_volatility": 0.09374378190864656,
+      "sharpe": -0.5112222254770225,
+      "max_drawdown": -0.38023149492060004,
+      "mean_daily_return": -0.00019017422544432904,
+      "annual_turnover": 48.95757575757575,
+      "activation_rate_non_shy": 1.0
+    }
+  },
+  "random_window_summary": {
+    "n_windows": 48,
+    "median_sharpe": 0.21360119042725162,
+    "p25_sharpe": -0.16528109792112797,
+    "worst_sharpe": -2.162352173125457,
+    "positive_window_rate": 0.6458333333333334,
+    "compact_windows": [
+      {
+        "start": "2024-10-28",
+        "end": "2025-10-29",
+        "days": 252,
+        "sharpe": 1.6318677945342657,
+        "return": 0.1338446164316327,
+        "max_drawdown": -0.0391901249546861
+      },
+      {
+        "start": "2024-02-28",
+        "end": "2024-08-27",
+        "days": 126,
+        "sharpe": 0.44160421066892735,
+        "return": 0.014473476300520982,
+        "max_drawdown": -0.03699985410082174
+      },
+      {
+        "start": "2025-12-22",
+        "end": "2026-06-24",
+        "days": 126,
+        "sharpe": -0.0066197808655150975,
+        "return": -0.0025256215928858294,
+        "max_drawdown": -0.07262471717364716
+      },
+      {
+        "start": "2024-05-21",
+        "end": "2025-05-22",
+        "days": 252,
+        "sharpe": 0.010382690443996518,
+        "return": -0.0020817210934432895,
+        "max_drawdown": -0.07499810217461977
+      },
+      {
+        "start": "2022-08-23",
+        "end": "2024-08-23",
+        "days": 504,
+        "sharpe": 0.09538875032344585,
+        "return": 0.009132709804508643,
+        "max_drawdown": -0.13214433299651251
+      },
+      {
+        "start": "2021-06-24",
+        "end": "2022-06-23",
+        "days": 252,
+        "sharpe": -2.162352173125457,
+        "return": -0.19430386670353883,
+        "max_drawdown": -0.23444908664665676
+      },
+      {
+        "start": "2022-01-28",
+        "end": "2023-01-30",
+        "days": 252,
+        "sharpe": -1.2342682200598163,
+        "return": -0.158537622655471,
+        "max_drawdown": -0.20691448482672203
+      },
+      {
+        "start": "2025-07-10",
+        "end": "2026-01-07",
+        "days": 126,
+        "sharpe": 1.7487776433918196,
+        "return": 0.06482075691897604,
+        "max_drawdown": -0.023623905503806664
+      },
+      {
+        "start": "2024-03-08",
+        "end": "2025-03-11",
+        "days": 252,
+        "sharpe": -0.5702293792355904,
+        "return": -0.04187817500266178,
+        "max_drawdown": -0.07499810217462
+      },
+      {
+        "start": "2025-07-09",
+        "end": "2026-01-06",
+        "days": 126,
+        "sharpe": 1.7823076034913716,
+        "return": 0.06613125034582423,
+        "max_drawdown": -0.023623905503806886
+      },
+      {
+        "start": "2022-10-25",
+        "end": "2023-10-25",
+        "days": 252,
+        "sharpe": 0.22811382820417367,
+        "return": 0.017932190150088845,
+        "max_drawdown": -0.09022830729463371
+      },
+      {
+        "start": "2023-10-25",
+        "end": "2024-10-24",
+        "days": 252,
+        "sharpe": 1.3032955332113878,
+        "return": 0.09396223788474867,
+        "max_drawdown": -0.040419737808536804
+      }
+    ]
+  },
+  "control_metrics_10bps": {
+    "vix_level": {
+      "label": "vix_level_10bps",
+      "n_days": 1485,
+      "annual_return": 0.016366386869578475,
+      "annual_volatility": 0.09685428965215848,
+      "sharpe": 0.21608103530285583,
+      "max_drawdown": -0.2966807693725332,
+      "mean_daily_return": 8.30491078633376e-05,
+      "annual_turnover": 25.403636363636366,
+      "activation_rate_non_shy": 1.0
+    },
+    "slope_only": {
+      "label": "slope_only_10bps",
+      "n_days": 1485,
+      "annual_return": 0.032308757794740295,
+      "annual_volatility": 0.10665900675723115,
+      "sharpe": 0.35154454825688475,
+      "max_drawdown": -0.30952520544101114,
+      "mean_daily_return": 0.00014879123947618588,
+      "annual_turnover": 23.927272727272726,
+      "activation_rate_non_shy": 1.0
+    },
+    "no_vvix": {
+      "label": "no_vvix_10bps",
+      "n_days": 1485,
+      "annual_return": 0.0038332474630178304,
+      "annual_volatility": 0.09595875497118267,
+      "sharpe": 0.0879298086124467,
+      "max_drawdown": -0.2605818669128328,
+      "mean_daily_return": 3.348267840993952e-05,
+      "annual_turnover": 35.8569696969697,
+      "activation_rate_non_shy": 1.0
+    },
+    "shifted_external_features_plus_21d": {
+      "label": "shifted_external_features_plus_21d_10bps",
+      "n_days": 1485,
+      "annual_return": 0.03003010599981404,
+      "annual_volatility": 0.09996948905582548,
+      "sharpe": 0.34594232978356304,
+      "max_drawdown": -0.23436213744010193,
+      "mean_daily_return": 0.00013723681726684393,
+      "annual_turnover": 48.95757575757575,
+      "activation_rate_non_shy": 1.0
+    },
+    "etf_tsmom_126d_top3": {
+      "label": "etf_tsmom_126d_top3_10bps",
+      "n_days": 1485,
+      "annual_return": 0.047330018933877005,
+      "annual_volatility": 0.12396507986932642,
+      "sharpe": 0.4351836970468693,
+      "max_drawdown": -0.3136764807111485,
+      "mean_daily_return": 0.00021407770540572978,
+      "annual_turnover": 28.05656565656566,
+      "activation_rate_non_shy": 0.8430976430976431
+    },
+    "etf_reversal_5d_top3": {
+      "label": "etf_reversal_5d_top3_10bps",
+      "n_days": 1485,
+      "annual_return": -0.045254279612735204,
+      "annual_volatility": 0.14380314238519457,
+      "sharpe": -0.2502759707204123,
+      "max_drawdown": -0.3537851718625553,
+      "mean_daily_return": -0.00014281932957579458,
+      "annual_turnover": 153.06666666666666,
+      "activation_rate_non_shy": 0.9966329966329966
+    }
+  },
+  "acceptance_gate_result": {
+    "external_cboe_source_access_gate": "passed_runtime_fetch_no_raw_retention",
+    "timestamp_discipline_gate": "passed_one_session_lag",
+    "real_market_data_gate": "passed_qfa_provider_daily_bars",
+    "costed_performance_gate": "rejected",
+    "children_recommended": []
+  },
+  "verification": {
+    "json_parses": true,
+    "model_py_exposes_generate_signals": true,
+    "raw_data_committed": false,
+    "provider_raw_payloads_retained": false,
+    "performance_run_on_real_provider_bars": true,
+    "children_spawned": false
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}

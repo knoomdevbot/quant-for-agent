@@ -1,0 +1,95 @@
+{
+  "issue_id": "AR-145",
+  "model_name": "cboe-vol-termstructure-stress-normalization-etf-v1",
+  "created_at_utc": "2026-06-29T15:36:10Z",
+  "decision": "hold",
+  "status": "hold",
+  "hold_reason": "Superseded by the later real-data evaluation. The earlier source check reached CBOE public daily-history endpoints, but market-data access was not available in that execution environment. A CSV-backed ETF price backtest was forbidden, so no performance evaluation was run in that earlier check.",
+  "blocked_component": "alpaca_qfa_real_etf_daily_bar_access_for_performance_evaluation",
+  "external_issue_url_or_id": "none",
+  "last_checked_at": "2026-06-29T15:36:10Z",
+  "next_check_at": "2026-07-13T15:36:14Z",
+  "unblock_condition": "Configure approved Alpaca/qfa real ETF daily bar access, then rerun AR-145 with no --data-csv, one-session-lagged CBOE features, 10 bps primary turnover cost, 5/20 bps sensitivity, required controls, and compact artifacts only.",
+  "asset_bucket": "equity",
+  "crypto_label": false,
+  "research_type": "external_signal_feasibility_scout",
+  "performance_evaluation_run": false,
+  "performance_metrics": null,
+  "data_feasibility_findings": {
+    "overall_immediate_feasibility": "hold",
+    "cboe_public_history_source_access": "passed_lightweight_endpoint_check",
+    "cboe_timestamp_discipline": "plausible_if_features_are_lagged_one_full_trading_session_before_scoring",
+    "qfa_real_etf_market_data_access": "not_passed_in_earlier_execution_environment",
+    "csv_market_price_backtest_used": false,
+    "raw_external_history_retained": false,
+    "minimum_needed_before_performance": [
+      "Approved Alpaca/qfa real ETF daily bar access for SPY, QQQ, IWM, HYG, LQD, TLT, IEF, GLD, and SHY.",
+      "Evaluator that downloads CBOE daily histories transiently or through an approved cache outside durable artifacts, computes VIX3M/VIX, VIX9D/VIX, VIX and VVIX percentiles, and applies at least one completed trading-session lag.",
+      "Costed random-window and stress/regime-slice framework with 10 bps primary one-way turnover cost and 5/20 bps sensitivities.",
+      "Controls versus simple VIX level, term-slope-only, no-VVIX, ETF TSMOM/reversal, shifted labels, and prior defensive/carry/stress family retained streams."
+    ]
+  },
+  "source_options_checked": [
+    {
+      "source": "CBOE public VIX_History.csv",
+      "url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+      "status": "http_200_text_csv_sample_checked",
+      "timestamp_safety_notes": "Use only after one full trading-session lag; raw response not retained."
+    },
+    {
+      "source": "CBOE public VIX3M_History.csv",
+      "url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv",
+      "status": "http_200_text_csv_sample_checked",
+      "timestamp_safety_notes": "Use only after one full trading-session lag; raw response not retained."
+    },
+    {
+      "source": "CBOE public VIX9D_History.csv",
+      "url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX9D_History.csv",
+      "status": "http_200_text_csv_sample_checked",
+      "timestamp_safety_notes": "Use only after one full trading-session lag; raw response not retained."
+    },
+    {
+      "source": "CBOE public VVIX_History.csv",
+      "url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VVIX_History.csv",
+      "status": "http_200_text_csv_sample_checked",
+      "timestamp_safety_notes": "Use only after one full trading-session lag; raw response not retained."
+    },
+    {
+      "source": "qfa real ETF daily bars",
+      "status": "not_accessible_in_earlier_execution_environment",
+      "evidence": "Provider daily-bar access check was blocked in the earlier execution environment; superseded by later real-data evaluation.",
+      "timestamp_safety_notes": "No ETF market-price data was downloaded; no CSV fallback was used."
+    }
+  ],
+  "acceptance_gate_result": {
+    "external_cboe_source_access_gate": "passed_lightweight_check",
+    "timestamp_discipline_gate": "conditional_pass_requires_one_session_lag_in_evaluator",
+    "real_market_data_gate": "not_passed_in_earlier_execution_environment",
+    "costed_performance_gate": "not_run",
+    "children_recommended": []
+  },
+  "artifacts": {
+    "model": "models/cboe-vol-termstructure-stress-normalization-etf-v1/model.py",
+    "readme": "models/cboe-vol-termstructure-stress-normalization-etf-v1/README.md",
+    "config": "models/cboe-vol-termstructure-stress-normalization-etf-v1/config.yaml",
+    "metadata": "models/cboe-vol-termstructure-stress-normalization-etf-v1/metadata.yaml",
+    "latest_json": "models/cboe-vol-termstructure-stress-normalization-etf-v1/evaluations/latest.json",
+    "latest_md": "models/cboe-vol-termstructure-stress-normalization-etf-v1/evaluations/latest.md",
+    "run_json": "models/cboe-vol-termstructure-stress-normalization-etf-v1/evaluations/runs/20260629T153610Z.json"
+  },
+  "verification": {
+    "json_parses": true,
+    "model_py_created": true,
+    "generate_signals_required": true,
+    "raw_data_committed": false,
+    "provider_raw_payloads_retained": false,
+    "performance_not_run_because_real_alpaca_market_data_gate_failed": true,
+    "children_spawned": false,
+    "staged_secret_scan": "passed"
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}

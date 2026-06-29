@@ -1,0 +1,23 @@
+model_name: cboe-vol-termstructure-stress-normalization-etf-v1
+issue_id: AR-145
+family: external_volatility_term_structure_regime_allocation
+status: rejected
+decision: rejected
+created_at_utc: '2026-06-29T15:43:28Z'
+last_checked_at: '2026-06-29T15:43:28Z'
+next_check_at: none
+hold_reason: none
+blocked_component: none
+external_issue_url_or_id: none
+unblock_condition: none; real-data evaluation completed and failed acceptance gates.
+primary_10bps_sharpe: 0.011110053361164001
+primary_10bps_annual_return: -0.003295700456138251
+primary_10bps_max_drawdown: -0.27799757037446726
+random_window_median_sharpe: 0.21360119042725162
+random_window_p25_sharpe: -0.16528109792112797
+children_spawned: false
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false

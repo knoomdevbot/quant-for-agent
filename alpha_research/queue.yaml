@@ -1035,10 +1035,16 @@ issues:
 - id: AR-141
   title: Timestamp-safe index addition/deletion announcement drift in liquid U.S. large-cap common stocks
   model_name: index-add-delete-announcement-drift-v1
-  status: queued
-  priority: preflight_queue
+  status: hold
+  priority: hold_external_data_dependency
   family: public_index_membership_event_flow
   issue_path: alpha_research/issues/AR-141.md
+  hold_reason: timestamp_safe_public_index_announcement_event_source_unavailable_incomplete
+  blocked_component: external_index_membership_announcement_event_source
+  external_issue_url_or_id: none
+  last_checked_at: '2026-06-29T15:18:22Z'
+  next_check_at: '2026-07-13T15:18:22Z'
+  unblock_condition: Provide reproducible PIT/public-availability index add/delete announcement records with >=150 liquid tradable common-stock events after qfa/Alpaca filters.
 - id: AR-142
   title: Timestamp-safe crypto perp funding carry with OI deceleration feasibility scout
   model_name: crypto-perp-funding-oi-deceleration-scout-v1
@@ -1060,18 +1066,43 @@ issues:
 - id: AR-144
   title: Timestamp-safe BTC/ETH exchange-netflow pressure fast-falsification scout
   model_name: crypto-btc-eth-exchange-netflow-pressure-scout-v1
-  status: queued
-  priority: preflight_queue_crypto_feasibility
+  status: hold
+  priority: hold_external_data_dependency
   family: crypto_onchain_exchange_flow_pressure
   asset_bucket: crypto
   crypto_label: true
   issue_path: alpha_research/issues/AR-144.md
+  hold_reason: timestamp_safe_exchange_netflow_provider_access_coverage_and_qfa_onchain_evaluator_missing
+  blocked_component: external_onchain_exchange_netflow_provider_and_crypto_flow_evaluator
+  external_issue_url_or_id: none
+  last_checked_at: '2026-06-29T15:24:02Z'
+  next_check_at: '2026-07-13T15:24:02Z'
+  unblock_condition: Provide PIT BTC/ETH exchange inflow/outflow/netflow provider access with publication lag and exchange-label revision policy, plus qfa crypto spot/perp fee/funding evaluator support.
+- id: AR-145
+  title: CBOE volatility term-structure stress/normalization ETF allocator
+  model_name: cboe-vol-termstructure-stress-normalization-etf-v1
+  status: rejected
+  priority: completed_realdata
+  family: external_volatility_term_structure_regime_allocation
+  issue_path: alpha_research/issues/AR-145.md
+  decision: rejected_realdata_failed_acceptance_gates
+  blocked_component: none
+  external_issue_url_or_id: none
+  last_checked_at: '2026-06-29T15:43:28Z'
+  summary: qfa real ETF daily bars and transient one-session-lagged CBOE histories evaluated; primary 10 bps Sharpe 0.011, p25 random-window Sharpe -0.165, failed controls.
+- id: AR-146
+  title: SEC 8-K restructuring and impairment item event drift/reversal feasibility scout
+  model_name: sec-8k-restructuring-impairment-event-scout-v1
+  status: queued
+  priority: preflight_queue_event_source_feasibility
+  family: public_filing_restructuring_impairment_event_drift
+  issue_path: alpha_research/issues/AR-146.md
 active_batch:
-- AR-141
+- AR-146
 last_realdata_batch:
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-29T02:01:49Z'
+updated_at: '2026-06-29T15:43:28Z'
 target_tried_ideas: 100
 tried_ideas_count: 133
