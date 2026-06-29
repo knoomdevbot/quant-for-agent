@@ -1,0 +1,27 @@
+issue_id: AR-142
+model_name: crypto-perp-funding-oi-deceleration-scout-v1
+created_at_utc: '2026-06-29T01:54:02Z'
+status: blocked_infra_data_evaluator
+asset_bucket: crypto
+crypto_label: true
+family: crypto_perp_funding_carry
+parent_alpha: none
+hypothesis: Perp funding carry may be harvestable only if funding cashflows and OI crowding/deceleration are modeled with exchange-timestamp safety.
+model_path: null
+config_path: models/crypto-perp-funding-oi-deceleration-scout-v1/config.yaml
+evaluation_latest_json: models/crypto-perp-funding-oi-deceleration-scout-v1/evaluations/latest.json
+evaluation_latest_md: models/crypto-perp-funding-oi-deceleration-scout-v1/evaluations/latest.md
+data_source: Feasibility scout only; public exchange API availability checked without retaining raw data.
+fee_model:
+  maker_bps: 2.0
+  taker_bps: 5.0
+  fill_mix:
+    maker: 0.5
+    taker: 0.5
+research_constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  no_live_trading: true
+  raw_daily_paths_retained: false

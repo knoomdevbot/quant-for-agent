@@ -1,0 +1,99 @@
+{
+  "issue_id": "AR-142",
+  "model_name": "crypto-perp-funding-oi-deceleration-scout-v1",
+  "created_at_utc": "2026-06-29T01:54:02Z",
+  "decision": "blocked_infra_data_evaluator",
+  "decision_rationale": "A timestamp-safe real-data performance evaluator is not immediately feasible in current qfa because the repository data/backtest path is OHLCV/Alpaca/CSV-oriented and has no native crypto perp funding, OI, mark/index price, funding-cashflow, venue metadata, or fee/fill accounting. Public API research found OKX endpoints accessible from this host for funding history, OI-related data and candles, but Binance and Bybit public derivative endpoints were geo-blocked from this host and vendor sources require credentials/licensing. This should be treated as an infrastructure/data-ingestion blocker, not as alpha evidence.",
+  "asset_bucket": "crypto",
+  "crypto_label": true,
+  "research_type": "feasibility_scout",
+  "performance_evaluation_run": false,
+  "performance_metrics": null,
+  "fee_model": {
+    "maker_bps": 2.0,
+    "taker_bps": 5.0,
+    "fill_mix": {
+      "maker": 0.5,
+      "taker": 0.5
+    },
+    "applied_to_performance": false
+  },
+  "data_feasibility_findings": {
+    "current_repo_support": {
+      "native_crypto_perp_funding_oi_evaluator": false,
+      "qfa_backtest_price_only": true,
+      "qfa_backtest_funding_cashflows": false,
+      "qfa_backtest_open_interest_features": false,
+      "qfa_backtest_mark_index_price_alignment": false,
+      "qfa_backtest_perp_fee_fill_model": false,
+      "timestamp_safe_without_new_ingestion": false
+    },
+    "minimum_needed_before_performance": [
+      "Exchange/vendor connector for funding-rate history with exact funding timestamps and publication/availability lag policy.",
+      "Historical open-interest series aligned to contract identifiers and timestamps without future fill.",
+      "Mark/index/last price candles or trades aligned to the same contract universe.",
+      "Contract metadata, delisting/symbol-change handling, settlement/funding interval handling and stable universe construction.",
+      "Evaluator that decomposes mark/price PnL from funding cashflow PnL and applies maker/taker/slippage/fill-mix assumptions."
+    ],
+    "immediate_feasibility": "blocked",
+    "future_feasibility": "plausible_after_dedicated_crypto_derivatives_ingestion_and_evaluator"
+  },
+  "source_options_checked": [
+    {
+      "source": "OKX public API",
+      "status": "accessible_from_research_host",
+      "evidence": "HTTP 200 shape checks for funding-rate-history, open-interest, history mark/index/trade candles and rubik open-interest-volume endpoints; raw payloads not retained.",
+      "timestamp_safety_notes": "Promising primary public source, but needs pagination, lag rules, schema normalization and coverage tests before any evaluator."
+    },
+    {
+      "source": "Binance USD-M public API",
+      "status": "not_accessible_from_research_host",
+      "evidence": "Funding and OI endpoints returned HTTP 451 restricted-location response during scout.",
+      "timestamp_safety_notes": "Could be useful from an authorized location, but cannot be assumed available for this infrastructure."
+    },
+    {
+      "source": "Bybit public API",
+      "status": "not_accessible_from_research_host",
+      "evidence": "Funding and OI endpoints returned HTTP 403 CloudFront country block during scout.",
+      "timestamp_safety_notes": "Could be useful from an authorized location, but cannot be assumed available for this infrastructure."
+    },
+    {
+      "source": "Kraken Futures public API",
+      "status": "partially_accessible",
+      "evidence": "Instruments/tickers endpoint shape checks succeeded; historical funding/OI coverage was not proven in this dependency-light scout.",
+      "timestamp_safety_notes": "Potential supplement only after endpoint-level coverage proof."
+    },
+    {
+      "source": "CoinGlass/Kaiko/Amberdata/Coin Metrics or equivalent vendors",
+      "status": "plausible_but_requires_credentials_or_license",
+      "evidence": "No credentials or vendor dumps used; no raw data retained.",
+      "timestamp_safety_notes": "May solve coverage and survivorship issues if licensed with documented point-in-time fields."
+    }
+  ],
+  "acceptance_gate_result": {
+    "data_coverage_gate": "not_passed",
+    "timestamp_discipline_gate": "not_passed_without_new_infra",
+    "costed_performance_gate": "not_run",
+    "children_recommended": []
+  },
+  "artifacts": {
+    "readme": "models/crypto-perp-funding-oi-deceleration-scout-v1/README.md",
+    "config": "models/crypto-perp-funding-oi-deceleration-scout-v1/config.yaml",
+    "metadata": "models/crypto-perp-funding-oi-deceleration-scout-v1/metadata.yaml",
+    "latest_json": "models/crypto-perp-funding-oi-deceleration-scout-v1/evaluations/latest.json",
+    "latest_md": "models/crypto-perp-funding-oi-deceleration-scout-v1/evaluations/latest.md",
+    "run_json": "models/crypto-perp-funding-oi-deceleration-scout-v1/evaluations/runs/20260629T015402Z.json"
+  },
+  "verification": {
+    "json_parses": true,
+    "model_py_created": false,
+    "generate_signals_required": false,
+    "raw_data_committed": false,
+    "staged_secret_scan": "passed"
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}

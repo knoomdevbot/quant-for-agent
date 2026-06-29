@@ -1,0 +1,58 @@
+issue_id: AR-142
+model_name: crypto-perp-funding-oi-deceleration-scout-v1
+asset_bucket: crypto
+crypto_label: true
+status: blocked_infra_data_evaluator
+research_type: feasibility_scout
+created_at_utc: '2026-06-29T01:54:02Z'
+
+universe_seed:
+  venues: [OKX, Binance USD-M, Bybit linear, Kraken Futures, Coinbase International]
+  symbols: [BTC-USDT-SWAP, ETH-USDT-SWAP, SOL-USDT-SWAP]
+  selection_rule: Feasibility only; no performance-based product selection.
+
+fee_model:
+  maker_bps: 2.0
+  taker_bps: 5.0
+  fill_mix:
+    maker: 0.5
+    taker: 0.5
+  notes: Placeholder conservative CEX perp fee model for future evaluator; no trades placed.
+
+timestamp_discipline_required:
+  funding_cashflow_at_exchange_funding_timestamp: true
+  features_lagged_before_rebalance: true
+  no_forward_filled_future_funding_or_oi: true
+  venue_contract_metadata_required: true
+
+source_options_checked:
+  okx_public_api:
+    result: accessible_from_research_host
+    usable_fields_seen: [funding_rate_history, current_open_interest, historical_mark_price_candles, historical_index_candles, historical_trade_candles, rubik_open_interest_volume]
+    limitation: Need dedicated ingestion and schema normalization; OKX alone may not give broad multi-venue survivorship-safe coverage.
+  binance_usdm_public_api:
+    result: blocked_from_research_host_http_451
+    usable_fields_seen: [documented_funding_rate_history, documented_open_interest_history]
+    limitation: Public endpoints were not accessible from this host/location during scout.
+  bybit_public_api:
+    result: blocked_from_research_host_http_403_cloudfront_geo
+    usable_fields_seen: [documented_funding_history, documented_open_interest_history]
+    limitation: Public endpoints were not accessible from this host/location during scout.
+  kraken_futures_public_api:
+    result: partially_accessible
+    usable_fields_seen: [instruments, tickers]
+    limitation: Further endpoint work needed for timestamped historical funding and OI suitable for evaluator.
+  coinbase_international:
+    result: not_immediately_integrated
+    limitation: Not available in current qfa data path; likely requires separate derivatives API/vendor integration.
+  vendors:
+    result: plausible_but_not_available_without_credentials_or_license
+    vendors_checked: [CoinGlass, Kaiko, Amberdata, Coin Metrics]
+    limitation: Do not assume access; credentials/license and cache policy required.
+
+execution_constraints:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

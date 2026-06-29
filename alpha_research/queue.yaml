@@ -1042,8 +1042,8 @@ issues:
 - id: AR-142
   title: Timestamp-safe crypto perp funding carry with OI deceleration feasibility scout
   model_name: crypto-perp-funding-oi-deceleration-scout-v1
-  status: queued
-  priority: preflight_queue_crypto_feasibility
+  status: blocked_infra_data_evaluator
+  priority: completed_crypto_feasibility_blocked
   family: crypto_perp_funding_carry
   asset_bucket: crypto
   crypto_label: true
@@ -1068,12 +1068,11 @@ issues:
   issue_path: alpha_research/issues/AR-144.md
 active_batch:
 - AR-141
-- AR-142
 - AR-143
 last_realdata_batch:
 - AR-138
 - AR-139
 - AR-140
-updated_at: '2026-06-29T01:51:07Z'
+updated_at: '2026-06-29T01:54:02Z'
 target_tried_ideas: 100
 tried_ideas_count: 133
