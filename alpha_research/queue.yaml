@@ -1079,9 +1079,25 @@ issues:
   priority: completed_feasibility_rejected
   family: public_filing_item_specific_event_drift
   issue_path: alpha_research/issues/AR-145.md
-active_batch: []
+- id: AR-146
+  title: SEC 13D/13G blockholder initiation drift/reversal feasibility scout
+  model_name: sec-13dg-blockholder-initiation-drift-reversal-scout-v1
+  status: queued
+  priority: preflight_queue
+  family: public_filing_blockholder_event_drift
+  issue_path: alpha_research/issues/AR-146.md
+- id: AR-147
+  title: Fed H.4.1 weekly liquidity impulse ETF allocator
+  model_name: fed-h41-liquidity-impulse-etf-allocator-v1
+  status: queued
+  priority: preflight_queue
+  family: macro_liquidity_balance_sheet
+  issue_path: alpha_research/issues/AR-147.md
+active_batch:
+- AR-146
+- AR-147
 last_realdata_batch:
 - AR-145
-updated_at: '2026-06-29T18:10:02Z'
+updated_at: '2026-06-29T18:17:59Z'
 target_tried_ideas: 100
 tried_ideas_count: 134
