@@ -1,0 +1,20 @@
+model_name: tic-foreign-treasury-flow-pressure-etf-scout-v1
+created_at: "2026-06-29T22:25:32Z"
+created_by: AOI
+status: rejected
+family: public_foreign_treasury_demand_flow_pressure
+parent_model: null
+research_issue: AR-150
+hypothesis: Timestamp-safe monthly TIC foreign Treasury/security flow pressure may predict next-month duration, USD, gold, or credit ETF pressure after official release lag.
+data_requirements:
+  signal: Official Treasury TIC dated monthly release archives with point-in-time release-date ZIPs.
+  prices: Real adjusted daily ETF market prices, transient only.
+known_risks:
+  - Stale monthly macro flow signal.
+  - Short 2021+ parsed vintage overlap in recovered evaluation.
+  - Strong static ETF/control dominance.
+  - Price source was public real market API rather than retained qfa database output.
+artifact_policy:
+  git_tracked: true
+  large_files_external: true
+  compact_artifacts_only: true

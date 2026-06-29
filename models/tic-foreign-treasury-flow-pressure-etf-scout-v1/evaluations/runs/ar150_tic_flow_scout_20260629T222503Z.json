@@ -1,0 +1,197 @@
+{
+  "issue_id": "AR-150",
+  "model_name": "tic-foreign-treasury-flow-pressure-etf-scout-v1",
+  "alpha_id": "AR-150",
+  "asset_bucket": "etf",
+  "crypto_label": false,
+  "model_path": "models/tic-foreign-treasury-flow-pressure-etf-scout-v1/model.py",
+  "config_path": "models/tic-foreign-treasury-flow-pressure-etf-scout-v1/config.yaml",
+  "status": "rejected",
+  "decision": "rejected",
+  "decision_reasons": [
+    "median_random_window_sharpe_not_positive",
+    "p25_random_window_sharpe_materially_negative",
+    "positive_window_rate_below_55pct",
+    "max_control_correlation_above_0p60",
+    "full_sample_post_cost_sharpe_not_positive"
+  ],
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false,
+  "source_gate": {
+    "passed": true,
+    "official_archive_index": "https://home.treasury.gov/archives-of-tic-monthly-data-releases",
+    "dated_release_zip_count_seen_since_2021": 65,
+    "parsed_release_count": 33,
+    "parse_failures_sample": [
+      {
+        "release_date": "2021-01-19",
+        "reason": "npr_history_missing_or_unparsed"
+      },
+      {
+        "release_date": "2021-02-16",
+        "reason": "npr_history_missing_or_unparsed"
+      },
+      {
+        "release_date": "2021-03-15",
+        "reason": "npr_history_missing_or_unparsed"
+      },
+      {
+        "release_date": "2021-04-15",
+        "reason": "npr_history_missing_or_unparsed"
+      },
+      {
+        "release_date": "2021-05-17",
+        "reason": "npr_history_missing_or_unparsed"
+      }
+    ],
+    "timestamp_rule": "signals use only values parsed from dated official ticrel release ZIP; trade date is first ETF trading session after 4pm ET release date"
+  },
+  "data": {
+    "source": "public_real_market_price_api",
+    "candidate_pool_description": "Official Treasury TIC monthly dated release archives plus liquid duration, currency, gold, credit, and equity ETFs.",
+    "symbols_or_universe": ["TLT", "IEF", "SHY", "GOVT", "UUP", "GLD"],
+    "selected_universe_size": 6,
+    "universe_selection_filters": ["liquidity", "data_availability", "economic_exposure"],
+    "universe_selection_rationale": "Duration ETFs are direct foreign Treasury demand exposures; UUP/GLD test USD and safe-haven transmission.",
+    "universe_limitations": ["Recovered evaluation used transient public real market prices because configured qfa paper-data access was unavailable in the subagent environment."]
+  },
+  "protocol": {
+    "random_periods": 200,
+    "costs_bps": 10,
+    "slippage_model": "fixed_one_way_bps",
+    "trade_timing": "first ETF trading session after 4pm ET TIC release"
+  },
+  "data_source_provenance": {
+    "signal": "Official U.S. Treasury TIC dated monthly release ZIP archives; parsed npr_history.html from each vintage ZIP where available.",
+    "price": "Yahoo Finance chart API adjusted daily ETF closes, transient only; configured paper brokerage data access unavailable in this environment; credentials redacted.",
+    "market_data_real": true
+  },
+  "candidate_product_pool": [
+    "TLT",
+    "IEF",
+    "SHY",
+    "GOVT",
+    "UUP",
+    "FXE",
+    "FXY",
+    "GLD",
+    "HYG",
+    "LQD",
+    "SPY"
+  ],
+  "selected_universe": [
+    "TLT",
+    "IEF",
+    "SHY",
+    "GOVT",
+    "UUP",
+    "GLD"
+  ],
+  "diagnostic_universe": [
+    "FXE",
+    "FXY",
+    "HYG",
+    "LQD",
+    "SPY"
+  ],
+  "metrics": {
+    "start": "2024-08-16",
+    "end": "2026-06-29",
+    "daily_observations": 467,
+    "release_observations_total": 33,
+    "release_observations_with_signal": 22,
+    "archive_parse_failures": 32,
+    "activation_rate_daily": 0.6167023554603854,
+    "annualized_return_10bps": -0.03417533017247065,
+    "annualized_vol_10bps": 0.05652093708144207,
+    "sharpe_10bps": -0.5869695444311416,
+    "max_drawdown_10bps": -0.12417659850945684,
+    "turnover_total": 20.0,
+    "sharpe_5bps": -0.4912704344932013,
+    "sharpe_20bps": -0.775372589907154
+  },
+  "random_window_results": {
+    "count": 200,
+    "median_sharpe": -0.5113961102652718,
+    "p25_sharpe": -0.8518061876195915,
+    "worst_sharpe": -2.464222192210861,
+    "positive_window_rate": 0.255
+  },
+  "orthogonality_control_results": [
+    {
+      "control": "static_TLT",
+      "control_sharpe": -0.05795509858342412,
+      "alpha_minus_control_sharpe": -0.5290144458477175,
+      "correlation": 0.013724448311343703
+    },
+    {
+      "control": "static_IEF",
+      "control_sharpe": 0.5200290792828003,
+      "alpha_minus_control_sharpe": -1.1069986237139418,
+      "correlation": 0.04961384403893276
+    },
+    {
+      "control": "static_GOVT",
+      "control_sharpe": 0.5865938391320439,
+      "alpha_minus_control_sharpe": -1.1735633835631853,
+      "correlation": 0.03662560223374836
+    },
+    {
+      "control": "static_UUP",
+      "control_sharpe": 0.5830139377952294,
+      "alpha_minus_control_sharpe": -1.169983482226371,
+      "correlation": -0.12835496124642598
+    },
+    {
+      "control": "static_GLD",
+      "control_sharpe": 1.2212936877407257,
+      "alpha_minus_control_sharpe": -1.8082632321718672,
+      "correlation": 0.1497352536687313
+    },
+    {
+      "control": "static_SPY",
+      "control_sharpe": 1.0910078160153165,
+      "alpha_minus_control_sharpe": -1.677977360446458,
+      "correlation": -0.050878316575956685
+    },
+    {
+      "control": "static_equal_primary",
+      "control_sharpe": 1.0233427989188597,
+      "alpha_minus_control_sharpe": -1.6103123433500013,
+      "correlation": 0.1351549837679704
+    },
+    {
+      "control": "duration_63d_tsmom",
+      "control_sharpe": -0.9164300332804374,
+      "alpha_minus_control_sharpe": 0.3294604888492958,
+      "correlation": -0.24988037879748562
+    },
+    {
+      "control": "shifted_signal_1_release",
+      "control_sharpe": -0.5869695444311415,
+      "alpha_minus_control_sharpe": -1.1102230246251565e-16,
+      "correlation": -0.045929053045763286
+    },
+    {
+      "control": "inverted_signal",
+      "control_sharpe": 0.20300909478401774,
+      "alpha_minus_control_sharpe": -0.7899786392151593,
+      "correlation": -0.9889443283569753
+    }
+  ],
+  "costs": {
+    "primary_one_way_bps": 10,
+    "sensitivities_one_way_bps": [
+      5,
+      20
+    ]
+  },
+  "run_notes": [
+    "No qfa daemon, orders, or --data-csv used.",
+    "Raw ETF daily bars and TIC ZIP contents were transient and are not retained in repository.",
+    "AR-149 direct vintage control unavailable locally because AR-149 is on source-gated hold; used duration/USD/static/shift/inversion controls."
+  ]
+}

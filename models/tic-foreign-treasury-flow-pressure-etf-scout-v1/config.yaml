@@ -1,0 +1,28 @@
+model_name: tic-foreign-treasury-flow-pressure-etf-scout-v1
+research_issue: AR-150
+status: rejected
+asset_bucket: etf
+crypto_label: false
+family: public_foreign_treasury_demand_flow_pressure
+horizon: monthly
+holding_period: 1m
+rebalance: monthly_after_public_release
+universe:
+  candidate_pool_description: Official Treasury TIC monthly dated release archives plus liquid duration, currency, gold, credit, and equity ETFs.
+  selected_symbols: [TLT, IEF, SHY, GOVT, UUP, GLD]
+  diagnostics: [FXE, FXY, HYG, LQD, SPY]
+  selection_filters: [liquidity, data_availability, economic_exposure]
+  selection_rationale: Duration ETFs are direct foreign Treasury demand exposures; UUP/GLD test USD and safe-haven transmission.
+parameters:
+  signal: foreign_treasury_flow_pressure_composite
+  lookback_releases: 12
+  trade_timing: first_tradable_session_after_4pm_et_release
+costs:
+  primary_one_way_bps: 10
+  sensitivity_one_way_bps: [5, 20]
+risk:
+  max_gross_exposure: 1.0
+  no_leverage: true
+artifact_policy:
+  compact_artifacts_only: true
+  raw_daily_paths_retained: false
