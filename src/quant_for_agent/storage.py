@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS backtest_runs (
   asset_class TEXT NOT NULL DEFAULT 'equity',
   asset_bucket TEXT NOT NULL DEFAULT 'equity',
   crypto_label INTEGER NOT NULL DEFAULT 0,
+  fee_model_json TEXT NOT NULL DEFAULT '{}',
   start TEXT NOT NULL,
   end TEXT NOT NULL,
   timeframe TEXT NOT NULL,
@@ -71,6 +72,7 @@ class Store:
         self._add_column_if_missing("backtest_runs", "asset_class", "TEXT NOT NULL DEFAULT 'equity'")
         self._add_column_if_missing("backtest_runs", "asset_bucket", "TEXT NOT NULL DEFAULT 'equity'")
         self._add_column_if_missing("backtest_runs", "crypto_label", "INTEGER NOT NULL DEFAULT 0")
+        self._add_column_if_missing("backtest_runs", "fee_model_json", "TEXT NOT NULL DEFAULT '{}'")
         self._add_column_if_missing("alpha_models", "asset_class", "TEXT NOT NULL DEFAULT 'equity'")
 
     def _add_column_if_missing(self, table: str, column: str, definition: str) -> None:
@@ -88,8 +90,8 @@ class Store:
         cur = self.conn.execute(
             """
             INSERT INTO backtest_runs
-            (model_path, symbols, asset_class, asset_bucket, crypto_label, start, end, timeframe, initial_cash, metrics_json, equity_curve_json)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            (model_path, symbols, asset_class, asset_bucket, crypto_label, fee_model_json, start, end, timeframe, initial_cash, metrics_json, equity_curve_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 run["model_path"],
@@ -97,6 +99,7 @@ class Store:
                 asset_class,
                 asset_bucket,
                 1 if crypto_label else 0,
+                json.dumps(run.get("fee_model", {}), sort_keys=True),
                 run["start"],
                 run["end"],
                 run["timeframe"],
@@ -184,6 +187,7 @@ class Store:
         data = dict(row)
         data["symbols"] = json.loads(data["symbols"])
         data["crypto_label"] = bool(data.get("crypto_label", 0))
+        data["fee_model"] = json.loads(data.pop("fee_model_json", "{}") or "{}")
         data["metrics"] = json.loads(data.pop("metrics_json"))
         data["equity_curve"] = json.loads(data.pop("equity_curve_json"))
         return data
