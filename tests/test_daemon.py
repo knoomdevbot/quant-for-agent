@@ -104,7 +104,7 @@ def test_daemon_records_order_errors_and_continues_processing_symbols(tmp_path):
     assert json.loads(rows[0]["response_json"])["status"] == "error"
 
 
-def test_daemon_run_records_heartbeat_for_successful_tick(tmp_path):
+def test_daemon_run_records_heartbeat_for_successful_tick(tmp_path, capsys):
     store = Store(tmp_path / "qfa.sqlite3")
 
     TradingDaemon(
@@ -121,6 +121,14 @@ def test_daemon_run_records_heartbeat_for_successful_tick(tmp_path):
     assert status["last_tick_finished_at"] is not None
     assert status["next_tick_at"] is None
     assert status["last_error_type"] is None
+
+    log_lines = [json.loads(line) for line in capsys.readouterr().out.splitlines()]
+    assert log_lines[-1]["event"] == "daemon_tick"
+    assert log_lines[-1]["status"] == "ok"
+    assert log_lines[-1]["mode"] == "simulation"
+    assert log_lines[-1]["trade_event_count"] == 0
+    assert log_lines[-1]["no_order_reason"] == "no_trade_events"
+    assert log_lines[-1]["next_tick_at"] is None
 
 
 def test_daemon_run_records_heartbeat_for_failed_tick(tmp_path):
