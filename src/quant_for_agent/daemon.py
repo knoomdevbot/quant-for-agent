@@ -51,7 +51,7 @@ class TradingDaemon:
                 next_tick_at=None,
             )
             try:
-                events = self.tick()
+                events = self.tick() or []
             except Exception as exc:
                 tick_finished_at = _utc_now()
                 self._save_status(
@@ -69,7 +69,7 @@ class TradingDaemon:
                     next_tick_at=None,
                     trade_event_count=0,
                     last_error_type=type(exc).__name__,
-                    last_error_message=str(exc),
+                    last_error_message=self._format_log_error_message(exc),
                 )
                 raise
             tick_finished_at = _utc_now()
@@ -127,7 +127,7 @@ class TradingDaemon:
             "last_tick_finished_at": last_tick_finished_at,
             "next_tick_at": next_tick_at,
             "trade_event_count": trade_event_count,
-            "no_order_reason": "no_trade_events" if trade_event_count == 0 else None,
+            "no_order_reason": "no_trade_events" if status == "ok" and trade_event_count == 0 else None,
             "last_error_type": last_error_type,
             "last_error_message": last_error_message,
         }
@@ -136,6 +136,9 @@ class TradingDaemon:
         except Exception:
             # Tick logging is observability-only. It must not crash the daemon.
             return
+
+    def _format_log_error_message(self, exc: Exception) -> str:
+        return " ".join(str(exc).split())[:500]
 
     def _save_status(
         self,
