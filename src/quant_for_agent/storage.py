@@ -47,6 +47,21 @@ CREATE TABLE IF NOT EXISTS trade_events (
   dry_run INTEGER NOT NULL,
   response_json TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS daemon_status (
+  id INTEGER PRIMARY KEY CHECK (id = 1),
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  pid INTEGER,
+  mode TEXT NOT NULL,
+  paper INTEGER,
+  data_feed TEXT,
+  status TEXT NOT NULL,
+  last_tick_started_at TEXT,
+  last_tick_finished_at TEXT,
+  next_tick_at TEXT,
+  last_error_type TEXT,
+  last_error_message TEXT
+);
 """
 
 SUPPORTED_ASSET_CLASSES = {"equity", "crypto"}
@@ -203,6 +218,49 @@ class Store:
         )
         self.conn.commit()
         return int(cur.lastrowid)
+
+    def save_daemon_status(self, status: dict[str, Any]) -> None:
+        self.conn.execute(
+            """
+            INSERT INTO daemon_status (
+              id, pid, mode, paper, data_feed, status, last_tick_started_at,
+              last_tick_finished_at, next_tick_at, last_error_type, last_error_message, updated_at
+            ) VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+            ON CONFLICT(id) DO UPDATE SET
+              pid=excluded.pid,
+              mode=excluded.mode,
+              paper=excluded.paper,
+              data_feed=excluded.data_feed,
+              status=excluded.status,
+              last_tick_started_at=excluded.last_tick_started_at,
+              last_tick_finished_at=excluded.last_tick_finished_at,
+              next_tick_at=excluded.next_tick_at,
+              last_error_type=excluded.last_error_type,
+              last_error_message=excluded.last_error_message,
+              updated_at=CURRENT_TIMESTAMP
+            """,
+            (
+                status.get("pid"),
+                status["mode"],
+                None if status.get("paper") is None else (1 if status.get("paper") else 0),
+                status.get("data_feed"),
+                status["status"],
+                status.get("last_tick_started_at"),
+                status.get("last_tick_finished_at"),
+                status.get("next_tick_at"),
+                status.get("last_error_type"),
+                status.get("last_error_message"),
+            ),
+        )
+        self.conn.commit()
+
+    def get_daemon_status(self) -> dict[str, Any] | None:
+        row = self.conn.execute("SELECT * FROM daemon_status WHERE id = 1").fetchone()
+        if row is None:
+            return None
+        data = dict(row)
+        data["paper"] = None if data.get("paper") is None else bool(data["paper"])
+        return data
 
     @staticmethod
     def _decode_backtest(row: sqlite3.Row) -> dict[str, Any]:

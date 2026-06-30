@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import os
 import time
 from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
 
 from .alpha import AlphaContext, load_alpha_function, normalize_weights
 from .alpaca_client import AlpacaGateway
@@ -14,12 +16,22 @@ SELL_NOTIONAL_POSITION_BUFFER = 0.995
 NEAR_FULL_POSITION_SELL_THRESHOLD = 0.95
 
 
+def _format_utc(value: datetime) -> str:
+    return value.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _utc_now() -> str:
+    return _format_utc(datetime.now(timezone.utc))
+
+
 @dataclass(frozen=True)
 class DaemonConfig:
     interval_seconds: int = 300
     dry_run: bool = True
     once: bool = False
     lookback_days: int = 90
+    paper: bool | None = None
+    data_feed: str | None = None
 
 
 class TradingDaemon:
@@ -30,10 +42,73 @@ class TradingDaemon:
 
     def run(self) -> None:
         while True:
-            self.tick()
+            tick_started_at = _utc_now()
+            self._save_status(
+                status="running",
+                last_tick_started_at=tick_started_at,
+                last_tick_finished_at=None,
+                next_tick_at=None,
+            )
+            try:
+                self.tick()
+            except Exception as exc:
+                self._save_status(
+                    status="error",
+                    last_tick_started_at=tick_started_at,
+                    last_tick_finished_at=_utc_now(),
+                    next_tick_at=None,
+                    last_error_type=type(exc).__name__,
+                    last_error_message=str(exc),
+                )
+                raise
+            tick_finished_at = _utc_now()
             if self.config.once:
+                self._save_status(
+                    status="ok",
+                    last_tick_started_at=tick_started_at,
+                    last_tick_finished_at=tick_finished_at,
+                    next_tick_at=None,
+                )
                 return
+            self._save_status(
+                status="ok",
+                last_tick_started_at=tick_started_at,
+                last_tick_finished_at=tick_finished_at,
+                next_tick_at=_format_utc(
+                    datetime.now(timezone.utc) + timedelta(seconds=self.config.interval_seconds)
+                ),
+            )
             time.sleep(self.config.interval_seconds)
+
+    def _save_status(
+        self,
+        *,
+        status: str,
+        last_tick_started_at: str | None,
+        last_tick_finished_at: str | None,
+        next_tick_at: str | None,
+        last_error_type: str | None = None,
+        last_error_message: str | None = None,
+    ) -> None:
+        try:
+            self.store.save_daemon_status(
+                {
+                    "pid": os.getpid(),
+                    "mode": "simulation" if self.config.dry_run else "submit-orders",
+                    "paper": self.config.paper,
+                    "data_feed": self.config.data_feed,
+                    "status": status,
+                    "last_tick_started_at": last_tick_started_at,
+                    "last_tick_finished_at": last_tick_finished_at,
+                    "next_tick_at": next_tick_at,
+                    "last_error_type": last_error_type,
+                    "last_error_message": last_error_message,
+                }
+            )
+        except Exception:
+            # Heartbeat persistence is observability-only. It must not crash the
+            # trading loop, especially after a tick may have submitted orders.
+            return
 
     def tick(self) -> list[dict]:
         import pandas as pd

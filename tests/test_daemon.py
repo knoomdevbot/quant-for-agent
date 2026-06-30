@@ -104,6 +104,72 @@ def test_daemon_records_order_errors_and_continues_processing_symbols(tmp_path):
     assert json.loads(rows[0]["response_json"])["status"] == "error"
 
 
+def test_daemon_run_records_heartbeat_for_successful_tick(tmp_path):
+    store = Store(tmp_path / "qfa.sqlite3")
+
+    TradingDaemon(
+        store,
+        FakeAlpacaGateway(),
+        DaemonConfig(interval_seconds=300, dry_run=True, once=True),
+    ).run()
+
+    status = store.get_daemon_status()
+    assert status is not None
+    assert status["status"] == "ok"
+    assert status["mode"] == "simulation"
+    assert status["last_tick_started_at"] is not None
+    assert status["last_tick_finished_at"] is not None
+    assert status["next_tick_at"] is None
+    assert status["last_error_type"] is None
+
+
+def test_daemon_run_records_heartbeat_for_failed_tick(tmp_path):
+    class FailingDaemon(TradingDaemon):
+        def tick(self):
+            raise RuntimeError("data fetch failed")
+
+    store = Store(tmp_path / "qfa.sqlite3")
+    daemon = FailingDaemon(
+        store,
+        FakeAlpacaGateway(),
+        DaemonConfig(interval_seconds=300, dry_run=True, once=True),
+    )
+
+    try:
+        daemon.run()
+    except RuntimeError:
+        pass
+
+    status = store.get_daemon_status()
+    assert status is not None
+    assert status["status"] == "error"
+    assert status["last_error_type"] == "RuntimeError"
+    assert status["last_error_message"] == "data fetch failed"
+
+
+def test_daemon_heartbeat_failure_does_not_crash_after_successful_tick(tmp_path):
+    class FlakyStatusStore(Store):
+        def __init__(self, db_path):
+            super().__init__(db_path)
+            self.status_writes = 0
+
+        def save_daemon_status(self, status):
+            self.status_writes += 1
+            if self.status_writes == 2:
+                raise RuntimeError("status db unavailable")
+            return super().save_daemon_status(status)
+
+    store = FlakyStatusStore(tmp_path / "qfa.sqlite3")
+
+    TradingDaemon(
+        store,
+        FakeAlpacaGateway(),
+        DaemonConfig(interval_seconds=300, dry_run=True, once=True),
+    ).run()
+
+    assert store.status_writes == 2
+
+
 def test_daemon_submits_only_delta_between_current_and_target_position(tmp_path):
     model_path = tmp_path / "target_weight_model.py"
     model_path.write_text(
