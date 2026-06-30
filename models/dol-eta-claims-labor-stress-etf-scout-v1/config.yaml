@@ -1,0 +1,32 @@
+alpha_id: AR-151
+model_name: dol-eta-claims-labor-stress-etf-scout-v1
+family: public_labor_stress_macro_release
+asset_bucket: non-crypto
+mode: source_gate_rejected_noop
+selected_universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLK
+  - XLF
+  - XLU
+  - XLP
+  - TLT
+  - IEF
+  - SHY
+  - HYG
+  - LQD
+  - GLD
+signal:
+  enabled: false
+  reason: source_vintage_gate_failed
+  trade_timing_rule: no earlier than next liquid ETF session after public release if future gate passes
+costs:
+  primary_bps: 10
+  sensitivity_bps: [5, 20]
+provenance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

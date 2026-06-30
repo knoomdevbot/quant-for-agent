@@ -1,0 +1,26 @@
+alpha_id: AR-151
+model_name: dol-eta-claims-labor-stress-etf-scout-v1
+family: public_labor_stress_macro_release
+asset_bucket: non-crypto
+decision: rejected
+created_at: '2026-06-30T00:05:17Z'
+source_gate: failed_revision_vintage_safety
+no_csv_used: true
+no_data_csv_argument_used: true
+no_daemon: true
+no_orders: true
+raw_daily_paths_retained: false
+summary: >-
+  Bounded official-source checks found DOL/ETA current weekly claims pages and an
+  archive/news-release pointer, but did not prove a compact machine-readable
+  point-in-time release/vintage path. Short-timeout ALFRED/FRED checks did not
+  return usable vintage data in the recovery budget. The scout is rejected at the
+  source gate and emits flat weights.
+artifacts:
+  model_py: models/dol-eta-claims-labor-stress-etf-scout-v1/model.py
+  config_yaml: models/dol-eta-claims-labor-stress-etf-scout-v1/config.yaml
+  metadata_yaml: models/dol-eta-claims-labor-stress-etf-scout-v1/metadata.yaml
+  readme_md: models/dol-eta-claims-labor-stress-etf-scout-v1/README.md
+  latest_json: models/dol-eta-claims-labor-stress-etf-scout-v1/evaluations/latest.json
+  latest_md: models/dol-eta-claims-labor-stress-etf-scout-v1/evaluations/latest.md
+  immutable_run_json: models/dol-eta-claims-labor-stress-etf-scout-v1/evaluations/runs/ar151_source_gate_rejected_20260630T000517Z.json

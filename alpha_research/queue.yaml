@@ -1123,14 +1123,13 @@ issues:
 - id: AR-151
   title: DOL/ETA unemployment-claims labor-stress ETF allocator scout
   model_name: dol-eta-claims-labor-stress-etf-scout-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: source_gate_rejected
   family: public_labor_stress_macro_release
   issue_path: alpha_research/issues/AR-151.md
-active_batch:
-- AR-151
+active_batch: []
 last_realdata_batch:
-- AR-150
-updated_at: '2026-06-29T22:25:32Z'
+- AR-151
+updated_at: '2026-06-30T00:05:17Z'
 target_tried_ideas: 100
 tried_ideas_count: 137
