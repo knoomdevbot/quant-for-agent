@@ -1,0 +1,19 @@
+issue_id: AR-151
+model_name: dol-eta-claims-labor-stress-etf-scout-v1
+family: public_labor_stress_macro_release
+status: rejected
+decision: reject_source_gate
+created_at_utc: '2026-06-30T01:49:29Z'
+source_gate:
+  status: failed
+  reason: bounded recovery did not establish a parser-safe timestamp/vintage table for weekly DOL/ETA claims values without revised-data lookahead
+artifacts:
+  model_path: models/dol-eta-claims-labor-stress-etf-scout-v1/model.py
+  config_path: models/dol-eta-claims-labor-stress-etf-scout-v1/config.yaml
+  latest_json: models/dol-eta-claims-labor-stress-etf-scout-v1/evaluations/latest.json
+provenance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

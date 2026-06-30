@@ -1,0 +1,58 @@
+{
+  "alpha_id": "AR-151",
+  "issue_id": "AR-151",
+  "model_name": "dol-eta-claims-labor-stress-etf-scout-v1",
+  "created_at_utc": "2026-06-30T01:49:29Z",
+  "run_id": "ar151_sourcegate_20260630T014929Z",
+  "status": "rejected",
+  "decision": "reject_source_gate_failed",
+  "decision_reason": "Bounded recovery did not establish a parser-safe timestamp/vintage table for DOL/ETA weekly claims values; using current or revised claims would risk lookahead.",
+  "source_gate": {
+    "status": "failed",
+    "official_dol_probe": {
+      "status": "partial",
+      "observed": [
+        "DOL OUI weekly claims landing page responded and linked to weekly claims data, more weekly claims reports, a latest-release PDF, and ETA newsroom archives.",
+        "The cheap probe did not expose a compact machine-readable historical release/vintage table suitable for point-in-time parsing."
+      ]
+    },
+    "alfred_fred_probe": {
+      "status": "inconclusive_timeout",
+      "observed": [
+        "Short ALFRED/FRED metadata probes for ICSA did not complete within the bounded timeout.",
+        "No FRED API-key based or long ALFRED download path was attempted."
+      ]
+    },
+    "rejection_test": "Cannot prove that initial/continuing claims accelerations would use only values publicly released before the ETF trade date."
+  },
+  "performance_metrics": null,
+  "random_window_metrics": null,
+  "controls": {
+    "static_neutral": "not_run_source_gate_failed",
+    "AR_147": "not_run_source_gate_failed",
+    "AR_063": "not_run_source_gate_failed",
+    "etf_tsmom_reversal": "not_run_source_gate_failed",
+    "shifted_labels": "not_run_source_gate_failed",
+    "inverted_labels": "not_run_source_gate_failed",
+    "same_weekday_placebo": "not_run_source_gate_failed",
+    "recession_year_dominance": "not_run_source_gate_failed"
+  },
+  "universe": ["SPY", "QQQ", "IWM", "XLK", "XLF", "XLU", "XLP", "TLT", "IEF", "SHY", "HYG", "LQD", "GLD"],
+  "artifacts": {
+    "model_path": "models/dol-eta-claims-labor-stress-etf-scout-v1/model.py",
+    "config_path": "models/dol-eta-claims-labor-stress-etf-scout-v1/config.yaml",
+    "metadata_path": "models/dol-eta-claims-labor-stress-etf-scout-v1/metadata.yaml",
+    "readme_path": "models/dol-eta-claims-labor-stress-etf-scout-v1/README.md",
+    "latest_json": "models/dol-eta-claims-labor-stress-etf-scout-v1/evaluations/latest.json",
+    "run_json": "models/dol-eta-claims-labor-stress-etf-scout-v1/evaluations/runs/ar151_sourcegate_20260630T014929Z.json"
+  },
+  "bad_result_policy": {
+    "if_rejected_no_refinement_or_direct_extension": true,
+    "children_spawned": false
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}

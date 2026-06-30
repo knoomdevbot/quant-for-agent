@@ -1,0 +1,27 @@
+model_name: dol-eta-claims-labor-stress-etf-scout-v1
+issue_id: AR-151
+status: rejected
+reason: source_gate_failed
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLK
+  - XLF
+  - XLU
+  - XLP
+  - TLT
+  - IEF
+  - SHY
+  - HYG
+  - LQD
+  - GLD
+constraints:
+  gross_exposure_max: 0.0
+  zero_weight_source_gate: true
+provenance:
+  no_csv_used: true
+  no_data_csv_argument_used: true
+  no_daemon: true
+  no_orders: true
+  raw_daily_paths_retained: false

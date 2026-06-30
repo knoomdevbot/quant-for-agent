@@ -1123,14 +1123,29 @@ issues:
 - id: AR-151
   title: DOL/ETA unemployment-claims labor-stress ETF allocator scout
   model_name: dol-eta-claims-labor-stress-etf-scout-v1
-  status: queued
-  priority: preflight_queue
+  status: rejected
+  priority: completed_source_gate_rejection
   family: public_labor_stress_macro_release
   issue_path: alpha_research/issues/AR-151.md
+- id: AR-152
+  title: SEC N-PORT holdings-change pressure feasibility scout
+  model_name: sec-nport-holdings-change-pressure-scout-v1
+  status: queued
+  priority: preflight_queue_feasibility_first
+  family: public_fund_holdings_disclosure_pressure
+  issue_path: alpha_research/issues/AR-152.md
+- id: AR-153
+  title: SEC common-stock offering/prospectus acceptance event scout
+  model_name: sec-equity-offering-prospectus-acceptance-scout-v1
+  status: queued
+  priority: preflight_queue_feasibility_first
+  family: public_filing_equity_offering_event_drift
+  issue_path: alpha_research/issues/AR-153.md
 active_batch:
-- AR-151
+- AR-152
+- AR-153
 last_realdata_batch:
-- AR-150
-updated_at: '2026-06-29T22:25:32Z'
+- AR-151
+updated_at: '2026-06-30T01:58:30Z'
 target_tried_ideas: 100
-tried_ideas_count: 137
+tried_ideas_count: 138
