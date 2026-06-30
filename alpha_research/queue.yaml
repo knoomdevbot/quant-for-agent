@@ -1127,9 +1127,17 @@ issues:
   priority: source_gate_rejected
   family: public_labor_stress_macro_release
   issue_path: alpha_research/issues/AR-151.md
-active_batch: []
+- id: AR-152
+  title: SEC N-PORT fund holdings-change pressure feasibility scout
+  model_name: sec-nport-holdings-change-pressure-scout-v1
+  status: queued
+  priority: preflight_queue
+  family: public_fund_holdings_disclosure_flow
+  issue_path: alpha_research/issues/AR-152.md
+active_batch:
+- AR-152
 last_realdata_batch:
 - AR-151
-updated_at: '2026-06-30T00:05:17Z'
+updated_at: '2026-06-30T00:14:23Z'
 target_tried_ideas: 100
 tried_ideas_count: 137
