@@ -1,0 +1,59 @@
+{
+  "run_id": "ar151_source_gate_20260630T005946Z",
+  "issue_id": "AR-151",
+  "model_name": "dol-eta-claims-labor-stress-etf-scout-v1",
+  "created_at": "2026-06-30T00:59:46Z",
+  "decision": "queued_needs_realdata_evaluation",
+  "source_gate": {
+    "status": "passed_feasibility_not_evaluated",
+    "primary_source": "official_dol_eta_news_release_archive",
+    "official_dol_eta_archive_checked": true,
+    "official_dol_eta_archive_result": "Dated ETA weekly claims release pages are available through the official DOL newsroom archive and can support point-in-time release mapping.",
+    "alfred_checked": true,
+    "alfred_result": "Public ALFRED page documents archival/vintage initial-claims series availability; programmatic vintage API was not used because it requires an external credential.",
+    "lookahead_falsifier_triggered": false,
+    "limitations": [
+      "No durable historical release parser was built in this bounded pass.",
+      "No release-time calendar normalization or holiday handling was implemented.",
+      "No consensus-expectations source was used or assumed."
+    ]
+  },
+  "data_source": {
+    "claims_source": "official DOL/ETA dated weekly claims releases for future ETL",
+    "market_data_source": null,
+    "source_gate": "passed_feasibility_not_evaluated"
+  },
+  "metrics": null,
+  "performance_metrics": null,
+  "evaluation": {
+    "real_performance_evaluated": false,
+    "reason": "Bounded recovery stopped after source-vintage feasibility gate; no long backtest was run.",
+    "selected_universe": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "XLK",
+      "XLF",
+      "XLU",
+      "XLP",
+      "TLT",
+      "IEF",
+      "SHY",
+      "HYG",
+      "LQD",
+      "GLD"
+    ],
+    "queue_status_after_source_gate": "queued",
+    "next_step": "Build official DOL/ETA dated-release parser and run no-CSV real ETF performance controls."
+  },
+  "model_wrapper": {
+    "path": "models/dol-eta-claims-labor-stress-etf-scout-v1/model.py",
+    "generate_signals_behavior": "returns explicit zero weights for the selected ETF universe",
+    "enabled": false
+  },
+  "no_csv_used": true,
+  "no_data_csv_argument_used": true,
+  "no_daemon": true,
+  "no_orders": true,
+  "raw_daily_paths_retained": false
+}

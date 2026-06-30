@@ -1,0 +1,27 @@
+model_name: dol-eta-claims-labor-stress-etf-scout-v1
+issue_id: AR-151
+status: source_gate_passed_not_performance_evaluated
+source_gate:
+  decision: passed_feasibility_not_evaluated
+  official_dol_eta_archive: usable_in_principle
+  alfred_vintage_path: usable_in_principle_but_programmatic_api_requires_external_credential
+  selected_signal_source_for_future_work: official_dol_eta_news_release_archive
+  timestamp_rule: trade no earlier than next liquid ETF session after public weekly release
+universe:
+  - SPY
+  - QQQ
+  - IWM
+  - XLK
+  - XLF
+  - XLU
+  - XLP
+  - TLT
+  - IEF
+  - SHY
+  - HYG
+  - LQD
+  - GLD
+execution:
+  enabled: false
+  reason: no performance evaluation run in bounded source-gate recovery
+  gross_exposure_cap: 0.0

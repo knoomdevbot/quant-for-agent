@@ -1,0 +1,15 @@
+model_name: dol-eta-claims-labor-stress-etf-scout-v1
+issue_id: AR-151
+family: public_labor_stress_macro_release
+created_at: '2026-06-30T00:59:46Z'
+research_status: source_gate_passed_not_performance_evaluated
+source_gate_decision: passed_feasibility_not_evaluated
+performance_status: unavailable
+orders_or_daemon_used: false
+csv_market_data_used: false
+raw_daily_paths_retained: false
+notes:
+  - Bounded recovery inspected official DOL/ETA weekly claims pages and archive index.
+  - DOL newsroom archive exposes dated ETA weekly claims release pages suitable for point-in-time release mapping.
+  - ALFRED has an archival ICSA page, but programmatic vintage API access was not used because it requires an external credential.
+  - Model wrapper remains zero-weight until a separate parser and real-data evaluation qualify the signal.
