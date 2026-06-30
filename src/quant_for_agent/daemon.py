@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import os
 import time
 from dataclasses import dataclass
@@ -50,15 +51,25 @@ class TradingDaemon:
                 next_tick_at=None,
             )
             try:
-                self.tick()
+                events = self.tick() or []
             except Exception as exc:
+                tick_finished_at = _utc_now()
                 self._save_status(
                     status="error",
                     last_tick_started_at=tick_started_at,
-                    last_tick_finished_at=_utc_now(),
+                    last_tick_finished_at=tick_finished_at,
                     next_tick_at=None,
                     last_error_type=type(exc).__name__,
                     last_error_message=str(exc),
+                )
+                self._emit_tick_log(
+                    status="error",
+                    last_tick_started_at=tick_started_at,
+                    last_tick_finished_at=tick_finished_at,
+                    next_tick_at=None,
+                    trade_event_count=0,
+                    last_error_type=type(exc).__name__,
+                    last_error_message=self._format_log_error_message(exc),
                 )
                 raise
             tick_finished_at = _utc_now()
@@ -69,16 +80,65 @@ class TradingDaemon:
                     last_tick_finished_at=tick_finished_at,
                     next_tick_at=None,
                 )
+                self._emit_tick_log(
+                    status="ok",
+                    last_tick_started_at=tick_started_at,
+                    last_tick_finished_at=tick_finished_at,
+                    next_tick_at=None,
+                    trade_event_count=len(events),
+                )
                 return
+            next_tick_at = _format_utc(
+                datetime.now(timezone.utc) + timedelta(seconds=self.config.interval_seconds)
+            )
             self._save_status(
                 status="ok",
                 last_tick_started_at=tick_started_at,
                 last_tick_finished_at=tick_finished_at,
-                next_tick_at=_format_utc(
-                    datetime.now(timezone.utc) + timedelta(seconds=self.config.interval_seconds)
-                ),
+                next_tick_at=next_tick_at,
+            )
+            self._emit_tick_log(
+                status="ok",
+                last_tick_started_at=tick_started_at,
+                last_tick_finished_at=tick_finished_at,
+                next_tick_at=next_tick_at,
+                trade_event_count=len(events),
             )
             time.sleep(self.config.interval_seconds)
+
+    def _emit_tick_log(
+        self,
+        *,
+        status: str,
+        last_tick_started_at: str | None,
+        last_tick_finished_at: str | None,
+        next_tick_at: str | None,
+        trade_event_count: int,
+        last_error_type: str | None = None,
+        last_error_message: str | None = None,
+    ) -> None:
+        payload = {
+            "event": "daemon_tick",
+            "status": status,
+            "mode": "simulation" if self.config.dry_run else "submit-orders",
+            "paper": self.config.paper,
+            "data_feed": self.config.data_feed,
+            "last_tick_started_at": last_tick_started_at,
+            "last_tick_finished_at": last_tick_finished_at,
+            "next_tick_at": next_tick_at,
+            "trade_event_count": trade_event_count,
+            "no_order_reason": "no_trade_events" if status == "ok" and trade_event_count == 0 else None,
+            "last_error_type": last_error_type,
+            "last_error_message": last_error_message,
+        }
+        try:
+            print(json.dumps(payload, sort_keys=True), flush=True)
+        except Exception:
+            # Tick logging is observability-only. It must not crash the daemon.
+            return
+
+    def _format_log_error_message(self, exc: Exception) -> str:
+        return " ".join(str(exc).split())[:500]
 
     def _save_status(
         self,

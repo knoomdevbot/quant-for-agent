@@ -104,7 +104,7 @@ def test_daemon_records_order_errors_and_continues_processing_symbols(tmp_path):
     assert json.loads(rows[0]["response_json"])["status"] == "error"
 
 
-def test_daemon_run_records_heartbeat_for_successful_tick(tmp_path):
+def test_daemon_run_records_heartbeat_for_successful_tick(tmp_path, capsys):
     store = Store(tmp_path / "qfa.sqlite3")
 
     TradingDaemon(
@@ -122,11 +122,19 @@ def test_daemon_run_records_heartbeat_for_successful_tick(tmp_path):
     assert status["next_tick_at"] is None
     assert status["last_error_type"] is None
 
+    log_lines = [json.loads(line) for line in capsys.readouterr().out.splitlines()]
+    assert log_lines[-1]["event"] == "daemon_tick"
+    assert log_lines[-1]["status"] == "ok"
+    assert log_lines[-1]["mode"] == "simulation"
+    assert log_lines[-1]["trade_event_count"] == 0
+    assert log_lines[-1]["no_order_reason"] == "no_trade_events"
+    assert log_lines[-1]["next_tick_at"] is None
 
-def test_daemon_run_records_heartbeat_for_failed_tick(tmp_path):
+
+def test_daemon_run_records_heartbeat_for_failed_tick(tmp_path, capsys):
     class FailingDaemon(TradingDaemon):
         def tick(self):
-            raise RuntimeError("data fetch failed")
+            raise RuntimeError("data fetch failed\naccount=secret")
 
     store = Store(tmp_path / "qfa.sqlite3")
     daemon = FailingDaemon(
@@ -144,7 +152,14 @@ def test_daemon_run_records_heartbeat_for_failed_tick(tmp_path):
     assert status is not None
     assert status["status"] == "error"
     assert status["last_error_type"] == "RuntimeError"
-    assert status["last_error_message"] == "data fetch failed"
+    assert status["last_error_message"] == "data fetch failed\naccount=secret"
+
+    log_lines = [json.loads(line) for line in capsys.readouterr().out.splitlines()]
+    assert log_lines[-1]["event"] == "daemon_tick"
+    assert log_lines[-1]["status"] == "error"
+    assert log_lines[-1]["no_order_reason"] is None
+    assert log_lines[-1]["last_error_type"] == "RuntimeError"
+    assert log_lines[-1]["last_error_message"] == "data fetch failed account=secret"
 
 
 def test_daemon_heartbeat_failure_does_not_crash_after_successful_tick(tmp_path):
