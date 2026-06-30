@@ -41,6 +41,86 @@ def test_daemon_run_defaults_to_explicit_no_submit_simulation(tmp_path):
     assert "SIMULATION ONLY: no Alpaca orders will be submitted" in result.output
 
 
+def test_daemon_status_reports_last_recorded_heartbeat(tmp_path):
+    db_path = tmp_path / "qfa.sqlite3"
+    Store(db_path).save_daemon_status(
+        {
+            "pid": 123,
+            "mode": "simulation",
+            "paper": True,
+            "status": "ok",
+            "last_tick_started_at": "2026-06-29T19:00:00Z",
+            "last_tick_finished_at": "2026-06-29T19:00:01Z",
+            "next_tick_at": "2026-06-29T19:05:01Z",
+            "last_error_type": None,
+            "last_error_message": None,
+        }
+    )
+
+    result = CliRunner().invoke(cli.app, ["daemon", "status", "--db", str(db_path)])
+
+    assert result.exit_code == 0
+    assert '"status": "ok"' in result.output
+    assert '"mode": "simulation"' in result.output
+
+
+def test_daemon_status_exits_nonzero_without_heartbeat(tmp_path):
+    result = CliRunner().invoke(cli.app, ["daemon", "status", "--db", str(tmp_path / "qfa.sqlite3")])
+
+    assert result.exit_code == 1
+    assert "No daemon status has been recorded" in result.output
+
+
+def test_daemon_status_exits_nonzero_when_heartbeat_is_stale(tmp_path):
+    db_path = tmp_path / "qfa.sqlite3"
+    store = Store(db_path)
+    store.save_daemon_status(
+        {
+            "pid": 123,
+            "mode": "simulation",
+            "paper": True,
+            "status": "ok",
+            "last_tick_started_at": "2026-06-29T19:00:00Z",
+            "last_tick_finished_at": "2026-06-29T19:00:01Z",
+            "next_tick_at": None,
+            "last_error_type": None,
+            "last_error_message": None,
+        }
+    )
+    store.conn.execute("UPDATE daemon_status SET updated_at = '2000-01-01 00:00:00'")
+    store.conn.commit()
+
+    result = CliRunner().invoke(
+        cli.app, ["daemon", "status", "--max-age-seconds", "1", "--db", str(db_path)]
+    )
+
+    assert result.exit_code == 1
+    assert '"status": "stale"' in result.output
+
+
+def test_daemon_status_exits_nonzero_for_error_heartbeat(tmp_path):
+    db_path = tmp_path / "qfa.sqlite3"
+    Store(db_path).save_daemon_status(
+        {
+            "pid": 123,
+            "mode": "simulation",
+            "paper": True,
+            "status": "error",
+            "last_tick_started_at": "2026-06-29T19:00:00Z",
+            "last_tick_finished_at": "2026-06-29T19:00:01Z",
+            "next_tick_at": None,
+            "last_error_type": "RuntimeError",
+            "last_error_message": "data fetch failed",
+        }
+    )
+
+    result = CliRunner().invoke(cli.app, ["daemon", "status", "--db", str(db_path)])
+
+    assert result.exit_code == 1
+    assert '"status": "error"' in result.output
+    assert '"last_error_type": "RuntimeError"' in result.output
+
+
 def test_daemon_submit_orders_uses_alpaca_paper_without_live_flag(monkeypatch, tmp_path):
     monkeypatch.setenv("ALPACA_PAPER", "true")
 

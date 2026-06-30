@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import os
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -32,6 +34,13 @@ def _store(db: Optional[Path]) -> Store:
 
 def _print_json(payload) -> None:
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+
+
+def _parse_sqlite_utc(value: str) -> datetime:
+    normalized = value.replace("Z", "+00:00")
+    if "+" not in normalized:
+        normalized = normalized.replace(" ", "T") + "+00:00"
+    return datetime.fromisoformat(normalized).astimezone(timezone.utc)
 
 
 @backtest_app.command("run")
@@ -162,6 +171,9 @@ def daemon_run(
     )
     asset_class_summary = ",".join(active_asset_classes) if active_asset_classes else "none"
 
+    paper = os.environ.get("ALPACA_PAPER", "true").lower() not in {"0", "false", "no"}
+    data_feed = os.environ.get("ALPACA_DATA_FEED")
+
     if effective_dry_run:
         typer.echo(
             f"SIMULATION ONLY: no Alpaca orders will be submitted. active_asset_classes={asset_class_summary}"
@@ -175,7 +187,9 @@ def daemon_run(
                 err=True,
             )
             raise typer.Exit(code=1)
-        account_mode = "paper" if alpaca_config.paper else "live brokerage"
+        paper = alpaca_config.paper
+        data_feed = alpaca_config.data_feed
+        account_mode = "paper" if paper else "live brokerage"
         typer.echo(
             f"Submitting orders to Alpaca {account_mode} account. active_asset_classes={asset_class_summary}"
         )
@@ -183,6 +197,36 @@ def daemon_run(
     daemon = TradingDaemon(
         store=store,
         alpaca=AlpacaGateway(),
-        config=DaemonConfig(interval_seconds=interval_seconds, dry_run=effective_dry_run, once=once),
+        config=DaemonConfig(
+            interval_seconds=interval_seconds,
+            dry_run=effective_dry_run,
+            once=once,
+            paper=paper,
+            data_feed=data_feed.lower() if data_feed else None,
+        ),
     )
     daemon.run()
+
+
+@daemon_app.command("status")
+def daemon_status(
+    max_age_seconds: Optional[int] = typer.Option(
+        None, help="Exit nonzero when the last heartbeat update is older than this many seconds"
+    ),
+    db: Optional[Path] = None,
+):
+    status = _store(db).get_daemon_status()
+    if status is None:
+        typer.echo("No daemon status has been recorded", err=True)
+        raise typer.Exit(code=1)
+    stale = False
+    if max_age_seconds is not None:
+        updated_at = _parse_sqlite_utc(status["updated_at"])
+        age_seconds = (datetime.now(timezone.utc) - updated_at).total_seconds()
+        status["age_seconds"] = age_seconds
+        if age_seconds > max_age_seconds:
+            stale = True
+            status["status"] = "stale"
+    _print_json(status)
+    if stale or status.get("status") == "error":
+        raise typer.Exit(code=1)
