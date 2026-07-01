@@ -241,12 +241,27 @@ def daemon_run(
     ),
     live: bool = typer.Option(False, "--live", hidden=True, help="Deprecated live-order interlock."),
     once: bool = typer.Option(False, help="Run one tick and exit"),
+    orphan_position_mode: str = typer.Option(
+        "off",
+        "--orphan-position-mode",
+        help="Unmanaged broker position guard: off, report, or liquidate. Liquidation is paper-only.",
+    ),
+    orphan_min_notional: float = typer.Option(
+        1.0,
+        "--orphan-min-notional",
+        min=0.0,
+        help="Minimum absolute market value for orphan-position reporting/liquidation.",
+    ),
     health_log: Optional[Path] = typer.Option(
         None, help=f"Daemon health JSONL path (default: {DEFAULT_HEALTH_LOG_PATH})"
     ),
     db: Optional[Path] = None,
 ):
     effective_dry_run = not submit_orders
+    normalized_orphan_mode = orphan_position_mode.strip().lower()
+    if normalized_orphan_mode not in {"off", "report", "liquidate"}:
+        typer.echo("Invalid --orphan-position-mode: expected off, report, or liquidate.", err=True)
+        raise typer.Exit(code=2)
     store = _store(db)
     active_asset_classes = sorted(
         {model.get("asset_class", "equity") for model in store.list_models(active_only=True)}
@@ -269,6 +284,12 @@ def daemon_run(
                 err=True,
             )
             raise typer.Exit(code=1)
+        if not alpaca_config.paper and normalized_orphan_mode == "liquidate":
+            typer.echo(
+                "Refusing live orphan-position liquidation: use report mode or ALPACA_PAPER=true.",
+                err=True,
+            )
+            raise typer.Exit(code=1)
         paper = alpaca_config.paper
         data_feed = alpaca_config.data_feed
         account_mode = "paper" if paper else "live brokerage"
@@ -286,6 +307,8 @@ def daemon_run(
             paper=paper,
             data_feed=data_feed.lower() if data_feed else None,
             health_log_path=str(health_log) if health_log else None,
+            orphan_position_mode=normalized_orphan_mode,
+            orphan_min_notional=orphan_min_notional,
         ),
     )
     daemon.run()

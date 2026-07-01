@@ -60,6 +60,51 @@ def test_daemon_run_accepts_health_log_path(tmp_path):
     assert CapturingDaemon.configs[-1].health_log_path == str(health_log)
 
 
+def test_daemon_run_accepts_report_only_orphan_position_guard(tmp_path):
+    result = CliRunner().invoke(
+        cli.app,
+        [
+            "daemon",
+            "run",
+            "--once",
+            "--orphan-position-mode",
+            "report",
+            "--orphan-min-notional",
+            "25",
+            "--db",
+            str(tmp_path / "qfa.sqlite3"),
+        ],
+    )
+
+    assert result.exit_code == 0
+    config = CapturingDaemon.configs[-1]
+    assert config.orphan_position_mode == "report"
+    assert config.orphan_min_notional == 25.0
+
+
+def test_daemon_run_blocks_live_orphan_position_liquidation(monkeypatch, tmp_path):
+    monkeypatch.setenv("ALPACA_PAPER", "false")
+
+    result = CliRunner().invoke(
+        cli.app,
+        [
+            "daemon",
+            "run",
+            "--submit-orders",
+            "--allow-live-brokerage",
+            "--orphan-position-mode",
+            "liquidate",
+            "--once",
+            "--db",
+            str(tmp_path / "qfa.sqlite3"),
+        ],
+    )
+
+    assert result.exit_code != 0
+    assert CapturingDaemon.configs == []
+    assert "Refusing live orphan-position liquidation" in result.output
+
+
 def test_daemon_status_reports_last_recorded_heartbeat(tmp_path):
     db_path = tmp_path / "qfa.sqlite3"
     Store(db_path).save_daemon_status(

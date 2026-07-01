@@ -113,6 +113,15 @@ class AlpacaGateway:
             values[str(symbol)] = float(getattr(position, "market_value", 0.0) or 0.0)
         return values
 
+    def all_position_market_values(self) -> dict[str, float]:
+        values: dict[str, float] = {}
+        for position in self.trading_client.get_all_positions():
+            symbol = getattr(position, "symbol", None)
+            if symbol is None:
+                continue
+            values[str(symbol)] = float(getattr(position, "market_value", 0.0) or 0.0)
+        return values
+
     def _open_orders(self):
         from alpaca.trading.enums import QueryOrderStatus
         from alpaca.trading.requests import GetOrdersRequest
