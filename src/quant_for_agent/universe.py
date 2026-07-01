@@ -59,7 +59,7 @@ def load_security_master_csv(path: str | Path) -> pd.DataFrame:
     if missing:
         raise ValueError(f"Security master CSV missing required columns: {', '.join(missing)}")
     securities = securities.copy()
-    securities["symbol"] = securities["symbol"].astype(str).str.strip().str.upper()
+    securities["symbol"] = securities["symbol"].map(lambda value: (_clean_optional_string(value) or "").upper())
     if "listing_date" in securities.columns:
         securities["listing_date"] = pd.to_datetime(securities["listing_date"], utc=True, errors="coerce")
     if "delisting_date" in securities.columns:
@@ -81,6 +81,7 @@ def build_equity_universe(config: UniverseConfig) -> dict[str, Any]:
     for row in securities.to_dict("records"):
         symbol = row["symbol"]
         if not symbol:
+            exclusions.append({"symbol": "", "reason": "missing_symbol"})
             continue
         exchange = (_clean_optional_string(row.get("exchange")) or "").upper()
         if allowed_exchanges and exchange not in allowed_exchanges:
@@ -112,11 +113,11 @@ def build_equity_universe(config: UniverseConfig) -> dict[str, Any]:
     for item in exclusions:
         exclusion_counts[item["reason"]] = exclusion_counts.get(item["reason"], 0) + 1
 
-    point_in_time = has_listing_dates or has_delisting_dates
+    point_in_time = has_listing_dates and has_delisting_dates
     warnings: list[str] = []
     if not point_in_time:
         warnings.append(
-            "Security master has no listing_date/delisting_date columns; output is a current/proxy universe, not point-in-time historical coverage."
+            "Security master must include both listing_date and delisting_date columns to be treated as point-in-time historical coverage; output is a current/proxy universe."
         )
     if config.common_stock_only and not has_security_type:
         warnings.append(
