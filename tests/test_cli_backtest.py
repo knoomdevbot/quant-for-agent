@@ -45,6 +45,8 @@ def test_backtest_run_accepts_crypto_fee_model_options(tmp_path):
         "fill_mix": "taker",
         "effective_bps": 25.0,
     }
+    assert payload["point_in_time_universe"] is False
+    assert payload["universe_spec"]["provider"] == "explicit_symbols"
     assert payload["metrics"]["total_fees"] > 0
 
 

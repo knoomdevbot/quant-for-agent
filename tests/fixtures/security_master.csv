@@ -1,0 +1,8 @@
+symbol,asset_id,exchange,asset_class,security_type,listing_date,delisting_date,tradable,shortable,marginable,sector,industry
+AAPL,asset-aapl,NASDAQ,equity,common_stock,1980-12-12,,true,true,true,Technology,Consumer Electronics
+MSFT,asset-msft,NASDAQ,equity,common_stock,1986-03-13,,true,true,true,Technology,Software
+OLD,asset-old,NYSE,equity,common_stock,1990-01-01,2020-12-31,false,false,false,Industrials,Legacy
+ETF,asset-etf,NYSE,equity,etf,2000-01-01,,true,true,true,Fund,ETF
+NEW,asset-new,NASDAQ,equity,common_stock,2025-01-01,,true,true,true,Technology,NewCo
+ADR,asset-adr,NYSE,equity,adr,2010-01-01,,true,true,true,International,ADR
+UNK,asset-unk,NASDAQ,equity,,2010-01-01,,true,true,true,Unknown,Unknown

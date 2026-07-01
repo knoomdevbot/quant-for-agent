@@ -25,6 +25,8 @@ class BacktestConfig:
     fee_maker_bps: float = 0.0
     fee_taker_bps: float = 0.0
     fill_mix: str = "unknown"
+    point_in_time_universe: bool = False
+    universe_spec: dict | None = None
 
 
 def _normalize_asset_class(asset_class: str) -> str:
@@ -121,6 +123,13 @@ def run_backtest(config: BacktestConfig, prices: pd.DataFrame) -> dict:
         "asset_bucket": "crypto" if asset_class == "crypto" else "equity",
         "crypto_label": asset_class == "crypto",
         "fee_model": fee_model,
+        "point_in_time_universe": bool(config.point_in_time_universe),
+        "universe_spec": config.universe_spec
+        or {
+            "provider": "explicit_symbols",
+            "symbols_source": "cli_symbols",
+            "warning": "Explicit/current symbol lists are not point-in-time historical universes.",
+        },
         "start": config.start,
         "end": config.end,
         "timeframe": config.timeframe,
