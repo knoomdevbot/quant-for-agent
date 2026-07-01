@@ -10,9 +10,10 @@ import typer
 
 from .alpaca_client import AlpacaGateway
 from .backtest import BacktestConfig, run_backtest
-from .config import DEFAULT_DB_PATH, AlpacaConfig
+from .config import DEFAULT_DB_PATH, DEFAULT_HEALTH_LOG_PATH, AlpacaConfig
 from .daemon import DaemonConfig, TradingDaemon
 from .data import load_price_csv
+from .health import append_health_log, read_health_log, resolve_health_log_path, utc_now
 from .storage import Store
 from .universe import UniverseConfig, build_equity_universe
 
@@ -44,6 +45,42 @@ def _parse_sqlite_utc(value: str) -> datetime:
     if "+" not in normalized:
         normalized = normalized.replace(" ", "T") + "+00:00"
     return datetime.fromisoformat(normalized).astimezone(timezone.utc)
+
+
+def _health_snapshot(
+    store: Store,
+    *,
+    max_age_seconds: int | None,
+    health_log: Path | None,
+    limit: int,
+) -> tuple[dict, bool]:
+    status = store.get_daemon_status()
+    stale = False
+    healthy = True
+    if status is None:
+        healthy = False
+    else:
+        if max_age_seconds is not None:
+            updated_at = _parse_sqlite_utc(status["updated_at"])
+            age_seconds = (datetime.now(timezone.utc) - updated_at).total_seconds()
+            status["age_seconds"] = age_seconds
+            if age_seconds > max_age_seconds:
+                stale = True
+                healthy = False
+                status["status"] = "stale"
+        if status.get("status") == "error":
+            healthy = False
+    entries = read_health_log(health_log, limit=limit)
+    return (
+        {
+            "healthy": healthy,
+            "status": status,
+            "stale": stale,
+            "health_log_path": str(resolve_health_log_path(health_log)),
+            "health_log_entries": entries,
+        },
+        healthy,
+    )
 
 
 @backtest_app.command("run")
@@ -204,6 +241,9 @@ def daemon_run(
     ),
     live: bool = typer.Option(False, "--live", hidden=True, help="Deprecated live-order interlock."),
     once: bool = typer.Option(False, help="Run one tick and exit"),
+    health_log: Optional[Path] = typer.Option(
+        None, help=f"Daemon health JSONL path (default: {DEFAULT_HEALTH_LOG_PATH})"
+    ),
     db: Optional[Path] = None,
 ):
     effective_dry_run = not submit_orders
@@ -245,6 +285,7 @@ def daemon_run(
             once=once,
             paper=paper,
             data_feed=data_feed.lower() if data_feed else None,
+            health_log_path=str(health_log) if health_log else None,
         ),
     )
     daemon.run()
@@ -257,18 +298,71 @@ def daemon_status(
     ),
     db: Optional[Path] = None,
 ):
-    status = _store(db).get_daemon_status()
+    snapshot, healthy = _health_snapshot(_store(db), max_age_seconds=max_age_seconds, health_log=None, limit=0)
+    status = snapshot["status"]
     if status is None:
         typer.echo("No daemon status has been recorded", err=True)
         raise typer.Exit(code=1)
-    stale = False
-    if max_age_seconds is not None:
-        updated_at = _parse_sqlite_utc(status["updated_at"])
-        age_seconds = (datetime.now(timezone.utc) - updated_at).total_seconds()
-        status["age_seconds"] = age_seconds
-        if age_seconds > max_age_seconds:
-            stale = True
-            status["status"] = "stale"
     _print_json(status)
-    if stale or status.get("status") == "error":
+    if not healthy:
         raise typer.Exit(code=1)
+
+
+@daemon_app.command("health")
+def daemon_health(
+    max_age_seconds: Optional[int] = typer.Option(
+        None, help="Exit nonzero when the heartbeat update is older than this many seconds"
+    ),
+    limit: int = typer.Option(20, min=0, help="Recent health log entries to include"),
+    health_log: Optional[Path] = typer.Option(
+        None, help=f"Daemon health JSONL path (default: {DEFAULT_HEALTH_LOG_PATH})"
+    ),
+    db: Optional[Path] = None,
+):
+    snapshot, healthy = _health_snapshot(
+        _store(db), max_age_seconds=max_age_seconds, health_log=health_log, limit=limit
+    )
+    _print_json(snapshot)
+    if not healthy:
+        raise typer.Exit(code=1)
+
+
+@daemon_app.command("recover")
+def daemon_recover(
+    max_age_seconds: Optional[int] = typer.Option(
+        None, help="Treat heartbeat older than this many seconds as stale before recovering"
+    ),
+    force: bool = typer.Option(False, help="Record recovery even when status is currently healthy"),
+    reason: str = typer.Option("manual_recovery", help="Recovery reason recorded in status and log"),
+    health_log: Optional[Path] = typer.Option(
+        None, help=f"Daemon health JSONL path (default: {DEFAULT_HEALTH_LOG_PATH})"
+    ),
+    db: Optional[Path] = None,
+):
+    store = _store(db)
+    before, healthy = _health_snapshot(store, max_age_seconds=max_age_seconds, health_log=health_log, limit=5)
+    if healthy and not force:
+        _print_json({"status": "healthy", "recovered": False, "before": before})
+        return
+    store.recover_daemon_status(reason=reason)
+    append_health_log(
+        health_log,
+        {
+            "event": "daemon_recovery",
+            "status": "recovered",
+            "reason": reason,
+            "recovered_at": utc_now(),
+            "safe_mode": "simulation/no-submit",
+        },
+    )
+    after, _ = _health_snapshot(store, max_age_seconds=None, health_log=health_log, limit=5)
+    _print_json(
+        {
+            "status": "recovered",
+            "recovered": True,
+            "safe_mode": "simulation/no-submit",
+            "message": "Recovery marker recorded. Start daemon explicitly with qfa daemon run; order submission still requires --submit-orders.",
+            "before": before,
+            "after": after,
+        }
+    )

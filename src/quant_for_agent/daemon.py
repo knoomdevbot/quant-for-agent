@@ -8,6 +8,7 @@ from datetime import datetime, timedelta, timezone
 
 from .alpha import AlphaContext, load_alpha_function, normalize_weights
 from .alpaca_client import AlpacaGateway
+from .health import append_health_log
 from .storage import Store
 
 
@@ -33,6 +34,7 @@ class DaemonConfig:
     lookback_days: int = 90
     paper: bool | None = None
     data_feed: str | None = None
+    health_log_path: str | None = None
 
 
 class TradingDaemon:
@@ -40,6 +42,7 @@ class TradingDaemon:
         self.store = store
         self.alpaca = alpaca
         self.config = config
+        self._last_signal_status: dict = {}
 
     def run(self) -> None:
         while True:
@@ -128,11 +131,13 @@ class TradingDaemon:
             "next_tick_at": next_tick_at,
             "trade_event_count": trade_event_count,
             "no_order_reason": "no_trade_events" if status == "ok" and trade_event_count == 0 else None,
+            "alpha_signal_status": self._last_signal_status,
             "last_error_type": last_error_type,
             "last_error_message": last_error_message,
         }
         try:
             print(json.dumps(payload, sort_keys=True), flush=True)
+            append_health_log(self.config.health_log_path, payload)
         except Exception:
             # Tick logging is observability-only. It must not crash the daemon.
             return
@@ -175,6 +180,14 @@ class TradingDaemon:
 
         models = self.store.list_models(active_only=True)
         events: list[dict] = []
+        signal_status = {
+            "active_model_count": len(models),
+            "evaluated_model_count": 0,
+            "symbols_evaluated": [],
+            "raw_signal_count": 0,
+            "normalized_signal_count": 0,
+        }
+        self._last_signal_status = signal_status
         if not models:
             return events
         now = pd.Timestamp.utcnow()
@@ -209,6 +222,16 @@ class TradingDaemon:
             context = AlphaContext(symbols=symbols, prices=prices, as_of=now)
             raw = load_alpha_function(model["model_path"])(context) or {}
             weights = normalize_weights(raw, symbols)
+            signal_status["evaluated_model_count"] += 1
+            signal_status["symbols_evaluated"] = sorted(
+                set(signal_status["symbols_evaluated"]) | set(symbols)
+            )
+            signal_status["raw_signal_count"] += sum(
+                1 for symbol, weight in raw.items() if symbol in symbols and float(weight or 0.0) != 0.0
+            )
+            signal_status["normalized_signal_count"] += sum(
+                1 for weight in weights.values() if float(weight) != 0.0
+            )
             sleeve_notional = equity * float(model["allocation"])
             for symbol, weight in weights.items():
                 target_values[symbol] = target_values.get(symbol, 0.0) + (sleeve_notional * weight)

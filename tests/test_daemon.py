@@ -128,7 +128,40 @@ def test_daemon_run_records_heartbeat_for_successful_tick(tmp_path, capsys):
     assert log_lines[-1]["mode"] == "simulation"
     assert log_lines[-1]["trade_event_count"] == 0
     assert log_lines[-1]["no_order_reason"] == "no_trade_events"
+    assert log_lines[-1]["alpha_signal_status"] == {
+        "active_model_count": 0,
+        "evaluated_model_count": 0,
+        "normalized_signal_count": 0,
+        "raw_signal_count": 0,
+        "symbols_evaluated": [],
+    }
     assert log_lines[-1]["next_tick_at"] is None
+
+
+def test_daemon_run_writes_health_log_file_with_alpha_signal_status(tmp_path):
+    model_path = tmp_path / "long_model.py"
+    model_path.write_text("def generate_signals(context):\n    return {'AAPL': 1.0}\n")
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("long", str(model_path), 1.0, ["AAPL"])
+    health_log = tmp_path / "health.jsonl"
+
+    TradingDaemon(
+        store,
+        FakeAlpacaGateway(),
+        DaemonConfig(interval_seconds=300, dry_run=True, once=True, health_log_path=str(health_log)),
+    ).run()
+
+    records = [json.loads(line) for line in health_log.read_text().splitlines()]
+    assert records[-1]["event"] == "daemon_tick"
+    assert records[-1]["status"] == "ok"
+    assert records[-1]["alpha_signal_status"] == {
+        "active_model_count": 1,
+        "evaluated_model_count": 1,
+        "normalized_signal_count": 1,
+        "raw_signal_count": 1,
+        "symbols_evaluated": ["AAPL"],
+    }
+    assert records[-1]["trade_event_count"] == 1
 
 
 def test_daemon_run_records_heartbeat_for_failed_tick(tmp_path, capsys):
