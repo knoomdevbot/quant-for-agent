@@ -35,6 +35,8 @@ class DaemonConfig:
     paper: bool | None = None
     data_feed: str | None = None
     health_log_path: str | None = None
+    orphan_position_mode: str = "off"
+    orphan_min_notional: float = 1.0
 
 
 class TradingDaemon:
@@ -189,6 +191,7 @@ class TradingDaemon:
         }
         self._last_signal_status = signal_status
         if not models:
+            self._handle_orphan_positions(events=events, active_symbols=set())
             return events
         now = pd.Timestamp.utcnow()
         start = now - pd.Timedelta(days=self.config.lookback_days)
@@ -256,6 +259,11 @@ class TradingDaemon:
             }
             self.store.save_trade_event(event)
             events.append(event)
+
+        self._handle_orphan_positions(
+            events=events,
+            active_symbols=set(symbol_asset_classes),
+        )
 
         symbols = list(target_values)
         current_values = self.alpaca.position_market_values(symbols)
@@ -364,3 +372,100 @@ class TradingDaemon:
             self.store.save_trade_event(event)
             events.append(event)
         return events
+
+    def _handle_orphan_positions(self, *, events: list[dict], active_symbols: set[str]) -> None:
+        mode = self.config.orphan_position_mode.strip().lower()
+        if mode == "off":
+            return
+        if mode not in {"report", "liquidate"}:
+            raise ValueError("orphan_position_mode must be one of: off, report, liquidate")
+        all_positions = self.alpaca.all_position_market_values()
+        orphan_values = {
+            symbol: market_value
+            for symbol, market_value in all_positions.items()
+            if symbol not in active_symbols and abs(market_value) >= self.config.orphan_min_notional
+        }
+        if not orphan_values:
+            return
+        open_order_sides = self.alpaca.open_order_sides(list(orphan_values))
+        for symbol in sorted(orphan_values):
+            market_value = orphan_values[symbol]
+            notional = abs(market_value)
+            side = "sell" if market_value > 0 else "buy"
+            order_notional = notional * SELL_NOTIONAL_POSITION_BUFFER if side == "sell" else notional
+            event_side = "report" if mode == "report" else side
+            pending_sides = open_order_sides.get(symbol, set())
+            response: dict
+            if mode == "report":
+                response = {
+                    "status": "reported",
+                    "reason": "orphan_position",
+                    "symbol": symbol,
+                    "market_value": market_value,
+                    "asset_class": "equity",
+                }
+            else:
+                response = {
+                    "dry_run": True,
+                    "reason": "orphan_position_liquidation_preview",
+                    "symbol": symbol,
+                    "side": side,
+                    "notional": order_notional,
+                    "asset_class": "equity",
+                }
+                if pending_sides:
+                    response = {
+                        "status": "skipped",
+                        "reason": "orphan_open_order_pending",
+                        "symbol": symbol,
+                        "side": side,
+                        "notional": notional,
+                        "asset_class": "equity",
+                        "open_order_sides": sorted(pending_sides),
+                    }
+                elif not self.config.dry_run:
+                    if self.config.paper is not True:
+                        response = {
+                            "status": "skipped",
+                            "reason": "paper_orphan_liquidation_required",
+                            "symbol": symbol,
+                            "side": side,
+                            "notional": notional,
+                            "asset_class": "equity",
+                        }
+                    elif not self.alpaca.is_market_open():
+                        response = {
+                            "status": "skipped",
+                            "reason": "market_closed",
+                            "symbol": symbol,
+                            "side": side,
+                            "notional": order_notional,
+                            "asset_class": "equity",
+                        }
+                    else:
+                        try:
+                            response = self.alpaca.submit_notional_order(
+                                symbol, side, order_notional, asset_class="equity"
+                            )
+                        except Exception as exc:  # noqa: BLE001 - broker failures must not stop daemon
+                            response = {
+                                "status": "error",
+                                "error_type": type(exc).__name__,
+                                "message": str(exc),
+                                "symbol": symbol,
+                                "side": side,
+                                "notional": order_notional,
+                                "asset_class": "equity",
+                            }
+            event_notional = float(response.get("notional", notional))
+            event = {
+                "model_name": "__orphan_position_guard__",
+                "symbol": symbol,
+                "side": event_side,
+                "notional": event_notional,
+                "asset_class": "equity",
+                "dry_run": self.config.dry_run,
+                "response": response,
+            }
+            self.store.save_trade_event(event)
+            events.append(event)

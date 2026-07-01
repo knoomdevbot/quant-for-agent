@@ -26,6 +26,9 @@ class FakeAlpacaGateway:
     def position_market_values(self, symbols):
         return {symbol: self.positions.get(symbol, 0.0) for symbol in symbols}
 
+    def all_position_market_values(self):
+        return dict(self.positions)
+
     def open_order_notional_values(self, symbols):
         return {symbol: self.open_orders.get(symbol, 0.0) for symbol in symbols}
 
@@ -418,6 +421,198 @@ def test_daemon_skips_duplicate_submission_when_same_side_order_is_pending(tmp_p
         "asset_class": "equity",
         "open_order_sides": ["sell"],
     }
+    assert alpaca.submitted_orders == []
+
+
+def test_daemon_report_only_orphan_position_guard_records_positions_when_no_models_are_active(tmp_path):
+    store = Store(tmp_path / "qfa.sqlite3")
+    alpaca = FakeAlpacaGateway(positions={"MSFT": 250.0})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=True, once=True, orphan_position_mode="report"),
+    ).tick()
+
+    assert events == [
+        {
+            "model_name": "__orphan_position_guard__",
+            "symbol": "MSFT",
+            "side": "report",
+            "notional": 250.0,
+            "asset_class": "equity",
+            "dry_run": True,
+            "response": {
+                "status": "reported",
+                "reason": "orphan_position",
+                "symbol": "MSFT",
+                "market_value": 250.0,
+                "asset_class": "equity",
+            },
+        }
+    ]
+    assert alpaca.submitted_orders == []
+
+
+def test_daemon_report_only_orphan_position_guard_records_unmanaged_positions(tmp_path):
+    model_path = tmp_path / "target_weight_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'AAPL': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("rebalance_model", str(model_path), 1.0, ["AAPL"])
+    alpaca = FakeAlpacaGateway(positions={"AAPL": 1000.0, "MSFT": 250.0, "TINY": 0.50})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=True, once=True, orphan_position_mode="report", orphan_min_notional=1.0),
+    ).tick()
+
+    orphan_events = [event for event in events if event["model_name"] == "__orphan_position_guard__"]
+    assert orphan_events == [
+        {
+            "model_name": "__orphan_position_guard__",
+            "symbol": "MSFT",
+            "side": "report",
+            "notional": 250.0,
+            "asset_class": "equity",
+            "dry_run": True,
+            "response": {
+                "status": "reported",
+                "reason": "orphan_position",
+                "symbol": "MSFT",
+                "market_value": 250.0,
+                "asset_class": "equity",
+            },
+        }
+    ]
+    assert alpaca.submitted_orders == []
+
+
+def test_daemon_liquidate_orphan_position_guard_dry_run_previews_flattening_order(tmp_path):
+    model_path = tmp_path / "target_weight_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'AAPL': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("rebalance_model", str(model_path), 1.0, ["AAPL"])
+    alpaca = FakeAlpacaGateway(positions={"AAPL": 1000.0, "MSFT": -250.0})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=True, once=True, orphan_position_mode="liquidate"),
+    ).tick()
+
+    assert events == [
+        {
+            "model_name": "__orphan_position_guard__",
+            "symbol": "MSFT",
+            "side": "buy",
+            "notional": 250.0,
+            "asset_class": "equity",
+            "dry_run": True,
+            "response": {
+                "dry_run": True,
+                "reason": "orphan_position_liquidation_preview",
+                "symbol": "MSFT",
+                "side": "buy",
+                "notional": 250.0,
+                "asset_class": "equity",
+            },
+        }
+    ]
+    assert alpaca.submitted_orders == []
+
+
+def test_daemon_liquidate_orphan_position_guard_requires_explicit_paper_mode_for_submission(tmp_path):
+    store = Store(tmp_path / "qfa.sqlite3")
+    alpaca = FakeAlpacaGateway(positions={"MSFT": 250.0})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True, orphan_position_mode="liquidate"),
+    ).tick()
+
+    assert events == [
+        {
+            "model_name": "__orphan_position_guard__",
+            "symbol": "MSFT",
+            "side": "sell",
+            "notional": 250.0,
+            "asset_class": "equity",
+            "dry_run": False,
+            "response": {
+                "status": "skipped",
+                "reason": "paper_orphan_liquidation_required",
+                "symbol": "MSFT",
+                "side": "sell",
+                "notional": 250.0,
+                "asset_class": "equity",
+            },
+        }
+    ]
+    assert alpaca.submitted_orders == []
+
+
+def test_daemon_liquidate_orphan_position_guard_buffers_near_full_long_sell(tmp_path):
+    store = Store(tmp_path / "qfa.sqlite3")
+    alpaca = FakeAlpacaGateway(positions={"MSFT": 250.0})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True, orphan_position_mode="liquidate", paper=True),
+    ).tick()
+
+    assert events[0]["notional"] == 248.75
+    assert alpaca.submitted_orders == [
+        {"symbol": "MSFT", "side": "sell", "notional": 248.75, "asset_class": "equity"}
+    ]
+
+
+def test_daemon_liquidate_orphan_position_guard_skips_when_open_order_pending(tmp_path):
+    model_path = tmp_path / "target_weight_model.py"
+    model_path.write_text(
+        "def generate_signals(context):\n"
+        "    return {'AAPL': 1.0}\n",
+        encoding="utf-8",
+    )
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("rebalance_model", str(model_path), 1.0, ["AAPL"])
+    alpaca = FakeAlpacaGateway(positions={"AAPL": 1000.0, "MSFT": 250.0}, open_order_sides={"MSFT": {"sell"}})
+
+    events = TradingDaemon(
+        store,
+        alpaca,
+        DaemonConfig(dry_run=False, once=True, orphan_position_mode="liquidate", paper=True),
+    ).tick()
+
+    assert events == [
+        {
+            "model_name": "__orphan_position_guard__",
+            "symbol": "MSFT",
+            "side": "sell",
+            "notional": 250.0,
+            "asset_class": "equity",
+            "dry_run": False,
+            "response": {
+                "status": "skipped",
+                "reason": "orphan_open_order_pending",
+                "symbol": "MSFT",
+                "side": "sell",
+                "notional": 250.0,
+                "asset_class": "equity",
+                "open_order_sides": ["sell"],
+            },
+        }
+    ]
     assert alpaca.submitted_orders == []
 
 

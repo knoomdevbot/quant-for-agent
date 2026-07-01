@@ -18,6 +18,21 @@ qfa daemon status --max-age-seconds 900
 
 `qfa daemon run` defaults to simulation/no-submit mode. Paper order submission requires the explicit `--submit-orders` opt-in with `ALPACA_PAPER=true`; live brokerage remains out of scope for the MVP.
 
+Use the orphan-position guard when the broker account may contain positions outside the active qfa model universe:
+
+```bash
+# Report unmanaged positions without submitting orders.
+qfa daemon run --once --orphan-position-mode report --orphan-min-notional 25
+
+# Preview paper liquidation orders in simulation/no-submit mode.
+qfa daemon run --once --orphan-position-mode liquidate --orphan-min-notional 25
+
+# Submit orphan-position liquidation orders only to Alpaca paper.
+ALPACA_PAPER=true qfa daemon run --submit-orders --orphan-position-mode liquidate --orphan-min-notional 25
+```
+
+`--orphan-position-mode liquidate` is blocked for live brokerage even when `--allow-live-brokerage` is present. Orphan guard events are recorded in `trade_events` with `model_name=__orphan_position_guard__`; existing open orders on an orphan symbol cause the guard to skip that symbol instead of submitting another order.
+
 ## Future staging/production split
 - Staging: Alpaca paper account, simulation/no-submit or explicit paper order submission, verbose logs.
 - Production: Alpaca live account, explicit submit/live interlocks, stricter risk controls, persistent logs, restart policy.
