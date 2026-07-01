@@ -2,10 +2,20 @@ import json
 from types import SimpleNamespace
 
 import pandas as pd
+import pytest
 
+from quant_for_agent import daemon as daemon_module
 from quant_for_agent.alpaca_client import AlpacaGateway
 from quant_for_agent.daemon import DaemonConfig, TradingDaemon
 from quant_for_agent.storage import Store
+
+
+class FakeNotifier:
+    def __init__(self):
+        self.messages = []
+
+    def send(self, *, subject, body):
+        self.messages.append({"subject": subject, "body": body})
 
 
 class FakeAlpacaGateway:
@@ -165,6 +175,83 @@ def test_daemon_run_writes_health_log_file_with_alpha_signal_status(tmp_path):
         "symbols_evaluated": ["AAPL"],
     }
     assert records[-1]["trade_event_count"] == 1
+
+
+def test_daemon_sends_position_change_email_for_actionable_trade_events(tmp_path):
+    model_path = tmp_path / "long_model.py"
+    model_path.write_text("def generate_signals(context):\n    return {'AAPL': 1.0}\n")
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("long", str(model_path), 1.0, ["AAPL"])
+    notifier = FakeNotifier()
+
+    TradingDaemon(
+        store,
+        FakeAlpacaGateway(),
+        DaemonConfig(interval_seconds=300, dry_run=True, once=True, notifier=notifier),
+    ).run()
+
+    assert len(notifier.messages) == 1
+    assert notifier.messages[0]["subject"] == "qfa position change: 1 event(s)"
+    body = json.loads(notifier.messages[0]["body"])
+    assert body["event"] == "position_change"
+    assert body["mode"] == "simulation"
+    assert body["trade_events"][0]["symbol"] == "AAPL"
+
+
+def test_daemon_sends_market_open_and_close_transition_emails(monkeypatch, tmp_path):
+    class SequenceMarketGateway(FakeAlpacaGateway):
+        def __init__(self):
+            super().__init__()
+            self.states = [False, True, True, False]
+
+        def is_market_open(self):
+            return self.states.pop(0)
+
+    sleep_calls = 0
+
+    def stop_after_four_sleeps(_seconds):
+        nonlocal sleep_calls
+        sleep_calls += 1
+        if sleep_calls >= 4:
+            raise RuntimeError("stop loop")
+
+    monkeypatch.setattr(daemon_module.time, "sleep", stop_after_four_sleeps)
+    notifier = FakeNotifier()
+
+    with pytest.raises(RuntimeError, match="stop loop"):
+        TradingDaemon(
+            Store(tmp_path / "qfa.sqlite3"),
+            SequenceMarketGateway(),
+            DaemonConfig(interval_seconds=1, dry_run=True, once=False, notifier=notifier),
+        ).run()
+
+    assert [message["subject"] for message in notifier.messages] == [
+        "qfa market open",
+        "qfa market close",
+    ]
+    assert [json.loads(message["body"])["event"] for message in notifier.messages] == [
+        "market_open",
+        "market_close",
+    ]
+
+
+def test_daemon_notification_failure_does_not_crash_trading_loop(tmp_path):
+    class FailingNotifier:
+        def send(self, *, subject, body):
+            raise RuntimeError("smtp unavailable")
+
+    model_path = tmp_path / "long_model.py"
+    model_path.write_text("def generate_signals(context):\n    return {'AAPL': 1.0}\n")
+    store = Store(tmp_path / "qfa.sqlite3")
+    store.upsert_model("long", str(model_path), 1.0, ["AAPL"])
+
+    TradingDaemon(
+        store,
+        FakeAlpacaGateway(),
+        DaemonConfig(interval_seconds=300, dry_run=True, once=True, notifier=FailingNotifier()),
+    ).run()
+
+    assert store.get_daemon_status()["status"] == "ok"
 
 
 def test_daemon_run_records_heartbeat_for_failed_tick(tmp_path, capsys):

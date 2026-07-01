@@ -14,6 +14,7 @@ from .config import DEFAULT_DB_PATH, DEFAULT_HEALTH_LOG_PATH, AlpacaConfig
 from .daemon import DaemonConfig, TradingDaemon
 from .data import load_price_csv
 from .health import append_health_log, read_health_log, resolve_health_log_path, utc_now
+from .notifications import EmailNotificationConfig, EmailNotifier
 from .storage import Store
 from .universe import UniverseConfig, build_equity_universe
 
@@ -38,6 +39,38 @@ def _store(db: Optional[Path]) -> Store:
 
 def _print_json(payload) -> None:
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+
+
+def _env_flag(name: str, default: bool) -> bool:
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return value.lower() not in {"0", "false", "no", "off"}
+
+
+def _build_email_notifier(recipients: str | None) -> EmailNotifier | None:
+    recipient_text = recipients or os.environ.get("QFA_NOTIFY_EMAIL_TO")
+    if not recipient_text:
+        return None
+    recipient_list = tuple(item.strip() for item in recipient_text.split(",") if item.strip())
+    smtp_host = os.environ.get("QFA_SMTP_HOST")
+    sender = os.environ.get("QFA_NOTIFY_EMAIL_FROM") or os.environ.get("QFA_SMTP_USERNAME")
+    if not smtp_host or not sender:
+        raise ValueError(
+            "Email notifications require QFA_SMTP_HOST and QFA_NOTIFY_EMAIL_FROM "
+            "(or QFA_SMTP_USERNAME)."
+        )
+    return EmailNotifier(
+        EmailNotificationConfig(
+            recipients=recipient_list,
+            sender=sender,
+            smtp_host=smtp_host,
+            smtp_port=int(os.environ.get("QFA_SMTP_PORT", "587")),
+            smtp_username=os.environ.get("QFA_SMTP_USERNAME"),
+            smtp_password=os.environ.get("QFA_SMTP_PASSWORD"),
+            use_tls=_env_flag("QFA_SMTP_TLS", True),
+        )
+    )
 
 
 def _parse_sqlite_utc(value: str) -> datetime:
@@ -255,6 +288,11 @@ def daemon_run(
     health_log: Optional[Path] = typer.Option(
         None, help=f"Daemon health JSONL path (default: {DEFAULT_HEALTH_LOG_PATH})"
     ),
+    notify_email_to: Optional[str] = typer.Option(
+        None,
+        "--notify-email-to",
+        help="Comma-separated email recipients for daemon notifications; can also use QFA_NOTIFY_EMAIL_TO.",
+    ),
     db: Optional[Path] = None,
 ):
     effective_dry_run = not submit_orders
@@ -297,6 +335,12 @@ def daemon_run(
             f"Submitting orders to Alpaca {account_mode} account. active_asset_classes={asset_class_summary}"
         )
 
+    try:
+        notifier = _build_email_notifier(notify_email_to)
+    except ValueError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+
     daemon = TradingDaemon(
         store=store,
         alpaca=AlpacaGateway(),
@@ -309,6 +353,7 @@ def daemon_run(
             health_log_path=str(health_log) if health_log else None,
             orphan_position_mode=normalized_orphan_mode,
             orphan_min_notional=orphan_min_notional,
+            notifier=notifier,
         ),
     )
     daemon.run()

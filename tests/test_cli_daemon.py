@@ -60,6 +60,58 @@ def test_daemon_run_accepts_health_log_path(tmp_path):
     assert CapturingDaemon.configs[-1].health_log_path == str(health_log)
 
 
+def test_daemon_run_accepts_email_notification_configuration(monkeypatch, tmp_path):
+    monkeypatch.setenv("QFA_SMTP_HOST", "smtp.example.com")
+    monkeypatch.setenv("QFA_NOTIFY_EMAIL_FROM", "qfa@example.com")
+    monkeypatch.setenv("QFA_SMTP_PORT", "2525")
+    monkeypatch.setenv("QFA_SMTP_TLS", "false")
+
+    result = CliRunner().invoke(
+        cli.app,
+        [
+            "daemon",
+            "run",
+            "--once",
+            "--notify-email-to",
+            "ops@example.com,pm@example.com",
+            "--db",
+            str(tmp_path / "qfa.sqlite3"),
+        ],
+    )
+
+    assert result.exit_code == 0
+    notifier = CapturingDaemon.configs[-1].notifier
+    assert notifier is not None
+    assert notifier.config.recipients == ("ops@example.com", "pm@example.com")
+    assert notifier.config.sender == "qfa@example.com"
+    assert notifier.config.smtp_host == "smtp.example.com"
+    assert notifier.config.smtp_port == 2525
+    assert notifier.config.use_tls is False
+
+
+def test_daemon_run_rejects_incomplete_email_notification_configuration(monkeypatch, tmp_path):
+    monkeypatch.delenv("QFA_SMTP_HOST", raising=False)
+    monkeypatch.delenv("QFA_NOTIFY_EMAIL_FROM", raising=False)
+    monkeypatch.delenv("QFA_SMTP_USERNAME", raising=False)
+
+    result = CliRunner().invoke(
+        cli.app,
+        [
+            "daemon",
+            "run",
+            "--once",
+            "--notify-email-to",
+            "ops@example.com",
+            "--db",
+            str(tmp_path / "qfa.sqlite3"),
+        ],
+    )
+
+    assert result.exit_code == 2
+    assert CapturingDaemon.configs == []
+    assert "Email notifications require QFA_SMTP_HOST" in result.output
+
+
 def test_daemon_run_accepts_report_only_orphan_position_guard(tmp_path):
     result = CliRunner().invoke(
         cli.app,

@@ -9,6 +9,7 @@ from datetime import datetime, timedelta, timezone
 from .alpha import AlphaContext, load_alpha_function, normalize_weights
 from .alpaca_client import AlpacaGateway
 from .health import append_health_log
+from .notifications import Notifier
 from .storage import Store
 
 
@@ -37,6 +38,7 @@ class DaemonConfig:
     health_log_path: str | None = None
     orphan_position_mode: str = "off"
     orphan_min_notional: float = 1.0
+    notifier: Notifier | None = None
 
 
 class TradingDaemon:
@@ -45,6 +47,7 @@ class TradingDaemon:
         self.alpaca = alpaca
         self.config = config
         self._last_signal_status: dict = {}
+        self._last_market_open: bool | None = None
 
     def run(self) -> None:
         while True:
@@ -56,7 +59,9 @@ class TradingDaemon:
                 next_tick_at=None,
             )
             try:
+                self._notify_market_session_transition()
                 events = self.tick() or []
+                self._notify_position_changes(events)
             except Exception as exc:
                 tick_finished_at = _utc_now()
                 self._save_status(
@@ -110,6 +115,60 @@ class TradingDaemon:
                 trade_event_count=len(events),
             )
             time.sleep(self.config.interval_seconds)
+
+    def _notify_market_session_transition(self) -> None:
+        if self.config.notifier is None:
+            return
+        try:
+            market_open = bool(self.alpaca.is_market_open())
+            if self._last_market_open is not None and market_open != self._last_market_open:
+                event_name = "market_open" if market_open else "market_close"
+                subject = "qfa market open" if market_open else "qfa market close"
+                body = json.dumps(
+                    {
+                        "event": event_name,
+                        "observed_at": _utc_now(),
+                        "mode": "simulation" if self.config.dry_run else "submit-orders",
+                        "paper": self.config.paper,
+                        "data_feed": self.config.data_feed,
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+                self.config.notifier.send(subject=subject, body=body)
+            self._last_market_open = market_open
+        except Exception:
+            # Notifications are observability-only. They must not crash the trading loop.
+            return
+
+    def _notify_position_changes(self, events: list[dict]) -> None:
+        if self.config.notifier is None:
+            return
+        position_change_events = [
+            event
+            for event in events
+            if event.get("side") in {"buy", "sell"}
+            and event.get("response", {}).get("status") not in {"skipped", "error"}
+        ]
+        if not position_change_events:
+            return
+        try:
+            subject = f"qfa position change: {len(position_change_events)} event(s)"
+            body = json.dumps(
+                {
+                    "event": "position_change",
+                    "observed_at": _utc_now(),
+                    "mode": "simulation" if self.config.dry_run else "submit-orders",
+                    "paper": self.config.paper,
+                    "trade_events": position_change_events,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+            self.config.notifier.send(subject=subject, body=body)
+        except Exception:
+            # Notifications are observability-only. They must not crash the trading loop.
+            return
 
     def _emit_tick_log(
         self,
