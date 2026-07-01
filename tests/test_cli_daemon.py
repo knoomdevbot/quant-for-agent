@@ -89,6 +89,59 @@ def test_daemon_run_accepts_email_notification_configuration(monkeypatch, tmp_pa
     assert notifier.config.use_tls is False
 
 
+def test_daemon_run_accepts_single_smtp_url_for_email_notifications(tmp_path):
+    result = CliRunner().invoke(
+        cli.app,
+        [
+            "daemon",
+            "run",
+            "--once",
+            "--notify-email-to",
+            "ops@example.com",
+            "--notify-email-smtp-url",
+            "smtps://qfa%40example.com:app-pass@smtp.example.com?from=alerts@example.com",
+            "--db",
+            str(tmp_path / "qfa.sqlite3"),
+        ],
+    )
+
+    assert result.exit_code == 0
+    notifier = CapturingDaemon.configs[-1].notifier
+    assert notifier is not None
+    assert notifier.config.recipients == ("ops@example.com",)
+    assert notifier.config.sender == "alerts@example.com"
+    assert notifier.config.smtp_host == "smtp.example.com"
+    assert notifier.config.smtp_port == 465
+    assert notifier.config.smtp_username == "qfa@example.com"
+    assert notifier.config.smtp_password == "app-pass"
+    assert notifier.config.use_tls is False
+    assert notifier.config.use_ssl is True
+
+
+def test_daemon_run_accepts_env_smtp_url_and_recipient_for_email_notifications(monkeypatch, tmp_path):
+    monkeypatch.setenv("QFA_NOTIFY_EMAIL_TO", "ops@example.com")
+    monkeypatch.setenv("QFA_NOTIFY_EMAIL_SMTP_URL", "smtp://qfa@example.com:app-pass@smtp.example.com:2525")
+
+    result = CliRunner().invoke(
+        cli.app,
+        [
+            "daemon",
+            "run",
+            "--once",
+            "--db",
+            str(tmp_path / "qfa.sqlite3"),
+        ],
+    )
+
+    assert result.exit_code == 0
+    notifier = CapturingDaemon.configs[-1].notifier
+    assert notifier is not None
+    assert notifier.config.sender == "qfa@example.com"
+    assert notifier.config.smtp_port == 2525
+    assert notifier.config.use_tls is True
+    assert notifier.config.use_ssl is False
+
+
 def test_daemon_run_rejects_incomplete_email_notification_configuration(monkeypatch, tmp_path):
     monkeypatch.delenv("QFA_SMTP_HOST", raising=False)
     monkeypatch.delenv("QFA_NOTIFY_EMAIL_FROM", raising=False)
@@ -109,7 +162,7 @@ def test_daemon_run_rejects_incomplete_email_notification_configuration(monkeypa
 
     assert result.exit_code == 2
     assert CapturingDaemon.configs == []
-    assert "Email notifications require QFA_SMTP_HOST" in result.output
+    assert "Email notifications require either --notify-email-smtp-url" in result.output
 
 
 def test_daemon_run_accepts_report_only_orphan_position_guard(tmp_path):

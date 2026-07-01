@@ -18,17 +18,23 @@ qfa daemon status --max-age-seconds 900
 
 `qfa daemon run` defaults to simulation/no-submit mode. Paper order submission requires the explicit `--submit-orders` opt-in with `ALPACA_PAPER=true`; live brokerage remains out of scope for the MVP.
 
-Enable daemon email notifications with `--notify-email-to` or `QFA_NOTIFY_EMAIL_TO` plus SMTP environment variables. Notifications are best-effort and never crash the trading loop. The daemon sends email on observed market open/close transitions and when a tick records actionable buy/sell position-change events; in simulation mode, position-change emails describe preview trade events.
+Enable daemon email notifications with one SMTP URL plus recipients. Notifications are best-effort and never crash the trading loop. The daemon sends email on observed market open/close transitions and when a tick records actionable buy/sell position-change events; in simulation mode, position-change emails describe preview trade events.
 
 ```bash
-export QFA_SMTP_HOST=smtp.example.com
-export QFA_SMTP_PORT=587
-export QFA_NOTIFY_EMAIL_FROM=qfa@example.com
-export QFA_SMTP_USERNAME=qfa@example.com
-export QFA_SMTP_PASSWORD=...
-export QFA_SMTP_TLS=true
-qfa daemon run --interval-seconds 300 --notify-email-to ops@example.com
+qfa daemon run --interval-seconds 300 \
+  --notify-email-to ops@example.com \
+  --notify-email-smtp-url 'smtps://qfa%40example.com:APP_PASSWORD@smtp.example.com?from=qfa@example.com'
 ```
+
+For service supervisors, put the SMTP URL in a single environment variable instead of passing it on the command line:
+
+```bash
+export QFA_NOTIFY_EMAIL_TO=ops@example.com
+export QFA_NOTIFY_EMAIL_SMTP_URL='smtps://qfa%40example.com:APP_PASSWORD@smtp.example.com?from=qfa@example.com'
+qfa daemon run --interval-seconds 300
+```
+
+The older split SMTP env vars (`QFA_SMTP_HOST`, `QFA_SMTP_PORT`, `QFA_NOTIFY_EMAIL_FROM`, `QFA_SMTP_USERNAME`, `QFA_SMTP_PASSWORD`, `QFA_SMTP_TLS`) still work for deployments that prefer separate secret fields.
 
 Use the orphan-position guard when the broker account may contain positions outside the active qfa model universe:
 

@@ -48,16 +48,20 @@ def _env_flag(name: str, default: bool) -> bool:
     return value.lower() not in {"0", "false", "no", "off"}
 
 
-def _build_email_notifier(recipients: str | None) -> EmailNotifier | None:
+def _build_email_notifier(recipients: str | None, smtp_url: str | None = None) -> EmailNotifier | None:
     recipient_text = recipients or os.environ.get("QFA_NOTIFY_EMAIL_TO")
     if not recipient_text:
         return None
     recipient_list = tuple(item.strip() for item in recipient_text.split(",") if item.strip())
+    url = smtp_url or os.environ.get("QFA_NOTIFY_EMAIL_SMTP_URL")
+    if url:
+        return EmailNotifier(EmailNotificationConfig.from_url(url, recipients=recipient_list))
     smtp_host = os.environ.get("QFA_SMTP_HOST")
     sender = os.environ.get("QFA_NOTIFY_EMAIL_FROM") or os.environ.get("QFA_SMTP_USERNAME")
     if not smtp_host or not sender:
         raise ValueError(
-            "Email notifications require QFA_SMTP_HOST and QFA_NOTIFY_EMAIL_FROM "
+            "Email notifications require either --notify-email-smtp-url (or "
+            "QFA_NOTIFY_EMAIL_SMTP_URL) or QFA_SMTP_HOST and QFA_NOTIFY_EMAIL_FROM "
             "(or QFA_SMTP_USERNAME)."
         )
     return EmailNotifier(
@@ -293,6 +297,11 @@ def daemon_run(
         "--notify-email-to",
         help="Comma-separated email recipients for daemon notifications; can also use QFA_NOTIFY_EMAIL_TO.",
     ),
+    notify_email_smtp_url: Optional[str] = typer.Option(
+        None,
+        "--notify-email-smtp-url",
+        help="Single SMTP URL for daemon notifications; can also use QFA_NOTIFY_EMAIL_SMTP_URL.",
+    ),
     db: Optional[Path] = None,
 ):
     effective_dry_run = not submit_orders
@@ -336,7 +345,7 @@ def daemon_run(
         )
 
     try:
-        notifier = _build_email_notifier(notify_email_to)
+        notifier = _build_email_notifier(notify_email_to, notify_email_smtp_url)
     except ValueError as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(code=2) from exc
