@@ -30,6 +30,8 @@ def test_run_backtest_calculates_metrics_and_store_roundtrip(tmp_path):
     assert saved is not None
     assert saved["metrics"]["final_equity"] == result["metrics"]["final_equity"]
     assert saved["asset_class"] == "equity"
+    assert saved["point_in_time_universe"] is False
+    assert saved["universe_spec"]["provider"] == "explicit_symbols"
 
 
 def test_crypto_backtest_records_asset_bucket_crypto_label_and_fee_model(tmp_path):

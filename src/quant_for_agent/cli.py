@@ -14,14 +14,17 @@ from .config import DEFAULT_DB_PATH, AlpacaConfig
 from .daemon import DaemonConfig, TradingDaemon
 from .data import load_price_csv
 from .storage import Store
+from .universe import UniverseConfig, build_equity_universe
 
 app = typer.Typer(help="quant-for-agent CLI")
 backtest_app = typer.Typer(help="Run and query backtests")
 models_app = typer.Typer(help="Manage alpha models in the trading portfolio")
 daemon_app = typer.Typer(help="Run the Alpaca trading daemon")
+universe_app = typer.Typer(help="Build research universes")
 app.add_typer(backtest_app, name="backtest")
 app.add_typer(models_app, name="models")
 app.add_typer(daemon_app, name="daemon")
+app.add_typer(universe_app, name="universe")
 
 
 def _symbols(value: str) -> list[str]:
@@ -56,6 +59,14 @@ def backtest_run(
     fee_maker_bps: float = typer.Option(0.0, help="Maker fee assumption in basis points"),
     fee_taker_bps: float = typer.Option(0.0, help="Taker fee assumption in basis points"),
     fill_mix: str = typer.Option("unknown", help="Fee fill assumption: maker, taker, mixed, or unknown"),
+    point_in_time_universe: bool = typer.Option(
+        False,
+        "--point-in-time-universe/--current-proxy-universe",
+        help="Mark whether the supplied symbols came from a point-in-time universe process.",
+    ),
+    universe_spec_json: Optional[str] = typer.Option(
+        None, help="JSON metadata describing universe construction provenance"
+    ),
     db: Optional[Path] = typer.Option(None, help="SQLite database path"),
 ):
     symbol_list = _symbols(symbols)
@@ -76,6 +87,8 @@ def backtest_run(
         fee_maker_bps=fee_maker_bps,
         fee_taker_bps=fee_taker_bps,
         fill_mix=fill_mix,
+        point_in_time_universe=point_in_time_universe,
+        universe_spec=json.loads(universe_spec_json) if universe_spec_json else None,
     )
     result = run_backtest(config, prices)
     store = _store(db)
@@ -94,6 +107,35 @@ def backtest_show(run_id: int, db: Optional[Path] = None):
     result = _store(db).get_backtest(run_id)
     if result is None:
         raise typer.Exit(code=1)
+    _print_json(result)
+
+
+@universe_app.command("equities")
+def universe_equities(
+    security_master_csv: Path = typer.Option(
+        ..., help="CSV security master with symbol, listing/delisting, exchange, and security_type columns"
+    ),
+    as_of: str = typer.Option(..., help="Historical selection date YYYY-MM-DD"),
+    exchange: list[str] = typer.Option([], help="Allowed exchange; repeat for multiple exchanges"),
+    common_stock_only: bool = typer.Option(
+        True,
+        "--common-stock-only/--all-security-types",
+        help="Exclude ETFs/funds/preferreds/ADRs/units/warrants when security_type is available.",
+    ),
+    include_unknown_classification: bool = typer.Option(
+        False,
+        help="Include rows with missing security_type instead of excluding them as unknown.",
+    ),
+):
+    result = build_equity_universe(
+        UniverseConfig(
+            as_of=as_of,
+            security_master_csv=str(security_master_csv),
+            exchanges=exchange,
+            common_stock_only=common_stock_only,
+            include_unknown_classification=include_unknown_classification,
+        )
+    )
     _print_json(result)
 
 
