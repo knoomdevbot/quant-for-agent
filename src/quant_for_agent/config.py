@@ -7,6 +7,9 @@ from pathlib import Path
 
 DEFAULT_HOME = Path(os.environ.get("QFA_HOME", Path.home() / ".qfa"))
 DEFAULT_DB_PATH = Path(os.environ.get("QFA_DB", DEFAULT_HOME / "qfa.sqlite3"))
+DEFAULT_HEALTH_LOG_PATH = Path(
+    os.environ.get("QFA_HEALTH_LOG", DEFAULT_HOME / "daemon-health.jsonl")
+)
 
 
 @dataclass(frozen=True)

@@ -270,6 +270,22 @@ class Store:
         data["paper"] = None if data.get("paper") is None else bool(data["paper"])
         return data
 
+    def recover_daemon_status(self, reason: str = "manual_recovery") -> None:
+        self.save_daemon_status(
+            {
+                "pid": None,
+                "mode": "simulation",
+                "paper": None,
+                "data_feed": None,
+                "status": "recovered",
+                "last_tick_started_at": None,
+                "last_tick_finished_at": None,
+                "next_tick_at": None,
+                "last_error_type": None,
+                "last_error_message": reason,
+            }
+        )
+
     @staticmethod
     def _decode_backtest(row: sqlite3.Row) -> dict[str, Any]:
         data = dict(row)
