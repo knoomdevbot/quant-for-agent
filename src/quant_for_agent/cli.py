@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
@@ -58,8 +57,16 @@ def _symbols(value: str) -> list[str]:
     return [item.strip().upper() for item in value.split(",") if item.strip()]
 
 
+def _load_config_or_exit(cli_overrides: dict[str, object] | None = None):
+    try:
+        return load_qfa_config(config_path=_CONFIG_PATH, cli_overrides=cli_overrides or {})
+    except (FileNotFoundError, ValueError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+
+
 def _store(db: Optional[Path]) -> Store:
-    config = load_qfa_config(config_path=_CONFIG_PATH, cli_overrides={"core.db": db} if db else {})
+    config = _load_config_or_exit({"core.db": db} if db else {})
     return Store(config.core.db)
 
 
@@ -69,23 +76,22 @@ def _feature_store(
     table: Optional[str],
     region: Optional[str],
 ):
+    config = _load_config_or_exit(
+        {
+            "factor_store.backend": backend,
+            "core.db": db,
+            "factor_store.table": table,
+            "factor_store.region": region,
+        }
+    )
     try:
-        config = load_qfa_config(
-            config_path=_CONFIG_PATH,
-            cli_overrides={
-                "factor_store.backend": backend,
-                "core.db": db,
-                "factor_store.table": table,
-                "factor_store.region": region,
-            },
-        )
         return build_feature_store(
             backend=config.factor_store.backend,
             db_path=config.core.db,
             table_name=config.factor_store.table,
             region_name=config.factor_store.region,
         )
-    except (FileNotFoundError, ValueError) as exc:
+    except ValueError as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(code=2) from exc
 
@@ -94,38 +100,41 @@ def _print_json(payload) -> None:
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
 
 
-def _env_flag(name: str, default: bool) -> bool:
-    value = os.environ.get(name)
-    if value is None:
-        return default
-    return value.lower() not in {"0", "false", "no", "off"}
+def _alpaca_gateway(config: AlpacaConfig | None = None) -> AlpacaGateway:
+    try:
+        return AlpacaGateway(config=config)
+    except TypeError as exc:
+        if "unexpected keyword argument 'config'" not in str(exc):
+            raise
+        return AlpacaGateway()
 
 
 def _build_email_notifier(recipients: str | None, smtp_url: str | None = None) -> EmailNotifier | None:
-    recipient_text = recipients or os.environ.get("QFA_NOTIFY_EMAIL_TO")
+    config = _load_config_or_exit()
+    recipient_text = recipients or ",".join(config.email.to)
     if not recipient_text:
         return None
     recipient_list = tuple(item.strip() for item in recipient_text.split(",") if item.strip())
-    url = smtp_url or os.environ.get("QFA_NOTIFY_EMAIL_SMTP_URL")
+    url = smtp_url or config.email.smtp_url
     if url:
         return EmailNotifier(EmailNotificationConfig.from_url(url, recipients=recipient_list))
-    smtp_host = os.environ.get("QFA_SMTP_HOST")
-    sender = os.environ.get("QFA_NOTIFY_EMAIL_FROM") or os.environ.get("QFA_SMTP_USERNAME")
+    smtp_host = config.email.smtp_host
+    sender = config.email.sender or config.email.smtp_username
     if not smtp_host or not sender:
         raise ValueError(
             "Email notifications require either --notify-email-smtp-url (or "
-            "QFA_NOTIFY_EMAIL_SMTP_URL) or QFA_SMTP_HOST and QFA_NOTIFY_EMAIL_FROM "
-            "(or QFA_SMTP_USERNAME)."
+            "QFA_NOTIFY_EMAIL_SMTP_URL / config notifications.email.smtp_url) or "
+            "SMTP host and sender settings."
         )
     return EmailNotifier(
         EmailNotificationConfig(
             recipients=recipient_list,
             sender=sender,
             smtp_host=smtp_host,
-            smtp_port=int(os.environ.get("QFA_SMTP_PORT", "587")),
-            smtp_username=os.environ.get("QFA_SMTP_USERNAME"),
-            smtp_password=os.environ.get("QFA_SMTP_PASSWORD"),
-            use_tls=_env_flag("QFA_SMTP_TLS", True),
+            smtp_port=config.email.smtp_port,
+            smtp_username=config.email.smtp_username,
+            smtp_password=config.email.smtp_password,
+            use_tls=config.email.tls,
         )
     )
 
@@ -141,11 +150,7 @@ def _parse_sqlite_utc(value: str) -> datetime:
 def config_show(
     redact: bool = typer.Option(True, "--redact/--no-redact", help="Redact secrets in output"),
 ):
-    try:
-        config = load_qfa_config(config_path=_CONFIG_PATH)
-    except (FileNotFoundError, ValueError) as exc:
-        typer.echo(str(exc), err=True)
-        raise typer.Exit(code=2) from exc
+    config = _load_config_or_exit()
     _print_json(redact_config(config) if redact else config_to_dict(config))
 
 
@@ -212,7 +217,8 @@ def backtest_run(
     if data_csv:
         prices = load_price_csv(data_csv)
     else:
-        prices = AlpacaGateway().get_bars(
+        alpaca_config = AlpacaConfig.from_env(config_path=_CONFIG_PATH)
+        prices = _alpaca_gateway(config=alpaca_config).get_bars(
             symbol_list, start=start, end=end, timeframe=timeframe, asset_class=asset_class
         )
     config = BacktestConfig(
@@ -462,15 +468,19 @@ def daemon_run(
     )
     asset_class_summary = ",".join(active_asset_classes) if active_asset_classes else "none"
 
-    paper = os.environ.get("ALPACA_PAPER", "true").lower() not in {"0", "false", "no"}
-    data_feed = os.environ.get("ALPACA_DATA_FEED")
+    config = _load_config_or_exit(
+        {"core.db": db, "core.health_log": health_log} if health_log or db else {"core.db": db} if db else {}
+    )
+    paper = config.alpaca.paper
+    data_feed = config.alpaca.data_feed
 
+    alpaca_config = config.alpaca
     if effective_dry_run:
         typer.echo(
             f"SIMULATION ONLY: no Alpaca orders will be submitted. active_asset_classes={asset_class_summary}"
         )
     else:
-        alpaca_config = AlpacaConfig.from_env()
+        alpaca_config = AlpacaConfig.from_env(config_path=_CONFIG_PATH)
         if not alpaca_config.paper and not allow_live_brokerage:
             typer.echo(
                 "Refusing to submit live brokerage orders: ALPACA_PAPER=false requires "
@@ -499,14 +509,14 @@ def daemon_run(
 
     daemon = TradingDaemon(
         store=store,
-        alpaca=AlpacaGateway(),
+        alpaca=_alpaca_gateway(config=alpaca_config if not effective_dry_run else None),
         config=DaemonConfig(
             interval_seconds=interval_seconds,
             dry_run=effective_dry_run,
             once=once,
             paper=paper,
             data_feed=data_feed.lower() if data_feed else None,
-            health_log_path=str(health_log) if health_log else None,
+            health_log_path=str(config.core.health_log),
             orphan_position_mode=normalized_orphan_mode,
             orphan_min_notional=orphan_min_notional,
             notifier=notifier,
@@ -522,7 +532,10 @@ def daemon_status(
     ),
     db: Optional[Path] = None,
 ):
-    snapshot, healthy = _health_snapshot(_store(db), max_age_seconds=max_age_seconds, health_log=None, limit=0)
+    config = _load_config_or_exit({"core.db": db} if db else {})
+    snapshot, healthy = _health_snapshot(
+        _store(db), max_age_seconds=max_age_seconds, health_log=config.core.health_log, limit=0
+    )
     status = snapshot["status"]
     if status is None:
         typer.echo("No daemon status has been recorded", err=True)
@@ -543,8 +556,11 @@ def daemon_health(
     ),
     db: Optional[Path] = None,
 ):
+    config = _load_config_or_exit(
+        {"core.db": db, "core.health_log": health_log} if health_log or db else {"core.db": db} if db else {}
+    )
     snapshot, healthy = _health_snapshot(
-        _store(db), max_age_seconds=max_age_seconds, health_log=health_log, limit=limit
+        _store(db), max_age_seconds=max_age_seconds, health_log=config.core.health_log, limit=limit
     )
     _print_json(snapshot)
     if not healthy:
@@ -563,14 +579,19 @@ def daemon_recover(
     ),
     db: Optional[Path] = None,
 ):
+    config = _load_config_or_exit(
+        {"core.db": db, "core.health_log": health_log} if health_log or db else {"core.db": db} if db else {}
+    )
     store = _store(db)
-    before, healthy = _health_snapshot(store, max_age_seconds=max_age_seconds, health_log=health_log, limit=5)
+    before, healthy = _health_snapshot(
+        store, max_age_seconds=max_age_seconds, health_log=config.core.health_log, limit=5
+    )
     if healthy and not force:
         _print_json({"status": "healthy", "recovered": False, "before": before})
         return
     store.recover_daemon_status(reason=reason)
     append_health_log(
-        health_log,
+        config.core.health_log,
         {
             "event": "daemon_recovery",
             "status": "recovered",
@@ -579,7 +600,7 @@ def daemon_recover(
             "safe_mode": "simulation/no-submit",
         },
     )
-    after, _ = _health_snapshot(store, max_age_seconds=None, health_log=health_log, limit=5)
+    after, _ = _health_snapshot(store, max_age_seconds=None, health_log=config.core.health_log, limit=5)
     _print_json(
         {
             "status": "recovered",

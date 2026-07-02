@@ -52,7 +52,7 @@ health_log = "~/.qfa/daemon-health.jsonl"
 
 [factor_store]
 backend = "sqlite" # sqlite | dynamodb
-table = "qfa-factor-observations"
+table = "qfa-feature-observations" # existing compatibility default
 region = "us-west-2"
 
 [factor_repository]

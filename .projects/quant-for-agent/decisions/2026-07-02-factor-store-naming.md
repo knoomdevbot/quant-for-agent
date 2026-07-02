@@ -50,7 +50,7 @@ Do not immediately break the implemented `qfa features` CLI unless a migration i
 1. Introduce `qfa factors` as the preferred CLI group.
 2. Keep `qfa features` as a deprecated alias for at least one release.
 3. Add Python aliases such as `FactorObservation` / `FactorStore` while retaining `FeatureObservation` / `FeatureStore` compatibility.
-4. Prefer new environment variables and table names for new deployments, e.g. `QFA_FACTOR_BACKEND`, `QFA_FACTOR_TABLE`, `qfa-factor-observations`, while accepting old `QFA_FEATURE_*` names.
+4. Prefer new environment variables for new usage, e.g. `QFA_FACTOR_BACKEND` and `QFA_FACTOR_TABLE`, while accepting old `QFA_FEATURE_*` names. Keep the existing default table `qfa-feature-observations` until a deliberate storage migration is planned.
 5. Update docs/examples from “feature” to “factor,” with a short compatibility note.
 
 ## Non-decision

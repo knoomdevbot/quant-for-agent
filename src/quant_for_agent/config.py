@@ -40,8 +40,8 @@ class AlpacaConfig:
     data_feed: str | None = None
 
     @classmethod
-    def from_env(cls) -> "AlpacaConfig":
-        config = load_qfa_config()
+    def from_env(cls, config_path: Path | None = None) -> "AlpacaConfig":
+        config = load_qfa_config(config_path=config_path)
         if not config.alpaca.api_key or not config.alpaca.secret_key:
             raise RuntimeError("ALPACA_API_KEY and ALPACA_SECRET_KEY are required")
         return config.alpaca
@@ -50,7 +50,7 @@ class AlpacaConfig:
 @dataclass(frozen=True)
 class FactorStoreConfig:
     backend: str = "sqlite"
-    table: str = "qfa-factor-observations"
+    table: str = "qfa-feature-observations"
     region: str | None = None
 
 
@@ -83,7 +83,8 @@ class QFAConfig:
 
 
 def default_config_path(environ: Mapping[str, str] = os.environ) -> Path:
-    return Path(environ.get("QFA_CONFIG", _default_home(environ) / "config.toml")).expanduser()
+    configured = environ.get("QFA_CONFIG")
+    return Path(configured).expanduser() if configured else _default_home(environ) / "config.toml"
 
 
 def _get_nested(data: Mapping[str, Any], path: str) -> Any:
@@ -183,7 +184,7 @@ def load_qfa_config(
 
     configured_home = _pick_config(config_file, "core.home", "qfa.home")
     home_value = _override(overrides, "core.home", "home") or _env(environ, "QFA_HOME") or configured_home
-    home = _path(home_value) if home_value is not None else _default_home(environ)
+    home = _path(home_value, base=config_dir) if home_value is not None else _default_home(environ)
 
     configured_db = _pick_config(config_file, "core.db", "qfa.db")
     db_value = _override(overrides, "core.db", "db") or _env(environ, "QFA_DB") or configured_db
@@ -232,7 +233,7 @@ def load_qfa_config(
         _override(overrides, "factor_store.table", "features.table")
         or _env(environ, "QFA_FACTOR_TABLE", "QFA_FEATURE_TABLE")
         or _pick_config(config_file, "factor_store.table", "factors.table", "features.table")
-        or "qfa-factor-observations"
+        or "qfa-feature-observations"
     )
     region = (
         _override(overrides, "factor_store.region", "features.region")

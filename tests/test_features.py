@@ -288,3 +288,46 @@ def test_cli_factors_alias_for_feature_observations(tmp_path):
     assert [(item["entity_id"], item["value"]) for item in payload] == [
         ("semiconductors", 0.55),
     ]
+
+
+def test_cli_factors_uses_config_file_db(tmp_path):
+    db_path = tmp_path / "configured.sqlite3"
+    config_path = tmp_path / "qfa.toml"
+    config_path.write_text(f'[core]\ndb = "{db_path}"\n', encoding="utf-8")
+    runner = CliRunner()
+
+    put_result = runner.invoke(
+        cli.app,
+        [
+            "--config",
+            str(config_path),
+            "factors",
+            "put",
+            "--name",
+            "news.sentiment.industry",
+            "--entity",
+            "semiconductors",
+            "--timestamp",
+            "2026-07-01",
+            "--value",
+            "0.55",
+        ],
+    )
+    assert put_result.exit_code == 0
+
+    query_result = runner.invoke(
+        cli.app,
+        [
+            "--config",
+            str(config_path),
+            "factors",
+            "query",
+            "--name",
+            "news.sentiment.industry",
+            "--entity",
+            "semiconductors",
+        ],
+    )
+    assert query_result.exit_code == 0
+    payload = json.loads(query_result.output)
+    assert payload[0]["value"] == 0.55

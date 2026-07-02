@@ -37,7 +37,7 @@ Rename product-facing language to factors without breaking existing users:
 1. Add `qfa factors` as the preferred command group.
 2. Keep `qfa features` as a deprecated compatibility alias.
 3. Add `FactorObservation`, `FactorStore`, `SQLiteFactorStore`, and `DynamoDBFactorStore` aliases/wrappers while keeping existing feature classes importable.
-4. Add `QFA_FACTOR_BACKEND` and `QFA_FACTOR_TABLE`; keep `QFA_FEATURE_BACKEND` and `QFA_FEATURE_TABLE` as fallbacks.
+4. Add `QFA_FACTOR_BACKEND` and `QFA_FACTOR_TABLE`; keep `QFA_FEATURE_BACKEND` and `QFA_FEATURE_TABLE` as fallbacks. Keep the existing default DynamoDB table name `qfa-feature-observations` until a deliberate storage migration is planned.
 5. Update README, project docs, AWS runbook, and examples to say Factor Store.
 6. Optional later migration: rename DynamoDB table default from `qfa-feature-observations` to `qfa-factor-observations`; avoid forcing this for existing deployments.
 

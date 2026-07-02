@@ -39,6 +39,7 @@ max_staleness_seconds = 86400
 
     config = load_qfa_config(config_path=config_path)
 
+    assert config.core.home == tmp_path / "qfa-home"
     assert config.core.db == tmp_path / "from-config.sqlite3"
     assert config.factor_store.backend == "dynamodb"
     assert config.factor_store.table == "from-env-table"
@@ -129,3 +130,18 @@ def test_explicit_missing_config_fails(tmp_path):
 
     assert result.exit_code == 2
     assert "qfa config file not found" in result.output
+
+
+def test_explicit_missing_config_fails_cleanly_for_other_commands(tmp_path):
+    result = CliRunner().invoke(cli.app, ["--config", str(tmp_path / "missing.toml"), "models", "list"])
+
+    assert result.exit_code == 2
+    assert "qfa config file not found" in result.output
+
+
+def test_empty_qfa_config_env_is_ignored(monkeypatch):
+    monkeypatch.setenv("QFA_CONFIG", "")
+
+    config = load_qfa_config()
+
+    assert config.core.db.name == "qfa.sqlite3"

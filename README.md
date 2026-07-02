@@ -82,7 +82,7 @@ health_log = "~/.qfa/daemon-health.jsonl"
 
 [factor_store]
 backend = "sqlite" # sqlite | dynamodb
-table = "qfa-factor-observations"
+table = "qfa-feature-observations" # existing compatibility default
 region = "us-west-2"
 
 [factor_repository]
@@ -156,11 +156,11 @@ export QFA_AWS_REGION=us-west-2
 aws cloudformation deploy \
   --stack-name qfa-feature-database \
   --template-file infra/aws/qfa-feature-database.yaml \
-  --parameter-overrides TableName=qfa-factor-observations \
+  --parameter-overrides TableName=qfa-feature-observations \
   --region "$QFA_AWS_REGION"
 
 export QFA_FACTOR_BACKEND=dynamodb
-export QFA_FACTOR_TABLE=qfa-factor-observations
+export QFA_FACTOR_TABLE=qfa-feature-observations
 
 qfa factors put --backend dynamodb --name news.sentiment.industry --entity semiconductors --timestamp 2026-07-01 --value 0.55
 qfa factors query --backend dynamodb --name news.sentiment.industry --start 2026-07-01 --end 2026-07-31

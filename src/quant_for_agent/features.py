@@ -29,7 +29,7 @@ CREATE INDEX IF NOT EXISTS idx_feature_observations_feature_timestamp
 ON feature_observations (feature_name, timestamp);
 """
 
-DEFAULT_FEATURE_TABLE = "qfa-factor-observations"
+DEFAULT_FEATURE_TABLE = "qfa-feature-observations"
 
 
 def utc_now_iso() -> str:
