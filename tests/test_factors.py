@@ -135,6 +135,24 @@ value_type = "float"
         discover_manifests([repo_path])
 
 
+def test_malformed_manifest_rejects_whitespace_required_fields(tmp_path):
+    repo_path = tmp_path / "factors"
+    bad_dir = repo_path / "bad.factor"
+    bad_dir.mkdir(parents=True)
+    (bad_dir / "factor.toml").write_text(
+        MANIFEST_TEMPLATE.format(name="   ", output_name="bad.factor"),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(FactorRepositoryError, match="missing required field 'name'"):
+        discover_manifests([repo_path])
+
+
+def test_missing_repository_path_fails(tmp_path):
+    with pytest.raises(FactorRepositoryError, match="Factor repository path does not exist"):
+        discover_manifests([tmp_path / "missing"])
+
+
 def test_cli_factors_compute_writes_observations_to_sqlite(tmp_path):
     repo_path = tmp_path / "factors"
     db_path = tmp_path / "qfa.sqlite3"
@@ -209,3 +227,41 @@ def compute(context):
     assert saved is not None
     assert saved.value == 3.14
     assert saved.metadata["kind"] == "dataclass"
+
+
+def test_calculator_runtime_error_becomes_repository_error(tmp_path):
+    repo_path = tmp_path / "factors"
+    write_factor(
+        repo_path,
+        name="broken.factor",
+        calculator_source="""
+def compute(context):
+    raise RuntimeError("boom")
+""".lstrip(),
+    )
+    manifest = discover_manifests([repo_path])[0]
+    store = SQLiteFeatureStore(tmp_path / "qfa.sqlite3")
+
+    from quant_for_agent.factors import compute_factor
+
+    with pytest.raises(FactorRepositoryError, match="Calculator function 'compute' failed"):
+        compute_factor(manifest, start="2026-01-01", end="2026-01-31", entities=["AAPL"], factor_store=store)
+
+
+def test_invalid_calculator_result_becomes_repository_error(tmp_path):
+    repo_path = tmp_path / "factors"
+    write_factor(
+        repo_path,
+        name="invalid.factor",
+        calculator_source="""
+def compute(context):
+    return [{"entity_id": "AAPL", "timestamp": context.end, "value": "not-a-number"}]
+""".lstrip(),
+    )
+    manifest = discover_manifests([repo_path])[0]
+    store = SQLiteFeatureStore(tmp_path / "qfa.sqlite3")
+
+    from quant_for_agent.factors import compute_factor
+
+    with pytest.raises(FactorRepositoryError, match="Could not store calculator result"):
+        compute_factor(manifest, start="2026-01-01", end="2026-01-31", entities=["AAPL"], factor_store=store)

@@ -56,6 +56,8 @@ class FactorManifest:
                 raise FactorRepositoryError(f"Malformed factor manifest{location}: missing required field '{name}'")
             if not isinstance(value, expected_type):
                 raise FactorRepositoryError(f"Malformed factor manifest{location}: field '{name}' has invalid type")
+            if isinstance(value, str) and not value.strip():
+                raise FactorRepositoryError(f"Malformed factor manifest{location}: missing required field '{name}'")
             return value
 
         schema_version = require("schema_version", int)
@@ -196,7 +198,7 @@ def discover_manifests(repository_paths: Iterable[str | Path]) -> list[FactorMan
     for repository_path in repository_paths:
         root = Path(repository_path).expanduser()
         if not root.exists():
-            continue
+            raise FactorRepositoryError(f"Factor repository path does not exist: {root}")
         manifest_paths = [root] if root.is_file() and root.name == "factor.toml" else sorted(root.rglob("factor.toml"))
         for manifest_path in manifest_paths:
             manifest = FactorManifest.from_file(manifest_path)
@@ -231,7 +233,12 @@ def _load_calculator_module(manifest: FactorManifest) -> ModuleType:
     if spec is None or spec.loader is None:
         raise FactorRepositoryError(f"Could not load calculator module: {module_path}")
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    try:
+        spec.loader.exec_module(module)
+    except Exception as exc:
+        raise FactorRepositoryError(
+            f"Could not execute calculator module for factor '{manifest.name}' at {module_path}: {exc}"
+        ) from exc
     return module
 
 
@@ -266,7 +273,12 @@ def compute_factor(
         factor_store=factor_store,
         metadata={**(metadata or {}), "provenance": provenance},
     )
-    raw_results = function(context)
+    try:
+        raw_results = function(context)
+    except Exception as exc:
+        raise FactorRepositoryError(
+            f"Calculator function '{manifest.calculator_function}' failed for factor '{manifest.name}': {exc}"
+        ) from exc
     if raw_results is None:
         raw_results = []
     if not isinstance(raw_results, list | tuple):
@@ -274,16 +286,21 @@ def compute_factor(
 
     observations: list[FeatureObservation] = []
     for raw in raw_results:
-        result = FactorResult.from_obj(raw)
-        observation_metadata = {**result.metadata, "provenance": provenance}
-        observation = FeatureObservation(
-            feature_name=manifest.output_factor_name or manifest.name,
-            entity_id=result.entity_id,
-            timestamp=result.timestamp,
-            value=result.value,
-            metadata=observation_metadata,
-            source=f"factor:{manifest.name}",
-            created_at=computed_at,
-        )
-        observations.append(factor_store.put(observation))
+        try:
+            result = FactorResult.from_obj(raw)
+            observation_metadata = {**result.metadata, "provenance": provenance}
+            observation = FeatureObservation(
+                feature_name=manifest.output_factor_name or manifest.name,
+                entity_id=result.entity_id,
+                timestamp=result.timestamp,
+                value=result.value,
+                metadata=observation_metadata,
+                source=f"factor:{manifest.name}",
+                created_at=computed_at,
+            )
+            observations.append(factor_store.put(observation))
+        except FactorRepositoryError:
+            raise
+        except Exception as exc:
+            raise FactorRepositoryError(f"Could not store calculator result for factor '{manifest.name}': {exc}") from exc
     return ComputeSummary(manifest=manifest, count=len(observations), observations=observations)
