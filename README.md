@@ -6,6 +6,7 @@ CLI-first quant system for AI agents. MVP scope:
 - Store and query historical backtest results from SQLite.
 - Register alpha models against portfolio allocations.
 - Read/write custom time-series features for alpha research.
+- Discover local factor repositories, run Python factor calculators, and persist computed factor observations.
 - Run a simple Alpaca-backed trading daemon, paper-first, with explicit `--submit-orders` required before any order placement.
 
 ## Installation
@@ -167,6 +168,71 @@ qfa factors query --backend dynamodb --name news.sentiment.industry --start 2026
 ```
 
 The DynamoDB table uses `feature_entity = feature_name#entity_id` as the partition key, `timestamp` as the sort key, a `FeatureTimestampIndex` GSI for cross-entity factor queries, pay-per-request billing, server-side encryption, and point-in-time recovery.
+
+## Factor Repository MVP
+
+A factor repository is a local directory tree containing `factor.toml` manifests and Python calculators. Configure one or more roots with `factor_repository.repository_paths` in `qfa.toml` or `QFA_FACTOR_REPOSITORY_PATHS`.
+
+Recommended layout:
+
+```text
+factors/
+  price.momentum.20d/
+    factor.toml
+    calculator.py
+```
+
+Minimal `factor.toml`:
+
+```toml
+schema_version = 1
+name = "price.momentum.20d"
+title = "20-day price momentum"
+description = "Trailing close-to-close return."
+version = "0.1.0"
+entity_type = "symbol"
+frequency = "1d"
+tags = ["price", "momentum"]
+
+[calculator]
+module = "calculator.py"
+function = "compute"
+
+[outputs]
+factor_name = "price.momentum.20d"
+value_type = "float"
+```
+
+Calculator contract:
+
+```python
+from quant_for_agent.factors import FactorResult
+
+
+def compute(context):
+    # context has manifest, start, end, entities, factor_store, and metadata
+    return [
+        FactorResult(entity_id=symbol, timestamp=context.end, value=0.0)
+        for symbol in context.entities
+    ]
+```
+
+Dictionaries with `entity_id`, `timestamp`, `value`, and optional `metadata` are also accepted. qfa writes results to the existing Factor Store as `FeatureObservation` rows using `outputs.factor_name` (or the manifest `name`) and adds provenance metadata: factor name, version, calculator module/function, and computed timestamp.
+
+Repository workflow:
+
+```bash
+qfa --config ./qfa.toml factors list
+qfa --config ./qfa.toml factors describe price.momentum.20d
+qfa --config ./qfa.toml factors compute price.momentum.20d \
+  --symbols AAPL,MSFT \
+  --start 2026-01-01 \
+  --end 2026-01-31
+```
+
+`--symbols` also has a `--entities` alias for non-ticker factor entities such as countries, sectors, or industries; entity IDs are preserved exactly as provided.
+
+This MVP intentionally does **not** auto-refresh factors from backtests, daemon runs, or alpha dependency declarations. Alpha-sidecar dependency parsing, freshness checks, dependency graph sorting, and `update-required` are future work.
 
 ## Alpha model contract
 

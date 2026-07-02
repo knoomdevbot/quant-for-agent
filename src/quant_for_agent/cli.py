@@ -19,6 +19,7 @@ from .config import (
 from .daemon import DaemonConfig, TradingDaemon
 from .data import load_price_csv
 from .features import FeatureObservation, build_feature_store, load_observations_csv, parse_metadata_json
+from .factors import FactorRepositoryError, compute_factor, discover_manifests, get_manifest
 from .health import append_health_log, read_health_log, resolve_health_log_path, utc_now
 from .notifications import EmailNotificationConfig, EmailNotifier
 from .storage import Store
@@ -55,6 +56,10 @@ def main(
 
 def _symbols(value: str) -> list[str]:
     return [item.strip().upper() for item in value.split(",") if item.strip()]
+
+
+def _entities(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if item.strip()]
 
 
 def _load_config_or_exit(cli_overrides: dict[str, object] | None = None):
@@ -94,6 +99,38 @@ def _feature_store(
     except ValueError as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(code=2) from exc
+
+
+def _factor_store_with_config(
+    backend: Optional[str],
+    db: Optional[Path],
+    table: Optional[str],
+    region: Optional[str],
+):
+    config = _load_config_or_exit(
+        {
+            "factor_store.backend": backend,
+            "core.db": db,
+            "factor_store.table": table,
+            "factor_store.region": region,
+        }
+    )
+    try:
+        store = build_feature_store(
+            backend=config.factor_store.backend,
+            db_path=config.core.db,
+            table_name=config.factor_store.table,
+            region_name=config.factor_store.region,
+        )
+    except ValueError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+    return config, store
+
+
+def _repo_paths_or_exit() -> tuple[Path, ...]:
+    config = _load_config_or_exit()
+    return config.factor_repository.repository_paths
 
 
 def _print_json(payload) -> None:
@@ -253,6 +290,62 @@ def backtest_show(run_id: int, db: Optional[Path] = None):
     if result is None:
         raise typer.Exit(code=1)
     _print_json(result)
+
+
+@factors_app.command("list")
+def factor_repository_list():
+    try:
+        manifests = discover_manifests(_repo_paths_or_exit())
+    except FactorRepositoryError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+    _print_json([manifest.to_dict() for manifest in manifests])
+
+
+@factors_app.command("describe")
+def factor_repository_describe(name: str = typer.Argument(..., help="Factor name")):
+    try:
+        manifest = get_manifest(_repo_paths_or_exit(), name)
+    except FactorRepositoryError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+    _print_json(manifest.to_dict())
+
+
+@factors_app.command("compute")
+def factor_repository_compute(
+    name: str = typer.Argument(..., help="Factor name"),
+    entities: str = typer.Option(..., "--symbols", "--entities", help="Comma-separated symbols/entities, e.g. AAPL,MSFT"),
+    start: str = typer.Option(..., help="Start date YYYY-MM-DD"),
+    end: str = typer.Option(..., help="End date YYYY-MM-DD"),
+    backend: Optional[str] = typer.Option(None, help="Feature backend: sqlite or dynamodb"),
+    table: Optional[str] = typer.Option(None, help="DynamoDB table name"),
+    region: Optional[str] = typer.Option(None, help="AWS region for DynamoDB"),
+    db: Optional[Path] = typer.Option(None, help="SQLite database path for sqlite backend"),
+):
+    try:
+        config, store = _factor_store_with_config(backend, db, table, region)
+        manifest = get_manifest(config.factor_repository.repository_paths, name)
+        summary = compute_factor(
+            manifest,
+            start=start,
+            end=end,
+            entities=_entities(entities),
+            factor_store=store,
+            metadata={"cli": "qfa factors compute"},
+        )
+    except FactorRepositoryError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+    _print_json(
+        {
+            "status": "ok",
+            "factor": summary.manifest.name,
+            "output_factor_name": summary.manifest.output_factor_name,
+            "count": summary.count,
+            "observations": [observation.to_dict() for observation in summary.observations],
+        }
+    )
 
 
 @features_app.command("put")
