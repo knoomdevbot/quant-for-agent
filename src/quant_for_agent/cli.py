@@ -10,7 +10,13 @@ import typer
 
 from .alpaca_client import AlpacaGateway
 from .backtest import BacktestConfig, run_backtest
-from .config import DEFAULT_DB_PATH, DEFAULT_HEALTH_LOG_PATH, AlpacaConfig
+from .config import (
+    DEFAULT_HEALTH_LOG_PATH,
+    AlpacaConfig,
+    load_qfa_config,
+    redact_config,
+    config_to_dict,
+)
 from .daemon import DaemonConfig, TradingDaemon
 from .data import load_price_csv
 from .features import FeatureObservation, build_feature_store, load_observations_csv, parse_metadata_json
@@ -24,12 +30,28 @@ backtest_app = typer.Typer(help="Run and query backtests")
 models_app = typer.Typer(help="Manage alpha models in the trading portfolio")
 daemon_app = typer.Typer(help="Run the Alpaca trading daemon")
 universe_app = typer.Typer(help="Build research universes")
-features_app = typer.Typer(help="Read and write custom feature time-series observations")
+config_app = typer.Typer(help="Inspect qfa configuration")
+factors_app = typer.Typer(help="Read and write factor time-series observations")
+features_app = factors_app
 app.add_typer(backtest_app, name="backtest")
 app.add_typer(models_app, name="models")
 app.add_typer(daemon_app, name="daemon")
 app.add_typer(universe_app, name="universe")
+app.add_typer(config_app, name="config")
+app.add_typer(factors_app, name="factors")
 app.add_typer(features_app, name="features")
+
+_CONFIG_PATH: Path | None = None
+
+
+@app.callback()
+def main(
+    config: Optional[Path] = typer.Option(
+        None, "--config", help="Path to qfa config TOML; env fallback: QFA_CONFIG"
+    ),
+):
+    global _CONFIG_PATH
+    _CONFIG_PATH = config
 
 
 def _symbols(value: str) -> list[str]:
@@ -37,7 +59,8 @@ def _symbols(value: str) -> list[str]:
 
 
 def _store(db: Optional[Path]) -> Store:
-    return Store(db or DEFAULT_DB_PATH)
+    config = load_qfa_config(config_path=_CONFIG_PATH, cli_overrides={"core.db": db} if db else {})
+    return Store(config.core.db)
 
 
 def _feature_store(
@@ -47,10 +70,22 @@ def _feature_store(
     region: Optional[str],
 ):
     try:
-        return build_feature_store(
-            backend=backend, db_path=db or DEFAULT_DB_PATH, table_name=table, region_name=region
+        config = load_qfa_config(
+            config_path=_CONFIG_PATH,
+            cli_overrides={
+                "factor_store.backend": backend,
+                "core.db": db,
+                "factor_store.table": table,
+                "factor_store.region": region,
+            },
         )
-    except ValueError as exc:
+        return build_feature_store(
+            backend=config.factor_store.backend,
+            db_path=config.core.db,
+            table_name=config.factor_store.table,
+            region_name=config.factor_store.region,
+        )
+    except (FileNotFoundError, ValueError) as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(code=2) from exc
 
@@ -100,6 +135,18 @@ def _parse_sqlite_utc(value: str) -> datetime:
     if "+" not in normalized:
         normalized = normalized.replace(" ", "T") + "+00:00"
     return datetime.fromisoformat(normalized).astimezone(timezone.utc)
+
+
+@config_app.command("show")
+def config_show(
+    redact: bool = typer.Option(True, "--redact/--no-redact", help="Redact secrets in output"),
+):
+    try:
+        config = load_qfa_config(config_path=_CONFIG_PATH)
+    except (FileNotFoundError, ValueError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+    _print_json(redact_config(config) if redact else config_to_dict(config))
 
 
 def _health_snapshot(

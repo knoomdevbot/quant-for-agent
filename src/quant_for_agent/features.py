@@ -29,7 +29,7 @@ CREATE INDEX IF NOT EXISTS idx_feature_observations_feature_timestamp
 ON feature_observations (feature_name, timestamp);
 """
 
-DEFAULT_FEATURE_TABLE = "qfa-feature-observations"
+DEFAULT_FEATURE_TABLE = "qfa-factor-observations"
 
 
 def utc_now_iso() -> str:
@@ -336,12 +336,17 @@ def build_feature_store(
     region_name: str | None = None,
     dynamodb_client=None,
 ) -> FeatureStore:
-    selected = (backend or os.environ.get("QFA_FEATURE_BACKEND") or "sqlite").strip().lower()
+    selected = (
+        backend or os.environ.get("QFA_FACTOR_BACKEND") or os.environ.get("QFA_FEATURE_BACKEND") or "sqlite"
+    ).strip().lower()
     if selected == "sqlite":
         return SQLiteFeatureStore(db_path or DEFAULT_DB_PATH)
     if selected == "dynamodb":
         return DynamoDBFeatureStore(
-            table_name=table_name or os.environ.get("QFA_FEATURE_TABLE") or DEFAULT_FEATURE_TABLE,
+            table_name=table_name
+            or os.environ.get("QFA_FACTOR_TABLE")
+            or os.environ.get("QFA_FEATURE_TABLE")
+            or DEFAULT_FEATURE_TABLE,
             region_name=region_name
             or os.environ.get("QFA_AWS_REGION")
             or os.environ.get("AWS_REGION")

@@ -50,13 +50,63 @@ qfa daemon run --once
 
 After direct `pip install "git+https://github.com/knoomdevbot/quant-for-agent.git"`, use `qfa` with your own alpha model file and data CSV paths.
 
-## Custom feature database
+## Config file
 
-qfa supports custom time-series feature observations that can feed alpha research, for example daily news sentiment per industry keyword.
+qfa can read defaults from a TOML config file so agents do not need to pass every setting as an env var.
 
-A feature observation is keyed by:
+Default path:
 
-- `feature_name`: stable signal name, e.g. `news.sentiment.industry`
+```bash
+~/.qfa/config.toml
+```
+
+Override path:
+
+```bash
+qfa --config ./qfa.toml config show
+QFA_CONFIG=./qfa.toml qfa config show
+```
+
+Precedence is:
+
+```text
+CLI option > environment variable > config file > built-in default
+```
+
+Example:
+
+```toml
+[core]
+db = "~/.qfa/qfa.sqlite3"
+health_log = "~/.qfa/daemon-health.jsonl"
+
+[factor_store]
+backend = "sqlite" # sqlite | dynamodb
+table = "qfa-factor-observations"
+region = "us-west-2"
+
+[factor_repository]
+repository_paths = ["./factors", "~/.qfa/factors"]
+max_staleness_seconds = 86400
+
+[alpaca]
+paper = true
+data_feed = "iex"
+```
+
+Inspect resolved config with secrets redacted:
+
+```bash
+qfa config show
+```
+
+## Factor Store
+
+qfa supports custom time-series **factor observations** that can feed alpha research, for example daily news sentiment per industry keyword.
+
+A factor observation is keyed by:
+
+- `feature_name`: stored factor name, e.g. `news.sentiment.industry` (kept as `feature_name` for storage compatibility)
 - `entity_id`: target entity, e.g. `semiconductors`, `AAPL`, or `KRW`
 - `timestamp`: ISO date/datetime
 
@@ -65,7 +115,7 @@ Each observation stores a numeric `value`, optional JSON `metadata`, optional `s
 Local SQLite usage:
 
 ```bash
-qfa features put \
+qfa factors put \
   --name news.sentiment.industry \
   --entity semiconductors \
   --timestamp 2026-07-01 \
@@ -73,17 +123,19 @@ qfa features put \
   --metadata-json '{"keyword":"chips"}' \
   --source manual
 
-qfa features get \
+qfa factors get \
   --name news.sentiment.industry \
   --entity semiconductors \
   --timestamp 2026-07-01
 
-qfa features query \
+qfa factors query \
   --name news.sentiment.industry \
   --entity semiconductors \
   --start 2026-07-01 \
   --end 2026-07-31
 ```
+
+`qfa features ...` remains available as a compatibility alias.
 
 Bulk import CSV:
 
@@ -93,7 +145,7 @@ news.sentiment.industry,semiconductors,2026-07-01,0.55,"{""keyword"":""chips""}"
 ```
 
 ```bash
-qfa features import-csv features.csv
+qfa factors import-csv features.csv
 ```
 
 AWS/DynamoDB usage:
@@ -104,17 +156,17 @@ export QFA_AWS_REGION=us-west-2
 aws cloudformation deploy \
   --stack-name qfa-feature-database \
   --template-file infra/aws/qfa-feature-database.yaml \
-  --parameter-overrides TableName=qfa-feature-observations \
+  --parameter-overrides TableName=qfa-factor-observations \
   --region "$QFA_AWS_REGION"
 
-export QFA_FEATURE_BACKEND=dynamodb
-export QFA_FEATURE_TABLE=qfa-feature-observations
+export QFA_FACTOR_BACKEND=dynamodb
+export QFA_FACTOR_TABLE=qfa-factor-observations
 
-qfa features put --backend dynamodb --name news.sentiment.industry --entity semiconductors --timestamp 2026-07-01 --value 0.55
-qfa features query --backend dynamodb --name news.sentiment.industry --start 2026-07-01 --end 2026-07-31
+qfa factors put --backend dynamodb --name news.sentiment.industry --entity semiconductors --timestamp 2026-07-01 --value 0.55
+qfa factors query --backend dynamodb --name news.sentiment.industry --start 2026-07-01 --end 2026-07-31
 ```
 
-The DynamoDB table uses `feature_entity = feature_name#entity_id` as the partition key, `timestamp` as the sort key, a `FeatureTimestampIndex` GSI for cross-entity feature queries, pay-per-request billing, server-side encryption, and point-in-time recovery.
+The DynamoDB table uses `feature_entity = feature_name#entity_id` as the partition key, `timestamp` as the sort key, a `FeatureTimestampIndex` GSI for cross-entity factor queries, pay-per-request billing, server-side encryption, and point-in-time recovery.
 
 ## Alpha model contract
 
