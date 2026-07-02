@@ -13,6 +13,7 @@ from .backtest import BacktestConfig, run_backtest
 from .config import DEFAULT_DB_PATH, DEFAULT_HEALTH_LOG_PATH, AlpacaConfig
 from .daemon import DaemonConfig, TradingDaemon
 from .data import load_price_csv
+from .features import FeatureObservation, build_feature_store, load_observations_csv, parse_metadata_json
 from .health import append_health_log, read_health_log, resolve_health_log_path, utc_now
 from .notifications import EmailNotificationConfig, EmailNotifier
 from .storage import Store
@@ -23,10 +24,12 @@ backtest_app = typer.Typer(help="Run and query backtests")
 models_app = typer.Typer(help="Manage alpha models in the trading portfolio")
 daemon_app = typer.Typer(help="Run the Alpaca trading daemon")
 universe_app = typer.Typer(help="Build research universes")
+features_app = typer.Typer(help="Read and write custom feature time-series observations")
 app.add_typer(backtest_app, name="backtest")
 app.add_typer(models_app, name="models")
 app.add_typer(daemon_app, name="daemon")
 app.add_typer(universe_app, name="universe")
+app.add_typer(features_app, name="features")
 
 
 def _symbols(value: str) -> list[str]:
@@ -35,6 +38,21 @@ def _symbols(value: str) -> list[str]:
 
 def _store(db: Optional[Path]) -> Store:
     return Store(db or DEFAULT_DB_PATH)
+
+
+def _feature_store(
+    backend: Optional[str],
+    db: Optional[Path],
+    table: Optional[str],
+    region: Optional[str],
+):
+    try:
+        return build_feature_store(
+            backend=backend, db_path=db or DEFAULT_DB_PATH, table_name=table, region_name=region
+        )
+    except ValueError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
 
 
 def _print_json(payload) -> None:
@@ -182,6 +200,88 @@ def backtest_show(run_id: int, db: Optional[Path] = None):
     if result is None:
         raise typer.Exit(code=1)
     _print_json(result)
+
+
+@features_app.command("put")
+def feature_put(
+    name: str = typer.Option(..., "--name", help="Feature name, e.g. news.sentiment.industry"),
+    entity: str = typer.Option(..., "--entity", help="Entity id, e.g. AAPL or semiconductors"),
+    timestamp: str = typer.Option(..., help="Observation timestamp/date"),
+    value: float = typer.Option(..., help="Numeric feature value"),
+    metadata_json: Optional[str] = typer.Option(None, help="Optional JSON object with provenance/dimensions"),
+    source: Optional[str] = typer.Option(None, help="Optional producer/source label"),
+    backend: Optional[str] = typer.Option(None, help="Feature backend: sqlite or dynamodb"),
+    table: Optional[str] = typer.Option(None, help="DynamoDB table name"),
+    region: Optional[str] = typer.Option(None, help="AWS region for DynamoDB"),
+    db: Optional[Path] = typer.Option(None, help="SQLite database path for sqlite backend"),
+):
+    try:
+        observation = FeatureObservation(
+            feature_name=name,
+            entity_id=entity,
+            timestamp=timestamp,
+            value=value,
+            metadata=parse_metadata_json(metadata_json),
+            source=source,
+        )
+        saved = _feature_store(backend, db, table, region).put(observation)
+    except ValueError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+    _print_json({"status": "ok", "observation": saved.to_dict()})
+
+
+@features_app.command("get")
+def feature_get(
+    name: str = typer.Option(..., "--name", help="Feature name"),
+    entity: str = typer.Option(..., "--entity", help="Entity id"),
+    timestamp: str = typer.Option(..., help="Observation timestamp/date"),
+    backend: Optional[str] = typer.Option(None, help="Feature backend: sqlite or dynamodb"),
+    table: Optional[str] = typer.Option(None, help="DynamoDB table name"),
+    region: Optional[str] = typer.Option(None, help="AWS region for DynamoDB"),
+    db: Optional[Path] = typer.Option(None, help="SQLite database path for sqlite backend"),
+):
+    observation = _feature_store(backend, db, table, region).get(name, entity, timestamp)
+    if observation is None:
+        raise typer.Exit(code=1)
+    _print_json(observation.to_dict())
+
+
+@features_app.command("query")
+def feature_query(
+    name: str = typer.Option(..., "--name", help="Feature name"),
+    entity: Optional[str] = typer.Option(None, "--entity", help="Optional entity id"),
+    start: Optional[str] = typer.Option(None, help="Inclusive start timestamp/date"),
+    end: Optional[str] = typer.Option(None, help="Inclusive end timestamp/date"),
+    limit: int = typer.Option(100, min=1, max=1000, help="Maximum observations to return"),
+    backend: Optional[str] = typer.Option(None, help="Feature backend: sqlite or dynamodb"),
+    table: Optional[str] = typer.Option(None, help="DynamoDB table name"),
+    region: Optional[str] = typer.Option(None, help="AWS region for DynamoDB"),
+    db: Optional[Path] = typer.Option(None, help="SQLite database path for sqlite backend"),
+):
+    observations = _feature_store(backend, db, table, region).query(
+        name, entity_id=entity, start=start, end=end, limit=limit
+    )
+    _print_json([observation.to_dict() for observation in observations])
+
+
+@features_app.command("import-csv")
+def feature_import_csv(
+    csv_path: Path = typer.Argument(..., help="CSV with feature_name,entity_id,timestamp,value columns"),
+    backend: Optional[str] = typer.Option(None, help="Feature backend: sqlite or dynamodb"),
+    table: Optional[str] = typer.Option(None, help="DynamoDB table name"),
+    region: Optional[str] = typer.Option(None, help="AWS region for DynamoDB"),
+    db: Optional[Path] = typer.Option(None, help="SQLite database path for sqlite backend"),
+):
+    try:
+        observations = load_observations_csv(csv_path)
+        store = _feature_store(backend, db, table, region)
+        for observation in observations:
+            store.put(observation)
+    except (ValueError, FileNotFoundError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=2) from exc
+    _print_json({"status": "ok", "count": len(observations)})
 
 
 @universe_app.command("equities")

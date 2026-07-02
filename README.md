@@ -5,6 +5,7 @@ CLI-first quant system for AI agents. MVP scope:
 - Run repeatable backtests against Python alpha model modules.
 - Store and query historical backtest results from SQLite.
 - Register alpha models against portfolio allocations.
+- Read/write custom time-series features for alpha research.
 - Run a simple Alpaca-backed trading daemon, paper-first, with explicit `--submit-orders` required before any order placement.
 
 ## Installation
@@ -48,6 +49,72 @@ qfa daemon run --once
 `qfa daemon run` defaults to simulation/no-submit mode and prints `SIMULATION ONLY: no Alpaca orders will be submitted.` To submit to an Alpaca paper account, set `ALPACA_PAPER=true` and pass `--submit-orders`. Live brokerage submission with `ALPACA_PAPER=false` is blocked unless `--allow-live-brokerage` is also passed.
 
 After direct `pip install "git+https://github.com/knoomdevbot/quant-for-agent.git"`, use `qfa` with your own alpha model file and data CSV paths.
+
+## Custom feature database
+
+qfa supports custom time-series feature observations that can feed alpha research, for example daily news sentiment per industry keyword.
+
+A feature observation is keyed by:
+
+- `feature_name`: stable signal name, e.g. `news.sentiment.industry`
+- `entity_id`: target entity, e.g. `semiconductors`, `AAPL`, or `KRW`
+- `timestamp`: ISO date/datetime
+
+Each observation stores a numeric `value`, optional JSON `metadata`, optional `source`, and write timestamp.
+
+Local SQLite usage:
+
+```bash
+qfa features put \
+  --name news.sentiment.industry \
+  --entity semiconductors \
+  --timestamp 2026-07-01 \
+  --value 0.55 \
+  --metadata-json '{"keyword":"chips"}' \
+  --source manual
+
+qfa features get \
+  --name news.sentiment.industry \
+  --entity semiconductors \
+  --timestamp 2026-07-01
+
+qfa features query \
+  --name news.sentiment.industry \
+  --entity semiconductors \
+  --start 2026-07-01 \
+  --end 2026-07-31
+```
+
+Bulk import CSV:
+
+```csv
+feature_name,entity_id,timestamp,value,metadata_json,source
+news.sentiment.industry,semiconductors,2026-07-01,0.55,"{""keyword"":""chips""}",daily-news-pipeline
+```
+
+```bash
+qfa features import-csv features.csv
+```
+
+AWS/DynamoDB usage:
+
+```bash
+export QFA_AWS_REGION=us-west-2
+
+aws cloudformation deploy \
+  --stack-name qfa-feature-database \
+  --template-file infra/aws/qfa-feature-database.yaml \
+  --parameter-overrides TableName=qfa-feature-observations \
+  --region "$QFA_AWS_REGION"
+
+export QFA_FEATURE_BACKEND=dynamodb
+export QFA_FEATURE_TABLE=qfa-feature-observations
+
+qfa features put --backend dynamodb --name news.sentiment.industry --entity semiconductors --timestamp 2026-07-01 --value 0.55
+qfa features query --backend dynamodb --name news.sentiment.industry --start 2026-07-01 --end 2026-07-31
+```
+
+The DynamoDB table uses `feature_entity = feature_name#entity_id` as the partition key, `timestamp` as the sort key, a `FeatureTimestampIndex` GSI for cross-entity feature queries, pay-per-request billing, server-side encryption, and point-in-time recovery.
 
 ## Alpha model contract
 

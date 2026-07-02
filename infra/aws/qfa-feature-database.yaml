@@ -1,0 +1,60 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: qfa custom feature observation database
+
+Parameters:
+  TableName:
+    Type: String
+    Default: qfa-feature-observations
+    Description: DynamoDB table used by qfa features --backend dynamodb.
+
+Resources:
+  QfaFeatureObservationsTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      TableName:
+        Ref: TableName
+      BillingMode: PAY_PER_REQUEST
+      SSESpecification:
+        SSEEnabled: true
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      AttributeDefinitions:
+        - AttributeName: feature_entity
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: S
+        - AttributeName: feature_name
+          AttributeType: S
+      KeySchema:
+        - AttributeName: feature_entity
+          KeyType: HASH
+        - AttributeName: timestamp
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: FeatureTimestampIndex
+          KeySchema:
+            - AttributeName: feature_name
+              KeyType: HASH
+            - AttributeName: timestamp
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: app
+          Value: qfa
+        - Key: component
+          Value: feature-database
+
+Outputs:
+  FeatureTableName:
+    Description: DynamoDB table name for qfa custom features.
+    Value:
+      Ref: QfaFeatureObservationsTable
+  FeatureTableArn:
+    Description: DynamoDB table ARN.
+    Value:
+      Fn::GetAtt:
+        - QfaFeatureObservationsTable
+        - Arn
