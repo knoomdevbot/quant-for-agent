@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft for QFA-002. The first implementation slice covers config-file support and canonical `qfa factors` command naming. The factor repository/compute workflow is specified for the next slice.
+QFA-002 implemented config-file support and canonical `qfa factors` command naming. QFA-003 implements the Factor Repository MVP: local `factor.toml` discovery, manifest describe/list, local Python calculator execution, and persistence of returned observations into the existing Factor Store.
 
 ## Current architecture
 
@@ -199,12 +199,19 @@ Where `FactorComputeContext` should include:
 
 qfa converts each result into a factor observation in the existing store, adding provenance metadata such as factor name/version and computed time.
 
-### Proposed future commands
+### Implemented repository commands
 
 ```bash
 qfa factors list
 qfa factors describe price.momentum.20d
 qfa factors compute price.momentum.20d --symbols AAPL,MSFT --start 2026-01-01 --end 2026-07-01
+```
+
+`compute` accepts the existing Factor Store options (`--backend`, `--db`, `--table`, `--region`). Returned `FactorResult` objects or dictionaries are converted to `FeatureObservation` records. Stored observation metadata includes a `provenance` object with factor name, factor version, calculator module/function, and computed timestamp.
+
+### Future repository commands
+
+```bash
 qfa factors validate
 qfa factors update-required ./alphas/sector_rotation.yaml --start 2026-01-01 --end 2026-07-01
 ```
@@ -250,13 +257,16 @@ Implemented/current slice:
 - Explicit missing config file failure.
 - `qfa factors` alias for current factor observation commands.
 
-Future repository slice:
+QFA-003 repository slice:
 
 - Manifest discovery/list/describe.
 - Malformed manifest errors.
 - Duplicate factor rejection.
-- Dependency graph sorting and cycle detection.
 - Calculator module loading.
 - Compute writes observations with provenance.
+
+Future repository work:
+
+- Dependency graph sorting and cycle detection.
 - Freshness check returns missing/stale/fresh reasons.
 - Alpha-required factors are detected and update-required computes or fails clearly.
